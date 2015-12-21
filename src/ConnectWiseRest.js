@@ -14,9 +14,10 @@
  * @constructor
  */
 function ConnectWiseRest(options) {
+   var _ServiceDeskAPI = require('./ServiceDeskAPI');
 
     return {
-        ServiceDeskAPI: new require('./ServiceDeskAPI')(options)
+        ServiceDeskAPI: new _ServiceDeskAPI(options)
     }
 }
 

@@ -6,12 +6,13 @@
 /**
  *
  * @param options
- * @returns {{Tickets: *, Teams: {}}}
+ * @returns {{Tickets: (Tickets|exports|module.exports), Teams: {}}}
  * @constructor
  */
 function ServiceDeskAPI(options) {
+    var _Tickets = require('./Tickets');
     return {
-        Tickets: new require('./Tickets')(options),
+        Tickets: new _Tickets(options),
         Teams: {}
     }
 }

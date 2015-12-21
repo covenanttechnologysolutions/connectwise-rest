@@ -6,6 +6,11 @@
 var request = require('request'),
     btoa = require('btoa');
 
+/**
+ * @const {string} DEFAULTS.entryPoint
+ * @const {string} DEFAULTS.apiVersion
+ * @type {{entryPoint: string, apiVersion: string}}
+ */
 var DEFAULTS = {
     entryPoint: '/v4_6_release/apis/3.0',
     apiVersion: '3.0'
@@ -50,7 +55,7 @@ function ConnectWise(options) {
     this.config.publicKey = options.publicKey;
     this.config.privateKey = options.privateKey;
     this.config.authRaw = options.companyId + '+' + options.publicKey + ':' + options.privateKey;
-    this.config.auth = btoa(this.config.authRaw);
+    this.config.auth = 'Basic ' + btoa(this.config.authRaw);
 
     console.log(this.config.authRaw, this.config.auth);
 }
@@ -109,4 +114,8 @@ ConnectWise.prototype.api = function (path, method, callback) {
     });
 };
 
+/**
+ *
+ * @type {ConnectWise}
+ */
 module.exports = ConnectWise;
