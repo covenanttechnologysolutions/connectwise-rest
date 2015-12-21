@@ -26,7 +26,7 @@ inherits(TimeEntries, ConnectWise);
  * @param {number} params.pageSize
  */
 TimeEntries.prototype.getTimeEntries = function (params) {
-    this.api()
+    this.api('/')
 };
 
 /**
