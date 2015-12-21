@@ -4,7 +4,8 @@
  */
 
 var request = require('request'),
-    btoa = require('btoa');
+    btoa = require('btoa'),
+    Q = require('q');
 
 /**
  * @const {string} DEFAULTS.entryPoint
@@ -63,10 +64,13 @@ function ConnectWise(options) {
  *
  * @param {string} path
  * @param {string} method HTTP method, GET, POST, PUT, PATCH, DELETE
- * @param {object} params if required by route, include params
- * @param {function} callback
+ * @param {object} [params] if required by route, include required params
+ *                          if a GET request, the params are joined into a string
+ *                          if a POST/PUT/PATCH, the params are included in the body
+ * @param {string} [url] if
  */
-ConnectWise.prototype.api = function (path, method, params, callback) {
+ConnectWise.prototype.api = function (path, method, params, url) {
+    var deferred = Q.defer();
 
     if (!path) {
         throw new Error('path must be defined');
@@ -74,11 +78,7 @@ ConnectWise.prototype.api = function (path, method, params, callback) {
     if (!method) {
         throw new Error('method must be defined');
     }
-    if (!callback) {
-        throw new Error('callback must be defined');
-    }
 
-    var cb = callback;
     var options = {
         url: this.config.apiUrl + path,
         headers: {
@@ -89,39 +89,61 @@ ConnectWise.prototype.api = function (path, method, params, callback) {
         method: method
     };
 
-    if(method === 'GET' && params){
-        options.url += paramaterize(params);
+    if(url){
+        options.url = url;
+    }
+
+    if (method === 'GET' && params) {
+        options.url += parameterize(params);
+    }
+
+    if (method === 'POST' || method === 'PUT' || method === 'PATCH') {
+        options.headers['Content-Type'] = 'application/json';
+        options.body = params;
     }
 
     request(options, function (err, res) {
         if (err) {
-            cb(err.code + ': ' + err.message, null);
+            deferred.reject(err.code + ': ' + err.message);
         } else {
             try {
                 var body = JSON.parse(res.body);
                 if (body.code) {
-                    cb(body.code + ': ' + body.message, null);
+                    deferred.reject(body.code + ': ' + body.message);
                 } else {
-                    cb(null, body);
+                    deferred.resolve(body);
                 }
             } catch (e) {
-                cb(e, null);
+                deferred.reject('Parsing error: ' + e);
             }
         }
     });
+
+    return deferred.promise;
 };
 
 /**
  * Create a parameterized string for GET requests.
- * Example params object: { id: 1234, conditions: { board: { name: 'Service board' } }, orderBy: 'id' }
+ * Able to use contains, like, etc
+ * Example params object: { id: 1234, conditions: 'board=CTS Helpdesk and , orderBy: 'id' }
  * Returns: ?id=1234&conditions%2Fboard%2Fboard=Service%20Board&orderBy=id
  *
- * @param params
+ * @param {object|string} params
  * @returns {string}
  */
-function paramaterize(params){
+function parameterize(params) {
+    if (typeof params === "string") {
+        return params;
+    }
 
+    var result = [];
+    for (var param in params) {
+        if (params.hasOwnProperty(param)) {
+            result.push(param + '=' + params[param]);
+        }
+    }
 
+    return encodeURI('?' + result.join('&'));
 }
 
 /**

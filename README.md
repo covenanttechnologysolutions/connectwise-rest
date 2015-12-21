@@ -58,12 +58,11 @@ You can also manually access the API:
     api('/path/to/api', 'POST', {
         'param1': 'val1',
         'param2': 'val2'
-    }, function(error, result){
-        if (!err) {
-            //do something with results
-        } else {
-            //handle errors
-        }
+    }).then(function (result){
+        //do something with results
+    })
+    .fail(function (error){
+        //handle errors
     });
 ```
 
