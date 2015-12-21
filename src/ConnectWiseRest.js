@@ -10,14 +10,18 @@
  * @param options.publicKey
  * @param options.privateKey
  * @param options.companyUrl
- * @returns {{ServiceDeskAPI: (*|{Tickets, Teams}|{Tickets: *, Teams: {}})}}
+ * @returns {{API: (ConnectWise|exports|module.exports), ServiceDeskAPI: (ServiceDeskAPI|exports|module.exports), TimeAPI: (TimeEntries|exports|module.exports)}}
  * @constructor
  */
 function ConnectWiseRest(options) {
-   var _ServiceDeskAPI = require('./ServiceDeskAPI');
+    var _ServiceDeskAPI = require('./ServiceDeskAPI'),
+        _TimeAPI = require('./TimeAPI'),
+        _ConnectWise = require('./ConnectWise');
 
     return {
-        ServiceDeskAPI: new _ServiceDeskAPI(options)
+        API: new _ConnectWise(options),
+        ServiceDeskAPI: new _ServiceDeskAPI(options),
+        TimeAPI: new _TimeAPI(options)
     }
 }
 

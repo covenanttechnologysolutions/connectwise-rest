@@ -4,7 +4,6 @@
  */
 
 var Q = require('q'),
-    request = require('request'),
     inherits = require('util').inherits,
     ConnectWise = require('../ConnectWise.js');
 
@@ -38,7 +37,7 @@ Tickets.prototype.getTickets = function (params) {
 Tickets.prototype.getTicketById = function (id) {
     var deferred = Q.defer();
 
-    this.api('/service/tickets/' + id, 'GET', function (err, res) {
+    this.api('/service/tickets/' + id, 'GET', null, function (err, res) {
         if (err) {
             deferred.reject(err);
         } else {

@@ -57,16 +57,16 @@ function ConnectWise(options) {
     this.config.authRaw = options.companyId + '+' + options.publicKey + ':' + options.privateKey;
     this.config.auth = 'Basic ' + btoa(this.config.authRaw);
 
-    console.log(this.config.authRaw, this.config.auth);
 }
 
 /**
  *
- * @param path
- * @param method
- * @param callback
+ * @param {string} path
+ * @param {string} method HTTP method, GET, POST, PUT, PATCH, DELETE
+ * @param {object} params if required by route, include params
+ * @param {function} callback
  */
-ConnectWise.prototype.api = function (path, method, callback) {
+ConnectWise.prototype.api = function (path, method, params, callback) {
 
     if (!path) {
         throw new Error('path must be defined');
@@ -81,20 +81,17 @@ ConnectWise.prototype.api = function (path, method, callback) {
     var cb = callback;
     var options = {
         url: this.config.apiUrl + path,
-
         headers: {
             'Accept': 'text/html,application/json,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
             'Cache-Control': 'no-cache',
-            //'Basic': this.config.auth,
-            //'www-authenticate': this.config.auth,
-            //'x-cw-usertype': 'integrator',
-            //'Basic': this.config.auth,
             'Authorization': this.config.auth
         },
         method: method
     };
 
-    console.log(options);
+    if(method === 'GET' && params){
+        options.url += paramaterize(params);
+    }
 
     request(options, function (err, res) {
         if (err) {
@@ -113,6 +110,19 @@ ConnectWise.prototype.api = function (path, method, callback) {
         }
     });
 };
+
+/**
+ * Create a parameterized string for GET requests.
+ * Example params object: { id: 1234, conditions: { board: { name: 'Service board' } }, orderBy: 'id' }
+ * Returns: ?id=1234&conditions%2Fboard%2Fboard=Service%20Board&orderBy=id
+ *
+ * @param params
+ * @returns {string}
+ */
+function paramaterize(params){
+
+
+}
 
 /**
  *
