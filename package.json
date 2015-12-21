@@ -1,0 +1,37 @@
+{
+  "name": "connectwise-rest",
+  "version": "0.0.1",
+  "description": "A nodejs module for interacting with the ConnectWise REST API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "jsdoc": "jsdoc src -r -c ./docs/jsdoc.json -d docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zifu/connectwise-rest"
+  },
+  "keywords": [
+    "connectwise",
+    "rest",
+    "api",
+    "nodejs"
+  ],
+  "author": {
+    "name": "Kevin Grube",
+    "email": "grube.kevin@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zifu/connectwise-rest/issues"
+  },
+  "homepage": "https://github.com/zifu/connectwise-rest",
+  "dependencies": {
+    "btoa": "^1.1.2",
+    "q": "^1.4.1",
+    "request": "^2.67.0"
+  },
+  "devDependencies": {
+    "jsdoc": "^3.4.0"
+  }
+}
