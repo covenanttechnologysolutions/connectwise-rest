@@ -72,3 +72,64 @@ You can also manually access the API:
 | ---------------- | ------------- | --------- |
 | Service Desk API | Tickets       | Partial   |
 | Time API         | TimeEntires   | Partial   |
+
+
+## Examples
+
+### Code Examples
+
+Get ticket 1234 and print ticket number, summary and status. 
+
+```javascript
+
+    tickets.getTicketById(1234)
+        .then(function (res) { console.log(res.id, res.summary, res.status.name); })
+        .fail(function (err) { console.log(err); });
+```
+
+Create new ticket on service board, then print the returned ticket number, or any errors
+
+```javascript
+
+    tickets.createTicket({
+        summary: "This is the summary",
+        board: {
+            name: "Service Board"
+        },
+        company: {
+            identifier: "ABC" //company ID
+        },
+        initialDescription: "ticket description",
+        recordType: "ServiceTicket"
+        //can also pass in any other Ticket object settings as needed
+    })
+    .then(function (res) { console.log(res.id); });
+    .fail(function (err) { console.log(err); });    
+    
+```
+
+Change the status of a ticket
+
+```javascript
+
+    updateTicket(1234, [{
+        op: 'replace',
+        path: 'status/id',
+        value: 123 //id of the status to change to, find with boards.getBoards and status.getStatuses
+    }, {
+        //second or more operations
+    }])
+    .then(function(res) { //do something with returned ticket });
+    .fail(function(err) { //do something with errors });    
+
+```
+
+### Conditions 
+
+Valid example conditions string
+  
+```javascript
+
+    var conditions = '(contact/name like "Fred%" and closedFlag = false) and dateEntered > [2015-12-23T05:53:27Z] or summary contains "test" AND  summary != "Some Summary"'
+
+```
