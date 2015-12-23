@@ -45,8 +45,15 @@ Tickets.prototype.getTicketById = function (id) {
 
 /**
  * POST
- * @param {Ticket} params ticket data
- * @returns {*|promise}
+ * @param {object|Ticket} params ticket data
+ * @param {string} params.body
+ * @param {object} params.board
+ * @param {string} params.board.name
+ * @param {object} params.company
+ * @param {string} params.company.identifier The CompanyID in ConnectWise
+ * @param {string} params.summary
+ * @param {string} [params.initialDescription]
+ * @returns {Ticket|promise} The created ticket, or errors if any occured
  */
 Tickets.prototype.createTicket = function (params) {
     return this.api('/service/tickets', 'POST', params);
@@ -55,7 +62,7 @@ Tickets.prototype.createTicket = function (params) {
 /**
  * PATCH
  * @param {number} id
- * @param {object} params
+ * @param {object[]} params
  * @param {string} params.op
  * @param {string} params.path
  * @param {string} params.value
@@ -68,8 +75,8 @@ Tickets.prototype.updateTicket = function (id, params) {
 /**
  * GET
  * @param {object} params
- * @param {string} params.conditions
- * @returns {*|promise}
+ * @param {string} [params.conditions] Conditions string, e.g. 'Summary like "%blah%" AND board/name = "Service Board"'
+ * @returns {number|promise} The number of tickets matching the conditions
  */
 Tickets.prototype.getTicketsCount = function (params) {
     return this.api('/service/tickets/count', 'GET', params);
@@ -109,7 +116,7 @@ Tickets.prototype.getTicketActivities = function (id, params) {
 /**
  * GET
  * @param {number|string} id
- * @returns {*|promise}
+ * @returns {number|promise} The number of activities associated with ticket number id
  */
 Tickets.prototype.getTicketActivitiesCount = function (id) {
     return this.api('/service/tickets/' + id + '/activities/count', 'GET');
@@ -129,8 +136,8 @@ Tickets.prototype.getTicketTimeEntries = function(id, params){
 
 /**
  * GET
- * @param id
- * @returns {*|promise}
+ * @param {number|string} id
+ * @returns {number|promise} The count of time entries attached to ticket id
  */
 Tickets.prototype.getTicketTimeEntriesCount = function(id){
     return this.api('/service/tickets/' + id + '/timeentries/count', 'GET');
@@ -140,11 +147,11 @@ Tickets.prototype.getTicketTimeEntriesCount = function(id){
 
 /**
  * POST
- * @param id
- * @param params
+ * @param {number|string} id
+ * @param {object} params
  * @param {number|string} params.id
  * @param {string} params.deviceIdentifier
- * @param {{}} params._info
+ * @param {object} params._info
  */
 Tickets.prototype.createConfigurationAssociation = function(id, params){
     return this.api('/service/tickets/' + id + '/configurations', 'POST', params);
