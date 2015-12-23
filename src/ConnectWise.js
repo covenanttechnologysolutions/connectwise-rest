@@ -18,11 +18,11 @@ var DEFAULTS = {
 };
 
 /**
- * @param {{}} options
- * @param options.companyId
- * @param options.publicKey
- * @param options.privateKey
- * @param options.companyUrl
+ * @param {object} options
+ * @param {string} options.companyId
+ * @param {string} options.publicKey
+ * @param {string} options.privateKey
+ * @param {string} options.companyUrl
  * @constructor
  */
 function ConnectWise(options) {
@@ -62,14 +62,13 @@ function ConnectWise(options) {
 
 /**
  *
- * @param {string} path
+ * @param {string} path API method path or full URL to perform method upon
  * @param {string} method HTTP method, GET, POST, PUT, PATCH, DELETE
  * @param {object} [params] if required by route, include required params
  *                          if a GET request, the params are joined into a string
  *                          if a POST/PUT/PATCH, the params are included in the body
- * @param {string} [url] if
  */
-ConnectWise.prototype.api = function (path, method, params, url) {
+ConnectWise.prototype.api = function (path, method, params) {
     var deferred = Q.defer();
 
     if (!path) {
@@ -89,8 +88,9 @@ ConnectWise.prototype.api = function (path, method, params, url) {
         method: method
     };
 
-    if(url){
-        options.url = url;
+    //@TODO perform URL validation here
+    if(path.match(/http:\/\//)){
+        options.url = path;
     }
 
     if (method === 'GET' && params) {
@@ -99,7 +99,7 @@ ConnectWise.prototype.api = function (path, method, params, url) {
 
     if (method === 'POST' || method === 'PUT' || method === 'PATCH') {
         options.headers['Content-Type'] = 'application/json';
-        options.body = params;
+        options.body = JSON.stringify(params);
     }
 
     request(options, function (err, res) {
@@ -109,12 +109,12 @@ ConnectWise.prototype.api = function (path, method, params, url) {
             try {
                 var body = JSON.parse(res.body);
                 if (body.code) {
-                    deferred.reject(body.code + ': ' + body.message);
+                    deferred.reject(body);
                 } else {
                     deferred.resolve(body);
                 }
             } catch (e) {
-                deferred.reject('Parsing error: ' + e);
+                deferred.reject(e);
             }
         }
     });
