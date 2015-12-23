@@ -1,5 +1,5 @@
 # connectwise-rest
-A nodejs module for interacting with the ConnectWise REST API
+A nodejs module for interacting with the ConnectWise REST API.   This module is currently under construction starting with the ServiceDesk API.
 
 ## Requirements
 
