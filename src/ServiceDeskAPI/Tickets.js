@@ -9,7 +9,11 @@ var Q = require('q'),
 
 /**
  *
- * @param options
+ * @param {object} options
+ * @param {string} options.companyId
+ * @param {string} options.publicKey
+ * @param {string} options.privateKey
+ * @param {string} options.companyUrl
  * @constructor
  */
 function Tickets(options) {
@@ -21,10 +25,10 @@ inherits(Tickets, ConnectWise);
  * GET
  * @param {object} params
  * @param {string} params.conditions
- * @param {string} params.orderBy
- * @param {number} params.page
- * @param {number} params.pageSize
- * @returns {*|promise}
+ * @param {string} [params.orderBy]
+ * @param {number} [params.page]
+ * @param {number} [params.pageSize]
+ * @returns {Ticket[]|promise}
  */
 Tickets.prototype.getTickets = function (params) {
     return this.api('/service/tickets', 'GET', params);
@@ -33,7 +37,7 @@ Tickets.prototype.getTickets = function (params) {
 /**
  * GET
  * @param {string|number} id ticketNbr
- * @returns {*|promise}
+ * @returns {Ticket|promise}
  */
 Tickets.prototype.getTicketById = function (id) {
     return this.api('/service/tickets/' + id, 'GET');
@@ -41,7 +45,7 @@ Tickets.prototype.getTicketById = function (id) {
 
 /**
  * POST
- * @param {object} params ticket data
+ * @param {Ticket} params ticket data
  * @returns {*|promise}
  */
 Tickets.prototype.createTicket = function (params) {
