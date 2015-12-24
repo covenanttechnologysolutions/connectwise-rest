@@ -142,3 +142,28 @@ module.exports = ConnectWiseRest;
  * @property {object} _info
  * @property {string} _info.type_href
  */
+
+/**
+ * @typedef {object} Params
+ * @property {string} [conditions]
+ * @property {string} [orderBy]
+ * @property {string|number} page
+ * @property {string|number} pageSize
+ */
+
+/**
+ * @typedef {object} ParamsConditions
+ * @property {string} [conditions]
+ */
+
+/**
+ * @typedef {object[]} Operations
+ * @property {string} op ['replace', ...???]
+ * @property {string} path the relative path to the variable to be updated, e.g. status/id
+ * @property {string} value
+ */
+
+/**
+ * @typedef {object} Count
+ * @property {number} count the number of matched records.
+ */
