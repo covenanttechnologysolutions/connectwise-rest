@@ -27,11 +27,11 @@
   },
   "homepage": "https://github.com/zifu/connectwise-rest",
   "dependencies": {
-    "btoa": "^1.1.2",
-    "q": "^1.4.1",
-    "request": "^2.67.0"
+    "btoa": "~1.1.2",
+    "q": "~1.4.1",
+    "request": "~2.67.0"
   },
   "devDependencies": {
-    "jsdoc": "^3.4.0"
+    "jsdoc": "~3.4.0"
   }
 }
