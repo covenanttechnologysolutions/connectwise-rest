@@ -10,10 +10,11 @@
  * @constructor
  */
 function ServiceDeskAPI(options) {
-    var _Tickets = require('./Tickets');
+    var _Tickets = require('./Tickets'),
+        _Boards = require('./Boards');
     return {
         Tickets: new _Tickets(options),
-        Teams: {}
+        Boards: new _Boards(options)
     }
 }
 
