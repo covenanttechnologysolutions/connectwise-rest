@@ -71,6 +71,7 @@ var Q = require('q'),
  * @property skipCallback
  * @property {SourceHref} source
  * @property {string} stateIdentifier
+ * @property {StatusHref} status
  * @property subBillingAmount
  * @property {string} subBillingMethod
  * @property subDateAccepted
