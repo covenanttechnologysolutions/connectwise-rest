@@ -6,10 +6,10 @@
 /**
  *
  * @param options
- * @returns {{TimeEntries: (TimeEntries|exports|module.exports)}}
+ * @returns {{TimeAPI: (TimeEntries|exports|module.exports)}}
  * @constructor
  */
-function TimeEntries(options) {
+function TimeAPI(options) {
     var _TimeEntries = require('./TimeEntries');
     return {
         TimeEntries: new _TimeEntries(options)
@@ -20,4 +20,4 @@ function TimeEntries(options) {
  *
  * @type {TimeEntries}
  */
-module.exports = TimeEntries;
+module.exports = TimeAPI;

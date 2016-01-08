@@ -3,6 +3,9 @@
  * @author kgrube
  */
 
+/**
+ * @private
+ */
 var request = require('request'),
     btoa = require('btoa'),
     Q = require('q');
@@ -127,7 +130,7 @@ ConnectWise.prototype.api = function (path, method, params) {
  * Able to use contains, like, etc
  * Example params object: { id: 1234, conditions: 'board=CTS Helpdesk and , orderBy: 'id' }
  * Returns: ?id=1234&conditions%2Fboard%2Fboard=Service%20Board&orderBy=id
- *
+ * @private
  * @param {object|string} params
  * @returns {string}
  */

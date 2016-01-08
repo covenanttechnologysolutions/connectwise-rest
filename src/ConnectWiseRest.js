@@ -4,12 +4,16 @@
  */
 
 /**
+ * @typedef {object} CWOptions
+ * @property companyId
+ * @property publicKey
+ * @property privateKey
+ * @property companyUrl
+ */
+
+/**
  *
- * @param {{}} options
- * @param options.companyId
- * @param options.publicKey
- * @param options.privateKey
- * @param options.companyUrl
+ * @param {CWOptions} options
  * @returns {{API: (ConnectWise|exports|module.exports), ServiceDeskAPI: (ServiceDeskAPI|exports|module.exports), TimeAPI: (TimeEntries|exports|module.exports)}}
  * @constructor
  */
@@ -111,13 +115,13 @@ module.exports = ConnectWiseRest;
  * @property {string} _info.source_href
  */
 
- /**
-  * @typedef {object} StatusHref
-  * @property {number} id
-  * @property {string} name
-  * @property {object} _info
-  * @property {string} _info.status_href
-  */
+/**
+ * @typedef {object} StatusHref
+ * @property {number} id
+ * @property {string} name
+ * @property {object} _info
+ * @property {string} _info.status_href
+ */
 
 /**
  * @typedef {object} SubTypeHref Service Subtype
@@ -158,7 +162,7 @@ module.exports = ConnectWiseRest;
 
 /**
  * @typedef {object[]} Operations
- * @property {string} op ['replace', ...???]
+ * @property {string} op ['replace','remove']
  * @property {string} path the relative path to the variable to be updated, e.g. status/id
  * @property {string} value
  */
