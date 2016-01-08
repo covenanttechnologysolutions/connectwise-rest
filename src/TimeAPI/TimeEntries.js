@@ -55,6 +55,7 @@ inherits(TimeEntries, ConnectWise);
  * @returns {TimeEntry|promise}
  */
 TimeEntries.prototype.getTimeEntries = function (params) {
+<<<<<<< .merge_file_a19300
     return this.api('/time/entries', 'GET', params);
 };
 
@@ -111,6 +112,9 @@ TimeEntries.prototype.updateTimeEntry = function(id, operations){
  */
 TimeEntries.prototype.replaceTimeEntry = function(id, timeEntry){
     return this.api('/time/entries/' + id, 'PUT', timeEntry);
+=======
+    this.api('/')
+>>>>>>> .merge_file_a19680
 };
 
 /**
