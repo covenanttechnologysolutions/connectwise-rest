@@ -3,6 +3,10 @@
  * @author kgrube
  */
 
+/**
+ *
+ * @private
+ */
 var Q = require('q'),
     inherits = require('util').inherits,
     ConnectWise = require('../ConnectWise.js');
@@ -229,7 +233,51 @@ Tickets.prototype.getTicketTimeEntriesCount = function (id) {
  * @returns {*|promise}
  */
 Tickets.prototype.createConfigurationAssociation = function (id, configuration) {
-    return this.api('/service/tickets/' + id + '/configurations', 'POST', params);
+    return this.api('/service/tickets/' + id + '/configurations', 'POST', configuration);
+};
+
+
+/**
+ *
+ * @param {string|number} id
+ * @param {string} status
+ * @returns {Ticket[]|promise}
+ */
+Tickets.prototype.changeTicketStatusByName = function (id, status) {
+    var deferred = Q.defer(),
+        self = this;
+
+    self.getTicketById(id)
+        .then(function (ticket) {
+            var boardId = ticket.board.id;
+            self.api('/service/boards/' + boardId + '/statuses', 'GET', {conditions: 'name = "' + status + '"'})
+                .then(function (statuses) {
+                    if (statuses.length > 0) {
+                        var statusId = statuses[0].id;
+                        self.updateTicket(id, [{
+                                "op": 'replace',
+                                "path": 'status/id',
+                                "value": statusId
+                            }])
+                            .then(deferred.resolve)
+                            .fail(deferred.reject);
+                    } else {
+                        deferred.reject({
+                            code: 'NotFound',
+                            errors: null,
+                            message: 'Status ' + status + ' not found'
+                        });
+                    }
+
+                })
+                .fail(function (err) {
+                    deferred.reject(err);
+                });
+        })
+        .fail(function (err) {
+            deferred.reject(err);
+        });
+    return deferred.promise;
 };
 
 /**
