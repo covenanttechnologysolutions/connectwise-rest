@@ -3,11 +3,14 @@
  * @author kgrube
  */
 
+/**
+ * @private
+ */
 var Q = require('q'),
     inherits = require('util').inherits,
     ConnectWise = require('../ConnectWise.js');
 /**
- * @typedef {object} Boards
+ * @typedef {object} Board
  * @property {number} id
  * @property {string} name
  * @property {number} locationId
@@ -38,27 +41,62 @@ inherits(Boards, ConnectWise);
 
 /**
  * GET
- * @param {object} params
- * @param {string} params.conditions
- * @param {string} params.orderBy
- * @param {string|number}  params.page
- * @Param {string|number} params.pageSize
- * @returns {Boards[]|promise}
+ * @param {Params} params
+ * @returns {Board[]|promise}
  */
-Boards.prototype.getBoards = function(params){
+Boards.prototype.getBoards = function (params) {
     return this.api('/service/boards', 'GET', params);
 };
 
 /**
- *
- * @param params
+ * POST
+ * @param {Board} board
+ * @returns {Board[]|promise}
  */
-Boards.prototype.createBoard = function(params){
+Boards.prototype.createBoard = function (board) {
+    return this.api('/service/boards', 'POST', board);
+};
 
-}
+/**
+ * GET
+ * @param id
+ * @returns {Board[]|promise}
+ */
+Boards.prototype.getBoardById = function (id) {
+    return this.api('/service/boards/' + id, 'GET');
+};
+
+/**
+ * GET
+ * @param {ParamsConditions} params
+ * @returns {Count|promise}
+ */
+Boards.prototype.getBoardsCount = function (params) {
+    return this.api('/service/boards/count', 'GET', params);
+};
+
+/**
+ * PATCH
+ * @param id
+ * @param {Operations} ops
+ * @returns {Board|promise}
+ */
+Boards.prototype.updateBoard = function (id, ops) {
+    return this.api('/service/boards/' + id, 'PATCH', ops);
+};
 
 /**
  *
- * @type {Tickets}
+ * @param id
+ * @param {Board} board
+ * @returns {Board|promise}
+ */
+Boards.prototype.replaceBoard = function (id, board) {
+    return this.api('/service/boards/' + id, 'PUT', board);
+};
+
+/**
+ *
+ * @type {Boards}
  */
 module.exports = Boards;
