@@ -243,7 +243,7 @@ Tickets.prototype.createConfigurationAssociation = function (id, configuration) 
  * @param {string} status
  * @returns {Ticket[]|promise}
  */
-Tickets.prototype.changeTicketStatusByName = function (id, status) {
+Tickets.prototype.updateTicketStatusByName = function (id, status) {
     var deferred = Q.defer(),
         self = this;
 
