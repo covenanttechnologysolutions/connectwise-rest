@@ -68,10 +68,12 @@ You can also manually access the API:
 
 ## Implemented APIs
 
-| Module           | API           | Status    |
-| ---------------- | ------------- | --------- |
-| Service Desk API | Tickets       | Partial   |
-| Time API         | TimeEntires   | Partial   |
+| Module           | API           | Status                        |
+| ---------------- | ------------- | ----------------------------- |
+| Service Desk API | Boards        | Complete, helpers incomplete  |
+| Service Desk API | Tickets       | Complete, helpers partial     |
+| Service Desk API | Statuses      | Partial                       |
+| Time API         | TimeEntries   | Partial                       |
 
 
 ## Examples
