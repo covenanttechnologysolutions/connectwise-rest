@@ -75,6 +75,13 @@ module.exports = ConnectWiseRest;
  */
 
 /**
+ * @typedef {object} DocumentHref
+ * @property {number} id
+ * @property {object} _info
+ * @property {string} _info.filename
+ */
+
+/**
  * @typedef {object} ItemHref Service Item
  * @property {number} id
  * @property {string} name
@@ -97,6 +104,14 @@ module.exports = ConnectWiseRest;
  * @property {string} name
  * @property {object} _info
  * @property {string} _info.location_href
+ */
+
+/**
+ * @typedef {object} ScheduleEntryHref
+ * @property {number} id
+ * @property {object} _info
+ * @property {string} _info.description
+ * @property {string} _info.schedule_href
  */
 
 /**
@@ -156,8 +171,21 @@ module.exports = ConnectWiseRest;
  */
 
 /**
+ * @typedef {object} ParamsPage
+ * @property {string|number} page
+ * @property {string|number} pageSize
+ */
+
+/**
  * @typedef {object} ParamsConditions
  * @property {string} [conditions]
+ */
+
+/**
+ * @typedef {object} ProductHref
+ * @property {number} id
+ * @property {object} _info
+ * @property {string} _info.description
  */
 
 /**
@@ -170,4 +198,26 @@ module.exports = ConnectWiseRest;
 /**
  * @typedef {object} Count
  * @property {number} count the number of matched records.
+ */
+
+/**
+ * @typedef {object} ConfigurationHref
+ * @property {number} id
+ * @property {string} deviceIdentifier
+ * @property {object} _info
+ * @property {string} _info.name
+ * @property {string} _info.configuration_href
+ *
+ */
+
+/**
+ * @typedef {object} DeleteResponse
+ * @property {string} error null if no error
+ */
+
+/**
+ * @typedef {object} ErrorResponse
+ * @property {string} code
+ * @property {string} message
+ * @property errors unknown type
  */
