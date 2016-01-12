@@ -92,7 +92,7 @@ ConnectWise.prototype.api = function (path, method, params) {
     };
 
     //@TODO perform URL validation here
-    if(path.match(/http:\/\//)){
+    if (path.match(/http:\/\//)) {
         options.url = path;
     }
 
@@ -109,15 +109,20 @@ ConnectWise.prototype.api = function (path, method, params) {
         if (err) {
             deferred.reject(err.code + ': ' + err.message);
         } else {
-            try {
-                var body = JSON.parse(res.body);
-                if (body.code) {
-                    deferred.reject(body);
-                } else {
-                    deferred.resolve(body);
+            if (method === 'DELETE' && res.body === '') {
+                /** @type DeleteResponse */
+                deferred.resolve({});
+            } else {
+                try {
+                    var body = JSON.parse(res.body);
+                    if (body.code) {
+                        deferred.reject(body);
+                    } else {
+                        deferred.resolve(body);
+                    }
+                } catch (e) {
+                    deferred.reject(e);
                 }
-            } catch (e) {
-                deferred.reject(e);
             }
         }
     });
