@@ -101,11 +101,7 @@ var Q = require('q'),
 
 /**
  *
- * @param {object} options
- * @param {string} options.companyId
- * @param {string} options.publicKey
- * @param {string} options.privateKey
- * @param {string} options.companyUrl
+ * @param {CWOptions} options
  * @constructor
  */
 function Tickets(options) {
@@ -228,14 +224,110 @@ Tickets.prototype.getTicketTimeEntriesCount = function (id) {
 
 /**
  * POST
- * @param {number|string} id
- * @param {Configuration} configuration
- * @returns {*|promise}
+ * @param {number|string} id ticketNbr
+ * @param {number|string} configId
+ * @returns {*|promise|ConfigurationHref}
  */
-Tickets.prototype.createConfigurationAssociation = function (id, configuration) {
-    return this.api('/service/tickets/' + id + '/configurations', 'POST', configuration);
+Tickets.prototype.createConfigurationAssociation = function (id, configId) {
+    return this.api('/service/tickets/' + id + '/configurations', 'POST', {
+        id: configId
+    });
 };
 
+/**
+ * GET
+ * @param id ticketNbr
+ * @returns {promise|ConfigurationHref[]}
+ */
+Tickets.prototype.getTicketConfigurations = function (id) {
+    return this.api('/service/tickets/' + id + '/configurations', 'GET');
+};
+
+/**
+ * GET
+ * @param id ticketNbr
+ * @returns {promise|Count}
+ */
+Tickets.prototype.getTicketConfigurationsCount = function (id) {
+    return this.api('/service/tickets/' + id + '/configurations/count', 'GET');
+};
+
+/**
+ * DELETE
+ * @param id
+ * @param configId
+ * @throws {ErrorResponse}
+ * @returns {promise|DeleteResponse}
+ */
+Tickets.prototype.deleteConfigurationAssociation = function (id, configId) {
+    return this.api('/service/tickets/' + id + '/configurations/' + configId, 'DELETE');
+};
+
+/**
+ * GET
+ * @param id
+ * @param configId
+ * @returns {promise|ConfigurationHref}
+ */
+Tickets.prototype.getConfigurationAssociation = function (id, configId) {
+    return this.api('/service/tickets/' + id + '/configurations/' + configId, 'GET');
+};
+
+/**
+ * GET
+ * @param {string|number} id
+ * @param {ParamsPage} [params]
+ * @returns {promise|ScheduleEntryHref[]}
+ */
+Tickets.prototype.getTicketScheduleEntries = function (id, params) {
+    return this.api('/service/tickets/' + id + '/scheduleentries', 'GET', params);
+};
+
+/**
+ * GET
+ * @param id
+ * @returns {promise|Count}
+ */
+Tickets.prototype.getTicketScheduleEntriesCount = function (id) {
+    return this.api('/service/tickets/' + id + '/scheduleentries/count', 'GET');
+};
+
+/**
+ * GET
+ * @param {string|number} id
+ * @param {ParamsPage} [params]
+ * @returns {promise|DocumentHref[]}
+ */
+Tickets.prototype.getTicketDocuments = function (id, params) {
+    return this.api('/service/tickets/' + id + '/documents', 'GET', params);
+};
+
+/**
+ * GET
+ * @param id
+ * @returns {promise|Count}
+ */
+Tickets.prototype.getTicketDocumentsCount = function (id) {
+    return this.api('/service/tickets/' + id + '/documents/count', 'GET');
+};
+
+/**
+ * GET
+ * @param id
+ * @returns {promise|ProductHref[]}
+ */
+Tickets.prototype.getTicketProducts = function (id) {
+    return this.api('/service/tickets/' + id + '/products', 'GET');
+};
+
+/**
+ * GET
+ * @param id
+ * @returns {promise|Count}
+ */
+Tickets.prototype.getTicketProductsCount = function (id) {
+    return this.api('/service/tickets/' + id + '/products/count', 'GET');
+};
 
 /**
  *
