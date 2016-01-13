@@ -41,12 +41,73 @@ inherits(Statuses, ConnectWise);
 
 /**
  *
- * @param id
- * @param params
+ * @param boardId
+ * @param {Params} params
  * @returns {Status[]|promise}
  */
-Statuses.prototype.getStatusesByBoardId = function (id, params) {
-    return this.api('/service/boards/' + id + '/statuses', 'GET', params);
+Statuses.prototype.getStatusesByBoardId = function (boardId, params) {
+    return this.api('/service/boards/' + boardId + '/statuses', 'GET', params);
+};
+
+/**
+ *
+ * @param boardId
+ * @param {Status} status
+ * @returns {Status|promise}
+ */
+Statuses.prototype.createStatuses = function (boardId, status) {
+    return this.api('/service/boards/' + boardId + '/statuses', 'POST', status)
+};
+
+/**
+ *
+ * @param boardId
+ * @returns {Count|promise}
+ */
+Statuses.prototype.getStatusesCount = function (boardId) {
+    return this.api('/service/boards/' + boardId + '/statuses/count', 'GET');
+};
+
+/**
+ *
+ * @param boardId
+ * @param statusId
+ * @returns {DeleteResponse|promise}
+ */
+Statuses.prototype.deleteStatusById = function (boardId, statusId) {
+    return this.api('/service/boards/' + boardId + '/statuses/' + statusId, 'DELETE')
+};
+
+/**
+ *
+ * @param boardId
+ * @param statusId
+ * @returns {Status|promise}
+ */
+Statuses.prototype.getStatusById = function (boardId, statusId) {
+    return this.api('/service/boards/' + boardId + '/statuses/' + statusId, 'GET');
+};
+
+/**
+ *
+ * @param boardId
+ * @param statusId
+ * @param {Operations} operations
+ * @returns {Status|promise}
+ */
+Statuses.prototype.updateStatus = function (boardId, statusId, operations) {
+    return this.api('/service/boards/' + boardId + '/statuses/' + statusId, 'PATCH', operations);
+};
+
+/**
+ *
+ * @param boardId
+ * @param statusId
+ * @param {Status} status
+ * @returns {Status|promise}
+ */
+Statuses.prototype.replaceStatuses = function (boardId, statusId, status) {
+    return this.api('/service/boards/' + boardId + '/statuses/' + statusId, 'PUT', status);
 };
 
 /**
