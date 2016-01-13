@@ -374,6 +374,130 @@ Tickets.prototype.updateTicketStatusByName = function (id, status) {
 
 /**
  *
+ * @param id
+ * @param {string} priority - do a %like% match on priority
+ * @returns {promise|Ticket}
+ */
+Tickets.prototype.updateTicketPriority = function (id, priority) {
+    var self = this;
+    return self.api('/service/priorities', 'GET', {
+        conditions: 'name like "%' + priority + '%"'
+    }).then(function (res) {
+        if (res.length > 0) {
+            var priorityId = res[0].id;
+            return self.updateTicket(id, [{
+                op: 'replace',
+                path: 'priority/id',
+                value: priorityId
+            }]);
+        } else {
+            throw {
+                code: 'NotFound',
+                message: 'Could not find any matching priority.',
+                errors: null
+            };
+        }
+    });
+};
+
+/**
+ *
+ * @param id
+ * @param {string} serviceType
+ * @returns {promise|Ticket}
+ */
+Tickets.prototype.updateTicketServiceType = function (id, serviceType) {
+    var self = this;
+    return self.getTicketById(id)
+        .then(function (ticket) {
+            var boardId = ticket.board.id;
+            return self.api('/service/boards/' + boardId + '/types', 'GET', {
+                conditions: 'name = "' + serviceType + '"'
+            }).then(function (types) {
+                if (types.length > 0) {
+                    var serviceTypeId = types[0].id;
+                    return self.updateTicket(id, [{
+                        op: 'replace',
+                        path: 'type/id',
+                        value: serviceTypeId
+                    }]);
+                } else {
+                    throw {
+                        code: 'NotFound',
+                        message: 'Could not find any matching service types.',
+                        errors: null
+                    };
+                }
+            });
+        });
+};
+
+/**
+ *
+ * @param id
+ * @param {string} serviceSubType
+ * @returns {promise|Ticket}
+ */
+Tickets.prototype.updateTicketServiceSubType = function (id, serviceSubType) {
+    var self = this;
+    return self.getTicketById(id)
+        .then(function (ticket) {
+            var boardId = ticket.board.id;
+            return self.api('/service/boards/' + boardId + '/subtypes', 'GET', {
+                conditions: 'name = "' + serviceSubType + '"'
+            }).then(function (types) {
+                if (types.length > 0) {
+                    var serviceSubTypeId = types[0].id;
+                    return self.updateTicket(id, [{
+                        op: 'replace',
+                        path: 'subType/id',
+                        value: serviceSubTypeId
+                    }]);
+                } else {
+                    throw {
+                        code: 'NotFound',
+                        message: 'Could not find any matching service subtypes.',
+                        errors: null
+                    };
+                }
+            });
+        });
+};
+
+/**
+ *
+ * @param id
+ * @param {string} serviceItem
+ * @returns {promise|Ticket}
+ */
+Tickets.prototype.updateTicketServiceItem = function (id, serviceItem) {
+    var self = this;
+    return self.getTicketById(id)
+        .then(function (ticket) {
+            var boardId = ticket.board.id;
+            return self.api('/service/boards/' + boardId + '/items', 'GET', {
+                conditions: 'name = "' + serviceItem + '"'
+            }).then(function (items) {
+                if (types.length > 0) {
+                    var serviceItemId = items[0].id;
+                    return self.updateTicket(id, [{
+                        op: 'replace',
+                        path: 'item/id',
+                        value: serviceItemId
+                    }]);
+                } else {
+                    throw {
+                        code: 'NotFound',
+                        message: 'Could not find any matching service items.',
+                        errors: null
+                    };
+                }
+            });
+        });
+};
+
+/**
+ *
  * @type {Tickets}
  */
 module.exports = Tickets;

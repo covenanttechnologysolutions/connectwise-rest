@@ -363,7 +363,13 @@ PATCH
 
 * [Statuses](#Statuses)
     * [new Statuses(options)](#new_Statuses_new)
-    * [.getStatusesByBoardId(id, params)](#Statuses+getStatusesByBoardId) ⇒ <code>[Array.&lt;Status&gt;](#Status)</code> &#124; <code>promise</code>
+    * [.getStatusesByBoardId(boardId, params)](#Statuses+getStatusesByBoardId) ⇒ <code>[Array.&lt;Status&gt;](#Status)</code> &#124; <code>promise</code>
+    * [.createStatuses(boardId, status)](#Statuses+createStatuses) ⇒ <code>[Status](#Status)</code> &#124; <code>promise</code>
+    * [.getStatusesCount(boardId)](#Statuses+getStatusesCount) ⇒ <code>[Count](#Count)</code> &#124; <code>promise</code>
+    * [.deleteStatusById(boardId, statusId)](#Statuses+deleteStatusById) ⇒ <code>[DeleteResponse](#DeleteResponse)</code> &#124; <code>promise</code>
+    * [.getStatusById(boardId, statusId)](#Statuses+getStatusById) ⇒ <code>[Status](#Status)</code> &#124; <code>promise</code>
+    * [.updateStatus(boardId, statusId, operations)](#Statuses+updateStatus) ⇒ <code>[Status](#Status)</code> &#124; <code>promise</code>
+    * [.replaceStatuses(boardId, statusId, status)](#Statuses+replaceStatuses) ⇒ <code>[Status](#Status)</code> &#124; <code>promise</code>
 
 <a name="new_Statuses_new"></a>
 ### new Statuses(options)
@@ -377,13 +383,68 @@ PATCH
 | options.companyUrl | <code>string</code> | 
 
 <a name="Statuses+getStatusesByBoardId"></a>
-### statuses.getStatusesByBoardId(id, params) ⇒ <code>[Array.&lt;Status&gt;](#Status)</code> &#124; <code>promise</code>
+### statuses.getStatusesByBoardId(boardId, params) ⇒ <code>[Array.&lt;Status&gt;](#Status)</code> &#124; <code>promise</code>
+**Kind**: instance method of <code>[Statuses](#Statuses)</code>  
+
+| Param | Type |
+| --- | --- |
+| boardId |  | 
+| params | <code>[Params](#Params)</code> | 
+
+<a name="Statuses+createStatuses"></a>
+### statuses.createStatuses(boardId, status) ⇒ <code>[Status](#Status)</code> &#124; <code>promise</code>
+**Kind**: instance method of <code>[Statuses](#Statuses)</code>  
+
+| Param | Type |
+| --- | --- |
+| boardId |  | 
+| status | <code>[Status](#Status)</code> | 
+
+<a name="Statuses+getStatusesCount"></a>
+### statuses.getStatusesCount(boardId) ⇒ <code>[Count](#Count)</code> &#124; <code>promise</code>
 **Kind**: instance method of <code>[Statuses](#Statuses)</code>  
 
 | Param |
 | --- |
-| id | 
-| params | 
+| boardId | 
+
+<a name="Statuses+deleteStatusById"></a>
+### statuses.deleteStatusById(boardId, statusId) ⇒ <code>[DeleteResponse](#DeleteResponse)</code> &#124; <code>promise</code>
+**Kind**: instance method of <code>[Statuses](#Statuses)</code>  
+
+| Param |
+| --- |
+| boardId | 
+| statusId | 
+
+<a name="Statuses+getStatusById"></a>
+### statuses.getStatusById(boardId, statusId) ⇒ <code>[Status](#Status)</code> &#124; <code>promise</code>
+**Kind**: instance method of <code>[Statuses](#Statuses)</code>  
+
+| Param |
+| --- |
+| boardId | 
+| statusId | 
+
+<a name="Statuses+updateStatus"></a>
+### statuses.updateStatus(boardId, statusId, operations) ⇒ <code>[Status](#Status)</code> &#124; <code>promise</code>
+**Kind**: instance method of <code>[Statuses](#Statuses)</code>  
+
+| Param | Type |
+| --- | --- |
+| boardId |  | 
+| statusId |  | 
+| operations | <code>[Operations](#Operations)</code> | 
+
+<a name="Statuses+replaceStatuses"></a>
+### statuses.replaceStatuses(boardId, statusId, status) ⇒ <code>[Status](#Status)</code> &#124; <code>promise</code>
+**Kind**: instance method of <code>[Statuses](#Statuses)</code>  
+
+| Param | Type |
+| --- | --- |
+| boardId |  | 
+| statusId |  | 
+| status | <code>[Status](#Status)</code> | 
 
 <a name="Tickets"></a>
 ## Tickets
@@ -414,6 +475,10 @@ PATCH
     * [.getTicketProducts(id)](#Tickets+getTicketProducts) ⇒ <code>promise</code> &#124; <code>[Array.&lt;ProductHref&gt;](#ProductHref)</code>
     * [.getTicketProductsCount(id)](#Tickets+getTicketProductsCount) ⇒ <code>promise</code> &#124; <code>[Count](#Count)</code>
     * [.updateTicketStatusByName(id, status)](#Tickets+updateTicketStatusByName) ⇒ <code>[Array.&lt;Ticket&gt;](#Ticket)</code> &#124; <code>promise</code>
+    * [.updateTicketPriority(id, priority)](#Tickets+updateTicketPriority) ⇒ <code>promise</code> &#124; <code>[Ticket](#Ticket)</code>
+    * [.updateTicketServiceType(id, serviceType)](#Tickets+updateTicketServiceType) ⇒ <code>promise</code> &#124; <code>[Ticket](#Ticket)</code>
+    * [.updateTicketServiceSubType(id, serviceSubType)](#Tickets+updateTicketServiceSubType) ⇒ <code>promise</code> &#124; <code>[Ticket](#Ticket)</code>
+    * [.updateTicketServiceItem(id, serviceItem)](#Tickets+updateTicketServiceItem) ⇒ <code>promise</code> &#124; <code>[Ticket](#Ticket)</code>
 
 <a name="new_Tickets_new"></a>
 ### new Tickets(options)
@@ -678,6 +743,42 @@ GET
 | --- | --- |
 | id | <code>string</code> &#124; <code>number</code> | 
 | status | <code>string</code> | 
+
+<a name="Tickets+updateTicketPriority"></a>
+### tickets.updateTicketPriority(id, priority) ⇒ <code>promise</code> &#124; <code>[Ticket](#Ticket)</code>
+**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| id |  |  |
+| priority | <code>string</code> | do a %like% match on priority |
+
+<a name="Tickets+updateTicketServiceType"></a>
+### tickets.updateTicketServiceType(id, serviceType) ⇒ <code>promise</code> &#124; <code>[Ticket](#Ticket)</code>
+**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
+
+| Param | Type |
+| --- | --- |
+| id |  | 
+| serviceType | <code>string</code> | 
+
+<a name="Tickets+updateTicketServiceSubType"></a>
+### tickets.updateTicketServiceSubType(id, serviceSubType) ⇒ <code>promise</code> &#124; <code>[Ticket](#Ticket)</code>
+**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
+
+| Param | Type |
+| --- | --- |
+| id |  | 
+| serviceSubType | <code>string</code> | 
+
+<a name="Tickets+updateTicketServiceItem"></a>
+### tickets.updateTicketServiceItem(id, serviceItem) ⇒ <code>promise</code> &#124; <code>[Ticket](#Ticket)</code>
+**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
+
+| Param | Type |
+| --- | --- |
+| id |  | 
+| serviceItem | <code>string</code> | 
 
 <a name="TimeAPI"></a>
 ## TimeAPI
