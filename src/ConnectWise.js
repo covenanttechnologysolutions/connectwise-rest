@@ -92,7 +92,7 @@ ConnectWise.prototype.api = function (path, method, params) {
     };
 
     //@TODO perform URL validation here
-    if (path.match(/http:\/\//)) {
+    if (path.match(/http:\/\//i) || path.match(/https:\/\//i)) {
         options.url = path;
     }
 
