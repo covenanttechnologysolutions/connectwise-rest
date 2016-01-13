@@ -467,6 +467,23 @@ Tickets.prototype.updateTicketServiceSubType = function (id, serviceSubType) {
 /**
  *
  * @param id
+ * @param {string} type
+ * @param {string} subtype
+ * @param {string} item
+ * @returns {promise|Ticket}
+ */
+Tickets.prototype.updateTicketTypeSubTypeItem = function (id, type, subtype, item) {
+    var self = this;
+    return self.updateTicketServiceType(id, type).then(function () {
+        return self.updateTicketServiceSubType(id, subtype).then(function () {
+            return self.updateTicketServiceItem(id, item);
+        })
+    })
+};
+
+/**
+ *
+ * @param id
  * @param {string} serviceItem
  * @returns {promise|Ticket}
  */
@@ -478,7 +495,7 @@ Tickets.prototype.updateTicketServiceItem = function (id, serviceItem) {
             return self.api('/service/boards/' + boardId + '/items', 'GET', {
                 conditions: 'name = "' + serviceItem + '"'
             }).then(function (items) {
-                if (types.length > 0) {
+                if (items.length > 0) {
                     var serviceItemId = items[0].id;
                     return self.updateTicket(id, [{
                         op: 'replace',
