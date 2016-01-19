@@ -71,8 +71,9 @@ You can also manually access the API:
 | Module           | API           | Status                        |
 | ---------------- | ------------- | ----------------------------- |
 | Service Desk API | Boards        | Complete, helpers incomplete  |
-| Service Desk API | Tickets       | Complete, helpers partial     |
-| Service Desk API | Statuses      | Partial                       |
+| Service Desk API | Tickets       | Complete                      |
+| Service Desk API | Statuses      | Complete                      |
+| Service Desk API | ServiceNotes  | Complete                      |
 | Time API         | TimeEntries   | Partial                       |
 
 
@@ -147,6 +148,8 @@ Valid example conditions string
 <dd></dd>
 <dt><a href="#ServiceDeskAPI">ServiceDeskAPI</a></dt>
 <dd></dd>
+<dt><a href="#ServiceNotes">ServiceNotes</a></dt>
+<dd></dd>
 <dt><a href="#Statuses">Statuses</a></dt>
 <dd></dd>
 <dt><a href="#Tickets">Tickets</a></dt>
@@ -210,11 +213,15 @@ Valid example conditions string
 <dd></dd>
 <dt><a href="#ConfigurationHref">ConfigurationHref</a> : <code>object</code></dt>
 <dd></dd>
+<dt><a href="#MemberHref">MemberHref</a> : <code>object</code></dt>
+<dd></dd>
 <dt><a href="#DeleteResponse">DeleteResponse</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#ErrorResponse">ErrorResponse</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#Board">Board</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#ServiceNote">ServiceNote</a> : <code>Object</code></dt>
 <dd></dd>
 <dt><a href="#Status">Status</a> : <code>object</code></dt>
 <dd></dd>
@@ -357,6 +364,142 @@ PATCH
 | --- | --- |
 | options | <code>[CWOptions](#CWOptions)</code> | 
 
+<a name="ServiceNotes"></a>
+## ServiceNotes
+**Kind**: global class  
+
+* [ServiceNotes](#ServiceNotes)
+    * [new ServiceNotes(options)](#new_ServiceNotes_new)
+    * [.getServiceNotes(ticketId, params)](#ServiceNotes+getServiceNotes) ⇒ <code>[Array.&lt;ServiceNote&gt;](#ServiceNote)</code> &#124; <code>promise</code>
+    * [.createServiceNote(ticketId, note)](#ServiceNotes+createServiceNote) ⇒ <code>[ServiceNote](#ServiceNote)</code> &#124; <code>promise</code>
+    * [.getServiceNotesCount(ticketId, params)](#ServiceNotes+getServiceNotesCount) ⇒ <code>[Count](#Count)</code> &#124; <code>promise</code>
+    * [.deleteServiceNoteById(ticketId, noteId)](#ServiceNotes+deleteServiceNoteById) ⇒ <code>[DeleteResponse](#DeleteResponse)</code> &#124; <code>promise</code>
+    * [.getServiceNoteById(ticketId, noteId)](#ServiceNotes+getServiceNoteById) ⇒ <code>[ServiceNote](#ServiceNote)</code> &#124; <code>promise</code>
+    * [.updateServiceNote(ticketId, noteId, note)](#ServiceNotes+updateServiceNote) ⇒ <code>[ServiceNote](#ServiceNote)</code> &#124; <code>promise</code>
+    * [.replaceServiceNote(ticketId, noteId, note)](#ServiceNotes+replaceServiceNote) ⇒ <code>[ServiceNote](#ServiceNote)</code> &#124; <code>promise</code>
+    * [.createServiceNoteInternal(ticketId, text)](#ServiceNotes+createServiceNoteInternal) ⇒ <code>[ServiceNote](#ServiceNote)</code> &#124; <code>promise</code>
+    * [.createServiceNoteDetail(ticketId, text)](#ServiceNotes+createServiceNoteDetail) ⇒ <code>[ServiceNote](#ServiceNote)</code> &#124; <code>promise</code>
+    * [.createServiceNoteResolution(ticketId, text)](#ServiceNotes+createServiceNoteResolution) ⇒ <code>[ServiceNote](#ServiceNote)</code> &#124; <code>promise</code>
+    * [.createServiceNoteDetailAndResolution(ticketId, text)](#ServiceNotes+createServiceNoteDetailAndResolution) ⇒ <code>[ServiceNote](#ServiceNote)</code> &#124; <code>promise</code>
+
+<a name="new_ServiceNotes_new"></a>
+### new ServiceNotes(options)
+
+| Param | Type |
+| --- | --- |
+| options | <code>object</code> | 
+| options.companyId | <code>string</code> | 
+| options.publicKey | <code>string</code> | 
+| options.privateKey | <code>string</code> | 
+| options.companyUrl | <code>string</code> | 
+
+<a name="ServiceNotes+getServiceNotes"></a>
+### serviceNotes.getServiceNotes(ticketId, params) ⇒ <code>[Array.&lt;ServiceNote&gt;](#ServiceNote)</code> &#124; <code>promise</code>
+GET
+
+**Kind**: instance method of <code>[ServiceNotes](#ServiceNotes)</code>  
+
+| Param | Type |
+| --- | --- |
+| ticketId |  | 
+| params | <code>[Params](#Params)</code> | 
+
+<a name="ServiceNotes+createServiceNote"></a>
+### serviceNotes.createServiceNote(ticketId, note) ⇒ <code>[ServiceNote](#ServiceNote)</code> &#124; <code>promise</code>
+POST
+
+**Kind**: instance method of <code>[ServiceNotes](#ServiceNotes)</code>  
+
+| Param | Type |
+| --- | --- |
+| ticketId | <code>string</code> &#124; <code>number</code> | 
+| note | <code>[ServiceNote](#ServiceNote)</code> | 
+
+<a name="ServiceNotes+getServiceNotesCount"></a>
+### serviceNotes.getServiceNotesCount(ticketId, params) ⇒ <code>[Count](#Count)</code> &#124; <code>promise</code>
+GET
+
+**Kind**: instance method of <code>[ServiceNotes](#ServiceNotes)</code>  
+
+| Param | Type |
+| --- | --- |
+| ticketId |  | 
+| params | <code>[ParamsConditions](#ParamsConditions)</code> | 
+
+<a name="ServiceNotes+deleteServiceNoteById"></a>
+### serviceNotes.deleteServiceNoteById(ticketId, noteId) ⇒ <code>[DeleteResponse](#DeleteResponse)</code> &#124; <code>promise</code>
+**Kind**: instance method of <code>[ServiceNotes](#ServiceNotes)</code>  
+
+| Param |
+| --- |
+| ticketId | 
+| noteId | 
+
+<a name="ServiceNotes+getServiceNoteById"></a>
+### serviceNotes.getServiceNoteById(ticketId, noteId) ⇒ <code>[ServiceNote](#ServiceNote)</code> &#124; <code>promise</code>
+**Kind**: instance method of <code>[ServiceNotes](#ServiceNotes)</code>  
+
+| Param |
+| --- |
+| ticketId | 
+| noteId | 
+
+<a name="ServiceNotes+updateServiceNote"></a>
+### serviceNotes.updateServiceNote(ticketId, noteId, note) ⇒ <code>[ServiceNote](#ServiceNote)</code> &#124; <code>promise</code>
+**Kind**: instance method of <code>[ServiceNotes](#ServiceNotes)</code>  
+
+| Param | Type |
+| --- | --- |
+| ticketId |  | 
+| noteId |  | 
+| note | <code>[ServiceNote](#ServiceNote)</code> | 
+
+<a name="ServiceNotes+replaceServiceNote"></a>
+### serviceNotes.replaceServiceNote(ticketId, noteId, note) ⇒ <code>[ServiceNote](#ServiceNote)</code> &#124; <code>promise</code>
+**Kind**: instance method of <code>[ServiceNotes](#ServiceNotes)</code>  
+
+| Param | Type |
+| --- | --- |
+| ticketId |  | 
+| noteId |  | 
+| note | <code>[ServiceNote](#ServiceNote)</code> | 
+
+<a name="ServiceNotes+createServiceNoteInternal"></a>
+### serviceNotes.createServiceNoteInternal(ticketId, text) ⇒ <code>[ServiceNote](#ServiceNote)</code> &#124; <code>promise</code>
+**Kind**: instance method of <code>[ServiceNotes](#ServiceNotes)</code>  
+
+| Param | Type |
+| --- | --- |
+| ticketId | <code>string</code> &#124; <code>number</code> | 
+| text | <code>string</code> | 
+
+<a name="ServiceNotes+createServiceNoteDetail"></a>
+### serviceNotes.createServiceNoteDetail(ticketId, text) ⇒ <code>[ServiceNote](#ServiceNote)</code> &#124; <code>promise</code>
+**Kind**: instance method of <code>[ServiceNotes](#ServiceNotes)</code>  
+
+| Param | Type |
+| --- | --- |
+| ticketId | <code>string</code> &#124; <code>number</code> | 
+| text | <code>string</code> | 
+
+<a name="ServiceNotes+createServiceNoteResolution"></a>
+### serviceNotes.createServiceNoteResolution(ticketId, text) ⇒ <code>[ServiceNote](#ServiceNote)</code> &#124; <code>promise</code>
+**Kind**: instance method of <code>[ServiceNotes](#ServiceNotes)</code>  
+
+| Param | Type |
+| --- | --- |
+| ticketId | <code>string</code> &#124; <code>number</code> | 
+| text | <code>string</code> | 
+
+<a name="ServiceNotes+createServiceNoteDetailAndResolution"></a>
+### serviceNotes.createServiceNoteDetailAndResolution(ticketId, text) ⇒ <code>[ServiceNote](#ServiceNote)</code> &#124; <code>promise</code>
+**Kind**: instance method of <code>[ServiceNotes](#ServiceNotes)</code>  
+
+| Param | Type |
+| --- | --- |
+| ticketId | <code>string</code> &#124; <code>number</code> | 
+| text | <code>string</code> | 
+
 <a name="Statuses"></a>
 ## Statuses
 **Kind**: global class  
@@ -478,6 +621,7 @@ PATCH
     * [.updateTicketPriority(id, priority)](#Tickets+updateTicketPriority) ⇒ <code>promise</code> &#124; <code>[Ticket](#Ticket)</code>
     * [.updateTicketServiceType(id, serviceType)](#Tickets+updateTicketServiceType) ⇒ <code>promise</code> &#124; <code>[Ticket](#Ticket)</code>
     * [.updateTicketServiceSubType(id, serviceSubType)](#Tickets+updateTicketServiceSubType) ⇒ <code>promise</code> &#124; <code>[Ticket](#Ticket)</code>
+    * [.updateTicketTypeSubTypeItem(id, type, subtype, item)](#Tickets+updateTicketTypeSubTypeItem) ⇒ <code>promise</code> &#124; <code>[Ticket](#Ticket)</code>
     * [.updateTicketServiceItem(id, serviceItem)](#Tickets+updateTicketServiceItem) ⇒ <code>promise</code> &#124; <code>[Ticket](#Ticket)</code>
 
 <a name="new_Tickets_new"></a>
@@ -770,6 +914,17 @@ GET
 | --- | --- |
 | id |  | 
 | serviceSubType | <code>string</code> | 
+
+<a name="Tickets+updateTicketTypeSubTypeItem"></a>
+### tickets.updateTicketTypeSubTypeItem(id, type, subtype, item) ⇒ <code>promise</code> &#124; <code>[Ticket](#Ticket)</code>
+**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
+
+| Param | Type |
+| --- | --- |
+| id |  | 
+| type | <code>string</code> | 
+| subtype | <code>string</code> | 
+| item | <code>string</code> | 
 
 <a name="Tickets+updateTicketServiceItem"></a>
 ### tickets.updateTicketServiceItem(id, serviceItem) ⇒ <code>promise</code> &#124; <code>[Ticket](#Ticket)</code>
@@ -1153,6 +1308,19 @@ Service Subtype
 | _info.name | <code>string</code> | 
 | _info.configuration_href | <code>string</code> | 
 
+<a name="MemberHref"></a>
+## MemberHref : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| id | <code>number</code> |  |
+| identifier | <code>string</code> | the member's ID in CW |
+| _info | <code>object</code> |  |
+| _info.lastUpdated | <code>string</code> |  |
+| _info.updatedBy | <code>string</code> |  |
+
 <a name="DeleteResponse"></a>
 ## DeleteResponse : <code>object</code>
 **Kind**: global typedef  
@@ -1167,11 +1335,11 @@ Service Subtype
 **Kind**: global typedef  
 **Properties**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| code | <code>string</code> |  |
-| message | <code>string</code> |  |
-| errors |  | unknown type |
+| Name | Type |
+| --- | --- |
+| code | <code>string</code> | 
+| message | <code>string</code> | 
+| errors | <code>Array.&lt;object&gt;</code> | 
 
 <a name="Board"></a>
 ## Board : <code>object</code>
@@ -1191,6 +1359,31 @@ Service Subtype
 | sendToResource | <code>boolean</code> | 
 | resourceTemplateId | <code>number</code> | 
 | _info | <code>object</code> | 
+
+<a name="ServiceNote"></a>
+## ServiceNote : <code>Object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| id | <code>number</code> |  |
+| ticketId | <code>number</code> |  |
+| text | <code>string</code> | the text of the particular note |
+| detailDescriptionFlag | <code>boolean</code> |  |
+| internalAnalysisFlag | <code>boolean</code> |  |
+| resolutionFlag | <code>boolean</code> |  |
+| member | <code>[MemberHref](#MemberHref)</code> | null if not applicable |
+| contact | <code>[ContactHref](#ContactHref)</code> | null if not applicable |
+| customerUpdatedFlag | <code>boolean</code> |  |
+| processNotifications | <code>boolean</code> |  |
+| dateCreated | <code>string</code> |  |
+| createdBy | <code>string</code> |  |
+| internalFlag | <code>boolean</code> |  |
+| externalFlag | <code>boolean</code> |  |
+| _info | <code>object</code> |  |
+| _info.lastUpdated | <code>string</code> |  |
+| _info.updatedBy | <code>string</code> |  |
 
 <a name="Status"></a>
 ## Status : <code>object</code>
@@ -1314,7 +1507,7 @@ Service Subtype
 | company | <code>[CompanyHref](#CompanyHref)</code> |  |
 | chargeToId | <code>number</code> |  |
 | chargeToType | <code>string</code> | ['ServiceTicket', 'ProjectTicket', 'ChargeCode', 'Activity'] |
-| member | <code>MemberHref</code> |  |
+| member | <code>[MemberHref](#MemberHref)</code> |  |
 | locationId | <code>number</code> |  |
 | businessUnitId | <code>number</code> |  |
 | workType | <code>WorkTypeHref</code> |  |
