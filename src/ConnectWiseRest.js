@@ -211,6 +211,15 @@ module.exports = ConnectWiseRest;
  */
 
 /**
+ * @typedef {object} MemberHref
+ * @property {number} id
+ * @property {string} identifier the member's ID in CW
+ * @property {object} _info
+ * @property {string} _info.lastUpdated
+ * @property {string} _info.updatedBy
+ */
+
+/**
  * @typedef {object} DeleteResponse
  * @property {string} error null if no error
  */
@@ -219,5 +228,5 @@ module.exports = ConnectWiseRest;
  * @typedef {object} ErrorResponse
  * @property {string} code
  * @property {string} message
- * @property errors unknown type
+ * @property {object[]} errors
  */
