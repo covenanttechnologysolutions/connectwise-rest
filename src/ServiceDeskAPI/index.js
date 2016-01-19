@@ -12,12 +12,14 @@
 function ServiceDeskAPI(options) {
     var _Tickets = require('./Tickets'),
         _Boards = require('./Boards'),
-        _Statuses = require('./Statuses');
+        _Statuses = require('./Statuses'),
+        _ServiceNotes = require('./ServiceNotes');
 
     return {
         Tickets: new _Tickets(options),
         Boards: new _Boards(options),
-        Statuses: new _Statuses(options)
+        Statuses: new _Statuses(options),
+        ServiceNotes: new _ServiceNotes(options)
     }
 }
 
