@@ -27,11 +27,8 @@ var Q = require('q'),
 
 /**
  *
- * @param {object} options
- * @param {string} options.companyId
- * @param {string} options.publicKey
- * @param {string} options.privateKey
- * @param {string} options.companyUrl
+ * @param {CWOptions} options
+ * @inherits {ConnectWise}
  * @constructor
  */
 function Statuses(options) {

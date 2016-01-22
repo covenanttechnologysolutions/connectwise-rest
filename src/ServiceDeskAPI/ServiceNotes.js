@@ -10,7 +10,7 @@ var Q = require('q'),
     ConnectWise = require('../ConnectWise.js');
 
 /**
- * @typedef {{}} ServiceNote
+ * @typedef {object} ServiceNote
  * @property {number} id
  * @property {number} ticketId
  * @property {string} text the text of the particular note

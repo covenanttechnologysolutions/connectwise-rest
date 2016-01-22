@@ -4,9 +4,17 @@
  */
 
 /**
+ * @typedef {object} ServiceDeskAPI
+ * @property {Tickets} Tickets
+ * @property {Boards} Boards
+ * @property {Statuses} Statuses
+ * @property {ServiceNotes} ServiceNotes
+ */
+
+/**
  *
- * @param {CWOptions} options
- * @returns {{Tickets: (Tickets|exports|module.exports), Boards: (Boards|exports|module.exports), Statuses}}
+ * @param options
+ * @returns {ServiceDeskAPI}
  * @constructor
  */
 function ServiceDeskAPI(options) {
