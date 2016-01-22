@@ -3,7 +3,7 @@ A nodejs module for interacting with the ConnectWise REST API.   This module is 
 
 ## Requirements
 
-- ConnectWise 2015.3+, though these functions are written for ConnectWise 2016.1 APIs. 
+- ConnectWise 2015.3+, though these functions are written for ConnectWise 2016.1 APIs (API3.0 v1.0.0). 
 - ConnectWise API keys (available on ConnectWise 2015.3+), or API Only Member keys (only available on ConnectWise 2015.6+)
 
 ## Usage
@@ -68,13 +68,21 @@ You can also manually access the API:
 
 ## Implemented APIs
 
-| Module           | API           | Status                        |
-| ---------------- | ------------- | ----------------------------- |
-| Service Desk API | Boards        | Complete, helpers incomplete  |
-| Service Desk API | Tickets       | Complete                      |
-| Service Desk API | Statuses      | Complete                      |
-| Service Desk API | ServiceNotes  | Complete                      |
-| Time API         | TimeEntries   | Partial                       |
+| Module           | API                 | Status                        |
+| ---------------- | ------------------- | ----------------------------- |
+| Finance API      | Additions           | Complete                      |
+| Finance API      | Adjustments         | Complete                      |
+| Finance API      | Agreements          | Complete                      |
+| Finance API      | AgreementSites      | Complete                      |
+| Finance API      | BoardDefaults       | Complete                      |
+| Finance API      | WorkRoles           | Complete                      |
+| Finance API      | WorkTypeExclusions  | Complete                      |
+| Finance API      | WorkTypes           | Complete                      |
+| Service Desk API | Boards              | Complete, helpers incomplete  |
+| Service Desk API | Tickets             | Complete                      |
+| Service Desk API | Statuses            | Complete                      |
+| Service Desk API | ServiceNotes        | Complete                      |
+| Time API         | TimeEntries         | Complete                      |
 
 
 ## Examples
@@ -144,6 +152,24 @@ Valid example conditions string
 <dd></dd>
 <dt><a href="#ConnectWiseRest">ConnectWiseRest</a></dt>
 <dd></dd>
+<dt><a href="#Additions">Additions</a></dt>
+<dd></dd>
+<dt><a href="#Adjustments">Adjustments</a></dt>
+<dd></dd>
+<dt><a href="#Agreements">Agreements</a></dt>
+<dd></dd>
+<dt><a href="#AgreementSites">AgreementSites</a></dt>
+<dd></dd>
+<dt><a href="#BoardDefaults">BoardDefaults</a></dt>
+<dd></dd>
+<dt><a href="#FinanceAPI">FinanceAPI</a></dt>
+<dd></dd>
+<dt><a href="#WorkRoles">WorkRoles</a></dt>
+<dd></dd>
+<dt><a href="#WorkTypeExclusions">WorkTypeExclusions</a></dt>
+<dd></dd>
+<dt><a href="#WorkTypes">WorkTypes</a></dt>
+<dd></dd>
 <dt><a href="#Boards">Boards</a></dt>
 <dd></dd>
 <dt><a href="#ServiceDeskAPI">ServiceDeskAPI</a></dt>
@@ -167,6 +193,8 @@ Valid example conditions string
 <dd></dd>
 <dt><a href="#AgreementHref">AgreementHref</a> : <code>object</code></dt>
 <dd></dd>
+<dt><a href="#AgreementTypeHref">AgreementTypeHref</a> : <code>object</code></dt>
+<dd></dd>
 <dt><a href="#BoardHref">BoardHref</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#CompanyHref">CompanyHref</a> : <code>object</code></dt>
@@ -182,7 +210,11 @@ Valid example conditions string
 </dd>
 <dt><a href="#PriorityHref">PriorityHref</a> : <code>object</code></dt>
 <dd></dd>
+<dt><a href="#ProductHref">ProductHref</a> : <code>object</code></dt>
+<dd></dd>
 <dt><a href="#ServiceLocationHref">ServiceLocationHref</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#ServiceTypeHref">ServiceTypeHref</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#ScheduleEntryHref">ScheduleEntryHref</a> : <code>object</code></dt>
 <dd></dd>
@@ -199,6 +231,8 @@ Valid example conditions string
 <dd></dd>
 <dt><a href="#TypeHref">TypeHref</a> : <code>object</code></dt>
 <dd></dd>
+<dt><a href="#OpportunityHref">OpportunityHref</a> : <code>object</code></dt>
+<dd></dd>
 <dt><a href="#Params">Params</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#ParamsPage">ParamsPage</a> : <code>object</code></dt>
@@ -206,6 +240,10 @@ Valid example conditions string
 <dt><a href="#ParamsConditions">ParamsConditions</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#ProductHref">ProductHref</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#WorkRoleHref">WorkRoleHref</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#WorkTypeHref">WorkTypeHref</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#Operations">Operations</a> : <code>Array.&lt;object&gt;</code></dt>
 <dd></dd>
@@ -219,7 +257,25 @@ Valid example conditions string
 <dd></dd>
 <dt><a href="#ErrorResponse">ErrorResponse</a> : <code>object</code></dt>
 <dd></dd>
+<dt><a href="#Addition">Addition</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#Adjustment">Adjustment</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#Agreement">Agreement</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#AgreementSite">AgreementSite</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#BoardDefault">BoardDefault</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#WorkRole">WorkRole</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#WorkTypeExclusion">WorkTypeExclusion</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#WorkType">WorkType</a> : <code>object</code></dt>
+<dd></dd>
 <dt><a href="#Board">Board</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#ServiceDeskAPI">ServiceDeskAPI</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#ServiceNote">ServiceNote</a> : <code>Object</code></dt>
 <dd></dd>
@@ -269,6 +325,827 @@ Valid example conditions string
 | Param | Type |
 | --- | --- |
 | options | <code>[CWOptions](#CWOptions)</code> | 
+
+<a name="Additions"></a>
+## Additions
+**Kind**: global class  
+**Inherits**: <code>[ConnectWise](#ConnectWise)</code>  
+
+* [Additions](#Additions)
+    * [new Additions(options)](#new_Additions_new)
+    * [.getAdditions(agreementId, params)](#Additions+getAdditions) ⇒ <code>promise</code> &#124; <code>[Array.&lt;Addition&gt;](#Addition)</code>
+    * [.createAddition(agreementId, addition)](#Additions+createAddition) ⇒ <code>promise</code> &#124; <code>[Addition](#Addition)</code>
+    * [.getAdditionsCount(agreementId, params)](#Additions+getAdditionsCount) ⇒ <code>promise</code> &#124; <code>[Count](#Count)</code>
+    * [.deleteAdditionById(agreementId, additionId)](#Additions+deleteAdditionById) ⇒ <code>promise</code> &#124; <code>[DeleteResponse](#DeleteResponse)</code>
+    * [.getAdditionById(agreementId, additionId)](#Additions+getAdditionById) ⇒ <code>promise</code> &#124; <code>[Addition](#Addition)</code>
+    * [.updateAddition(agreementId, additionId, operations)](#Additions+updateAddition) ⇒ <code>promise</code> &#124; <code>[Addition](#Addition)</code>
+    * [.replaceAddition(agreementId, additionId, addition)](#Additions+replaceAddition) ⇒ <code>promise</code> &#124; <code>[Addition](#Addition)</code>
+
+<a name="new_Additions_new"></a>
+### new Additions(options)
+
+| Param | Type |
+| --- | --- |
+| options | <code>[CWOptions](#CWOptions)</code> | 
+
+<a name="Additions+getAdditions"></a>
+### additions.getAdditions(agreementId, params) ⇒ <code>promise</code> &#124; <code>[Array.&lt;Addition&gt;](#Addition)</code>
+GET
+Returns non-cancelled active additions to an agreement
+
+**Kind**: instance method of <code>[Additions](#Additions)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| params | <code>[Params](#Params)</code> | 
+
+<a name="Additions+createAddition"></a>
+### additions.createAddition(agreementId, addition) ⇒ <code>promise</code> &#124; <code>[Addition](#Addition)</code>
+POST
+
+**Kind**: instance method of <code>[Additions](#Additions)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| addition | <code>[Addition](#Addition)</code> | 
+
+<a name="Additions+getAdditionsCount"></a>
+### additions.getAdditionsCount(agreementId, params) ⇒ <code>promise</code> &#124; <code>[Count](#Count)</code>
+GET
+
+**Kind**: instance method of <code>[Additions](#Additions)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| params | <code>[ParamsConditions](#ParamsConditions)</code> | 
+
+<a name="Additions+deleteAdditionById"></a>
+### additions.deleteAdditionById(agreementId, additionId) ⇒ <code>promise</code> &#124; <code>[DeleteResponse](#DeleteResponse)</code>
+DELETE
+
+**Kind**: instance method of <code>[Additions](#Additions)</code>  
+
+| Param |
+| --- |
+| agreementId | 
+| additionId | 
+
+<a name="Additions+getAdditionById"></a>
+### additions.getAdditionById(agreementId, additionId) ⇒ <code>promise</code> &#124; <code>[Addition](#Addition)</code>
+GET
+
+**Kind**: instance method of <code>[Additions](#Additions)</code>  
+
+| Param |
+| --- |
+| agreementId | 
+| additionId | 
+
+<a name="Additions+updateAddition"></a>
+### additions.updateAddition(agreementId, additionId, operations) ⇒ <code>promise</code> &#124; <code>[Addition](#Addition)</code>
+PATCH
+
+**Kind**: instance method of <code>[Additions](#Additions)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| additionId |  | 
+| operations | <code>[Operations](#Operations)</code> | 
+
+<a name="Additions+replaceAddition"></a>
+### additions.replaceAddition(agreementId, additionId, addition) ⇒ <code>promise</code> &#124; <code>[Addition](#Addition)</code>
+PUT
+
+**Kind**: instance method of <code>[Additions](#Additions)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| additionId |  | 
+| addition | <code>[Addition](#Addition)</code> | 
+
+<a name="Adjustments"></a>
+## Adjustments
+**Kind**: global class  
+**Inherits**: <code>[ConnectWise](#ConnectWise)</code>  
+
+* [Adjustments](#Adjustments)
+    * [new Adjustments(options)](#new_Adjustments_new)
+    * [.getAdjustments(agreementId, params)](#Adjustments+getAdjustments) ⇒ <code>promise</code> &#124; <code>[Array.&lt;Adjustment&gt;](#Adjustment)</code>
+    * [.createAdjustments(agreementId, addition)](#Adjustments+createAdjustments) ⇒ <code>promise</code> &#124; <code>[Adjustment](#Adjustment)</code>
+    * [.getAdjustmentsCount(agreementId, params)](#Adjustments+getAdjustmentsCount) ⇒ <code>promise</code> &#124; <code>[Count](#Count)</code>
+    * [.deleteAdjustmentById(agreementId, additionId)](#Adjustments+deleteAdjustmentById) ⇒ <code>promise</code> &#124; <code>[DeleteResponse](#DeleteResponse)</code>
+    * [.getAdjustmentById(agreementId, additionId)](#Adjustments+getAdjustmentById) ⇒ <code>promise</code> &#124; <code>[Adjustment](#Adjustment)</code>
+    * [.updateAdjustment(agreementId, additionId, {Operations)](#Adjustments+updateAdjustment) ⇒ <code>promise</code> &#124; <code>[Adjustment](#Adjustment)</code>
+    * [.replaceAdjustment(agreementId, additionId, addition)](#Adjustments+replaceAdjustment) ⇒ <code>promise</code> &#124; <code>[Adjustment](#Adjustment)</code>
+
+<a name="new_Adjustments_new"></a>
+### new Adjustments(options)
+
+| Param | Type |
+| --- | --- |
+| options | <code>[CWOptions](#CWOptions)</code> | 
+
+<a name="Adjustments+getAdjustments"></a>
+### adjustments.getAdjustments(agreementId, params) ⇒ <code>promise</code> &#124; <code>[Array.&lt;Adjustment&gt;](#Adjustment)</code>
+GET
+
+**Kind**: instance method of <code>[Adjustments](#Adjustments)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| params | <code>[Params](#Params)</code> | 
+
+<a name="Adjustments+createAdjustments"></a>
+### adjustments.createAdjustments(agreementId, addition) ⇒ <code>promise</code> &#124; <code>[Adjustment](#Adjustment)</code>
+POST
+
+**Kind**: instance method of <code>[Adjustments](#Adjustments)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| addition | <code>[Adjustment](#Adjustment)</code> | 
+
+<a name="Adjustments+getAdjustmentsCount"></a>
+### adjustments.getAdjustmentsCount(agreementId, params) ⇒ <code>promise</code> &#124; <code>[Count](#Count)</code>
+GET
+
+**Kind**: instance method of <code>[Adjustments](#Adjustments)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| params | <code>[ParamsConditions](#ParamsConditions)</code> | 
+
+<a name="Adjustments+deleteAdjustmentById"></a>
+### adjustments.deleteAdjustmentById(agreementId, additionId) ⇒ <code>promise</code> &#124; <code>[DeleteResponse](#DeleteResponse)</code>
+DELETE
+
+**Kind**: instance method of <code>[Adjustments](#Adjustments)</code>  
+
+| Param |
+| --- |
+| agreementId | 
+| additionId | 
+
+<a name="Adjustments+getAdjustmentById"></a>
+### adjustments.getAdjustmentById(agreementId, additionId) ⇒ <code>promise</code> &#124; <code>[Adjustment](#Adjustment)</code>
+GET
+
+**Kind**: instance method of <code>[Adjustments](#Adjustments)</code>  
+
+| Param |
+| --- |
+| agreementId | 
+| additionId | 
+
+<a name="Adjustments+updateAdjustment"></a>
+### adjustments.updateAdjustment(agreementId, additionId, {Operations) ⇒ <code>promise</code> &#124; <code>[Adjustment](#Adjustment)</code>
+PATCH
+
+**Kind**: instance method of <code>[Adjustments](#Adjustments)</code>  
+
+| Param | Description |
+| --- | --- |
+| agreementId |  |
+| additionId |  |
+| {Operations | operations |
+
+<a name="Adjustments+replaceAdjustment"></a>
+### adjustments.replaceAdjustment(agreementId, additionId, addition) ⇒ <code>promise</code> &#124; <code>[Adjustment](#Adjustment)</code>
+PUT
+
+**Kind**: instance method of <code>[Adjustments](#Adjustments)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| additionId |  | 
+| addition | <code>[Adjustment](#Adjustment)</code> | 
+
+<a name="Agreements"></a>
+## Agreements
+**Kind**: global class  
+**Inherits**: <code>[ConnectWise](#ConnectWise)</code>  
+
+* [Agreements](#Agreements)
+    * [new Agreements(options)](#new_Agreements_new)
+    * [.getAgreements(params)](#Agreements+getAgreements) ⇒ <code>promise</code> &#124; <code>[Array.&lt;Agreement&gt;](#Agreement)</code>
+    * [.createAgreement(agreement)](#Agreements+createAgreement) ⇒ <code>promise</code> &#124; <code>[Agreement](#Agreement)</code>
+    * [.getAgreementsCount(params)](#Agreements+getAgreementsCount) ⇒ <code>promise</code> &#124; <code>[Count](#Count)</code>
+    * [.deleteAgreementById(agreementId)](#Agreements+deleteAgreementById) ⇒ <code>promise</code> &#124; <code>[DeleteResponse](#DeleteResponse)</code>
+    * [.getAgreementById(agreementId)](#Agreements+getAgreementById) ⇒ <code>promise</code> &#124; <code>[Agreement](#Agreement)</code>
+    * [.updateAgreement(agreementId, operations)](#Agreements+updateAgreement) ⇒ <code>promise</code> &#124; <code>[Agreement](#Agreement)</code>
+    * [.replaceAgreement(agreementId, agreement)](#Agreements+replaceAgreement) ⇒ <code>promise</code> &#124; <code>[Agreement](#Agreement)</code>
+    * [.getAgreementConfigurations(agreementId, params)](#Agreements+getAgreementConfigurations) ⇒ <code>promise</code> &#124; <code>[Array.&lt;ConfigurationHref&gt;](#ConfigurationHref)</code>
+    * [.createConfigurationAssociation(agreementId, configuration)](#Agreements+createConfigurationAssociation) ⇒ <code>promise</code> &#124; <code>[ConfigurationHref](#ConfigurationHref)</code>
+    * [.getAgreementConfigurationsCount(agreementId)](#Agreements+getAgreementConfigurationsCount) ⇒ <code>promise</code> &#124; <code>[Count](#Count)</code>
+    * [.deleteConfigurationAssociation(agreementId, configurationId)](#Agreements+deleteConfigurationAssociation) ⇒ <code>promise</code> &#124; <code>[DeleteResponse](#DeleteResponse)</code>
+    * [.getConfigurationAssociation(agreementId, configurationId)](#Agreements+getConfigurationAssociation) ⇒ <code>promise</code> &#124; <code>[ConfigurationHref](#ConfigurationHref)</code>
+
+<a name="new_Agreements_new"></a>
+### new Agreements(options)
+
+| Param | Type |
+| --- | --- |
+| options | <code>[CWOptions](#CWOptions)</code> | 
+
+<a name="Agreements+getAgreements"></a>
+### agreements.getAgreements(params) ⇒ <code>promise</code> &#124; <code>[Array.&lt;Agreement&gt;](#Agreement)</code>
+GET
+
+**Kind**: instance method of <code>[Agreements](#Agreements)</code>  
+
+| Param | Type |
+| --- | --- |
+| params | <code>[Params](#Params)</code> | 
+
+<a name="Agreements+createAgreement"></a>
+### agreements.createAgreement(agreement) ⇒ <code>promise</code> &#124; <code>[Agreement](#Agreement)</code>
+POST
+
+**Kind**: instance method of <code>[Agreements](#Agreements)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreement | <code>[Agreement](#Agreement)</code> | 
+
+<a name="Agreements+getAgreementsCount"></a>
+### agreements.getAgreementsCount(params) ⇒ <code>promise</code> &#124; <code>[Count](#Count)</code>
+GET
+
+**Kind**: instance method of <code>[Agreements](#Agreements)</code>  
+
+| Param | Type |
+| --- | --- |
+| params | <code>[ParamsConditions](#ParamsConditions)</code> | 
+
+<a name="Agreements+deleteAgreementById"></a>
+### agreements.deleteAgreementById(agreementId) ⇒ <code>promise</code> &#124; <code>[DeleteResponse](#DeleteResponse)</code>
+DELETE
+
+**Kind**: instance method of <code>[Agreements](#Agreements)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId | <code>string</code> &#124; <code>number</code> | 
+
+<a name="Agreements+getAgreementById"></a>
+### agreements.getAgreementById(agreementId) ⇒ <code>promise</code> &#124; <code>[Agreement](#Agreement)</code>
+**Kind**: instance method of <code>[Agreements](#Agreements)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId | <code>string</code> &#124; <code>number</code> | 
+
+<a name="Agreements+updateAgreement"></a>
+### agreements.updateAgreement(agreementId, operations) ⇒ <code>promise</code> &#124; <code>[Agreement](#Agreement)</code>
+**Kind**: instance method of <code>[Agreements](#Agreements)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId | <code>string</code> &#124; <code>number</code> | 
+| operations | <code>[Operations](#Operations)</code> | 
+
+<a name="Agreements+replaceAgreement"></a>
+### agreements.replaceAgreement(agreementId, agreement) ⇒ <code>promise</code> &#124; <code>[Agreement](#Agreement)</code>
+**Kind**: instance method of <code>[Agreements](#Agreements)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| agreement | <code>[Agreement](#Agreement)</code> | 
+
+<a name="Agreements+getAgreementConfigurations"></a>
+### agreements.getAgreementConfigurations(agreementId, params) ⇒ <code>promise</code> &#124; <code>[Array.&lt;ConfigurationHref&gt;](#ConfigurationHref)</code>
+**Kind**: instance method of <code>[Agreements](#Agreements)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| params | <code>[ParamsPage](#ParamsPage)</code> | 
+
+<a name="Agreements+createConfigurationAssociation"></a>
+### agreements.createConfigurationAssociation(agreementId, configuration) ⇒ <code>promise</code> &#124; <code>[ConfigurationHref](#ConfigurationHref)</code>
+POST
+
+**Kind**: instance method of <code>[Agreements](#Agreements)</code>  
+
+| Param |
+| --- |
+| agreementId | 
+| configuration | 
+
+<a name="Agreements+getAgreementConfigurationsCount"></a>
+### agreements.getAgreementConfigurationsCount(agreementId) ⇒ <code>promise</code> &#124; <code>[Count](#Count)</code>
+GET
+
+**Kind**: instance method of <code>[Agreements](#Agreements)</code>  
+
+| Param |
+| --- |
+| agreementId | 
+
+<a name="Agreements+deleteConfigurationAssociation"></a>
+### agreements.deleteConfigurationAssociation(agreementId, configurationId) ⇒ <code>promise</code> &#124; <code>[DeleteResponse](#DeleteResponse)</code>
+**Kind**: instance method of <code>[Agreements](#Agreements)</code>  
+
+| Param |
+| --- |
+| agreementId | 
+| configurationId | 
+
+<a name="Agreements+getConfigurationAssociation"></a>
+### agreements.getConfigurationAssociation(agreementId, configurationId) ⇒ <code>promise</code> &#124; <code>[ConfigurationHref](#ConfigurationHref)</code>
+**Kind**: instance method of <code>[Agreements](#Agreements)</code>  
+
+| Param |
+| --- |
+| agreementId | 
+| configurationId | 
+
+<a name="AgreementSites"></a>
+## AgreementSites
+**Kind**: global class  
+**Inherits**: <code>[ConnectWise](#ConnectWise)</code>  
+
+* [AgreementSites](#AgreementSites)
+    * [new AgreementSites(options)](#new_AgreementSites_new)
+    * [.getAgreementSites(agreementId, params)](#AgreementSites+getAgreementSites) ⇒ <code>promise</code> &#124; <code>[Array.&lt;AgreementSite&gt;](#AgreementSite)</code>
+    * [.createAgreementSite(agreementId, site)](#AgreementSites+createAgreementSite) ⇒ <code>promise</code> &#124; <code>[AgreementSite](#AgreementSite)</code>
+    * [.getAgreementSitesCount(agreementId, params)](#AgreementSites+getAgreementSitesCount) ⇒ <code>promise</code> &#124; <code>[Count](#Count)</code>
+    * [.deleteAgreementSiteById(agreementId, siteId)](#AgreementSites+deleteAgreementSiteById) ⇒ <code>promise</code> &#124; <code>[DeleteResponse](#DeleteResponse)</code>
+    * [.getAgreementSiteById(agreementId, siteId)](#AgreementSites+getAgreementSiteById) ⇒ <code>promise</code> &#124; <code>[AgreementSite](#AgreementSite)</code>
+    * [.updateAgreementSite(agreementId, siteId, operations)](#AgreementSites+updateAgreementSite) ⇒ <code>promise</code> &#124; <code>[AgreementSite](#AgreementSite)</code>
+    * [.replaceAgreementSite(agreementId, siteId, site)](#AgreementSites+replaceAgreementSite) ⇒ <code>promise</code> &#124; <code>[AgreementSite](#AgreementSite)</code>
+
+<a name="new_AgreementSites_new"></a>
+### new AgreementSites(options)
+
+| Param | Type |
+| --- | --- |
+| options | <code>[CWOptions](#CWOptions)</code> | 
+
+<a name="AgreementSites+getAgreementSites"></a>
+### agreementSites.getAgreementSites(agreementId, params) ⇒ <code>promise</code> &#124; <code>[Array.&lt;AgreementSite&gt;](#AgreementSite)</code>
+GET
+
+**Kind**: instance method of <code>[AgreementSites](#AgreementSites)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| params | <code>[Params](#Params)</code> | 
+
+<a name="AgreementSites+createAgreementSite"></a>
+### agreementSites.createAgreementSite(agreementId, site) ⇒ <code>promise</code> &#124; <code>[AgreementSite](#AgreementSite)</code>
+POST
+
+**Kind**: instance method of <code>[AgreementSites](#AgreementSites)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| site | <code>[AgreementSite](#AgreementSite)</code> | 
+
+<a name="AgreementSites+getAgreementSitesCount"></a>
+### agreementSites.getAgreementSitesCount(agreementId, params) ⇒ <code>promise</code> &#124; <code>[Count](#Count)</code>
+GET
+
+**Kind**: instance method of <code>[AgreementSites](#AgreementSites)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| params | <code>[ParamsConditions](#ParamsConditions)</code> | 
+
+<a name="AgreementSites+deleteAgreementSiteById"></a>
+### agreementSites.deleteAgreementSiteById(agreementId, siteId) ⇒ <code>promise</code> &#124; <code>[DeleteResponse](#DeleteResponse)</code>
+DELETE
+
+**Kind**: instance method of <code>[AgreementSites](#AgreementSites)</code>  
+
+| Param |
+| --- |
+| agreementId | 
+| siteId | 
+
+<a name="AgreementSites+getAgreementSiteById"></a>
+### agreementSites.getAgreementSiteById(agreementId, siteId) ⇒ <code>promise</code> &#124; <code>[AgreementSite](#AgreementSite)</code>
+GET
+
+**Kind**: instance method of <code>[AgreementSites](#AgreementSites)</code>  
+
+| Param |
+| --- |
+| agreementId | 
+| siteId | 
+
+<a name="AgreementSites+updateAgreementSite"></a>
+### agreementSites.updateAgreementSite(agreementId, siteId, operations) ⇒ <code>promise</code> &#124; <code>[AgreementSite](#AgreementSite)</code>
+PATCH
+
+**Kind**: instance method of <code>[AgreementSites](#AgreementSites)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| siteId |  | 
+| operations | <code>[Operations](#Operations)</code> | 
+
+<a name="AgreementSites+replaceAgreementSite"></a>
+### agreementSites.replaceAgreementSite(agreementId, siteId, site) ⇒ <code>promise</code> &#124; <code>[AgreementSite](#AgreementSite)</code>
+PUT
+
+**Kind**: instance method of <code>[AgreementSites](#AgreementSites)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| siteId |  | 
+| site | <code>[AgreementSite](#AgreementSite)</code> | 
+
+<a name="BoardDefaults"></a>
+## BoardDefaults
+**Kind**: global class  
+**Inherits**: <code>[ConnectWise](#ConnectWise)</code>  
+
+* [BoardDefaults](#BoardDefaults)
+    * [new BoardDefaults(options)](#new_BoardDefaults_new)
+    * [.getBoardDefaults(agreementId, params)](#BoardDefaults+getBoardDefaults) ⇒ <code>promise</code> &#124; <code>[Array.&lt;BoardDefault&gt;](#BoardDefault)</code>
+    * [.createBoardDefault(agreementId, boardDefault)](#BoardDefaults+createBoardDefault) ⇒ <code>promise</code> &#124; <code>[BoardDefault](#BoardDefault)</code>
+    * [.getBoardDefaultsCount(agreementId, params)](#BoardDefaults+getBoardDefaultsCount) ⇒ <code>promise</code> &#124; <code>[Count](#Count)</code>
+    * [.deleteBoardDefaultById(agreementId, boardDefaultId)](#BoardDefaults+deleteBoardDefaultById) ⇒ <code>promise</code> &#124; <code>[DeleteResponse](#DeleteResponse)</code>
+    * [.getBoardDefaultById(agreementId, boardDefaultId)](#BoardDefaults+getBoardDefaultById) ⇒ <code>promise</code> &#124; <code>[BoardDefault](#BoardDefault)</code>
+    * [.updateBoardDefault(agreementId, boardDefaultId, operations)](#BoardDefaults+updateBoardDefault) ⇒ <code>promise</code> &#124; <code>[BoardDefault](#BoardDefault)</code>
+    * [.replaceBoardDefault(agreementId, boardDefaultId, boardDefault)](#BoardDefaults+replaceBoardDefault) ⇒ <code>promise</code> &#124; <code>[BoardDefault](#BoardDefault)</code>
+
+<a name="new_BoardDefaults_new"></a>
+### new BoardDefaults(options)
+
+| Param | Type |
+| --- | --- |
+| options | <code>[CWOptions](#CWOptions)</code> | 
+
+<a name="BoardDefaults+getBoardDefaults"></a>
+### boardDefaults.getBoardDefaults(agreementId, params) ⇒ <code>promise</code> &#124; <code>[Array.&lt;BoardDefault&gt;](#BoardDefault)</code>
+GET
+
+**Kind**: instance method of <code>[BoardDefaults](#BoardDefaults)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| params | <code>[Params](#Params)</code> | 
+
+<a name="BoardDefaults+createBoardDefault"></a>
+### boardDefaults.createBoardDefault(agreementId, boardDefault) ⇒ <code>promise</code> &#124; <code>[BoardDefault](#BoardDefault)</code>
+POST
+
+**Kind**: instance method of <code>[BoardDefaults](#BoardDefaults)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| boardDefault | <code>[BoardDefault](#BoardDefault)</code> | 
+
+<a name="BoardDefaults+getBoardDefaultsCount"></a>
+### boardDefaults.getBoardDefaultsCount(agreementId, params) ⇒ <code>promise</code> &#124; <code>[Count](#Count)</code>
+GET
+
+**Kind**: instance method of <code>[BoardDefaults](#BoardDefaults)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| params | <code>[ParamsConditions](#ParamsConditions)</code> | 
+
+<a name="BoardDefaults+deleteBoardDefaultById"></a>
+### boardDefaults.deleteBoardDefaultById(agreementId, boardDefaultId) ⇒ <code>promise</code> &#124; <code>[DeleteResponse](#DeleteResponse)</code>
+DELETE
+
+**Kind**: instance method of <code>[BoardDefaults](#BoardDefaults)</code>  
+
+| Param |
+| --- |
+| agreementId | 
+| boardDefaultId | 
+
+<a name="BoardDefaults+getBoardDefaultById"></a>
+### boardDefaults.getBoardDefaultById(agreementId, boardDefaultId) ⇒ <code>promise</code> &#124; <code>[BoardDefault](#BoardDefault)</code>
+GET
+
+**Kind**: instance method of <code>[BoardDefaults](#BoardDefaults)</code>  
+
+| Param |
+| --- |
+| agreementId | 
+| boardDefaultId | 
+
+<a name="BoardDefaults+updateBoardDefault"></a>
+### boardDefaults.updateBoardDefault(agreementId, boardDefaultId, operations) ⇒ <code>promise</code> &#124; <code>[BoardDefault](#BoardDefault)</code>
+PATCH
+
+**Kind**: instance method of <code>[BoardDefaults](#BoardDefaults)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| boardDefaultId |  | 
+| operations | <code>[Operations](#Operations)</code> | 
+
+<a name="BoardDefaults+replaceBoardDefault"></a>
+### boardDefaults.replaceBoardDefault(agreementId, boardDefaultId, boardDefault) ⇒ <code>promise</code> &#124; <code>[BoardDefault](#BoardDefault)</code>
+PUT
+
+**Kind**: instance method of <code>[BoardDefaults](#BoardDefaults)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| boardDefaultId |  | 
+| boardDefault | <code>[BoardDefault](#BoardDefault)</code> | 
+
+<a name="FinanceAPI"></a>
+## FinanceAPI
+**Kind**: global class  
+<a name="new_FinanceAPI_new"></a>
+### new FinanceAPI(options)
+
+| Param | Type |
+| --- | --- |
+| options | <code>[CWOptions](#CWOptions)</code> | 
+
+<a name="WorkRoles"></a>
+## WorkRoles
+**Kind**: global class  
+**Inherits**: <code>[ConnectWise](#ConnectWise)</code>  
+
+* [WorkRoles](#WorkRoles)
+    * [new WorkRoles(options)](#new_WorkRoles_new)
+    * [.getWorkRoles(agreementId, params)](#WorkRoles+getWorkRoles) ⇒ <code>promise</code> &#124; <code>[Array.&lt;WorkRole&gt;](#WorkRole)</code>
+    * [.createWorkRole(agreementId, workRole)](#WorkRoles+createWorkRole) ⇒ <code>promise</code> &#124; <code>[WorkRole](#WorkRole)</code>
+    * [.getWorkRolesCount(agreementId, params)](#WorkRoles+getWorkRolesCount) ⇒ <code>promise</code> &#124; <code>[Count](#Count)</code>
+    * [.deleteWorkRoleById(agreementId, workRoleId)](#WorkRoles+deleteWorkRoleById) ⇒ <code>promise</code> &#124; <code>[DeleteResponse](#DeleteResponse)</code>
+    * [.getWorkRoleById(agreementId, workRoleId)](#WorkRoles+getWorkRoleById) ⇒ <code>promise</code> &#124; <code>[WorkRole](#WorkRole)</code>
+    * [.updateWorkRole(agreementId, workRoleId, operations)](#WorkRoles+updateWorkRole) ⇒ <code>promise</code> &#124; <code>[WorkRole](#WorkRole)</code>
+    * [.replaceWorkRole(agreementId, workRoleId, workRole)](#WorkRoles+replaceWorkRole) ⇒ <code>promise</code> &#124; <code>[WorkRole](#WorkRole)</code>
+
+<a name="new_WorkRoles_new"></a>
+### new WorkRoles(options)
+
+| Param | Type |
+| --- | --- |
+| options | <code>[CWOptions](#CWOptions)</code> | 
+
+<a name="WorkRoles+getWorkRoles"></a>
+### workRoles.getWorkRoles(agreementId, params) ⇒ <code>promise</code> &#124; <code>[Array.&lt;WorkRole&gt;](#WorkRole)</code>
+GET
+
+**Kind**: instance method of <code>[WorkRoles](#WorkRoles)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| params | <code>[Params](#Params)</code> | 
+
+<a name="WorkRoles+createWorkRole"></a>
+### workRoles.createWorkRole(agreementId, workRole) ⇒ <code>promise</code> &#124; <code>[WorkRole](#WorkRole)</code>
+POST
+
+**Kind**: instance method of <code>[WorkRoles](#WorkRoles)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| workRole | <code>[WorkRole](#WorkRole)</code> | 
+
+<a name="WorkRoles+getWorkRolesCount"></a>
+### workRoles.getWorkRolesCount(agreementId, params) ⇒ <code>promise</code> &#124; <code>[Count](#Count)</code>
+GET
+
+**Kind**: instance method of <code>[WorkRoles](#WorkRoles)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| params | <code>[ParamsConditions](#ParamsConditions)</code> | 
+
+<a name="WorkRoles+deleteWorkRoleById"></a>
+### workRoles.deleteWorkRoleById(agreementId, workRoleId) ⇒ <code>promise</code> &#124; <code>[DeleteResponse](#DeleteResponse)</code>
+DELETE
+
+**Kind**: instance method of <code>[WorkRoles](#WorkRoles)</code>  
+
+| Param |
+| --- |
+| agreementId | 
+| workRoleId | 
+
+<a name="WorkRoles+getWorkRoleById"></a>
+### workRoles.getWorkRoleById(agreementId, workRoleId) ⇒ <code>promise</code> &#124; <code>[WorkRole](#WorkRole)</code>
+GET
+
+**Kind**: instance method of <code>[WorkRoles](#WorkRoles)</code>  
+
+| Param |
+| --- |
+| agreementId | 
+| workRoleId | 
+
+<a name="WorkRoles+updateWorkRole"></a>
+### workRoles.updateWorkRole(agreementId, workRoleId, operations) ⇒ <code>promise</code> &#124; <code>[WorkRole](#WorkRole)</code>
+PATCH
+
+**Kind**: instance method of <code>[WorkRoles](#WorkRoles)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| workRoleId |  | 
+| operations | <code>[Operations](#Operations)</code> | 
+
+<a name="WorkRoles+replaceWorkRole"></a>
+### workRoles.replaceWorkRole(agreementId, workRoleId, workRole) ⇒ <code>promise</code> &#124; <code>[WorkRole](#WorkRole)</code>
+PUT
+
+**Kind**: instance method of <code>[WorkRoles](#WorkRoles)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| workRoleId |  | 
+| workRole | <code>[WorkRole](#WorkRole)</code> | 
+
+<a name="WorkTypeExclusions"></a>
+## WorkTypeExclusions
+**Kind**: global class  
+**Inherits**: <code>[ConnectWise](#ConnectWise)</code>  
+
+* [WorkTypeExclusions](#WorkTypeExclusions)
+    * [new WorkTypeExclusions(options)](#new_WorkTypeExclusions_new)
+    * [.getWorkTypeExclusions(agreementId, params)](#WorkTypeExclusions+getWorkTypeExclusions) ⇒ <code>promise</code> &#124; <code>[Array.&lt;WorkTypeExclusion&gt;](#WorkTypeExclusion)</code>
+    * [.createWorkTypeExclusion(agreementId, workTypeExclusion)](#WorkTypeExclusions+createWorkTypeExclusion) ⇒ <code>promise</code> &#124; <code>[WorkTypeExclusion](#WorkTypeExclusion)</code>
+    * [.getWorkTypeExclusionsCount(agreementId, params)](#WorkTypeExclusions+getWorkTypeExclusionsCount) ⇒ <code>promise</code> &#124; <code>[Count](#Count)</code>
+    * [.deleteWorkTypeExclusionById(agreementId, workTypeExclusionId)](#WorkTypeExclusions+deleteWorkTypeExclusionById)
+
+<a name="new_WorkTypeExclusions_new"></a>
+### new WorkTypeExclusions(options)
+
+| Param | Type |
+| --- | --- |
+| options | <code>[CWOptions](#CWOptions)</code> | 
+
+<a name="WorkTypeExclusions+getWorkTypeExclusions"></a>
+### workTypeExclusions.getWorkTypeExclusions(agreementId, params) ⇒ <code>promise</code> &#124; <code>[Array.&lt;WorkTypeExclusion&gt;](#WorkTypeExclusion)</code>
+GET
+
+**Kind**: instance method of <code>[WorkTypeExclusions](#WorkTypeExclusions)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| params | <code>[Params](#Params)</code> | 
+
+<a name="WorkTypeExclusions+createWorkTypeExclusion"></a>
+### workTypeExclusions.createWorkTypeExclusion(agreementId, workTypeExclusion) ⇒ <code>promise</code> &#124; <code>[WorkTypeExclusion](#WorkTypeExclusion)</code>
+POST
+
+**Kind**: instance method of <code>[WorkTypeExclusions](#WorkTypeExclusions)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| workTypeExclusion | <code>[WorkTypeExclusion](#WorkTypeExclusion)</code> | 
+
+<a name="WorkTypeExclusions+getWorkTypeExclusionsCount"></a>
+### workTypeExclusions.getWorkTypeExclusionsCount(agreementId, params) ⇒ <code>promise</code> &#124; <code>[Count](#Count)</code>
+GET
+
+**Kind**: instance method of <code>[WorkTypeExclusions](#WorkTypeExclusions)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| params | <code>[ParamsConditions](#ParamsConditions)</code> | 
+
+<a name="WorkTypeExclusions+deleteWorkTypeExclusionById"></a>
+### workTypeExclusions.deleteWorkTypeExclusionById(agreementId, workTypeExclusionId)
+DELETE
+
+**Kind**: instance method of <code>[WorkTypeExclusions](#WorkTypeExclusions)</code>  
+
+| Param |
+| --- |
+| agreementId | 
+| workTypeExclusionId | 
+
+<a name="WorkTypes"></a>
+## WorkTypes
+**Kind**: global class  
+**Inherits**: <code>[ConnectWise](#ConnectWise)</code>  
+
+* [WorkTypes](#WorkTypes)
+    * [new WorkTypes(options)](#new_WorkTypes_new)
+    * [.getWorkTypes(agreementId, params)](#WorkTypes+getWorkTypes) ⇒ <code>promise</code> &#124; <code>[Array.&lt;WorkType&gt;](#WorkType)</code>
+    * [.createWorkType(agreementId, workType)](#WorkTypes+createWorkType) ⇒ <code>promise</code> &#124; <code>[WorkType](#WorkType)</code>
+    * [.getWorkTypesCount(agreementId, params)](#WorkTypes+getWorkTypesCount) ⇒ <code>promise</code> &#124; <code>[Count](#Count)</code>
+    * [.deleteWorkTypeById(agreementId, workTypeId)](#WorkTypes+deleteWorkTypeById) ⇒ <code>promise</code> &#124; <code>[DeleteResponse](#DeleteResponse)</code>
+    * [.getWorkTypeById(agreementId, workTypeId)](#WorkTypes+getWorkTypeById) ⇒ <code>promise</code> &#124; <code>[WorkType](#WorkType)</code>
+    * [.updateWorkType(agreementId, workTypeId, operations)](#WorkTypes+updateWorkType) ⇒ <code>promise</code> &#124; <code>[WorkType](#WorkType)</code>
+    * [.replaceWorkType(agreementId, workTypeId, workType)](#WorkTypes+replaceWorkType) ⇒ <code>promise</code> &#124; <code>[WorkType](#WorkType)</code>
+
+<a name="new_WorkTypes_new"></a>
+### new WorkTypes(options)
+
+| Param | Type |
+| --- | --- |
+| options | <code>[CWOptions](#CWOptions)</code> | 
+
+<a name="WorkTypes+getWorkTypes"></a>
+### workTypes.getWorkTypes(agreementId, params) ⇒ <code>promise</code> &#124; <code>[Array.&lt;WorkType&gt;](#WorkType)</code>
+GET
+
+**Kind**: instance method of <code>[WorkTypes](#WorkTypes)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| params | <code>[Params](#Params)</code> | 
+
+<a name="WorkTypes+createWorkType"></a>
+### workTypes.createWorkType(agreementId, workType) ⇒ <code>promise</code> &#124; <code>[WorkType](#WorkType)</code>
+POST
+
+**Kind**: instance method of <code>[WorkTypes](#WorkTypes)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| workType | <code>[WorkType](#WorkType)</code> | 
+
+<a name="WorkTypes+getWorkTypesCount"></a>
+### workTypes.getWorkTypesCount(agreementId, params) ⇒ <code>promise</code> &#124; <code>[Count](#Count)</code>
+GET
+
+**Kind**: instance method of <code>[WorkTypes](#WorkTypes)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| params | <code>[ParamsConditions](#ParamsConditions)</code> | 
+
+<a name="WorkTypes+deleteWorkTypeById"></a>
+### workTypes.deleteWorkTypeById(agreementId, workTypeId) ⇒ <code>promise</code> &#124; <code>[DeleteResponse](#DeleteResponse)</code>
+DELETE
+
+**Kind**: instance method of <code>[WorkTypes](#WorkTypes)</code>  
+
+| Param |
+| --- |
+| agreementId | 
+| workTypeId | 
+
+<a name="WorkTypes+getWorkTypeById"></a>
+### workTypes.getWorkTypeById(agreementId, workTypeId) ⇒ <code>promise</code> &#124; <code>[WorkType](#WorkType)</code>
+GET
+
+**Kind**: instance method of <code>[WorkTypes](#WorkTypes)</code>  
+
+| Param |
+| --- |
+| agreementId | 
+| workTypeId | 
+
+<a name="WorkTypes+updateWorkType"></a>
+### workTypes.updateWorkType(agreementId, workTypeId, operations) ⇒ <code>promise</code> &#124; <code>[WorkType](#WorkType)</code>
+PATCH
+
+**Kind**: instance method of <code>[WorkTypes](#WorkTypes)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| workTypeId |  | 
+| operations | <code>[Operations](#Operations)</code> | 
+
+<a name="WorkTypes+replaceWorkType"></a>
+### workTypes.replaceWorkType(agreementId, workTypeId, workType) ⇒ <code>promise</code> &#124; <code>[WorkType](#WorkType)</code>
+PUT
+
+**Kind**: instance method of <code>[WorkTypes](#WorkTypes)</code>  
+
+| Param | Type |
+| --- | --- |
+| agreementId |  | 
+| workTypeId |  | 
+| workType | <code>[WorkType](#WorkType)</code> | 
 
 <a name="Boards"></a>
 ## Boards
@@ -360,9 +1237,9 @@ PATCH
 <a name="new_ServiceDeskAPI_new"></a>
 ### new ServiceDeskAPI(options)
 
-| Param | Type |
-| --- | --- |
-| options | <code>[CWOptions](#CWOptions)</code> | 
+| Param |
+| --- |
+| options | 
 
 <a name="ServiceNotes"></a>
 ## ServiceNotes
@@ -1050,6 +1927,18 @@ GET
 | _info | <code>object</code> | 
 | _info.agreement_href | <code>string</code> | 
 
+<a name="AgreementTypeHref"></a>
+## AgreementTypeHref : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| id | <code>number</code> | 
+| name | <code>string</code> | 
+| _info | <code>object</code> | 
+| _info.type_href | <code>string</code> | 
+
 <a name="BoardHref"></a>
 ## BoardHref : <code>object</code>
 **Kind**: global typedef  
@@ -1135,6 +2024,18 @@ Service Item
 | _info.image_href | <code>string</code> | 
 | _info.priority_href | <code>string</code> | 
 
+<a name="ProductHref"></a>
+## ProductHref : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| id | <code>number</code> | 
+| identifier | <code>string</code> | 
+| _info | <code>object</code> | 
+| _info.identifier | <code>string</code> | 
+
 <a name="ServiceLocationHref"></a>
 ## ServiceLocationHref : <code>object</code>
 **Kind**: global typedef  
@@ -1146,6 +2047,17 @@ Service Item
 | name | <code>string</code> | 
 | _info | <code>object</code> | 
 | _info.location_href | <code>string</code> | 
+
+<a name="ServiceTypeHref"></a>
+## ServiceTypeHref : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| id | <code>number</code> | 
+| name | <code>string</code> | 
+| _info | <code>object</code> | 
 
 <a name="ScheduleEntryHref"></a>
 ## ScheduleEntryHref : <code>object</code>
@@ -1233,6 +2145,18 @@ Service Subtype
 | _info | <code>object</code> | 
 | _info.type_href | <code>string</code> | 
 
+<a name="OpportunityHref"></a>
+## OpportunityHref : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| id | <code>number</code> | 
+| name | <code>string</code> | 
+| _info | <code>object</code> | 
+| opportunity_href | <code>string</code> | 
+
 <a name="Params"></a>
 ## Params : <code>object</code>
 **Kind**: global typedef  
@@ -1274,6 +2198,30 @@ Service Subtype
 | id | <code>number</code> | 
 | _info | <code>object</code> | 
 | _info.description | <code>string</code> | 
+
+<a name="WorkRoleHref"></a>
+## WorkRoleHref : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| id | <code>number</code> | 
+| name | <code>string</code> | 
+| _info | <code>object</code> | 
+| _info.role_href | <code>string</code> | 
+
+<a name="WorkTypeHref"></a>
+## WorkTypeHref : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| id | <code>number</code> | 
+| name | <code>string</code> | 
+| _info | <code>object</code> | 
+| _info.type_href | <code>string</code> | 
 
 <a name="Operations"></a>
 ## Operations : <code>Array.&lt;object&gt;</code>
@@ -1341,6 +2289,221 @@ Service Subtype
 | message | <code>string</code> | 
 | errors | <code>Array.&lt;object&gt;</code> | 
 
+<a name="Addition"></a>
+## Addition : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| agreementId | <code>number</code> |  |
+| billCustomer | <code>string</code> |  |
+| cancelledDate | <code>string</code> |  |
+| description | <code>string</code> |  |
+| effectiveDate | <code>string</code> |  |
+| extCost | <code>number</code> |  |
+| extPrice | <code>number</code> |  |
+| id | <code>number</code> |  |
+| invoiceDescription | <code>string</code> |  |
+| lessIncluded | <code>number</code> |  |
+| margin | <code>number</code> |  |
+| product | <code>[ProductHref](#ProductHref)</code> |  |
+| purchaseItemFlag | <code>boolean</code> |  |
+| quantity | <code>number</code> |  |
+| serialNumber |  |  |
+| specialOrderFlag | <code>boolean</code> |  |
+| taxableFlag | <code>boolean</code> |  |
+| unitCost | <code>number</code> |  |
+| unitPrice | <code>number</code> |  |
+| uom | <code>string</code> | unit of measurement ['each', 'monthly', 'yearly', 'quarterly'] |
+| _info | <code>object</code> |  |
+| _info.lastUpdated | <code>string</code> |  |
+| _info.updatedBy | <code>string</code> |  |
+
+<a name="Adjustment"></a>
+## Adjustment : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| agreementId | <code>number</code> | 
+| amount | <code>number</code> | 
+| description | <code>string</code> | 
+| effectiveDate | <code>string</code> | 
+| id | <code>number</code> | 
+| _info | <code>object</code> | 
+| _info.lastUpdated | <code>string</code> | 
+| _info.updatedBy | <code>string</code> | 
+
+<a name="Agreement"></a>
+## Agreement : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| allowOverruns | <code>boolean</code> |  |
+| applicationCycle | <code>string</code> | ['CalendarMonth', 'Contract2Weeks', 'Contract4Weeks', 'CalendarQuarter', 'CalendarWeek', 'ContractQuarter', 'CalendarYear'] |
+| applicationLimit | <code>number</code> |  |
+| applicationUnits | <code>string</code> | ['Amount', 'Hours', 'Incidents'] |
+| applicationUnlimitedFlag | <code>boolean</code> |  |
+| billAmount | <code>number</code> |  |
+| billCycleId | <code>number</code> |  |
+| billExpenses | <code>string</code> | ['Billable', 'DoNotBill', 'NoCharge', 'NoDefault'] |
+| billOneTimeFlag | <code>boolean</code> |  |
+| billProducts | <code>string</code> | ['Billable', 'DoNotBill', 'NoCharge', 'NoDefault'] |
+| billStartDate | <code>string</code> |  |
+| billTermsId | <code>number</code> |  |
+| billTime | <code>string</code> | ['Billable', 'DoNotBill', 'NoCharge', 'NoDefault'] |
+| billToCompany | <code>object</code> |  |
+| billToCompany.id | <code>number</code> |  |
+| billToCompany.identifier | <code>string</code> |  |
+| billToCompany._info | <code>object</code> |  |
+| billToSite | <code>object</code> |  |
+| billToSite.id | <code>number</code> |  |
+| billToSite.name | <code>string</code> |  |
+| billToSite._info | <code>object</code> |  |
+| billableExpenseInvoice | <code>boolean</code> |  |
+| billableProductInvoice | <code>boolean</code> |  |
+| billableTimeInvoice | <code>boolean</code> |  |
+| bottomComment | <code>boolean</code> |  |
+| businessUnitId | <code>number</code> |  |
+| cancelledFlag | <code>boolean</code> |  |
+| carryOverUnused | <code>boolean</code> |  |
+| chargeToFirm | <code>boolean</code> |  |
+| compHourlyRate | <code>number</code> |  |
+| compLimitAmount | <code>number</code> |  |
+| company | <code>[CompanyHref](#CompanyHref)</code> |  |
+| contact | <code>[ContactHref](#ContactHref)</code> |  |
+| coverAgreementExpense | <code>boolean</code> |  |
+| coverAgreementProduct | <code>boolean</code> |  |
+| coverAgreementTime | <code>boolean</code> |  |
+| coverSalesTax | <code>boolean</code> |  |
+| customerPO | <code>string</code> |  |
+| dateCancelled | <code>string</code> |  |
+| employeeCompNotExceed | <code>string</code> | ['Billing', 'Percent', 'Amount] |
+| employeeCompRate | <code>string</code> | ['Actual', 'Hourly'] |
+| endDate | <code>string</code> |  |
+| expireWhenZero | <code>boolean</code> |  |
+| expiredDays | <code>number</code> |  |
+| id | <code>number</code> | agreementId |
+| internalNotes | <code>string</code> |  |
+| invoiceDescription | <code>string</code> |  |
+| invoiceTemplateId | <code>number</code> |  |
+| invoicingCycle | <code>string</code> | ['CalendarMonth', 'Contract2Weeks', 'Contract4Weeks', 'CalendarQuarter', 'CalendarWeek', 'ContractQuarter', 'CalendarYear'] |
+| limit | <code>number</code> |  |
+| locationId | <code>number</code> |  |
+| name | <code>string</code> | agreementName |
+| noEndingDateFlag | <code>boolean</code> |  |
+| oneTimeFlag | <code>boolean</code> |  |
+| opportunity | <code>[OpportunityHref](#OpportunityHref)</code> |  |
+| parentAgreementId | <code>number</code> |  |
+| periodType | <code>string</code> | ['Current', 'Future', 'Both', 'Undefined'] |
+| projectTypeId | <code>number</code> |  |
+| prorateFirstBill | <code>number</code> |  |
+| restrictDepartmentFlag | <code>boolean</code> |  |
+| restrictDownPayment | <code>boolean</code> |  |
+| restrictLocationFlag | <code>boolean</code> |  |
+| slaId | <code>number</code> |  |
+| startDate | <code>string</code> |  |
+| subContractCompany | <code>[CompanyHref](#CompanyHref)</code> |  |
+| subContractContact | <code>[ContactHref](#ContactHref)</code> |  |
+| taxCodeId | <code>number</code> |  |
+| taxable | <code>boolean</code> |  |
+| topComment | <code>boolean</code> |  |
+| type | <code>[AgreementTypeHref](#AgreementTypeHref)</code> |  |
+| workOrder | <code>string</code> |  |
+| workRole | <code>[WorkRoleHref](#WorkRoleHref)</code> |  |
+| workType | <code>[WorkTypeHref](#WorkTypeHref)</code> |  |
+
+<a name="AgreementSite"></a>
+## AgreementSite : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| id | <code>number</code> | 
+| company | <code>[CompanyHref](#CompanyHref)</code> | 
+| site | <code>[SiteHref](#SiteHref)</code> | 
+| agreementId | <code>number</code> | 
+| _info | <code>object</code> | 
+
+<a name="BoardDefault"></a>
+## BoardDefault : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| id | <code>number</code> | 
+| board | <code>[BoardHref](#BoardHref)</code> | 
+| serviceType | <code>[ServiceTypeHref](#ServiceTypeHref)</code> | 
+| defaultFlag | <code>boolean</code> | 
+| agreementId | <code>number</code> | 
+| _info | <code>object</code> | 
+
+<a name="WorkRole"></a>
+## WorkRole : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| id | <code>number</code> |  |
+| workRole | <code>[WorkRoleHref](#WorkRoleHref)</code> |  |
+| locationId | <code>number</code> |  |
+| rateType | <code>string</code> | ['AdjAmount', 'Custom', 'Multiplier'] |
+| rate | <code>number</code> |  |
+| limitTo | <code>number</code> |  |
+| effectiveDate | <code>string</code> |  |
+| endingDate | <code>string</code> |  |
+| agreementId | <code>number</code> |  |
+| _info | <code>object</code> |  |
+
+<a name="WorkTypeExclusion"></a>
+## WorkTypeExclusion : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| id | <code>number</code> | 
+| workType | <code>[WorkTypeHref](#WorkTypeHref)</code> | 
+| agreementId | <code>number</code> | 
+| _info | <code>object</code> | 
+| _info.lastUpdated | <code>string</code> | 
+| _info.updatedBy | <code>string</code> | 
+
+<a name="WorkType"></a>
+## WorkType : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| id | <code>number</code> |  |
+| workType | <code>[WorkTypeHref](#WorkTypeHref)</code> |  |
+| locationId | <code>number</code> |  |
+| rateType | <code>string</code> | ['AdjAmount', 'Custom', 'Multiplier'] |
+| billTime | <code>string</code> | ['Billable', 'DoNotBill', 'NoCharge', 'NoDefault'] |
+| rate | <code>number</code> |  |
+| hoursMax | <code>number</code> |  |
+| hoursMin | <code>number</code> |  |
+| roundBillHours | <code>number</code> |  |
+| overageRate | <code>number</code> |  |
+| overageRateType | <code>string</code> | ['AdjAmount', 'Custom', 'Multiplier'] |
+| agreementLimit | <code>number</code> |  |
+| site | <code>[SiteHref](#SiteHref)</code> |  |
+| effectiveDate | <code>string</code> |  |
+| endingDate | <code>string</code> |  |
+| agreementId | <code>number</code> |  |
+| company | <code>[CompanyHref](#CompanyHref)</code> |  |
+| _info | <code>object</code> |  |
+| _info.lastUpdated | <code>string</code> |  |
+| _info.updatedBy | <code>string</code> |  |
+
 <a name="Board"></a>
 ## Board : <code>object</code>
 **Kind**: global typedef  
@@ -1359,6 +2522,25 @@ Service Subtype
 | sendToResource | <code>boolean</code> | 
 | resourceTemplateId | <code>number</code> | 
 | _info | <code>object</code> | 
+
+<a name="ServiceDeskAPI"></a>
+## ServiceDeskAPI : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| Tickets | <code>[Tickets](#Tickets)</code> | 
+| Boards | <code>[Boards](#Boards)</code> | 
+| Statuses | <code>[Statuses](#Statuses)</code> | 
+| ServiceNotes | <code>[ServiceNotes](#ServiceNotes)</code> | 
+
+<a name="new_ServiceDeskAPI_new"></a>
+### new ServiceDeskAPI(options)
+
+| Param |
+| --- |
+| options | 
 
 <a name="ServiceNote"></a>
 ## ServiceNote : <code>Object</code>
@@ -1510,8 +2692,8 @@ Service Subtype
 | member | <code>[MemberHref](#MemberHref)</code> |  |
 | locationId | <code>number</code> |  |
 | businessUnitId | <code>number</code> |  |
-| workType | <code>WorkTypeHref</code> |  |
-| workRole | <code>WorkRoleHref</code> |  |
+| workType | <code>[WorkTypeHref](#WorkTypeHref)</code> |  |
+| workRole | <code>[WorkRoleHref](#WorkRoleHref)</code> |  |
 | agreement | <code>[AgreementHref](#AgreementHref)</code> |  |
 | timeStart | <code>string</code> |  |
 | timeEnd | <code>string</code> |  |
