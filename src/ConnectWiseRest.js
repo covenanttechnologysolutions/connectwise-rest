@@ -12,18 +12,29 @@
  */
 
 /**
+ * @type {object} ConnectWiseRest
+ * @property {ConnectWise} API
+ * @property {FinanceAPI} FinanceAPI
+ * @property {ServiceDeskAPI} ServiceDeskAPI
+ * @property {TimeAPI} TimeAPI
+ */
+
+/**
  *
  * @param {CWOptions} options
- * @returns {{API: (ConnectWise|exports|module.exports), ServiceDeskAPI: (ServiceDeskAPI|exports|module.exports), TimeAPI: (TimeEntries|exports|module.exports)}}
+ * @returns {{API: (ConnectWise), FinanceAPI: (FinanceAPI), ServiceDeskAPI: (ServiceDeskAPI), TimeAPI: (TimeAPI)}}
  * @constructor
  */
 function ConnectWiseRest(options) {
-    var _ServiceDeskAPI = require('./ServiceDeskAPI'),
+    var _ConnectWise = require('./ConnectWise'),
+        _FinanceAPI = require('./FinanceAPI'),
         _TimeAPI = require('./TimeAPI'),
-        _ConnectWise = require('./ConnectWise');
+        _ServiceDeskAPI = require('./ServiceDeskAPI');
+
 
     return {
         API: new _ConnectWise(options),
+        FinanceAPI: new _FinanceAPI(options),
         ServiceDeskAPI: new _ServiceDeskAPI(options),
         TimeAPI: new _TimeAPI(options)
     }
@@ -41,6 +52,14 @@ module.exports = ConnectWiseRest;
  * @property {string} name
  * @property {object} _info
  * @property {string} _info.agreement_href
+ */
+
+/**
+ * @typedef {object} AgreementTypeHref
+ * @property {number} id
+ * @property {string} name
+ * @property {object} _info
+ * @property {string} _info.type_href
  */
 
 /**
@@ -99,11 +118,26 @@ module.exports = ConnectWiseRest;
  */
 
 /**
+ * @typedef {object} ProductHref
+ * @property {number} id
+ * @property {string} identifier
+ * @property {object} _info
+ * @property {string} _info.identifier
+ */
+
+/**
  * @typedef {object} ServiceLocationHref
  * @property {number} id
  * @property {string} name
  * @property {object} _info
  * @property {string} _info.location_href
+ */
+
+/**
+ * @typedef {object} ServiceTypeHref
+ * @property {number} id
+ * @property {string} name
+ * @property {object} _info
  */
 
 /**
@@ -163,11 +197,19 @@ module.exports = ConnectWiseRest;
  */
 
 /**
+ * @typedef {object} OpportunityHref
+ * @property {number} id
+ * @property {string} name
+ * @property {object} _info
+ * @property {string} opportunity_href
+ */
+
+/**
  * @typedef {object} Params
  * @property {string} [conditions]
  * @property {string} [orderBy]
- * @property {string|number} page
- * @property {string|number} pageSize
+ * @property {string|number} [page]
+ * @property {string|number} [pageSize]
  */
 
 /**
@@ -186,6 +228,22 @@ module.exports = ConnectWiseRest;
  * @property {number} id
  * @property {object} _info
  * @property {string} _info.description
+ */
+
+/**
+ * @typedef {object} WorkRoleHref
+ * @property {number} id
+ * @property {string} name
+ * @property {object} _info
+ * @property {string} _info.role_href
+ */
+
+/**
+ * @typedef {object} WorkTypeHref
+ * @property {number} id
+ * @property {string} name
+ * @property {object} _info
+ * @property {string} _info.type_href
  */
 
 /**
