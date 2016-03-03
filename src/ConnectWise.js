@@ -52,7 +52,7 @@ function ConnectWise(options) {
         throw new Error('companyUrl must be defined');
     }
 
-    if(!options.entryPoint){
+    if (!options.entryPoint) {
         options.entryPoint = 'v4_6_release';
     }
 
@@ -60,7 +60,7 @@ function ConnectWise(options) {
 
     this.config.companyId = options.companyId;
     this.config.companyUrl = options.companyUrl;
-    this.config.apiUrl = 'https://' + options.companyUrl + '/' + options.entryPoint +  DEFAULTS.apiPath;
+    this.config.apiUrl = 'https://' + options.companyUrl + '/' + options.entryPoint + DEFAULTS.apiPath;
     this.config.publicKey = options.publicKey;
     this.config.privateKey = options.privateKey;
     this.config.authRaw = options.companyId + '+' + options.publicKey + ':' + options.privateKey;
@@ -112,7 +112,11 @@ ConnectWise.prototype.api = function (path, method, params) {
 
     request(options, function (err, res) {
         if (err) {
-            deferred.reject(err.code + ': ' + err.message);
+            deferred.reject({
+                code: err.code,
+                message: err.message,
+                errors: [err]
+            });
         } else {
             if (method === 'DELETE' && res.body === '') {
                 /** @type DeleteResponse */
@@ -126,7 +130,11 @@ ConnectWise.prototype.api = function (path, method, params) {
                         deferred.resolve(body);
                     }
                 } catch (e) {
-                    deferred.reject(e);
+                    deferred.reject({
+                        code: 'EPARSE',
+                        message: 'Error parsing response from server.  Check that options.companyUrl is correct.',
+                        errors: [e]
+                    });
                 }
             }
         }
