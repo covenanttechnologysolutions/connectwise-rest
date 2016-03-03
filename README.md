@@ -178,8 +178,6 @@ Valid example conditions string
 <dd></dd>
 <dt><a href="#BoardDefaults">BoardDefaults</a></dt>
 <dd></dd>
-<dt><a href="#FinanceAPI">FinanceAPI</a></dt>
-<dd></dd>
 <dt><a href="#WorkRoles">WorkRoles</a></dt>
 <dd></dd>
 <dt><a href="#WorkTypeExclusions">WorkTypeExclusions</a></dt>
@@ -199,6 +197,13 @@ Valid example conditions string
 <dt><a href="#TimeAPI">TimeAPI</a></dt>
 <dd></dd>
 <dt><a href="#TimeEntries">TimeEntries</a></dt>
+<dd></dd>
+</dl>
+
+## Functions
+
+<dl>
+<dt><a href="#FinanceAPI">FinanceAPI(options)</a> ⇒ <code><a href="#FinanceAPI">FinanceAPI</a></code></dt>
 <dd></dd>
 </dl>
 
@@ -283,6 +288,8 @@ Valid example conditions string
 <dd></dd>
 <dt><a href="#BoardDefault">BoardDefault</a> : <code>object</code></dt>
 <dd></dd>
+<dt><a href="#FinanceAPI">FinanceAPI</a> : <code>object</code></dt>
+<dd></dd>
 <dt><a href="#WorkRole">WorkRole</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#WorkTypeExclusion">WorkTypeExclusion</a> : <code>object</code></dt>
@@ -293,7 +300,7 @@ Valid example conditions string
 <dd></dd>
 <dt><a href="#ServiceDeskAPI">ServiceDeskAPI</a> : <code>object</code></dt>
 <dd></dd>
-<dt><a href="#ServiceNote">ServiceNote</a> : <code>Object</code></dt>
+<dt><a href="#ServiceNote">ServiceNote</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#Status">Status</a> : <code>object</code></dt>
 <dd></dd>
@@ -889,16 +896,6 @@ PUT
 | boardDefaultId |  | 
 | boardDefault | <code>[BoardDefault](#BoardDefault)</code> | 
 
-<a name="FinanceAPI"></a>
-## FinanceAPI
-**Kind**: global class  
-<a name="new_FinanceAPI_new"></a>
-### new FinanceAPI(options)
-
-| Param | Type |
-| --- | --- |
-| options | <code>[CWOptions](#CWOptions)</code> | 
-
 <a name="WorkRoles"></a>
 ## WorkRoles
 **Kind**: global class  
@@ -1397,6 +1394,7 @@ GET
 <a name="Statuses"></a>
 ## Statuses
 **Kind**: global class  
+**Inherits**: <code>[ConnectWise](#ConnectWise)</code>  
 
 * [Statuses](#Statuses)
     * [new Statuses(options)](#new_Statuses_new)
@@ -1413,11 +1411,7 @@ GET
 
 | Param | Type |
 | --- | --- |
-| options | <code>object</code> | 
-| options.companyId | <code>string</code> | 
-| options.publicKey | <code>string</code> | 
-| options.privateKey | <code>string</code> | 
-| options.companyUrl | <code>string</code> | 
+| options | <code>[CWOptions](#CWOptions)</code> | 
 
 <a name="Statuses+getStatusesByBoardId"></a>
 ### statuses.getStatusesByBoardId(boardId, params) ⇒ <code>[Array.&lt;Status&gt;](#Status)</code> &#124; <code>promise</code>
@@ -1919,6 +1913,14 @@ GET
 | --- | --- |
 | id |  | 
 | timeEntry | <code>[TimeEntry](#TimeEntry)</code> &#124; <code>promise</code> | 
+
+<a name="FinanceAPI"></a>
+## FinanceAPI(options) ⇒ <code>[FinanceAPI](#FinanceAPI)</code>
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| options | <code>[CWOptions](#CWOptions)</code> | 
 
 <a name="CWOptions"></a>
 ## CWOptions : <code>object</code>
@@ -2461,6 +2463,22 @@ Service Subtype
 | agreementId | <code>number</code> | 
 | _info | <code>object</code> | 
 
+<a name="FinanceAPI"></a>
+## FinanceAPI : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| Additions | <code>[Additions](#Additions)</code> | 
+| Adjustments | <code>[Adjustments](#Adjustments)</code> | 
+| Agreements | <code>[Agreements](#Agreements)</code> | 
+| AgreementSites | <code>[AgreementSites](#AgreementSites)</code> | 
+| BoardDefaults | <code>[BoardDefaults](#BoardDefaults)</code> | 
+| WorkRoles | <code>[WorkRoles](#WorkRoles)</code> | 
+| WorkTypeExclusions | <code>[WorkTypeExclusions](#WorkTypeExclusions)</code> | 
+| WorkTypes | <code>[WorkTypes](#WorkTypes)</code> | 
+
 <a name="WorkRole"></a>
 ## WorkRole : <code>object</code>
 **Kind**: global typedef  
@@ -2560,7 +2578,7 @@ Service Subtype
 | options | 
 
 <a name="ServiceNote"></a>
-## ServiceNote : <code>Object</code>
+## ServiceNote : <code>object</code>
 **Kind**: global typedef  
 **Properties**
 
