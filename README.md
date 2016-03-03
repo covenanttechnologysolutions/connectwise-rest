@@ -4,7 +4,7 @@ A nodejs module for interacting with the ConnectWise REST API.   This module is 
 ## Requirements
 
 - ConnectWise 2015.3+, though these functions are written for ConnectWise 2016.1 APIs (API3.0 v1.0.0). 
-- ConnectWise API keys (available on ConnectWise 2015.3+), or API Only Member keys (only available on ConnectWise 2015.6+)
+- ConnectWise API keys (available on ConnectWise 2015.3+), or API Only Member keys (only available on ConnectWise 2015.6+).  See the [documentation](https://developer.connectwise.com/Authentication) for more details. 
 
 ## Usage
 
@@ -65,6 +65,22 @@ You can also manually access the API:
         //handle errors
     });
 ```
+
+### Cloud-Hosted ConnectWise 
+
+To access cloud-hosted ConnectWise, use the `companyUrl` of `api-na.myconnectwise.net` and override the default `entryPoint`.
+
+```javascript
+    options = {
+        companyId: 'company',
+        companyUrl: 'api-na.myconnectwise.net',
+        entryPoint: 'v2016_2'
+        publicKey: '<public key>',
+        privateKey: '<private key>'
+    }
+
+```
+
 
 ## Implemented APIs
 
@@ -298,13 +314,14 @@ Valid example conditions string
 <a name="new_ConnectWise_new"></a>
 ### new ConnectWise(options)
 
-| Param | Type |
-| --- | --- |
-| options | <code>object</code> | 
-| options.companyId | <code>string</code> | 
-| options.publicKey | <code>string</code> | 
-| options.privateKey | <code>string</code> | 
-| options.companyUrl | <code>string</code> | 
+| Param | Type | Description |
+| --- | --- | --- |
+| options | <code>object</code> |  |
+| options.companyId | <code>string</code> |  |
+| options.publicKey | <code>string</code> |  |
+| options.privateKey | <code>string</code> |  |
+| options.companyUrl | <code>string</code> |  |
+| [options.entryPoint] | <code>string</code> | defaults to 'v4_6_release' |
 
 <a name="ConnectWise+api"></a>
 ### connectWise.api(path, method, [params])

@@ -11,12 +11,12 @@ var request = require('request'),
     Q = require('q');
 
 /**
- * @const {string} DEFAULTS.entryPoint
+ * @const {string} DEFAULTS.apiPath
  * @const {string} DEFAULTS.apiVersion
- * @type {{entryPoint: string, apiVersion: string}}
+ * @type {{apiPath: string, apiVersion: string}}
  */
 var DEFAULTS = {
-    entryPoint: '/v4_6_release/apis/3.0',
+    apiPath: '/apis/3.0',
     apiVersion: '3.0'
 };
 
@@ -26,6 +26,7 @@ var DEFAULTS = {
  * @param {string} options.publicKey
  * @param {string} options.privateKey
  * @param {string} options.companyUrl
+ * @param {string} [options.entryPoint] defaults to 'v4_6_release'
  * @constructor
  */
 function ConnectWise(options) {
@@ -51,11 +52,15 @@ function ConnectWise(options) {
         throw new Error('companyUrl must be defined');
     }
 
+    if(!options.entryPoint){
+        options.entryPoint = 'v4_6_release';
+    }
+
     this.config = {};
 
     this.config.companyId = options.companyId;
     this.config.companyUrl = options.companyUrl;
-    this.config.apiUrl = 'https://' + options.companyUrl + DEFAULTS.entryPoint;
+    this.config.apiUrl = 'https://' + options.companyUrl + '/' + options.entryPoint +  DEFAULTS.apiPath;
     this.config.publicKey = options.publicKey;
     this.config.privateKey = options.privateKey;
     this.config.authRaw = options.companyId + '+' + options.publicKey + ':' + options.privateKey;
@@ -84,7 +89,7 @@ ConnectWise.prototype.api = function (path, method, params) {
     var options = {
         url: this.config.apiUrl + path,
         headers: {
-            'Accept': 'text/html,application/json,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+            'Accept': 'application/json',
             'Cache-Control': 'no-cache',
             'Authorization': this.config.auth
         },
