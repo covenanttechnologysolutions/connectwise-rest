@@ -37,6 +37,7 @@ var Q = require('q'),
  * @property {string} contactPhoneNumber
  * @property {CountryHref} country
  * @property {boolean} customerUpdatedFlag
+ * @property {CustomField[]} customFields
  * @property {string} dateEntered
  * @property {string} dateResolved
  * @property {string} dateResplan
