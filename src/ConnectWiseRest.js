@@ -288,3 +288,14 @@ module.exports = ConnectWiseRest;
  * @property {string} message
  * @property {object[]} errors
  */
+
+/**
+ * @typedef {object} CustomField
+ * @property {string} caption
+ * @property {string} entryMethod
+ * @property {number} id
+ * @property {number} numberOfDecimals
+ * @property {string} type
+ * @property {string} value
+ *
+ */
