@@ -516,6 +516,51 @@ Tickets.prototype.updateTicketServiceItem = function (id, serviceItem) {
 
 /**
  *
+ * @param {string|number} id ticketNbr
+ * @param {string|number} customFieldId
+ * @param {string|number} value
+ * @returns {Ticket|promise}
+ */
+Tickets.prototype.updateTicketCustomFieldById = function (id, customFieldId, value) {
+    return this.updateTicket(id, [{
+        op: 'replace',
+        path: 'customFields/' + customFieldId + '/value',
+        value: value
+    }]);
+};
+
+/**
+ *
+ * @param {string|number} id ticketNbr
+ * @param {string|number} caption
+ * @param {string|number} value
+ * @returns {Ticket|promise}
+ */
+Tickets.prototype.updateTicketCustomFieldByCaption = function (id, caption, value) {
+    var self = this;
+    return self.getTicketById(id)
+        .then(function (ticket) {
+            var customFieldId;
+            ticket.customFields.forEach(function (elem, idx) {
+                if (elem.caption === caption) {
+                    customFieldId = idx;
+                }
+            });
+
+            if (customFieldId === undefined) {
+                throw {
+                    code: 'InvalidCustomFieldName',
+                    message: 'No custom field found with caption specified',
+                    errors: null
+                };
+            }
+
+            return self.updateTicketCustomFieldById(id, customFieldId, value);
+        });
+};
+
+/**
+ *
  * @type {Tickets}
  */
 module.exports = Tickets;
