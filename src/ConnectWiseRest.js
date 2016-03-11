@@ -29,14 +29,16 @@ function ConnectWiseRest(options) {
     var _ConnectWise = require('./ConnectWise'),
         _FinanceAPI = require('./FinanceAPI'),
         _TimeAPI = require('./TimeAPI'),
-        _ServiceDeskAPI = require('./ServiceDeskAPI');
+        _ServiceDeskAPI = require('./ServiceDeskAPI'),
+        _ProjectAPI = require('./ProjectAPI');
 
 
     return {
         API: new _ConnectWise(options),
         FinanceAPI: new _FinanceAPI(options),
         ServiceDeskAPI: new _ServiceDeskAPI(options),
-        TimeAPI: new _TimeAPI(options)
+        TimeAPI: new _TimeAPI(options),
+        ProjectAPI: new _ProjectAPI(options)
     }
 }
 
@@ -297,5 +299,21 @@ module.exports = ConnectWiseRest;
  * @property {number} numberOfDecimals
  * @property {string} type
  * @property {string} value
+ *
+ */
+
+/**
+ * @typedef {object} ProjectStatusHref
+ * @property {number} id
+ * @property {string} name
+ * @property {object} _info
+ *
+ */
+
+/**
+ * @typedef {object} ProjectTypeHref
+ * @property {number} id
+ * @property {string} name
+ * @property {object} _info
  *
  */
