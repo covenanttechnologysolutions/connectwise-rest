@@ -317,3 +317,12 @@ module.exports = ConnectWiseRest;
  * @property {object} _info
  *
  */
+
+/**
+ * @typedef {object} OwnerHref
+ * @property {number} id
+ * @property {string} identifier
+ * @property {object} _info
+ * @property {string} image_href
+ * @property {string} member_href
+ */

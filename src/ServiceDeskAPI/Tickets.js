@@ -57,6 +57,7 @@ var Q = require('q'),
  * @property knowledgeBaseLinkType
  * @property knowledgeBaseSubCategoryId
  * @property opportunity
+ * @property {OwnerHref} owner
  * @property parentTicketId
  * @property phase
  * @property poNumber
