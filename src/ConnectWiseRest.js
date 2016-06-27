@@ -17,16 +17,19 @@
  * @property {FinanceAPI} FinanceAPI
  * @property {ServiceDeskAPI} ServiceDeskAPI
  * @property {TimeAPI} TimeAPI
+ * @property {ProjectAPI} ProjectAPI
+ * @property {CompanyAPI} CompanyAPI
  */
 
 /**
  *
- * @param {CWOptions} options
- * @returns {{API: (ConnectWise), FinanceAPI: (FinanceAPI), ServiceDeskAPI: (ServiceDeskAPI), TimeAPI: (TimeAPI)}}
+ * @param options
+ * @returns {{API: ConnectWise, CompanyAPI: CompanyAPI, FinanceAPI: FinanceAPI, ServiceDeskAPI: ServiceDeskAPI, TimeAPI: TimeAPI, ProjectAPI: ProjectAPI}}
  * @constructor
  */
 function ConnectWiseRest(options) {
     var _ConnectWise = require('./ConnectWise'),
+        _CompanyAPI = require('./CompanyAPI'),
         _FinanceAPI = require('./FinanceAPI'),
         _TimeAPI = require('./TimeAPI'),
         _ServiceDeskAPI = require('./ServiceDeskAPI'),
@@ -35,6 +38,7 @@ function ConnectWiseRest(options) {
 
     return {
         API: new _ConnectWise(options),
+        CompanyAPI: new _CompanyAPI(options),
         FinanceAPI: new _FinanceAPI(options),
         ServiceDeskAPI: new _ServiceDeskAPI(options),
         TimeAPI: new _TimeAPI(options),
@@ -285,6 +289,12 @@ module.exports = ConnectWiseRest;
  */
 
 /**
+ * @typedef {object} PostResponse
+ * @property {string} error null if no error
+ */
+
+
+/**
  * @typedef {object} ErrorResponse
  * @property {string} code
  * @property {string} message
@@ -325,4 +335,51 @@ module.exports = ConnectWiseRest;
  * @property {object} _info
  * @property {string} image_href
  * @property {string} member_href
+ */
+
+/**
+ * @typedef {object} CountryHref
+ * @property {number} id
+ * @property {string} name
+ * @property {object} _info
+ */
+
+/**
+ * @typedef {object} CustomField
+ * @property {string} caption
+ * @property {string} entryMethod
+ * @property {number} id
+ * @property {number} numberOfDecimals
+ * @property {string} type
+ * @property {string} value
+ *
+ */
+
+/**
+ * @typedef {object} CommunicationItemHref
+ * @property {string} communicationType
+ * @property {boolean} defaultFlag
+ * @property extension
+ * @property {number} id
+ * @property {TypeHref} type
+ * @property {string} value
+ *
+ */
+
+/**
+ * @typedef {object} DepartmentHref
+ * @property {number} id
+ * @property {string} name
+ * @property {object} _info
+ * @property {string} _info.department_href
+ *
+ */
+
+/**
+ * @typedef {object} RelationshipHref
+ * @property {number} id
+ * @property {string} name
+ * @property {object} _info
+ * @property {string} relationship_href
+ *
  */
