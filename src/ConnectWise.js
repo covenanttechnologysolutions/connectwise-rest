@@ -118,7 +118,7 @@ ConnectWise.prototype.api = function (path, method, params) {
                 errors: [err]
             });
         } else {
-            if (method === 'DELETE' && res.body === '') {
+            if (method === 'DELETE' && res.body === '' || method === 'POST' && res.statusCode === 204 ) {
                 /** @type DeleteResponse */
                 deferred.resolve({});
             } else {
