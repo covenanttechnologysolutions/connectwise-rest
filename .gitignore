@@ -13,4 +13,7 @@ pids
 
 node_modules
 test
-docs/*
+docs/fonts/
+docs/styles/
+docs/scripts/
+docs/*.html
