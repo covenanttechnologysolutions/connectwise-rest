@@ -28,22 +28,24 @@
  * @constructor
  */
 function ConnectWiseRest(options) {
-    var _ConnectWise = require('./ConnectWise'),
-        _CompanyAPI = require('./CompanyAPI'),
-        _FinanceAPI = require('./FinanceAPI'),
-        _TimeAPI = require('./TimeAPI'),
-        _ServiceDeskAPI = require('./ServiceDeskAPI'),
-        _ProjectAPI = require('./ProjectAPI');
-
-
-    return {
-        API: new _ConnectWise(options),
-        CompanyAPI: new _CompanyAPI(options),
-        FinanceAPI: new _FinanceAPI(options),
-        ServiceDeskAPI: new _ServiceDeskAPI(options),
-        TimeAPI: new _TimeAPI(options),
-        ProjectAPI: new _ProjectAPI(options)
-    }
+  var _ConnectWise = require('./ConnectWise'),
+    _CompanyAPI = require('./CompanyAPI'),
+    _FinanceAPI = require('./FinanceAPI'),
+    _TimeAPI = require('./TimeAPI'),
+    _ServiceDeskAPI = require('./ServiceDeskAPI'),
+    _ProjectAPI = require('./ProjectAPI'),
+    _SystemAPI = require('./SystemAPI');
+  
+  
+  return {
+    API: new _ConnectWise(options),
+    CompanyAPI: new _CompanyAPI(options),
+    FinanceAPI: new _FinanceAPI(options),
+    ServiceDeskAPI: new _ServiceDeskAPI(options),
+    TimeAPI: new _TimeAPI(options),
+    ProjectAPI: new _ProjectAPI(options),
+    SystemAPI: new _SystemAPI(options)
+  }
 }
 
 /**
@@ -227,6 +229,12 @@ module.exports = ConnectWiseRest;
 /**
  * @typedef {object} ParamsConditions
  * @property {string} [conditions]
+ */
+
+/**
+ * @typedef {object} ParamsImage
+ * @property {boolean} useDefaultFlag
+ * @property {string} lastmodifier note the lower case M (not a typo)
  */
 
 /**
