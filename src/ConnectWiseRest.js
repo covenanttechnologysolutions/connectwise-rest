@@ -238,6 +238,23 @@ module.exports = ConnectWiseRest;
  */
 
 /**
+ * @typedef {object} ParamsConfig
+ * @property {string} conditions
+ * @property {string} managedIdentifier
+ */
+
+/**
+ * @typedef {object} ParamsConfigUpdate
+ * @property {string} managementSolutionName
+ * @property {string} managedIdentifier
+ * @property {string} type
+ * @property {string} level
+ * @property {string} childConfigurationsMatchingOn
+ * @property {string} inactivateConfigurationsMatchingOn
+ * @property {number} inactiveConfigurationStatusId
+ */
+
+/**
  * @typedef {object} ProductHref
  * @property {number} id
  * @property {object} _info
