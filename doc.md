@@ -3,6 +3,8 @@
 <dl>
 <dt><a href="#Companies">Companies</a></dt>
 <dd></dd>
+<dt><a href="#Configurations">Configurations</a></dt>
+<dd></dd>
 <dt><a href="#Contacts">Contacts</a></dt>
 <dd></dd>
 <dt><a href="#ConnectWise">ConnectWise</a></dt>
@@ -39,6 +41,10 @@
 <dd></dd>
 <dt><a href="#Tickets">Tickets</a></dt>
 <dd></dd>
+<dt><a href="#SystemAPI">SystemAPI</a></dt>
+<dd></dd>
+<dt><a href="#Members">Members</a></dt>
+<dd></dd>
 <dt><a href="#TimeAPI">TimeAPI</a></dt>
 <dd></dd>
 <dt><a href="#TimeEntries">TimeEntries</a></dt>
@@ -62,6 +68,10 @@
 <dt><a href="#Company">Company</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#CompanyNote">CompanyNote</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#Configuration">Configuration</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#ConfigurationQuestion">ConfigurationQuestion</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#Contact">Contact</a> : <code>object</code></dt>
 <dd></dd>
@@ -120,6 +130,12 @@
 <dt><a href="#ParamsPage">ParamsPage</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#ParamsConditions">ParamsConditions</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#ParamsImage">ParamsImage</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#ParamsConfig">ParamsConfig</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#ParamsConfigUpdate">ParamsConfigUpdate</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#ProductHref">ProductHref</a> : <code>object</code></dt>
 <dd></dd>
@@ -192,6 +208,10 @@
 <dt><a href="#Status">Status</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#Ticket">Ticket</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#SystemAPI">SystemAPI</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#Member">Member</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#TimeEntry">TimeEntry</a> : <code>object</code></dt>
 <dd></dd>
@@ -294,6 +314,96 @@
 **Todo**
 
 - [ ] finish this one
+
+<a name="Configurations"></a>
+
+## Configurations
+**Kind**: global class  
+**Inherits**: <code>[ConnectWise](#ConnectWise)</code>  
+
+* [Configurations](#Configurations)
+    * [new Configurations(options)](#new_Configurations_new)
+    * [.getConfigurations(params)](#Configurations+getConfigurations) ⇒ <code>promise</code> &#124; <code>[Array.&lt;Configuration&gt;](#Configuration)</code>
+    * [.createConfiguration(configuration)](#Configurations+createConfiguration) ⇒ <code>promise</code> &#124; <code>[Configuration](#Configuration)</code>
+    * [.getConfigurationsCount(params)](#Configurations+getConfigurationsCount) ⇒ <code>promise</code> &#124; <code>[Count](#Count)</code>
+    * [.deleteConfigurationById(id)](#Configurations+deleteConfigurationById) ⇒ <code>promise</code> &#124; <code>[DeleteResponse](#DeleteResponse)</code>
+    * [.getConfigurationById(id)](#Configurations+getConfigurationById) ⇒ <code>promise</code> &#124; <code>[Configuration](#Configuration)</code>
+    * [.updateConfiguration(id, ops, params)](#Configurations+updateConfiguration) ⇒ <code>promise</code> &#124; <code>[Configuration](#Configuration)</code>
+    * [.replaceConfiguration(id, config)](#Configurations+replaceConfiguration) ⇒ <code>promise</code>
+
+<a name="new_Configurations_new"></a>
+
+### new Configurations(options)
+
+| Param | Type |
+| --- | --- |
+| options | <code>[CWOptions](#CWOptions)</code> | 
+
+<a name="Configurations+getConfigurations"></a>
+
+### configurations.getConfigurations(params) ⇒ <code>promise</code> &#124; <code>[Array.&lt;Configuration&gt;](#Configuration)</code>
+**Kind**: instance method of <code>[Configurations](#Configurations)</code>  
+
+| Param | Type |
+| --- | --- |
+| params | <code>[Params](#Params)</code> | 
+
+<a name="Configurations+createConfiguration"></a>
+
+### configurations.createConfiguration(configuration) ⇒ <code>promise</code> &#124; <code>[Configuration](#Configuration)</code>
+**Kind**: instance method of <code>[Configurations](#Configurations)</code>  
+
+| Param | Type |
+| --- | --- |
+| configuration | <code>[Configuration](#Configuration)</code> | 
+
+<a name="Configurations+getConfigurationsCount"></a>
+
+### configurations.getConfigurationsCount(params) ⇒ <code>promise</code> &#124; <code>[Count](#Count)</code>
+**Kind**: instance method of <code>[Configurations](#Configurations)</code>  
+
+| Param | Type |
+| --- | --- |
+| params | <code>[ParamsConfig](#ParamsConfig)</code> | 
+
+<a name="Configurations+deleteConfigurationById"></a>
+
+### configurations.deleteConfigurationById(id) ⇒ <code>promise</code> &#124; <code>[DeleteResponse](#DeleteResponse)</code>
+**Kind**: instance method of <code>[Configurations](#Configurations)</code>  
+
+| Param | Type |
+| --- | --- |
+| id | <code>string</code> &#124; <code>number</code> | 
+
+<a name="Configurations+getConfigurationById"></a>
+
+### configurations.getConfigurationById(id) ⇒ <code>promise</code> &#124; <code>[Configuration](#Configuration)</code>
+**Kind**: instance method of <code>[Configurations](#Configurations)</code>  
+
+| Param | Type |
+| --- | --- |
+| id | <code>string</code> &#124; <code>number</code> | 
+
+<a name="Configurations+updateConfiguration"></a>
+
+### configurations.updateConfiguration(id, ops, params) ⇒ <code>promise</code> &#124; <code>[Configuration](#Configuration)</code>
+**Kind**: instance method of <code>[Configurations](#Configurations)</code>  
+
+| Param | Type |
+| --- | --- |
+| id | <code>string</code> &#124; <code>number</code> | 
+| ops | <code>[Operations](#Operations)</code> | 
+| params | <code>[ParamsConfigUpdate](#ParamsConfigUpdate)</code> | 
+
+<a name="Configurations+replaceConfiguration"></a>
+
+### configurations.replaceConfiguration(id, config) ⇒ <code>promise</code>
+**Kind**: instance method of <code>[Configurations](#Configurations)</code>  
+
+| Param | Type |
+| --- | --- |
+| id | <code>string</code> &#124; <code>number</code> | 
+| config | <code>[Configuration](#Configuration)</code> | 
 
 <a name="Contacts"></a>
 
@@ -2241,6 +2351,69 @@ GET
 | caption | <code>string</code> &#124; <code>number</code> |  |
 | value | <code>string</code> &#124; <code>number</code> |  |
 
+<a name="SystemAPI"></a>
+
+## SystemAPI
+**Kind**: global class  
+<a name="new_SystemAPI_new"></a>
+
+### new SystemAPI(options)
+
+| Param |
+| --- |
+| options | 
+
+<a name="Members"></a>
+
+## Members
+**Kind**: global class  
+
+* [Members](#Members)
+    * [new Members(options)](#new_Members_new)
+    * [.getMembers(params)](#Members+getMembers) ⇒ <code>[Array.&lt;Member&gt;](#Member)</code> &#124; <code>promise</code>
+    * [.getMemberByIdentifer(identifier)](#Members+getMemberByIdentifer) ⇒ <code>[Member](#Member)</code> &#124; <code>promise</code>
+    * [.getMemberImage(identifier, params)](#Members+getMemberImage) ⇒ <code>promise</code>
+
+<a name="new_Members_new"></a>
+
+### new Members(options)
+
+| Param | Type |
+| --- | --- |
+| options | <code>[CWOptions](#CWOptions)</code> | 
+
+<a name="Members+getMembers"></a>
+
+### members.getMembers(params) ⇒ <code>[Array.&lt;Member&gt;](#Member)</code> &#124; <code>promise</code>
+GET
+
+**Kind**: instance method of <code>[Members](#Members)</code>  
+
+| Param | Type |
+| --- | --- |
+| params | <code>[Params](#Params)</code> | 
+
+<a name="Members+getMemberByIdentifer"></a>
+
+### members.getMemberByIdentifer(identifier) ⇒ <code>[Member](#Member)</code> &#124; <code>promise</code>
+GET
+
+**Kind**: instance method of <code>[Members](#Members)</code>  
+
+| Param | Type |
+| --- | --- |
+| identifier | <code>string</code> | 
+
+<a name="Members+getMemberImage"></a>
+
+### members.getMemberImage(identifier, params) ⇒ <code>promise</code>
+**Kind**: instance method of <code>[Members](#Members)</code>  
+
+| Param | Type |
+| --- | --- |
+| identifier |  | 
+| params | <code>[ParamsImage](#ParamsImage)</code> | 
+
 <a name="TimeAPI"></a>
 
 ## TimeAPI
@@ -2432,6 +2605,77 @@ GET
 | _info.lastUpdated | <code>string</code> |  |
 | _info.updatedBy | <code>string</code> |  |
 
+<a name="Configuration"></a>
+
+## Configuration : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| id | <code>number</code> | 
+| name | <code>string</code> | 
+| activeFlag |  | 
+| id |  | 
+| name |  | 
+| locationId |  | 
+| businessUnitId |  | 
+| deviceIdentifier |  | 
+| serialNumber |  | 
+| modelNumber |  | 
+| tagNumber |  | 
+| purchaseDate |  | 
+| installationDate |  | 
+| installedBy |  | 
+| warrantyExpirationDate |  | 
+| vendorNotes |  | 
+| notes |  | 
+| macAddress |  | 
+| lastLoginName |  | 
+| billFlag |  | 
+| backupSuccesses |  | 
+| backupIncomplete |  | 
+| backupFailed |  | 
+| backupRestores |  | 
+| lastBackupDate |  | 
+| backupServerName |  | 
+| backupBillableSpaceGb |  | 
+| backupProtectedDeviceList |  | 
+| backupYear |  | 
+| backupMonth |  | 
+| ipAddress |  | 
+| defaultGateway |  | 
+| osType |  | 
+| osInfo |  | 
+| cpuSpeed |  | 
+| ram |  | 
+| localHardDrives |  | 
+| parentConfigurationId |  | 
+| vendor |  | 
+| manufacturer |  | 
+| activeFlag |  | 
+| managementLink |  | 
+| remoteLink |  | 
+| _info | <code>object</code> | 
+| _info.lastUpdated | <code>string</code> | 
+| _info.updatedBy | <code>string</code> | 
+
+<a name="ConfigurationQuestion"></a>
+
+## ConfigurationQuestion : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| answerId | <code>number</code> |  |
+| questionId | <code>number</code> |  |
+| question | <code>string</code> |  |
+| answer | <code>null</code> &#124; <code>boolean</code> &#124; <code>number</code> &#124; <code>string</code> |  |
+| sequenceNumber | <code>number</code> |  |
+| numberOfDecimals | <code>number</code> |  |
+| fieldType | <code>string</code> | ['Text', 'Button', 'Currency', 'Date', 'Hyperlink', 'IPAddress', 'Checkbox', 'Number', 'Percent', 'TextArea', 'Password'] |
+
 <a name="Contact"></a>
 
 ## Contact : <code>object</code>
@@ -2514,6 +2758,7 @@ GET
 | --- | --- |
 | Companies | <code>[Companies](#Companies)</code> | 
 | Contacts | <code>[Contacts](#Contacts)</code> | 
+| Configurations | <code>[Configurations](#Configurations)</code> | 
 
 <a name="CWOptions"></a>
 
@@ -2823,6 +3068,44 @@ Service Subtype
 | Name | Type |
 | --- | --- |
 | conditions | <code>string</code> | 
+
+<a name="ParamsImage"></a>
+
+## ParamsImage : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| useDefaultFlag | <code>boolean</code> |  |
+| lastmodifier | <code>string</code> | note the lower case M (not a typo) |
+
+<a name="ParamsConfig"></a>
+
+## ParamsConfig : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| conditions | <code>string</code> | 
+| managedIdentifier | <code>string</code> | 
+
+<a name="ParamsConfigUpdate"></a>
+
+## ParamsConfigUpdate : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| managementSolutionName | <code>string</code> | 
+| managedIdentifier | <code>string</code> | 
+| type | <code>string</code> | 
+| level | <code>string</code> | 
+| childConfigurationsMatchingOn | <code>string</code> | 
+| inactivateConfigurationsMatchingOn | <code>string</code> | 
+| inactiveConfigurationStatusId | <code>number</code> | 
 
 <a name="ProductHref"></a>
 
@@ -3567,6 +3850,106 @@ Service Subtype
 | _info.tasks_href | <code>string</code> |  |
 | _info.timeentries_href | <code>string</code> |  |
 | _info.updatedBy | <code>string</code> |  |
+
+<a name="SystemAPI"></a>
+
+## SystemAPI : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| Members | <code>[Members](#Members)</code> | 
+
+<a name="new_SystemAPI_new"></a>
+
+### new SystemAPI(options)
+
+| Param |
+| --- |
+| options | 
+
+<a name="Member"></a>
+
+## Member : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| id |  | 
+| adminFlag | <code>boolean</code> | 
+| billableForecast |  | 
+| calendar | <code>CalendarHref</code> | 
+| country | <code>[CountryHref](#CountryHref)</code> | 
+| dailyCapacity |  | 
+| defaultEmail |  | 
+| defaultProjectBoard | <code>ProjectBoardHref</code> | 
+| defaultProjectDepartmentId |  | 
+| defaultProjectLocationId |  | 
+| defaultSalesLocationId |  | 
+| defaultScheduleDepartmentId |  | 
+| defaultScheduleLocationId |  | 
+| defaultServiceBoard | <code>ServiceBoardHref</code> | 
+| defaultServiceDepartmentId |  | 
+| defaultServiceLocationId |  | 
+| defaultSystemDepartmentId |  | 
+| defaultSystemLocationId |  | 
+| disableOnlineFlag | <code>boolean</code> | 
+| emailAddress |  | 
+| enableGpsFlag |  | 
+| enableLdapAuthenticationFlag |  | 
+| enableMobileFlag |  | 
+| expenseApprover | <code>[MemberHref](#MemberHref)</code> | 
+| firstName | <code>string</code> | 
+| hideFromDispatchFlag | <code>boolean</code> | 
+| hireDate | <code>string</code> | 
+| homeEmail |  | 
+| homeExtension |  | 
+| homePhone |  | 
+| identifier |  | 
+| inactiveDate |  | 
+| inactiveFlag | <code>boolean</code> | 
+| lastName |  | 
+| licenseClass | <code>string</code> | 
+| middleInitial |  | 
+| mobileEmail |  | 
+| mobileExtension |  | 
+| mobilePhone |  | 
+| notes |  | 
+| officeEmail |  | 
+| officeExtension |  | 
+| officePhone |  | 
+| reportsTo | <code>[MemberHref](#MemberHref)</code> | 
+| restrictDefaultSalesTerritoryFlag |  | 
+| restrictDefaultWarehouseBinFlag |  | 
+| restrictDefaultWarehouseFlag |  | 
+| restrictProjectDefaultDepartmentFlag |  | 
+| restrictProjectDefaultLocationFlag |  | 
+| restrictScheduleFlag |  | 
+| restrictServiceDefaultDepartmentFlag |  | 
+| restrictServiceDefaultLocationFlag |  | 
+| scheduleCapacity |  | 
+| securityRole | <code>SecurityRoleHref</code> | 
+| securityLevel |  | 
+| securityLocationId |  | 
+| serviceLocation |  | 
+| serviceTeams |  | 
+| systemRestrictToDefaultDepartmentFlag |  | 
+| systemRestrictToDefaultLocationFlag |  | 
+| timeApprover | <code>[MemberHref](#MemberHref)</code> | 
+| timeZone | <code>TimeZoneHref</code> | 
+| title |  | 
+| type | <code>MemberTypeHref</code> | 
+| vendorNumber |  | 
+| warehouse |  | 
+| warehouseBin |  | 
+| workRole | <code>[WorkRoleHref](#WorkRoleHref)</code> | 
+| workType | <code>[WorkTypeHref](#WorkTypeHref)</code> | 
+| _info | <code>object</code> | 
+| _info.lastUpdated | <code>string</code> | 
+| _info.updatedBy | <code>string</code> | 
+| _info.image_href | <code>string</code> | 
 
 <a name="TimeEntry"></a>
 

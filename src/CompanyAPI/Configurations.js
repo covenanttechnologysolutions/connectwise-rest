@@ -14,7 +14,46 @@ var Q = require('q'),
  * @property {number} id
  * @property {string} name
  * @property activeFlag
- * @property
+ * @property id
+ * @property name
+ * @property locationId
+ * @property businessUnitId
+ * @property deviceIdentifier
+ * @property serialNumber
+ * @property modelNumber
+ * @property tagNumber
+ * @property purchaseDate
+ * @property installationDate
+ * @property installedBy
+ * @property warrantyExpirationDate
+ * @property vendorNotes
+ * @property notes
+ * @property macAddress
+ * @property lastLoginName
+ * @property billFlag
+ * @property backupSuccesses
+ * @property backupIncomplete
+ * @property backupFailed
+ * @property backupRestores
+ * @property lastBackupDate
+ * @property backupServerName
+ * @property backupBillableSpaceGb
+ * @property backupProtectedDeviceList
+ * @property backupYear
+ * @property backupMonth
+ * @property ipAddress
+ * @property defaultGateway
+ * @property osType
+ * @property osInfo
+ * @property cpuSpeed
+ * @property ram
+ * @property localHardDrives
+ * @property parentConfigurationId
+ * @property vendor
+ * @property manufacturer
+ * @property activeFlag
+ * @property managementLink
+ * @property remoteLink
  * @property {object} _info
  * @property {string} _info.lastUpdated
  * @property {string} _info.updatedBy
@@ -86,7 +125,7 @@ Configurations.prototype.getConfigurationById = function (id) {
  * @param {string|number} id
  * @param {Operations} ops
  * @param {ParamsConfigUpdate} params
- * @returns {promise|}
+ * @returns {promise|Configuration}
  */
 Configurations.prototype.updateConfiguration = function (id, ops, params) {
   return this.api('/company/configurations/' + id, 'PATCH', params);
