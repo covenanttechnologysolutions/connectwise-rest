@@ -83,17 +83,9 @@ var Q = require('q'),
  * @property {WorkRoleHref} workRole
  * @property {WorkTypeHref} workType
  * @property {object} _info
- * @property {string} _info.activities_href
- * @property {string} _info.childtasks_href
- * @property {string} _info.configurations_href
- * @property {string} _info.documents_href
  * @property {string} _info.lastUpdated
- * @property {string} _info.notes_href
- * @property {string} _info.products_href
- * @property {string} _info.scheduleentries_href
- * @property {string} _info.tasks_href
- * @property {string} _info.timeentries_href
  * @property {string} _info.updatedBy
+ * @property {string} _info.image_href
  */
 
 /**
