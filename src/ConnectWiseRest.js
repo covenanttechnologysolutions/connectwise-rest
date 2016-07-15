@@ -222,8 +222,8 @@ module.exports = ConnectWiseRest;
 
 /**
  * @typedef {object} ParamsPage
- * @property {string|number} page
- * @property {string|number} pageSize
+ * @property {string|number} [page]
+ * @property {string|number} [pageSize]
  */
 
 /**
@@ -233,25 +233,25 @@ module.exports = ConnectWiseRest;
 
 /**
  * @typedef {object} ParamsImage
- * @property {boolean} useDefaultFlag
- * @property {string} lastmodifier note the lower case M (not a typo)
+ * @property {boolean} [useDefaultFlag]
+ * @property {string} [lastmodifier] note the lower case M (not a typo)
  */
 
 /**
  * @typedef {object} ParamsConfig
- * @property {string} conditions
- * @property {string} managedIdentifier
+ * @property {string} [conditions]
+ * @property {string} [managedIdentifier]
  */
 
 /**
  * @typedef {object} ParamsConfigUpdate
- * @property {string} managementSolutionName
- * @property {string} managedIdentifier
- * @property {string} type
- * @property {string} level
- * @property {string} childConfigurationsMatchingOn
- * @property {string} inactivateConfigurationsMatchingOn
- * @property {number} inactiveConfigurationStatusId
+ * @property {string} [managementSolutionName]
+ * @property {string} [managedIdentifier]
+ * @property {string} [type]
+ * @property {string} [level]
+ * @property {string} [childConfigurationsMatchingOn]
+ * @property {string} [inactivateConfigurationsMatchingOn]
+ * @property {number} [inactiveConfigurationStatusId]
  */
 
 /**
