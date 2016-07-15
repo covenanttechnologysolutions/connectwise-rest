@@ -13,6 +13,11 @@ var Q = require('q'),
  * @typedef {object} Configuration
  * @property {number} id
  * @property {string} name
+ * @property {TypeHref} type
+ * @property {StatusHref} status
+ * @property {CompanyHref} company
+ * @property {ContactHref} contact
+ * @property {SiteHref} site
  * @property activeFlag
  * @property id
  * @property name
