@@ -7,6 +7,7 @@
  * @typedef {object} ServiceDeskAPI
  * @property {Tickets} Tickets
  * @property {Boards} Boards
+ * @property {BoardTeams} BoardTeams
  * @property {Priorities} Priorities
  * @property {Statuses} Statuses
  * @property {ServiceNotes} ServiceNotes
