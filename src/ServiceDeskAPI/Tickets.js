@@ -538,6 +538,9 @@ Tickets.prototype.updateTicketCustomFieldByIndex = function (id, index, value) {
  * @returns {Ticket|promise}
  */
 Tickets.prototype.updateTicketCustomFieldById = function (id, customFieldId, value) {
+  if (typeof customFieldId === 'string') {
+    customFieldId = parseInt(customFieldId);
+  }
   var self = this;
   return self.getTicketById(id)
     .then(function (ticket) {
@@ -547,6 +550,13 @@ Tickets.prototype.updateTicketCustomFieldById = function (id, customFieldId, val
           return fieldIdx = idx;
         }
       });
+      if (fieldIdx === -1) {
+        throw {
+          code: 'InvalidCustomFieldId',
+          message: 'No custom field found with id specified',
+          errors: null
+        };
+      }
       return self.updateTicketCustomFieldByIndex(id, fieldIdx, value);
     });
 };
@@ -555,7 +565,7 @@ Tickets.prototype.updateTicketCustomFieldById = function (id, customFieldId, val
  *
  * @param {string|number} id ticketNbr
  * @param {string|number} caption
- * @param {string|number} value
+ * @param {string|number|boolean} value
  * @returns {Ticket|promise}
  */
 Tickets.prototype.updateTicketCustomFieldByCaption = function (id, caption, value) {
