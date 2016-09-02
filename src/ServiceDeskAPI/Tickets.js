@@ -8,8 +8,8 @@
  * @private
  */
 var Q = require('q'),
-    inherits = require('util').inherits,
-    ConnectWise = require('../ConnectWise.js');
+  inherits = require('util').inherits,
+  ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {object} Ticket
@@ -107,7 +107,7 @@ var Q = require('q'),
  * @constructor
  */
 function Tickets(options) {
-    ConnectWise.apply(this, Array.prototype.slice.call(arguments));
+  ConnectWise.apply(this, Array.prototype.slice.call(arguments));
 }
 inherits(Tickets, ConnectWise);
 
@@ -117,7 +117,7 @@ inherits(Tickets, ConnectWise);
  * @returns {Ticket[]|promise}
  */
 Tickets.prototype.getTickets = function (params) {
-    return this.api('/service/tickets', 'GET', params);
+  return this.api('/service/tickets', 'GET', params);
 };
 
 /**
@@ -126,7 +126,7 @@ Tickets.prototype.getTickets = function (params) {
  * @returns {Ticket|promise}
  */
 Tickets.prototype.getTicketById = function (id) {
-    return this.api('/service/tickets/' + id, 'GET');
+  return this.api('/service/tickets/' + id, 'GET');
 };
 
 /**
@@ -141,7 +141,7 @@ Tickets.prototype.getTicketById = function (id) {
  * @returns {Ticket|promise} The created ticket, or errors if any occured
  */
 Tickets.prototype.createTicket = function (ticket) {
-    return this.api('/service/tickets', 'POST', ticket);
+  return this.api('/service/tickets', 'POST', ticket);
 };
 
 /**
@@ -154,7 +154,7 @@ Tickets.prototype.createTicket = function (ticket) {
  * @returns {Ticket|promise} The updated ticket
  */
 Tickets.prototype.updateTicket = function (id, operations) {
-    return this.api('/service/tickets/' + id, 'PATCH', operations);
+  return this.api('/service/tickets/' + id, 'PATCH', operations);
 };
 
 /**
@@ -164,7 +164,7 @@ Tickets.prototype.updateTicket = function (id, operations) {
  * @returns {Count|promise} The number of tickets matching the conditions
  */
 Tickets.prototype.getTicketsCount = function (params) {
-    return this.api('/service/tickets/count', 'GET', params);
+  return this.api('/service/tickets/count', 'GET', params);
 };
 
 /**
@@ -173,7 +173,7 @@ Tickets.prototype.getTicketsCount = function (params) {
  * @returns {promise}
  */
 Tickets.prototype.deleteTicketsById = function (id) {
-    return this.api('/service/tickets/' + id, 'DELETE');
+  return this.api('/service/tickets/' + id, 'DELETE');
 };
 
 /**
@@ -183,7 +183,7 @@ Tickets.prototype.deleteTicketsById = function (id) {
  * @returns {Ticket|promise}
  */
 Tickets.prototype.replaceTicket = function (id, ticket) {
-    return this.api('/service/tickets/' + id, 'PUT', ticket);
+  return this.api('/service/tickets/' + id, 'PUT', ticket);
 };
 
 /**
@@ -193,7 +193,7 @@ Tickets.prototype.replaceTicket = function (id, ticket) {
  * @returns {*|promise}
  */
 Tickets.prototype.getTicketActivities = function (id, params) {
-    return this.api('/service/tickets/' + id + '/activities', 'GET', params);
+  return this.api('/service/tickets/' + id + '/activities', 'GET', params);
 };
 
 /**
@@ -202,7 +202,7 @@ Tickets.prototype.getTicketActivities = function (id, params) {
  * @returns {Count|promise} The number of activities associated with ticket number id
  */
 Tickets.prototype.getTicketActivitiesCount = function (id) {
-    return this.api('/service/tickets/' + id + '/activities/count', 'GET');
+  return this.api('/service/tickets/' + id + '/activities/count', 'GET');
 };
 
 /**
@@ -212,7 +212,7 @@ Tickets.prototype.getTicketActivitiesCount = function (id) {
  * @returns {TimeEntry[]|promise}
  */
 Tickets.prototype.getTicketTimeEntries = function (id, params) {
-    return this.api('/service/tickets/' + id + '/timeentries', 'GET', params);
+  return this.api('/service/tickets/' + id + '/timeentries', 'GET', params);
 };
 
 /**
@@ -221,7 +221,7 @@ Tickets.prototype.getTicketTimeEntries = function (id, params) {
  * @returns {Count|promise} The count of time entries attached to ticket id
  */
 Tickets.prototype.getTicketTimeEntriesCount = function (id) {
-    return this.api('/service/tickets/' + id + '/timeentries/count', 'GET');
+  return this.api('/service/tickets/' + id + '/timeentries/count', 'GET');
 };
 
 /**
@@ -231,9 +231,9 @@ Tickets.prototype.getTicketTimeEntriesCount = function (id) {
  * @returns {*|promise|ConfigurationHref}
  */
 Tickets.prototype.createConfigurationAssociation = function (id, configId) {
-    return this.api('/service/tickets/' + id + '/configurations', 'POST', {
-        id: configId
-    });
+  return this.api('/service/tickets/' + id + '/configurations', 'POST', {
+    id: configId
+  });
 };
 
 /**
@@ -242,7 +242,7 @@ Tickets.prototype.createConfigurationAssociation = function (id, configId) {
  * @returns {promise|ConfigurationHref[]}
  */
 Tickets.prototype.getTicketConfigurations = function (id) {
-    return this.api('/service/tickets/' + id + '/configurations', 'GET');
+  return this.api('/service/tickets/' + id + '/configurations', 'GET');
 };
 
 /**
@@ -251,7 +251,7 @@ Tickets.prototype.getTicketConfigurations = function (id) {
  * @returns {promise|Count}
  */
 Tickets.prototype.getTicketConfigurationsCount = function (id) {
-    return this.api('/service/tickets/' + id + '/configurations/count', 'GET');
+  return this.api('/service/tickets/' + id + '/configurations/count', 'GET');
 };
 
 /**
@@ -262,7 +262,7 @@ Tickets.prototype.getTicketConfigurationsCount = function (id) {
  * @returns {promise|DeleteResponse}
  */
 Tickets.prototype.deleteConfigurationAssociation = function (id, configId) {
-    return this.api('/service/tickets/' + id + '/configurations/' + configId, 'DELETE');
+  return this.api('/service/tickets/' + id + '/configurations/' + configId, 'DELETE');
 };
 
 /**
@@ -272,7 +272,7 @@ Tickets.prototype.deleteConfigurationAssociation = function (id, configId) {
  * @returns {promise|ConfigurationHref}
  */
 Tickets.prototype.getConfigurationAssociation = function (id, configId) {
-    return this.api('/service/tickets/' + id + '/configurations/' + configId, 'GET');
+  return this.api('/service/tickets/' + id + '/configurations/' + configId, 'GET');
 };
 
 /**
@@ -282,7 +282,7 @@ Tickets.prototype.getConfigurationAssociation = function (id, configId) {
  * @returns {promise|ScheduleEntryHref[]}
  */
 Tickets.prototype.getTicketScheduleEntries = function (id, params) {
-    return this.api('/service/tickets/' + id + '/scheduleentries', 'GET', params);
+  return this.api('/service/tickets/' + id + '/scheduleentries', 'GET', params);
 };
 
 /**
@@ -291,7 +291,7 @@ Tickets.prototype.getTicketScheduleEntries = function (id, params) {
  * @returns {promise|Count}
  */
 Tickets.prototype.getTicketScheduleEntriesCount = function (id) {
-    return this.api('/service/tickets/' + id + '/scheduleentries/count', 'GET');
+  return this.api('/service/tickets/' + id + '/scheduleentries/count', 'GET');
 };
 
 /**
@@ -301,7 +301,7 @@ Tickets.prototype.getTicketScheduleEntriesCount = function (id) {
  * @returns {promise|DocumentHref[]}
  */
 Tickets.prototype.getTicketDocuments = function (id, params) {
-    return this.api('/service/tickets/' + id + '/documents', 'GET', params);
+  return this.api('/service/tickets/' + id + '/documents', 'GET', params);
 };
 
 /**
@@ -310,7 +310,7 @@ Tickets.prototype.getTicketDocuments = function (id, params) {
  * @returns {promise|Count}
  */
 Tickets.prototype.getTicketDocumentsCount = function (id) {
-    return this.api('/service/tickets/' + id + '/documents/count', 'GET');
+  return this.api('/service/tickets/' + id + '/documents/count', 'GET');
 };
 
 /**
@@ -319,7 +319,7 @@ Tickets.prototype.getTicketDocumentsCount = function (id) {
  * @returns {promise|ProductHref[]}
  */
 Tickets.prototype.getTicketProducts = function (id) {
-    return this.api('/service/tickets/' + id + '/products', 'GET');
+  return this.api('/service/tickets/' + id + '/products', 'GET');
 };
 
 /**
@@ -328,7 +328,7 @@ Tickets.prototype.getTicketProducts = function (id) {
  * @returns {promise|Count}
  */
 Tickets.prototype.getTicketProductsCount = function (id) {
-    return this.api('/service/tickets/' + id + '/products/count', 'GET');
+  return this.api('/service/tickets/' + id + '/products/count', 'GET');
 };
 
 /**
@@ -338,40 +338,40 @@ Tickets.prototype.getTicketProductsCount = function (id) {
  * @returns {Ticket[]|promise}
  */
 Tickets.prototype.updateTicketStatusByName = function (id, status) {
-    var deferred = Q.defer(),
-        self = this;
+  var deferred = Q.defer(),
+    self = this;
 
-    self.getTicketById(id)
-        .then(function (ticket) {
-            var boardId = ticket.board.id;
-            self.api('/service/boards/' + boardId + '/statuses', 'GET', {conditions: 'name = "' + status + '"'})
-                .then(function (statuses) {
-                    if (statuses.length > 0) {
-                        var statusId = statuses[0].id;
-                        self.updateTicket(id, [{
-                                "op": 'replace',
-                                "path": 'status/id',
-                                "value": statusId
-                            }])
-                            .then(deferred.resolve)
-                            .fail(deferred.reject);
-                    } else {
-                        deferred.reject({
-                            code: 'NotFound',
-                            errors: null,
-                            message: 'Status ' + status + ' not found'
-                        });
-                    }
+  self.getTicketById(id)
+    .then(function (ticket) {
+      var boardId = ticket.board.id;
+      self.api('/service/boards/' + boardId + '/statuses', 'GET', {conditions: 'name = "' + status + '"'})
+        .then(function (statuses) {
+          if (statuses.length > 0) {
+            var statusId = statuses[0].id;
+            self.updateTicket(id, [{
+              "op": 'replace',
+              "path": 'status/id',
+              "value": statusId
+            }])
+              .then(deferred.resolve)
+              .fail(deferred.reject);
+          } else {
+            deferred.reject({
+              code: 'NotFound',
+              errors: null,
+              message: 'Status ' + status + ' not found'
+            });
+          }
 
-                })
-                .fail(function (err) {
-                    deferred.reject(err);
-                });
         })
         .fail(function (err) {
-            deferred.reject(err);
+          deferred.reject(err);
         });
-    return deferred.promise;
+    })
+    .fail(function (err) {
+      deferred.reject(err);
+    });
+  return deferred.promise;
 };
 
 /**
@@ -381,25 +381,25 @@ Tickets.prototype.updateTicketStatusByName = function (id, status) {
  * @returns {promise|Ticket}
  */
 Tickets.prototype.updateTicketPriority = function (id, priority) {
-    var self = this;
-    return self.api('/service/priorities', 'GET', {
-        conditions: 'name like "%' + priority + '%"'
-    }).then(function (res) {
-        if (res.length > 0) {
-            var priorityId = res[0].id;
-            return self.updateTicket(id, [{
-                op: 'replace',
-                path: 'priority/id',
-                value: priorityId
-            }]);
-        } else {
-            throw {
-                code: 'NotFound',
-                message: 'Could not find any matching priority.',
-                errors: null
-            };
-        }
-    });
+  var self = this;
+  return self.api('/service/priorities', 'GET', {
+    conditions: 'name like "%' + priority + '%"'
+  }).then(function (res) {
+    if (res.length > 0) {
+      var priorityId = res[0].id;
+      return self.updateTicket(id, [{
+        op: 'replace',
+        path: 'priority/id',
+        value: priorityId
+      }]);
+    } else {
+      throw {
+        code: 'NotFound',
+        message: 'Could not find any matching priority.',
+        errors: null
+      };
+    }
+  });
 };
 
 /**
@@ -409,29 +409,29 @@ Tickets.prototype.updateTicketPriority = function (id, priority) {
  * @returns {promise|Ticket}
  */
 Tickets.prototype.updateTicketServiceType = function (id, serviceType) {
-    var self = this;
-    return self.getTicketById(id)
-        .then(function (ticket) {
-            var boardId = ticket.board.id;
-            return self.api('/service/boards/' + boardId + '/types', 'GET', {
-                conditions: 'name = "' + serviceType + '"'
-            }).then(function (types) {
-                if (types.length > 0) {
-                    var serviceTypeId = types[0].id;
-                    return self.updateTicket(id, [{
-                        op: 'replace',
-                        path: 'type/id',
-                        value: serviceTypeId
-                    }]);
-                } else {
-                    throw {
-                        code: 'NotFound',
-                        message: 'Could not find any matching service types.',
-                        errors: null
-                    };
-                }
-            });
-        });
+  var self = this;
+  return self.getTicketById(id)
+    .then(function (ticket) {
+      var boardId = ticket.board.id;
+      return self.api('/service/boards/' + boardId + '/types', 'GET', {
+        conditions: 'name = "' + serviceType + '"'
+      }).then(function (types) {
+        if (types.length > 0) {
+          var serviceTypeId = types[0].id;
+          return self.updateTicket(id, [{
+            op: 'replace',
+            path: 'type/id',
+            value: serviceTypeId
+          }]);
+        } else {
+          throw {
+            code: 'NotFound',
+            message: 'Could not find any matching service types.',
+            errors: null
+          };
+        }
+      });
+    });
 };
 
 /**
@@ -441,29 +441,29 @@ Tickets.prototype.updateTicketServiceType = function (id, serviceType) {
  * @returns {promise|Ticket}
  */
 Tickets.prototype.updateTicketServiceSubType = function (id, serviceSubType) {
-    var self = this;
-    return self.getTicketById(id)
-        .then(function (ticket) {
-            var boardId = ticket.board.id;
-            return self.api('/service/boards/' + boardId + '/subtypes', 'GET', {
-                conditions: 'name = "' + serviceSubType + '"'
-            }).then(function (types) {
-                if (types.length > 0) {
-                    var serviceSubTypeId = types[0].id;
-                    return self.updateTicket(id, [{
-                        op: 'replace',
-                        path: 'subType/id',
-                        value: serviceSubTypeId
-                    }]);
-                } else {
-                    throw {
-                        code: 'NotFound',
-                        message: 'Could not find any matching service subtypes.',
-                        errors: null
-                    };
-                }
-            });
-        });
+  var self = this;
+  return self.getTicketById(id)
+    .then(function (ticket) {
+      var boardId = ticket.board.id;
+      return self.api('/service/boards/' + boardId + '/subtypes', 'GET', {
+        conditions: 'name = "' + serviceSubType + '"'
+      }).then(function (types) {
+        if (types.length > 0) {
+          var serviceSubTypeId = types[0].id;
+          return self.updateTicket(id, [{
+            op: 'replace',
+            path: 'subType/id',
+            value: serviceSubTypeId
+          }]);
+        } else {
+          throw {
+            code: 'NotFound',
+            message: 'Could not find any matching service subtypes.',
+            errors: null
+          };
+        }
+      });
+    });
 };
 
 /**
@@ -475,12 +475,12 @@ Tickets.prototype.updateTicketServiceSubType = function (id, serviceSubType) {
  * @returns {promise|Ticket}
  */
 Tickets.prototype.updateTicketTypeSubTypeItem = function (id, type, subtype, item) {
-    var self = this;
-    return self.updateTicketServiceType(id, type).then(function () {
-        return self.updateTicketServiceSubType(id, subtype).then(function () {
-            return self.updateTicketServiceItem(id, item);
-        })
+  var self = this;
+  return self.updateTicketServiceType(id, type).then(function () {
+    return self.updateTicketServiceSubType(id, subtype).then(function () {
+      return self.updateTicketServiceItem(id, item);
     })
+  })
 };
 
 /**
@@ -490,44 +490,65 @@ Tickets.prototype.updateTicketTypeSubTypeItem = function (id, type, subtype, ite
  * @returns {promise|Ticket}
  */
 Tickets.prototype.updateTicketServiceItem = function (id, serviceItem) {
-    var self = this;
-    return self.getTicketById(id)
-        .then(function (ticket) {
-            var boardId = ticket.board.id;
-            return self.api('/service/boards/' + boardId + '/items', 'GET', {
-                conditions: 'name = "' + serviceItem + '"'
-            }).then(function (items) {
-                if (items.length > 0) {
-                    var serviceItemId = items[0].id;
-                    return self.updateTicket(id, [{
-                        op: 'replace',
-                        path: 'item/id',
-                        value: serviceItemId
-                    }]);
-                } else {
-                    throw {
-                        code: 'NotFound',
-                        message: 'Could not find any matching service items.',
-                        errors: null
-                    };
-                }
-            });
-        });
+  var self = this;
+  return self.getTicketById(id)
+    .then(function (ticket) {
+      var boardId = ticket.board.id;
+      return self.api('/service/boards/' + boardId + '/items', 'GET', {
+        conditions: 'name = "' + serviceItem + '"'
+      }).then(function (items) {
+        if (items.length > 0) {
+          var serviceItemId = items[0].id;
+          return self.updateTicket(id, [{
+            op: 'replace',
+            path: 'item/id',
+            value: serviceItemId
+          }]);
+        } else {
+          throw {
+            code: 'NotFound',
+            message: 'Could not find any matching service items.',
+            errors: null
+          };
+        }
+      });
+    });
+};
+
+/**
+ *
+ * @param {string|number} id ticketNbr
+ * @param {string|number} index
+ * @param {string|number|boolean} value
+ * @returns {Ticket|promise}
+ */
+Tickets.prototype.updateTicketCustomFieldByIndex = function (id, index, value) {
+  return this.updateTicket(id, [{
+    op: 'replace',
+    path: 'customFields/' + index + '/value',
+    value: value
+  }]);
 };
 
 /**
  *
  * @param {string|number} id ticketNbr
  * @param {string|number} customFieldId
- * @param {string|number} value
+ * @param {string|number|boolean} value
  * @returns {Ticket|promise}
  */
 Tickets.prototype.updateTicketCustomFieldById = function (id, customFieldId, value) {
-    return this.updateTicket(id, [{
-        op: 'replace',
-        path: 'customFields/' + customFieldId + '/value',
-        value: value
-    }]);
+  var self = this;
+  return self.getTicketById(id)
+    .then(function (ticket) {
+      var fieldIdx = -1;
+      ticket.customFields.forEach(function (elem, idx) {
+        if (elem.id === customFieldId) {
+          return fieldIdx = idx;
+        }
+      });
+      return self.updateTicketCustomFieldByIndex(id, fieldIdx, value);
+    });
 };
 
 /**
@@ -538,26 +559,26 @@ Tickets.prototype.updateTicketCustomFieldById = function (id, customFieldId, val
  * @returns {Ticket|promise}
  */
 Tickets.prototype.updateTicketCustomFieldByCaption = function (id, caption, value) {
-    var self = this;
-    return self.getTicketById(id)
-        .then(function (ticket) {
-            var customFieldId;
-            ticket.customFields.forEach(function (elem, idx) {
-                if (elem.caption === caption) {
-                    customFieldId = idx;
-                }
-            });
+  var self = this;
+  return self.getTicketById(id)
+    .then(function (ticket) {
+      var customFieldId;
+      ticket.customFields.forEach(function (elem, idx) {
+        if (elem.caption === caption) {
+          customFieldId = idx;
+        }
+      });
 
-            if (customFieldId === undefined) {
-                throw {
-                    code: 'InvalidCustomFieldName',
-                    message: 'No custom field found with caption specified',
-                    errors: null
-                };
-            }
+      if (customFieldId === undefined) {
+        throw {
+          code: 'InvalidCustomFieldName',
+          message: 'No custom field found with caption specified',
+          errors: null
+        };
+      }
 
-            return self.updateTicketCustomFieldById(id, customFieldId, value);
-        });
+      return self.updateTicketCustomFieldById(id, customFieldId, value);
+    });
 };
 
 /**
