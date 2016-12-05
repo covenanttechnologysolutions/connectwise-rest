@@ -107,14 +107,16 @@ Members.prototype.getMembers = function (params) {
   return this.api('/system/members', 'GET', params);
 };
 
+
 /**
  * GET
  * @param {string} identifier
  * @returns {Member|promise}
  */
-Members.prototype.getMemberByIdentifer = function (identifier) {
+Members.prototype.getMemberByIdentifier = function (identifier) {
   return this.api('/system/members/' + identifier, 'GET');
 };
+Members.prototype.getMemberByIdentifer = Members.prototype.getMemberByIdentifier;
 
 /**
  *
