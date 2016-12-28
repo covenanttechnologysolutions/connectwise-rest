@@ -6,6 +6,7 @@
 /**
  * @typedef {object} SystemAPI
  * @property {Members} Members
+ * @property {Reports} Reports
  */
 
 /**
@@ -15,11 +16,13 @@
  * @constructor
  */
 function SystemAPI(options) {
-    var _Members = require('./Members');
+  var _Members = require('./Members');
+  var _Reports = require('./Reports');
 
-    return {
-        Members: new _Members(options)
-    }
+  return {
+    Members: new _Members(options),
+    Reports: new _Reports(options)
+  }
 }
 
 module.exports = SystemAPI;

@@ -19,12 +19,13 @@
  * @property {TimeAPI} TimeAPI
  * @property {ProjectAPI} ProjectAPI
  * @property {CompanyAPI} CompanyAPI
+ * @property {SystemAPI} SystemAPI
  */
 
 /**
  *
  * @param options
- * @returns {{API: ConnectWise, CompanyAPI: CompanyAPI, FinanceAPI: FinanceAPI, ServiceDeskAPI: ServiceDeskAPI, TimeAPI: TimeAPI, ProjectAPI: ProjectAPI}}
+ * @returns {{API: ConnectWise, CompanyAPI: CompanyAPI, FinanceAPI: FinanceAPI, ServiceDeskAPI: ServiceDeskAPI, TimeAPI: TimeAPI, ProjectAPI: ProjectAPI, SystemAPI: SystemAPI}}
  * @constructor
  */
 function ConnectWiseRest(options) {
@@ -35,8 +36,7 @@ function ConnectWiseRest(options) {
     _ServiceDeskAPI = require('./ServiceDeskAPI'),
     _ProjectAPI = require('./ProjectAPI'),
     _SystemAPI = require('./SystemAPI');
-  
-  
+
   return {
     API: new _ConnectWise(options),
     CompanyAPI: new _CompanyAPI(options),
@@ -229,6 +229,7 @@ module.exports = ConnectWiseRest;
 /**
  * @typedef {object} ParamsConditions
  * @property {string} [conditions]
+ * @property {string} [orderBy]
  */
 
 /**
