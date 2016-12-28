@@ -45,4 +45,4 @@ function FinanceAPI(options) {
  *
  * @type {FinanceAPI}
  */
-module.exports =  FinanceAPI
+module.exports =  FinanceAPI;

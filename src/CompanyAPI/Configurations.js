@@ -139,7 +139,7 @@ Configurations.prototype.updateConfiguration = function (id, ops, params) {
 /**
  * @param {string|number} id
  * @param {Configuration} config
- * @returns {promise}
+ * @returns {Promise<Configuration>}
  */
 Configurations.prototype.replaceConfiguration = function (id, config) {
   return this.api('/company/configurations/' + id, 'PUT', config);
