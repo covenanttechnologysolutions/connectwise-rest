@@ -132,7 +132,7 @@ ConnectWise.prototype.api = function (path, method, params) {
         } catch (e) {
           deferred.reject({
             code: 'EPARSE',
-            message: 'Error parsing response from server.  Check that options.companyUrl is correct.',
+            message: 'Error parsing response from server.',
             errors: [e]
           });
         }
