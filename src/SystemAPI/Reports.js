@@ -2,6 +2,9 @@
  * Created by kgrube on 12/28/2016.
  */
 
+/**
+ * @private
+ */
 var inherits = require('util').inherits,
   ConnectWise = require('../ConnectWise');
 
@@ -14,7 +17,7 @@ var inherits = require('util').inherits,
  * row_values is not a keyed array
  * @typedef {object} ReportData
  * @property {object[]} column_definitions
- * @property {*[]} row_values
+ * @property {array} row_values mixed types, may be null, string, numeric, etc
  */
 
 /**

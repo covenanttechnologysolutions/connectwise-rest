@@ -11,7 +11,7 @@
 
 /**
  *
- * @param options
+ * @param {CWOptions} options
  * @returns {SystemAPI}
  * @constructor
  */
@@ -25,4 +25,8 @@ function SystemAPI(options) {
   }
 }
 
+/**
+ *
+ * @type {SystemAPI}
+ */
 module.exports = SystemAPI;

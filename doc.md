@@ -7,6 +7,8 @@
 <dd></dd>
 <dt><a href="#Contacts">Contacts</a></dt>
 <dd></dd>
+<dt><a href="#CompanyAPI">CompanyAPI</a></dt>
+<dd></dd>
 <dt><a href="#ConnectWise">ConnectWise</a></dt>
 <dd></dd>
 <dt><a href="#ConnectWiseRest">ConnectWiseRest</a></dt>
@@ -21,15 +23,21 @@
 <dd></dd>
 <dt><a href="#BoardDefaults">BoardDefaults</a></dt>
 <dd></dd>
+<dt><a href="#FinanceAPI">FinanceAPI</a></dt>
+<dd></dd>
 <dt><a href="#WorkRoles">WorkRoles</a></dt>
 <dd></dd>
 <dt><a href="#WorkTypeExclusions">WorkTypeExclusions</a></dt>
 <dd></dd>
 <dt><a href="#WorkTypes">WorkTypes</a></dt>
 <dd></dd>
+<dt><a href="#ProjectAPI">ProjectAPI</a></dt>
+<dd></dd>
 <dt><a href="#Projects">Projects</a></dt>
 <dd></dd>
 <dt><a href="#Boards">Boards</a></dt>
+<dd></dd>
+<dt><a href="#BoardTeams">BoardTeams</a></dt>
 <dd></dd>
 <dt><a href="#ServiceDeskAPI">ServiceDeskAPI</a></dt>
 <dd></dd>
@@ -45,20 +53,11 @@
 <dd></dd>
 <dt><a href="#Members">Members</a></dt>
 <dd></dd>
+<dt><a href="#Reports">Reports</a></dt>
+<dd></dd>
 <dt><a href="#TimeAPI">TimeAPI</a></dt>
 <dd></dd>
 <dt><a href="#TimeEntries">TimeEntries</a></dt>
-<dd></dd>
-</dl>
-
-## Functions
-
-<dl>
-<dt><a href="#CompanyAPI">CompanyAPI(options)</a> ⇒ <code><a href="#FinanceAPI">FinanceAPI</a></code></dt>
-<dd></dd>
-<dt><a href="#FinanceAPI">FinanceAPI(options)</a> ⇒ <code><a href="#FinanceAPI">FinanceAPI</a></code></dt>
-<dd></dd>
-<dt><a href="#ProjectAPI">ProjectAPI(options)</a> ⇒ <code><a href="#ProjectAPI">ProjectAPI</a></code></dt>
 <dd></dd>
 </dl>
 
@@ -82,6 +81,8 @@
 <dt><a href="#CompanyAPI">CompanyAPI</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#CWOptions">CWOptions</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#ConnectWiseRest">ConnectWiseRest</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#AgreementHref">AgreementHref</a> : <code>object</code></dt>
 <dd></dd>
@@ -199,6 +200,8 @@
 <dd></dd>
 <dt><a href="#Board">Board</a> : <code>object</code></dt>
 <dd></dd>
+<dt><a href="#BoardTeam">BoardTeam</a> : <code>object</code></dt>
+<dd></dd>
 <dt><a href="#ServiceDeskAPI">ServiceDeskAPI</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#Priority">Priority</a> : <code>object</code></dt>
@@ -212,6 +215,16 @@
 <dt><a href="#SystemAPI">SystemAPI</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#Member">Member</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#ReportNames">ReportNames</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#ReportData">ReportData</a> : <code>object</code></dt>
+<dd><p>row_values is not a keyed array</p>
+</dd>
+<dt><a href="#ReportDataInterpolated">ReportDataInterpolated</a> : <code>object</code></dt>
+<dd><p>Key-Vals interpolated into one object per row</p>
+</dd>
+<dt><a href="#ReportColumn">ReportColumn</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#TimeEntry">TimeEntry</a> : <code>object</code></dt>
 <dd></dd>
@@ -329,7 +342,7 @@
     * [.deleteConfigurationById(id)](#Configurations+deleteConfigurationById) ⇒ <code>promise</code> &#124; <code>[DeleteResponse](#DeleteResponse)</code>
     * [.getConfigurationById(id)](#Configurations+getConfigurationById) ⇒ <code>promise</code> &#124; <code>[Configuration](#Configuration)</code>
     * [.updateConfiguration(id, ops, params)](#Configurations+updateConfiguration) ⇒ <code>promise</code> &#124; <code>[Configuration](#Configuration)</code>
-    * [.replaceConfiguration(id, config)](#Configurations+replaceConfiguration) ⇒ <code>promise</code>
+    * [.replaceConfiguration(id, config)](#Configurations+replaceConfiguration) ⇒ <code>[Promise.&lt;Configuration&gt;](#Configuration)</code>
 
 <a name="new_Configurations_new"></a>
 
@@ -397,7 +410,7 @@
 
 <a name="Configurations+replaceConfiguration"></a>
 
-### configurations.replaceConfiguration(id, config) ⇒ <code>promise</code>
+### configurations.replaceConfiguration(id, config) ⇒ <code>[Promise.&lt;Configuration&gt;](#Configuration)</code>
 **Kind**: instance method of <code>[Configurations](#Configurations)</code>  
 
 | Param | Type |
@@ -539,6 +552,18 @@
 | useDefaultFlag | <code>boolean</code> | 
 | lastModified | <code>string</code> | 
 
+<a name="CompanyAPI"></a>
+
+## CompanyAPI
+**Kind**: global class  
+<a name="new_CompanyAPI_new"></a>
+
+### new CompanyAPI(options)
+
+| Param | Type |
+| --- | --- |
+| options | <code>[CWOptions](#CWOptions)</code> | 
+
 <a name="ConnectWise"></a>
 
 ## ConnectWise
@@ -546,7 +571,7 @@
 
 * [ConnectWise](#ConnectWise)
     * [new ConnectWise(options)](#new_ConnectWise_new)
-    * [.api(path, method, [params])](#ConnectWise+api) ⇒ <code>promise</code>
+    * [.api(path, method, [params])](#ConnectWise+api) ⇒ <code>Promise.&lt;\*&gt;</code>
     * [.paginate(fn, args, module, [pageSize], [startPage])](#ConnectWise+paginate) ⇒ <code>promise</code> &#124; <code>\*</code>
 
 <a name="new_ConnectWise_new"></a>
@@ -564,7 +589,7 @@
 
 <a name="ConnectWise+api"></a>
 
-### connectWise.api(path, method, [params]) ⇒ <code>promise</code>
+### connectWise.api(path, method, [params]) ⇒ <code>Promise.&lt;\*&gt;</code>
 **Kind**: instance method of <code>[ConnectWise](#ConnectWise)</code>  
 
 | Param | Type | Description |
@@ -1195,6 +1220,18 @@ PUT
 | boardDefaultId |  | 
 | boardDefault | <code>[BoardDefault](#BoardDefault)</code> | 
 
+<a name="FinanceAPI"></a>
+
+## FinanceAPI
+**Kind**: global class  
+<a name="new_FinanceAPI_new"></a>
+
+### new FinanceAPI(options)
+
+| Param | Type |
+| --- | --- |
+| options | <code>[CWOptions](#CWOptions)</code> | 
+
 <a name="WorkRoles"></a>
 
 ## WorkRoles
@@ -1484,6 +1521,18 @@ PUT
 | workTypeId |  | 
 | workType | <code>[WorkType](#WorkType)</code> | 
 
+<a name="ProjectAPI"></a>
+
+## ProjectAPI
+**Kind**: global class  
+<a name="new_ProjectAPI_new"></a>
+
+### new ProjectAPI(options)
+
+| Param |
+| --- |
+| options | 
+
 <a name="Projects"></a>
 
 ## Projects
@@ -1664,6 +1713,119 @@ PATCH
 | --- | --- |
 | id |  | 
 | board | <code>[Board](#Board)</code> | 
+
+<a name="BoardTeams"></a>
+
+## BoardTeams
+**Kind**: global class  
+
+* [BoardTeams](#BoardTeams)
+    * [new BoardTeams(options)](#new_BoardTeams_new)
+    * [.getBoardTeams(boardId, params)](#BoardTeams+getBoardTeams) ⇒ <code>[Array.&lt;BoardTeam&gt;](#BoardTeam)</code> &#124; <code>promise</code>
+    * [.createBoardTeam(boardId, team)](#BoardTeams+createBoardTeam) ⇒ <code>[BoardTeam](#BoardTeam)</code> &#124; <code>promise</code>
+    * [.getBoardTeamsCount(boardId, params)](#BoardTeams+getBoardTeamsCount) ⇒ <code>[Count](#Count)</code> &#124; <code>promise</code>
+    * [.deleteBoardTeamById(boardId, teamId)](#BoardTeams+deleteBoardTeamById) ⇒ <code>[DeleteResponse](#DeleteResponse)</code> &#124; <code>promise</code>
+    * [.getBoardTeamById(boardId, teamId)](#BoardTeams+getBoardTeamById) ⇒ <code>[BoardTeam](#BoardTeam)</code> &#124; <code>promise</code>
+    * [.updateBoardTeamById(boardId, teamId, operations)](#BoardTeams+updateBoardTeamById) ⇒ <code>[BoardTeam](#BoardTeam)</code> &#124; <code>promise</code>
+    * [.replaceBoardTeamById(boardId, teamId, team)](#BoardTeams+replaceBoardTeamById) ⇒ <code>[BoardTeam](#BoardTeam)</code> &#124; <code>promise</code>
+
+<a name="new_BoardTeams_new"></a>
+
+### new BoardTeams(options)
+
+| Param | Type |
+| --- | --- |
+| options | <code>object</code> | 
+| options.companyId | <code>string</code> | 
+| options.publicKey | <code>string</code> | 
+| options.privateKey | <code>string</code> | 
+| options.companyUrl | <code>string</code> | 
+
+<a name="BoardTeams+getBoardTeams"></a>
+
+### boardTeams.getBoardTeams(boardId, params) ⇒ <code>[Array.&lt;BoardTeam&gt;](#BoardTeam)</code> &#124; <code>promise</code>
+GET
+
+**Kind**: instance method of <code>[BoardTeams](#BoardTeams)</code>  
+
+| Param | Type |
+| --- | --- |
+| boardId |  | 
+| params | <code>[Params](#Params)</code> | 
+
+<a name="BoardTeams+createBoardTeam"></a>
+
+### boardTeams.createBoardTeam(boardId, team) ⇒ <code>[BoardTeam](#BoardTeam)</code> &#124; <code>promise</code>
+POST
+
+**Kind**: instance method of <code>[BoardTeams](#BoardTeams)</code>  
+
+| Param | Type |
+| --- | --- |
+| boardId |  | 
+| team | <code>[BoardTeam](#BoardTeam)</code> | 
+
+<a name="BoardTeams+getBoardTeamsCount"></a>
+
+### boardTeams.getBoardTeamsCount(boardId, params) ⇒ <code>[Count](#Count)</code> &#124; <code>promise</code>
+GET
+
+**Kind**: instance method of <code>[BoardTeams](#BoardTeams)</code>  
+
+| Param | Type |
+| --- | --- |
+| boardId |  | 
+| params | <code>[Params](#Params)</code> | 
+
+<a name="BoardTeams+deleteBoardTeamById"></a>
+
+### boardTeams.deleteBoardTeamById(boardId, teamId) ⇒ <code>[DeleteResponse](#DeleteResponse)</code> &#124; <code>promise</code>
+DELETE
+
+**Kind**: instance method of <code>[BoardTeams](#BoardTeams)</code>  
+
+| Param |
+| --- |
+| boardId | 
+| teamId | 
+
+<a name="BoardTeams+getBoardTeamById"></a>
+
+### boardTeams.getBoardTeamById(boardId, teamId) ⇒ <code>[BoardTeam](#BoardTeam)</code> &#124; <code>promise</code>
+GET
+
+**Kind**: instance method of <code>[BoardTeams](#BoardTeams)</code>  
+
+| Param |
+| --- |
+| boardId | 
+| teamId | 
+
+<a name="BoardTeams+updateBoardTeamById"></a>
+
+### boardTeams.updateBoardTeamById(boardId, teamId, operations) ⇒ <code>[BoardTeam](#BoardTeam)</code> &#124; <code>promise</code>
+PATCH
+
+**Kind**: instance method of <code>[BoardTeams](#BoardTeams)</code>  
+
+| Param | Type |
+| --- | --- |
+| boardId |  | 
+| teamId |  | 
+| operations | <code>[Array.&lt;Operations&gt;](#Operations)</code> | 
+
+<a name="BoardTeams+replaceBoardTeamById"></a>
+
+### boardTeams.replaceBoardTeamById(boardId, teamId, team) ⇒ <code>[BoardTeam](#BoardTeam)</code> &#124; <code>promise</code>
+PUT
+
+**Kind**: instance method of <code>[BoardTeams](#BoardTeams)</code>  
+
+| Param | Type |
+| --- | --- |
+| boardId |  | 
+| teamId |  | 
+| team | <code>[BoardTeam](#BoardTeam)</code> | 
 
 <a name="ServiceDeskAPI"></a>
 
@@ -1986,6 +2148,7 @@ GET
     * [.updateTicketServiceSubType(id, serviceSubType)](#Tickets+updateTicketServiceSubType) ⇒ <code>promise</code> &#124; <code>[Ticket](#Ticket)</code>
     * [.updateTicketTypeSubTypeItem(id, type, subtype, item)](#Tickets+updateTicketTypeSubTypeItem) ⇒ <code>promise</code> &#124; <code>[Ticket](#Ticket)</code>
     * [.updateTicketServiceItem(id, serviceItem)](#Tickets+updateTicketServiceItem) ⇒ <code>promise</code> &#124; <code>[Ticket](#Ticket)</code>
+    * [.updateTicketCustomFieldByIndex(id, index, value)](#Tickets+updateTicketCustomFieldByIndex) ⇒ <code>[Ticket](#Ticket)</code> &#124; <code>promise</code>
     * [.updateTicketCustomFieldById(id, customFieldId, value)](#Tickets+updateTicketCustomFieldById) ⇒ <code>[Ticket](#Ticket)</code> &#124; <code>promise</code>
     * [.updateTicketCustomFieldByCaption(id, caption, value)](#Tickets+updateTicketCustomFieldByCaption) ⇒ <code>[Ticket](#Ticket)</code> &#124; <code>promise</code>
 
@@ -2329,6 +2492,17 @@ GET
 | id |  | 
 | serviceItem | <code>string</code> | 
 
+<a name="Tickets+updateTicketCustomFieldByIndex"></a>
+
+### tickets.updateTicketCustomFieldByIndex(id, index, value) ⇒ <code>[Ticket](#Ticket)</code> &#124; <code>promise</code>
+**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| id | <code>string</code> &#124; <code>number</code> | ticketNbr |
+| index | <code>string</code> &#124; <code>number</code> |  |
+| value | <code>string</code> &#124; <code>number</code> &#124; <code>boolean</code> |  |
+
 <a name="Tickets+updateTicketCustomFieldById"></a>
 
 ### tickets.updateTicketCustomFieldById(id, customFieldId, value) ⇒ <code>[Ticket](#Ticket)</code> &#124; <code>promise</code>
@@ -2338,7 +2512,7 @@ GET
 | --- | --- | --- |
 | id | <code>string</code> &#124; <code>number</code> | ticketNbr |
 | customFieldId | <code>string</code> &#124; <code>number</code> |  |
-| value | <code>string</code> &#124; <code>number</code> |  |
+| value | <code>string</code> &#124; <code>number</code> &#124; <code>boolean</code> |  |
 
 <a name="Tickets+updateTicketCustomFieldByCaption"></a>
 
@@ -2349,7 +2523,7 @@ GET
 | --- | --- | --- |
 | id | <code>string</code> &#124; <code>number</code> | ticketNbr |
 | caption | <code>string</code> &#124; <code>number</code> |  |
-| value | <code>string</code> &#124; <code>number</code> |  |
+| value | <code>string</code> &#124; <code>number</code> &#124; <code>boolean</code> |  |
 
 <a name="SystemAPI"></a>
 
@@ -2359,9 +2533,9 @@ GET
 
 ### new SystemAPI(options)
 
-| Param |
-| --- |
-| options | 
+| Param | Type |
+| --- | --- |
+| options | <code>[CWOptions](#CWOptions)</code> | 
 
 <a name="Members"></a>
 
@@ -2371,7 +2545,7 @@ GET
 * [Members](#Members)
     * [new Members(options)](#new_Members_new)
     * [.getMembers(params)](#Members+getMembers) ⇒ <code>[Array.&lt;Member&gt;](#Member)</code> &#124; <code>promise</code>
-    * [.getMemberByIdentifer(identifier)](#Members+getMemberByIdentifer) ⇒ <code>[Member](#Member)</code> &#124; <code>promise</code>
+    * [.getMemberByIdentifier(identifier)](#Members+getMemberByIdentifier) ⇒ <code>[Member](#Member)</code> &#124; <code>promise</code>
     * [.getMemberImage(identifier, params)](#Members+getMemberImage) ⇒ <code>promise</code>
 
 <a name="new_Members_new"></a>
@@ -2393,9 +2567,9 @@ GET
 | --- | --- |
 | params | <code>[Params](#Params)</code> | 
 
-<a name="Members+getMemberByIdentifer"></a>
+<a name="Members+getMemberByIdentifier"></a>
 
-### members.getMemberByIdentifer(identifier) ⇒ <code>[Member](#Member)</code> &#124; <code>promise</code>
+### members.getMemberByIdentifier(identifier) ⇒ <code>[Member](#Member)</code> &#124; <code>promise</code>
 GET
 
 **Kind**: instance method of <code>[Members](#Members)</code>  
@@ -2413,6 +2587,66 @@ GET
 | --- | --- |
 | identifier |  | 
 | params | <code>[ParamsImage](#ParamsImage)</code> | 
+
+<a name="Reports"></a>
+
+## Reports
+**Kind**: global class  
+**Inherits**: <code>[ConnectWise](#ConnectWise)</code>  
+
+* [Reports](#Reports)
+    * [new Reports(options)](#new_Reports_new)
+    * [.getReports([params])](#Reports+getReports) ⇒ <code>Promise.&lt;Array.&lt;ReportNames&gt;&gt;</code>
+    * [.getReport(reportName, [params], [disableInterpolate])](#Reports+getReport) ⇒ <code>Promise.&lt;(Array.&lt;ReportData&gt;\|Array.&lt;ReportDataInterpolated&gt;)&gt;</code>
+    * [.getReportResultsCount(reportName, params)](#Reports+getReportResultsCount) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
+    * [.getColumnDefinitions(reportName)](#Reports+getColumnDefinitions) ⇒ <code>Promise.&lt;Array.&lt;ReportColumn&gt;&gt;</code>
+
+<a name="new_Reports_new"></a>
+
+### new Reports(options)
+
+| Param | Type |
+| --- | --- |
+| options | <code>[CWOptions](#CWOptions)</code> | 
+
+<a name="Reports+getReports"></a>
+
+### reports.getReports([params]) ⇒ <code>Promise.&lt;Array.&lt;ReportNames&gt;&gt;</code>
+**Kind**: instance method of <code>[Reports](#Reports)</code>  
+
+| Param | Type |
+| --- | --- |
+| [params] | <code>[ParamsConditions](#ParamsConditions)</code> | 
+
+<a name="Reports+getReport"></a>
+
+### reports.getReport(reportName, [params], [disableInterpolate]) ⇒ <code>Promise.&lt;(Array.&lt;ReportData&gt;\|Array.&lt;ReportDataInterpolated&gt;)&gt;</code>
+**Kind**: instance method of <code>[Reports](#Reports)</code>  
+
+| Param | Type |
+| --- | --- |
+| reportName | <code>string</code> | 
+| [params] | <code>[Params](#Params)</code> | 
+| [disableInterpolate] | <code>boolean</code> | 
+
+<a name="Reports+getReportResultsCount"></a>
+
+### reports.getReportResultsCount(reportName, params) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
+**Kind**: instance method of <code>[Reports](#Reports)</code>  
+
+| Param | Type |
+| --- | --- |
+| reportName | <code>string</code> | 
+| params | <code>[ParamsConditions](#ParamsConditions)</code> | 
+
+<a name="Reports+getColumnDefinitions"></a>
+
+### reports.getColumnDefinitions(reportName) ⇒ <code>Promise.&lt;Array.&lt;ReportColumn&gt;&gt;</code>
+**Kind**: instance method of <code>[Reports](#Reports)</code>  
+
+| Param |
+| --- |
+| reportName | 
 
 <a name="TimeAPI"></a>
 
@@ -2516,33 +2750,6 @@ GET
 | id |  | 
 | timeEntry | <code>[TimeEntry](#TimeEntry)</code> &#124; <code>promise</code> | 
 
-<a name="CompanyAPI"></a>
-
-## CompanyAPI(options) ⇒ <code>[FinanceAPI](#FinanceAPI)</code>
-**Kind**: global function  
-
-| Param | Type |
-| --- | --- |
-| options | <code>[CWOptions](#CWOptions)</code> | 
-
-<a name="FinanceAPI"></a>
-
-## FinanceAPI(options) ⇒ <code>[FinanceAPI](#FinanceAPI)</code>
-**Kind**: global function  
-
-| Param | Type |
-| --- | --- |
-| options | <code>[CWOptions](#CWOptions)</code> | 
-
-<a name="ProjectAPI"></a>
-
-## ProjectAPI(options) ⇒ <code>[ProjectAPI](#ProjectAPI)</code>
-**Kind**: global function  
-
-| Param |
-| --- |
-| options | 
-
 <a name="Company"></a>
 
 ## Company : <code>object</code>
@@ -2615,6 +2822,11 @@ GET
 | --- | --- |
 | id | <code>number</code> | 
 | name | <code>string</code> | 
+| type | <code>[TypeHref](#TypeHref)</code> | 
+| status | <code>[StatusHref](#StatusHref)</code> | 
+| company | <code>[CompanyHref](#CompanyHref)</code> | 
+| contact | <code>[ContactHref](#ContactHref)</code> | 
+| site | <code>[SiteHref](#SiteHref)</code> | 
 | activeFlag |  | 
 | id |  | 
 | name |  | 
@@ -2760,6 +2972,14 @@ GET
 | Contacts | <code>[Contacts](#Contacts)</code> | 
 | Configurations | <code>[Configurations](#Configurations)</code> | 
 
+<a name="new_CompanyAPI_new"></a>
+
+### new CompanyAPI(options)
+
+| Param | Type |
+| --- | --- |
+| options | <code>[CWOptions](#CWOptions)</code> | 
+
 <a name="CWOptions"></a>
 
 ## CWOptions : <code>object</code>
@@ -2772,6 +2992,30 @@ GET
 | publicKey | 
 | privateKey | 
 | companyUrl | 
+
+<a name="ConnectWiseRest"></a>
+
+## ConnectWiseRest : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| API | <code>[ConnectWise](#ConnectWise)</code> | 
+| FinanceAPI | <code>[FinanceAPI](#FinanceAPI)</code> | 
+| ServiceDeskAPI | <code>[ServiceDeskAPI](#ServiceDeskAPI)</code> | 
+| TimeAPI | <code>[TimeAPI](#TimeAPI)</code> | 
+| ProjectAPI | <code>[ProjectAPI](#ProjectAPI)</code> | 
+| CompanyAPI | <code>[CompanyAPI](#CompanyAPI)</code> | 
+| SystemAPI | <code>[SystemAPI](#SystemAPI)</code> | 
+
+<a name="new_ConnectWiseRest_new"></a>
+
+### new ConnectWiseRest(options)
+
+| Param |
+| --- |
+| options | 
 
 <a name="AgreementHref"></a>
 
@@ -3068,6 +3312,7 @@ Service Subtype
 | Name | Type |
 | --- | --- |
 | conditions | <code>string</code> | 
+| orderBy | <code>string</code> | 
 
 <a name="ParamsImage"></a>
 
@@ -3525,6 +3770,14 @@ Service Subtype
 | WorkTypeExclusions | <code>[WorkTypeExclusions](#WorkTypeExclusions)</code> | 
 | WorkTypes | <code>[WorkTypes](#WorkTypes)</code> | 
 
+<a name="new_FinanceAPI_new"></a>
+
+### new FinanceAPI(options)
+
+| Param | Type |
+| --- | --- |
+| options | <code>[CWOptions](#CWOptions)</code> | 
+
 <a name="WorkRole"></a>
 
 ## WorkRole : <code>object</code>
@@ -3597,6 +3850,14 @@ Service Subtype
 | Name |
 | --- |
 | Projects | 
+
+<a name="new_ProjectAPI_new"></a>
+
+### new ProjectAPI(options)
+
+| Param |
+| --- |
+| options | 
 
 <a name="Project"></a>
 
@@ -3672,6 +3933,25 @@ Service Subtype
 | resourceTemplateId | <code>number</code> | 
 | _info | <code>object</code> | 
 
+<a name="BoardTeam"></a>
+
+## BoardTeam : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| id | <code>number</code> | 
+| name | <code>string</code> | 
+| teamLeader | <code>[MemberHref](#MemberHref)</code> | 
+| members | <code>Array.&lt;number&gt;</code> | 
+| defaultFlag | <code>boolean</code> | 
+| notifyOnTicketDelete | <code>boolean</code> | 
+| boardId | <code>number</code> | 
+| locationId | <code>number</code> | 
+| businessUnitId | <code>number</code> | 
+| _info | <code>object</code> | 
+
 <a name="ServiceDeskAPI"></a>
 
 ## ServiceDeskAPI : <code>object</code>
@@ -3682,6 +3962,7 @@ Service Subtype
 | --- | --- |
 | Tickets | <code>[Tickets](#Tickets)</code> | 
 | Boards | <code>[Boards](#Boards)</code> | 
+| BoardTeams | <code>[BoardTeams](#BoardTeams)</code> | 
 | Priorities | <code>[Priorities](#Priorities)</code> | 
 | Statuses | <code>[Statuses](#Statuses)</code> | 
 | ServiceNotes | <code>[ServiceNotes](#ServiceNotes)</code> | 
@@ -3860,14 +4141,15 @@ Service Subtype
 | Name | Type |
 | --- | --- |
 | Members | <code>[Members](#Members)</code> | 
+| Reports | <code>[Reports](#Reports)</code> | 
 
 <a name="new_SystemAPI_new"></a>
 
 ### new SystemAPI(options)
 
-| Param |
-| --- |
-| options | 
+| Param | Type |
+| --- | --- |
+| options | <code>[CWOptions](#CWOptions)</code> | 
 
 <a name="Member"></a>
 
@@ -3950,6 +4232,47 @@ Service Subtype
 | _info.lastUpdated | <code>string</code> | 
 | _info.updatedBy | <code>string</code> | 
 | _info.image_href | <code>string</code> | 
+
+<a name="ReportNames"></a>
+
+## ReportNames : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| name | <code>string</code> | 
+
+<a name="ReportData"></a>
+
+## ReportData : <code>object</code>
+row_values is not a keyed array
+
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| column_definitions | <code>Array.&lt;object&gt;</code> |  |
+| row_values | <code>array</code> | mixed types, may be null, string, numeric, etc |
+
+<a name="ReportDataInterpolated"></a>
+
+## ReportDataInterpolated : <code>object</code>
+Key-Vals interpolated into one object per row
+
+**Kind**: global typedef  
+<a name="ReportColumn"></a>
+
+## ReportColumn : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| ColumnName | <code>object</code> | the key of the object is the name of the column (not ColumnName) |
+| ColumnName.isNullable | <code>boolean</code> |  |
+| ColumnName.type | <code>string</code> | ['Numeric', 'Text', 'DateTime', 'Boolean'] |
 
 <a name="TimeEntry"></a>
 

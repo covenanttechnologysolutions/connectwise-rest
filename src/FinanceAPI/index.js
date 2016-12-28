@@ -18,6 +18,7 @@
 /**
  * @param {CWOptions} options
  * @returns {FinanceAPI}
+ * @constructor
  */
 function FinanceAPI(options) {
     var _Additions = require('./Additions'),

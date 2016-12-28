@@ -12,12 +12,13 @@
  *
  * @param options
  * @returns {ProjectAPI}
+ * @constructor
  */
 function ProjectAPI(options) {
-    var _Projects = require('./Projects');
-    return {
-        Projects: new _Projects(options)
-    }
+  var _Projects = require('./Projects');
+  return {
+    Projects: new _Projects(options)
+  }
 }
 
 /**

@@ -12,7 +12,7 @@
  */
 
 /**
- * @type {object} ConnectWiseRest
+ * @typedef {object} ConnectWiseRest
  * @property {ConnectWise} API
  * @property {FinanceAPI} FinanceAPI
  * @property {ServiceDeskAPI} ServiceDeskAPI
