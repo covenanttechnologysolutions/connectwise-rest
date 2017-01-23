@@ -3,6 +3,8 @@
 <dl>
 <dt><a href="#Companies">Companies</a></dt>
 <dd></dd>
+<dt><a href="#CompanyTeams">CompanyTeams</a></dt>
+<dd></dd>
 <dt><a href="#Configurations">Configurations</a></dt>
 <dd></dd>
 <dt><a href="#Contacts">Contacts</a></dt>
@@ -68,6 +70,8 @@
 <dd></dd>
 <dt><a href="#CompanyNote">CompanyNote</a> : <code>object</code></dt>
 <dd></dd>
+<dt><a href="#CompanyTeam">CompanyTeam</a> : <code>object</code></dt>
+<dd></dd>
 <dt><a href="#Configuration">Configuration</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#ConfigurationQuestion">ConfigurationQuestion</a> : <code>object</code></dt>
@@ -83,6 +87,8 @@
 <dt><a href="#CWOptions">CWOptions</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#ConnectWiseRest">ConnectWiseRest</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#InfoHref">InfoHref</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#AgreementHref">AgreementHref</a> : <code>object</code></dt>
 <dd></dd>
@@ -328,6 +334,102 @@
 
 - [ ] finish this one
 
+<a name="CompanyTeams"></a>
+
+## CompanyTeams
+**Kind**: global class  
+**Inherits**: <code>[ConnectWise](#ConnectWise)</code>  
+
+* [CompanyTeams](#CompanyTeams)
+    * [new CompanyTeams(options)](#new_CompanyTeams_new)
+    * [.getCompanyTeams(id, params)](#CompanyTeams+getCompanyTeams) ⇒ <code>Promise.&lt;Array.&lt;CompanyTeam&gt;&gt;</code>
+    * [.createCompanyTeam(id, companyTeam)](#CompanyTeams+createCompanyTeam) ⇒ <code>[Promise.&lt;CompanyTeam&gt;](#CompanyTeam)</code>
+    * [.getCompanyTeamsCount(id, params)](#CompanyTeams+getCompanyTeamsCount) ⇒ <code>Promise.&lt;Array.&lt;Count&gt;&gt;</code>
+    * [.getCompanyTeamById(id, teamId)](#CompanyTeams+getCompanyTeamById) ⇒ <code>[Promise.&lt;CompanyTeam&gt;](#CompanyTeam)</code>
+    * [.deleteCompanyTeamById(id, teamId)](#CompanyTeams+deleteCompanyTeamById) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
+    * [.replaceCompanyTeam(id, teamId, companyTeam)](#CompanyTeams+replaceCompanyTeam) ⇒ <code>[Promise.&lt;CompanyTeam&gt;](#CompanyTeam)</code>
+    * [.updateCompanyTeam(id, teamId, ops)](#CompanyTeams+updateCompanyTeam) ⇒ <code>[Promise.&lt;CompanyTeam&gt;](#CompanyTeam)</code>
+
+<a name="new_CompanyTeams_new"></a>
+
+### new CompanyTeams(options)
+
+| Param | Type |
+| --- | --- |
+| options | <code>[CWOptions](#CWOptions)</code> | 
+
+<a name="CompanyTeams+getCompanyTeams"></a>
+
+### companyTeams.getCompanyTeams(id, params) ⇒ <code>Promise.&lt;Array.&lt;CompanyTeam&gt;&gt;</code>
+**Kind**: instance method of <code>[CompanyTeams](#CompanyTeams)</code>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| id |  | companyId |
+| params | <code>[Params](#Params)</code> |  |
+
+<a name="CompanyTeams+createCompanyTeam"></a>
+
+### companyTeams.createCompanyTeam(id, companyTeam) ⇒ <code>[Promise.&lt;CompanyTeam&gt;](#CompanyTeam)</code>
+**Kind**: instance method of <code>[CompanyTeams](#CompanyTeams)</code>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| id |  | companyId |
+| companyTeam | <code>[CompanyTeam](#CompanyTeam)</code> |  |
+
+<a name="CompanyTeams+getCompanyTeamsCount"></a>
+
+### companyTeams.getCompanyTeamsCount(id, params) ⇒ <code>Promise.&lt;Array.&lt;Count&gt;&gt;</code>
+**Kind**: instance method of <code>[CompanyTeams](#CompanyTeams)</code>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| id |  | companyId |
+| params | <code>[Params](#Params)</code> |  |
+
+<a name="CompanyTeams+getCompanyTeamById"></a>
+
+### companyTeams.getCompanyTeamById(id, teamId) ⇒ <code>[Promise.&lt;CompanyTeam&gt;](#CompanyTeam)</code>
+**Kind**: instance method of <code>[CompanyTeams](#CompanyTeams)</code>  
+
+| Param | Description |
+| --- | --- |
+| id | companyId |
+| teamId |  |
+
+<a name="CompanyTeams+deleteCompanyTeamById"></a>
+
+### companyTeams.deleteCompanyTeamById(id, teamId) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
+**Kind**: instance method of <code>[CompanyTeams](#CompanyTeams)</code>  
+
+| Param | Description |
+| --- | --- |
+| id | companyId |
+| teamId |  |
+
+<a name="CompanyTeams+replaceCompanyTeam"></a>
+
+### companyTeams.replaceCompanyTeam(id, teamId, companyTeam) ⇒ <code>[Promise.&lt;CompanyTeam&gt;](#CompanyTeam)</code>
+**Kind**: instance method of <code>[CompanyTeams](#CompanyTeams)</code>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| id |  | companyId |
+| teamId |  |  |
+| companyTeam | <code>[CompanyTeam](#CompanyTeam)</code> |  |
+
+<a name="CompanyTeams+updateCompanyTeam"></a>
+
+### companyTeams.updateCompanyTeam(id, teamId, ops) ⇒ <code>[Promise.&lt;CompanyTeam&gt;](#CompanyTeam)</code>
+**Kind**: instance method of <code>[CompanyTeams](#CompanyTeams)</code>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| id |  | companyId |
+| teamId |  |  |
+| ops | <code>[Operations](#Operations)</code> |  |
+
 <a name="Configurations"></a>
 
 ## Configurations
@@ -572,7 +674,7 @@
 * [ConnectWise](#ConnectWise)
     * [new ConnectWise(options)](#new_ConnectWise_new)
     * [.api(path, method, [params])](#ConnectWise+api) ⇒ <code>Promise.&lt;\*&gt;</code>
-    * [.paginate(fn, args, module, [pageSize], [startPage])](#ConnectWise+paginate) ⇒ <code>promise</code> &#124; <code>\*</code>
+    * [.paginate(fn, args, module, [pageSize], [startPage])](#ConnectWise+paginate) ⇒ <code>Promise.&lt;\*&gt;</code>
 
 <a name="new_ConnectWise_new"></a>
 
@@ -600,7 +702,7 @@
 
 <a name="ConnectWise+paginate"></a>
 
-### connectWise.paginate(fn, args, module, [pageSize], [startPage]) ⇒ <code>promise</code> &#124; <code>\*</code>
+### connectWise.paginate(fn, args, module, [pageSize], [startPage]) ⇒ <code>Promise.&lt;\*&gt;</code>
 Wrap a module's function to get all results.
 
 **Kind**: instance method of <code>[ConnectWise](#ConnectWise)</code>  
@@ -2812,6 +2914,26 @@ GET
 | _info.lastUpdated | <code>string</code> |  |
 | _info.updatedBy | <code>string</code> |  |
 
+<a name="CompanyTeam"></a>
+
+## CompanyTeam : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| id |  | 
+| company | <code>[CompanyHref](#CompanyHref)</code> | 
+| teamRole | <code>[TeamHref](#TeamHref)</code> | 
+| locationId |  | 
+| businessUnitId |  | 
+| contact | <code>[ContactHref](#ContactHref)</code> | 
+| member | <code>[MemberHref](#MemberHref)</code> | 
+| accountManagerFlag |  | 
+| techFlag |  | 
+| salesFlag |  | 
+| _info | <code>[InfoHref](#InfoHref)</code> | 
+
 <a name="Configuration"></a>
 
 ## Configuration : <code>object</code>
@@ -3016,6 +3138,17 @@ GET
 | Param |
 | --- |
 | options | 
+
+<a name="InfoHref"></a>
+
+## InfoHref : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name |
+| --- |
+| lastUpdated | 
+| updatedBy | 
 
 <a name="AgreementHref"></a>
 

@@ -150,7 +150,7 @@ ConnectWise.prototype.api = function (path, method, params) {
  * @param {object} module
  * @param {string|number} [pageSize] defaults to 100
  * @param {string|number} [startPage] defaults to 0
- * @returns {promise|*}
+ * @returns {Promise<*>}
  */
 ConnectWise.prototype.paginate = function (fn, args, module, pageSize, startPage) {
   var deferred = Q.defer(),

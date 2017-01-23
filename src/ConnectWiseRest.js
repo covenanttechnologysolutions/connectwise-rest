@@ -55,6 +55,12 @@ function ConnectWiseRest(options) {
 module.exports = ConnectWiseRest;
 
 /**
+ * @typedef {object} InfoHref
+ * @property lastUpdated
+ * @property updatedBy
+ */
+
+/**
  * @typedef {object} AgreementHref
  * @property {number} id
  * @property {string} name
