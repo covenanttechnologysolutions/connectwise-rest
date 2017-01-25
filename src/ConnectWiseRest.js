@@ -19,13 +19,14 @@
  * @property {TimeAPI} TimeAPI
  * @property {ProjectAPI} ProjectAPI
  * @property {CompanyAPI} CompanyAPI
+ * @property {ScheduleAPI} ScheduleAPI
  * @property {SystemAPI} SystemAPI
  */
 
 /**
  *
  * @param options
- * @returns {{API: ConnectWise, CompanyAPI: CompanyAPI, FinanceAPI: FinanceAPI, ServiceDeskAPI: ServiceDeskAPI, TimeAPI: TimeAPI, ProjectAPI: ProjectAPI, SystemAPI: SystemAPI}}
+ * @returns {{API: ConnectWise, CompanyAPI, FinanceAPI, ServiceDeskAPI, TimeAPI: TimeAPI, ProjectAPI, ScheduleAPI: ScheduleAPI, SystemAPI}}
  * @constructor
  */
 function ConnectWiseRest(options) {
@@ -35,6 +36,7 @@ function ConnectWiseRest(options) {
     _TimeAPI = require('./TimeAPI'),
     _ServiceDeskAPI = require('./ServiceDeskAPI'),
     _ProjectAPI = require('./ProjectAPI'),
+    _ScheduleAPI = require('./ScheduleAPI'),
     _SystemAPI = require('./SystemAPI');
 
   return {
@@ -44,6 +46,7 @@ function ConnectWiseRest(options) {
     ServiceDeskAPI: new _ServiceDeskAPI(options),
     TimeAPI: new _TimeAPI(options),
     ProjectAPI: new _ProjectAPI(options),
+    ScheduleAPI: new _ScheduleAPI(options),
     SystemAPI: new _SystemAPI(options)
   }
 }
@@ -414,4 +417,43 @@ module.exports = ConnectWiseRest;
  * @property {object} _info
  * @property {string} relationship_href
  *
+ */
+
+/**
+ * @typedef {object} ScheduleTypeHref
+ * @property id
+ * @property identifier
+ * @property {object} _info
+ * @property _info.type_href
+ */
+
+/**
+ * @typedef {object} ScheduleStatusHref
+ * @property id
+ * @property name
+ * @property {object} _info
+ * @property _info.status_href
+ */
+
+/**
+ * @typedef {object} ScheduleSpanHref
+ * @property id
+ * @property name
+ * @property _info
+ */
+
+/**
+ * @typedef {object} ReminderHref
+ * @property id
+ * @property name
+ * @property _info
+ *
+ */
+
+/**
+ * @typedef {object} ServiceLocationHref
+ * @property id
+ * @property name
+ * @property _info
+ * @property _info.location_href
  */
