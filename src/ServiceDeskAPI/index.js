@@ -16,7 +16,7 @@
 /**
  *
  * @param {CWOptions} options
- * @returns {{Tickets: Tickets, Boards: Boards, BoardTeams: BoardTeams, Priorities: Priorities, Statuses: Statuses, ServiceNotes: ServiceNotes}}
+ * @returns {ServiceDeskAPI}
  * @constructor
  */
 function ServiceDeskAPI(options) {

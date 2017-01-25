@@ -18,7 +18,7 @@
 /**
  *
  * @param options
- * @returns {{Additions: Additions, Adjustments: Adjustments, Agreements: Agreements, AgreementSites: AgreementSites, BoardDefaults: BoardDefaults, WorkRoles: WorkRoles, WorkTypeExclusions: WorkTypeExclusions, WorkTypes: WorkTypes}}
+ * @returns {FinanceAPI}
  * @constructor
  */
 function FinanceAPI(options) {

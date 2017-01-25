@@ -5,6 +5,6 @@
 
 /**
  *
- * @type {ConnectWiseRest|exports|module.exports}
+ * @type {ConnectWiseRest}
  */
 module.exports = require('./src/ConnectWiseRest.js');

@@ -3,8 +3,13 @@
  */
 
 /**
+ * @typedef {Object} ScheduleAPI
+ * @property {ScheduleEntries} ScheduleEntries
+ */
+
+/**
  * @param options
- * @returns {{ScheduleEntries: ScheduleEntries}}
+ * @returns {ScheduleAPI}
  * @constructor
  */
 function ScheduleAPI(options) {

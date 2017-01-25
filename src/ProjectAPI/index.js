@@ -11,7 +11,7 @@
 /**
  *
  * @param options
- * @returns {{Projects: Projects}}
+ * @returns {ProjectAPI}
  * @constructor
  */
 function ProjectAPI(options) {

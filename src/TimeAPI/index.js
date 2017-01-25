@@ -4,9 +4,14 @@
  */
 
 /**
+ * @typedef {object} TimeAPI
+ * @property TimeEntries
+ */
+
+/**
  *
  * @param options
- * @returns {{TimeEntries: TimeEntries}}
+ * @returns {TimeEntries}
  * @constructor
  */
 function TimeAPI(options) {

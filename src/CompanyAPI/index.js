@@ -13,7 +13,7 @@
 /**
  *
  * @param options
- * @returns {{Companies: Companies, Contacts: Contacts, Configurations: Configurations}}
+ * @returns {CompanyAPI}
  * @constructor
  */
 function CompanyAPI(options) {

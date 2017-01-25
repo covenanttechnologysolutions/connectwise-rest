@@ -26,7 +26,7 @@
 /**
  *
  * @param options
- * @returns {{API: ConnectWise, CompanyAPI, FinanceAPI, ServiceDeskAPI, TimeAPI: TimeAPI, ProjectAPI, ScheduleAPI: ScheduleAPI, SystemAPI}}
+ * @returns {ConnectWiseRest}
  * @constructor
  */
 function ConnectWiseRest(options) {
