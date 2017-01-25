@@ -8,7 +8,7 @@
  * @private
  */
 var inherits = require('util').inherits,
-    ConnectWise = require('../ConnectWise.js');
+  ConnectWise = require('../ConnectWise.js');
 /**
  * @typedef {object} Priority
  * @property {number} id
@@ -23,25 +23,21 @@ var inherits = require('util').inherits,
 
 /**
  *
- * @param {object} options
- * @param {string} options.companyId
- * @param {string} options.publicKey
- * @param {string} options.privateKey
- * @param {string} options.companyUrl
+ * @param {CWOptions} options
  * @constructor
  */
 function Priorities(options) {
-    ConnectWise.apply(this, Array.prototype.slice.call(arguments));
+  ConnectWise.apply(this, Array.prototype.slice.call(arguments));
 }
 inherits(Priorities, ConnectWise);
 
 /**
  *
  * @param {Params} params
- * @returns {promise|Priority[]}
+ * @returns {Promise<Priority[]>}
  */
 Priorities.prototype.getPriorities = function (params) {
-    return this.api('/service/priorities', 'GET', params);
+  return this.api('/service/priorities', 'GET', params);
 };
 
 /**

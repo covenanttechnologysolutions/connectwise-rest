@@ -6,8 +6,8 @@
  * @private
  */
 var Q = require('q'),
-    inherits = require('util').inherits,
-    ConnectWise = require('../ConnectWise.js');
+  inherits = require('util').inherits,
+  ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {object} ServiceNote
@@ -33,15 +33,11 @@ var Q = require('q'),
 
 /**
  *
- * @param {object} options
- * @param {string} options.companyId
- * @param {string} options.publicKey
- * @param {string} options.privateKey
- * @param {string} options.companyUrl
+ * @param {CWOptions} options
  * @constructor
  */
 function ServiceNotes(options) {
-    ConnectWise.apply(this, Array.prototype.slice.call(arguments));
+  ConnectWise.apply(this, Array.prototype.slice.call(arguments));
 }
 inherits(ServiceNotes, ConnectWise);
 
@@ -49,50 +45,50 @@ inherits(ServiceNotes, ConnectWise);
  * GET
  * @param ticketId
  * @param {Params} params
- * @returns {ServiceNote[]|promise}
+ * @returns {Promise<ServiceNote[]>}
  */
 ServiceNotes.prototype.getServiceNotes = function (ticketId, params) {
-    return this.api('/service/tickets/' + ticketId + '/notes', 'GET', params);
+  return this.api('/service/tickets/' + ticketId + '/notes', 'GET', params);
 };
 
 /**
  * POST
  * @param {string|number} ticketId
  * @param {ServiceNote} note
- * @returns {ServiceNote|promise}
+ * @returns {Promise<ServiceNote>}
  */
 ServiceNotes.prototype.createServiceNote = function (ticketId, note) {
-    return this.api('/service/tickets/' + ticketId + '/notes', 'POST', note);
+  return this.api('/service/tickets/' + ticketId + '/notes', 'POST', note);
 };
 
 /**
  * GET
  * @param ticketId
  * @param {ParamsConditions} params
- * @returns {Count|promise}
+ * @returns {Promise<Count>}
  */
 ServiceNotes.prototype.getServiceNotesCount = function (ticketId, params) {
-    return this.api('/service/tickets/' + ticketId + '/notes/count', 'GET', params);
+  return this.api('/service/tickets/' + ticketId + '/notes/count', 'GET', params);
 };
 
 /**
  *
  * @param ticketId
  * @param noteId
- * @returns {DeleteResponse|promise}
+ * @returns {Promise<DeleteResponse>}
  */
 ServiceNotes.prototype.deleteServiceNoteById = function (ticketId, noteId) {
-    return this.api('/service/tickets/' + ticketId + '/notes/' + noteId, 'DELETE');
+  return this.api('/service/tickets/' + ticketId + '/notes/' + noteId, 'DELETE');
 };
 
 /**
  *
  * @param ticketId
  * @param noteId
- * @returns {ServiceNote|promise}
+ * @returns {Promise<ServiceNote>}
  */
 ServiceNotes.prototype.getServiceNoteById = function (ticketId, noteId) {
-    return this.api('/service/tickets/' + ticketId + '/notes/' + noteId, 'GET', params);
+  return this.api('/service/tickets/' + ticketId + '/notes/' + noteId, 'GET', params);
 };
 
 /**
@@ -100,10 +96,10 @@ ServiceNotes.prototype.getServiceNoteById = function (ticketId, noteId) {
  * @param ticketId
  * @param noteId
  * @param {ServiceNote} note
- * @returns {ServiceNote|promise}
+ * @returns {Promise<ServiceNote>}
  */
 ServiceNotes.prototype.updateServiceNote = function (ticketId, noteId, note) {
-    return this.api('/service/tickets/' + ticketId + '/notes/' + noteId, 'PATCH', note);
+  return this.api('/service/tickets/' + ticketId + '/notes/' + noteId, 'PATCH', note);
 };
 
 /**
@@ -111,63 +107,63 @@ ServiceNotes.prototype.updateServiceNote = function (ticketId, noteId, note) {
  * @param ticketId
  * @param noteId
  * @param {ServiceNote} note
- * @returns {ServiceNote|promise}
+ * @returns {Promise<ServiceNote>}
  */
 ServiceNotes.prototype.replaceServiceNote = function (ticketId, noteId, note) {
-    return this.api('/service/tickets/' + ticketId + '/notes/' + noteId, 'PUT', note);
+  return this.api('/service/tickets/' + ticketId + '/notes/' + noteId, 'PUT', note);
 };
 
 /**
  *
  * @param {string|number} ticketId
  * @param {string} text
- * @returns {ServiceNote|promise}
+ * @returns {Promise<ServiceNote>}
  */
 ServiceNotes.prototype.createServiceNoteInternal = function (ticketId, text) {
-    return this.createServiceNote(ticketId, {
-        text: text,
-        internalAnalysisFlag: true
-    });
+  return this.createServiceNote(ticketId, {
+    text: text,
+    internalAnalysisFlag: true
+  });
 };
 
 /**
  *
  * @param {string|number} ticketId
  * @param {string} text
- * @returns {ServiceNote|promise}
+ * @returns {Promise<ServiceNote>}
  */
 ServiceNotes.prototype.createServiceNoteDetail = function (ticketId, text) {
-    return this.createServiceNote(ticketId, {
-        text: text,
-        detailDescriptionFlag: true
-    });
+  return this.createServiceNote(ticketId, {
+    text: text,
+    detailDescriptionFlag: true
+  });
 };
 
 /**
  *
  * @param {string|number} ticketId
  * @param {string} text
- * @returns {ServiceNote|promise}
+ * @returns {Promise<ServiceNote>}
  */
 ServiceNotes.prototype.createServiceNoteResolution = function (ticketId, text) {
-    return this.createServiceNote(ticketId, {
-        text: text,
-        resolutionFlag: true
-    });
+  return this.createServiceNote(ticketId, {
+    text: text,
+    resolutionFlag: true
+  });
 };
 
 /**
  *
  * @param {string|number} ticketId
  * @param {string} text
- * @returns {ServiceNote|promise}
+ * @returns {Promise<ServiceNote>}
  */
 ServiceNotes.prototype.createServiceNoteDetailAndResolution = function (ticketId, text) {
-    return this.createServiceNote(ticketId, {
-        text: text,
-        detailDescriptionFlag: true,
-        resolutionFlag: true
-    });
+  return this.createServiceNote(ticketId, {
+    text: text,
+    detailDescriptionFlag: true,
+    resolutionFlag: true
+  });
 };
 
 /**

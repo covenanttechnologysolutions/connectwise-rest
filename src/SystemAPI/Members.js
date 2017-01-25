@@ -101,7 +101,7 @@ inherits(Members, ConnectWise);
 /**
  * GET
  * @param {Params} params
- * @returns {Member[]|promise}
+ * @returns {Promise<Member[]>}
  */
 Members.prototype.getMembers = function (params) {
   return this.api('/system/members', 'GET', params);
@@ -111,18 +111,23 @@ Members.prototype.getMembers = function (params) {
 /**
  * GET
  * @param {string} identifier
- * @returns {Member|promise}
+ * @returns {Promise<Member>}
  */
 Members.prototype.getMemberByIdentifier = function (identifier) {
   return this.api('/system/members/' + identifier, 'GET');
 };
+/**
+ * Alias for getMemberByIdentifier because I keep spelling it wrong
+ * @param identifier
+ * @returns {Promise<Member>}
+ */
 Members.prototype.getMemberByIdentifer = Members.prototype.getMemberByIdentifier;
 
 /**
  *
  * @param identifier
  * @param {ParamsImage} params
- * @returns {promise}
+ * @returns {Promise<*>}
  */
 Members.prototype.getMemberImage = function (identifier, params) {
   return this.api('/system/members/' + identifier + '/image', 'GET', params)

@@ -6,8 +6,8 @@
  * @private
  */
 var Q = require('q'),
-    inherits = require('util').inherits,
-    ConnectWise = require('../ConnectWise.js');
+  inherits = require('util').inherits,
+  ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {object} Agreement
@@ -95,122 +95,122 @@ var Q = require('q'),
  * @constructor
  */
 function Agreements(options) {
-    ConnectWise.apply(this, Array.prototype.slice.call(arguments));
+  ConnectWise.apply(this, Array.prototype.slice.call(arguments));
 }
 inherits(Agreements, ConnectWise);
 
 /**
  * GET
  * @param {Params} params
- * @returns {promise|Agreement[]}
+ * @returns {Promise<Agreement[]>}
  */
-Agreements.prototype.getAgreements = function(params){
-    return this.api('/finance/agreements', 'GET', params);
+Agreements.prototype.getAgreements = function (params) {
+  return this.api('/finance/agreements', 'GET', params);
 };
 
 /**
  * POST
  * @param {Agreement} agreement
- * @returns {promise|Agreement}
+ * @returns {Promise<Agreement>}
  */
-Agreements.prototype.createAgreement = function(agreement){
-    return this.api('/finance/agreements', 'POST', agreement);
+Agreements.prototype.createAgreement = function (agreement) {
+  return this.api('/finance/agreements', 'POST', agreement);
 };
 
 /**
  * GET
  * @param {ParamsConditions} params
- * @returns {promise|Count}
+ * @returns {Promise<Count>}
  */
-Agreements.prototype.getAgreementsCount = function(params){
-    return this.api('/finance/agreements/count', 'GET', params);
+Agreements.prototype.getAgreementsCount = function (params) {
+  return this.api('/finance/agreements/count', 'GET', params);
 };
 
 /**
  * DELETE
  * @param {string|number} agreementId
- * @returns {promise|DeleteResponse}
+ * @returns {Promise<DeleteResponse>}
  */
-Agreements.prototype.deleteAgreementById = function(agreementId){
-    return this.api('/finance/agreements/' + agreementId, 'DELETE');
+Agreements.prototype.deleteAgreementById = function (agreementId) {
+  return this.api('/finance/agreements/' + agreementId, 'DELETE');
 };
 
 /**
  *
  * @param {string|number} agreementId
- * @returns {promise|Agreement}
+ * @returns {Promise<Agreement>}
  */
-Agreements.prototype.getAgreementById = function(agreementId){
-    return this.api('/finance/agreements/' + agreementId, 'GET');
+Agreements.prototype.getAgreementById = function (agreementId) {
+  return this.api('/finance/agreements/' + agreementId, 'GET');
 };
 
 /**
  *
  * @param {string|number} agreementId
  * @param {Operations} operations
- * @returns {promise|Agreement}
+ * @returns {Promise<Agreement>}
  */
-Agreements.prototype.updateAgreement = function(agreementId, operations){
-    return this.api('/finance/agreements/' + agreementId, 'PATCH', operations);
+Agreements.prototype.updateAgreement = function (agreementId, operations) {
+  return this.api('/finance/agreements/' + agreementId, 'PATCH', operations);
 };
 
 /**
  *
  * @param agreementId
  * @param {Agreement} agreement
- * @returns {promise|Agreement}
+ * @returns {Promise<Agreement>}
  */
-Agreements.prototype.replaceAgreement = function(agreementId, agreement){
-    return this.api('/finance/agreements/' + agreementId, 'PUT', agreement);
+Agreements.prototype.replaceAgreement = function (agreementId, agreement) {
+  return this.api('/finance/agreements/' + agreementId, 'PUT', agreement);
 };
 
 /**
  *
  * @param agreementId
  * @param {ParamsPage} params
- * @returns {promise|ConfigurationHref[]}
+ * @returns {Promise<ConfigurationHref[]>}
  */
-Agreements.prototype.getAgreementConfigurations = function(agreementId, params){
-    return this.api('/finance/agreements/' + agreementId + '/configurations', 'GET', params);
+Agreements.prototype.getAgreementConfigurations = function (agreementId, params) {
+  return this.api('/finance/agreements/' + agreementId + '/configurations', 'GET', params);
 };
 
 /**
  * POST
  * @param agreementId
  * @param configuration
- * @returns {promise|ConfigurationHref}
+ * @returns {Promise<ConfigurationHref>}
  */
-Agreements.prototype.createConfigurationAssociation = function(agreementId, configuration){
-    return this.api('/finance/agreements/' + agreementId + '/configurations', 'POST', configuration)
+Agreements.prototype.createConfigurationAssociation = function (agreementId, configuration) {
+  return this.api('/finance/agreements/' + agreementId + '/configurations', 'POST', configuration)
 };
 
 /**
  * GET
  * @param agreementId
- * @returns {promise|Count}
+ * @returns {Promise<Count>}
  */
-Agreements.prototype.getAgreementConfigurationsCount = function(agreementId){
-    return this.api('/finance/agreements/' + agreementId + '/configurations/count', 'GET');
+Agreements.prototype.getAgreementConfigurationsCount = function (agreementId) {
+  return this.api('/finance/agreements/' + agreementId + '/configurations/count', 'GET');
 };
 
 /**
  *
  * @param agreementId
  * @param configurationId
- * @returns {promise|DeleteResponse}
+ * @returns {Promise<DeleteResponse>}
  */
-Agreements.prototype.deleteConfigurationAssociation = function(agreementId, configurationId){
-    return this.api('/finance/agreements/' + agreementId + '/configurations/' + configurationId, 'DELETE');
+Agreements.prototype.deleteConfigurationAssociation = function (agreementId, configurationId) {
+  return this.api('/finance/agreements/' + agreementId + '/configurations/' + configurationId, 'DELETE');
 };
 
 /**
  *
  * @param agreementId
  * @param configurationId
- * @returns {promise|ConfigurationHref}
+ * @returns {Promise<ConfigurationHref>}
  */
-Agreements.prototype.getConfigurationAssociation = function(agreementId, configurationId){
-    return this.api('/finance/agreements/' + agreementId + '/configurations/' + configurationId, 'GET');
+Agreements.prototype.getConfigurationAssociation = function (agreementId, configurationId) {
+  return this.api('/finance/agreements/' + agreementId + '/configurations/' + configurationId, 'GET');
 };
 
 /**

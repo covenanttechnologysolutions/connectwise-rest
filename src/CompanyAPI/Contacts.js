@@ -6,8 +6,8 @@
  * @private
  */
 var Q = require('q'),
-    inherits = require('util').inherits,
-    ConnectWise = require('../ConnectWise.js');
+  inherits = require('util').inherits,
+  ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {object} Contact
@@ -73,94 +73,94 @@ var Q = require('q'),
  * @constructor
  */
 function Contacts(options) {
-    ConnectWise.apply(this, Array.prototype.slice.call(arguments));
+  ConnectWise.apply(this, Array.prototype.slice.call(arguments));
 }
 inherits(Contacts, ConnectWise);
 
 /**
  * @param {Params} params
- * @returns {promise|Contact[]}
+ * @returns {Promise<Contact[]>}
  */
 Contacts.prototype.getContacts = function (params) {
-    return this.api('/company/contacts', 'GET', params);
+  return this.api('/company/contacts', 'GET', params);
 };
 
 /**
  * @param {Contact} contact
- * @returns {promise|Contact}
+ * @returns {Promise<Contact>}
  */
 Contacts.prototype.createContact = function (contact) {
-    return this.api('/company/contacts', 'POST', contact);
+  return this.api('/company/contacts', 'POST', contact);
 };
 
 /**
  * @param {ParamsConditions} params
- * @returns {promise|Count}
+ * @returns {Promise<Count>}
  */
 Contacts.prototype.getContactsCount = function (params) {
-    return this.api('/company/contacts/count', 'GET', params);
+  return this.api('/company/contacts/count', 'GET', params);
 };
 
 /**
  * @param {number|string} id
  * @param {number|string} transferContactId
- * @returns {promise|DeleteResponse}
+ * @returns {Promise<DeleteResponse>}
  */
 Contacts.prototype.deleteContactById = function (id, transferContactId) {
-    return this.api('/company/contacts/' + id, 'DELETE', {transferContactId: transferContactId});
+  return this.api('/company/contacts/' + id, 'DELETE', {transferContactId: transferContactId});
 };
 
 /**
  * @param {string|number} id
- * @returns {promise|Contact}
+ * @returns {Promise<Contact>}
  */
 Contacts.prototype.getContactById = function (id) {
-    return this.api('/company/contacts/' + id, 'GET');
+  return this.api('/company/contacts/' + id, 'GET');
 };
 
 /**
  * @param {string|number} id
  * @param {Operations} operations
- * @returns {promise|Contact}
+ * @returns {Promise<Contact>}
  */
 Contacts.prototype.updateContact = function (id, operations) {
-    return this.api('/company/contacts/' + id, 'PATCH', operations);
+  return this.api('/company/contacts/' + id, 'PATCH', operations);
 };
 
 /**
  * @param {string|number} id
  * @param {Contact} contact
- * @returns {promise|Contact}
+ * @returns {Promise<Contact>}
  */
 Contacts.prototype.replaceContact = function (id, contact) {
-    return this.api('/company/contacts/' + id, 'PUT', contact);
+  return this.api('/company/contacts/' + id, 'PUT', contact);
 };
 
 /**
  * @param {string|number} id
- * @returns {promise|PortalSecurity[]}
+ * @returns {Promise<PortalSecurity[]>}
  */
 Contacts.prototype.getPortalSecurity = function (id) {
-    return this.api('/company/contacts/' + id + '/portalSecurity', 'GET');
+  return this.api('/company/contacts/' + id + '/portalSecurity', 'GET');
 };
 
 
 /**
  * @param {string} email
- * @returns {promise|PostResponse}
+ * @returns {Promise<PostResponse>}
  */
 Contacts.prototype.requestPassword = function (email) {
-    return this.api('/company/contacts/requestPassword', 'POST', {email: email});
+  return this.api('/company/contacts/requestPassword', 'POST', {email: email});
 };
 
 /**
  *
  * @param {string} email
  * @param {string} password
- * @returns {promise|ValidatePortalResponse}
+ * @returns {Promise<ValidatePortalResponse>}
  */
 Contacts.prototype.validatePortalCredentials = function (email, password) {
-    return this.api('/company/contacts/validatePortalCredentials', 'POST', {email: email, password: password});
+  return this.api('/company/contacts/validatePortalCredentials', 'POST', {email: email, password: password});
 };
 
 /**
@@ -168,10 +168,10 @@ Contacts.prototype.validatePortalCredentials = function (email, password) {
  * @param {string|number} id
  * @param {boolean} useDefaultFlag
  * @param {string} lastModified
- * @returns {promise} @TODO check return type
+ * @returns {Promise<*>} @TODO check return type
  */
 Contacts.prototype.getContactImage = function (id, useDefaultFlag, lastModified) {
-    return this.api('/company/contacts/' + id + '/image', 'GET', params);
+  return this.api('/company/contacts/' + id + '/image', 'GET', params);
 };
 
 /**

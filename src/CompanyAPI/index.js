@@ -11,8 +11,9 @@
  */
 
 /**
- * @param {CWOptions} options
- * @returns {FinanceAPI}
+ *
+ * @param options
+ * @returns {{Companies: Companies, Contacts: Contacts, Configurations: Configurations}}
  * @constructor
  */
 function CompanyAPI(options) {

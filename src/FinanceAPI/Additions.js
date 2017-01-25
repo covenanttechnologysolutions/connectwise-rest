@@ -6,8 +6,8 @@
  * @private
  */
 var Q = require('q'),
-    inherits = require('util').inherits,
-    ConnectWise = require('../ConnectWise.js');
+  inherits = require('util').inherits,
+  ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {object} Addition
@@ -43,7 +43,7 @@ var Q = require('q'),
  * @constructor
  */
 function Additions(options) {
-    ConnectWise.apply(this, Array.prototype.slice.call(arguments));
+  ConnectWise.apply(this, Array.prototype.slice.call(arguments));
 }
 inherits(Additions, ConnectWise);
 
@@ -52,9 +52,9 @@ inherits(Additions, ConnectWise);
  * Returns non-cancelled active additions to an agreement
  * @param agreementId
  * @param {Params} params
- * @returns {promise|Addition[]}
+ * @returns {Promise<Addition[]>}
  */
-Additions.prototype.getAdditions = function(agreementId, params){
+Additions.prototype.getAdditions = function (agreementId, params) {
   return this.api('/finance/agreements/' + agreementId + '/additions', 'GET', params);
 };
 
@@ -62,40 +62,40 @@ Additions.prototype.getAdditions = function(agreementId, params){
  * POST
  * @param agreementId
  * @param {Addition} addition
- * @returns {promise|Addition}
+ * @returns {Promise<Addition>}
  */
-Additions.prototype.createAddition = function(agreementId, addition){
-    return this.api('/finance/agreements/' + agreementId + '/additions', 'POST', addition);
+Additions.prototype.createAddition = function (agreementId, addition) {
+  return this.api('/finance/agreements/' + agreementId + '/additions', 'POST', addition);
 };
 
 /**
  * GET
  * @param agreementId
  * @param {ParamsConditions} params
- * @returns {promise|Count}
+ * @returns {Promise<Count>}
  */
-Additions.prototype.getAdditionsCount = function(agreementId, params){
-    return this.api('/finance/agreements/' + agreementId + '/additions/count', 'GET', params);
+Additions.prototype.getAdditionsCount = function (agreementId, params) {
+  return this.api('/finance/agreements/' + agreementId + '/additions/count', 'GET', params);
 };
 
 /**
  * DELETE
  * @param agreementId
  * @param additionId
- * @returns {promise|DeleteResponse}
+ * @returns {Promise<DeleteResponse>}
  */
-Additions.prototype.deleteAdditionById = function(agreementId, additionId){
-    return this.api('/finance/agreements/' + agreementId + '/additions/' + additionId, 'DELETE');
+Additions.prototype.deleteAdditionById = function (agreementId, additionId) {
+  return this.api('/finance/agreements/' + agreementId + '/additions/' + additionId, 'DELETE');
 };
 
 /**
  * GET
  * @param agreementId
  * @param additionId
- * @returns {promise|Addition}
+ * @returns {Promise<Addition>}
  */
-Additions.prototype.getAdditionById = function(agreementId, additionId){
-    return this.api('/finance/agreements/' + agreementId + '/additions/' + additionId, 'GET');
+Additions.prototype.getAdditionById = function (agreementId, additionId) {
+  return this.api('/finance/agreements/' + agreementId + '/additions/' + additionId, 'GET');
 };
 
 /**
@@ -103,10 +103,10 @@ Additions.prototype.getAdditionById = function(agreementId, additionId){
  * @param agreementId
  * @param additionId
  * @param {Operations} operations
- * @returns {promise|Addition}
+ * @returns {Promise<Addition>}
  */
-Additions.prototype.updateAddition = function(agreementId, additionId, operations){
-    return this.api('/finance/agreements/' + agreementId + '/additions/' + additionId, 'PATCH', operations);
+Additions.prototype.updateAddition = function (agreementId, additionId, operations) {
+  return this.api('/finance/agreements/' + agreementId + '/additions/' + additionId, 'PATCH', operations);
 };
 
 /**
@@ -114,10 +114,10 @@ Additions.prototype.updateAddition = function(agreementId, additionId, operation
  * @param agreementId
  * @param additionId
  * @param {Addition} addition
- * @returns {promise|Addition}
+ * @returns {Promise<Addition>}
  */
-Additions.prototype.replaceAddition = function(agreementId, additionId, addition){
-    return this.api('/finance/agreements/' + agreementId + '/additions/' + additionId, 'PUT', addition);
+Additions.prototype.replaceAddition = function (agreementId, additionId, addition) {
+  return this.api('/finance/agreements/' + agreementId + '/additions/' + additionId, 'PUT', addition);
 };
 
 /**

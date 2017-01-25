@@ -88,7 +88,7 @@ inherits(Configurations, ConnectWise);
 
 /**
  * @param {Params} params
- * @returns {promise|Configuration[]}
+ * @returns {Promise<Configuration[]>}
  */
 Configurations.prototype.getConfigurations = function (params) {
   return this.api('/company/configurations', 'GET', params);
@@ -96,7 +96,7 @@ Configurations.prototype.getConfigurations = function (params) {
 /**
  *
  * @param {Configuration} configuration
- * @returns {promise|Configuration}
+ * @returns {Promise<Configuration>}
  */
 Configurations.prototype.createConfiguration = function (configuration) {
   return this.api('/company/configurations', 'POST', configuration);
@@ -104,7 +104,7 @@ Configurations.prototype.createConfiguration = function (configuration) {
 
 /**
  * @param {ParamsConfig} params
- * @returns {promise|Count}
+ * @returns {Promise<Count>}
  */
 Configurations.prototype.getConfigurationsCount = function (params) {
   return this.api('/company/configurations/count', 'GET', params);
@@ -112,7 +112,7 @@ Configurations.prototype.getConfigurationsCount = function (params) {
 
 /**
  * @param {string|number} id
- * @returns {promise|DeleteResponse}
+ * @returns {Promise<DeleteResponse>}
  */
 Configurations.prototype.deleteConfigurationById = function (id) {
   return this.api('/company/configurations/' + id, 'DELETE');
@@ -120,7 +120,7 @@ Configurations.prototype.deleteConfigurationById = function (id) {
 
 /**
  * @param {string|number} id
- * @returns {promise|Configuration}
+ * @returns {Promise<Configuration>}
  */
 Configurations.prototype.getConfigurationById = function (id) {
   return this.api('/company/configurations/' + id, 'GET');
@@ -130,7 +130,7 @@ Configurations.prototype.getConfigurationById = function (id) {
  * @param {string|number} id
  * @param {Operations} ops
  * @param {ParamsConfigUpdate} params
- * @returns {promise|Configuration}
+ * @returns {Promise<Configuration>}
  */
 Configurations.prototype.updateConfiguration = function (id, ops, params) {
   return this.api('/company/configurations/' + id, 'PATCH', params);

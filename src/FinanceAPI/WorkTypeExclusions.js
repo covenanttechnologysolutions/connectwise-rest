@@ -6,8 +6,8 @@
  * @private
  */
 var Q = require('q'),
-    inherits = require('util').inherits,
-    ConnectWise = require('../ConnectWise.js');
+  inherits = require('util').inherits,
+  ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {object} WorkTypeExclusion
@@ -26,7 +26,7 @@ var Q = require('q'),
  * @constructor
  */
 function WorkTypeExclusions(options) {
-    ConnectWise.apply(this, Array.prototype.slice.call(arguments));
+  ConnectWise.apply(this, Array.prototype.slice.call(arguments));
 }
 inherits(WorkTypeExclusions, ConnectWise);
 
@@ -34,39 +34,40 @@ inherits(WorkTypeExclusions, ConnectWise);
  * GET
  * @param agreementId
  * @param {Params} params
- * @returns {promise|WorkTypeExclusion[]}
+ * @returns {Promise<WorkTypeExclusion[]>}
  */
 WorkTypeExclusions.prototype.getWorkTypeExclusions = function (agreementId, params) {
-    return this.api('/finance/agreements/' + agreementId + '/workTypeExclusions', 'GET', params);
+  return this.api('/finance/agreements/' + agreementId + '/workTypeExclusions', 'GET', params);
 };
 
 /**
  * POST
  * @param agreementId
  * @param {WorkTypeExclusion} workTypeExclusion
- * @returns {promise|WorkTypeExclusion}
+ * @returns {Promise<WorkTypeExclusion>}
  */
 WorkTypeExclusions.prototype.createWorkTypeExclusion = function (agreementId, workTypeExclusion) {
-    return this.api('/finance/agreements/' + agreementId + '/workTypeExclusions', 'POST', workTypeExclusion);
+  return this.api('/finance/agreements/' + agreementId + '/workTypeExclusions', 'POST', workTypeExclusion);
 };
 
 /**
  * GET
  * @param agreementId
  * @param {ParamsConditions} params
- * @returns {promise|Count}
+ * @returns {Promise<Count>}
  */
 WorkTypeExclusions.prototype.getWorkTypeExclusionsCount = function (agreementId, params) {
-    return this.api('/finance/agreements/' + agreementId + '/workTypeExclusions/count', 'GET', params);
+  return this.api('/finance/agreements/' + agreementId + '/workTypeExclusions/count', 'GET', params);
 };
 
 /**
  * DELETE
  * @param agreementId
  * @param workTypeExclusionId
+ * @returns {Promise<DeleteResponse>}
  */
-WorkTypeExclusions.prototype.deleteWorkTypeExclusionById = function(agreementId, workTypeExclusionId){
-    return this.api('/finance/agreements/' + agreementId + '/workTypeExclusions/' + workTypeExclusionId, 'DELETE');
+WorkTypeExclusions.prototype.deleteWorkTypeExclusionById = function (agreementId, workTypeExclusionId) {
+  return this.api('/finance/agreements/' + agreementId + '/workTypeExclusions/' + workTypeExclusionId, 'DELETE');
 };
 
 
@@ -75,3 +76,4 @@ WorkTypeExclusions.prototype.deleteWorkTypeExclusionById = function(agreementId,
  * @type {WorkTypeExclusions}
  */
 module.exports = WorkTypeExclusions;
+

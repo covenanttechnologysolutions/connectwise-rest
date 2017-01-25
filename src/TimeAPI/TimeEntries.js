@@ -7,8 +7,8 @@
  * @private
  */
 var Q = require('q'),
-    inherits = require('util').inherits,
-    ConnectWise = require('../ConnectWise.js');
+  inherits = require('util').inherits,
+  ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {object} TimeEntry
@@ -45,72 +45,73 @@ var Q = require('q'),
  * @constructor
  */
 function TimeEntries(options) {
-    ConnectWise.apply(this, Array.prototype.slice.call(arguments));
+  ConnectWise.apply(this, Array.prototype.slice.call(arguments));
 }
 inherits(TimeEntries, ConnectWise);
 
 /**
  * GET
  * @param {Params} params
- * @returns {TimeEntry|promise}
+ * @returns {Promise<TimeEntry>}
  */
 TimeEntries.prototype.getTimeEntries = function (params) {
-    return this.api('/time/entries', 'GET', params);
+  return this.api('/time/entries', 'GET', params);
 };
 
 /**
  *
  * @param {TimeEntry} timeEntry
- * @returns {TimeEntry|promise}
+ * @returns {Promise<TimeEntry>}
  */
 TimeEntries.prototype.createTimeEntry = function (timeEntry) {
-    return this.api('/time/entries', 'POST', timeEntry);
+  return this.api('/time/entries', 'POST', timeEntry);
 };
 
 /**
  *
  * @param {ParamsConditions} params
- * @returns {Count|promise}
+ * @returns {Promise<Count>}
  */
 TimeEntries.prototype.getTimeEntriesCount = function (params) {
-    return this.api('/time/entries/count', 'GET', params);
+  return this.api('/time/entries/count', 'GET', params);
 };
 
 /**
  *
  * @param {number} id
- * @returns {promise}
+ * @returns {Promise<DeleteResponse>}
  */
 TimeEntries.prototype.deleteTimeEntryById = function (id) {
-    return this.api('/time/entries/' + id, 'DELETE');
+  return this.api('/time/entries/' + id, 'DELETE');
 };
 
 /**
  *
  * @param id
- * @returns {TimeEntry|promise}
+ * @returns {Promise<TimeEntry>}
  */
-TimeEntries.prototype.getTimeEntryById = function(id){
-    return this.api('/time/entries/' + id, 'GET');
+TimeEntries.prototype.getTimeEntryById = function (id) {
+  return this.api('/time/entries/' + id, 'GET');
 };
 
 /**
  *
  * @param id
  * @param {Operations} operations
- * @returns {TimeEntry|promise}
+ * @returns {Promise<TimeEntry>}
  */
-TimeEntries.prototype.updateTimeEntry = function(id, operations){
-    return this.api('/time/entries/' + id, 'PATCH', operations);
+TimeEntries.prototype.updateTimeEntry = function (id, operations) {
+  return this.api('/time/entries/' + id, 'PATCH', operations);
 };
 
 /**
  *
  * @param id
- * @param {TimeEntry|promise} timeEntry
+ * @param {TimeEntry} timeEntry
+ * @returns {Promise<TimeEntry>}
  */
-TimeEntries.prototype.replaceTimeEntry = function(id, timeEntry){
-    return this.api('/time/entries/' + id, 'PUT', timeEntry);
+TimeEntries.prototype.replaceTimeEntry = function (id, timeEntry) {
+  return this.api('/time/entries/' + id, 'PUT', timeEntry);
 };
 
 /**

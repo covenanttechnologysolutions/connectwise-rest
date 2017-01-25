@@ -7,8 +7,8 @@
  * @private
  */
 var Q = require('q'),
-    inherits = require('util').inherits,
-    ConnectWise = require('../ConnectWise.js');
+  inherits = require('util').inherits,
+  ConnectWise = require('../ConnectWise.js');
 /**
  * @typedef {object} Status
  * @property {number} id
@@ -32,7 +32,7 @@ var Q = require('q'),
  * @constructor
  */
 function Statuses(options) {
-    ConnectWise.apply(this, Array.prototype.slice.call(arguments));
+  ConnectWise.apply(this, Array.prototype.slice.call(arguments));
 }
 inherits(Statuses, ConnectWise);
 
@@ -40,49 +40,49 @@ inherits(Statuses, ConnectWise);
  *
  * @param boardId
  * @param {Params} params
- * @returns {Status[]|promise}
+ * @returns {Promise<Status[]>}
  */
 Statuses.prototype.getStatusesByBoardId = function (boardId, params) {
-    return this.api('/service/boards/' + boardId + '/statuses', 'GET', params);
+  return this.api('/service/boards/' + boardId + '/statuses', 'GET', params);
 };
 
 /**
  *
  * @param boardId
  * @param {Status} status
- * @returns {Status|promise}
+ * @returns {Promise<Status>}
  */
 Statuses.prototype.createStatuses = function (boardId, status) {
-    return this.api('/service/boards/' + boardId + '/statuses', 'POST', status)
+  return this.api('/service/boards/' + boardId + '/statuses', 'POST', status)
 };
 
 /**
  *
  * @param boardId
- * @returns {Count|promise}
+ * @returns {Promise<Count>}
  */
 Statuses.prototype.getStatusesCount = function (boardId) {
-    return this.api('/service/boards/' + boardId + '/statuses/count', 'GET');
+  return this.api('/service/boards/' + boardId + '/statuses/count', 'GET');
 };
 
 /**
  *
  * @param boardId
  * @param statusId
- * @returns {DeleteResponse|promise}
+ * @returns {Promise<DeleteResponse>}
  */
 Statuses.prototype.deleteStatusById = function (boardId, statusId) {
-    return this.api('/service/boards/' + boardId + '/statuses/' + statusId, 'DELETE')
+  return this.api('/service/boards/' + boardId + '/statuses/' + statusId, 'DELETE')
 };
 
 /**
  *
  * @param boardId
  * @param statusId
- * @returns {Status|promise}
+ * @returns {Promise<Status>}
  */
 Statuses.prototype.getStatusById = function (boardId, statusId) {
-    return this.api('/service/boards/' + boardId + '/statuses/' + statusId, 'GET');
+  return this.api('/service/boards/' + boardId + '/statuses/' + statusId, 'GET');
 };
 
 /**
@@ -90,10 +90,10 @@ Statuses.prototype.getStatusById = function (boardId, statusId) {
  * @param boardId
  * @param statusId
  * @param {Operations} operations
- * @returns {Status|promise}
+ * @returns {Promise<Status>}
  */
 Statuses.prototype.updateStatus = function (boardId, statusId, operations) {
-    return this.api('/service/boards/' + boardId + '/statuses/' + statusId, 'PATCH', operations);
+  return this.api('/service/boards/' + boardId + '/statuses/' + statusId, 'PATCH', operations);
 };
 
 /**
@@ -101,10 +101,10 @@ Statuses.prototype.updateStatus = function (boardId, statusId, operations) {
  * @param boardId
  * @param statusId
  * @param {Status} status
- * @returns {Status|promise}
+ * @returns {Promise<Status>}
  */
 Statuses.prototype.replaceStatuses = function (boardId, statusId, status) {
-    return this.api('/service/boards/' + boardId + '/statuses/' + statusId, 'PUT', status);
+  return this.api('/service/boards/' + boardId + '/statuses/' + statusId, 'PUT', status);
 };
 
 /**

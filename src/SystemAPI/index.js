@@ -12,7 +12,7 @@
 /**
  *
  * @param {CWOptions} options
- * @returns {SystemAPI}
+ * @returns {{Members: Members, Reports: Reports}}
  * @constructor
  */
 function SystemAPI(options) {

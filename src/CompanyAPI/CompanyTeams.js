@@ -1,9 +1,6 @@
 /**
  * Created by kgrube on 1/23/2017.
  */
-/**
- * Created by kgrube on 1/22/2016.
- */
 
 /**
  * @private

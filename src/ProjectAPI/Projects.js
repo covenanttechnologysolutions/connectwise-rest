@@ -7,8 +7,8 @@
  * @private
  */
 var Q = require('q'),
-    inherits = require('util').inherits,
-    ConnectWise = require('../ConnectWise.js');
+  inherits = require('util').inherits,
+  ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {object} Project
@@ -67,73 +67,73 @@ var Q = require('q'),
  * @constructor
  */
 function Projects(options) {
-    ConnectWise.apply(this, Array.prototype.slice.call(arguments));
+  ConnectWise.apply(this, Array.prototype.slice.call(arguments));
 }
 inherits(Projects, ConnectWise);
 
 /**
  *
  * @param {Params} params
- * @returns {Project[]|promise}
+ * @returns {Promise<Project[]>}
  */
 Projects.prototype.getProjects = function (params) {
-    return this.api('/project/projects', 'GET', params);
+  return this.api('/project/projects', 'GET', params);
 };
 
 /**
  *
  * @param {Project} project
- * @returns {Project|promise}
+ * @returns {Promise<Project>}
  */
 Projects.prototype.createProject = function (project) {
-    return this.api('/project/projects', 'POST', project);
+  return this.api('/project/projects', 'POST', project);
 };
 
 /**
  *
  * @param {ParamsConditions} conditions
- * @returns {Count|promise}
+ * @returns {Promise<Count>}
  */
 Projects.prototype.getProjectsCount = function (conditions) {
-    return this.api('/project/projects', 'GET', conditions);
+  return this.api('/project/projects', 'GET', conditions);
 };
 
 /**
  *
  * @param {string|number} projectId
- * @returns {DeleteResponse|promise}
+ * @returns {Promise<DeleteResponse>}
  */
 Projects.prototype.deleteProjectById = function (projectId) {
-    return this.api('/project/projects/' + projectId, 'DELETE');
+  return this.api('/project/projects/' + projectId, 'DELETE');
 };
 
 /**
  *
  * @param {string|number} projectId
- * @returns {Project|promise}
+ * @returns {Promise<Project>}
  */
 Projects.prototype.getProjectById = function (projectId) {
-    return this.api('/project/projects/' + projectId, 'GET');
+  return this.api('/project/projects/' + projectId, 'GET');
 };
 
 /**
  *
  * @param {string|number} projectId
  * @param {Operations} operations
- * @returns {Project|promise}
+ * @returns {Promise<Project>}
  */
 Projects.prototype.updateProject = function (projectId, operations) {
-    return this.api('/project/projects/' + projectId, 'PATCH', operations);
+  return this.api('/project/projects/' + projectId, 'PATCH', operations);
 };
 
 /**
  *
  * @param {string|number} projectId
  * @param {Project} project
- * @returns {Project|promise}
+ * @returns {Promise<Project>}
  */
 Projects.prototype.replaceProject = function (projectId, project) {
-    return this.api('/project/projects/' + projectId, 'PUT', project);
+  return this.api('/project/projects/' + projectId, 'PUT', project);
 };
 
 /**

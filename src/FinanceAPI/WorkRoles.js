@@ -6,8 +6,8 @@
  * @private
  */
 var Q = require('q'),
-    inherits = require('util').inherits,
-    ConnectWise = require('../ConnectWise.js');
+  inherits = require('util').inherits,
+  ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {object} WorkRole
@@ -30,7 +30,7 @@ var Q = require('q'),
  * @constructor
  */
 function WorkRoles(options) {
-    ConnectWise.apply(this, Array.prototype.slice.call(arguments));
+  ConnectWise.apply(this, Array.prototype.slice.call(arguments));
 }
 inherits(WorkRoles, ConnectWise);
 
@@ -38,50 +38,50 @@ inherits(WorkRoles, ConnectWise);
  * GET
  * @param agreementId
  * @param {Params} params
- * @returns {promise|WorkRole[]}
+ * @returns {Promise<WorkRole[]>}
  */
-WorkRoles.prototype.getWorkRoles = function(agreementId, params){
-    return this.api('/finance/agreements/' + agreementId + '/workroles', 'GET', params);
+WorkRoles.prototype.getWorkRoles = function (agreementId, params) {
+  return this.api('/finance/agreements/' + agreementId + '/workroles', 'GET', params);
 };
 
 /**
  * POST
  * @param agreementId
  * @param {WorkRole} workRole
- * @returns {promise|WorkRole}
+ * @returns {Promise<WorkRole>}
  */
-WorkRoles.prototype.createWorkRole = function(agreementId, workRole){
-    return this.api('/finance/agreements/' + agreementId + '/workroles', 'POST', workRole);
+WorkRoles.prototype.createWorkRole = function (agreementId, workRole) {
+  return this.api('/finance/agreements/' + agreementId + '/workroles', 'POST', workRole);
 };
 
 /**
  * GET
  * @param agreementId
  * @param {ParamsConditions} params
- * @returns {promise|Count}
+ * @returns {Promise<Count>}
  */
-WorkRoles.prototype.getWorkRolesCount = function(agreementId, params){
-    return this.api('/finance/agreements/' + agreementId + '/workroles/count', 'GET', params);
+WorkRoles.prototype.getWorkRolesCount = function (agreementId, params) {
+  return this.api('/finance/agreements/' + agreementId + '/workroles/count', 'GET', params);
 };
 
 /**
  * DELETE
  * @param agreementId
  * @param workRoleId
- * @returns {promise|DeleteResponse}
+ * @returns {Promise<DeleteResponse>}
  */
-WorkRoles.prototype.deleteWorkRoleById = function(agreementId, workRoleId){
-    return this.api('/finance/agreements/' + agreementId + '/workroles/' + workRoleId, 'DELETE');
+WorkRoles.prototype.deleteWorkRoleById = function (agreementId, workRoleId) {
+  return this.api('/finance/agreements/' + agreementId + '/workroles/' + workRoleId, 'DELETE');
 };
 
 /**
  * GET
  * @param agreementId
  * @param workRoleId
- * @returns {promise|WorkRole}
+ * @returns {Promise<WorkRole>}
  */
-WorkRoles.prototype.getWorkRoleById = function(agreementId, workRoleId){
-    return this.api('/finance/agreements/' + agreementId + '/workroles/' + workRoleId, 'GET');
+WorkRoles.prototype.getWorkRoleById = function (agreementId, workRoleId) {
+  return this.api('/finance/agreements/' + agreementId + '/workroles/' + workRoleId, 'GET');
 };
 
 /**
@@ -89,10 +89,10 @@ WorkRoles.prototype.getWorkRoleById = function(agreementId, workRoleId){
  * @param agreementId
  * @param workRoleId
  * @param {Operations} operations
- * @returns {promise|WorkRole}
+ * @returns {Promise<WorkRole>}
  */
-WorkRoles.prototype.updateWorkRole = function(agreementId, workRoleId, operations){
-    return this.api('/finance/agreements/' + agreementId + '/workroles/' + workRoleId, 'PATCH', operations);
+WorkRoles.prototype.updateWorkRole = function (agreementId, workRoleId, operations) {
+  return this.api('/finance/agreements/' + agreementId + '/workroles/' + workRoleId, 'PATCH', operations);
 };
 
 /**
@@ -100,10 +100,10 @@ WorkRoles.prototype.updateWorkRole = function(agreementId, workRoleId, operation
  * @param agreementId
  * @param workRoleId
  * @param {WorkRole} workRole
- * @returns {promise|WorkRole}
+ * @returns {Promise<WorkRole>}
  */
-WorkRoles.prototype.replaceWorkRole = function(agreementId, workRoleId, workRole){
-    return this.api('/finance/agreements/' + agreementId + '/workroles/' + workRoleId, 'PUT', workRole);
+WorkRoles.prototype.replaceWorkRole = function (agreementId, workRoleId, workRole) {
+  return this.api('/finance/agreements/' + agreementId + '/workroles/' + workRoleId, 'PUT', workRole);
 };
 
 /**

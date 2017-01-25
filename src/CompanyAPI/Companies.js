@@ -6,8 +6,8 @@
  * @private
  */
 var Q = require('q'),
-    inherits = require('util').inherits,
-    ConnectWise = require('../ConnectWise.js');
+  inherits = require('util').inherits,
+  ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {object} Company
@@ -69,75 +69,75 @@ var Q = require('q'),
  * @constructor
  */
 function Companies(options) {
-    ConnectWise.apply(this, Array.prototype.slice.call(arguments));
+  ConnectWise.apply(this, Array.prototype.slice.call(arguments));
 }
 inherits(Companies, ConnectWise);
 
 /**
  * @param {Params} params
- * @returns {promise|Company[]}
+ * @returns {Promise<Company[]>}
  */
 Companies.prototype.getCompanies = function (params) {
-    return this.api('/company/companies', 'GET', params);
+  return this.api('/company/companies', 'GET', params);
 };
 /**
  *
  * @param {Company} company
- * @returns {promise|Company}
+ * @returns {Promise<Company>}
  */
 Companies.prototype.createCompany = function (company) {
-    return this.api('/company/companies', 'POST', company);
+  return this.api('/company/companies', 'POST', company);
 };
 
 /**
  * @param {ParamsConditions} params
- * @returns {promise|Count}
+ * @returns {Promise<Count>}
  */
 Companies.prototype.getCompaniesCount = function (params) {
-    return this.api('/company/companies/count', 'GET', params);
+  return this.api('/company/companies/count', 'GET', params);
 };
 
 /**
  * @param {string|number} id numeric ID of company, not the company ID in ConnectWise.
- * @returns {promise|Company}
+ * @returns {Promise<Company>}
  */
 Companies.prototype.getCompanyById = function (id) {
-    return this.api('/company/companies/' + id, 'GET');
+  return this.api('/company/companies/' + id, 'GET');
 };
 
 /**
  * @param {string|number} id
  * @param {Company} company
- * @returns {promise|Company}
+ * @returns {Promise<Company>}
  */
 Companies.prototype.replaceCompany = function (id, company) {
-    return this.api('/company/companies/' + id, 'PUT', company);
+  return this.api('/company/companies/' + id, 'PUT', company);
 };
 
 /**
  * @param {string|number} id
- * @returns {promise|DeleteResponse}
+ * @returns {Promise<DeleteResponse>}
  */
 Companies.prototype.deleteCompanyById = function (id) {
-    return this.api('/company/companies/' + id, 'DELETE');
+  return this.api('/company/companies/' + id, 'DELETE');
 };
 
 /**
  * @param {string|number} id
  * @param {Operations} ops
- * @returns {promise}
+ * @returns {Promise<Company>}
  */
 Companies.prototype.updateCompany = function (id, ops) {
-    return this.api('/company/companies/' + id, 'PATCH', ops);
+  return this.api('/company/companies/' + id, 'PATCH', ops);
 };
 
 
 /**
  * @TODO finish this one
- * @returns {promise}
+ * @returns {Promise<*>}
  */
 Companies.prototype.mergeCompany = function () {
-    return this.api('/company/companies/' + id + '/merge', 'POST', params);
+  return this.api('/company/companies/' + id + '/merge', 'POST', params);
 };
 
 /**

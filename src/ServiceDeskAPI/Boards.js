@@ -7,8 +7,8 @@
  * @private
  */
 var Q = require('q'),
-    inherits = require('util').inherits,
-    ConnectWise = require('../ConnectWise.js');
+  inherits = require('util').inherits,
+  ConnectWise = require('../ConnectWise.js');
 /**
  * @typedef {object} Board
  * @property {number} id
@@ -27,72 +27,68 @@ var Q = require('q'),
 
 /**
  *
- * @param {object} options
- * @param {string} options.companyId
- * @param {string} options.publicKey
- * @param {string} options.privateKey
- * @param {string} options.companyUrl
+ * @param {CWOptions} options
  * @constructor
  */
 function Boards(options) {
-    ConnectWise.apply(this, Array.prototype.slice.call(arguments));
+  ConnectWise.apply(this, Array.prototype.slice.call(arguments));
 }
 inherits(Boards, ConnectWise);
 
 /**
  * GET
  * @param {Params} params
- * @returns {Board[]|promise}
+ * @returns {Promise<Board[]>}
  */
 Boards.prototype.getBoards = function (params) {
-    return this.api('/service/boards', 'GET', params);
+  return this.api('/service/boards', 'GET', params);
 };
 
 /**
  * POST
  * @param {Board} board
- * @returns {Board[]|promise}
+ * @returns {Promise<Board[]>}
  */
 Boards.prototype.createBoard = function (board) {
-    return this.api('/service/boards', 'POST', board);
+  return this.api('/service/boards', 'POST', board);
 };
 
 /**
  * GET
  * @param id
- * @returns {Board[]|promise}
+ * @returns {Promise<Board[]>}
  */
 Boards.prototype.getBoardById = function (id) {
-    return this.api('/service/boards/' + id, 'GET');
+  return this.api('/service/boards/' + id, 'GET');
 };
 
 /**
  * GET
  * @param {ParamsConditions} params
- * @returns {Count|promise}
+ * @returns {Promise<Count>}
  */
 Boards.prototype.getBoardsCount = function (params) {
-    return this.api('/service/boards/count', 'GET', params);
+  return this.api('/service/boards/count', 'GET', params);
 };
 
 /**
  * PATCH
  * @param id
  * @param {Operations} ops
- * @returns {Board|promise}
+ * @returns {Promise<Board>}
  */
 Boards.prototype.updateBoard = function (id, ops) {
-    return this.api('/service/boards/' + id, 'PATCH', ops);
+  return this.api('/service/boards/' + id, 'PATCH', ops);
 };
 
 /**
  *
  * @param id
  * @param {Board} board
- * @returns {Board|promise}
+ * @returns {Promise<Board>}
  */
 Boards.prototype.replaceBoard = function (id, board) {
-    return this.api('/service/boards/' + id, 'PUT', board);
+  return this.api('/service/boards/' + id, 'PUT', board);
 };
 
 /**

@@ -6,8 +6,8 @@
  * @private
  */
 var Q = require('q'),
-    inherits = require('util').inherits,
-    ConnectWise = require('../ConnectWise.js');
+  inherits = require('util').inherits,
+  ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {object} WorkType
@@ -40,7 +40,7 @@ var Q = require('q'),
  * @constructor
  */
 function WorkTypes(options) {
-    ConnectWise.apply(this, Array.prototype.slice.call(arguments));
+  ConnectWise.apply(this, Array.prototype.slice.call(arguments));
 }
 inherits(WorkTypes, ConnectWise);
 
@@ -48,50 +48,50 @@ inherits(WorkTypes, ConnectWise);
  * GET
  * @param agreementId
  * @param {Params} params
- * @returns {promise|WorkType[]}
+ * @returns {Promise<WorkType[]>}
  */
-WorkTypes.prototype.getWorkTypes = function(agreementId, params){
-    return this.api('/finance/agreements/' + agreementId + '/workTypes', 'GET', params);
+WorkTypes.prototype.getWorkTypes = function (agreementId, params) {
+  return this.api('/finance/agreements/' + agreementId + '/workTypes', 'GET', params);
 };
 
 /**
  * POST
  * @param agreementId
  * @param {WorkType} workType
- * @returns {promise|WorkType}
+ * @returns {Promise<WorkType>}
  */
-WorkTypes.prototype.createWorkType = function(agreementId, workType){
-    return this.api('/finance/agreements/' + agreementId + '/workTypes', 'POST', workType);
+WorkTypes.prototype.createWorkType = function (agreementId, workType) {
+  return this.api('/finance/agreements/' + agreementId + '/workTypes', 'POST', workType);
 };
 
 /**
  * GET
  * @param agreementId
  * @param {ParamsConditions} params
- * @returns {promise|Count}
+ * @returns {Promise<Count>}
  */
-WorkTypes.prototype.getWorkTypesCount = function(agreementId, params){
-    return this.api('/finance/agreements/' + agreementId + '/workTypes/count', 'GET', params);
+WorkTypes.prototype.getWorkTypesCount = function (agreementId, params) {
+  return this.api('/finance/agreements/' + agreementId + '/workTypes/count', 'GET', params);
 };
 
 /**
  * DELETE
  * @param agreementId
  * @param workTypeId
- * @returns {promise|DeleteResponse}
+ * @returns {Promise<DeleteResponse>}
  */
-WorkTypes.prototype.deleteWorkTypeById = function(agreementId, workTypeId){
-    return this.api('/finance/agreements/' + agreementId + '/workTypes/' + workTypeId, 'DELETE');
+WorkTypes.prototype.deleteWorkTypeById = function (agreementId, workTypeId) {
+  return this.api('/finance/agreements/' + agreementId + '/workTypes/' + workTypeId, 'DELETE');
 };
 
 /**
  * GET
  * @param agreementId
  * @param workTypeId
- * @returns {promise|WorkType}
+ * @returns {Promise<WorkType>}
  */
-WorkTypes.prototype.getWorkTypeById = function(agreementId, workTypeId){
-    return this.api('/finance/agreements/' + agreementId + '/workTypes/' + workTypeId, 'GET');
+WorkTypes.prototype.getWorkTypeById = function (agreementId, workTypeId) {
+  return this.api('/finance/agreements/' + agreementId + '/workTypes/' + workTypeId, 'GET');
 };
 
 /**
@@ -99,10 +99,10 @@ WorkTypes.prototype.getWorkTypeById = function(agreementId, workTypeId){
  * @param agreementId
  * @param workTypeId
  * @param {Operations} operations
- * @returns {promise|WorkType}
+ * @returns {Promise<WorkType>}
  */
-WorkTypes.prototype.updateWorkType = function(agreementId, workTypeId, operations){
-    return this.api('/finance/agreements/' + agreementId + '/workTypes/' + workTypeId, 'PATCH', operations);
+WorkTypes.prototype.updateWorkType = function (agreementId, workTypeId, operations) {
+  return this.api('/finance/agreements/' + agreementId + '/workTypes/' + workTypeId, 'PATCH', operations);
 };
 
 /**
@@ -110,10 +110,10 @@ WorkTypes.prototype.updateWorkType = function(agreementId, workTypeId, operation
  * @param agreementId
  * @param workTypeId
  * @param {WorkType} workType
- * @returns {promise|WorkType}
+ * @returns {Promise<WorkType>}
  */
-WorkTypes.prototype.replaceWorkType = function(agreementId, workTypeId, workType){
-    return this.api('/finance/agreements/' + agreementId + '/workTypes/' + workTypeId, 'PUT', workType);
+WorkTypes.prototype.replaceWorkType = function (agreementId, workTypeId, workType) {
+  return this.api('/finance/agreements/' + agreementId + '/workTypes/' + workTypeId, 'PUT', workType);
 };
 
 /**
@@ -121,3 +121,4 @@ WorkTypes.prototype.replaceWorkType = function(agreementId, workTypeId, workType
  * @type {WorkTypes}
  */
 module.exports = WorkTypes;
+

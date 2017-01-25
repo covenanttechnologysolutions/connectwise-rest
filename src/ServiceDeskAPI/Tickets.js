@@ -114,7 +114,7 @@ inherits(Tickets, ConnectWise);
 /**
  * GET
  * @param {Params} params
- * @returns {Ticket[]|promise}
+ * @returns {Promise<Ticket[]>}
  */
 Tickets.prototype.getTickets = function (params) {
   return this.api('/service/tickets', 'GET', params);
@@ -123,7 +123,7 @@ Tickets.prototype.getTickets = function (params) {
 /**
  * GET
  * @param {string|number} id ticketNbr
- * @returns {Ticket|promise}
+ * @returns {Promise<Ticket>}
  */
 Tickets.prototype.getTicketById = function (id) {
   return this.api('/service/tickets/' + id, 'GET');
@@ -138,7 +138,7 @@ Tickets.prototype.getTicketById = function (id) {
  * @param {string} ticket.company.identifier The CompanyID in ConnectWise
  * @param {string} ticket.summary
  * @param {string} [ticket.initialDescription]
- * @returns {Ticket|promise} The created ticket, or errors if any occured
+ * @returns {Promise<Ticket>} The created ticket, or errors if any occured
  */
 Tickets.prototype.createTicket = function (ticket) {
   return this.api('/service/tickets', 'POST', ticket);
@@ -151,7 +151,7 @@ Tickets.prototype.createTicket = function (ticket) {
  * @param {string} operations.op the operation to perform, possible values: ['replace', ?]
  * @param {string} operations.path
  * @param {string|number} operations.value
- * @returns {Ticket|promise} The updated ticket
+ * @returns {Promise<Ticket>} The updated ticket
  */
 Tickets.prototype.updateTicket = function (id, operations) {
   return this.api('/service/tickets/' + id, 'PATCH', operations);
@@ -161,7 +161,7 @@ Tickets.prototype.updateTicket = function (id, operations) {
  * GET
  * @param {ParamsConditions} params
  * @param {string} [params.conditions] Conditions string, e.g. 'Summary like "%blah%" AND board/name = "Service Board"'
- * @returns {Count|promise} The number of tickets matching the conditions
+ * @returns {Promise<Count>} The number of tickets matching the conditions
  */
 Tickets.prototype.getTicketsCount = function (params) {
   return this.api('/service/tickets/count', 'GET', params);
@@ -170,7 +170,7 @@ Tickets.prototype.getTicketsCount = function (params) {
 /**
  * DELETE
  * @param {string|number} id
- * @returns {promise}
+ * @returns {Promise<DeleteResponse>}
  */
 Tickets.prototype.deleteTicketsById = function (id) {
   return this.api('/service/tickets/' + id, 'DELETE');
@@ -180,7 +180,7 @@ Tickets.prototype.deleteTicketsById = function (id) {
  * PUT
  * @param id
  * @param {Ticket} ticket
- * @returns {Ticket|promise}
+ * @returns {Promise<Ticket>}
  */
 Tickets.prototype.replaceTicket = function (id, ticket) {
   return this.api('/service/tickets/' + id, 'PUT', ticket);
@@ -190,7 +190,7 @@ Tickets.prototype.replaceTicket = function (id, ticket) {
  * GET
  * @param id
  * @param {Params} [params]
- * @returns {*|promise}
+ * @returns {Promise<Activity[]>}
  */
 Tickets.prototype.getTicketActivities = function (id, params) {
   return this.api('/service/tickets/' + id + '/activities', 'GET', params);
@@ -199,7 +199,7 @@ Tickets.prototype.getTicketActivities = function (id, params) {
 /**
  * GET
  * @param {number|string} id
- * @returns {Count|promise} The number of activities associated with ticket number id
+ * @returns {Promise<Count>} The number of activities associated with ticket number id
  */
 Tickets.prototype.getTicketActivitiesCount = function (id) {
   return this.api('/service/tickets/' + id + '/activities/count', 'GET');
@@ -209,7 +209,7 @@ Tickets.prototype.getTicketActivitiesCount = function (id) {
  * GET
  * @param {number|string} id
  * @param {Params} params
- * @returns {TimeEntry[]|promise}
+ * @returns {Promise<TimeEntry[]>}
  */
 Tickets.prototype.getTicketTimeEntries = function (id, params) {
   return this.api('/service/tickets/' + id + '/timeentries', 'GET', params);
@@ -218,7 +218,7 @@ Tickets.prototype.getTicketTimeEntries = function (id, params) {
 /**
  * GET
  * @param {number|string} id
- * @returns {Count|promise} The count of time entries attached to ticket id
+ * @returns {Promise<Count>} The count of time entries attached to ticket id
  */
 Tickets.prototype.getTicketTimeEntriesCount = function (id) {
   return this.api('/service/tickets/' + id + '/timeentries/count', 'GET');
@@ -228,7 +228,7 @@ Tickets.prototype.getTicketTimeEntriesCount = function (id) {
  * POST
  * @param {number|string} id ticketNbr
  * @param {number|string} configId
- * @returns {*|promise|ConfigurationHref}
+ * @returns {Promise<ConfigurationHref>}
  */
 Tickets.prototype.createConfigurationAssociation = function (id, configId) {
   return this.api('/service/tickets/' + id + '/configurations', 'POST', {
@@ -239,7 +239,7 @@ Tickets.prototype.createConfigurationAssociation = function (id, configId) {
 /**
  * GET
  * @param id ticketNbr
- * @returns {promise|ConfigurationHref[]}
+ * @returns {Promise<ConfigurationHref[]>}
  */
 Tickets.prototype.getTicketConfigurations = function (id) {
   return this.api('/service/tickets/' + id + '/configurations', 'GET');
@@ -248,7 +248,7 @@ Tickets.prototype.getTicketConfigurations = function (id) {
 /**
  * GET
  * @param id ticketNbr
- * @returns {promise|Count}
+ * @returns {Promise<Count>}
  */
 Tickets.prototype.getTicketConfigurationsCount = function (id) {
   return this.api('/service/tickets/' + id + '/configurations/count', 'GET');
@@ -259,7 +259,7 @@ Tickets.prototype.getTicketConfigurationsCount = function (id) {
  * @param id
  * @param configId
  * @throws {ErrorResponse}
- * @returns {promise|DeleteResponse}
+ * @returns {Promise<DeleteResponse>}
  */
 Tickets.prototype.deleteConfigurationAssociation = function (id, configId) {
   return this.api('/service/tickets/' + id + '/configurations/' + configId, 'DELETE');
@@ -269,7 +269,7 @@ Tickets.prototype.deleteConfigurationAssociation = function (id, configId) {
  * GET
  * @param id
  * @param configId
- * @returns {promise|ConfigurationHref}
+ * @returns {Promise<ConfigurationHref>}
  */
 Tickets.prototype.getConfigurationAssociation = function (id, configId) {
   return this.api('/service/tickets/' + id + '/configurations/' + configId, 'GET');
@@ -279,7 +279,7 @@ Tickets.prototype.getConfigurationAssociation = function (id, configId) {
  * GET
  * @param {string|number} id
  * @param {ParamsPage} [params]
- * @returns {promise|ScheduleEntryHref[]}
+ * @returns {Promise<ScheduleEntryHref[]>}
  */
 Tickets.prototype.getTicketScheduleEntries = function (id, params) {
   return this.api('/service/tickets/' + id + '/scheduleentries', 'GET', params);
@@ -288,7 +288,7 @@ Tickets.prototype.getTicketScheduleEntries = function (id, params) {
 /**
  * GET
  * @param id
- * @returns {promise|Count}
+ * @returns {Promise<Count>}
  */
 Tickets.prototype.getTicketScheduleEntriesCount = function (id) {
   return this.api('/service/tickets/' + id + '/scheduleentries/count', 'GET');
@@ -298,7 +298,7 @@ Tickets.prototype.getTicketScheduleEntriesCount = function (id) {
  * GET
  * @param {string|number} id
  * @param {ParamsPage} [params]
- * @returns {promise|DocumentHref[]}
+ * @returns {Promise<DocumentHref[]>}
  */
 Tickets.prototype.getTicketDocuments = function (id, params) {
   return this.api('/service/tickets/' + id + '/documents', 'GET', params);
@@ -307,7 +307,7 @@ Tickets.prototype.getTicketDocuments = function (id, params) {
 /**
  * GET
  * @param id
- * @returns {promise|Count}
+ * @returns {Promise<Count>}
  */
 Tickets.prototype.getTicketDocumentsCount = function (id) {
   return this.api('/service/tickets/' + id + '/documents/count', 'GET');
@@ -316,7 +316,7 @@ Tickets.prototype.getTicketDocumentsCount = function (id) {
 /**
  * GET
  * @param id
- * @returns {promise|ProductHref[]}
+ * @returns {Promise<ProductHref[]>}
  */
 Tickets.prototype.getTicketProducts = function (id) {
   return this.api('/service/tickets/' + id + '/products', 'GET');
@@ -325,7 +325,7 @@ Tickets.prototype.getTicketProducts = function (id) {
 /**
  * GET
  * @param id
- * @returns {promise|Count}
+ * @returns {Promise<Count>}
  */
 Tickets.prototype.getTicketProductsCount = function (id) {
   return this.api('/service/tickets/' + id + '/products/count', 'GET');
@@ -335,7 +335,7 @@ Tickets.prototype.getTicketProductsCount = function (id) {
  *
  * @param {string|number} id
  * @param {string} status
- * @returns {Ticket[]|promise}
+ * @returns {Promise<Ticket[]>}
  */
 Tickets.prototype.updateTicketStatusByName = function (id, status) {
   var deferred = Q.defer(),
@@ -378,7 +378,7 @@ Tickets.prototype.updateTicketStatusByName = function (id, status) {
  *
  * @param id
  * @param {string} priority - do a %like% match on priority
- * @returns {promise|Ticket}
+ * @returns {Promise<Ticket>}
  */
 Tickets.prototype.updateTicketPriority = function (id, priority) {
   var self = this;
@@ -406,7 +406,7 @@ Tickets.prototype.updateTicketPriority = function (id, priority) {
  *
  * @param id
  * @param {string} serviceType
- * @returns {promise|Ticket}
+ * @returns {Promise<Ticket>}
  */
 Tickets.prototype.updateTicketServiceType = function (id, serviceType) {
   var self = this;
@@ -438,7 +438,7 @@ Tickets.prototype.updateTicketServiceType = function (id, serviceType) {
  *
  * @param id
  * @param {string} serviceSubType
- * @returns {promise|Ticket}
+ * @returns {Promise<Ticket>}
  */
 Tickets.prototype.updateTicketServiceSubType = function (id, serviceSubType) {
   var self = this;
@@ -472,7 +472,7 @@ Tickets.prototype.updateTicketServiceSubType = function (id, serviceSubType) {
  * @param {string} type
  * @param {string} subtype
  * @param {string} item
- * @returns {promise|Ticket}
+ * @returns {Promise<Ticket>}
  */
 Tickets.prototype.updateTicketTypeSubTypeItem = function (id, type, subtype, item) {
   var self = this;
@@ -487,7 +487,7 @@ Tickets.prototype.updateTicketTypeSubTypeItem = function (id, type, subtype, ite
  *
  * @param id
  * @param {string} serviceItem
- * @returns {promise|Ticket}
+ * @returns {Promise<Ticket>}
  */
 Tickets.prototype.updateTicketServiceItem = function (id, serviceItem) {
   var self = this;
@@ -520,7 +520,7 @@ Tickets.prototype.updateTicketServiceItem = function (id, serviceItem) {
  * @param {string|number} id ticketNbr
  * @param {string|number} index
  * @param {string|number|boolean} value
- * @returns {Ticket|promise}
+ * @returns {Promise<Ticket>}
  */
 Tickets.prototype.updateTicketCustomFieldByIndex = function (id, index, value) {
   return this.updateTicket(id, [{
@@ -535,7 +535,7 @@ Tickets.prototype.updateTicketCustomFieldByIndex = function (id, index, value) {
  * @param {string|number} id ticketNbr
  * @param {string|number} customFieldId
  * @param {string|number|boolean} value
- * @returns {Ticket|promise}
+ * @returns {Promise<Ticket>}
  */
 Tickets.prototype.updateTicketCustomFieldById = function (id, customFieldId, value) {
   if (typeof customFieldId === 'string') {
@@ -566,7 +566,7 @@ Tickets.prototype.updateTicketCustomFieldById = function (id, customFieldId, val
  * @param {string|number} id ticketNbr
  * @param {string|number} caption
  * @param {string|number|boolean} value
- * @returns {Ticket|promise}
+ * @returns {Promise<Ticket>}
  */
 Tickets.prototype.updateTicketCustomFieldByCaption = function (id, caption, value) {
   var self = this;

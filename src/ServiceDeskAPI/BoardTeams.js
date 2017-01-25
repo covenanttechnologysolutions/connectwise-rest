@@ -21,11 +21,7 @@ var Q = require('q'),
 
 /**
  *
- * @param {object} options
- * @param {string} options.companyId
- * @param {string} options.publicKey
- * @param {string} options.privateKey
- * @param {string} options.companyUrl
+ * @param {CWOptions} options
  * @constructor
  */
 function BoardTeams(options) {
@@ -37,76 +33,76 @@ inherits(BoardTeams, ConnectWise);
  * GET
  * @param   boardId
  * @param   {Params} params
- * @returns {BoardTeam[]|promise}
+ * @returns {Promise<BoardTeam[]>}
  */
-BoardTeams.prototype.getBoardTeams = function(boardId, params) {
+BoardTeams.prototype.getBoardTeams = function (boardId, params) {
   return this.api('/service/boards/' + boardId + '/teams', 'GET', params);
-}
+};
 
 /**
  * POST
  * @param   boardId
  * @param   {BoardTeam} team
- * @returns {BoardTeam|promise}
+ * @returns {Promise<BoardTeam>}
  */
-BoardTeams.prototype.createBoardTeam = function(boardId, team) {
+BoardTeams.prototype.createBoardTeam = function (boardId, team) {
   return this.api('/service/boards/' + boardId + '/teams', 'POST', team);
-}
+};
 
 /**
  * GET
  * @param   boardId
  * @param   {Params} params
- * @returns {Count|promise}
+ * @returns {Promise<Count>}
  */
-BoardTeams.prototype.getBoardTeamsCount = function(boardId, params) {
+BoardTeams.prototype.getBoardTeamsCount = function (boardId, params) {
   return this.api('/service/boards/' + boardId + '/teams/count', 'GET', params);
-}
+};
 
 /**
  * DELETE
  * @param   boardId
  * @param   teamId
- * @returns {DeleteResponse|promise}
+ * @returns {Promise<DeleteResponse>}
  */
-BoardTeams.prototype.deleteBoardTeamById = function(boardId, teamId) {
+BoardTeams.prototype.deleteBoardTeamById = function (boardId, teamId) {
   return this.api('/service/boards/' + boardId + '/teams/' + teamId, 'DELETE');
-}
+};
 
 /**
  * GET
  * @param   boardId
  * @param   teamId
- * @returns {BoardTeam|promise}
+ * @returns {Promise<BoardTeam>}
  */
-BoardTeams.prototype.getBoardTeamById = function(boardId, teamId) {
+BoardTeams.prototype.getBoardTeamById = function (boardId, teamId) {
   return this.api('/service/boards/' + boardId + '/teams/' + teamId, 'GET');
-}
+};
 
 /**
  * PATCH
  * @param   boardId
  * @param   teamId
  * @param   {Operations[]} operations
- * @returns {BoardTeam|promise}
+ * @returns {Promise<BoardTeam>}
  */
-BoardTeams.prototype.updateBoardTeamById = function(boardId, teamId, operations) {
+BoardTeams.prototype.updateBoardTeamById = function (boardId, teamId, operations) {
   return this.api('/service/boards/' + boardId + '/teams/' + teamId, 'PATCH', operations);
-}
+};
 
 /**
  * PUT
  * @param   boardId
  * @param   teamId
  * @param   {BoardTeam} team
- * @returns {BoardTeam|promise}
+ * @returns {Promise<BoardTeam>}
  */
-BoardTeams.prototype.replaceBoardTeamById = function(boardId, teamId, team) {
+BoardTeams.prototype.replaceBoardTeamById = function (boardId, teamId, team) {
   return this.api('/service/boards/' + boardId + '/teams/' + teamId, 'PUT', team);
-}
+};
 
 /**
  *
  * @type {BoardTeams}
  */
-module.exports = BoardTeams
+module.exports = BoardTeams;

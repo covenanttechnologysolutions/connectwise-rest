@@ -6,8 +6,8 @@
  * @private
  */
 var Q = require('q'),
-    inherits = require('util').inherits,
-    ConnectWise = require('../ConnectWise.js');
+  inherits = require('util').inherits,
+  ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {object} BoardDefault
@@ -26,7 +26,7 @@ var Q = require('q'),
  * @constructor
  */
 function BoardDefaults(options) {
-    ConnectWise.apply(this, Array.prototype.slice.call(arguments));
+  ConnectWise.apply(this, Array.prototype.slice.call(arguments));
 }
 inherits(BoardDefaults, ConnectWise);
 
@@ -34,50 +34,50 @@ inherits(BoardDefaults, ConnectWise);
  * GET
  * @param agreementId
  * @param {Params} params
- * @returns {promise|BoardDefault[]}
+ * @returns {Promise<BoardDefault[]>}
  */
-BoardDefaults.prototype.getBoardDefaults = function(agreementId, params){
-    return this.api('/finance/agreements/' + agreementId + '/boardDefaults', 'GET', params);
+BoardDefaults.prototype.getBoardDefaults = function (agreementId, params) {
+  return this.api('/finance/agreements/' + agreementId + '/boardDefaults', 'GET', params);
 };
 
 /**
  * POST
  * @param agreementId
  * @param {BoardDefault} boardDefault
- * @returns {promise|BoardDefault}
+ * @returns {Promise<BoardDefault>}
  */
-BoardDefaults.prototype.createBoardDefault = function(agreementId, boardDefault){
-    return this.api('/finance/agreements/' + agreementId + '/boardDefaults', 'POST', boardDefault);
+BoardDefaults.prototype.createBoardDefault = function (agreementId, boardDefault) {
+  return this.api('/finance/agreements/' + agreementId + '/boardDefaults', 'POST', boardDefault);
 };
 
 /**
  * GET
  * @param agreementId
  * @param {ParamsConditions} params
- * @returns {promise|Count}
+ * @returns {Promise<Count>}
  */
-BoardDefaults.prototype.getBoardDefaultsCount = function(agreementId, params){
-    return this.api('/finance/agreements/' + agreementId + '/boardDefaults/count', 'GET', params);
+BoardDefaults.prototype.getBoardDefaultsCount = function (agreementId, params) {
+  return this.api('/finance/agreements/' + agreementId + '/boardDefaults/count', 'GET', params);
 };
 
 /**
  * DELETE
  * @param agreementId
  * @param boardDefaultId
- * @returns {promise|DeleteResponse}
+ * @returns {Promise<DeleteResponse>}
  */
-BoardDefaults.prototype.deleteBoardDefaultById = function(agreementId, boardDefaultId){
-    return this.api('/finance/agreements/' + agreementId + '/boardDefaults/' + boardDefaultId, 'DELETE');
+BoardDefaults.prototype.deleteBoardDefaultById = function (agreementId, boardDefaultId) {
+  return this.api('/finance/agreements/' + agreementId + '/boardDefaults/' + boardDefaultId, 'DELETE');
 };
 
 /**
  * GET
  * @param agreementId
  * @param boardDefaultId
- * @returns {promise|BoardDefault}
+ * @returns {Promise<BoardDefault>}
  */
-BoardDefaults.prototype.getBoardDefaultById = function(agreementId, boardDefaultId){
-    return this.api('/finance/agreements/' + agreementId + '/boardDefaults/' + boardDefaultId, 'GET');
+BoardDefaults.prototype.getBoardDefaultById = function (agreementId, boardDefaultId) {
+  return this.api('/finance/agreements/' + agreementId + '/boardDefaults/' + boardDefaultId, 'GET');
 };
 
 /**
@@ -85,10 +85,10 @@ BoardDefaults.prototype.getBoardDefaultById = function(agreementId, boardDefault
  * @param agreementId
  * @param boardDefaultId
  * @param {Operations} operations
- * @returns {promise|BoardDefault}
+ * @returns {Promise<BoardDefault>}
  */
-BoardDefaults.prototype.updateBoardDefault = function(agreementId, boardDefaultId, operations){
-    return this.api('/finance/agreements/' + agreementId + '/boardDefaults/' + boardDefaultId, 'PATCH', operations);
+BoardDefaults.prototype.updateBoardDefault = function (agreementId, boardDefaultId, operations) {
+  return this.api('/finance/agreements/' + agreementId + '/boardDefaults/' + boardDefaultId, 'PATCH', operations);
 };
 
 /**
@@ -96,10 +96,10 @@ BoardDefaults.prototype.updateBoardDefault = function(agreementId, boardDefaultI
  * @param agreementId
  * @param boardDefaultId
  * @param {BoardDefault} boardDefault
- * @returns {promise|BoardDefault}
+ * @returns {Promise<BoardDefault>}
  */
-BoardDefaults.prototype.replaceBoardDefault = function(agreementId, boardDefaultId, boardDefault){
-    return this.api('/finance/agreements/' + agreementId + '/boardDefaults/' + boardDefaultId, 'PUT', boardDefault);
+BoardDefaults.prototype.replaceBoardDefault = function (agreementId, boardDefaultId, boardDefault) {
+  return this.api('/finance/agreements/' + agreementId + '/boardDefaults/' + boardDefaultId, 'PUT', boardDefault);
 };
 
 /**

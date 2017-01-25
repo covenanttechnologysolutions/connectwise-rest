@@ -17,7 +17,7 @@ var inherits = require('util').inherits,
  * row_values is not a keyed array
  * @typedef {object} ReportData
  * @property {object[]} column_definitions
- * @property {array} row_values mixed types, may be null, string, numeric, etc
+ * @property {Array} row_values mixed types, may be null, string, numeric, etc
  */
 
 /**
@@ -114,4 +114,3 @@ Reports.prototype.getColumnDefinitions = function (reportName) {
  * @type {Reports}
  */
 module.exports = Reports;
-

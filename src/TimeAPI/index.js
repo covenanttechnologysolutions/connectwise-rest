@@ -6,14 +6,14 @@
 /**
  *
  * @param options
- * @returns {{TimeAPI: (TimeEntries|exports|module.exports)}}
+ * @returns {{TimeEntries: TimeEntries}}
  * @constructor
  */
 function TimeAPI(options) {
-    var _TimeEntries = require('./TimeEntries');
-    return {
-        TimeEntries: new _TimeEntries(options)
-    }
+  var _TimeEntries = require('./TimeEntries');
+  return {
+    TimeEntries: new _TimeEntries(options)
+  }
 }
 
 /**

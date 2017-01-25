@@ -16,34 +16,35 @@
  */
 
 /**
- * @param {CWOptions} options
- * @returns {FinanceAPI}
+ *
+ * @param options
+ * @returns {{Additions: Additions, Adjustments: Adjustments, Agreements: Agreements, AgreementSites: AgreementSites, BoardDefaults: BoardDefaults, WorkRoles: WorkRoles, WorkTypeExclusions: WorkTypeExclusions, WorkTypes: WorkTypes}}
  * @constructor
  */
 function FinanceAPI(options) {
-    var _Additions = require('./Additions'),
-        _Adjustments = require('./Adjustments'),
-        _Agreements = require('./Agreements'),
-        _AgreementSites = require('./AgreementSites'),
-        _BoardDefaults = require('./BoardDefaults'),
-        _WorkRoles = require('./WorkRoles'),
-        _WorkTypeExclusions = require('./WorkTypeExclusions'),
-        _WorkTypes = require('./WorkTypes');
+  var _Additions = require('./Additions'),
+    _Adjustments = require('./Adjustments'),
+    _Agreements = require('./Agreements'),
+    _AgreementSites = require('./AgreementSites'),
+    _BoardDefaults = require('./BoardDefaults'),
+    _WorkRoles = require('./WorkRoles'),
+    _WorkTypeExclusions = require('./WorkTypeExclusions'),
+    _WorkTypes = require('./WorkTypes');
 
-    return {
-        Additions: new _Additions(options),
-        Adjustments: new _Adjustments(options),
-        Agreements: new _Agreements(options),
-        AgreementSites: new _AgreementSites(options),
-        BoardDefaults: new _BoardDefaults(options),
-        WorkRoles: new _WorkRoles(options),
-        WorkTypeExclusions: new _WorkTypeExclusions(options),
-        WorkTypes: new _WorkTypes(options)
-    }
+  return {
+    Additions: new _Additions(options),
+    Adjustments: new _Adjustments(options),
+    Agreements: new _Agreements(options),
+    AgreementSites: new _AgreementSites(options),
+    BoardDefaults: new _BoardDefaults(options),
+    WorkRoles: new _WorkRoles(options),
+    WorkTypeExclusions: new _WorkTypeExclusions(options),
+    WorkTypes: new _WorkTypes(options)
+  }
 }
 
 /**
  *
  * @type {FinanceAPI}
  */
-module.exports =  FinanceAPI;
+module.exports = FinanceAPI;
