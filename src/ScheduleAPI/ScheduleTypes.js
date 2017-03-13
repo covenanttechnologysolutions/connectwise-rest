@@ -25,16 +25,16 @@ var Q = require('q'),
  * @inherits {ConnectWise}
  * @constructor
  */
-function ScheduleType(options) {
+function ScheduleTypes(options) {
   ConnectWise.apply(this, Array.prototype.slice.call(arguments));
 }
-inherits(ScheduleType, ConnectWise);
+inherits(ScheduleTypes, ConnectWise);
 
 /**
  * @param {Params} params
  * @returns {Promise<ScheduleType[]>}
  */
-ScheduleType.prototype.getScheduleTypes = function (params) {
+ScheduleTypes.prototype.getScheduleTypes = function (params) {
   return this.api('/schedule/types', 'GET', params);
 };
 
@@ -43,7 +43,7 @@ ScheduleType.prototype.getScheduleTypes = function (params) {
  * @param {ScheduleEntry} scheduleType
  * @returns {Promise<ScheduleType>}
  */
-ScheduleType.prototype.createScheduleType = function (scheduleType) {
+ScheduleTypes.prototype.createScheduleType = function (scheduleType) {
   return this.api('/schedule/types', 'POST', scheduleType);
 };
 
@@ -52,7 +52,7 @@ ScheduleType.prototype.createScheduleType = function (scheduleType) {
  * @param {ParamsConditions} params
  * @returns {Promise<Count>}
  */
-ScheduleType.prototype.getScheduleTypesCount = function (params) {
+ScheduleTypes.prototype.getScheduleTypesCount = function (params) {
   return this.api('/schedule/types/count', 'GET', params);
 };
 
@@ -61,7 +61,7 @@ ScheduleType.prototype.getScheduleTypesCount = function (params) {
  * @param scheduleTypeId
  * @returns {Promise<ScheduleType>}
  */
-ScheduleType.prototype.getScheduleTypeById = function(scheduleTypeId) {
+ScheduleTypes.prototype.getScheduleTypeById = function(scheduleTypeId) {
   return this.api('/schedule/types/' + scheduleTypeId, 'GET');
 };
 
@@ -70,7 +70,7 @@ ScheduleType.prototype.getScheduleTypeById = function(scheduleTypeId) {
  * @param scheduleTypeId
  * @returns {Promise<DeleteResponse>}
  */
-ScheduleType.prototype.deleteScheduleTypeById = function(scheduleTypeId) {
+ScheduleTypes.prototype.deleteScheduleTypeById = function(scheduleTypeId) {
   return this.api('/schedule/types/' + scheduleTypeId, 'DELETE');
 };
 
@@ -80,7 +80,7 @@ ScheduleType.prototype.deleteScheduleTypeById = function(scheduleTypeId) {
  * @param {ScheduleType} scheduleType
  * @returns {Promise<ScheduleType>}
  */
-ScheduleType.prototype.replaceScheduleType = function(scheduleTypeId, scheduleType) {
+ScheduleTypes.prototype.replaceScheduleType = function(scheduleTypeId, scheduleType) {
   return this.api('/schedule/types/' + scheduleTypeId, 'PUT', scheduleType);
 };
 
@@ -89,13 +89,13 @@ ScheduleType.prototype.replaceScheduleType = function(scheduleTypeId, scheduleTy
  * @param {Operations} ops
  * @returns {Promise<ScheduleType>}
  */
-ScheduleType.prototype.updateScheduleType = function(scheduleTypeId, ops) {
+ScheduleTypes.prototype.updateScheduleType = function(scheduleTypeId, ops) {
   return this.api('/schedule/types/' + scheduleTypeId, 'PATCH', ops);
 };
 
 
 /**
  *
- * @type {ScheduleType}
+ * @type {ScheduleTypes}
  */
-module.exports = ScheduleType;
+module.exports = ScheduleTypes;
