@@ -160,10 +160,13 @@ Change the status of a ticket
 
 ### Conditions 
 
-Valid example conditions string
+Valid example conditions string:
   
 ```javascript
 
     var conditions = '(contact/name like "Fred%" and closedFlag = false) and dateEntered > [2015-12-23T05:53:27Z] or summary contains "test" AND  summary != "Some Summary"'
 
 ```
+
+Error message returned from server when invalid conditions are passed in:
+> Expected a boolean value, not a numeric. String values should be enclosed with double or single quotes; DateTime values should be enclosed in square brackets; numbers should consist of only digits, and optionally a decimal point and a negation sign; boolean values should be indicated with the keywords true or false; null values should be indicated by the keyword null.
