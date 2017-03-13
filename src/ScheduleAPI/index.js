@@ -5,6 +5,7 @@
 /**
  * @typedef {Object} ScheduleAPI
  * @property {ScheduleEntries} ScheduleEntries
+ * @property {ScheduleTypes} ScheduleTypes
  */
 
 /**
@@ -14,9 +15,11 @@
  */
 function ScheduleAPI(options) {
   var _ScheduleEntries = require('./ScheduleEntries');
+  var _ScheduleTypes = require('./ScheduleTypes');
 
   return {
-    ScheduleEntries: new _ScheduleEntries(options)
+    ScheduleEntries: new _ScheduleEntries(options),
+    ScheduleTypes: new _ScheduleTypes(options)
   }
 }
 

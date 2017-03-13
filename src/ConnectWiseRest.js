@@ -457,3 +457,10 @@ module.exports = ConnectWiseRest;
  * @property _info
  * @property _info.location_href
  */
+
+/**
+ * @typedef {object} ChargeCodeHref
+ * @property {number} id
+ * @property {string} name
+ * @property {object} _info
+ */

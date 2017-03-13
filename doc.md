@@ -41,6 +41,8 @@
 <dd></dd>
 <dt><a href="#ScheduleEntries">ScheduleEntries</a></dt>
 <dd></dd>
+<dt><a href="#ScheduleType">ScheduleType</a></dt>
+<dd></dd>
 <dt><a href="#Boards">Boards</a></dt>
 <dd></dd>
 <dt><a href="#BoardTeams">BoardTeams</a></dt>
@@ -196,6 +198,8 @@
 <dd></dd>
 <dt><a href="#ServiceLocationHref">ServiceLocationHref</a> : <code>object</code></dt>
 <dd></dd>
+<dt><a href="#ChargeCodeHref">ChargeCodeHref</a> : <code>object</code></dt>
+<dd></dd>
 <dt><a href="#Addition">Addition</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#Adjustment">Adjustment</a> : <code>object</code></dt>
@@ -218,7 +222,11 @@
 <dd></dd>
 <dt><a href="#Project">Project</a> : <code>object</code></dt>
 <dd></dd>
+<dt><a href="#ScheduleAPI">ScheduleAPI</a> : <code>Object</code></dt>
+<dd></dd>
 <dt><a href="#ScheduleEntry">ScheduleEntry</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#ScheduleType">ScheduleType</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#Board">Board</a> : <code>object</code></dt>
 <dd></dd>
@@ -247,6 +255,8 @@
 <dd><p>Key-Vals interpolated into one object per row</p>
 </dd>
 <dt><a href="#ReportColumn">ReportColumn</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#TimeAPI">TimeAPI</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#TimeEntry">TimeEntry</a> : <code>object</code></dt>
 <dd></dd>
@@ -1838,6 +1848,95 @@ PUT
 | --- | --- | --- |
 | id |  | scheduleId |
 | ops | <code>[Operations](#Operations)</code> |  |
+
+<a name="ScheduleType"></a>
+
+## ScheduleType
+**Kind**: global class  
+**Inherits**: <code>[ConnectWise](#ConnectWise)</code>  
+
+* [ScheduleType](#ScheduleType)
+    * [new ScheduleType(options)](#new_ScheduleType_new)
+    * [.getScheduleTypes(params)](#ScheduleType+getScheduleTypes) ⇒ <code>Promise.&lt;Array.&lt;ScheduleType&gt;&gt;</code>
+    * [.createScheduleType(scheduleType)](#ScheduleType+createScheduleType) ⇒ <code>[Promise.&lt;ScheduleType&gt;](#ScheduleType)</code>
+    * [.getScheduleTypesCount(params)](#ScheduleType+getScheduleTypesCount) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
+    * [.getScheduleTypeById(scheduleTypeId)](#ScheduleType+getScheduleTypeById) ⇒ <code>[Promise.&lt;ScheduleType&gt;](#ScheduleType)</code>
+    * [.deleteScheduleTypeById(scheduleTypeId)](#ScheduleType+deleteScheduleTypeById) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
+    * [.replaceScheduleType(scheduleTypeId, scheduleType)](#ScheduleType+replaceScheduleType) ⇒ <code>[Promise.&lt;ScheduleType&gt;](#ScheduleType)</code>
+    * [.updateScheduleType(scheduleTypeId, ops)](#ScheduleType+updateScheduleType) ⇒ <code>[Promise.&lt;ScheduleType&gt;](#ScheduleType)</code>
+
+<a name="new_ScheduleType_new"></a>
+
+### new ScheduleType(options)
+
+| Param | Type |
+| --- | --- |
+| options | <code>[CWOptions](#CWOptions)</code> | 
+
+<a name="ScheduleType+getScheduleTypes"></a>
+
+### scheduleType.getScheduleTypes(params) ⇒ <code>Promise.&lt;Array.&lt;ScheduleType&gt;&gt;</code>
+**Kind**: instance method of <code>[ScheduleType](#ScheduleType)</code>  
+
+| Param | Type |
+| --- | --- |
+| params | <code>[Params](#Params)</code> | 
+
+<a name="ScheduleType+createScheduleType"></a>
+
+### scheduleType.createScheduleType(scheduleType) ⇒ <code>[Promise.&lt;ScheduleType&gt;](#ScheduleType)</code>
+**Kind**: instance method of <code>[ScheduleType](#ScheduleType)</code>  
+
+| Param | Type |
+| --- | --- |
+| scheduleType | <code>[ScheduleEntry](#ScheduleEntry)</code> | 
+
+<a name="ScheduleType+getScheduleTypesCount"></a>
+
+### scheduleType.getScheduleTypesCount(params) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
+**Kind**: instance method of <code>[ScheduleType](#ScheduleType)</code>  
+
+| Param | Type |
+| --- | --- |
+| params | <code>[ParamsConditions](#ParamsConditions)</code> | 
+
+<a name="ScheduleType+getScheduleTypeById"></a>
+
+### scheduleType.getScheduleTypeById(scheduleTypeId) ⇒ <code>[Promise.&lt;ScheduleType&gt;](#ScheduleType)</code>
+**Kind**: instance method of <code>[ScheduleType](#ScheduleType)</code>  
+
+| Param |
+| --- |
+| scheduleTypeId | 
+
+<a name="ScheduleType+deleteScheduleTypeById"></a>
+
+### scheduleType.deleteScheduleTypeById(scheduleTypeId) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
+**Kind**: instance method of <code>[ScheduleType](#ScheduleType)</code>  
+
+| Param |
+| --- |
+| scheduleTypeId | 
+
+<a name="ScheduleType+replaceScheduleType"></a>
+
+### scheduleType.replaceScheduleType(scheduleTypeId, scheduleType) ⇒ <code>[Promise.&lt;ScheduleType&gt;](#ScheduleType)</code>
+**Kind**: instance method of <code>[ScheduleType](#ScheduleType)</code>  
+
+| Param | Type |
+| --- | --- |
+| scheduleTypeId |  | 
+| scheduleType | <code>[ScheduleType](#ScheduleType)</code> | 
+
+<a name="ScheduleType+updateScheduleType"></a>
+
+### scheduleType.updateScheduleType(scheduleTypeId, ops) ⇒ <code>[Promise.&lt;ScheduleType&gt;](#ScheduleType)</code>
+**Kind**: instance method of <code>[ScheduleType](#ScheduleType)</code>  
+
+| Param | Type |
+| --- | --- |
+| scheduleTypeId |  | 
+| ops | <code>[Operations](#Operations)</code> | 
 
 <a name="Boards"></a>
 
@@ -3644,8 +3743,8 @@ Service Subtype
 | Name | Type | Description |
 | --- | --- | --- |
 | op | <code>string</code> | ['replace','remove'] |
-| path | <code>string</code> | the relative path to the variable to be updated, e.g. status/id |
-| value | <code>string</code> |  |
+| path | <code>string</code> | the relative path to the variable to be updated, e.g. status |
+| value | <code>string</code> | the value of the object property to replace, e.g. { id: 123 } |
 
 <a name="Count"></a>
 
@@ -3900,6 +3999,18 @@ Service Subtype
 | name | 
 | _info | 
 | _info.location_href | 
+
+<a name="ChargeCodeHref"></a>
+
+## ChargeCodeHref : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| id | <code>number</code> | 
+| name | <code>string</code> | 
+| _info | <code>object</code> | 
 
 <a name="Addition"></a>
 
@@ -4221,6 +4332,25 @@ Service Subtype
 | _info.lastUpdated | <code>string</code> |  |
 | _info.updatedBy | <code>string</code> |  |
 
+<a name="ScheduleAPI"></a>
+
+## ScheduleAPI : <code>Object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| ScheduleEntries | <code>[ScheduleEntries](#ScheduleEntries)</code> | 
+| ScheduleTypes | <code>ScheduleTypes</code> | 
+
+<a name="new_ScheduleAPI_new"></a>
+
+### new ScheduleAPI(options)
+
+| Param |
+| --- |
+| options | 
+
 <a name="ScheduleEntry"></a>
 
 ## ScheduleEntry : <code>object</code>
@@ -4249,6 +4379,105 @@ Service Subtype
 | closeDate |  | 
 | hours |  | 
 | _info | <code>[InfoHref](#InfoHref)</code> | 
+
+<a name="ScheduleType"></a>
+
+## ScheduleType : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| id | <code>number</code> |  |
+| name | <code>string</code> | required |
+| identifier | <code>string</code> | required |
+| chargeCode | <code>[ChargeCodeHref](#ChargeCodeHref)</code> |  |
+| where | <code>[ServiceLocationHref](#ServiceLocationHref)</code> |  |
+| systemFlag | <code>boolean</code> |  |
+
+
+* [ScheduleType](#ScheduleType) : <code>object</code>
+    * [new ScheduleType(options)](#new_ScheduleType_new)
+    * [.getScheduleTypes(params)](#ScheduleType+getScheduleTypes) ⇒ <code>Promise.&lt;Array.&lt;ScheduleType&gt;&gt;</code>
+    * [.createScheduleType(scheduleType)](#ScheduleType+createScheduleType) ⇒ <code>[Promise.&lt;ScheduleType&gt;](#ScheduleType)</code>
+    * [.getScheduleTypesCount(params)](#ScheduleType+getScheduleTypesCount) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
+    * [.getScheduleTypeById(scheduleTypeId)](#ScheduleType+getScheduleTypeById) ⇒ <code>[Promise.&lt;ScheduleType&gt;](#ScheduleType)</code>
+    * [.deleteScheduleTypeById(scheduleTypeId)](#ScheduleType+deleteScheduleTypeById) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
+    * [.replaceScheduleType(scheduleTypeId, scheduleType)](#ScheduleType+replaceScheduleType) ⇒ <code>[Promise.&lt;ScheduleType&gt;](#ScheduleType)</code>
+    * [.updateScheduleType(scheduleTypeId, ops)](#ScheduleType+updateScheduleType) ⇒ <code>[Promise.&lt;ScheduleType&gt;](#ScheduleType)</code>
+
+<a name="new_ScheduleType_new"></a>
+
+### new ScheduleType(options)
+
+| Param | Type |
+| --- | --- |
+| options | <code>[CWOptions](#CWOptions)</code> | 
+
+<a name="ScheduleType+getScheduleTypes"></a>
+
+### scheduleType.getScheduleTypes(params) ⇒ <code>Promise.&lt;Array.&lt;ScheduleType&gt;&gt;</code>
+**Kind**: instance method of <code>[ScheduleType](#ScheduleType)</code>  
+
+| Param | Type |
+| --- | --- |
+| params | <code>[Params](#Params)</code> | 
+
+<a name="ScheduleType+createScheduleType"></a>
+
+### scheduleType.createScheduleType(scheduleType) ⇒ <code>[Promise.&lt;ScheduleType&gt;](#ScheduleType)</code>
+**Kind**: instance method of <code>[ScheduleType](#ScheduleType)</code>  
+
+| Param | Type |
+| --- | --- |
+| scheduleType | <code>[ScheduleEntry](#ScheduleEntry)</code> | 
+
+<a name="ScheduleType+getScheduleTypesCount"></a>
+
+### scheduleType.getScheduleTypesCount(params) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
+**Kind**: instance method of <code>[ScheduleType](#ScheduleType)</code>  
+
+| Param | Type |
+| --- | --- |
+| params | <code>[ParamsConditions](#ParamsConditions)</code> | 
+
+<a name="ScheduleType+getScheduleTypeById"></a>
+
+### scheduleType.getScheduleTypeById(scheduleTypeId) ⇒ <code>[Promise.&lt;ScheduleType&gt;](#ScheduleType)</code>
+**Kind**: instance method of <code>[ScheduleType](#ScheduleType)</code>  
+
+| Param |
+| --- |
+| scheduleTypeId | 
+
+<a name="ScheduleType+deleteScheduleTypeById"></a>
+
+### scheduleType.deleteScheduleTypeById(scheduleTypeId) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
+**Kind**: instance method of <code>[ScheduleType](#ScheduleType)</code>  
+
+| Param |
+| --- |
+| scheduleTypeId | 
+
+<a name="ScheduleType+replaceScheduleType"></a>
+
+### scheduleType.replaceScheduleType(scheduleTypeId, scheduleType) ⇒ <code>[Promise.&lt;ScheduleType&gt;](#ScheduleType)</code>
+**Kind**: instance method of <code>[ScheduleType](#ScheduleType)</code>  
+
+| Param | Type |
+| --- | --- |
+| scheduleTypeId |  | 
+| scheduleType | <code>[ScheduleType](#ScheduleType)</code> | 
+
+<a name="ScheduleType+updateScheduleType"></a>
+
+### scheduleType.updateScheduleType(scheduleTypeId, ops) ⇒ <code>[Promise.&lt;ScheduleType&gt;](#ScheduleType)</code>
+**Kind**: instance method of <code>[ScheduleType](#ScheduleType)</code>  
+
+| Param | Type |
+| --- | --- |
+| scheduleTypeId |  | 
+| ops | <code>[Operations](#Operations)</code> | 
 
 <a name="Board"></a>
 
@@ -4610,6 +4839,24 @@ Key-Vals interpolated into one object per row
 | ColumnName | <code>object</code> | the key of the object is the name of the column (not ColumnName) |
 | ColumnName.isNullable | <code>boolean</code> |  |
 | ColumnName.type | <code>string</code> | ['Numeric', 'Text', 'DateTime', 'Boolean'] |
+
+<a name="TimeAPI"></a>
+
+## TimeAPI : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name |
+| --- |
+| TimeEntries | 
+
+<a name="new_TimeAPI_new"></a>
+
+### new TimeAPI(options)
+
+| Param |
+| --- |
+| options | 
 
 <a name="TimeEntry"></a>
 
