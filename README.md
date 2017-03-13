@@ -90,8 +90,10 @@ To access cloud-hosted ConnectWise, use the `companyUrl` of `api-na.myconnectwis
 
 | Module           | API                 | Status                        |
 | ---------------- | ------------------- | ----------------------------- |
-| Company API      | Companies           | In Progress                   |
-| Company API      | Contacts            | In Progress                   |
+| Company API      | Companies           | Complete                      |
+| Company API      | CompanyTeams        | Complete                      |
+| Company API      | Configurations      | Complete                      |
+| Company API      | Contacts            | Complete                      |
 | Finance API      | Additions           | Complete                      |
 | Finance API      | Adjustments         | Complete                      |
 | Finance API      | Agreements          | Complete                      |
@@ -100,11 +102,17 @@ To access cloud-hosted ConnectWise, use the `companyUrl` of `api-na.myconnectwis
 | Finance API      | WorkRoles           | Complete                      |
 | Finance API      | WorkTypeExclusions  | Complete                      |
 | Finance API      | WorkTypes           | Complete                      |
-| Project API      | Projects            | In Progress                   |
+| Project API      | Projects            | Complete                      |
+| ScheduleAPI      | ScheduleEntries     | Complete                      |
+| ScheduleAPI      | ScheduleTypes       | Complete                      |
 | Service Desk API | Boards              | Complete                      |
-| Service Desk API | Tickets             | Complete                      |
-| Service Desk API | Statuses            | Complete                      |
+| Service Desk API | BoardTeams          | Complete                      |
+| Service Desk API | Priorities          | Complete                      |
 | Service Desk API | ServiceNotes        | Complete                      |
+| Service Desk API | Statuses            | Complete                      |
+| Service Desk API | Tickets             | Complete                      |
+| System API       | Members             | Complete                      |
+| System API       | Reports             | Complete                      |
 | Time API         | TimeEntries         | Complete                      |
 
 
@@ -118,7 +126,7 @@ Get ticket 1234 and print ticket number, summary and status.
 
     tickets.getTicketById(1234)
         .then(function (res) { console.log(res.id, res.summary, res.status.name); })
-        .fail(function (err) { console.log(err); });
+        .catch(function (err) { console.log(err); });
 ```
 
 Create new ticket on service board, then print the returned ticket number, or any errors
@@ -138,7 +146,7 @@ Create new ticket on service board, then print the returned ticket number, or an
         //can also pass in any other Ticket object settings as needed
     })
     .then(function (res) { console.log(res.id); });
-    .fail(function (err) { console.log(err); });    
+    .catch(function (err) { console.log(err); });    
     
 ```
 
@@ -148,13 +156,13 @@ Change the status of a ticket
 
     updateTicket(1234, [{
         op: 'replace',
-        path: 'status/id',
-        value: 123 //id of the status to change to, find with boards.getBoards and status.getStatuses
+        path: 'status',
+        value: {id: 123} //id of the status to change to, find with boards.getBoards and status.getStatuses
     }, {
         //second or more operations
     }])
     .then(function(res) { //do something with returned ticket });
-    .fail(function(err) { //do something with errors });    
+    .catch(function(err) { //do something with errors });    
 
 ```
 
