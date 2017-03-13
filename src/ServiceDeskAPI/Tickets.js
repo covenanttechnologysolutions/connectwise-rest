@@ -349,9 +349,9 @@ Tickets.prototype.updateTicketStatusByName = function (id, status) {
           if (statuses.length > 0) {
             var statusId = statuses[0].id;
             self.updateTicket(id, [{
-              "op": 'replace',
-              "path": 'status/id',
-              "value": statusId
+              op: 'replace',
+              path: 'status',
+              value: {id: statusId}
             }])
               .then(deferred.resolve)
               .fail(deferred.reject);
@@ -389,8 +389,8 @@ Tickets.prototype.updateTicketPriority = function (id, priority) {
       var priorityId = res[0].id;
       return self.updateTicket(id, [{
         op: 'replace',
-        path: 'priority/id',
-        value: priorityId
+        path: 'priority',
+        value: {id: priorityId}
       }]);
     } else {
       throw {
@@ -420,8 +420,8 @@ Tickets.prototype.updateTicketServiceType = function (id, serviceType) {
           var serviceTypeId = types[0].id;
           return self.updateTicket(id, [{
             op: 'replace',
-            path: 'type/id',
-            value: serviceTypeId
+            path: 'type',
+            value: {id: serviceTypeId}
           }]);
         } else {
           throw {
@@ -452,8 +452,8 @@ Tickets.prototype.updateTicketServiceSubType = function (id, serviceSubType) {
           var serviceSubTypeId = types[0].id;
           return self.updateTicket(id, [{
             op: 'replace',
-            path: 'subType/id',
-            value: serviceSubTypeId
+            path: 'subType',
+            value: {id: serviceSubTypeId}
           }]);
         } else {
           throw {
@@ -476,11 +476,13 @@ Tickets.prototype.updateTicketServiceSubType = function (id, serviceSubType) {
  */
 Tickets.prototype.updateTicketTypeSubTypeItem = function (id, type, subtype, item) {
   var self = this;
-  return self.updateTicketServiceType(id, type).then(function () {
-    return self.updateTicketServiceSubType(id, subtype).then(function () {
-      return self.updateTicketServiceItem(id, item);
+  return self.updateTicketServiceType(id, type)
+    .then(function () {
+      return self.updateTicketServiceSubType(id, subtype)
+        .then(function () {
+          return self.updateTicketServiceItem(id, item);
+        })
     })
-  })
 };
 
 /**
@@ -501,8 +503,8 @@ Tickets.prototype.updateTicketServiceItem = function (id, serviceItem) {
           var serviceItemId = items[0].id;
           return self.updateTicket(id, [{
             op: 'replace',
-            path: 'item/id',
-            value: serviceItemId
+            path: 'item',
+            value: {id: serviceItemId}
           }]);
         } else {
           throw {
