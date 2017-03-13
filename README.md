@@ -1,4 +1,7 @@
 # connectwise-rest
+
+ [![npm version](https://img.shields.io/npm/v/connectwise-rest.svg)](https://www.npmjs.com/package/connectwise-rest) [![npm downloads](https://img.shields.io/npm/dt/connectwise-rest.svg)](https://www.npmjs.com/package/connectwise-rest)
+
 A nodejs module for interacting with the ConnectWise REST API.   This module is currently under construction.  This module provides bindings for ease of development against the ConnectWise REST API. 
 
 ## Requirements
