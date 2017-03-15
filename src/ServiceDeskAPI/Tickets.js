@@ -577,7 +577,7 @@ Tickets.prototype.updateTicketCustomFieldByCaption = function (id, caption, valu
       var customFieldId;
       ticket.customFields.forEach(function (elem, idx) {
         if (elem.caption === caption) {
-          customFieldId = idx;
+          customFieldId = elem.id;
         }
       });
 
