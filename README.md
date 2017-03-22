@@ -25,14 +25,16 @@ Create a new API key, or API Only Member, then instantiate the module.
         companyId: 'company',
         companyUrl: 'your.connectwise.com',
         publicKey: '<public key>',
-        privateKey: '<private key>'
+        privateKey: '<private key>',
+        entryPoint: 'v4_6_release', // optional
+        timeout: 5000 // optional, request connection timeout in ms
     });
     
     cw.ServiceDeskAPI.Tickets.getTicketById(1234)
         .then(function (result){
             //do something with results
         })
-        .fail(function (error){
+        .catch(function (error){
             //handle errors
         });
 ```
@@ -49,7 +51,7 @@ Or if you only require access to one API component:
         .then(function (result){
             //do something with results
         })
-        .fail(function (error){
+        .catch(function (error){
             //handle errors
         });
 ```
@@ -65,10 +67,11 @@ You can also manually access the API:
     api('/path/to/api', 'POST', {
         'param1': 'val1',
         'param2': 'val2'
-    }).then(function (result){
+    })
+    .then(function (result){
         //do something with results
     })
-    .fail(function (error){
+    .catch(function (error){
         //handle errors
     });
 ```
@@ -81,7 +84,7 @@ To access cloud-hosted ConnectWise, use the `companyUrl` of `api-na.myconnectwis
     options = {
         companyId: 'company',
         companyUrl: 'api-na.myconnectwise.net',
-        entryPoint: 'v2016_2'
+        entryPoint: 'v2016_2',
         publicKey: '<public key>',
         privateKey: '<private key>'
     }
