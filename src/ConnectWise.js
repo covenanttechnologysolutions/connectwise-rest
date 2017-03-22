@@ -26,6 +26,7 @@ var DEFAULTS = {
  * @param {string} options.privateKey
  * @param {string} options.companyUrl
  * @param {string} [options.entryPoint] defaults to 'v4_6_release'
+ * @param {number} [options.timeout] defaults to 5000 (5 seconds)
  * @constructor
  */
 function ConnectWise(options) {
@@ -55,6 +56,10 @@ function ConnectWise(options) {
     options.entryPoint = 'v4_6_release';
   }
 
+  if (!options.timeout) {
+    options.timeout = 5000;
+  }
+
   this.config = {};
 
   this.config.companyId = options.companyId;
@@ -64,7 +69,7 @@ function ConnectWise(options) {
   this.config.privateKey = options.privateKey;
   this.config.authRaw = options.companyId + '+' + options.publicKey + ':' + options.privateKey;
   this.config.auth = 'Basic ' + btoa(this.config.authRaw);
-
+  this.config.timeout = options.timeout;
 }
 
 /**
@@ -93,7 +98,8 @@ ConnectWise.prototype.api = function (path, method, params) {
       'Cache-Control': 'no-cache',
       'Authorization': this.config.auth
     },
-    method: method
+    method: method,
+    timeout: this.config.timeout
   };
 
   //@TODO perform URL validation here
