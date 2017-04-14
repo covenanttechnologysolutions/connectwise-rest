@@ -9,9 +9,8 @@
  */
 
 /**
- *
  * @param options
- * @returns {TimeEntries}
+ * @returns {{TimeEntries: TimeEntries}}
  * @constructor
  */
 function TimeAPI(options) {

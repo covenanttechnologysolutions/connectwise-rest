@@ -7,8 +7,7 @@
  * @private
  */
 var request = require('request'),
-  btoa = require('btoa'),
-  Q = require('q');
+  btoa = require('btoa');
 
 /**
  * @const {string} DEFAULTS.apiPath
@@ -82,71 +81,69 @@ function ConnectWise(options) {
  * @returns {Promise<*>}
  */
 ConnectWise.prototype.api = function (path, method, params) {
-  var deferred = Q.defer();
+  return new Promise((resolve, reject) => {
+    if (!path) {
+      throw new Error('path must be defined');
+    }
+    if (!method) {
+      throw new Error('method must be defined');
+    }
 
-  if (!path) {
-    throw new Error('path must be defined');
-  }
-  if (!method) {
-    throw new Error('method must be defined');
-  }
+    var options = {
+      url: this.config.apiUrl + path,
+      headers: {
+        'Accept': 'application/json',
+        'Cache-Control': 'no-cache',
+        'Authorization': this.config.auth
+      },
+      method: method,
+      timeout: this.config.timeout
+    };
 
-  var options = {
-    url: this.config.apiUrl + path,
-    headers: {
-      'Accept': 'application/json',
-      'Cache-Control': 'no-cache',
-      'Authorization': this.config.auth
-    },
-    method: method,
-    timeout: this.config.timeout
-  };
+    //@TODO perform URL validation here
+    if (path.match(/http:\/\//i) || path.match(/https:\/\//i)) {
+      options.url = path;
+    }
 
-  //@TODO perform URL validation here
-  if (path.match(/http:\/\//i) || path.match(/https:\/\//i)) {
-    options.url = path;
-  }
+    if (method === 'GET' && params) {
+      options.url += parameterize(params);
+    }
 
-  if (method === 'GET' && params) {
-    options.url += parameterize(params);
-  }
+    if (method === 'POST' || method === 'PUT' || method === 'PATCH') {
+      options.headers['Content-Type'] = 'application/json';
+      options.body = JSON.stringify(params);
+    }
 
-  if (method === 'POST' || method === 'PUT' || method === 'PATCH') {
-    options.headers['Content-Type'] = 'application/json';
-    options.body = JSON.stringify(params);
-  }
-
-  request(options, function (err, res) {
-    if (err) {
-      deferred.reject({
-        code: err.code,
-        message: err.message,
-        errors: [err]
-      });
-    } else {
-      if (method === 'DELETE' && res.body === '' || method === 'POST' && res.statusCode === 204) {
-        /** @type DeleteResponse */
-        deferred.resolve({});
+    return request(options, function (err, res) {
+      if (err) {
+        return reject({
+          code: err.code,
+          message: err.message,
+          errors: [err]
+        });
       } else {
-        try {
-          var body = JSON.parse(res.body);
-          if (body.code) {
-            deferred.reject(body);
-          } else {
-            deferred.resolve(body);
+        if (method === 'DELETE' && res.body === '' || method === 'POST' && res.statusCode === 204) {
+          /** @type DeleteResponse */
+          return resolve({});
+        } else {
+          try {
+            var body = JSON.parse(res.body);
+            if (body.code) {
+              return reject(body);
+            } else {
+              return resolve(body);
+            }
+          } catch (e) {
+            return reject({
+              code: 'EPARSE',
+              message: 'Error parsing response from server.',
+              errors: [e]
+            });
           }
-        } catch (e) {
-          deferred.reject({
-            code: 'EPARSE',
-            message: 'Error parsing response from server.',
-            errors: [e]
-          });
         }
       }
-    }
+    });
   });
-
-  return deferred.promise;
 };
 
 /**
@@ -159,52 +156,54 @@ ConnectWise.prototype.api = function (path, method, params) {
  * @returns {Promise<*>}
  */
 ConnectWise.prototype.paginate = function (fn, args, module, pageSize, startPage) {
-  var deferred = Q.defer(),
-    results = [];
+  return new Promise((resolve, reject) => {
+    var results = [];
 
-  var page = startPage;
-  if (startPage === undefined) {
-    page = 0;
-  }
-
-  if (pageSize === undefined) {
-    pageSize = 100;
-  }
-
-  getPage(page);
-
-  function getPage(page) {
-
-    function pageHandler(res) {
-      if (res.length > 0) {
-        results = results.concat(res);
-      }
-
-      if (res.length === pageSize) {
-        getPage(++page);
-      } else {
-        deferred.resolve(results);
-      }
+    var page = startPage;
+    if (startPage === undefined) {
+      page = 0;
     }
 
-    //inject page key into params arg
-    args.forEach(function (arg) {
-      for (var key in arg) {
-        if (arg.hasOwnProperty(key)) {
-          if (key === 'page' || key === 'pageSize' || key === 'conditions' || key === 'orderBy') {
-            arg.page = page;
-            arg.pageSize = pageSize;
-          }
+    if (pageSize === undefined) {
+      pageSize = 100;
+    }
+
+    getPage(page);
+
+    function getPage(page) {
+
+      function pageHandler(res) {
+        if (res.length > 0) {
+          results = results.concat(res);
+        }
+
+        if (res.length === pageSize) {
+          getPage(++page);
+        } else {
+          return resolve(results);
         }
       }
-    });
 
-    fn.apply(module, args).then(pageHandler).fail(function (err) {
-      deferred.reject(err);
-    });
-  }
+      //inject page key into params arg
+      args.forEach(function (arg) {
+        for (var key in arg) {
+          if (arg.hasOwnProperty(key)) {
+            if (key === 'page' || key === 'pageSize' || key === 'conditions' || key === 'orderBy') {
+              arg.page = page;
+              arg.pageSize = pageSize;
+            }
+          }
+        }
+      });
 
-  return deferred.promise;
+      fn.apply(module, args)
+        .then(pageHandler)
+        .catch(function (err) {
+          return reject(err);
+        });
+    }
+
+  });
 };
 
 /**

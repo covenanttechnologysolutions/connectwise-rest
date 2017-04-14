@@ -7,8 +7,7 @@
  *
  * @private
  */
-var Q = require('q'),
-  inherits = require('util').inherits,
+var inherits = require('util').inherits,
   ConnectWise = require('../ConnectWise.js');
 
 /**
@@ -338,40 +337,29 @@ Tickets.prototype.getTicketProductsCount = function (id) {
  * @returns {Promise<Ticket[]>}
  */
 Tickets.prototype.updateTicketStatusByName = function (id, status) {
-  var deferred = Q.defer(),
-    self = this;
+  var self = this;
 
-  self.getTicketById(id)
+  return self.getTicketById(id)
     .then(function (ticket) {
       var boardId = ticket.board.id;
-      self.api('/service/boards/' + boardId + '/statuses', 'GET', {conditions: 'name = "' + status + '"'})
+      return self.api('/service/boards/' + boardId + '/statuses', 'GET', {conditions: 'name = "' + status + '"'})
         .then(function (statuses) {
           if (statuses.length > 0) {
             var statusId = statuses[0].id;
-            self.updateTicket(id, [{
+            return self.updateTicket(id, [{
               op: 'replace',
               path: 'status',
               value: {id: statusId}
             }])
-              .then(deferred.resolve)
-              .fail(deferred.reject);
           } else {
-            deferred.reject({
+            throw {
               code: 'NotFound',
               errors: null,
               message: 'Status ' + status + ' not found'
-            });
+            };
           }
-
         })
-        .fail(function (err) {
-          deferred.reject(err);
-        });
-    })
-    .fail(function (err) {
-      deferred.reject(err);
     });
-  return deferred.promise;
 };
 
 /**

@@ -5,8 +5,7 @@
 /**
  * @private
  */
-var Q = require('q'),
-  inherits = require('util').inherits,
+var inherits = require('util').inherits,
   ConnectWise = require('../ConnectWise.js');
 
 /**
