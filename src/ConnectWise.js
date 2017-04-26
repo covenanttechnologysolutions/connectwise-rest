@@ -14,8 +14,7 @@ var request = require('request'),
  * @const {string} DEFAULTS.apiVersion
  */
 var DEFAULTS = {
-  apiPath: '/apis/3.0',
-  apiVersion: '3.0'
+  apiPath: '/apis/3.0'
 };
 
 /**
@@ -24,6 +23,7 @@ var DEFAULTS = {
  * @param {string} options.publicKey
  * @param {string} options.privateKey
  * @param {string} options.companyUrl
+ * @param {string} options.apiVersion
  * @param {string} [options.entryPoint] defaults to 'v4_6_release'
  * @param {number} [options.timeout] defaults to 5000 (5 seconds)
  * @constructor
@@ -56,7 +56,11 @@ function ConnectWise(options) {
   }
 
   if (!options.timeout) {
-    options.timeout = 5000;
+    options.timeout = 10000;
+  }
+
+  if (!options.apiVersion) {
+    options.apiVersion = '3.0.0';
   }
 
   this.config = {};
@@ -64,6 +68,7 @@ function ConnectWise(options) {
   this.config.companyId = options.companyId;
   this.config.companyUrl = options.companyUrl;
   this.config.apiUrl = 'https://' + options.companyUrl + '/' + options.entryPoint + DEFAULTS.apiPath;
+  this.config.apiVersion = options.apiVersion;
   this.config.publicKey = options.publicKey;
   this.config.privateKey = options.privateKey;
   this.config.authRaw = options.companyId + '+' + options.publicKey + ':' + options.privateKey;
@@ -92,7 +97,7 @@ ConnectWise.prototype.api = function (path, method, params) {
     var options = {
       url: this.config.apiUrl + path,
       headers: {
-        'Accept': 'application/json',
+        'Accept': `application/json; application/vnd.connectwise.com+json; version=${this.config.apiVersion}`,
         'Cache-Control': 'no-cache',
         'Authorization': this.config.auth
       },
