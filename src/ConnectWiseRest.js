@@ -223,10 +223,14 @@ module.exports = ConnectWiseRest;
 
 /**
  * @typedef {object} Params
- * @property {string} [conditions]
- * @property {string} [orderBy]
- * @property {string|number} [page]
- * @property {string|number} [pageSize]
+ * @property {string} [conditions] Search results based on the fields returned in a GET, board/name="Integration" and summary="xyz" or board/id in (3, 2, 4) and lastUpdated > [2016-08-20T18:04:26Z]
+ * @property {string} [orderBy] Choose which field to sort the results by, 'contact/name asc'
+ * @property {string|number} [page] Used in pagination to cycle through results
+ * @property {string|number} [pageSize] Number of results returned per page (Defaults to 25) (Max page size was increased to 1,000 in 2016.2.)
+ * @property {string} [childConditions] Allows searching arrays on endpoints that list childConditions under parameters
+ * @property {string} [customFieldConditions] Allows searching custom fields when customFieldConditions is listed in the parameters
+ * @property {string} [fields] Limits which information is returned in the response - Not available on the reporting endpoints
+ * @property {string} [columns] Limits which information is returned in the response - Only used for the Reporting Endpoints
  */
 
 /**
