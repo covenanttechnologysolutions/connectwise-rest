@@ -7,7 +7,7 @@
  * @private
  */
 var request = require('request'),
-  btoa = require('btoa');
+  promiseRetry = require('promise-retry');
 
 /**
  * @const {string} DEFAULTS.apiPath
@@ -25,7 +25,14 @@ var DEFAULTS = {
  * @param {string} options.companyUrl
  * @param {string} options.apiVersion
  * @param {string} [options.entryPoint] defaults to 'v4_6_release'
- * @param {number} [options.timeout] defaults to 5000 (5 seconds)
+ * @param {number} [options.timeout] defaults to 20000 (20 seconds)
+ * @param {boolean} [options.retry] defaults to false
+ * @param {object} [options.retryOptions] defaults to {
+      retries: 4,
+      minTimeout: 50,
+      maxTimeout: 20000,
+      randomize: true,
+    }
  * @constructor
  */
 function ConnectWise(options) {
@@ -56,11 +63,24 @@ function ConnectWise(options) {
   }
 
   if (!options.timeout) {
-    options.timeout = 10000;
+    options.timeout = 20000;
   }
 
   if (!options.apiVersion) {
     options.apiVersion = '3.0.0';
+  }
+
+  if (!options.retry) {
+    options.retry = false;
+  }
+
+  if (!options.retryOptions) {
+    options.retryOptions = Object.assign({
+      retries: 4,
+      minTimeout: 50,
+      maxTimeout: options.timeout,
+      randomize: true,
+    }, options.retryOptions);
   }
 
   this.config = {};
@@ -72,8 +92,10 @@ function ConnectWise(options) {
   this.config.publicKey = options.publicKey;
   this.config.privateKey = options.privateKey;
   this.config.authRaw = options.companyId + '+' + options.publicKey + ':' + options.privateKey;
-  this.config.auth = 'Basic ' + btoa(this.config.authRaw);
+  this.config.auth = 'Basic ' + Buffer.from(this.config.authRaw).toString('base64');
   this.config.timeout = options.timeout;
+  this.config.retry = options.retry;
+  this.config.retryOptions = options.retryOptions;
 }
 
 /**
@@ -86,23 +108,43 @@ function ConnectWise(options) {
  * @returns {Promise<*>}
  */
 ConnectWise.prototype.api = function (path, method, params) {
+  const retryCodes = ['ECONNRESET', 'ETIMEDOUT', 'ESOCKETTIMEDOUT'];
+
+  const config = this.config;
+
+  if (config.retry) {
+    return promiseRetry((retry, number) => {
+      return apiPromise(path, method, params, config)
+        .catch(err => {
+          if (retryCodes.indexOf(err.code) >= 0) {
+            return retry(err);
+          }
+          throw err;
+        });
+    }, config.retryOptions);
+  } else {
+    return apiPromise(path, method, params, config);
+  }
+};
+
+function apiPromise(path, method, params, config) {
   return new Promise((resolve, reject) => {
     if (!path) {
-      throw new Error('path must be defined');
+      return reject(new Error('path must be defined'))
     }
     if (!method) {
-      throw new Error('method must be defined');
+      return reject(new Error('method must be defined'))
     }
 
     var options = {
-      url: this.config.apiUrl + path,
+      url: config.apiUrl + path,
       headers: {
-        'Accept': `application/json; application/vnd.connectwise.com+json; version=${this.config.apiVersion}`,
+        'Accept': `application/json; application/vnd.connectwise.com+json; version=${config.apiVersion}`,
         'Cache-Control': 'no-cache',
-        'Authorization': this.config.auth
+        'Authorization': config.auth
       },
       method: method,
-      timeout: this.config.timeout
+      timeout: config.timeout
     };
 
     //@TODO perform URL validation here
@@ -119,7 +161,7 @@ ConnectWise.prototype.api = function (path, method, params) {
       options.body = JSON.stringify(params);
     }
 
-    return request(options, function (err, res) {
+    request(options, (err, res) => {
       if (err) {
         return reject({
           code: err.code,
@@ -149,7 +191,7 @@ ConnectWise.prototype.api = function (path, method, params) {
       }
     });
   });
-};
+}
 
 /**
  * Wrap a module's function to get all results.
