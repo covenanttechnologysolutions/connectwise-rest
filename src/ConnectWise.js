@@ -33,6 +33,8 @@ var DEFAULTS = {
       maxTimeout: 20000,
       randomize: true,
     }
+ * @param {boolean} [options.debug] defaults to false
+ * @param {function} [options.logger] function(String:level, String:text, *:Object) defaults to console
  * @constructor
  */
 function ConnectWise(options) {
@@ -83,6 +85,29 @@ function ConnectWise(options) {
     }, options.retryOptions);
   }
 
+  if (!options.debug) {
+    options.debug = !!process.env.CW_REST_DEBUG;
+  }
+
+  if (typeof options.logger === 'undefined') {
+    options.logger = (level, text, meta) => {
+      switch (level) {
+        case 'error':
+          console.error(`${level}: ${text}`, meta);
+          return;
+        case 'debug': {
+          if (options.debug) {
+            console.info(`${level}: ${text}`, meta);
+          }
+          return;
+        }
+        default:
+          console.log(`${level}: ${text}`, meta);
+          return;
+      }
+    }
+  }
+
   this.config = {};
 
   this.config.companyId = options.companyId;
@@ -96,6 +121,8 @@ function ConnectWise(options) {
   this.config.timeout = options.timeout;
   this.config.retry = options.retry;
   this.config.retryOptions = options.retryOptions;
+  this.config.debug = options.debug;
+  this.config.logger = options.logger;
 }
 
 /**
@@ -111,19 +138,42 @@ ConnectWise.prototype.api = function (path, method, params) {
   const retryCodes = ['ECONNRESET', 'ETIMEDOUT', 'ESOCKETTIMEDOUT'];
 
   const config = this.config;
+  let startTime = Date.now();
 
   if (config.retry) {
     return promiseRetry((retry, number) => {
       return apiPromise(path, method, params, config)
         .catch(err => {
+          if (config.debug) {
+            config.logger('debug', `${method} ${path} ${Date.now() - startTime} ms network timeout occurred: ${err.code}, retry=${number}, params=${JSON.stringify(params)}`, err);
+          }
+          startTime = Date.now();
           if (retryCodes.indexOf(err.code) >= 0) {
             return retry(err);
           }
           throw err;
         });
-    }, config.retryOptions);
+    }, config.retryOptions)
+      .then(res => {
+        if (config.debug) {
+          config.logger('debug', `${method} ${path} ${Date.now() - startTime} ms params=${JSON.stringify(params)}`);
+        }
+        return res;
+      });
   } else {
-    return apiPromise(path, method, params, config);
+    return apiPromise(path, method, params, config)
+      .then(res => {
+        if (config.debug) {
+          config.logger('debug', `${method} ${path} ${Date.now() - startTime} ms params=${JSON.stringify(params)}`);
+        }
+        return res;
+      })
+      .catch(err => {
+        if (config.debug) {
+          config.logger('debug', `${method} ${path} ${Date.now() - startTime} ms params=${JSON.stringify(params)}`, err);
+        }
+        throw err;
+      });
   }
 };
 
