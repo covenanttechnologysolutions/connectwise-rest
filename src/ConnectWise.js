@@ -95,7 +95,7 @@ function ConnectWise(options) {
         case 'error':
           console.error(`${level}: ${text}`, meta);
           return;
-        case 'verbose': {
+        case 'info': {
           if (options.debug) {
             console.info(`${level}: ${text}`, meta);
           }
@@ -145,7 +145,7 @@ ConnectWise.prototype.api = function (path, method, params) {
       return apiPromise(path, method, params, config)
         .catch(err => {
           if (config.debug) {
-            config.logger('verbose', `${method} ${path} ${Date.now() - startTime} ms network timeout occurred: ${err.code}, retry=${number}, params=${JSON.stringify(params)}`, err);
+            config.logger('info', `${method} ${path} ${Date.now() - startTime} ms network timeout occurred: ${err.code}, retry=${number}, params=${JSON.stringify(params)}`, err);
           }
           startTime = Date.now();
           if (retryCodes.indexOf(err.code) >= 0) {
@@ -156,7 +156,7 @@ ConnectWise.prototype.api = function (path, method, params) {
     }, config.retryOptions)
       .then(res => {
         if (config.debug) {
-          config.logger('verbose', `${method} ${path} ${Date.now() - startTime} ms params=${JSON.stringify(params)}`);
+          config.logger('info', `${method} ${path} ${Date.now() - startTime} ms params=${JSON.stringify(params)}`);
         }
         return res;
       });
@@ -164,13 +164,13 @@ ConnectWise.prototype.api = function (path, method, params) {
     return apiPromise(path, method, params, config)
       .then(res => {
         if (config.debug) {
-          config.logger('verbose', `${method} ${path} ${Date.now() - startTime} ms params=${JSON.stringify(params)}`);
+          config.logger('info', `${method} ${path} ${Date.now() - startTime} ms params=${JSON.stringify(params)}`);
         }
         return res;
       })
       .catch(err => {
         if (config.debug) {
-          config.logger('verbose', `${method} ${path} ${Date.now() - startTime} ms params=${JSON.stringify(params)}`, err);
+          config.logger('info', `${method} ${path} ${Date.now() - startTime} ms params=${JSON.stringify(params)}`, err);
         }
         throw err;
       });
