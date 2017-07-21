@@ -14,7 +14,7 @@ var request = require('request'),
  * @const {string} DEFAULTS.apiVersion
  */
 var DEFAULTS = {
-  apiPath: '/apis/3.0'
+  apiPath: '/apis/3.0',
 };
 
 /**
@@ -162,7 +162,7 @@ ConnectWise.prototype.api = function (path, method, params) {
       })
       .catch(err => {
         if (config.debug) {
-          config.logger('error', `${method} ${path} ${Date.now() - startTime}ms network timeout occurred: ${err.code}, retry=${number}, params=${JSON.stringify(params)}`, err);
+          config.logger('error', `${method} ${path} ${Date.now() - startTime}ms network timeout occurred: ${err.code}, params=${JSON.stringify(params)}`, err);
         }
         throw err;
       })
@@ -197,10 +197,10 @@ function apiPromise(path, method, params, config) {
       headers: {
         'Accept': `application/json; application/vnd.connectwise.com+json; version=${config.apiVersion}`,
         'Cache-Control': 'no-cache',
-        'Authorization': config.auth
+        'Authorization': config.auth,
       },
       method: method,
-      timeout: config.timeout
+      timeout: config.timeout,
     };
 
     //@TODO perform URL validation here
@@ -222,7 +222,7 @@ function apiPromise(path, method, params, config) {
         return reject({
           code: err.code,
           message: err.message,
-          errors: [err]
+          errors: [err],
         });
       } else {
         if (method === 'DELETE' && res.body === '' || method === 'POST' && res.statusCode === 204) {
@@ -240,7 +240,7 @@ function apiPromise(path, method, params, config) {
             return reject({
               code: 'EPARSE',
               message: 'Error parsing response from server.',
-              errors: [e]
+              errors: [e],
             });
           }
         }
