@@ -254,8 +254,8 @@ function apiPromise(path, method, params, config) {
  * @param {function} fn
  * @param {object[]} args
  * @param {object} module
- * @param {string|number} [pageSize] defaults to 100
- * @param {string|number} [startPage] defaults to 0
+ * @param {string|number} [pageSize] defaults to 1000
+ * @param {string|number} [startPage] defaults to 1
  * @returns {Promise<*>}
  */
 ConnectWise.prototype.paginate = function (fn, args, module, pageSize, startPage) {
@@ -263,12 +263,12 @@ ConnectWise.prototype.paginate = function (fn, args, module, pageSize, startPage
     var results = [];
 
     var page = startPage;
-    if (startPage === undefined) {
-      page = 0;
+    if (startPage === undefined || startPage < 1) {
+      page = 1;
     }
 
     if (pageSize === undefined) {
-      pageSize = 100;
+      pageSize = 1000;
     }
 
     getPage(page);
