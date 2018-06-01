@@ -89,6 +89,12 @@ You can also manually access the API:
 
 To access cloud-hosted ConnectWise, use the `companyUrl` of `api-na.myconnectwise.net` and override the default `entryPoint`.
 
+| Region | |
+| --- | --- |
+| North America | api-na.myconnectwise.net |
+| Europe | api-eu.myconnectwise.net |
+| Australia | api-aus.myconnectwise.net |
+
 ```javascript
     options = {
         companyId: 'company',
@@ -97,9 +103,7 @@ To access cloud-hosted ConnectWise, use the `companyUrl` of `api-na.myconnectwis
         publicKey: '<public key>',
         privateKey: '<private key>'
     }
-
 ```
-
 
 ## Implemented APIs
 

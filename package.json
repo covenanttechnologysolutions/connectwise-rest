@@ -1,6 +1,6 @@
 {
   "name": "connectwise-rest",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "A nodejs module for interacting with the ConnectWise REST API.",
   "main": "index.js",
   "scripts": {
@@ -13,10 +13,7 @@
     "url": "https://github.com/covenanttechnologysolutions/connectwise-rest"
   },
   "keywords": [
-    "connectwise",
-    "rest",
-    "api",
-    "nodejs"
+    "connectwise", "rest", "api", "nodejs"
   ],
   "author": {
     "name": "Kevin Grube",
@@ -29,11 +26,11 @@
   "homepage": "https://github.com/covenanttechnologysolutions/connectwise-rest",
   "dependencies": {
     "promise-retry": "^1.1.1",
-    "request": "~2.78.0"
+    "request": "^2.87.0"
   },
   "devDependencies": {
     "jsdoc": "~3.4.3",
-    "jsdoc-to-markdown": "~2.0.1"
+    "jsdoc-to-markdown": "^4.0.1"
   },
   "engines": {
     "node": ">=4.0.0"
