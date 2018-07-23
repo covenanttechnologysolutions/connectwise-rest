@@ -21,6 +21,7 @@
  * @property {CompanyAPI} CompanyAPI
  * @property {ScheduleAPI} ScheduleAPI
  * @property {SystemAPI} SystemAPI
+ * @property {SalesAPI} SalesAPI
  */
 
 /**
@@ -38,6 +39,7 @@ function ConnectWiseRest(options) {
     _ProjectAPI = require('./ProjectAPI'),
     _ScheduleAPI = require('./ScheduleAPI'),
     _SystemAPI = require('./SystemAPI');
+    _SalesAPI = require('./SalesAPI')
 
   return {
     API: new _ConnectWise(options),
@@ -47,7 +49,8 @@ function ConnectWiseRest(options) {
     TimeAPI: new _TimeAPI(options),
     ProjectAPI: new _ProjectAPI(options),
     ScheduleAPI: new _ScheduleAPI(options),
-    SystemAPI: new _SystemAPI(options)
+    SystemAPI: new _SystemAPI(options),
+    SalesAPI: new _SalesAPI(options)
   }
 }
 

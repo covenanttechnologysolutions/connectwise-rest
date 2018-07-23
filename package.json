@@ -13,7 +13,10 @@
     "url": "https://github.com/covenanttechnologysolutions/connectwise-rest"
   },
   "keywords": [
-    "connectwise", "rest", "api", "nodejs"
+    "connectwise",
+    "rest",
+    "api",
+    "nodejs"
   ],
   "author": {
     "name": "Kevin Grube",
