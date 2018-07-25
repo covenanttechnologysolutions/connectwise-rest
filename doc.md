@@ -222,6 +222,8 @@
 <dd></dd>
 <dt><a href="#Project">Project</a> : <code>object</code></dt>
 <dd></dd>
+<dt><a href="#SalesAPI">SalesAPI</a> : <code>object</code></dt>
+<dd></dd>
 <dt><a href="#ScheduleAPI">ScheduleAPI</a> : <code>Object</code></dt>
 <dd></dd>
 <dt><a href="#ScheduleEntry">ScheduleEntry</a> : <code>object</code></dt>
@@ -266,17 +268,17 @@
 
 ## Companies
 **Kind**: global class  
-**Inherits**: <code>[ConnectWise](#ConnectWise)</code>  
+**Inherits**: [<code>ConnectWise</code>](#ConnectWise)  
 
 * [Companies](#Companies)
     * [new Companies(options)](#new_Companies_new)
     * [.getCompanies(params)](#Companies+getCompanies) ⇒ <code>Promise.&lt;Array.&lt;Company&gt;&gt;</code>
-    * [.createCompany(company)](#Companies+createCompany) ⇒ <code>[Promise.&lt;Company&gt;](#Company)</code>
-    * [.getCompaniesCount(params)](#Companies+getCompaniesCount) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
-    * [.getCompanyById(id)](#Companies+getCompanyById) ⇒ <code>[Promise.&lt;Company&gt;](#Company)</code>
-    * [.replaceCompany(id, company)](#Companies+replaceCompany) ⇒ <code>[Promise.&lt;Company&gt;](#Company)</code>
-    * [.deleteCompanyById(id)](#Companies+deleteCompanyById) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
-    * [.updateCompany(id, ops)](#Companies+updateCompany) ⇒ <code>[Promise.&lt;Company&gt;](#Company)</code>
+    * [.createCompany(company)](#Companies+createCompany) ⇒ [<code>Promise.&lt;Company&gt;</code>](#Company)
+    * [.getCompaniesCount(params)](#Companies+getCompaniesCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+    * [.getCompanyById(id)](#Companies+getCompanyById) ⇒ [<code>Promise.&lt;Company&gt;</code>](#Company)
+    * [.replaceCompany(id, company)](#Companies+replaceCompany) ⇒ [<code>Promise.&lt;Company&gt;</code>](#Company)
+    * [.deleteCompanyById(id)](#Companies+deleteCompanyById) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+    * [.updateCompany(id, ops)](#Companies+updateCompany) ⇒ [<code>Promise.&lt;Company&gt;</code>](#Company)
     * [.mergeCompany()](#Companies+mergeCompany) ⇒ <code>Promise.&lt;\*&gt;</code>
 
 <a name="new_Companies_new"></a>
@@ -285,77 +287,77 @@
 
 | Param | Type |
 | --- | --- |
-| options | <code>[CWOptions](#CWOptions)</code> | 
+| options | [<code>CWOptions</code>](#CWOptions) | 
 
 <a name="Companies+getCompanies"></a>
 
 ### companies.getCompanies(params) ⇒ <code>Promise.&lt;Array.&lt;Company&gt;&gt;</code>
-**Kind**: instance method of <code>[Companies](#Companies)</code>  
+**Kind**: instance method of [<code>Companies</code>](#Companies)  
 
 | Param | Type |
 | --- | --- |
-| params | <code>[Params](#Params)</code> | 
+| params | [<code>Params</code>](#Params) | 
 
 <a name="Companies+createCompany"></a>
 
-### companies.createCompany(company) ⇒ <code>[Promise.&lt;Company&gt;](#Company)</code>
-**Kind**: instance method of <code>[Companies](#Companies)</code>  
+### companies.createCompany(company) ⇒ [<code>Promise.&lt;Company&gt;</code>](#Company)
+**Kind**: instance method of [<code>Companies</code>](#Companies)  
 
 | Param | Type |
 | --- | --- |
-| company | <code>[Company](#Company)</code> | 
+| company | [<code>Company</code>](#Company) | 
 
 <a name="Companies+getCompaniesCount"></a>
 
-### companies.getCompaniesCount(params) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
-**Kind**: instance method of <code>[Companies](#Companies)</code>  
+### companies.getCompaniesCount(params) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+**Kind**: instance method of [<code>Companies</code>](#Companies)  
 
 | Param | Type |
 | --- | --- |
-| params | <code>[ParamsConditions](#ParamsConditions)</code> | 
+| params | [<code>ParamsConditions</code>](#ParamsConditions) | 
 
 <a name="Companies+getCompanyById"></a>
 
-### companies.getCompanyById(id) ⇒ <code>[Promise.&lt;Company&gt;](#Company)</code>
-**Kind**: instance method of <code>[Companies](#Companies)</code>  
+### companies.getCompanyById(id) ⇒ [<code>Promise.&lt;Company&gt;</code>](#Company)
+**Kind**: instance method of [<code>Companies</code>](#Companies)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| id | <code>string</code> &#124; <code>number</code> | numeric ID of company, not the company ID in ConnectWise. |
+| id | <code>string</code> \| <code>number</code> | numeric ID of company, not the company ID in ConnectWise. |
 
 <a name="Companies+replaceCompany"></a>
 
-### companies.replaceCompany(id, company) ⇒ <code>[Promise.&lt;Company&gt;](#Company)</code>
-**Kind**: instance method of <code>[Companies](#Companies)</code>  
+### companies.replaceCompany(id, company) ⇒ [<code>Promise.&lt;Company&gt;</code>](#Company)
+**Kind**: instance method of [<code>Companies</code>](#Companies)  
 
 | Param | Type |
 | --- | --- |
-| id | <code>string</code> &#124; <code>number</code> | 
-| company | <code>[Company](#Company)</code> | 
+| id | <code>string</code> \| <code>number</code> | 
+| company | [<code>Company</code>](#Company) | 
 
 <a name="Companies+deleteCompanyById"></a>
 
-### companies.deleteCompanyById(id) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
-**Kind**: instance method of <code>[Companies](#Companies)</code>  
+### companies.deleteCompanyById(id) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+**Kind**: instance method of [<code>Companies</code>](#Companies)  
 
 | Param | Type |
 | --- | --- |
-| id | <code>string</code> &#124; <code>number</code> | 
+| id | <code>string</code> \| <code>number</code> | 
 
 <a name="Companies+updateCompany"></a>
 
-### companies.updateCompany(id, ops) ⇒ <code>[Promise.&lt;Company&gt;](#Company)</code>
-**Kind**: instance method of <code>[Companies](#Companies)</code>  
+### companies.updateCompany(id, ops) ⇒ [<code>Promise.&lt;Company&gt;</code>](#Company)
+**Kind**: instance method of [<code>Companies</code>](#Companies)  
 
 | Param | Type |
 | --- | --- |
-| id | <code>string</code> &#124; <code>number</code> | 
-| ops | <code>[Operations](#Operations)</code> | 
+| id | <code>string</code> \| <code>number</code> | 
+| ops | [<code>Operations</code>](#Operations) | 
 
 <a name="Companies+mergeCompany"></a>
 
 ### companies.mergeCompany() ⇒ <code>Promise.&lt;\*&gt;</code>
-**Kind**: instance method of <code>[Companies](#Companies)</code>  
+**Kind**: instance method of [<code>Companies</code>](#Companies)  
 **Todo**
 
 - [ ] finish this one
@@ -364,17 +366,17 @@
 
 ## CompanyTeams
 **Kind**: global class  
-**Inherits**: <code>[ConnectWise](#ConnectWise)</code>  
+**Inherits**: [<code>ConnectWise</code>](#ConnectWise)  
 
 * [CompanyTeams](#CompanyTeams)
     * [new CompanyTeams(options)](#new_CompanyTeams_new)
     * [.getCompanyTeams(id, params)](#CompanyTeams+getCompanyTeams) ⇒ <code>Promise.&lt;Array.&lt;CompanyTeam&gt;&gt;</code>
-    * [.createCompanyTeam(id, companyTeam)](#CompanyTeams+createCompanyTeam) ⇒ <code>[Promise.&lt;CompanyTeam&gt;](#CompanyTeam)</code>
+    * [.createCompanyTeam(id, companyTeam)](#CompanyTeams+createCompanyTeam) ⇒ [<code>Promise.&lt;CompanyTeam&gt;</code>](#CompanyTeam)
     * [.getCompanyTeamsCount(id, params)](#CompanyTeams+getCompanyTeamsCount) ⇒ <code>Promise.&lt;Array.&lt;Count&gt;&gt;</code>
-    * [.getCompanyTeamById(id, teamId)](#CompanyTeams+getCompanyTeamById) ⇒ <code>[Promise.&lt;CompanyTeam&gt;](#CompanyTeam)</code>
-    * [.deleteCompanyTeamById(id, teamId)](#CompanyTeams+deleteCompanyTeamById) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
-    * [.replaceCompanyTeam(id, teamId, companyTeam)](#CompanyTeams+replaceCompanyTeam) ⇒ <code>[Promise.&lt;CompanyTeam&gt;](#CompanyTeam)</code>
-    * [.updateCompanyTeam(id, teamId, ops)](#CompanyTeams+updateCompanyTeam) ⇒ <code>[Promise.&lt;CompanyTeam&gt;](#CompanyTeam)</code>
+    * [.getCompanyTeamById(id, teamId)](#CompanyTeams+getCompanyTeamById) ⇒ [<code>Promise.&lt;CompanyTeam&gt;</code>](#CompanyTeam)
+    * [.deleteCompanyTeamById(id, teamId)](#CompanyTeams+deleteCompanyTeamById) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+    * [.replaceCompanyTeam(id, teamId, companyTeam)](#CompanyTeams+replaceCompanyTeam) ⇒ [<code>Promise.&lt;CompanyTeam&gt;</code>](#CompanyTeam)
+    * [.updateCompanyTeam(id, teamId, ops)](#CompanyTeams+updateCompanyTeam) ⇒ [<code>Promise.&lt;CompanyTeam&gt;</code>](#CompanyTeam)
 
 <a name="new_CompanyTeams_new"></a>
 
@@ -382,42 +384,42 @@
 
 | Param | Type |
 | --- | --- |
-| options | <code>[CWOptions](#CWOptions)</code> | 
+| options | [<code>CWOptions</code>](#CWOptions) | 
 
 <a name="CompanyTeams+getCompanyTeams"></a>
 
 ### companyTeams.getCompanyTeams(id, params) ⇒ <code>Promise.&lt;Array.&lt;CompanyTeam&gt;&gt;</code>
-**Kind**: instance method of <code>[CompanyTeams](#CompanyTeams)</code>  
+**Kind**: instance method of [<code>CompanyTeams</code>](#CompanyTeams)  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | id |  | companyId |
-| params | <code>[Params](#Params)</code> |  |
+| params | [<code>Params</code>](#Params) |  |
 
 <a name="CompanyTeams+createCompanyTeam"></a>
 
-### companyTeams.createCompanyTeam(id, companyTeam) ⇒ <code>[Promise.&lt;CompanyTeam&gt;](#CompanyTeam)</code>
-**Kind**: instance method of <code>[CompanyTeams](#CompanyTeams)</code>  
+### companyTeams.createCompanyTeam(id, companyTeam) ⇒ [<code>Promise.&lt;CompanyTeam&gt;</code>](#CompanyTeam)
+**Kind**: instance method of [<code>CompanyTeams</code>](#CompanyTeams)  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | id |  | companyId |
-| companyTeam | <code>[CompanyTeam](#CompanyTeam)</code> |  |
+| companyTeam | [<code>CompanyTeam</code>](#CompanyTeam) |  |
 
 <a name="CompanyTeams+getCompanyTeamsCount"></a>
 
 ### companyTeams.getCompanyTeamsCount(id, params) ⇒ <code>Promise.&lt;Array.&lt;Count&gt;&gt;</code>
-**Kind**: instance method of <code>[CompanyTeams](#CompanyTeams)</code>  
+**Kind**: instance method of [<code>CompanyTeams</code>](#CompanyTeams)  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | id |  | companyId |
-| params | <code>[Params](#Params)</code> |  |
+| params | [<code>Params</code>](#Params) |  |
 
 <a name="CompanyTeams+getCompanyTeamById"></a>
 
-### companyTeams.getCompanyTeamById(id, teamId) ⇒ <code>[Promise.&lt;CompanyTeam&gt;](#CompanyTeam)</code>
-**Kind**: instance method of <code>[CompanyTeams](#CompanyTeams)</code>  
+### companyTeams.getCompanyTeamById(id, teamId) ⇒ [<code>Promise.&lt;CompanyTeam&gt;</code>](#CompanyTeam)
+**Kind**: instance method of [<code>CompanyTeams</code>](#CompanyTeams)  
 
 | Param | Description |
 | --- | --- |
@@ -426,8 +428,8 @@
 
 <a name="CompanyTeams+deleteCompanyTeamById"></a>
 
-### companyTeams.deleteCompanyTeamById(id, teamId) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
-**Kind**: instance method of <code>[CompanyTeams](#CompanyTeams)</code>  
+### companyTeams.deleteCompanyTeamById(id, teamId) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+**Kind**: instance method of [<code>CompanyTeams</code>](#CompanyTeams)  
 
 | Param | Description |
 | --- | --- |
@@ -436,41 +438,41 @@
 
 <a name="CompanyTeams+replaceCompanyTeam"></a>
 
-### companyTeams.replaceCompanyTeam(id, teamId, companyTeam) ⇒ <code>[Promise.&lt;CompanyTeam&gt;](#CompanyTeam)</code>
-**Kind**: instance method of <code>[CompanyTeams](#CompanyTeams)</code>  
+### companyTeams.replaceCompanyTeam(id, teamId, companyTeam) ⇒ [<code>Promise.&lt;CompanyTeam&gt;</code>](#CompanyTeam)
+**Kind**: instance method of [<code>CompanyTeams</code>](#CompanyTeams)  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | id |  | companyId |
 | teamId |  |  |
-| companyTeam | <code>[CompanyTeam](#CompanyTeam)</code> |  |
+| companyTeam | [<code>CompanyTeam</code>](#CompanyTeam) |  |
 
 <a name="CompanyTeams+updateCompanyTeam"></a>
 
-### companyTeams.updateCompanyTeam(id, teamId, ops) ⇒ <code>[Promise.&lt;CompanyTeam&gt;](#CompanyTeam)</code>
-**Kind**: instance method of <code>[CompanyTeams](#CompanyTeams)</code>  
+### companyTeams.updateCompanyTeam(id, teamId, ops) ⇒ [<code>Promise.&lt;CompanyTeam&gt;</code>](#CompanyTeam)
+**Kind**: instance method of [<code>CompanyTeams</code>](#CompanyTeams)  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | id |  | companyId |
 | teamId |  |  |
-| ops | <code>[Operations](#Operations)</code> |  |
+| ops | [<code>Operations</code>](#Operations) |  |
 
 <a name="Configurations"></a>
 
 ## Configurations
 **Kind**: global class  
-**Inherits**: <code>[ConnectWise](#ConnectWise)</code>  
+**Inherits**: [<code>ConnectWise</code>](#ConnectWise)  
 
 * [Configurations](#Configurations)
     * [new Configurations(options)](#new_Configurations_new)
     * [.getConfigurations(params)](#Configurations+getConfigurations) ⇒ <code>Promise.&lt;Array.&lt;Configuration&gt;&gt;</code>
-    * [.createConfiguration(configuration)](#Configurations+createConfiguration) ⇒ <code>[Promise.&lt;Configuration&gt;](#Configuration)</code>
-    * [.getConfigurationsCount(params)](#Configurations+getConfigurationsCount) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
-    * [.deleteConfigurationById(id)](#Configurations+deleteConfigurationById) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
-    * [.getConfigurationById(id)](#Configurations+getConfigurationById) ⇒ <code>[Promise.&lt;Configuration&gt;](#Configuration)</code>
-    * [.updateConfiguration(id, ops, params)](#Configurations+updateConfiguration) ⇒ <code>[Promise.&lt;Configuration&gt;](#Configuration)</code>
-    * [.replaceConfiguration(id, config)](#Configurations+replaceConfiguration) ⇒ <code>[Promise.&lt;Configuration&gt;](#Configuration)</code>
+    * [.createConfiguration(configuration)](#Configurations+createConfiguration) ⇒ [<code>Promise.&lt;Configuration&gt;</code>](#Configuration)
+    * [.getConfigurationsCount(params)](#Configurations+getConfigurationsCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+    * [.deleteConfigurationById(id)](#Configurations+deleteConfigurationById) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+    * [.getConfigurationById(id)](#Configurations+getConfigurationById) ⇒ [<code>Promise.&lt;Configuration&gt;</code>](#Configuration)
+    * [.updateConfiguration(id, ops, params)](#Configurations+updateConfiguration) ⇒ [<code>Promise.&lt;Configuration&gt;</code>](#Configuration)
+    * [.replaceConfiguration(id, config)](#Configurations+replaceConfiguration) ⇒ [<code>Promise.&lt;Configuration&gt;</code>](#Configuration)
 
 <a name="new_Configurations_new"></a>
 
@@ -478,92 +480,92 @@
 
 | Param | Type |
 | --- | --- |
-| options | <code>[CWOptions](#CWOptions)</code> | 
+| options | [<code>CWOptions</code>](#CWOptions) | 
 
 <a name="Configurations+getConfigurations"></a>
 
 ### configurations.getConfigurations(params) ⇒ <code>Promise.&lt;Array.&lt;Configuration&gt;&gt;</code>
-**Kind**: instance method of <code>[Configurations](#Configurations)</code>  
+**Kind**: instance method of [<code>Configurations</code>](#Configurations)  
 
 | Param | Type |
 | --- | --- |
-| params | <code>[Params](#Params)</code> | 
+| params | [<code>Params</code>](#Params) | 
 
 <a name="Configurations+createConfiguration"></a>
 
-### configurations.createConfiguration(configuration) ⇒ <code>[Promise.&lt;Configuration&gt;](#Configuration)</code>
-**Kind**: instance method of <code>[Configurations](#Configurations)</code>  
+### configurations.createConfiguration(configuration) ⇒ [<code>Promise.&lt;Configuration&gt;</code>](#Configuration)
+**Kind**: instance method of [<code>Configurations</code>](#Configurations)  
 
 | Param | Type |
 | --- | --- |
-| configuration | <code>[Configuration](#Configuration)</code> | 
+| configuration | [<code>Configuration</code>](#Configuration) | 
 
 <a name="Configurations+getConfigurationsCount"></a>
 
-### configurations.getConfigurationsCount(params) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
-**Kind**: instance method of <code>[Configurations](#Configurations)</code>  
+### configurations.getConfigurationsCount(params) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+**Kind**: instance method of [<code>Configurations</code>](#Configurations)  
 
 | Param | Type |
 | --- | --- |
-| params | <code>[ParamsConfig](#ParamsConfig)</code> | 
+| params | [<code>ParamsConfig</code>](#ParamsConfig) | 
 
 <a name="Configurations+deleteConfigurationById"></a>
 
-### configurations.deleteConfigurationById(id) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
-**Kind**: instance method of <code>[Configurations](#Configurations)</code>  
+### configurations.deleteConfigurationById(id) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+**Kind**: instance method of [<code>Configurations</code>](#Configurations)  
 
 | Param | Type |
 | --- | --- |
-| id | <code>string</code> &#124; <code>number</code> | 
+| id | <code>string</code> \| <code>number</code> | 
 
 <a name="Configurations+getConfigurationById"></a>
 
-### configurations.getConfigurationById(id) ⇒ <code>[Promise.&lt;Configuration&gt;](#Configuration)</code>
-**Kind**: instance method of <code>[Configurations](#Configurations)</code>  
+### configurations.getConfigurationById(id) ⇒ [<code>Promise.&lt;Configuration&gt;</code>](#Configuration)
+**Kind**: instance method of [<code>Configurations</code>](#Configurations)  
 
 | Param | Type |
 | --- | --- |
-| id | <code>string</code> &#124; <code>number</code> | 
+| id | <code>string</code> \| <code>number</code> | 
 
 <a name="Configurations+updateConfiguration"></a>
 
-### configurations.updateConfiguration(id, ops, params) ⇒ <code>[Promise.&lt;Configuration&gt;](#Configuration)</code>
-**Kind**: instance method of <code>[Configurations](#Configurations)</code>  
+### configurations.updateConfiguration(id, ops, params) ⇒ [<code>Promise.&lt;Configuration&gt;</code>](#Configuration)
+**Kind**: instance method of [<code>Configurations</code>](#Configurations)  
 
 | Param | Type |
 | --- | --- |
-| id | <code>string</code> &#124; <code>number</code> | 
-| ops | <code>[Operations](#Operations)</code> | 
-| params | <code>[ParamsConfigUpdate](#ParamsConfigUpdate)</code> | 
+| id | <code>string</code> \| <code>number</code> | 
+| ops | [<code>Operations</code>](#Operations) | 
+| params | [<code>ParamsConfigUpdate</code>](#ParamsConfigUpdate) | 
 
 <a name="Configurations+replaceConfiguration"></a>
 
-### configurations.replaceConfiguration(id, config) ⇒ <code>[Promise.&lt;Configuration&gt;](#Configuration)</code>
-**Kind**: instance method of <code>[Configurations](#Configurations)</code>  
+### configurations.replaceConfiguration(id, config) ⇒ [<code>Promise.&lt;Configuration&gt;</code>](#Configuration)
+**Kind**: instance method of [<code>Configurations</code>](#Configurations)  
 
 | Param | Type |
 | --- | --- |
-| id | <code>string</code> &#124; <code>number</code> | 
-| config | <code>[Configuration](#Configuration)</code> | 
+| id | <code>string</code> \| <code>number</code> | 
+| config | [<code>Configuration</code>](#Configuration) | 
 
 <a name="Contacts"></a>
 
 ## Contacts
 **Kind**: global class  
-**Inherits**: <code>[ConnectWise](#ConnectWise)</code>  
+**Inherits**: [<code>ConnectWise</code>](#ConnectWise)  
 
 * [Contacts](#Contacts)
     * [new Contacts(options)](#new_Contacts_new)
     * [.getContacts(params)](#Contacts+getContacts) ⇒ <code>Promise.&lt;Array.&lt;Contact&gt;&gt;</code>
-    * [.createContact(contact)](#Contacts+createContact) ⇒ <code>[Promise.&lt;Contact&gt;](#Contact)</code>
-    * [.getContactsCount(params)](#Contacts+getContactsCount) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
-    * [.deleteContactById(id, transferContactId)](#Contacts+deleteContactById) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
-    * [.getContactById(id)](#Contacts+getContactById) ⇒ <code>[Promise.&lt;Contact&gt;](#Contact)</code>
-    * [.updateContact(id, operations)](#Contacts+updateContact) ⇒ <code>[Promise.&lt;Contact&gt;](#Contact)</code>
-    * [.replaceContact(id, contact)](#Contacts+replaceContact) ⇒ <code>[Promise.&lt;Contact&gt;](#Contact)</code>
+    * [.createContact(contact)](#Contacts+createContact) ⇒ [<code>Promise.&lt;Contact&gt;</code>](#Contact)
+    * [.getContactsCount(params)](#Contacts+getContactsCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+    * [.deleteContactById(id, transferContactId)](#Contacts+deleteContactById) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+    * [.getContactById(id)](#Contacts+getContactById) ⇒ [<code>Promise.&lt;Contact&gt;</code>](#Contact)
+    * [.updateContact(id, operations)](#Contacts+updateContact) ⇒ [<code>Promise.&lt;Contact&gt;</code>](#Contact)
+    * [.replaceContact(id, contact)](#Contacts+replaceContact) ⇒ [<code>Promise.&lt;Contact&gt;</code>](#Contact)
     * [.getPortalSecurity(id)](#Contacts+getPortalSecurity) ⇒ <code>Promise.&lt;Array.&lt;PortalSecurity&gt;&gt;</code>
-    * [.requestPassword(email)](#Contacts+requestPassword) ⇒ <code>[Promise.&lt;PostResponse&gt;](#PostResponse)</code>
-    * [.validatePortalCredentials(email, password)](#Contacts+validatePortalCredentials) ⇒ <code>[Promise.&lt;ValidatePortalResponse&gt;](#ValidatePortalResponse)</code>
+    * [.requestPassword(email)](#Contacts+requestPassword) ⇒ [<code>Promise.&lt;PostResponse&gt;</code>](#PostResponse)
+    * [.validatePortalCredentials(email, password)](#Contacts+validatePortalCredentials) ⇒ [<code>Promise.&lt;ValidatePortalResponse&gt;</code>](#ValidatePortalResponse)
     * [.getContactImage(id, useDefaultFlag, lastModified)](#Contacts+getContactImage) ⇒ <code>Promise.&lt;\*&gt;</code>
 
 <a name="new_Contacts_new"></a>
@@ -572,87 +574,87 @@
 
 | Param | Type |
 | --- | --- |
-| options | <code>[CWOptions](#CWOptions)</code> | 
+| options | [<code>CWOptions</code>](#CWOptions) | 
 
 <a name="Contacts+getContacts"></a>
 
 ### contacts.getContacts(params) ⇒ <code>Promise.&lt;Array.&lt;Contact&gt;&gt;</code>
-**Kind**: instance method of <code>[Contacts](#Contacts)</code>  
+**Kind**: instance method of [<code>Contacts</code>](#Contacts)  
 
 | Param | Type |
 | --- | --- |
-| params | <code>[Params](#Params)</code> | 
+| params | [<code>Params</code>](#Params) | 
 
 <a name="Contacts+createContact"></a>
 
-### contacts.createContact(contact) ⇒ <code>[Promise.&lt;Contact&gt;](#Contact)</code>
-**Kind**: instance method of <code>[Contacts](#Contacts)</code>  
+### contacts.createContact(contact) ⇒ [<code>Promise.&lt;Contact&gt;</code>](#Contact)
+**Kind**: instance method of [<code>Contacts</code>](#Contacts)  
 
 | Param | Type |
 | --- | --- |
-| contact | <code>[Contact](#Contact)</code> | 
+| contact | [<code>Contact</code>](#Contact) | 
 
 <a name="Contacts+getContactsCount"></a>
 
-### contacts.getContactsCount(params) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
-**Kind**: instance method of <code>[Contacts](#Contacts)</code>  
+### contacts.getContactsCount(params) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+**Kind**: instance method of [<code>Contacts</code>](#Contacts)  
 
 | Param | Type |
 | --- | --- |
-| params | <code>[ParamsConditions](#ParamsConditions)</code> | 
+| params | [<code>ParamsConditions</code>](#ParamsConditions) | 
 
 <a name="Contacts+deleteContactById"></a>
 
-### contacts.deleteContactById(id, transferContactId) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
-**Kind**: instance method of <code>[Contacts](#Contacts)</code>  
+### contacts.deleteContactById(id, transferContactId) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+**Kind**: instance method of [<code>Contacts</code>](#Contacts)  
 
 | Param | Type |
 | --- | --- |
-| id | <code>number</code> &#124; <code>string</code> | 
-| transferContactId | <code>number</code> &#124; <code>string</code> | 
+| id | <code>number</code> \| <code>string</code> | 
+| transferContactId | <code>number</code> \| <code>string</code> | 
 
 <a name="Contacts+getContactById"></a>
 
-### contacts.getContactById(id) ⇒ <code>[Promise.&lt;Contact&gt;](#Contact)</code>
-**Kind**: instance method of <code>[Contacts](#Contacts)</code>  
+### contacts.getContactById(id) ⇒ [<code>Promise.&lt;Contact&gt;</code>](#Contact)
+**Kind**: instance method of [<code>Contacts</code>](#Contacts)  
 
 | Param | Type |
 | --- | --- |
-| id | <code>string</code> &#124; <code>number</code> | 
+| id | <code>string</code> \| <code>number</code> | 
 
 <a name="Contacts+updateContact"></a>
 
-### contacts.updateContact(id, operations) ⇒ <code>[Promise.&lt;Contact&gt;](#Contact)</code>
-**Kind**: instance method of <code>[Contacts](#Contacts)</code>  
+### contacts.updateContact(id, operations) ⇒ [<code>Promise.&lt;Contact&gt;</code>](#Contact)
+**Kind**: instance method of [<code>Contacts</code>](#Contacts)  
 
 | Param | Type |
 | --- | --- |
-| id | <code>string</code> &#124; <code>number</code> | 
-| operations | <code>[Operations](#Operations)</code> | 
+| id | <code>string</code> \| <code>number</code> | 
+| operations | [<code>Operations</code>](#Operations) | 
 
 <a name="Contacts+replaceContact"></a>
 
-### contacts.replaceContact(id, contact) ⇒ <code>[Promise.&lt;Contact&gt;](#Contact)</code>
-**Kind**: instance method of <code>[Contacts](#Contacts)</code>  
+### contacts.replaceContact(id, contact) ⇒ [<code>Promise.&lt;Contact&gt;</code>](#Contact)
+**Kind**: instance method of [<code>Contacts</code>](#Contacts)  
 
 | Param | Type |
 | --- | --- |
-| id | <code>string</code> &#124; <code>number</code> | 
-| contact | <code>[Contact](#Contact)</code> | 
+| id | <code>string</code> \| <code>number</code> | 
+| contact | [<code>Contact</code>](#Contact) | 
 
 <a name="Contacts+getPortalSecurity"></a>
 
 ### contacts.getPortalSecurity(id) ⇒ <code>Promise.&lt;Array.&lt;PortalSecurity&gt;&gt;</code>
-**Kind**: instance method of <code>[Contacts](#Contacts)</code>  
+**Kind**: instance method of [<code>Contacts</code>](#Contacts)  
 
 | Param | Type |
 | --- | --- |
-| id | <code>string</code> &#124; <code>number</code> | 
+| id | <code>string</code> \| <code>number</code> | 
 
 <a name="Contacts+requestPassword"></a>
 
-### contacts.requestPassword(email) ⇒ <code>[Promise.&lt;PostResponse&gt;](#PostResponse)</code>
-**Kind**: instance method of <code>[Contacts](#Contacts)</code>  
+### contacts.requestPassword(email) ⇒ [<code>Promise.&lt;PostResponse&gt;</code>](#PostResponse)
+**Kind**: instance method of [<code>Contacts</code>](#Contacts)  
 
 | Param | Type |
 | --- | --- |
@@ -660,8 +662,8 @@
 
 <a name="Contacts+validatePortalCredentials"></a>
 
-### contacts.validatePortalCredentials(email, password) ⇒ <code>[Promise.&lt;ValidatePortalResponse&gt;](#ValidatePortalResponse)</code>
-**Kind**: instance method of <code>[Contacts](#Contacts)</code>  
+### contacts.validatePortalCredentials(email, password) ⇒ [<code>Promise.&lt;ValidatePortalResponse&gt;</code>](#ValidatePortalResponse)
+**Kind**: instance method of [<code>Contacts</code>](#Contacts)  
 
 | Param | Type |
 | --- | --- |
@@ -671,12 +673,12 @@
 <a name="Contacts+getContactImage"></a>
 
 ### contacts.getContactImage(id, useDefaultFlag, lastModified) ⇒ <code>Promise.&lt;\*&gt;</code>
-**Kind**: instance method of <code>[Contacts](#Contacts)</code>  
+**Kind**: instance method of [<code>Contacts</code>](#Contacts)  
 **Returns**: <code>Promise.&lt;\*&gt;</code> - @TODO check return type  
 
 | Param | Type |
 | --- | --- |
-| id | <code>string</code> &#124; <code>number</code> | 
+| id | <code>string</code> \| <code>number</code> | 
 | useDefaultFlag | <code>boolean</code> | 
 | lastModified | <code>string</code> | 
 
@@ -724,7 +726,7 @@
 <a name="ConnectWise+api"></a>
 
 ### connectWise.api(path, method, [params]) ⇒ <code>Promise.&lt;\*&gt;</code>
-**Kind**: instance method of <code>[ConnectWise](#ConnectWise)</code>  
+**Kind**: instance method of [<code>ConnectWise</code>](#ConnectWise)  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -737,15 +739,15 @@
 ### connectWise.paginate(fn, args, module, [pageSize], [startPage]) ⇒ <code>Promise.&lt;\*&gt;</code>
 Wrap a module's function to get all results.
 
-**Kind**: instance method of <code>[ConnectWise](#ConnectWise)</code>  
+**Kind**: instance method of [<code>ConnectWise</code>](#ConnectWise)  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | fn | <code>function</code> |  |
 | args | <code>Array.&lt;object&gt;</code> |  |
 | module | <code>object</code> |  |
-| [pageSize] | <code>string</code> &#124; <code>number</code> | defaults to 1000 |
-| [startPage] | <code>string</code> &#124; <code>number</code> | defaults to 1 |
+| [pageSize] | <code>string</code> \| <code>number</code> | defaults to 1000 |
+| [startPage] | <code>string</code> \| <code>number</code> | defaults to 1 |
 
 <a name="ConnectWiseRest"></a>
 
@@ -763,17 +765,17 @@ Wrap a module's function to get all results.
 
 ## Additions
 **Kind**: global class  
-**Inherits**: <code>[ConnectWise](#ConnectWise)</code>  
+**Inherits**: [<code>ConnectWise</code>](#ConnectWise)  
 
 * [Additions](#Additions)
     * [new Additions(options)](#new_Additions_new)
     * [.getAdditions(agreementId, params)](#Additions+getAdditions) ⇒ <code>Promise.&lt;Array.&lt;Addition&gt;&gt;</code>
-    * [.createAddition(agreementId, addition)](#Additions+createAddition) ⇒ <code>[Promise.&lt;Addition&gt;](#Addition)</code>
-    * [.getAdditionsCount(agreementId, params)](#Additions+getAdditionsCount) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
-    * [.deleteAdditionById(agreementId, additionId)](#Additions+deleteAdditionById) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
-    * [.getAdditionById(agreementId, additionId)](#Additions+getAdditionById) ⇒ <code>[Promise.&lt;Addition&gt;](#Addition)</code>
-    * [.updateAddition(agreementId, additionId, operations)](#Additions+updateAddition) ⇒ <code>[Promise.&lt;Addition&gt;](#Addition)</code>
-    * [.replaceAddition(agreementId, additionId, addition)](#Additions+replaceAddition) ⇒ <code>[Promise.&lt;Addition&gt;](#Addition)</code>
+    * [.createAddition(agreementId, addition)](#Additions+createAddition) ⇒ [<code>Promise.&lt;Addition&gt;</code>](#Addition)
+    * [.getAdditionsCount(agreementId, params)](#Additions+getAdditionsCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+    * [.deleteAdditionById(agreementId, additionId)](#Additions+deleteAdditionById) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+    * [.getAdditionById(agreementId, additionId)](#Additions+getAdditionById) ⇒ [<code>Promise.&lt;Addition&gt;</code>](#Addition)
+    * [.updateAddition(agreementId, additionId, operations)](#Additions+updateAddition) ⇒ [<code>Promise.&lt;Addition&gt;</code>](#Addition)
+    * [.replaceAddition(agreementId, additionId, addition)](#Additions+replaceAddition) ⇒ [<code>Promise.&lt;Addition&gt;</code>](#Addition)
 
 <a name="new_Additions_new"></a>
 
@@ -781,50 +783,50 @@ Wrap a module's function to get all results.
 
 | Param | Type |
 | --- | --- |
-| options | <code>[CWOptions](#CWOptions)</code> | 
+| options | [<code>CWOptions</code>](#CWOptions) | 
 
 <a name="Additions+getAdditions"></a>
 
 ### additions.getAdditions(agreementId, params) ⇒ <code>Promise.&lt;Array.&lt;Addition&gt;&gt;</code>
 GETReturns non-cancelled active additions to an agreement
 
-**Kind**: instance method of <code>[Additions](#Additions)</code>  
+**Kind**: instance method of [<code>Additions</code>](#Additions)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
-| params | <code>[Params](#Params)</code> | 
+| params | [<code>Params</code>](#Params) | 
 
 <a name="Additions+createAddition"></a>
 
-### additions.createAddition(agreementId, addition) ⇒ <code>[Promise.&lt;Addition&gt;](#Addition)</code>
+### additions.createAddition(agreementId, addition) ⇒ [<code>Promise.&lt;Addition&gt;</code>](#Addition)
 POST
 
-**Kind**: instance method of <code>[Additions](#Additions)</code>  
+**Kind**: instance method of [<code>Additions</code>](#Additions)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
-| addition | <code>[Addition](#Addition)</code> | 
+| addition | [<code>Addition</code>](#Addition) | 
 
 <a name="Additions+getAdditionsCount"></a>
 
-### additions.getAdditionsCount(agreementId, params) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
+### additions.getAdditionsCount(agreementId, params) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
 GET
 
-**Kind**: instance method of <code>[Additions](#Additions)</code>  
+**Kind**: instance method of [<code>Additions</code>](#Additions)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
-| params | <code>[ParamsConditions](#ParamsConditions)</code> | 
+| params | [<code>ParamsConditions</code>](#ParamsConditions) | 
 
 <a name="Additions+deleteAdditionById"></a>
 
-### additions.deleteAdditionById(agreementId, additionId) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
+### additions.deleteAdditionById(agreementId, additionId) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
 DELETE
 
-**Kind**: instance method of <code>[Additions](#Additions)</code>  
+**Kind**: instance method of [<code>Additions</code>](#Additions)  
 
 | Param |
 | --- |
@@ -833,10 +835,10 @@ DELETE
 
 <a name="Additions+getAdditionById"></a>
 
-### additions.getAdditionById(agreementId, additionId) ⇒ <code>[Promise.&lt;Addition&gt;](#Addition)</code>
+### additions.getAdditionById(agreementId, additionId) ⇒ [<code>Promise.&lt;Addition&gt;</code>](#Addition)
 GET
 
-**Kind**: instance method of <code>[Additions](#Additions)</code>  
+**Kind**: instance method of [<code>Additions</code>](#Additions)  
 
 | Param |
 | --- |
@@ -845,29 +847,29 @@ GET
 
 <a name="Additions+updateAddition"></a>
 
-### additions.updateAddition(agreementId, additionId, operations) ⇒ <code>[Promise.&lt;Addition&gt;](#Addition)</code>
+### additions.updateAddition(agreementId, additionId, operations) ⇒ [<code>Promise.&lt;Addition&gt;</code>](#Addition)
 PATCH
 
-**Kind**: instance method of <code>[Additions](#Additions)</code>  
+**Kind**: instance method of [<code>Additions</code>](#Additions)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
 | additionId |  | 
-| operations | <code>[Operations](#Operations)</code> | 
+| operations | [<code>Operations</code>](#Operations) | 
 
 <a name="Additions+replaceAddition"></a>
 
-### additions.replaceAddition(agreementId, additionId, addition) ⇒ <code>[Promise.&lt;Addition&gt;](#Addition)</code>
+### additions.replaceAddition(agreementId, additionId, addition) ⇒ [<code>Promise.&lt;Addition&gt;</code>](#Addition)
 PUT
 
-**Kind**: instance method of <code>[Additions](#Additions)</code>  
+**Kind**: instance method of [<code>Additions</code>](#Additions)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
 | additionId |  | 
-| addition | <code>[Addition](#Addition)</code> | 
+| addition | [<code>Addition</code>](#Addition) | 
 
 <a name="Adjustments"></a>
 
@@ -877,12 +879,12 @@ PUT
 * [Adjustments](#Adjustments)
     * [new Adjustments(options)](#new_Adjustments_new)
     * [.getAdjustments(agreementId, params)](#Adjustments+getAdjustments) ⇒ <code>Promise.&lt;Array.&lt;Adjustment&gt;&gt;</code>
-    * [.createAdjustments(agreementId, addition)](#Adjustments+createAdjustments) ⇒ <code>[Promise.&lt;Adjustment&gt;](#Adjustment)</code>
-    * [.getAdjustmentsCount(agreementId, params)](#Adjustments+getAdjustmentsCount) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
-    * [.deleteAdjustmentById(agreementId, additionId)](#Adjustments+deleteAdjustmentById) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
-    * [.getAdjustmentById(agreementId, additionId)](#Adjustments+getAdjustmentById) ⇒ <code>[Promise.&lt;Adjustment&gt;](#Adjustment)</code>
-    * [.updateAdjustment(agreementId, additionId, {Operations)](#Adjustments+updateAdjustment) ⇒ <code>[Promise.&lt;Adjustment&gt;](#Adjustment)</code>
-    * [.replaceAdjustment(agreementId, additionId, addition)](#Adjustments+replaceAdjustment) ⇒ <code>[Promise.&lt;Adjustment&gt;](#Adjustment)</code>
+    * [.createAdjustments(agreementId, addition)](#Adjustments+createAdjustments) ⇒ [<code>Promise.&lt;Adjustment&gt;</code>](#Adjustment)
+    * [.getAdjustmentsCount(agreementId, params)](#Adjustments+getAdjustmentsCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+    * [.deleteAdjustmentById(agreementId, additionId)](#Adjustments+deleteAdjustmentById) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+    * [.getAdjustmentById(agreementId, additionId)](#Adjustments+getAdjustmentById) ⇒ [<code>Promise.&lt;Adjustment&gt;</code>](#Adjustment)
+    * [.updateAdjustment(agreementId, additionId, {Operations)](#Adjustments+updateAdjustment) ⇒ [<code>Promise.&lt;Adjustment&gt;</code>](#Adjustment)
+    * [.replaceAdjustment(agreementId, additionId, addition)](#Adjustments+replaceAdjustment) ⇒ [<code>Promise.&lt;Adjustment&gt;</code>](#Adjustment)
 
 <a name="new_Adjustments_new"></a>
 
@@ -890,50 +892,50 @@ PUT
 
 | Param | Type |
 | --- | --- |
-| options | <code>[CWOptions](#CWOptions)</code> | 
+| options | [<code>CWOptions</code>](#CWOptions) | 
 
 <a name="Adjustments+getAdjustments"></a>
 
 ### adjustments.getAdjustments(agreementId, params) ⇒ <code>Promise.&lt;Array.&lt;Adjustment&gt;&gt;</code>
 GET
 
-**Kind**: instance method of <code>[Adjustments](#Adjustments)</code>  
+**Kind**: instance method of [<code>Adjustments</code>](#Adjustments)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
-| params | <code>[Params](#Params)</code> | 
+| params | [<code>Params</code>](#Params) | 
 
 <a name="Adjustments+createAdjustments"></a>
 
-### adjustments.createAdjustments(agreementId, addition) ⇒ <code>[Promise.&lt;Adjustment&gt;](#Adjustment)</code>
+### adjustments.createAdjustments(agreementId, addition) ⇒ [<code>Promise.&lt;Adjustment&gt;</code>](#Adjustment)
 POST
 
-**Kind**: instance method of <code>[Adjustments](#Adjustments)</code>  
+**Kind**: instance method of [<code>Adjustments</code>](#Adjustments)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
-| addition | <code>[Adjustment](#Adjustment)</code> | 
+| addition | [<code>Adjustment</code>](#Adjustment) | 
 
 <a name="Adjustments+getAdjustmentsCount"></a>
 
-### adjustments.getAdjustmentsCount(agreementId, params) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
+### adjustments.getAdjustmentsCount(agreementId, params) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
 GET
 
-**Kind**: instance method of <code>[Adjustments](#Adjustments)</code>  
+**Kind**: instance method of [<code>Adjustments</code>](#Adjustments)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
-| params | <code>[ParamsConditions](#ParamsConditions)</code> | 
+| params | [<code>ParamsConditions</code>](#ParamsConditions) | 
 
 <a name="Adjustments+deleteAdjustmentById"></a>
 
-### adjustments.deleteAdjustmentById(agreementId, additionId) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
+### adjustments.deleteAdjustmentById(agreementId, additionId) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
 DELETE
 
-**Kind**: instance method of <code>[Adjustments](#Adjustments)</code>  
+**Kind**: instance method of [<code>Adjustments</code>](#Adjustments)  
 
 | Param |
 | --- |
@@ -942,10 +944,10 @@ DELETE
 
 <a name="Adjustments+getAdjustmentById"></a>
 
-### adjustments.getAdjustmentById(agreementId, additionId) ⇒ <code>[Promise.&lt;Adjustment&gt;](#Adjustment)</code>
+### adjustments.getAdjustmentById(agreementId, additionId) ⇒ [<code>Promise.&lt;Adjustment&gt;</code>](#Adjustment)
 GET
 
-**Kind**: instance method of <code>[Adjustments](#Adjustments)</code>  
+**Kind**: instance method of [<code>Adjustments</code>](#Adjustments)  
 
 | Param |
 | --- |
@@ -954,10 +956,10 @@ GET
 
 <a name="Adjustments+updateAdjustment"></a>
 
-### adjustments.updateAdjustment(agreementId, additionId, {Operations) ⇒ <code>[Promise.&lt;Adjustment&gt;](#Adjustment)</code>
+### adjustments.updateAdjustment(agreementId, additionId, {Operations) ⇒ [<code>Promise.&lt;Adjustment&gt;</code>](#Adjustment)
 PATCH
 
-**Kind**: instance method of <code>[Adjustments](#Adjustments)</code>  
+**Kind**: instance method of [<code>Adjustments</code>](#Adjustments)  
 
 | Param | Description |
 | --- | --- |
@@ -967,37 +969,37 @@ PATCH
 
 <a name="Adjustments+replaceAdjustment"></a>
 
-### adjustments.replaceAdjustment(agreementId, additionId, addition) ⇒ <code>[Promise.&lt;Adjustment&gt;](#Adjustment)</code>
+### adjustments.replaceAdjustment(agreementId, additionId, addition) ⇒ [<code>Promise.&lt;Adjustment&gt;</code>](#Adjustment)
 PUT
 
-**Kind**: instance method of <code>[Adjustments](#Adjustments)</code>  
+**Kind**: instance method of [<code>Adjustments</code>](#Adjustments)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
 | additionId |  | 
-| addition | <code>[Adjustment](#Adjustment)</code> | 
+| addition | [<code>Adjustment</code>](#Adjustment) | 
 
 <a name="Agreements"></a>
 
 ## Agreements
 **Kind**: global class  
-**Inherits**: <code>[ConnectWise](#ConnectWise)</code>  
+**Inherits**: [<code>ConnectWise</code>](#ConnectWise)  
 
 * [Agreements](#Agreements)
     * [new Agreements(options)](#new_Agreements_new)
     * [.getAgreements(params)](#Agreements+getAgreements) ⇒ <code>Promise.&lt;Array.&lt;Agreement&gt;&gt;</code>
-    * [.createAgreement(agreement)](#Agreements+createAgreement) ⇒ <code>[Promise.&lt;Agreement&gt;](#Agreement)</code>
-    * [.getAgreementsCount(params)](#Agreements+getAgreementsCount) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
-    * [.deleteAgreementById(agreementId)](#Agreements+deleteAgreementById) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
-    * [.getAgreementById(agreementId)](#Agreements+getAgreementById) ⇒ <code>[Promise.&lt;Agreement&gt;](#Agreement)</code>
-    * [.updateAgreement(agreementId, operations)](#Agreements+updateAgreement) ⇒ <code>[Promise.&lt;Agreement&gt;](#Agreement)</code>
-    * [.replaceAgreement(agreementId, agreement)](#Agreements+replaceAgreement) ⇒ <code>[Promise.&lt;Agreement&gt;](#Agreement)</code>
+    * [.createAgreement(agreement)](#Agreements+createAgreement) ⇒ [<code>Promise.&lt;Agreement&gt;</code>](#Agreement)
+    * [.getAgreementsCount(params)](#Agreements+getAgreementsCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+    * [.deleteAgreementById(agreementId)](#Agreements+deleteAgreementById) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+    * [.getAgreementById(agreementId)](#Agreements+getAgreementById) ⇒ [<code>Promise.&lt;Agreement&gt;</code>](#Agreement)
+    * [.updateAgreement(agreementId, operations)](#Agreements+updateAgreement) ⇒ [<code>Promise.&lt;Agreement&gt;</code>](#Agreement)
+    * [.replaceAgreement(agreementId, agreement)](#Agreements+replaceAgreement) ⇒ [<code>Promise.&lt;Agreement&gt;</code>](#Agreement)
     * [.getAgreementConfigurations(agreementId, params)](#Agreements+getAgreementConfigurations) ⇒ <code>Promise.&lt;Array.&lt;ConfigurationHref&gt;&gt;</code>
-    * [.createConfigurationAssociation(agreementId, configuration)](#Agreements+createConfigurationAssociation) ⇒ <code>[Promise.&lt;ConfigurationHref&gt;](#ConfigurationHref)</code>
-    * [.getAgreementConfigurationsCount(agreementId)](#Agreements+getAgreementConfigurationsCount) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
-    * [.deleteConfigurationAssociation(agreementId, configurationId)](#Agreements+deleteConfigurationAssociation) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
-    * [.getConfigurationAssociation(agreementId, configurationId)](#Agreements+getConfigurationAssociation) ⇒ <code>[Promise.&lt;ConfigurationHref&gt;](#ConfigurationHref)</code>
+    * [.createConfigurationAssociation(agreementId, configuration)](#Agreements+createConfigurationAssociation) ⇒ [<code>Promise.&lt;ConfigurationHref&gt;</code>](#ConfigurationHref)
+    * [.getAgreementConfigurationsCount(agreementId)](#Agreements+getAgreementConfigurationsCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+    * [.deleteConfigurationAssociation(agreementId, configurationId)](#Agreements+deleteConfigurationAssociation) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+    * [.getConfigurationAssociation(agreementId, configurationId)](#Agreements+getConfigurationAssociation) ⇒ [<code>Promise.&lt;ConfigurationHref&gt;</code>](#ConfigurationHref)
 
 <a name="new_Agreements_new"></a>
 
@@ -1005,97 +1007,97 @@ PUT
 
 | Param | Type |
 | --- | --- |
-| options | <code>[CWOptions](#CWOptions)</code> | 
+| options | [<code>CWOptions</code>](#CWOptions) | 
 
 <a name="Agreements+getAgreements"></a>
 
 ### agreements.getAgreements(params) ⇒ <code>Promise.&lt;Array.&lt;Agreement&gt;&gt;</code>
 GET
 
-**Kind**: instance method of <code>[Agreements](#Agreements)</code>  
+**Kind**: instance method of [<code>Agreements</code>](#Agreements)  
 
 | Param | Type |
 | --- | --- |
-| params | <code>[Params](#Params)</code> | 
+| params | [<code>Params</code>](#Params) | 
 
 <a name="Agreements+createAgreement"></a>
 
-### agreements.createAgreement(agreement) ⇒ <code>[Promise.&lt;Agreement&gt;](#Agreement)</code>
+### agreements.createAgreement(agreement) ⇒ [<code>Promise.&lt;Agreement&gt;</code>](#Agreement)
 POST
 
-**Kind**: instance method of <code>[Agreements](#Agreements)</code>  
+**Kind**: instance method of [<code>Agreements</code>](#Agreements)  
 
 | Param | Type |
 | --- | --- |
-| agreement | <code>[Agreement](#Agreement)</code> | 
+| agreement | [<code>Agreement</code>](#Agreement) | 
 
 <a name="Agreements+getAgreementsCount"></a>
 
-### agreements.getAgreementsCount(params) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
+### agreements.getAgreementsCount(params) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
 GET
 
-**Kind**: instance method of <code>[Agreements](#Agreements)</code>  
+**Kind**: instance method of [<code>Agreements</code>](#Agreements)  
 
 | Param | Type |
 | --- | --- |
-| params | <code>[ParamsConditions](#ParamsConditions)</code> | 
+| params | [<code>ParamsConditions</code>](#ParamsConditions) | 
 
 <a name="Agreements+deleteAgreementById"></a>
 
-### agreements.deleteAgreementById(agreementId) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
+### agreements.deleteAgreementById(agreementId) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
 DELETE
 
-**Kind**: instance method of <code>[Agreements](#Agreements)</code>  
+**Kind**: instance method of [<code>Agreements</code>](#Agreements)  
 
 | Param | Type |
 | --- | --- |
-| agreementId | <code>string</code> &#124; <code>number</code> | 
+| agreementId | <code>string</code> \| <code>number</code> | 
 
 <a name="Agreements+getAgreementById"></a>
 
-### agreements.getAgreementById(agreementId) ⇒ <code>[Promise.&lt;Agreement&gt;](#Agreement)</code>
-**Kind**: instance method of <code>[Agreements](#Agreements)</code>  
+### agreements.getAgreementById(agreementId) ⇒ [<code>Promise.&lt;Agreement&gt;</code>](#Agreement)
+**Kind**: instance method of [<code>Agreements</code>](#Agreements)  
 
 | Param | Type |
 | --- | --- |
-| agreementId | <code>string</code> &#124; <code>number</code> | 
+| agreementId | <code>string</code> \| <code>number</code> | 
 
 <a name="Agreements+updateAgreement"></a>
 
-### agreements.updateAgreement(agreementId, operations) ⇒ <code>[Promise.&lt;Agreement&gt;](#Agreement)</code>
-**Kind**: instance method of <code>[Agreements](#Agreements)</code>  
+### agreements.updateAgreement(agreementId, operations) ⇒ [<code>Promise.&lt;Agreement&gt;</code>](#Agreement)
+**Kind**: instance method of [<code>Agreements</code>](#Agreements)  
 
 | Param | Type |
 | --- | --- |
-| agreementId | <code>string</code> &#124; <code>number</code> | 
-| operations | <code>[Operations](#Operations)</code> | 
+| agreementId | <code>string</code> \| <code>number</code> | 
+| operations | [<code>Operations</code>](#Operations) | 
 
 <a name="Agreements+replaceAgreement"></a>
 
-### agreements.replaceAgreement(agreementId, agreement) ⇒ <code>[Promise.&lt;Agreement&gt;](#Agreement)</code>
-**Kind**: instance method of <code>[Agreements](#Agreements)</code>  
+### agreements.replaceAgreement(agreementId, agreement) ⇒ [<code>Promise.&lt;Agreement&gt;</code>](#Agreement)
+**Kind**: instance method of [<code>Agreements</code>](#Agreements)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
-| agreement | <code>[Agreement](#Agreement)</code> | 
+| agreement | [<code>Agreement</code>](#Agreement) | 
 
 <a name="Agreements+getAgreementConfigurations"></a>
 
 ### agreements.getAgreementConfigurations(agreementId, params) ⇒ <code>Promise.&lt;Array.&lt;ConfigurationHref&gt;&gt;</code>
-**Kind**: instance method of <code>[Agreements](#Agreements)</code>  
+**Kind**: instance method of [<code>Agreements</code>](#Agreements)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
-| params | <code>[ParamsPage](#ParamsPage)</code> | 
+| params | [<code>ParamsPage</code>](#ParamsPage) | 
 
 <a name="Agreements+createConfigurationAssociation"></a>
 
-### agreements.createConfigurationAssociation(agreementId, configuration) ⇒ <code>[Promise.&lt;ConfigurationHref&gt;](#ConfigurationHref)</code>
+### agreements.createConfigurationAssociation(agreementId, configuration) ⇒ [<code>Promise.&lt;ConfigurationHref&gt;</code>](#ConfigurationHref)
 POST
 
-**Kind**: instance method of <code>[Agreements](#Agreements)</code>  
+**Kind**: instance method of [<code>Agreements</code>](#Agreements)  
 
 | Param |
 | --- |
@@ -1104,10 +1106,10 @@ POST
 
 <a name="Agreements+getAgreementConfigurationsCount"></a>
 
-### agreements.getAgreementConfigurationsCount(agreementId) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
+### agreements.getAgreementConfigurationsCount(agreementId) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
 GET
 
-**Kind**: instance method of <code>[Agreements](#Agreements)</code>  
+**Kind**: instance method of [<code>Agreements</code>](#Agreements)  
 
 | Param |
 | --- |
@@ -1115,8 +1117,8 @@ GET
 
 <a name="Agreements+deleteConfigurationAssociation"></a>
 
-### agreements.deleteConfigurationAssociation(agreementId, configurationId) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
-**Kind**: instance method of <code>[Agreements](#Agreements)</code>  
+### agreements.deleteConfigurationAssociation(agreementId, configurationId) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+**Kind**: instance method of [<code>Agreements</code>](#Agreements)  
 
 | Param |
 | --- |
@@ -1125,8 +1127,8 @@ GET
 
 <a name="Agreements+getConfigurationAssociation"></a>
 
-### agreements.getConfigurationAssociation(agreementId, configurationId) ⇒ <code>[Promise.&lt;ConfigurationHref&gt;](#ConfigurationHref)</code>
-**Kind**: instance method of <code>[Agreements](#Agreements)</code>  
+### agreements.getConfigurationAssociation(agreementId, configurationId) ⇒ [<code>Promise.&lt;ConfigurationHref&gt;</code>](#ConfigurationHref)
+**Kind**: instance method of [<code>Agreements</code>](#Agreements)  
 
 | Param |
 | --- |
@@ -1137,17 +1139,17 @@ GET
 
 ## AgreementSites
 **Kind**: global class  
-**Inherits**: <code>[ConnectWise](#ConnectWise)</code>  
+**Inherits**: [<code>ConnectWise</code>](#ConnectWise)  
 
 * [AgreementSites](#AgreementSites)
     * [new AgreementSites(options)](#new_AgreementSites_new)
     * [.getAgreementSites(agreementId, params)](#AgreementSites+getAgreementSites) ⇒ <code>Promise.&lt;Array.&lt;AgreementSite&gt;&gt;</code>
-    * [.createAgreementSite(agreementId, site)](#AgreementSites+createAgreementSite) ⇒ <code>[Promise.&lt;AgreementSite&gt;](#AgreementSite)</code>
-    * [.getAgreementSitesCount(agreementId, params)](#AgreementSites+getAgreementSitesCount) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
-    * [.deleteAgreementSiteById(agreementId, siteId)](#AgreementSites+deleteAgreementSiteById) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
-    * [.getAgreementSiteById(agreementId, siteId)](#AgreementSites+getAgreementSiteById) ⇒ <code>[Promise.&lt;AgreementSite&gt;](#AgreementSite)</code>
-    * [.updateAgreementSite(agreementId, siteId, operations)](#AgreementSites+updateAgreementSite) ⇒ <code>[Promise.&lt;AgreementSite&gt;](#AgreementSite)</code>
-    * [.replaceAgreementSite(agreementId, siteId, site)](#AgreementSites+replaceAgreementSite) ⇒ <code>[Promise.&lt;AgreementSite&gt;](#AgreementSite)</code>
+    * [.createAgreementSite(agreementId, site)](#AgreementSites+createAgreementSite) ⇒ [<code>Promise.&lt;AgreementSite&gt;</code>](#AgreementSite)
+    * [.getAgreementSitesCount(agreementId, params)](#AgreementSites+getAgreementSitesCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+    * [.deleteAgreementSiteById(agreementId, siteId)](#AgreementSites+deleteAgreementSiteById) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+    * [.getAgreementSiteById(agreementId, siteId)](#AgreementSites+getAgreementSiteById) ⇒ [<code>Promise.&lt;AgreementSite&gt;</code>](#AgreementSite)
+    * [.updateAgreementSite(agreementId, siteId, operations)](#AgreementSites+updateAgreementSite) ⇒ [<code>Promise.&lt;AgreementSite&gt;</code>](#AgreementSite)
+    * [.replaceAgreementSite(agreementId, siteId, site)](#AgreementSites+replaceAgreementSite) ⇒ [<code>Promise.&lt;AgreementSite&gt;</code>](#AgreementSite)
 
 <a name="new_AgreementSites_new"></a>
 
@@ -1155,50 +1157,50 @@ GET
 
 | Param | Type |
 | --- | --- |
-| options | <code>[CWOptions](#CWOptions)</code> | 
+| options | [<code>CWOptions</code>](#CWOptions) | 
 
 <a name="AgreementSites+getAgreementSites"></a>
 
 ### agreementSites.getAgreementSites(agreementId, params) ⇒ <code>Promise.&lt;Array.&lt;AgreementSite&gt;&gt;</code>
 GET
 
-**Kind**: instance method of <code>[AgreementSites](#AgreementSites)</code>  
+**Kind**: instance method of [<code>AgreementSites</code>](#AgreementSites)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
-| params | <code>[Params](#Params)</code> | 
+| params | [<code>Params</code>](#Params) | 
 
 <a name="AgreementSites+createAgreementSite"></a>
 
-### agreementSites.createAgreementSite(agreementId, site) ⇒ <code>[Promise.&lt;AgreementSite&gt;](#AgreementSite)</code>
+### agreementSites.createAgreementSite(agreementId, site) ⇒ [<code>Promise.&lt;AgreementSite&gt;</code>](#AgreementSite)
 POST
 
-**Kind**: instance method of <code>[AgreementSites](#AgreementSites)</code>  
+**Kind**: instance method of [<code>AgreementSites</code>](#AgreementSites)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
-| site | <code>[AgreementSite](#AgreementSite)</code> | 
+| site | [<code>AgreementSite</code>](#AgreementSite) | 
 
 <a name="AgreementSites+getAgreementSitesCount"></a>
 
-### agreementSites.getAgreementSitesCount(agreementId, params) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
+### agreementSites.getAgreementSitesCount(agreementId, params) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
 GET
 
-**Kind**: instance method of <code>[AgreementSites](#AgreementSites)</code>  
+**Kind**: instance method of [<code>AgreementSites</code>](#AgreementSites)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
-| params | <code>[ParamsConditions](#ParamsConditions)</code> | 
+| params | [<code>ParamsConditions</code>](#ParamsConditions) | 
 
 <a name="AgreementSites+deleteAgreementSiteById"></a>
 
-### agreementSites.deleteAgreementSiteById(agreementId, siteId) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
+### agreementSites.deleteAgreementSiteById(agreementId, siteId) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
 DELETE
 
-**Kind**: instance method of <code>[AgreementSites](#AgreementSites)</code>  
+**Kind**: instance method of [<code>AgreementSites</code>](#AgreementSites)  
 
 | Param |
 | --- |
@@ -1207,10 +1209,10 @@ DELETE
 
 <a name="AgreementSites+getAgreementSiteById"></a>
 
-### agreementSites.getAgreementSiteById(agreementId, siteId) ⇒ <code>[Promise.&lt;AgreementSite&gt;](#AgreementSite)</code>
+### agreementSites.getAgreementSiteById(agreementId, siteId) ⇒ [<code>Promise.&lt;AgreementSite&gt;</code>](#AgreementSite)
 GET
 
-**Kind**: instance method of <code>[AgreementSites](#AgreementSites)</code>  
+**Kind**: instance method of [<code>AgreementSites</code>](#AgreementSites)  
 
 | Param |
 | --- |
@@ -1219,45 +1221,45 @@ GET
 
 <a name="AgreementSites+updateAgreementSite"></a>
 
-### agreementSites.updateAgreementSite(agreementId, siteId, operations) ⇒ <code>[Promise.&lt;AgreementSite&gt;](#AgreementSite)</code>
+### agreementSites.updateAgreementSite(agreementId, siteId, operations) ⇒ [<code>Promise.&lt;AgreementSite&gt;</code>](#AgreementSite)
 PATCH
 
-**Kind**: instance method of <code>[AgreementSites](#AgreementSites)</code>  
+**Kind**: instance method of [<code>AgreementSites</code>](#AgreementSites)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
 | siteId |  | 
-| operations | <code>[Operations](#Operations)</code> | 
+| operations | [<code>Operations</code>](#Operations) | 
 
 <a name="AgreementSites+replaceAgreementSite"></a>
 
-### agreementSites.replaceAgreementSite(agreementId, siteId, site) ⇒ <code>[Promise.&lt;AgreementSite&gt;](#AgreementSite)</code>
+### agreementSites.replaceAgreementSite(agreementId, siteId, site) ⇒ [<code>Promise.&lt;AgreementSite&gt;</code>](#AgreementSite)
 PUT
 
-**Kind**: instance method of <code>[AgreementSites](#AgreementSites)</code>  
+**Kind**: instance method of [<code>AgreementSites</code>](#AgreementSites)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
 | siteId |  | 
-| site | <code>[AgreementSite](#AgreementSite)</code> | 
+| site | [<code>AgreementSite</code>](#AgreementSite) | 
 
 <a name="BoardDefaults"></a>
 
 ## BoardDefaults
 **Kind**: global class  
-**Inherits**: <code>[ConnectWise](#ConnectWise)</code>  
+**Inherits**: [<code>ConnectWise</code>](#ConnectWise)  
 
 * [BoardDefaults](#BoardDefaults)
     * [new BoardDefaults(options)](#new_BoardDefaults_new)
     * [.getBoardDefaults(agreementId, params)](#BoardDefaults+getBoardDefaults) ⇒ <code>Promise.&lt;Array.&lt;BoardDefault&gt;&gt;</code>
-    * [.createBoardDefault(agreementId, boardDefault)](#BoardDefaults+createBoardDefault) ⇒ <code>[Promise.&lt;BoardDefault&gt;](#BoardDefault)</code>
-    * [.getBoardDefaultsCount(agreementId, params)](#BoardDefaults+getBoardDefaultsCount) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
-    * [.deleteBoardDefaultById(agreementId, boardDefaultId)](#BoardDefaults+deleteBoardDefaultById) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
-    * [.getBoardDefaultById(agreementId, boardDefaultId)](#BoardDefaults+getBoardDefaultById) ⇒ <code>[Promise.&lt;BoardDefault&gt;](#BoardDefault)</code>
-    * [.updateBoardDefault(agreementId, boardDefaultId, operations)](#BoardDefaults+updateBoardDefault) ⇒ <code>[Promise.&lt;BoardDefault&gt;](#BoardDefault)</code>
-    * [.replaceBoardDefault(agreementId, boardDefaultId, boardDefault)](#BoardDefaults+replaceBoardDefault) ⇒ <code>[Promise.&lt;BoardDefault&gt;](#BoardDefault)</code>
+    * [.createBoardDefault(agreementId, boardDefault)](#BoardDefaults+createBoardDefault) ⇒ [<code>Promise.&lt;BoardDefault&gt;</code>](#BoardDefault)
+    * [.getBoardDefaultsCount(agreementId, params)](#BoardDefaults+getBoardDefaultsCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+    * [.deleteBoardDefaultById(agreementId, boardDefaultId)](#BoardDefaults+deleteBoardDefaultById) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+    * [.getBoardDefaultById(agreementId, boardDefaultId)](#BoardDefaults+getBoardDefaultById) ⇒ [<code>Promise.&lt;BoardDefault&gt;</code>](#BoardDefault)
+    * [.updateBoardDefault(agreementId, boardDefaultId, operations)](#BoardDefaults+updateBoardDefault) ⇒ [<code>Promise.&lt;BoardDefault&gt;</code>](#BoardDefault)
+    * [.replaceBoardDefault(agreementId, boardDefaultId, boardDefault)](#BoardDefaults+replaceBoardDefault) ⇒ [<code>Promise.&lt;BoardDefault&gt;</code>](#BoardDefault)
 
 <a name="new_BoardDefaults_new"></a>
 
@@ -1265,50 +1267,50 @@ PUT
 
 | Param | Type |
 | --- | --- |
-| options | <code>[CWOptions](#CWOptions)</code> | 
+| options | [<code>CWOptions</code>](#CWOptions) | 
 
 <a name="BoardDefaults+getBoardDefaults"></a>
 
 ### boardDefaults.getBoardDefaults(agreementId, params) ⇒ <code>Promise.&lt;Array.&lt;BoardDefault&gt;&gt;</code>
 GET
 
-**Kind**: instance method of <code>[BoardDefaults](#BoardDefaults)</code>  
+**Kind**: instance method of [<code>BoardDefaults</code>](#BoardDefaults)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
-| params | <code>[Params](#Params)</code> | 
+| params | [<code>Params</code>](#Params) | 
 
 <a name="BoardDefaults+createBoardDefault"></a>
 
-### boardDefaults.createBoardDefault(agreementId, boardDefault) ⇒ <code>[Promise.&lt;BoardDefault&gt;](#BoardDefault)</code>
+### boardDefaults.createBoardDefault(agreementId, boardDefault) ⇒ [<code>Promise.&lt;BoardDefault&gt;</code>](#BoardDefault)
 POST
 
-**Kind**: instance method of <code>[BoardDefaults](#BoardDefaults)</code>  
+**Kind**: instance method of [<code>BoardDefaults</code>](#BoardDefaults)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
-| boardDefault | <code>[BoardDefault](#BoardDefault)</code> | 
+| boardDefault | [<code>BoardDefault</code>](#BoardDefault) | 
 
 <a name="BoardDefaults+getBoardDefaultsCount"></a>
 
-### boardDefaults.getBoardDefaultsCount(agreementId, params) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
+### boardDefaults.getBoardDefaultsCount(agreementId, params) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
 GET
 
-**Kind**: instance method of <code>[BoardDefaults](#BoardDefaults)</code>  
+**Kind**: instance method of [<code>BoardDefaults</code>](#BoardDefaults)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
-| params | <code>[ParamsConditions](#ParamsConditions)</code> | 
+| params | [<code>ParamsConditions</code>](#ParamsConditions) | 
 
 <a name="BoardDefaults+deleteBoardDefaultById"></a>
 
-### boardDefaults.deleteBoardDefaultById(agreementId, boardDefaultId) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
+### boardDefaults.deleteBoardDefaultById(agreementId, boardDefaultId) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
 DELETE
 
-**Kind**: instance method of <code>[BoardDefaults](#BoardDefaults)</code>  
+**Kind**: instance method of [<code>BoardDefaults</code>](#BoardDefaults)  
 
 | Param |
 | --- |
@@ -1317,10 +1319,10 @@ DELETE
 
 <a name="BoardDefaults+getBoardDefaultById"></a>
 
-### boardDefaults.getBoardDefaultById(agreementId, boardDefaultId) ⇒ <code>[Promise.&lt;BoardDefault&gt;](#BoardDefault)</code>
+### boardDefaults.getBoardDefaultById(agreementId, boardDefaultId) ⇒ [<code>Promise.&lt;BoardDefault&gt;</code>](#BoardDefault)
 GET
 
-**Kind**: instance method of <code>[BoardDefaults](#BoardDefaults)</code>  
+**Kind**: instance method of [<code>BoardDefaults</code>](#BoardDefaults)  
 
 | Param |
 | --- |
@@ -1329,29 +1331,29 @@ GET
 
 <a name="BoardDefaults+updateBoardDefault"></a>
 
-### boardDefaults.updateBoardDefault(agreementId, boardDefaultId, operations) ⇒ <code>[Promise.&lt;BoardDefault&gt;](#BoardDefault)</code>
+### boardDefaults.updateBoardDefault(agreementId, boardDefaultId, operations) ⇒ [<code>Promise.&lt;BoardDefault&gt;</code>](#BoardDefault)
 PATCH
 
-**Kind**: instance method of <code>[BoardDefaults](#BoardDefaults)</code>  
+**Kind**: instance method of [<code>BoardDefaults</code>](#BoardDefaults)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
 | boardDefaultId |  | 
-| operations | <code>[Operations](#Operations)</code> | 
+| operations | [<code>Operations</code>](#Operations) | 
 
 <a name="BoardDefaults+replaceBoardDefault"></a>
 
-### boardDefaults.replaceBoardDefault(agreementId, boardDefaultId, boardDefault) ⇒ <code>[Promise.&lt;BoardDefault&gt;](#BoardDefault)</code>
+### boardDefaults.replaceBoardDefault(agreementId, boardDefaultId, boardDefault) ⇒ [<code>Promise.&lt;BoardDefault&gt;</code>](#BoardDefault)
 PUT
 
-**Kind**: instance method of <code>[BoardDefaults](#BoardDefaults)</code>  
+**Kind**: instance method of [<code>BoardDefaults</code>](#BoardDefaults)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
 | boardDefaultId |  | 
-| boardDefault | <code>[BoardDefault](#BoardDefault)</code> | 
+| boardDefault | [<code>BoardDefault</code>](#BoardDefault) | 
 
 <a name="FinanceAPI"></a>
 
@@ -1369,17 +1371,17 @@ PUT
 
 ## WorkRoles
 **Kind**: global class  
-**Inherits**: <code>[ConnectWise](#ConnectWise)</code>  
+**Inherits**: [<code>ConnectWise</code>](#ConnectWise)  
 
 * [WorkRoles](#WorkRoles)
     * [new WorkRoles(options)](#new_WorkRoles_new)
     * [.getWorkRoles(agreementId, params)](#WorkRoles+getWorkRoles) ⇒ <code>Promise.&lt;Array.&lt;WorkRole&gt;&gt;</code>
-    * [.createWorkRole(agreementId, workRole)](#WorkRoles+createWorkRole) ⇒ <code>[Promise.&lt;WorkRole&gt;](#WorkRole)</code>
-    * [.getWorkRolesCount(agreementId, params)](#WorkRoles+getWorkRolesCount) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
-    * [.deleteWorkRoleById(agreementId, workRoleId)](#WorkRoles+deleteWorkRoleById) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
-    * [.getWorkRoleById(agreementId, workRoleId)](#WorkRoles+getWorkRoleById) ⇒ <code>[Promise.&lt;WorkRole&gt;](#WorkRole)</code>
-    * [.updateWorkRole(agreementId, workRoleId, operations)](#WorkRoles+updateWorkRole) ⇒ <code>[Promise.&lt;WorkRole&gt;](#WorkRole)</code>
-    * [.replaceWorkRole(agreementId, workRoleId, workRole)](#WorkRoles+replaceWorkRole) ⇒ <code>[Promise.&lt;WorkRole&gt;](#WorkRole)</code>
+    * [.createWorkRole(agreementId, workRole)](#WorkRoles+createWorkRole) ⇒ [<code>Promise.&lt;WorkRole&gt;</code>](#WorkRole)
+    * [.getWorkRolesCount(agreementId, params)](#WorkRoles+getWorkRolesCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+    * [.deleteWorkRoleById(agreementId, workRoleId)](#WorkRoles+deleteWorkRoleById) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+    * [.getWorkRoleById(agreementId, workRoleId)](#WorkRoles+getWorkRoleById) ⇒ [<code>Promise.&lt;WorkRole&gt;</code>](#WorkRole)
+    * [.updateWorkRole(agreementId, workRoleId, operations)](#WorkRoles+updateWorkRole) ⇒ [<code>Promise.&lt;WorkRole&gt;</code>](#WorkRole)
+    * [.replaceWorkRole(agreementId, workRoleId, workRole)](#WorkRoles+replaceWorkRole) ⇒ [<code>Promise.&lt;WorkRole&gt;</code>](#WorkRole)
 
 <a name="new_WorkRoles_new"></a>
 
@@ -1387,50 +1389,50 @@ PUT
 
 | Param | Type |
 | --- | --- |
-| options | <code>[CWOptions](#CWOptions)</code> | 
+| options | [<code>CWOptions</code>](#CWOptions) | 
 
 <a name="WorkRoles+getWorkRoles"></a>
 
 ### workRoles.getWorkRoles(agreementId, params) ⇒ <code>Promise.&lt;Array.&lt;WorkRole&gt;&gt;</code>
 GET
 
-**Kind**: instance method of <code>[WorkRoles](#WorkRoles)</code>  
+**Kind**: instance method of [<code>WorkRoles</code>](#WorkRoles)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
-| params | <code>[Params](#Params)</code> | 
+| params | [<code>Params</code>](#Params) | 
 
 <a name="WorkRoles+createWorkRole"></a>
 
-### workRoles.createWorkRole(agreementId, workRole) ⇒ <code>[Promise.&lt;WorkRole&gt;](#WorkRole)</code>
+### workRoles.createWorkRole(agreementId, workRole) ⇒ [<code>Promise.&lt;WorkRole&gt;</code>](#WorkRole)
 POST
 
-**Kind**: instance method of <code>[WorkRoles](#WorkRoles)</code>  
+**Kind**: instance method of [<code>WorkRoles</code>](#WorkRoles)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
-| workRole | <code>[WorkRole](#WorkRole)</code> | 
+| workRole | [<code>WorkRole</code>](#WorkRole) | 
 
 <a name="WorkRoles+getWorkRolesCount"></a>
 
-### workRoles.getWorkRolesCount(agreementId, params) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
+### workRoles.getWorkRolesCount(agreementId, params) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
 GET
 
-**Kind**: instance method of <code>[WorkRoles](#WorkRoles)</code>  
+**Kind**: instance method of [<code>WorkRoles</code>](#WorkRoles)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
-| params | <code>[ParamsConditions](#ParamsConditions)</code> | 
+| params | [<code>ParamsConditions</code>](#ParamsConditions) | 
 
 <a name="WorkRoles+deleteWorkRoleById"></a>
 
-### workRoles.deleteWorkRoleById(agreementId, workRoleId) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
+### workRoles.deleteWorkRoleById(agreementId, workRoleId) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
 DELETE
 
-**Kind**: instance method of <code>[WorkRoles](#WorkRoles)</code>  
+**Kind**: instance method of [<code>WorkRoles</code>](#WorkRoles)  
 
 | Param |
 | --- |
@@ -1439,10 +1441,10 @@ DELETE
 
 <a name="WorkRoles+getWorkRoleById"></a>
 
-### workRoles.getWorkRoleById(agreementId, workRoleId) ⇒ <code>[Promise.&lt;WorkRole&gt;](#WorkRole)</code>
+### workRoles.getWorkRoleById(agreementId, workRoleId) ⇒ [<code>Promise.&lt;WorkRole&gt;</code>](#WorkRole)
 GET
 
-**Kind**: instance method of <code>[WorkRoles](#WorkRoles)</code>  
+**Kind**: instance method of [<code>WorkRoles</code>](#WorkRoles)  
 
 | Param |
 | --- |
@@ -1451,42 +1453,42 @@ GET
 
 <a name="WorkRoles+updateWorkRole"></a>
 
-### workRoles.updateWorkRole(agreementId, workRoleId, operations) ⇒ <code>[Promise.&lt;WorkRole&gt;](#WorkRole)</code>
+### workRoles.updateWorkRole(agreementId, workRoleId, operations) ⇒ [<code>Promise.&lt;WorkRole&gt;</code>](#WorkRole)
 PATCH
 
-**Kind**: instance method of <code>[WorkRoles](#WorkRoles)</code>  
+**Kind**: instance method of [<code>WorkRoles</code>](#WorkRoles)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
 | workRoleId |  | 
-| operations | <code>[Operations](#Operations)</code> | 
+| operations | [<code>Operations</code>](#Operations) | 
 
 <a name="WorkRoles+replaceWorkRole"></a>
 
-### workRoles.replaceWorkRole(agreementId, workRoleId, workRole) ⇒ <code>[Promise.&lt;WorkRole&gt;](#WorkRole)</code>
+### workRoles.replaceWorkRole(agreementId, workRoleId, workRole) ⇒ [<code>Promise.&lt;WorkRole&gt;</code>](#WorkRole)
 PUT
 
-**Kind**: instance method of <code>[WorkRoles](#WorkRoles)</code>  
+**Kind**: instance method of [<code>WorkRoles</code>](#WorkRoles)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
 | workRoleId |  | 
-| workRole | <code>[WorkRole](#WorkRole)</code> | 
+| workRole | [<code>WorkRole</code>](#WorkRole) | 
 
 <a name="WorkTypeExclusions"></a>
 
 ## WorkTypeExclusions
 **Kind**: global class  
-**Inherits**: <code>[ConnectWise](#ConnectWise)</code>  
+**Inherits**: [<code>ConnectWise</code>](#ConnectWise)  
 
 * [WorkTypeExclusions](#WorkTypeExclusions)
     * [new WorkTypeExclusions(options)](#new_WorkTypeExclusions_new)
     * [.getWorkTypeExclusions(agreementId, params)](#WorkTypeExclusions+getWorkTypeExclusions) ⇒ <code>Promise.&lt;Array.&lt;WorkTypeExclusion&gt;&gt;</code>
-    * [.createWorkTypeExclusion(agreementId, workTypeExclusion)](#WorkTypeExclusions+createWorkTypeExclusion) ⇒ <code>[Promise.&lt;WorkTypeExclusion&gt;](#WorkTypeExclusion)</code>
-    * [.getWorkTypeExclusionsCount(agreementId, params)](#WorkTypeExclusions+getWorkTypeExclusionsCount) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
-    * [.deleteWorkTypeExclusionById(agreementId, workTypeExclusionId)](#WorkTypeExclusions+deleteWorkTypeExclusionById) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
+    * [.createWorkTypeExclusion(agreementId, workTypeExclusion)](#WorkTypeExclusions+createWorkTypeExclusion) ⇒ [<code>Promise.&lt;WorkTypeExclusion&gt;</code>](#WorkTypeExclusion)
+    * [.getWorkTypeExclusionsCount(agreementId, params)](#WorkTypeExclusions+getWorkTypeExclusionsCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+    * [.deleteWorkTypeExclusionById(agreementId, workTypeExclusionId)](#WorkTypeExclusions+deleteWorkTypeExclusionById) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
 
 <a name="new_WorkTypeExclusions_new"></a>
 
@@ -1494,50 +1496,50 @@ PUT
 
 | Param | Type |
 | --- | --- |
-| options | <code>[CWOptions](#CWOptions)</code> | 
+| options | [<code>CWOptions</code>](#CWOptions) | 
 
 <a name="WorkTypeExclusions+getWorkTypeExclusions"></a>
 
 ### workTypeExclusions.getWorkTypeExclusions(agreementId, params) ⇒ <code>Promise.&lt;Array.&lt;WorkTypeExclusion&gt;&gt;</code>
 GET
 
-**Kind**: instance method of <code>[WorkTypeExclusions](#WorkTypeExclusions)</code>  
+**Kind**: instance method of [<code>WorkTypeExclusions</code>](#WorkTypeExclusions)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
-| params | <code>[Params](#Params)</code> | 
+| params | [<code>Params</code>](#Params) | 
 
 <a name="WorkTypeExclusions+createWorkTypeExclusion"></a>
 
-### workTypeExclusions.createWorkTypeExclusion(agreementId, workTypeExclusion) ⇒ <code>[Promise.&lt;WorkTypeExclusion&gt;](#WorkTypeExclusion)</code>
+### workTypeExclusions.createWorkTypeExclusion(agreementId, workTypeExclusion) ⇒ [<code>Promise.&lt;WorkTypeExclusion&gt;</code>](#WorkTypeExclusion)
 POST
 
-**Kind**: instance method of <code>[WorkTypeExclusions](#WorkTypeExclusions)</code>  
+**Kind**: instance method of [<code>WorkTypeExclusions</code>](#WorkTypeExclusions)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
-| workTypeExclusion | <code>[WorkTypeExclusion](#WorkTypeExclusion)</code> | 
+| workTypeExclusion | [<code>WorkTypeExclusion</code>](#WorkTypeExclusion) | 
 
 <a name="WorkTypeExclusions+getWorkTypeExclusionsCount"></a>
 
-### workTypeExclusions.getWorkTypeExclusionsCount(agreementId, params) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
+### workTypeExclusions.getWorkTypeExclusionsCount(agreementId, params) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
 GET
 
-**Kind**: instance method of <code>[WorkTypeExclusions](#WorkTypeExclusions)</code>  
+**Kind**: instance method of [<code>WorkTypeExclusions</code>](#WorkTypeExclusions)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
-| params | <code>[ParamsConditions](#ParamsConditions)</code> | 
+| params | [<code>ParamsConditions</code>](#ParamsConditions) | 
 
 <a name="WorkTypeExclusions+deleteWorkTypeExclusionById"></a>
 
-### workTypeExclusions.deleteWorkTypeExclusionById(agreementId, workTypeExclusionId) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
+### workTypeExclusions.deleteWorkTypeExclusionById(agreementId, workTypeExclusionId) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
 DELETE
 
-**Kind**: instance method of <code>[WorkTypeExclusions](#WorkTypeExclusions)</code>  
+**Kind**: instance method of [<code>WorkTypeExclusions</code>](#WorkTypeExclusions)  
 
 | Param |
 | --- |
@@ -1548,17 +1550,17 @@ DELETE
 
 ## WorkTypes
 **Kind**: global class  
-**Inherits**: <code>[ConnectWise](#ConnectWise)</code>  
+**Inherits**: [<code>ConnectWise</code>](#ConnectWise)  
 
 * [WorkTypes](#WorkTypes)
     * [new WorkTypes(options)](#new_WorkTypes_new)
     * [.getWorkTypes(agreementId, params)](#WorkTypes+getWorkTypes) ⇒ <code>Promise.&lt;Array.&lt;WorkType&gt;&gt;</code>
-    * [.createWorkType(agreementId, workType)](#WorkTypes+createWorkType) ⇒ <code>[Promise.&lt;WorkType&gt;](#WorkType)</code>
-    * [.getWorkTypesCount(agreementId, params)](#WorkTypes+getWorkTypesCount) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
-    * [.deleteWorkTypeById(agreementId, workTypeId)](#WorkTypes+deleteWorkTypeById) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
-    * [.getWorkTypeById(agreementId, workTypeId)](#WorkTypes+getWorkTypeById) ⇒ <code>[Promise.&lt;WorkType&gt;](#WorkType)</code>
-    * [.updateWorkType(agreementId, workTypeId, operations)](#WorkTypes+updateWorkType) ⇒ <code>[Promise.&lt;WorkType&gt;](#WorkType)</code>
-    * [.replaceWorkType(agreementId, workTypeId, workType)](#WorkTypes+replaceWorkType) ⇒ <code>[Promise.&lt;WorkType&gt;](#WorkType)</code>
+    * [.createWorkType(agreementId, workType)](#WorkTypes+createWorkType) ⇒ [<code>Promise.&lt;WorkType&gt;</code>](#WorkType)
+    * [.getWorkTypesCount(agreementId, params)](#WorkTypes+getWorkTypesCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+    * [.deleteWorkTypeById(agreementId, workTypeId)](#WorkTypes+deleteWorkTypeById) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+    * [.getWorkTypeById(agreementId, workTypeId)](#WorkTypes+getWorkTypeById) ⇒ [<code>Promise.&lt;WorkType&gt;</code>](#WorkType)
+    * [.updateWorkType(agreementId, workTypeId, operations)](#WorkTypes+updateWorkType) ⇒ [<code>Promise.&lt;WorkType&gt;</code>](#WorkType)
+    * [.replaceWorkType(agreementId, workTypeId, workType)](#WorkTypes+replaceWorkType) ⇒ [<code>Promise.&lt;WorkType&gt;</code>](#WorkType)
 
 <a name="new_WorkTypes_new"></a>
 
@@ -1566,50 +1568,50 @@ DELETE
 
 | Param | Type |
 | --- | --- |
-| options | <code>[CWOptions](#CWOptions)</code> | 
+| options | [<code>CWOptions</code>](#CWOptions) | 
 
 <a name="WorkTypes+getWorkTypes"></a>
 
 ### workTypes.getWorkTypes(agreementId, params) ⇒ <code>Promise.&lt;Array.&lt;WorkType&gt;&gt;</code>
 GET
 
-**Kind**: instance method of <code>[WorkTypes](#WorkTypes)</code>  
+**Kind**: instance method of [<code>WorkTypes</code>](#WorkTypes)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
-| params | <code>[Params](#Params)</code> | 
+| params | [<code>Params</code>](#Params) | 
 
 <a name="WorkTypes+createWorkType"></a>
 
-### workTypes.createWorkType(agreementId, workType) ⇒ <code>[Promise.&lt;WorkType&gt;](#WorkType)</code>
+### workTypes.createWorkType(agreementId, workType) ⇒ [<code>Promise.&lt;WorkType&gt;</code>](#WorkType)
 POST
 
-**Kind**: instance method of <code>[WorkTypes](#WorkTypes)</code>  
+**Kind**: instance method of [<code>WorkTypes</code>](#WorkTypes)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
-| workType | <code>[WorkType](#WorkType)</code> | 
+| workType | [<code>WorkType</code>](#WorkType) | 
 
 <a name="WorkTypes+getWorkTypesCount"></a>
 
-### workTypes.getWorkTypesCount(agreementId, params) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
+### workTypes.getWorkTypesCount(agreementId, params) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
 GET
 
-**Kind**: instance method of <code>[WorkTypes](#WorkTypes)</code>  
+**Kind**: instance method of [<code>WorkTypes</code>](#WorkTypes)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
-| params | <code>[ParamsConditions](#ParamsConditions)</code> | 
+| params | [<code>ParamsConditions</code>](#ParamsConditions) | 
 
 <a name="WorkTypes+deleteWorkTypeById"></a>
 
-### workTypes.deleteWorkTypeById(agreementId, workTypeId) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
+### workTypes.deleteWorkTypeById(agreementId, workTypeId) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
 DELETE
 
-**Kind**: instance method of <code>[WorkTypes](#WorkTypes)</code>  
+**Kind**: instance method of [<code>WorkTypes</code>](#WorkTypes)  
 
 | Param |
 | --- |
@@ -1618,10 +1620,10 @@ DELETE
 
 <a name="WorkTypes+getWorkTypeById"></a>
 
-### workTypes.getWorkTypeById(agreementId, workTypeId) ⇒ <code>[Promise.&lt;WorkType&gt;](#WorkType)</code>
+### workTypes.getWorkTypeById(agreementId, workTypeId) ⇒ [<code>Promise.&lt;WorkType&gt;</code>](#WorkType)
 GET
 
-**Kind**: instance method of <code>[WorkTypes](#WorkTypes)</code>  
+**Kind**: instance method of [<code>WorkTypes</code>](#WorkTypes)  
 
 | Param |
 | --- |
@@ -1630,29 +1632,29 @@ GET
 
 <a name="WorkTypes+updateWorkType"></a>
 
-### workTypes.updateWorkType(agreementId, workTypeId, operations) ⇒ <code>[Promise.&lt;WorkType&gt;](#WorkType)</code>
+### workTypes.updateWorkType(agreementId, workTypeId, operations) ⇒ [<code>Promise.&lt;WorkType&gt;</code>](#WorkType)
 PATCH
 
-**Kind**: instance method of <code>[WorkTypes](#WorkTypes)</code>  
+**Kind**: instance method of [<code>WorkTypes</code>](#WorkTypes)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
 | workTypeId |  | 
-| operations | <code>[Operations](#Operations)</code> | 
+| operations | [<code>Operations</code>](#Operations) | 
 
 <a name="WorkTypes+replaceWorkType"></a>
 
-### workTypes.replaceWorkType(agreementId, workTypeId, workType) ⇒ <code>[Promise.&lt;WorkType&gt;](#WorkType)</code>
+### workTypes.replaceWorkType(agreementId, workTypeId, workType) ⇒ [<code>Promise.&lt;WorkType&gt;</code>](#WorkType)
 PUT
 
-**Kind**: instance method of <code>[WorkTypes](#WorkTypes)</code>  
+**Kind**: instance method of [<code>WorkTypes</code>](#WorkTypes)  
 
 | Param | Type |
 | --- | --- |
 | agreementId |  | 
 | workTypeId |  | 
-| workType | <code>[WorkType](#WorkType)</code> | 
+| workType | [<code>WorkType</code>](#WorkType) | 
 
 <a name="ProjectAPI"></a>
 
@@ -1670,17 +1672,17 @@ PUT
 
 ## Projects
 **Kind**: global class  
-**Inherits**: <code>[ConnectWise](#ConnectWise)</code>  
+**Inherits**: [<code>ConnectWise</code>](#ConnectWise)  
 
 * [Projects](#Projects)
     * [new Projects(options)](#new_Projects_new)
     * [.getProjects(params)](#Projects+getProjects) ⇒ <code>Promise.&lt;Array.&lt;Project&gt;&gt;</code>
-    * [.createProject(project)](#Projects+createProject) ⇒ <code>[Promise.&lt;Project&gt;](#Project)</code>
-    * [.getProjectsCount(conditions)](#Projects+getProjectsCount) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
-    * [.deleteProjectById(projectId)](#Projects+deleteProjectById) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
-    * [.getProjectById(projectId)](#Projects+getProjectById) ⇒ <code>[Promise.&lt;Project&gt;](#Project)</code>
-    * [.updateProject(projectId, operations)](#Projects+updateProject) ⇒ <code>[Promise.&lt;Project&gt;](#Project)</code>
-    * [.replaceProject(projectId, project)](#Projects+replaceProject) ⇒ <code>[Promise.&lt;Project&gt;](#Project)</code>
+    * [.createProject(project)](#Projects+createProject) ⇒ [<code>Promise.&lt;Project&gt;</code>](#Project)
+    * [.getProjectsCount(conditions)](#Projects+getProjectsCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+    * [.deleteProjectById(projectId)](#Projects+deleteProjectById) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+    * [.getProjectById(projectId)](#Projects+getProjectById) ⇒ [<code>Promise.&lt;Project&gt;</code>](#Project)
+    * [.updateProject(projectId, operations)](#Projects+updateProject) ⇒ [<code>Promise.&lt;Project&gt;</code>](#Project)
+    * [.replaceProject(projectId, project)](#Projects+replaceProject) ⇒ [<code>Promise.&lt;Project&gt;</code>](#Project)
 
 <a name="new_Projects_new"></a>
 
@@ -1688,72 +1690,72 @@ PUT
 
 | Param | Type |
 | --- | --- |
-| options | <code>[CWOptions](#CWOptions)</code> | 
+| options | [<code>CWOptions</code>](#CWOptions) | 
 
 <a name="Projects+getProjects"></a>
 
 ### projects.getProjects(params) ⇒ <code>Promise.&lt;Array.&lt;Project&gt;&gt;</code>
-**Kind**: instance method of <code>[Projects](#Projects)</code>  
+**Kind**: instance method of [<code>Projects</code>](#Projects)  
 
 | Param | Type |
 | --- | --- |
-| params | <code>[Params](#Params)</code> | 
+| params | [<code>Params</code>](#Params) | 
 
 <a name="Projects+createProject"></a>
 
-### projects.createProject(project) ⇒ <code>[Promise.&lt;Project&gt;](#Project)</code>
-**Kind**: instance method of <code>[Projects](#Projects)</code>  
+### projects.createProject(project) ⇒ [<code>Promise.&lt;Project&gt;</code>](#Project)
+**Kind**: instance method of [<code>Projects</code>](#Projects)  
 
 | Param | Type |
 | --- | --- |
-| project | <code>[Project](#Project)</code> | 
+| project | [<code>Project</code>](#Project) | 
 
 <a name="Projects+getProjectsCount"></a>
 
-### projects.getProjectsCount(conditions) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
-**Kind**: instance method of <code>[Projects](#Projects)</code>  
+### projects.getProjectsCount(conditions) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+**Kind**: instance method of [<code>Projects</code>](#Projects)  
 
 | Param | Type |
 | --- | --- |
-| conditions | <code>[ParamsConditions](#ParamsConditions)</code> | 
+| conditions | [<code>ParamsConditions</code>](#ParamsConditions) | 
 
 <a name="Projects+deleteProjectById"></a>
 
-### projects.deleteProjectById(projectId) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
-**Kind**: instance method of <code>[Projects](#Projects)</code>  
+### projects.deleteProjectById(projectId) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+**Kind**: instance method of [<code>Projects</code>](#Projects)  
 
 | Param | Type |
 | --- | --- |
-| projectId | <code>string</code> &#124; <code>number</code> | 
+| projectId | <code>string</code> \| <code>number</code> | 
 
 <a name="Projects+getProjectById"></a>
 
-### projects.getProjectById(projectId) ⇒ <code>[Promise.&lt;Project&gt;](#Project)</code>
-**Kind**: instance method of <code>[Projects](#Projects)</code>  
+### projects.getProjectById(projectId) ⇒ [<code>Promise.&lt;Project&gt;</code>](#Project)
+**Kind**: instance method of [<code>Projects</code>](#Projects)  
 
 | Param | Type |
 | --- | --- |
-| projectId | <code>string</code> &#124; <code>number</code> | 
+| projectId | <code>string</code> \| <code>number</code> | 
 
 <a name="Projects+updateProject"></a>
 
-### projects.updateProject(projectId, operations) ⇒ <code>[Promise.&lt;Project&gt;](#Project)</code>
-**Kind**: instance method of <code>[Projects](#Projects)</code>  
+### projects.updateProject(projectId, operations) ⇒ [<code>Promise.&lt;Project&gt;</code>](#Project)
+**Kind**: instance method of [<code>Projects</code>](#Projects)  
 
 | Param | Type |
 | --- | --- |
-| projectId | <code>string</code> &#124; <code>number</code> | 
-| operations | <code>[Operations](#Operations)</code> | 
+| projectId | <code>string</code> \| <code>number</code> | 
+| operations | [<code>Operations</code>](#Operations) | 
 
 <a name="Projects+replaceProject"></a>
 
-### projects.replaceProject(projectId, project) ⇒ <code>[Promise.&lt;Project&gt;](#Project)</code>
-**Kind**: instance method of <code>[Projects](#Projects)</code>  
+### projects.replaceProject(projectId, project) ⇒ [<code>Promise.&lt;Project&gt;</code>](#Project)
+**Kind**: instance method of [<code>Projects</code>](#Projects)  
 
 | Param | Type |
 | --- | --- |
-| projectId | <code>string</code> &#124; <code>number</code> | 
-| project | <code>[Project](#Project)</code> | 
+| projectId | <code>string</code> \| <code>number</code> | 
+| project | [<code>Project</code>](#Project) | 
 
 <a name="ScheduleAPI"></a>
 
@@ -1771,13 +1773,13 @@ PUT
 
 ## ScheduleEntries
 **Kind**: global class  
-**Inherits**: <code>[ConnectWise](#ConnectWise)</code>  
+**Inherits**: [<code>ConnectWise</code>](#ConnectWise)  
 
 * [ScheduleEntries](#ScheduleEntries)
     * [new ScheduleEntries(options)](#new_ScheduleEntries_new)
     * [.getScheduleEntries(params)](#ScheduleEntries+getScheduleEntries) ⇒ <code>Promise.&lt;Array.&lt;ScheduleEntry&gt;&gt;</code>
-    * [.createSchedule(scheduleEntry)](#ScheduleEntries+createSchedule) ⇒ <code>[Promise.&lt;ScheduleEntry&gt;](#ScheduleEntry)</code>
-    * [.getScheduleEntriesCount(params)](#ScheduleEntries+getScheduleEntriesCount) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
+    * [.createSchedule(scheduleEntry)](#ScheduleEntries+createSchedule) ⇒ [<code>Promise.&lt;ScheduleEntry&gt;</code>](#ScheduleEntry)
+    * [.getScheduleEntriesCount(params)](#ScheduleEntries+getScheduleEntriesCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
     * [.getScheduleEntryById(id)](#ScheduleEntries+getScheduleEntryById) ⇒ <code>Promise.&lt;Array.&lt;ScheduleEntry&gt;&gt;</code>
     * [.deleteById(id)](#ScheduleEntries+deleteById) ⇒ <code>Promise.&lt;Array.&lt;ScheduleEntry&gt;&gt;</code>
     * [.replaceSchedule(id)](#ScheduleEntries+replaceSchedule) ⇒ <code>Promise.&lt;Array.&lt;ScheduleEntry&gt;&gt;</code>
@@ -1789,39 +1791,39 @@ PUT
 
 | Param | Type |
 | --- | --- |
-| options | <code>[CWOptions](#CWOptions)</code> | 
+| options | [<code>CWOptions</code>](#CWOptions) | 
 
 <a name="ScheduleEntries+getScheduleEntries"></a>
 
 ### scheduleEntries.getScheduleEntries(params) ⇒ <code>Promise.&lt;Array.&lt;ScheduleEntry&gt;&gt;</code>
-**Kind**: instance method of <code>[ScheduleEntries](#ScheduleEntries)</code>  
+**Kind**: instance method of [<code>ScheduleEntries</code>](#ScheduleEntries)  
 
 | Param | Type |
 | --- | --- |
-| params | <code>[Params](#Params)</code> | 
+| params | [<code>Params</code>](#Params) | 
 
 <a name="ScheduleEntries+createSchedule"></a>
 
-### scheduleEntries.createSchedule(scheduleEntry) ⇒ <code>[Promise.&lt;ScheduleEntry&gt;](#ScheduleEntry)</code>
-**Kind**: instance method of <code>[ScheduleEntries](#ScheduleEntries)</code>  
+### scheduleEntries.createSchedule(scheduleEntry) ⇒ [<code>Promise.&lt;ScheduleEntry&gt;</code>](#ScheduleEntry)
+**Kind**: instance method of [<code>ScheduleEntries</code>](#ScheduleEntries)  
 
 | Param | Type |
 | --- | --- |
-| scheduleEntry | <code>[ScheduleEntry](#ScheduleEntry)</code> | 
+| scheduleEntry | [<code>ScheduleEntry</code>](#ScheduleEntry) | 
 
 <a name="ScheduleEntries+getScheduleEntriesCount"></a>
 
-### scheduleEntries.getScheduleEntriesCount(params) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
-**Kind**: instance method of <code>[ScheduleEntries](#ScheduleEntries)</code>  
+### scheduleEntries.getScheduleEntriesCount(params) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+**Kind**: instance method of [<code>ScheduleEntries</code>](#ScheduleEntries)  
 
 | Param | Type |
 | --- | --- |
-| params | <code>[Params](#Params)</code> | 
+| params | [<code>Params</code>](#Params) | 
 
 <a name="ScheduleEntries+getScheduleEntryById"></a>
 
 ### scheduleEntries.getScheduleEntryById(id) ⇒ <code>Promise.&lt;Array.&lt;ScheduleEntry&gt;&gt;</code>
-**Kind**: instance method of <code>[ScheduleEntries](#ScheduleEntries)</code>  
+**Kind**: instance method of [<code>ScheduleEntries</code>](#ScheduleEntries)  
 
 | Param | Description |
 | --- | --- |
@@ -1830,7 +1832,7 @@ PUT
 <a name="ScheduleEntries+deleteById"></a>
 
 ### scheduleEntries.deleteById(id) ⇒ <code>Promise.&lt;Array.&lt;ScheduleEntry&gt;&gt;</code>
-**Kind**: instance method of <code>[ScheduleEntries](#ScheduleEntries)</code>  
+**Kind**: instance method of [<code>ScheduleEntries</code>](#ScheduleEntries)  
 
 | Param | Description |
 | --- | --- |
@@ -1839,7 +1841,7 @@ PUT
 <a name="ScheduleEntries+replaceSchedule"></a>
 
 ### scheduleEntries.replaceSchedule(id) ⇒ <code>Promise.&lt;Array.&lt;ScheduleEntry&gt;&gt;</code>
-**Kind**: instance method of <code>[ScheduleEntries](#ScheduleEntries)</code>  
+**Kind**: instance method of [<code>ScheduleEntries</code>](#ScheduleEntries)  
 
 | Param | Description |
 | --- | --- |
@@ -1848,28 +1850,28 @@ PUT
 <a name="ScheduleEntries+updateSchedule"></a>
 
 ### scheduleEntries.updateSchedule(id, ops) ⇒ <code>Promise.&lt;Array.&lt;ScheduleEntry&gt;&gt;</code>
-**Kind**: instance method of <code>[ScheduleEntries](#ScheduleEntries)</code>  
+**Kind**: instance method of [<code>ScheduleEntries</code>](#ScheduleEntries)  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | id |  | scheduleId |
-| ops | <code>[Operations](#Operations)</code> |  |
+| ops | [<code>Operations</code>](#Operations) |  |
 
 <a name="ScheduleTypes"></a>
 
 ## ScheduleTypes
 **Kind**: global class  
-**Inherits**: <code>[ConnectWise](#ConnectWise)</code>  
+**Inherits**: [<code>ConnectWise</code>](#ConnectWise)  
 
 * [ScheduleTypes](#ScheduleTypes)
     * [new ScheduleTypes(options)](#new_ScheduleTypes_new)
     * [.getScheduleTypes(params)](#ScheduleTypes+getScheduleTypes) ⇒ <code>Promise.&lt;Array.&lt;ScheduleType&gt;&gt;</code>
-    * [.createScheduleType(scheduleType)](#ScheduleTypes+createScheduleType) ⇒ <code>[Promise.&lt;ScheduleType&gt;](#ScheduleType)</code>
-    * [.getScheduleTypesCount(params)](#ScheduleTypes+getScheduleTypesCount) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
-    * [.getScheduleTypeById(scheduleTypeId)](#ScheduleTypes+getScheduleTypeById) ⇒ <code>[Promise.&lt;ScheduleType&gt;](#ScheduleType)</code>
-    * [.deleteScheduleTypeById(scheduleTypeId)](#ScheduleTypes+deleteScheduleTypeById) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
-    * [.replaceScheduleType(scheduleTypeId, scheduleType)](#ScheduleTypes+replaceScheduleType) ⇒ <code>[Promise.&lt;ScheduleType&gt;](#ScheduleType)</code>
-    * [.updateScheduleType(scheduleTypeId, ops)](#ScheduleTypes+updateScheduleType) ⇒ <code>[Promise.&lt;ScheduleType&gt;](#ScheduleType)</code>
+    * [.createScheduleType(scheduleType)](#ScheduleTypes+createScheduleType) ⇒ [<code>Promise.&lt;ScheduleType&gt;</code>](#ScheduleType)
+    * [.getScheduleTypesCount(params)](#ScheduleTypes+getScheduleTypesCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+    * [.getScheduleTypeById(scheduleTypeId)](#ScheduleTypes+getScheduleTypeById) ⇒ [<code>Promise.&lt;ScheduleType&gt;</code>](#ScheduleType)
+    * [.deleteScheduleTypeById(scheduleTypeId)](#ScheduleTypes+deleteScheduleTypeById) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+    * [.replaceScheduleType(scheduleTypeId, scheduleType)](#ScheduleTypes+replaceScheduleType) ⇒ [<code>Promise.&lt;ScheduleType&gt;</code>](#ScheduleType)
+    * [.updateScheduleType(scheduleTypeId, ops)](#ScheduleTypes+updateScheduleType) ⇒ [<code>Promise.&lt;ScheduleType&gt;</code>](#ScheduleType)
 
 <a name="new_ScheduleTypes_new"></a>
 
@@ -1877,39 +1879,39 @@ PUT
 
 | Param | Type |
 | --- | --- |
-| options | <code>[CWOptions](#CWOptions)</code> | 
+| options | [<code>CWOptions</code>](#CWOptions) | 
 
 <a name="ScheduleTypes+getScheduleTypes"></a>
 
 ### scheduleTypes.getScheduleTypes(params) ⇒ <code>Promise.&lt;Array.&lt;ScheduleType&gt;&gt;</code>
-**Kind**: instance method of <code>[ScheduleTypes](#ScheduleTypes)</code>  
+**Kind**: instance method of [<code>ScheduleTypes</code>](#ScheduleTypes)  
 
 | Param | Type |
 | --- | --- |
-| params | <code>[Params](#Params)</code> | 
+| params | [<code>Params</code>](#Params) | 
 
 <a name="ScheduleTypes+createScheduleType"></a>
 
-### scheduleTypes.createScheduleType(scheduleType) ⇒ <code>[Promise.&lt;ScheduleType&gt;](#ScheduleType)</code>
-**Kind**: instance method of <code>[ScheduleTypes](#ScheduleTypes)</code>  
+### scheduleTypes.createScheduleType(scheduleType) ⇒ [<code>Promise.&lt;ScheduleType&gt;</code>](#ScheduleType)
+**Kind**: instance method of [<code>ScheduleTypes</code>](#ScheduleTypes)  
 
 | Param | Type |
 | --- | --- |
-| scheduleType | <code>[ScheduleEntry](#ScheduleEntry)</code> | 
+| scheduleType | [<code>ScheduleEntry</code>](#ScheduleEntry) | 
 
 <a name="ScheduleTypes+getScheduleTypesCount"></a>
 
-### scheduleTypes.getScheduleTypesCount(params) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
-**Kind**: instance method of <code>[ScheduleTypes](#ScheduleTypes)</code>  
+### scheduleTypes.getScheduleTypesCount(params) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+**Kind**: instance method of [<code>ScheduleTypes</code>](#ScheduleTypes)  
 
 | Param | Type |
 | --- | --- |
-| params | <code>[ParamsConditions](#ParamsConditions)</code> | 
+| params | [<code>ParamsConditions</code>](#ParamsConditions) | 
 
 <a name="ScheduleTypes+getScheduleTypeById"></a>
 
-### scheduleTypes.getScheduleTypeById(scheduleTypeId) ⇒ <code>[Promise.&lt;ScheduleType&gt;](#ScheduleType)</code>
-**Kind**: instance method of <code>[ScheduleTypes](#ScheduleTypes)</code>  
+### scheduleTypes.getScheduleTypeById(scheduleTypeId) ⇒ [<code>Promise.&lt;ScheduleType&gt;</code>](#ScheduleType)
+**Kind**: instance method of [<code>ScheduleTypes</code>](#ScheduleTypes)  
 
 | Param |
 | --- |
@@ -1917,8 +1919,8 @@ PUT
 
 <a name="ScheduleTypes+deleteScheduleTypeById"></a>
 
-### scheduleTypes.deleteScheduleTypeById(scheduleTypeId) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
-**Kind**: instance method of <code>[ScheduleTypes](#ScheduleTypes)</code>  
+### scheduleTypes.deleteScheduleTypeById(scheduleTypeId) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+**Kind**: instance method of [<code>ScheduleTypes</code>](#ScheduleTypes)  
 
 | Param |
 | --- |
@@ -1926,23 +1928,23 @@ PUT
 
 <a name="ScheduleTypes+replaceScheduleType"></a>
 
-### scheduleTypes.replaceScheduleType(scheduleTypeId, scheduleType) ⇒ <code>[Promise.&lt;ScheduleType&gt;](#ScheduleType)</code>
-**Kind**: instance method of <code>[ScheduleTypes](#ScheduleTypes)</code>  
+### scheduleTypes.replaceScheduleType(scheduleTypeId, scheduleType) ⇒ [<code>Promise.&lt;ScheduleType&gt;</code>](#ScheduleType)
+**Kind**: instance method of [<code>ScheduleTypes</code>](#ScheduleTypes)  
 
 | Param | Type |
 | --- | --- |
 | scheduleTypeId |  | 
-| scheduleType | <code>[ScheduleType](#ScheduleType)</code> | 
+| scheduleType | [<code>ScheduleType</code>](#ScheduleType) | 
 
 <a name="ScheduleTypes+updateScheduleType"></a>
 
-### scheduleTypes.updateScheduleType(scheduleTypeId, ops) ⇒ <code>[Promise.&lt;ScheduleType&gt;](#ScheduleType)</code>
-**Kind**: instance method of <code>[ScheduleTypes](#ScheduleTypes)</code>  
+### scheduleTypes.updateScheduleType(scheduleTypeId, ops) ⇒ [<code>Promise.&lt;ScheduleType&gt;</code>](#ScheduleType)
+**Kind**: instance method of [<code>ScheduleTypes</code>](#ScheduleTypes)  
 
 | Param | Type |
 | --- | --- |
 | scheduleTypeId |  | 
-| ops | <code>[Operations](#Operations)</code> | 
+| ops | [<code>Operations</code>](#Operations) | 
 
 <a name="Boards"></a>
 
@@ -1954,9 +1956,9 @@ PUT
     * [.getBoards(params)](#Boards+getBoards) ⇒ <code>Promise.&lt;Array.&lt;Board&gt;&gt;</code>
     * [.createBoard(board)](#Boards+createBoard) ⇒ <code>Promise.&lt;Array.&lt;Board&gt;&gt;</code>
     * [.getBoardById(id)](#Boards+getBoardById) ⇒ <code>Promise.&lt;Array.&lt;Board&gt;&gt;</code>
-    * [.getBoardsCount(params)](#Boards+getBoardsCount) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
-    * [.updateBoard(id, ops)](#Boards+updateBoard) ⇒ <code>[Promise.&lt;Board&gt;](#Board)</code>
-    * [.replaceBoard(id, board)](#Boards+replaceBoard) ⇒ <code>[Promise.&lt;Board&gt;](#Board)</code>
+    * [.getBoardsCount(params)](#Boards+getBoardsCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+    * [.updateBoard(id, ops)](#Boards+updateBoard) ⇒ [<code>Promise.&lt;Board&gt;</code>](#Board)
+    * [.replaceBoard(id, board)](#Boards+replaceBoard) ⇒ [<code>Promise.&lt;Board&gt;</code>](#Board)
 
 <a name="new_Boards_new"></a>
 
@@ -1964,36 +1966,36 @@ PUT
 
 | Param | Type |
 | --- | --- |
-| options | <code>[CWOptions](#CWOptions)</code> | 
+| options | [<code>CWOptions</code>](#CWOptions) | 
 
 <a name="Boards+getBoards"></a>
 
 ### boards.getBoards(params) ⇒ <code>Promise.&lt;Array.&lt;Board&gt;&gt;</code>
 GET
 
-**Kind**: instance method of <code>[Boards](#Boards)</code>  
+**Kind**: instance method of [<code>Boards</code>](#Boards)  
 
 | Param | Type |
 | --- | --- |
-| params | <code>[Params](#Params)</code> | 
+| params | [<code>Params</code>](#Params) | 
 
 <a name="Boards+createBoard"></a>
 
 ### boards.createBoard(board) ⇒ <code>Promise.&lt;Array.&lt;Board&gt;&gt;</code>
 POST
 
-**Kind**: instance method of <code>[Boards](#Boards)</code>  
+**Kind**: instance method of [<code>Boards</code>](#Boards)  
 
 | Param | Type |
 | --- | --- |
-| board | <code>[Board](#Board)</code> | 
+| board | [<code>Board</code>](#Board) | 
 
 <a name="Boards+getBoardById"></a>
 
 ### boards.getBoardById(id) ⇒ <code>Promise.&lt;Array.&lt;Board&gt;&gt;</code>
 GET
 
-**Kind**: instance method of <code>[Boards](#Boards)</code>  
+**Kind**: instance method of [<code>Boards</code>](#Boards)  
 
 | Param |
 | --- |
@@ -2001,36 +2003,36 @@ GET
 
 <a name="Boards+getBoardsCount"></a>
 
-### boards.getBoardsCount(params) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
+### boards.getBoardsCount(params) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
 GET
 
-**Kind**: instance method of <code>[Boards](#Boards)</code>  
+**Kind**: instance method of [<code>Boards</code>](#Boards)  
 
 | Param | Type |
 | --- | --- |
-| params | <code>[ParamsConditions](#ParamsConditions)</code> | 
+| params | [<code>ParamsConditions</code>](#ParamsConditions) | 
 
 <a name="Boards+updateBoard"></a>
 
-### boards.updateBoard(id, ops) ⇒ <code>[Promise.&lt;Board&gt;](#Board)</code>
+### boards.updateBoard(id, ops) ⇒ [<code>Promise.&lt;Board&gt;</code>](#Board)
 PATCH
 
-**Kind**: instance method of <code>[Boards](#Boards)</code>  
+**Kind**: instance method of [<code>Boards</code>](#Boards)  
 
 | Param | Type |
 | --- | --- |
 | id |  | 
-| ops | <code>[Operations](#Operations)</code> | 
+| ops | [<code>Operations</code>](#Operations) | 
 
 <a name="Boards+replaceBoard"></a>
 
-### boards.replaceBoard(id, board) ⇒ <code>[Promise.&lt;Board&gt;](#Board)</code>
-**Kind**: instance method of <code>[Boards](#Boards)</code>  
+### boards.replaceBoard(id, board) ⇒ [<code>Promise.&lt;Board&gt;</code>](#Board)
+**Kind**: instance method of [<code>Boards</code>](#Boards)  
 
 | Param | Type |
 | --- | --- |
 | id |  | 
-| board | <code>[Board](#Board)</code> | 
+| board | [<code>Board</code>](#Board) | 
 
 <a name="BoardTeams"></a>
 
@@ -2040,12 +2042,12 @@ PATCH
 * [BoardTeams](#BoardTeams)
     * [new BoardTeams(options)](#new_BoardTeams_new)
     * [.getBoardTeams(boardId, params)](#BoardTeams+getBoardTeams) ⇒ <code>Promise.&lt;Array.&lt;BoardTeam&gt;&gt;</code>
-    * [.createBoardTeam(boardId, team)](#BoardTeams+createBoardTeam) ⇒ <code>[Promise.&lt;BoardTeam&gt;](#BoardTeam)</code>
-    * [.getBoardTeamsCount(boardId, params)](#BoardTeams+getBoardTeamsCount) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
-    * [.deleteBoardTeamById(boardId, teamId)](#BoardTeams+deleteBoardTeamById) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
-    * [.getBoardTeamById(boardId, teamId)](#BoardTeams+getBoardTeamById) ⇒ <code>[Promise.&lt;BoardTeam&gt;](#BoardTeam)</code>
-    * [.updateBoardTeamById(boardId, teamId, operations)](#BoardTeams+updateBoardTeamById) ⇒ <code>[Promise.&lt;BoardTeam&gt;](#BoardTeam)</code>
-    * [.replaceBoardTeamById(boardId, teamId, team)](#BoardTeams+replaceBoardTeamById) ⇒ <code>[Promise.&lt;BoardTeam&gt;](#BoardTeam)</code>
+    * [.createBoardTeam(boardId, team)](#BoardTeams+createBoardTeam) ⇒ [<code>Promise.&lt;BoardTeam&gt;</code>](#BoardTeam)
+    * [.getBoardTeamsCount(boardId, params)](#BoardTeams+getBoardTeamsCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+    * [.deleteBoardTeamById(boardId, teamId)](#BoardTeams+deleteBoardTeamById) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+    * [.getBoardTeamById(boardId, teamId)](#BoardTeams+getBoardTeamById) ⇒ [<code>Promise.&lt;BoardTeam&gt;</code>](#BoardTeam)
+    * [.updateBoardTeamById(boardId, teamId, operations)](#BoardTeams+updateBoardTeamById) ⇒ [<code>Promise.&lt;BoardTeam&gt;</code>](#BoardTeam)
+    * [.replaceBoardTeamById(boardId, teamId, team)](#BoardTeams+replaceBoardTeamById) ⇒ [<code>Promise.&lt;BoardTeam&gt;</code>](#BoardTeam)
 
 <a name="new_BoardTeams_new"></a>
 
@@ -2053,50 +2055,50 @@ PATCH
 
 | Param | Type |
 | --- | --- |
-| options | <code>[CWOptions](#CWOptions)</code> | 
+| options | [<code>CWOptions</code>](#CWOptions) | 
 
 <a name="BoardTeams+getBoardTeams"></a>
 
 ### boardTeams.getBoardTeams(boardId, params) ⇒ <code>Promise.&lt;Array.&lt;BoardTeam&gt;&gt;</code>
 GET
 
-**Kind**: instance method of <code>[BoardTeams](#BoardTeams)</code>  
+**Kind**: instance method of [<code>BoardTeams</code>](#BoardTeams)  
 
 | Param | Type |
 | --- | --- |
 | boardId |  | 
-| params | <code>[Params](#Params)</code> | 
+| params | [<code>Params</code>](#Params) | 
 
 <a name="BoardTeams+createBoardTeam"></a>
 
-### boardTeams.createBoardTeam(boardId, team) ⇒ <code>[Promise.&lt;BoardTeam&gt;](#BoardTeam)</code>
+### boardTeams.createBoardTeam(boardId, team) ⇒ [<code>Promise.&lt;BoardTeam&gt;</code>](#BoardTeam)
 POST
 
-**Kind**: instance method of <code>[BoardTeams](#BoardTeams)</code>  
+**Kind**: instance method of [<code>BoardTeams</code>](#BoardTeams)  
 
 | Param | Type |
 | --- | --- |
 | boardId |  | 
-| team | <code>[BoardTeam](#BoardTeam)</code> | 
+| team | [<code>BoardTeam</code>](#BoardTeam) | 
 
 <a name="BoardTeams+getBoardTeamsCount"></a>
 
-### boardTeams.getBoardTeamsCount(boardId, params) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
+### boardTeams.getBoardTeamsCount(boardId, params) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
 GET
 
-**Kind**: instance method of <code>[BoardTeams](#BoardTeams)</code>  
+**Kind**: instance method of [<code>BoardTeams</code>](#BoardTeams)  
 
 | Param | Type |
 | --- | --- |
 | boardId |  | 
-| params | <code>[Params](#Params)</code> | 
+| params | [<code>Params</code>](#Params) | 
 
 <a name="BoardTeams+deleteBoardTeamById"></a>
 
-### boardTeams.deleteBoardTeamById(boardId, teamId) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
+### boardTeams.deleteBoardTeamById(boardId, teamId) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
 DELETE
 
-**Kind**: instance method of <code>[BoardTeams](#BoardTeams)</code>  
+**Kind**: instance method of [<code>BoardTeams</code>](#BoardTeams)  
 
 | Param |
 | --- |
@@ -2105,10 +2107,10 @@ DELETE
 
 <a name="BoardTeams+getBoardTeamById"></a>
 
-### boardTeams.getBoardTeamById(boardId, teamId) ⇒ <code>[Promise.&lt;BoardTeam&gt;](#BoardTeam)</code>
+### boardTeams.getBoardTeamById(boardId, teamId) ⇒ [<code>Promise.&lt;BoardTeam&gt;</code>](#BoardTeam)
 GET
 
-**Kind**: instance method of <code>[BoardTeams](#BoardTeams)</code>  
+**Kind**: instance method of [<code>BoardTeams</code>](#BoardTeams)  
 
 | Param |
 | --- |
@@ -2117,29 +2119,29 @@ GET
 
 <a name="BoardTeams+updateBoardTeamById"></a>
 
-### boardTeams.updateBoardTeamById(boardId, teamId, operations) ⇒ <code>[Promise.&lt;BoardTeam&gt;](#BoardTeam)</code>
+### boardTeams.updateBoardTeamById(boardId, teamId, operations) ⇒ [<code>Promise.&lt;BoardTeam&gt;</code>](#BoardTeam)
 PATCH
 
-**Kind**: instance method of <code>[BoardTeams](#BoardTeams)</code>  
+**Kind**: instance method of [<code>BoardTeams</code>](#BoardTeams)  
 
 | Param | Type |
 | --- | --- |
 | boardId |  | 
 | teamId |  | 
-| operations | <code>[Array.&lt;Operations&gt;](#Operations)</code> | 
+| operations | [<code>Array.&lt;Operations&gt;</code>](#Operations) | 
 
 <a name="BoardTeams+replaceBoardTeamById"></a>
 
-### boardTeams.replaceBoardTeamById(boardId, teamId, team) ⇒ <code>[Promise.&lt;BoardTeam&gt;](#BoardTeam)</code>
+### boardTeams.replaceBoardTeamById(boardId, teamId, team) ⇒ [<code>Promise.&lt;BoardTeam&gt;</code>](#BoardTeam)
 PUT
 
-**Kind**: instance method of <code>[BoardTeams](#BoardTeams)</code>  
+**Kind**: instance method of [<code>BoardTeams</code>](#BoardTeams)  
 
 | Param | Type |
 | --- | --- |
 | boardId |  | 
 | teamId |  | 
-| team | <code>[BoardTeam](#BoardTeam)</code> | 
+| team | [<code>BoardTeam</code>](#BoardTeam) | 
 
 <a name="ServiceDeskAPI"></a>
 
@@ -2151,7 +2153,7 @@ PUT
 
 | Param | Type |
 | --- | --- |
-| options | <code>[CWOptions](#CWOptions)</code> | 
+| options | [<code>CWOptions</code>](#CWOptions) | 
 
 <a name="Priorities"></a>
 
@@ -2168,16 +2170,16 @@ PUT
 
 | Param | Type |
 | --- | --- |
-| options | <code>[CWOptions](#CWOptions)</code> | 
+| options | [<code>CWOptions</code>](#CWOptions) | 
 
 <a name="Priorities+getPriorities"></a>
 
 ### priorities.getPriorities(params) ⇒ <code>Promise.&lt;Array.&lt;Priority&gt;&gt;</code>
-**Kind**: instance method of <code>[Priorities](#Priorities)</code>  
+**Kind**: instance method of [<code>Priorities</code>](#Priorities)  
 
 | Param | Type |
 | --- | --- |
-| params | <code>[Params](#Params)</code> | 
+| params | [<code>Params</code>](#Params) | 
 
 <a name="ServiceNotes"></a>
 
@@ -2187,16 +2189,16 @@ PUT
 * [ServiceNotes](#ServiceNotes)
     * [new ServiceNotes(options)](#new_ServiceNotes_new)
     * [.getServiceNotes(ticketId, params)](#ServiceNotes+getServiceNotes) ⇒ <code>Promise.&lt;Array.&lt;ServiceNote&gt;&gt;</code>
-    * [.createServiceNote(ticketId, note)](#ServiceNotes+createServiceNote) ⇒ <code>[Promise.&lt;ServiceNote&gt;](#ServiceNote)</code>
-    * [.getServiceNotesCount(ticketId, params)](#ServiceNotes+getServiceNotesCount) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
-    * [.deleteServiceNoteById(ticketId, noteId)](#ServiceNotes+deleteServiceNoteById) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
-    * [.getServiceNoteById(ticketId, noteId)](#ServiceNotes+getServiceNoteById) ⇒ <code>[Promise.&lt;ServiceNote&gt;](#ServiceNote)</code>
-    * [.updateServiceNote(ticketId, noteId, note)](#ServiceNotes+updateServiceNote) ⇒ <code>[Promise.&lt;ServiceNote&gt;](#ServiceNote)</code>
-    * [.replaceServiceNote(ticketId, noteId, note)](#ServiceNotes+replaceServiceNote) ⇒ <code>[Promise.&lt;ServiceNote&gt;](#ServiceNote)</code>
-    * [.createServiceNoteInternal(ticketId, text)](#ServiceNotes+createServiceNoteInternal) ⇒ <code>[Promise.&lt;ServiceNote&gt;](#ServiceNote)</code>
-    * [.createServiceNoteDetail(ticketId, text)](#ServiceNotes+createServiceNoteDetail) ⇒ <code>[Promise.&lt;ServiceNote&gt;](#ServiceNote)</code>
-    * [.createServiceNoteResolution(ticketId, text)](#ServiceNotes+createServiceNoteResolution) ⇒ <code>[Promise.&lt;ServiceNote&gt;](#ServiceNote)</code>
-    * [.createServiceNoteDetailAndResolution(ticketId, text)](#ServiceNotes+createServiceNoteDetailAndResolution) ⇒ <code>[Promise.&lt;ServiceNote&gt;](#ServiceNote)</code>
+    * [.createServiceNote(ticketId, note)](#ServiceNotes+createServiceNote) ⇒ [<code>Promise.&lt;ServiceNote&gt;</code>](#ServiceNote)
+    * [.getServiceNotesCount(ticketId, params)](#ServiceNotes+getServiceNotesCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+    * [.deleteServiceNoteById(ticketId, noteId)](#ServiceNotes+deleteServiceNoteById) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+    * [.getServiceNoteById(ticketId, noteId)](#ServiceNotes+getServiceNoteById) ⇒ [<code>Promise.&lt;ServiceNote&gt;</code>](#ServiceNote)
+    * [.updateServiceNote(ticketId, noteId, note)](#ServiceNotes+updateServiceNote) ⇒ [<code>Promise.&lt;ServiceNote&gt;</code>](#ServiceNote)
+    * [.replaceServiceNote(ticketId, noteId, note)](#ServiceNotes+replaceServiceNote) ⇒ [<code>Promise.&lt;ServiceNote&gt;</code>](#ServiceNote)
+    * [.createServiceNoteInternal(ticketId, text)](#ServiceNotes+createServiceNoteInternal) ⇒ [<code>Promise.&lt;ServiceNote&gt;</code>](#ServiceNote)
+    * [.createServiceNoteDetail(ticketId, text)](#ServiceNotes+createServiceNoteDetail) ⇒ [<code>Promise.&lt;ServiceNote&gt;</code>](#ServiceNote)
+    * [.createServiceNoteResolution(ticketId, text)](#ServiceNotes+createServiceNoteResolution) ⇒ [<code>Promise.&lt;ServiceNote&gt;</code>](#ServiceNote)
+    * [.createServiceNoteDetailAndResolution(ticketId, text)](#ServiceNotes+createServiceNoteDetailAndResolution) ⇒ [<code>Promise.&lt;ServiceNote&gt;</code>](#ServiceNote)
 
 <a name="new_ServiceNotes_new"></a>
 
@@ -2204,48 +2206,48 @@ PUT
 
 | Param | Type |
 | --- | --- |
-| options | <code>[CWOptions](#CWOptions)</code> | 
+| options | [<code>CWOptions</code>](#CWOptions) | 
 
 <a name="ServiceNotes+getServiceNotes"></a>
 
 ### serviceNotes.getServiceNotes(ticketId, params) ⇒ <code>Promise.&lt;Array.&lt;ServiceNote&gt;&gt;</code>
 GET
 
-**Kind**: instance method of <code>[ServiceNotes](#ServiceNotes)</code>  
+**Kind**: instance method of [<code>ServiceNotes</code>](#ServiceNotes)  
 
 | Param | Type |
 | --- | --- |
 | ticketId |  | 
-| params | <code>[Params](#Params)</code> | 
+| params | [<code>Params</code>](#Params) | 
 
 <a name="ServiceNotes+createServiceNote"></a>
 
-### serviceNotes.createServiceNote(ticketId, note) ⇒ <code>[Promise.&lt;ServiceNote&gt;](#ServiceNote)</code>
+### serviceNotes.createServiceNote(ticketId, note) ⇒ [<code>Promise.&lt;ServiceNote&gt;</code>](#ServiceNote)
 POST
 
-**Kind**: instance method of <code>[ServiceNotes](#ServiceNotes)</code>  
+**Kind**: instance method of [<code>ServiceNotes</code>](#ServiceNotes)  
 
 | Param | Type |
 | --- | --- |
-| ticketId | <code>string</code> &#124; <code>number</code> | 
-| note | <code>[ServiceNote](#ServiceNote)</code> | 
+| ticketId | <code>string</code> \| <code>number</code> | 
+| note | [<code>ServiceNote</code>](#ServiceNote) | 
 
 <a name="ServiceNotes+getServiceNotesCount"></a>
 
-### serviceNotes.getServiceNotesCount(ticketId, params) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
+### serviceNotes.getServiceNotesCount(ticketId, params) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
 GET
 
-**Kind**: instance method of <code>[ServiceNotes](#ServiceNotes)</code>  
+**Kind**: instance method of [<code>ServiceNotes</code>](#ServiceNotes)  
 
 | Param | Type |
 | --- | --- |
 | ticketId |  | 
-| params | <code>[ParamsConditions](#ParamsConditions)</code> | 
+| params | [<code>ParamsConditions</code>](#ParamsConditions) | 
 
 <a name="ServiceNotes+deleteServiceNoteById"></a>
 
-### serviceNotes.deleteServiceNoteById(ticketId, noteId) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
-**Kind**: instance method of <code>[ServiceNotes](#ServiceNotes)</code>  
+### serviceNotes.deleteServiceNoteById(ticketId, noteId) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+**Kind**: instance method of [<code>ServiceNotes</code>](#ServiceNotes)  
 
 | Param |
 | --- |
@@ -2254,8 +2256,8 @@ GET
 
 <a name="ServiceNotes+getServiceNoteById"></a>
 
-### serviceNotes.getServiceNoteById(ticketId, noteId) ⇒ <code>[Promise.&lt;ServiceNote&gt;](#ServiceNote)</code>
-**Kind**: instance method of <code>[ServiceNotes](#ServiceNotes)</code>  
+### serviceNotes.getServiceNoteById(ticketId, noteId) ⇒ [<code>Promise.&lt;ServiceNote&gt;</code>](#ServiceNote)
+**Kind**: instance method of [<code>ServiceNotes</code>](#ServiceNotes)  
 
 | Param |
 | --- |
@@ -2264,81 +2266,81 @@ GET
 
 <a name="ServiceNotes+updateServiceNote"></a>
 
-### serviceNotes.updateServiceNote(ticketId, noteId, note) ⇒ <code>[Promise.&lt;ServiceNote&gt;](#ServiceNote)</code>
-**Kind**: instance method of <code>[ServiceNotes](#ServiceNotes)</code>  
+### serviceNotes.updateServiceNote(ticketId, noteId, note) ⇒ [<code>Promise.&lt;ServiceNote&gt;</code>](#ServiceNote)
+**Kind**: instance method of [<code>ServiceNotes</code>](#ServiceNotes)  
 
 | Param | Type |
 | --- | --- |
 | ticketId |  | 
 | noteId |  | 
-| note | <code>[ServiceNote](#ServiceNote)</code> | 
+| note | [<code>ServiceNote</code>](#ServiceNote) | 
 
 <a name="ServiceNotes+replaceServiceNote"></a>
 
-### serviceNotes.replaceServiceNote(ticketId, noteId, note) ⇒ <code>[Promise.&lt;ServiceNote&gt;](#ServiceNote)</code>
-**Kind**: instance method of <code>[ServiceNotes](#ServiceNotes)</code>  
+### serviceNotes.replaceServiceNote(ticketId, noteId, note) ⇒ [<code>Promise.&lt;ServiceNote&gt;</code>](#ServiceNote)
+**Kind**: instance method of [<code>ServiceNotes</code>](#ServiceNotes)  
 
 | Param | Type |
 | --- | --- |
 | ticketId |  | 
 | noteId |  | 
-| note | <code>[ServiceNote](#ServiceNote)</code> | 
+| note | [<code>ServiceNote</code>](#ServiceNote) | 
 
 <a name="ServiceNotes+createServiceNoteInternal"></a>
 
-### serviceNotes.createServiceNoteInternal(ticketId, text) ⇒ <code>[Promise.&lt;ServiceNote&gt;](#ServiceNote)</code>
-**Kind**: instance method of <code>[ServiceNotes](#ServiceNotes)</code>  
+### serviceNotes.createServiceNoteInternal(ticketId, text) ⇒ [<code>Promise.&lt;ServiceNote&gt;</code>](#ServiceNote)
+**Kind**: instance method of [<code>ServiceNotes</code>](#ServiceNotes)  
 
 | Param | Type |
 | --- | --- |
-| ticketId | <code>string</code> &#124; <code>number</code> | 
+| ticketId | <code>string</code> \| <code>number</code> | 
 | text | <code>string</code> | 
 
 <a name="ServiceNotes+createServiceNoteDetail"></a>
 
-### serviceNotes.createServiceNoteDetail(ticketId, text) ⇒ <code>[Promise.&lt;ServiceNote&gt;](#ServiceNote)</code>
-**Kind**: instance method of <code>[ServiceNotes](#ServiceNotes)</code>  
+### serviceNotes.createServiceNoteDetail(ticketId, text) ⇒ [<code>Promise.&lt;ServiceNote&gt;</code>](#ServiceNote)
+**Kind**: instance method of [<code>ServiceNotes</code>](#ServiceNotes)  
 
 | Param | Type |
 | --- | --- |
-| ticketId | <code>string</code> &#124; <code>number</code> | 
+| ticketId | <code>string</code> \| <code>number</code> | 
 | text | <code>string</code> | 
 
 <a name="ServiceNotes+createServiceNoteResolution"></a>
 
-### serviceNotes.createServiceNoteResolution(ticketId, text) ⇒ <code>[Promise.&lt;ServiceNote&gt;](#ServiceNote)</code>
-**Kind**: instance method of <code>[ServiceNotes](#ServiceNotes)</code>  
+### serviceNotes.createServiceNoteResolution(ticketId, text) ⇒ [<code>Promise.&lt;ServiceNote&gt;</code>](#ServiceNote)
+**Kind**: instance method of [<code>ServiceNotes</code>](#ServiceNotes)  
 
 | Param | Type |
 | --- | --- |
-| ticketId | <code>string</code> &#124; <code>number</code> | 
+| ticketId | <code>string</code> \| <code>number</code> | 
 | text | <code>string</code> | 
 
 <a name="ServiceNotes+createServiceNoteDetailAndResolution"></a>
 
-### serviceNotes.createServiceNoteDetailAndResolution(ticketId, text) ⇒ <code>[Promise.&lt;ServiceNote&gt;](#ServiceNote)</code>
-**Kind**: instance method of <code>[ServiceNotes](#ServiceNotes)</code>  
+### serviceNotes.createServiceNoteDetailAndResolution(ticketId, text) ⇒ [<code>Promise.&lt;ServiceNote&gt;</code>](#ServiceNote)
+**Kind**: instance method of [<code>ServiceNotes</code>](#ServiceNotes)  
 
 | Param | Type |
 | --- | --- |
-| ticketId | <code>string</code> &#124; <code>number</code> | 
+| ticketId | <code>string</code> \| <code>number</code> | 
 | text | <code>string</code> | 
 
 <a name="Statuses"></a>
 
 ## Statuses
 **Kind**: global class  
-**Inherits**: <code>[ConnectWise](#ConnectWise)</code>  
+**Inherits**: [<code>ConnectWise</code>](#ConnectWise)  
 
 * [Statuses](#Statuses)
     * [new Statuses(options)](#new_Statuses_new)
     * [.getStatusesByBoardId(boardId, params)](#Statuses+getStatusesByBoardId) ⇒ <code>Promise.&lt;Array.&lt;Status&gt;&gt;</code>
-    * [.createStatuses(boardId, status)](#Statuses+createStatuses) ⇒ <code>[Promise.&lt;Status&gt;](#Status)</code>
-    * [.getStatusesCount(boardId)](#Statuses+getStatusesCount) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
-    * [.deleteStatusById(boardId, statusId)](#Statuses+deleteStatusById) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
-    * [.getStatusById(boardId, statusId)](#Statuses+getStatusById) ⇒ <code>[Promise.&lt;Status&gt;](#Status)</code>
-    * [.updateStatus(boardId, statusId, operations)](#Statuses+updateStatus) ⇒ <code>[Promise.&lt;Status&gt;](#Status)</code>
-    * [.replaceStatuses(boardId, statusId, status)](#Statuses+replaceStatuses) ⇒ <code>[Promise.&lt;Status&gt;](#Status)</code>
+    * [.createStatuses(boardId, status)](#Statuses+createStatuses) ⇒ [<code>Promise.&lt;Status&gt;</code>](#Status)
+    * [.getStatusesCount(boardId)](#Statuses+getStatusesCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+    * [.deleteStatusById(boardId, statusId)](#Statuses+deleteStatusById) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+    * [.getStatusById(boardId, statusId)](#Statuses+getStatusById) ⇒ [<code>Promise.&lt;Status&gt;</code>](#Status)
+    * [.updateStatus(boardId, statusId, operations)](#Statuses+updateStatus) ⇒ [<code>Promise.&lt;Status&gt;</code>](#Status)
+    * [.replaceStatuses(boardId, statusId, status)](#Statuses+replaceStatuses) ⇒ [<code>Promise.&lt;Status&gt;</code>](#Status)
 
 <a name="new_Statuses_new"></a>
 
@@ -2346,32 +2348,32 @@ GET
 
 | Param | Type |
 | --- | --- |
-| options | <code>[CWOptions](#CWOptions)</code> | 
+| options | [<code>CWOptions</code>](#CWOptions) | 
 
 <a name="Statuses+getStatusesByBoardId"></a>
 
 ### statuses.getStatusesByBoardId(boardId, params) ⇒ <code>Promise.&lt;Array.&lt;Status&gt;&gt;</code>
-**Kind**: instance method of <code>[Statuses](#Statuses)</code>  
+**Kind**: instance method of [<code>Statuses</code>](#Statuses)  
 
 | Param | Type |
 | --- | --- |
 | boardId |  | 
-| params | <code>[Params](#Params)</code> | 
+| params | [<code>Params</code>](#Params) | 
 
 <a name="Statuses+createStatuses"></a>
 
-### statuses.createStatuses(boardId, status) ⇒ <code>[Promise.&lt;Status&gt;](#Status)</code>
-**Kind**: instance method of <code>[Statuses](#Statuses)</code>  
+### statuses.createStatuses(boardId, status) ⇒ [<code>Promise.&lt;Status&gt;</code>](#Status)
+**Kind**: instance method of [<code>Statuses</code>](#Statuses)  
 
 | Param | Type |
 | --- | --- |
 | boardId |  | 
-| status | <code>[Status](#Status)</code> | 
+| status | [<code>Status</code>](#Status) | 
 
 <a name="Statuses+getStatusesCount"></a>
 
-### statuses.getStatusesCount(boardId) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
-**Kind**: instance method of <code>[Statuses](#Statuses)</code>  
+### statuses.getStatusesCount(boardId) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+**Kind**: instance method of [<code>Statuses</code>](#Statuses)  
 
 | Param |
 | --- |
@@ -2379,8 +2381,8 @@ GET
 
 <a name="Statuses+deleteStatusById"></a>
 
-### statuses.deleteStatusById(boardId, statusId) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
-**Kind**: instance method of <code>[Statuses](#Statuses)</code>  
+### statuses.deleteStatusById(boardId, statusId) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+**Kind**: instance method of [<code>Statuses</code>](#Statuses)  
 
 | Param |
 | --- |
@@ -2389,8 +2391,8 @@ GET
 
 <a name="Statuses+getStatusById"></a>
 
-### statuses.getStatusById(boardId, statusId) ⇒ <code>[Promise.&lt;Status&gt;](#Status)</code>
-**Kind**: instance method of <code>[Statuses](#Statuses)</code>  
+### statuses.getStatusById(boardId, statusId) ⇒ [<code>Promise.&lt;Status&gt;</code>](#Status)
+**Kind**: instance method of [<code>Statuses</code>](#Statuses)  
 
 | Param |
 | --- |
@@ -2399,25 +2401,25 @@ GET
 
 <a name="Statuses+updateStatus"></a>
 
-### statuses.updateStatus(boardId, statusId, operations) ⇒ <code>[Promise.&lt;Status&gt;](#Status)</code>
-**Kind**: instance method of <code>[Statuses](#Statuses)</code>  
+### statuses.updateStatus(boardId, statusId, operations) ⇒ [<code>Promise.&lt;Status&gt;</code>](#Status)
+**Kind**: instance method of [<code>Statuses</code>](#Statuses)  
 
 | Param | Type |
 | --- | --- |
 | boardId |  | 
 | statusId |  | 
-| operations | <code>[Operations](#Operations)</code> | 
+| operations | [<code>Operations</code>](#Operations) | 
 
 <a name="Statuses+replaceStatuses"></a>
 
-### statuses.replaceStatuses(boardId, statusId, status) ⇒ <code>[Promise.&lt;Status&gt;](#Status)</code>
-**Kind**: instance method of <code>[Statuses](#Statuses)</code>  
+### statuses.replaceStatuses(boardId, statusId, status) ⇒ [<code>Promise.&lt;Status&gt;</code>](#Status)
+**Kind**: instance method of [<code>Statuses</code>](#Statuses)  
 
 | Param | Type |
 | --- | --- |
 | boardId |  | 
 | statusId |  | 
-| status | <code>[Status](#Status)</code> | 
+| status | [<code>Status</code>](#Status) | 
 
 <a name="Tickets"></a>
 
@@ -2427,36 +2429,36 @@ GET
 * [Tickets](#Tickets)
     * [new Tickets(options)](#new_Tickets_new)
     * [.getTickets(params)](#Tickets+getTickets) ⇒ <code>Promise.&lt;Array.&lt;Ticket&gt;&gt;</code>
-    * [.getTicketById(id)](#Tickets+getTicketById) ⇒ <code>[Promise.&lt;Ticket&gt;](#Ticket)</code>
-    * [.createTicket(ticket)](#Tickets+createTicket) ⇒ <code>[Promise.&lt;Ticket&gt;](#Ticket)</code>
-    * [.updateTicket(id, operations)](#Tickets+updateTicket) ⇒ <code>[Promise.&lt;Ticket&gt;](#Ticket)</code>
-    * [.getTicketsCount(params)](#Tickets+getTicketsCount) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
-    * [.deleteTicketsById(id)](#Tickets+deleteTicketsById) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
-    * [.replaceTicket(id, ticket)](#Tickets+replaceTicket) ⇒ <code>[Promise.&lt;Ticket&gt;](#Ticket)</code>
+    * [.getTicketById(id)](#Tickets+getTicketById) ⇒ [<code>Promise.&lt;Ticket&gt;</code>](#Ticket)
+    * [.createTicket(ticket)](#Tickets+createTicket) ⇒ [<code>Promise.&lt;Ticket&gt;</code>](#Ticket)
+    * [.updateTicket(id, operations)](#Tickets+updateTicket) ⇒ [<code>Promise.&lt;Ticket&gt;</code>](#Ticket)
+    * [.getTicketsCount(params)](#Tickets+getTicketsCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+    * [.deleteTicketsById(id)](#Tickets+deleteTicketsById) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+    * [.replaceTicket(id, ticket)](#Tickets+replaceTicket) ⇒ [<code>Promise.&lt;Ticket&gt;</code>](#Ticket)
     * [.getTicketActivities(id, [params])](#Tickets+getTicketActivities) ⇒ <code>Promise.&lt;Array.&lt;Activity&gt;&gt;</code>
-    * [.getTicketActivitiesCount(id)](#Tickets+getTicketActivitiesCount) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
+    * [.getTicketActivitiesCount(id)](#Tickets+getTicketActivitiesCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
     * [.getTicketTimeEntries(id, params)](#Tickets+getTicketTimeEntries) ⇒ <code>Promise.&lt;Array.&lt;TimeEntry&gt;&gt;</code>
-    * [.getTicketTimeEntriesCount(id)](#Tickets+getTicketTimeEntriesCount) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
-    * [.createConfigurationAssociation(id, configId)](#Tickets+createConfigurationAssociation) ⇒ <code>[Promise.&lt;ConfigurationHref&gt;](#ConfigurationHref)</code>
+    * [.getTicketTimeEntriesCount(id)](#Tickets+getTicketTimeEntriesCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+    * [.createConfigurationAssociation(id, configId)](#Tickets+createConfigurationAssociation) ⇒ [<code>Promise.&lt;ConfigurationHref&gt;</code>](#ConfigurationHref)
     * [.getTicketConfigurations(id)](#Tickets+getTicketConfigurations) ⇒ <code>Promise.&lt;Array.&lt;ConfigurationHref&gt;&gt;</code>
-    * [.getTicketConfigurationsCount(id)](#Tickets+getTicketConfigurationsCount) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
-    * [.deleteConfigurationAssociation(id, configId)](#Tickets+deleteConfigurationAssociation) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
-    * [.getConfigurationAssociation(id, configId)](#Tickets+getConfigurationAssociation) ⇒ <code>[Promise.&lt;ConfigurationHref&gt;](#ConfigurationHref)</code>
+    * [.getTicketConfigurationsCount(id)](#Tickets+getTicketConfigurationsCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+    * [.deleteConfigurationAssociation(id, configId)](#Tickets+deleteConfigurationAssociation) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+    * [.getConfigurationAssociation(id, configId)](#Tickets+getConfigurationAssociation) ⇒ [<code>Promise.&lt;ConfigurationHref&gt;</code>](#ConfigurationHref)
     * [.getTicketScheduleEntries(id, [params])](#Tickets+getTicketScheduleEntries) ⇒ <code>Promise.&lt;Array.&lt;ScheduleEntryHref&gt;&gt;</code>
-    * [.getTicketScheduleEntriesCount(id)](#Tickets+getTicketScheduleEntriesCount) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
+    * [.getTicketScheduleEntriesCount(id)](#Tickets+getTicketScheduleEntriesCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
     * [.getTicketDocuments(id, [params])](#Tickets+getTicketDocuments) ⇒ <code>Promise.&lt;Array.&lt;DocumentHref&gt;&gt;</code>
-    * [.getTicketDocumentsCount(id)](#Tickets+getTicketDocumentsCount) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
+    * [.getTicketDocumentsCount(id)](#Tickets+getTicketDocumentsCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
     * [.getTicketProducts(id)](#Tickets+getTicketProducts) ⇒ <code>Promise.&lt;Array.&lt;ProductHref&gt;&gt;</code>
-    * [.getTicketProductsCount(id)](#Tickets+getTicketProductsCount) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
+    * [.getTicketProductsCount(id)](#Tickets+getTicketProductsCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
     * [.updateTicketStatusByName(id, status)](#Tickets+updateTicketStatusByName) ⇒ <code>Promise.&lt;Array.&lt;Ticket&gt;&gt;</code>
-    * [.updateTicketPriority(id, priority)](#Tickets+updateTicketPriority) ⇒ <code>[Promise.&lt;Ticket&gt;](#Ticket)</code>
-    * [.updateTicketServiceType(id, serviceType)](#Tickets+updateTicketServiceType) ⇒ <code>[Promise.&lt;Ticket&gt;](#Ticket)</code>
-    * [.updateTicketServiceSubType(id, serviceSubType)](#Tickets+updateTicketServiceSubType) ⇒ <code>[Promise.&lt;Ticket&gt;](#Ticket)</code>
-    * [.updateTicketTypeSubTypeItem(id, type, subtype, item)](#Tickets+updateTicketTypeSubTypeItem) ⇒ <code>[Promise.&lt;Ticket&gt;](#Ticket)</code>
-    * [.updateTicketServiceItem(id, serviceItem)](#Tickets+updateTicketServiceItem) ⇒ <code>[Promise.&lt;Ticket&gt;](#Ticket)</code>
-    * [.updateTicketCustomFieldByIndex(id, index, value)](#Tickets+updateTicketCustomFieldByIndex) ⇒ <code>[Promise.&lt;Ticket&gt;](#Ticket)</code>
-    * [.updateTicketCustomFieldById(id, customFieldId, value)](#Tickets+updateTicketCustomFieldById) ⇒ <code>[Promise.&lt;Ticket&gt;](#Ticket)</code>
-    * [.updateTicketCustomFieldByCaption(id, caption, value)](#Tickets+updateTicketCustomFieldByCaption) ⇒ <code>[Promise.&lt;Ticket&gt;](#Ticket)</code>
+    * [.updateTicketPriority(id, priority)](#Tickets+updateTicketPriority) ⇒ [<code>Promise.&lt;Ticket&gt;</code>](#Ticket)
+    * [.updateTicketServiceType(id, serviceType)](#Tickets+updateTicketServiceType) ⇒ [<code>Promise.&lt;Ticket&gt;</code>](#Ticket)
+    * [.updateTicketServiceSubType(id, serviceSubType)](#Tickets+updateTicketServiceSubType) ⇒ [<code>Promise.&lt;Ticket&gt;</code>](#Ticket)
+    * [.updateTicketTypeSubTypeItem(id, type, subtype, item)](#Tickets+updateTicketTypeSubTypeItem) ⇒ [<code>Promise.&lt;Ticket&gt;</code>](#Ticket)
+    * [.updateTicketServiceItem(id, serviceItem)](#Tickets+updateTicketServiceItem) ⇒ [<code>Promise.&lt;Ticket&gt;</code>](#Ticket)
+    * [.updateTicketCustomFieldByIndex(id, index, value)](#Tickets+updateTicketCustomFieldByIndex) ⇒ [<code>Promise.&lt;Ticket&gt;</code>](#Ticket)
+    * [.updateTicketCustomFieldById(id, customFieldId, value)](#Tickets+updateTicketCustomFieldById) ⇒ [<code>Promise.&lt;Ticket&gt;</code>](#Ticket)
+    * [.updateTicketCustomFieldByCaption(id, caption, value)](#Tickets+updateTicketCustomFieldByCaption) ⇒ [<code>Promise.&lt;Ticket&gt;</code>](#Ticket)
 
 <a name="new_Tickets_new"></a>
 
@@ -2464,41 +2466,41 @@ GET
 
 | Param | Type |
 | --- | --- |
-| options | <code>[CWOptions](#CWOptions)</code> | 
+| options | [<code>CWOptions</code>](#CWOptions) | 
 
 <a name="Tickets+getTickets"></a>
 
 ### tickets.getTickets(params) ⇒ <code>Promise.&lt;Array.&lt;Ticket&gt;&gt;</code>
 GET
 
-**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
+**Kind**: instance method of [<code>Tickets</code>](#Tickets)  
 
 | Param | Type |
 | --- | --- |
-| params | <code>[Params](#Params)</code> | 
+| params | [<code>Params</code>](#Params) | 
 
 <a name="Tickets+getTicketById"></a>
 
-### tickets.getTicketById(id) ⇒ <code>[Promise.&lt;Ticket&gt;](#Ticket)</code>
+### tickets.getTicketById(id) ⇒ [<code>Promise.&lt;Ticket&gt;</code>](#Ticket)
 GET
 
-**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
+**Kind**: instance method of [<code>Tickets</code>](#Tickets)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| id | <code>string</code> &#124; <code>number</code> | ticketNbr |
+| id | <code>string</code> \| <code>number</code> | ticketNbr |
 
 <a name="Tickets+createTicket"></a>
 
-### tickets.createTicket(ticket) ⇒ <code>[Promise.&lt;Ticket&gt;](#Ticket)</code>
+### tickets.createTicket(ticket) ⇒ [<code>Promise.&lt;Ticket&gt;</code>](#Ticket)
 POST
 
-**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
-**Returns**: <code>[Promise.&lt;Ticket&gt;](#Ticket)</code> - The created ticket, or errors if any occured  
+**Kind**: instance method of [<code>Tickets</code>](#Tickets)  
+**Returns**: [<code>Promise.&lt;Ticket&gt;</code>](#Ticket) - The created ticket, or errors if any occured  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| ticket | <code>object</code> &#124; <code>[Ticket](#Ticket)</code> | the new ticket data |
+| ticket | <code>object</code> \| [<code>Ticket</code>](#Ticket) | the new ticket data |
 | ticket.board | <code>object</code> |  |
 | ticket.board.name | <code>string</code> |  |
 | ticket.company | <code>object</code> |  |
@@ -2508,122 +2510,122 @@ POST
 
 <a name="Tickets+updateTicket"></a>
 
-### tickets.updateTicket(id, operations) ⇒ <code>[Promise.&lt;Ticket&gt;](#Ticket)</code>
+### tickets.updateTicket(id, operations) ⇒ [<code>Promise.&lt;Ticket&gt;</code>](#Ticket)
 PATCH
 
-**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
-**Returns**: <code>[Promise.&lt;Ticket&gt;](#Ticket)</code> - The updated ticket  
+**Kind**: instance method of [<code>Tickets</code>](#Tickets)  
+**Returns**: [<code>Promise.&lt;Ticket&gt;</code>](#Ticket) - The updated ticket  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | id | <code>number</code> |  |
-| operations | <code>[Array.&lt;Operations&gt;](#Operations)</code> |  |
+| operations | [<code>Array.&lt;Operations&gt;</code>](#Operations) |  |
 | operations.op | <code>string</code> | the operation to perform, possible values: ['replace', ?] |
 | operations.path | <code>string</code> |  |
-| operations.value | <code>string</code> &#124; <code>number</code> |  |
+| operations.value | <code>string</code> \| <code>number</code> |  |
 
 <a name="Tickets+getTicketsCount"></a>
 
-### tickets.getTicketsCount(params) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
+### tickets.getTicketsCount(params) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
 GET
 
-**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
-**Returns**: <code>[Promise.&lt;Count&gt;](#Count)</code> - The number of tickets matching the conditions  
+**Kind**: instance method of [<code>Tickets</code>](#Tickets)  
+**Returns**: [<code>Promise.&lt;Count&gt;</code>](#Count) - The number of tickets matching the conditions  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| params | <code>[ParamsConditions](#ParamsConditions)</code> |  |
+| params | [<code>ParamsConditions</code>](#ParamsConditions) |  |
 | [params.conditions] | <code>string</code> | Conditions string, e.g. 'Summary like "%blah%" AND board/name = "Service Board"' |
 
 <a name="Tickets+deleteTicketsById"></a>
 
-### tickets.deleteTicketsById(id) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
+### tickets.deleteTicketsById(id) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
 DELETE
 
-**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
+**Kind**: instance method of [<code>Tickets</code>](#Tickets)  
 
 | Param | Type |
 | --- | --- |
-| id | <code>string</code> &#124; <code>number</code> | 
+| id | <code>string</code> \| <code>number</code> | 
 
 <a name="Tickets+replaceTicket"></a>
 
-### tickets.replaceTicket(id, ticket) ⇒ <code>[Promise.&lt;Ticket&gt;](#Ticket)</code>
+### tickets.replaceTicket(id, ticket) ⇒ [<code>Promise.&lt;Ticket&gt;</code>](#Ticket)
 PUT
 
-**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
+**Kind**: instance method of [<code>Tickets</code>](#Tickets)  
 
 | Param | Type |
 | --- | --- |
 | id |  | 
-| ticket | <code>[Ticket](#Ticket)</code> | 
+| ticket | [<code>Ticket</code>](#Ticket) | 
 
 <a name="Tickets+getTicketActivities"></a>
 
 ### tickets.getTicketActivities(id, [params]) ⇒ <code>Promise.&lt;Array.&lt;Activity&gt;&gt;</code>
 GET
 
-**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
+**Kind**: instance method of [<code>Tickets</code>](#Tickets)  
 
 | Param | Type |
 | --- | --- |
 | id |  | 
-| [params] | <code>[Params](#Params)</code> | 
+| [params] | [<code>Params</code>](#Params) | 
 
 <a name="Tickets+getTicketActivitiesCount"></a>
 
-### tickets.getTicketActivitiesCount(id) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
+### tickets.getTicketActivitiesCount(id) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
 GET
 
-**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
-**Returns**: <code>[Promise.&lt;Count&gt;](#Count)</code> - The number of activities associated with ticket number id  
+**Kind**: instance method of [<code>Tickets</code>](#Tickets)  
+**Returns**: [<code>Promise.&lt;Count&gt;</code>](#Count) - The number of activities associated with ticket number id  
 
 | Param | Type |
 | --- | --- |
-| id | <code>number</code> &#124; <code>string</code> | 
+| id | <code>number</code> \| <code>string</code> | 
 
 <a name="Tickets+getTicketTimeEntries"></a>
 
 ### tickets.getTicketTimeEntries(id, params) ⇒ <code>Promise.&lt;Array.&lt;TimeEntry&gt;&gt;</code>
 GET
 
-**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
+**Kind**: instance method of [<code>Tickets</code>](#Tickets)  
 
 | Param | Type |
 | --- | --- |
-| id | <code>number</code> &#124; <code>string</code> | 
-| params | <code>[Params](#Params)</code> | 
+| id | <code>number</code> \| <code>string</code> | 
+| params | [<code>Params</code>](#Params) | 
 
 <a name="Tickets+getTicketTimeEntriesCount"></a>
 
-### tickets.getTicketTimeEntriesCount(id) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
+### tickets.getTicketTimeEntriesCount(id) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
 GET
 
-**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
-**Returns**: <code>[Promise.&lt;Count&gt;](#Count)</code> - The count of time entries attached to ticket id  
+**Kind**: instance method of [<code>Tickets</code>](#Tickets)  
+**Returns**: [<code>Promise.&lt;Count&gt;</code>](#Count) - The count of time entries attached to ticket id  
 
 | Param | Type |
 | --- | --- |
-| id | <code>number</code> &#124; <code>string</code> | 
+| id | <code>number</code> \| <code>string</code> | 
 
 <a name="Tickets+createConfigurationAssociation"></a>
 
-### tickets.createConfigurationAssociation(id, configId) ⇒ <code>[Promise.&lt;ConfigurationHref&gt;](#ConfigurationHref)</code>
+### tickets.createConfigurationAssociation(id, configId) ⇒ [<code>Promise.&lt;ConfigurationHref&gt;</code>](#ConfigurationHref)
 POST
 
-**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
+**Kind**: instance method of [<code>Tickets</code>](#Tickets)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| id | <code>number</code> &#124; <code>string</code> | ticketNbr |
-| configId | <code>number</code> &#124; <code>string</code> |  |
+| id | <code>number</code> \| <code>string</code> | ticketNbr |
+| configId | <code>number</code> \| <code>string</code> |  |
 
 <a name="Tickets+getTicketConfigurations"></a>
 
 ### tickets.getTicketConfigurations(id) ⇒ <code>Promise.&lt;Array.&lt;ConfigurationHref&gt;&gt;</code>
 GET
 
-**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
+**Kind**: instance method of [<code>Tickets</code>](#Tickets)  
 
 | Param | Description |
 | --- | --- |
@@ -2631,10 +2633,10 @@ GET
 
 <a name="Tickets+getTicketConfigurationsCount"></a>
 
-### tickets.getTicketConfigurationsCount(id) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
+### tickets.getTicketConfigurationsCount(id) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
 GET
 
-**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
+**Kind**: instance method of [<code>Tickets</code>](#Tickets)  
 
 | Param | Description |
 | --- | --- |
@@ -2642,13 +2644,13 @@ GET
 
 <a name="Tickets+deleteConfigurationAssociation"></a>
 
-### tickets.deleteConfigurationAssociation(id, configId) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
+### tickets.deleteConfigurationAssociation(id, configId) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
 DELETE
 
-**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
+**Kind**: instance method of [<code>Tickets</code>](#Tickets)  
 **Throws**:
 
-- <code>[ErrorResponse](#ErrorResponse)</code> 
+- [<code>ErrorResponse</code>](#ErrorResponse) 
 
 
 | Param |
@@ -2658,10 +2660,10 @@ DELETE
 
 <a name="Tickets+getConfigurationAssociation"></a>
 
-### tickets.getConfigurationAssociation(id, configId) ⇒ <code>[Promise.&lt;ConfigurationHref&gt;](#ConfigurationHref)</code>
+### tickets.getConfigurationAssociation(id, configId) ⇒ [<code>Promise.&lt;ConfigurationHref&gt;</code>](#ConfigurationHref)
 GET
 
-**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
+**Kind**: instance method of [<code>Tickets</code>](#Tickets)  
 
 | Param |
 | --- |
@@ -2673,19 +2675,19 @@ GET
 ### tickets.getTicketScheduleEntries(id, [params]) ⇒ <code>Promise.&lt;Array.&lt;ScheduleEntryHref&gt;&gt;</code>
 GET
 
-**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
+**Kind**: instance method of [<code>Tickets</code>](#Tickets)  
 
 | Param | Type |
 | --- | --- |
-| id | <code>string</code> &#124; <code>number</code> | 
-| [params] | <code>[ParamsPage](#ParamsPage)</code> | 
+| id | <code>string</code> \| <code>number</code> | 
+| [params] | [<code>ParamsPage</code>](#ParamsPage) | 
 
 <a name="Tickets+getTicketScheduleEntriesCount"></a>
 
-### tickets.getTicketScheduleEntriesCount(id) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
+### tickets.getTicketScheduleEntriesCount(id) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
 GET
 
-**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
+**Kind**: instance method of [<code>Tickets</code>](#Tickets)  
 
 | Param |
 | --- |
@@ -2696,19 +2698,19 @@ GET
 ### tickets.getTicketDocuments(id, [params]) ⇒ <code>Promise.&lt;Array.&lt;DocumentHref&gt;&gt;</code>
 GET
 
-**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
+**Kind**: instance method of [<code>Tickets</code>](#Tickets)  
 
 | Param | Type |
 | --- | --- |
-| id | <code>string</code> &#124; <code>number</code> | 
-| [params] | <code>[ParamsPage](#ParamsPage)</code> | 
+| id | <code>string</code> \| <code>number</code> | 
+| [params] | [<code>ParamsPage</code>](#ParamsPage) | 
 
 <a name="Tickets+getTicketDocumentsCount"></a>
 
-### tickets.getTicketDocumentsCount(id) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
+### tickets.getTicketDocumentsCount(id) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
 GET
 
-**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
+**Kind**: instance method of [<code>Tickets</code>](#Tickets)  
 
 | Param |
 | --- |
@@ -2719,7 +2721,7 @@ GET
 ### tickets.getTicketProducts(id) ⇒ <code>Promise.&lt;Array.&lt;ProductHref&gt;&gt;</code>
 GET
 
-**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
+**Kind**: instance method of [<code>Tickets</code>](#Tickets)  
 
 | Param |
 | --- |
@@ -2727,10 +2729,10 @@ GET
 
 <a name="Tickets+getTicketProductsCount"></a>
 
-### tickets.getTicketProductsCount(id) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
+### tickets.getTicketProductsCount(id) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
 GET
 
-**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
+**Kind**: instance method of [<code>Tickets</code>](#Tickets)  
 
 | Param |
 | --- |
@@ -2739,17 +2741,17 @@ GET
 <a name="Tickets+updateTicketStatusByName"></a>
 
 ### tickets.updateTicketStatusByName(id, status) ⇒ <code>Promise.&lt;Array.&lt;Ticket&gt;&gt;</code>
-**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
+**Kind**: instance method of [<code>Tickets</code>](#Tickets)  
 
 | Param | Type |
 | --- | --- |
-| id | <code>string</code> &#124; <code>number</code> | 
+| id | <code>string</code> \| <code>number</code> | 
 | status | <code>string</code> | 
 
 <a name="Tickets+updateTicketPriority"></a>
 
-### tickets.updateTicketPriority(id, priority) ⇒ <code>[Promise.&lt;Ticket&gt;](#Ticket)</code>
-**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
+### tickets.updateTicketPriority(id, priority) ⇒ [<code>Promise.&lt;Ticket&gt;</code>](#Ticket)
+**Kind**: instance method of [<code>Tickets</code>](#Tickets)  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -2758,8 +2760,8 @@ GET
 
 <a name="Tickets+updateTicketServiceType"></a>
 
-### tickets.updateTicketServiceType(id, serviceType) ⇒ <code>[Promise.&lt;Ticket&gt;](#Ticket)</code>
-**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
+### tickets.updateTicketServiceType(id, serviceType) ⇒ [<code>Promise.&lt;Ticket&gt;</code>](#Ticket)
+**Kind**: instance method of [<code>Tickets</code>](#Tickets)  
 
 | Param | Type |
 | --- | --- |
@@ -2768,8 +2770,8 @@ GET
 
 <a name="Tickets+updateTicketServiceSubType"></a>
 
-### tickets.updateTicketServiceSubType(id, serviceSubType) ⇒ <code>[Promise.&lt;Ticket&gt;](#Ticket)</code>
-**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
+### tickets.updateTicketServiceSubType(id, serviceSubType) ⇒ [<code>Promise.&lt;Ticket&gt;</code>](#Ticket)
+**Kind**: instance method of [<code>Tickets</code>](#Tickets)  
 
 | Param | Type |
 | --- | --- |
@@ -2778,8 +2780,8 @@ GET
 
 <a name="Tickets+updateTicketTypeSubTypeItem"></a>
 
-### tickets.updateTicketTypeSubTypeItem(id, type, subtype, item) ⇒ <code>[Promise.&lt;Ticket&gt;](#Ticket)</code>
-**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
+### tickets.updateTicketTypeSubTypeItem(id, type, subtype, item) ⇒ [<code>Promise.&lt;Ticket&gt;</code>](#Ticket)
+**Kind**: instance method of [<code>Tickets</code>](#Tickets)  
 
 | Param | Type |
 | --- | --- |
@@ -2790,8 +2792,8 @@ GET
 
 <a name="Tickets+updateTicketServiceItem"></a>
 
-### tickets.updateTicketServiceItem(id, serviceItem) ⇒ <code>[Promise.&lt;Ticket&gt;](#Ticket)</code>
-**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
+### tickets.updateTicketServiceItem(id, serviceItem) ⇒ [<code>Promise.&lt;Ticket&gt;</code>](#Ticket)
+**Kind**: instance method of [<code>Tickets</code>](#Tickets)  
 
 | Param | Type |
 | --- | --- |
@@ -2800,36 +2802,36 @@ GET
 
 <a name="Tickets+updateTicketCustomFieldByIndex"></a>
 
-### tickets.updateTicketCustomFieldByIndex(id, index, value) ⇒ <code>[Promise.&lt;Ticket&gt;](#Ticket)</code>
-**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
+### tickets.updateTicketCustomFieldByIndex(id, index, value) ⇒ [<code>Promise.&lt;Ticket&gt;</code>](#Ticket)
+**Kind**: instance method of [<code>Tickets</code>](#Tickets)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| id | <code>string</code> &#124; <code>number</code> | ticketNbr |
-| index | <code>string</code> &#124; <code>number</code> |  |
-| value | <code>string</code> &#124; <code>number</code> &#124; <code>boolean</code> |  |
+| id | <code>string</code> \| <code>number</code> | ticketNbr |
+| index | <code>string</code> \| <code>number</code> |  |
+| value | <code>string</code> \| <code>number</code> \| <code>boolean</code> |  |
 
 <a name="Tickets+updateTicketCustomFieldById"></a>
 
-### tickets.updateTicketCustomFieldById(id, customFieldId, value) ⇒ <code>[Promise.&lt;Ticket&gt;](#Ticket)</code>
-**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
+### tickets.updateTicketCustomFieldById(id, customFieldId, value) ⇒ [<code>Promise.&lt;Ticket&gt;</code>](#Ticket)
+**Kind**: instance method of [<code>Tickets</code>](#Tickets)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| id | <code>string</code> &#124; <code>number</code> | ticketNbr |
-| customFieldId | <code>string</code> &#124; <code>number</code> |  |
-| value | <code>string</code> &#124; <code>number</code> &#124; <code>boolean</code> |  |
+| id | <code>string</code> \| <code>number</code> | ticketNbr |
+| customFieldId | <code>string</code> \| <code>number</code> |  |
+| value | <code>string</code> \| <code>number</code> \| <code>boolean</code> |  |
 
 <a name="Tickets+updateTicketCustomFieldByCaption"></a>
 
-### tickets.updateTicketCustomFieldByCaption(id, caption, value) ⇒ <code>[Promise.&lt;Ticket&gt;](#Ticket)</code>
-**Kind**: instance method of <code>[Tickets](#Tickets)</code>  
+### tickets.updateTicketCustomFieldByCaption(id, caption, value) ⇒ [<code>Promise.&lt;Ticket&gt;</code>](#Ticket)
+**Kind**: instance method of [<code>Tickets</code>](#Tickets)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| id | <code>string</code> &#124; <code>number</code> | ticketNbr |
-| caption | <code>string</code> &#124; <code>number</code> |  |
-| value | <code>string</code> &#124; <code>number</code> &#124; <code>boolean</code> |  |
+| id | <code>string</code> \| <code>number</code> | ticketNbr |
+| caption | <code>string</code> \| <code>number</code> |  |
+| value | <code>string</code> \| <code>number</code> \| <code>boolean</code> |  |
 
 <a name="SystemAPI"></a>
 
@@ -2841,7 +2843,7 @@ GET
 
 | Param | Type |
 | --- | --- |
-| options | <code>[CWOptions](#CWOptions)</code> | 
+| options | [<code>CWOptions</code>](#CWOptions) | 
 
 <a name="Members"></a>
 
@@ -2850,9 +2852,9 @@ GET
 
 * [Members](#Members)
     * [new Members(options)](#new_Members_new)
-    * [.getMemberByIdentifer](#Members+getMemberByIdentifer) ⇒ <code>[Promise.&lt;Member&gt;](#Member)</code>
+    * [.getMemberByIdentifer](#Members+getMemberByIdentifer) ⇒ [<code>Promise.&lt;Member&gt;</code>](#Member)
     * [.getMembers(params)](#Members+getMembers) ⇒ <code>Promise.&lt;Array.&lt;Member&gt;&gt;</code>
-    * [.getMemberByIdentifier(identifier)](#Members+getMemberByIdentifier) ⇒ <code>[Promise.&lt;Member&gt;](#Member)</code>
+    * [.getMemberByIdentifier(identifier)](#Members+getMemberByIdentifier) ⇒ [<code>Promise.&lt;Member&gt;</code>](#Member)
     * [.getMemberImage(identifier, params)](#Members+getMemberImage) ⇒ <code>Promise.&lt;\*&gt;</code>
 
 <a name="new_Members_new"></a>
@@ -2861,14 +2863,14 @@ GET
 
 | Param | Type |
 | --- | --- |
-| options | <code>[CWOptions](#CWOptions)</code> | 
+| options | [<code>CWOptions</code>](#CWOptions) | 
 
 <a name="Members+getMemberByIdentifer"></a>
 
-### members.getMemberByIdentifer ⇒ <code>[Promise.&lt;Member&gt;](#Member)</code>
+### members.getMemberByIdentifer ⇒ [<code>Promise.&lt;Member&gt;</code>](#Member)
 Alias for getMemberByIdentifier because I keep spelling it wrong
 
-**Kind**: instance property of <code>[Members](#Members)</code>  
+**Kind**: instance property of [<code>Members</code>](#Members)  
 
 | Param |
 | --- |
@@ -2879,18 +2881,18 @@ Alias for getMemberByIdentifier because I keep spelling it wrong
 ### members.getMembers(params) ⇒ <code>Promise.&lt;Array.&lt;Member&gt;&gt;</code>
 GET
 
-**Kind**: instance method of <code>[Members](#Members)</code>  
+**Kind**: instance method of [<code>Members</code>](#Members)  
 
 | Param | Type |
 | --- | --- |
-| params | <code>[Params](#Params)</code> | 
+| params | [<code>Params</code>](#Params) | 
 
 <a name="Members+getMemberByIdentifier"></a>
 
-### members.getMemberByIdentifier(identifier) ⇒ <code>[Promise.&lt;Member&gt;](#Member)</code>
+### members.getMemberByIdentifier(identifier) ⇒ [<code>Promise.&lt;Member&gt;</code>](#Member)
 GET
 
-**Kind**: instance method of <code>[Members](#Members)</code>  
+**Kind**: instance method of [<code>Members</code>](#Members)  
 
 | Param | Type |
 | --- | --- |
@@ -2899,24 +2901,24 @@ GET
 <a name="Members+getMemberImage"></a>
 
 ### members.getMemberImage(identifier, params) ⇒ <code>Promise.&lt;\*&gt;</code>
-**Kind**: instance method of <code>[Members](#Members)</code>  
+**Kind**: instance method of [<code>Members</code>](#Members)  
 
 | Param | Type |
 | --- | --- |
 | identifier |  | 
-| params | <code>[ParamsImage](#ParamsImage)</code> | 
+| params | [<code>ParamsImage</code>](#ParamsImage) | 
 
 <a name="Reports"></a>
 
 ## Reports
 **Kind**: global class  
-**Inherits**: <code>[ConnectWise](#ConnectWise)</code>  
+**Inherits**: [<code>ConnectWise</code>](#ConnectWise)  
 
 * [Reports](#Reports)
     * [new Reports(options)](#new_Reports_new)
     * [.getReports([params])](#Reports+getReports) ⇒ <code>Promise.&lt;Array.&lt;ReportNames&gt;&gt;</code>
     * [.getReport(reportName, [params], [disableInterpolate])](#Reports+getReport) ⇒ <code>Promise.&lt;(Array.&lt;ReportData&gt;\|Array.&lt;ReportDataInterpolated&gt;)&gt;</code>
-    * [.getReportResultsCount(reportName, params)](#Reports+getReportResultsCount) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
+    * [.getReportResultsCount(reportName, params)](#Reports+getReportResultsCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
     * [.getColumnDefinitions(reportName)](#Reports+getColumnDefinitions) ⇒ <code>Promise.&lt;Array.&lt;ReportColumn&gt;&gt;</code>
 
 <a name="new_Reports_new"></a>
@@ -2925,42 +2927,42 @@ GET
 
 | Param | Type |
 | --- | --- |
-| options | <code>[CWOptions](#CWOptions)</code> | 
+| options | [<code>CWOptions</code>](#CWOptions) | 
 
 <a name="Reports+getReports"></a>
 
 ### reports.getReports([params]) ⇒ <code>Promise.&lt;Array.&lt;ReportNames&gt;&gt;</code>
-**Kind**: instance method of <code>[Reports](#Reports)</code>  
+**Kind**: instance method of [<code>Reports</code>](#Reports)  
 
 | Param | Type |
 | --- | --- |
-| [params] | <code>[ParamsConditions](#ParamsConditions)</code> | 
+| [params] | [<code>ParamsConditions</code>](#ParamsConditions) | 
 
 <a name="Reports+getReport"></a>
 
 ### reports.getReport(reportName, [params], [disableInterpolate]) ⇒ <code>Promise.&lt;(Array.&lt;ReportData&gt;\|Array.&lt;ReportDataInterpolated&gt;)&gt;</code>
-**Kind**: instance method of <code>[Reports](#Reports)</code>  
+**Kind**: instance method of [<code>Reports</code>](#Reports)  
 
 | Param | Type |
 | --- | --- |
 | reportName | <code>string</code> | 
-| [params] | <code>[Params](#Params)</code> | 
+| [params] | [<code>Params</code>](#Params) | 
 | [disableInterpolate] | <code>boolean</code> | 
 
 <a name="Reports+getReportResultsCount"></a>
 
-### reports.getReportResultsCount(reportName, params) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
-**Kind**: instance method of <code>[Reports](#Reports)</code>  
+### reports.getReportResultsCount(reportName, params) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+**Kind**: instance method of [<code>Reports</code>](#Reports)  
 
 | Param | Type |
 | --- | --- |
 | reportName | <code>string</code> | 
-| params | <code>[ParamsConditions](#ParamsConditions)</code> | 
+| params | [<code>ParamsConditions</code>](#ParamsConditions) | 
 
 <a name="Reports+getColumnDefinitions"></a>
 
 ### reports.getColumnDefinitions(reportName) ⇒ <code>Promise.&lt;Array.&lt;ReportColumn&gt;&gt;</code>
-**Kind**: instance method of <code>[Reports](#Reports)</code>  
+**Kind**: instance method of [<code>Reports</code>](#Reports)  
 
 | Param |
 | --- |
@@ -2985,13 +2987,13 @@ GET
 
 * [TimeEntries](#TimeEntries)
     * [new TimeEntries(options)](#new_TimeEntries_new)
-    * [.getTimeEntries(params)](#TimeEntries+getTimeEntries) ⇒ <code>[Promise.&lt;TimeEntry&gt;](#TimeEntry)</code>
-    * [.createTimeEntry(timeEntry)](#TimeEntries+createTimeEntry) ⇒ <code>[Promise.&lt;TimeEntry&gt;](#TimeEntry)</code>
-    * [.getTimeEntriesCount(params)](#TimeEntries+getTimeEntriesCount) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
-    * [.deleteTimeEntryById(id)](#TimeEntries+deleteTimeEntryById) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
-    * [.getTimeEntryById(id)](#TimeEntries+getTimeEntryById) ⇒ <code>[Promise.&lt;TimeEntry&gt;](#TimeEntry)</code>
-    * [.updateTimeEntry(id, operations)](#TimeEntries+updateTimeEntry) ⇒ <code>[Promise.&lt;TimeEntry&gt;](#TimeEntry)</code>
-    * [.replaceTimeEntry(id, timeEntry)](#TimeEntries+replaceTimeEntry) ⇒ <code>[Promise.&lt;TimeEntry&gt;](#TimeEntry)</code>
+    * [.getTimeEntries(params)](#TimeEntries+getTimeEntries) ⇒ [<code>Promise.&lt;TimeEntry&gt;</code>](#TimeEntry)
+    * [.createTimeEntry(timeEntry)](#TimeEntries+createTimeEntry) ⇒ [<code>Promise.&lt;TimeEntry&gt;</code>](#TimeEntry)
+    * [.getTimeEntriesCount(params)](#TimeEntries+getTimeEntriesCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+    * [.deleteTimeEntryById(id)](#TimeEntries+deleteTimeEntryById) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+    * [.getTimeEntryById(id)](#TimeEntries+getTimeEntryById) ⇒ [<code>Promise.&lt;TimeEntry&gt;</code>](#TimeEntry)
+    * [.updateTimeEntry(id, operations)](#TimeEntries+updateTimeEntry) ⇒ [<code>Promise.&lt;TimeEntry&gt;</code>](#TimeEntry)
+    * [.replaceTimeEntry(id, timeEntry)](#TimeEntries+replaceTimeEntry) ⇒ [<code>Promise.&lt;TimeEntry&gt;</code>](#TimeEntry)
 
 <a name="new_TimeEntries_new"></a>
 
@@ -3003,37 +3005,37 @@ GET
 
 <a name="TimeEntries+getTimeEntries"></a>
 
-### timeEntries.getTimeEntries(params) ⇒ <code>[Promise.&lt;TimeEntry&gt;](#TimeEntry)</code>
+### timeEntries.getTimeEntries(params) ⇒ [<code>Promise.&lt;TimeEntry&gt;</code>](#TimeEntry)
 GET
 
-**Kind**: instance method of <code>[TimeEntries](#TimeEntries)</code>  
+**Kind**: instance method of [<code>TimeEntries</code>](#TimeEntries)  
 
 | Param | Type |
 | --- | --- |
-| params | <code>[Params](#Params)</code> | 
+| params | [<code>Params</code>](#Params) | 
 
 <a name="TimeEntries+createTimeEntry"></a>
 
-### timeEntries.createTimeEntry(timeEntry) ⇒ <code>[Promise.&lt;TimeEntry&gt;](#TimeEntry)</code>
-**Kind**: instance method of <code>[TimeEntries](#TimeEntries)</code>  
+### timeEntries.createTimeEntry(timeEntry) ⇒ [<code>Promise.&lt;TimeEntry&gt;</code>](#TimeEntry)
+**Kind**: instance method of [<code>TimeEntries</code>](#TimeEntries)  
 
 | Param | Type |
 | --- | --- |
-| timeEntry | <code>[TimeEntry](#TimeEntry)</code> | 
+| timeEntry | [<code>TimeEntry</code>](#TimeEntry) | 
 
 <a name="TimeEntries+getTimeEntriesCount"></a>
 
-### timeEntries.getTimeEntriesCount(params) ⇒ <code>[Promise.&lt;Count&gt;](#Count)</code>
-**Kind**: instance method of <code>[TimeEntries](#TimeEntries)</code>  
+### timeEntries.getTimeEntriesCount(params) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+**Kind**: instance method of [<code>TimeEntries</code>](#TimeEntries)  
 
 | Param | Type |
 | --- | --- |
-| params | <code>[ParamsConditions](#ParamsConditions)</code> | 
+| params | [<code>ParamsConditions</code>](#ParamsConditions) | 
 
 <a name="TimeEntries+deleteTimeEntryById"></a>
 
-### timeEntries.deleteTimeEntryById(id) ⇒ <code>[Promise.&lt;DeleteResponse&gt;](#DeleteResponse)</code>
-**Kind**: instance method of <code>[TimeEntries](#TimeEntries)</code>  
+### timeEntries.deleteTimeEntryById(id) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+**Kind**: instance method of [<code>TimeEntries</code>](#TimeEntries)  
 
 | Param | Type |
 | --- | --- |
@@ -3041,8 +3043,8 @@ GET
 
 <a name="TimeEntries+getTimeEntryById"></a>
 
-### timeEntries.getTimeEntryById(id) ⇒ <code>[Promise.&lt;TimeEntry&gt;](#TimeEntry)</code>
-**Kind**: instance method of <code>[TimeEntries](#TimeEntries)</code>  
+### timeEntries.getTimeEntryById(id) ⇒ [<code>Promise.&lt;TimeEntry&gt;</code>](#TimeEntry)
+**Kind**: instance method of [<code>TimeEntries</code>](#TimeEntries)  
 
 | Param |
 | --- |
@@ -3050,23 +3052,23 @@ GET
 
 <a name="TimeEntries+updateTimeEntry"></a>
 
-### timeEntries.updateTimeEntry(id, operations) ⇒ <code>[Promise.&lt;TimeEntry&gt;](#TimeEntry)</code>
-**Kind**: instance method of <code>[TimeEntries](#TimeEntries)</code>  
+### timeEntries.updateTimeEntry(id, operations) ⇒ [<code>Promise.&lt;TimeEntry&gt;</code>](#TimeEntry)
+**Kind**: instance method of [<code>TimeEntries</code>](#TimeEntries)  
 
 | Param | Type |
 | --- | --- |
 | id |  | 
-| operations | <code>[Operations](#Operations)</code> | 
+| operations | [<code>Operations</code>](#Operations) | 
 
 <a name="TimeEntries+replaceTimeEntry"></a>
 
-### timeEntries.replaceTimeEntry(id, timeEntry) ⇒ <code>[Promise.&lt;TimeEntry&gt;](#TimeEntry)</code>
-**Kind**: instance method of <code>[TimeEntries](#TimeEntries)</code>  
+### timeEntries.replaceTimeEntry(id, timeEntry) ⇒ [<code>Promise.&lt;TimeEntry&gt;</code>](#TimeEntry)
+**Kind**: instance method of [<code>TimeEntries</code>](#TimeEntries)  
 
 | Param | Type |
 | --- | --- |
 | id |  | 
-| timeEntry | <code>[TimeEntry](#TimeEntry)</code> | 
+| timeEntry | [<code>TimeEntry</code>](#TimeEntry) | 
 
 <a name="Company"></a>
 
@@ -3081,8 +3083,8 @@ GET
 | addressLine2 | <code>string</code> |  |
 | annualRevenue | <code>number</code> |  |
 | calendarId |  |  |
-| country | <code>[CountryHref](#CountryHref)</code> |  |
-| customFields | <code>[Array.&lt;CustomField&gt;](#CustomField)</code> |  |
+| country | [<code>CountryHref</code>](#CountryHref) |  |
+| customFields | [<code>Array.&lt;CustomField&gt;</code>](#CustomField) |  |
 | dateAcquired | <code>string</code> |  |
 | dateDeleted | <code>string</code> |  |
 | defaultContactId | <code>number</code> |  |
@@ -3101,10 +3103,10 @@ GET
 | phoneNumber | <code>string</code> |  |
 | sicCode |  |  |
 | state | <code>string</code> | state's abbreviation |
-| status | <code>[StatusHref](#StatusHref)</code> |  |
+| status | [<code>StatusHref</code>](#StatusHref) |  |
 | territoryId | <code>number</code> |  |
 | timeZone |  |  |
-| type | <code>[TypeHref](#TypeHref)</code> |  |
+| type | [<code>TypeHref</code>](#TypeHref) |  |
 | unsubscribeFlag | <code>boolean</code> |  |
 | website | <code>string</code> |  |
 | zip | <code>string</code> |  |
@@ -3122,10 +3124,10 @@ GET
 | --- | --- | --- |
 | id | <code>number</code> |  |
 | text | <code>string</code> |  |
-| type | <code>[TypeHref](#TypeHref)</code> | @TODO check if this is the same as regular {Type} |
+| type | [<code>TypeHref</code>](#TypeHref) | @TODO check if this is the same as regular {Type} |
 | flagged | <code>boolean</code> |  |
 | enteredBy | <code>string</code> |  |
-| company | <code>[CompanyHref](#CompanyHref)</code> |  |
+| company | [<code>CompanyHref</code>](#CompanyHref) |  |
 | _info | <code>object</code> |  |
 | _info.lastUpdated | <code>string</code> |  |
 | _info.updatedBy | <code>string</code> |  |
@@ -3139,16 +3141,16 @@ GET
 | Name | Type |
 | --- | --- |
 | id |  | 
-| company | <code>[CompanyHref](#CompanyHref)</code> | 
-| teamRole | <code>[TeamHref](#TeamHref)</code> | 
+| company | [<code>CompanyHref</code>](#CompanyHref) | 
+| teamRole | [<code>TeamHref</code>](#TeamHref) | 
 | locationId |  | 
 | businessUnitId |  | 
-| contact | <code>[ContactHref](#ContactHref)</code> | 
-| member | <code>[MemberHref](#MemberHref)</code> | 
+| contact | [<code>ContactHref</code>](#ContactHref) | 
+| member | [<code>MemberHref</code>](#MemberHref) | 
 | accountManagerFlag |  | 
 | techFlag |  | 
 | salesFlag |  | 
-| _info | <code>[InfoHref](#InfoHref)</code> | 
+| _info | [<code>InfoHref</code>](#InfoHref) | 
 
 <a name="Configuration"></a>
 
@@ -3160,11 +3162,11 @@ GET
 | --- | --- |
 | id | <code>number</code> | 
 | name | <code>string</code> | 
-| type | <code>[TypeHref](#TypeHref)</code> | 
-| status | <code>[StatusHref](#StatusHref)</code> | 
-| company | <code>[CompanyHref](#CompanyHref)</code> | 
-| contact | <code>[ContactHref](#ContactHref)</code> | 
-| site | <code>[SiteHref](#SiteHref)</code> | 
+| type | [<code>TypeHref</code>](#TypeHref) | 
+| status | [<code>StatusHref</code>](#StatusHref) | 
+| company | [<code>CompanyHref</code>](#CompanyHref) | 
+| contact | [<code>ContactHref</code>](#ContactHref) | 
+| site | [<code>SiteHref</code>](#SiteHref) | 
 | activeFlag |  | 
 | id |  | 
 | name |  | 
@@ -3221,7 +3223,7 @@ GET
 | answerId | <code>number</code> |  |
 | questionId | <code>number</code> |  |
 | question | <code>string</code> |  |
-| answer | <code>null</code> &#124; <code>boolean</code> &#124; <code>number</code> &#124; <code>string</code> |  |
+| answer | <code>null</code> \| <code>boolean</code> \| <code>number</code> \| <code>string</code> |  |
 | sequenceNumber | <code>number</code> |  |
 | numberOfDecimals | <code>number</code> |  |
 | fieldType | <code>string</code> | ['Text', 'Button', 'Currency', 'Date', 'Hyperlink', 'IPAddress', 'Checkbox', 'Number', 'Percent', 'TextArea', 'Password'] |
@@ -3240,11 +3242,11 @@ GET
 | assistantContactId |  |  |
 | childrenFlag | <code>boolean</code> |  |
 | city |  |  |
-| communicationItems | <code>[Array.&lt;CommunicationItemHref&gt;](#CommunicationItemHref)</code> |  |
-| company | <code>[CompanyHref](#CompanyHref)</code> |  |
-| country | <code>[CountryHref](#CountryHref)</code> |  |
-| customFields | <code>[Array.&lt;CustomField&gt;](#CustomField)</code> |  |
-| department | <code>[DepartmentHref](#DepartmentHref)</code> |  |
+| communicationItems | [<code>Array.&lt;CommunicationItemHref&gt;</code>](#CommunicationItemHref) |  |
+| company | [<code>CompanyHref</code>](#CompanyHref) |  |
+| country | [<code>CountryHref</code>](#CountryHref) |  |
+| customFields | [<code>Array.&lt;CustomField&gt;</code>](#CustomField) |  |
+| department | [<code>DepartmentHref</code>](#DepartmentHref) |  |
 | disablePortalLoginFlag | <code>boolean</code> |  |
 | firstName | <code>string</code> |  |
 | gender |  |  |
@@ -3257,14 +3259,14 @@ GET
 | portalPassword |  |  |
 | portalSecurityLevel | <code>number</code> |  |
 | presence |  |  |
-| relationship | <code>[RelationshipHref](#RelationshipHref)</code> |  |
+| relationship | [<code>RelationshipHref</code>](#RelationshipHref) |  |
 | school |  |  |
 | securityIdentifier |  |  |
 | significantOther |  |  |
-| site | <code>[SiteHref](#SiteHref)</code> |  |
+| site | [<code>SiteHref</code>](#SiteHref) |  |
 | state |  |  |
 | title | <code>string</code> |  |
-| type | <code>[TypeHref](#TypeHref)</code> |  |
+| type | [<code>TypeHref</code>](#TypeHref) |  |
 | unsubscribeFlag | <code>boolean</code> |  |
 | zip |  |  |
 | _info | <code>object</code> |  |
@@ -3306,9 +3308,9 @@ GET
 
 | Name | Type |
 | --- | --- |
-| Companies | <code>[Companies](#Companies)</code> | 
-| Contacts | <code>[Contacts](#Contacts)</code> | 
-| Configurations | <code>[Configurations](#Configurations)</code> | 
+| Companies | [<code>Companies</code>](#Companies) | 
+| Contacts | [<code>Contacts</code>](#Contacts) | 
+| Configurations | [<code>Configurations</code>](#Configurations) | 
 
 <a name="new_CompanyAPI_new"></a>
 
@@ -3339,14 +3341,15 @@ GET
 
 | Name | Type |
 | --- | --- |
-| API | <code>[ConnectWise](#ConnectWise)</code> | 
-| FinanceAPI | <code>[FinanceAPI](#FinanceAPI)</code> | 
-| ServiceDeskAPI | <code>[ServiceDeskAPI](#ServiceDeskAPI)</code> | 
-| TimeAPI | <code>[TimeAPI](#TimeAPI)</code> | 
-| ProjectAPI | <code>[ProjectAPI](#ProjectAPI)</code> | 
-| CompanyAPI | <code>[CompanyAPI](#CompanyAPI)</code> | 
-| ScheduleAPI | <code>[ScheduleAPI](#ScheduleAPI)</code> | 
-| SystemAPI | <code>[SystemAPI](#SystemAPI)</code> | 
+| API | [<code>ConnectWise</code>](#ConnectWise) | 
+| FinanceAPI | [<code>FinanceAPI</code>](#FinanceAPI) | 
+| ServiceDeskAPI | [<code>ServiceDeskAPI</code>](#ServiceDeskAPI) | 
+| TimeAPI | [<code>TimeAPI</code>](#TimeAPI) | 
+| ProjectAPI | [<code>ProjectAPI</code>](#ProjectAPI) | 
+| CompanyAPI | [<code>CompanyAPI</code>](#CompanyAPI) | 
+| ScheduleAPI | [<code>ScheduleAPI</code>](#ScheduleAPI) | 
+| SystemAPI | [<code>SystemAPI</code>](#SystemAPI) | 
+| SalesAPI | [<code>SalesAPI</code>](#SalesAPI) | 
 
 <a name="new_ConnectWiseRest_new"></a>
 
@@ -3637,14 +3640,14 @@ Service Subtype
 
 | Name | Type | Description |
 | --- | --- | --- |
-| conditions | <code>string</code> | Search results based on the fields returned in a GET, board/name="Integration" and summary="xyz" or board/id in (3, 2, 4) and lastUpdated > [2016-08-20T18:04:26Z] |
-| orderBy | <code>string</code> | Choose which field to sort the results by, 'contact/name asc' |
-| page | <code>string</code> &#124; <code>number</code> | Used in pagination to cycle through results |
-| pageSize | <code>string</code> &#124; <code>number</code> | Number of results returned per page (Defaults to 25) (Max page size was increased to 1,000 in 2016.2.) |
-| childConditions | <code>string</code> | Allows searching arrays on endpoints that list childConditions under parameters |
-| customFieldConditions | <code>string</code> | Allows searching custom fields when customFieldConditions is listed in the parameters |
-| fields | <code>string</code> | Limits which information is returned in the response - Not available on the reporting endpoints |
-| columns | <code>string</code> | Limits which information is returned in the response - Only used for the Reporting Endpoints |
+| [conditions] | <code>string</code> | Search results based on the fields returned in a GET, board/name="Integration" and summary="xyz" or board/id in (3, 2, 4) and lastUpdated > [2016-08-20T18:04:26Z] |
+| [orderBy] | <code>string</code> | Choose which field to sort the results by, 'contact/name asc' |
+| [page] | <code>string</code> \| <code>number</code> | Used in pagination to cycle through results |
+| [pageSize] | <code>string</code> \| <code>number</code> | Number of results returned per page (Defaults to 25) (Max page size was increased to 1,000 in 2016.2.) |
+| [childConditions] | <code>string</code> | Allows searching arrays on endpoints that list childConditions under parameters |
+| [customFieldConditions] | <code>string</code> | Allows searching custom fields when customFieldConditions is listed in the parameters |
+| [fields] | <code>string</code> | Limits which information is returned in the response - Not available on the reporting endpoints |
+| [columns] | <code>string</code> | Limits which information is returned in the response - Only used for the Reporting Endpoints |
 
 <a name="ParamsPage"></a>
 
@@ -3654,8 +3657,8 @@ Service Subtype
 
 | Name | Type |
 | --- | --- |
-| page | <code>string</code> &#124; <code>number</code> | 
-| pageSize | <code>string</code> &#124; <code>number</code> | 
+| [page] | <code>string</code> \| <code>number</code> | 
+| [pageSize] | <code>string</code> \| <code>number</code> | 
 
 <a name="ParamsConditions"></a>
 
@@ -3665,8 +3668,8 @@ Service Subtype
 
 | Name | Type |
 | --- | --- |
-| conditions | <code>string</code> | 
-| orderBy | <code>string</code> | 
+| [conditions] | <code>string</code> | 
+| [orderBy] | <code>string</code> | 
 
 <a name="ParamsImage"></a>
 
@@ -3676,8 +3679,8 @@ Service Subtype
 
 | Name | Type | Description |
 | --- | --- | --- |
-| useDefaultFlag | <code>boolean</code> |  |
-| lastmodifier | <code>string</code> | note the lower case M (not a typo) |
+| [useDefaultFlag] | <code>boolean</code> |  |
+| [lastmodifier] | <code>string</code> | note the lower case M (not a typo) |
 
 <a name="ParamsConfig"></a>
 
@@ -3687,8 +3690,8 @@ Service Subtype
 
 | Name | Type |
 | --- | --- |
-| conditions | <code>string</code> | 
-| managedIdentifier | <code>string</code> | 
+| [conditions] | <code>string</code> | 
+| [managedIdentifier] | <code>string</code> | 
 
 <a name="ParamsConfigUpdate"></a>
 
@@ -3698,13 +3701,13 @@ Service Subtype
 
 | Name | Type |
 | --- | --- |
-| managementSolutionName | <code>string</code> | 
-| managedIdentifier | <code>string</code> | 
-| type | <code>string</code> | 
-| level | <code>string</code> | 
-| childConfigurationsMatchingOn | <code>string</code> | 
-| inactivateConfigurationsMatchingOn | <code>string</code> | 
-| inactiveConfigurationStatusId | <code>number</code> | 
+| [managementSolutionName] | <code>string</code> | 
+| [managedIdentifier] | <code>string</code> | 
+| [type] | <code>string</code> | 
+| [level] | <code>string</code> | 
+| [childConfigurationsMatchingOn] | <code>string</code> | 
+| [inactivateConfigurationsMatchingOn] | <code>string</code> | 
+| [inactiveConfigurationStatusId] | <code>number</code> | 
 
 <a name="ProductHref"></a>
 
@@ -3918,7 +3921,7 @@ Service Subtype
 | defaultFlag | <code>boolean</code> | 
 | extension |  | 
 | id | <code>number</code> | 
-| type | <code>[TypeHref](#TypeHref)</code> | 
+| type | [<code>TypeHref</code>](#TypeHref) | 
 | value | <code>string</code> | 
 
 <a name="DepartmentHref"></a>
@@ -4041,7 +4044,7 @@ Service Subtype
 | invoiceDescription | <code>string</code> |  |
 | lessIncluded | <code>number</code> |  |
 | margin | <code>number</code> |  |
-| product | <code>[ProductHref](#ProductHref)</code> |  |
+| product | [<code>ProductHref</code>](#ProductHref) |  |
 | purchaseItemFlag | <code>boolean</code> |  |
 | quantity | <code>number</code> |  |
 | serialNumber |  |  |
@@ -4110,8 +4113,8 @@ Service Subtype
 | chargeToFirm | <code>boolean</code> |  |
 | compHourlyRate | <code>number</code> |  |
 | compLimitAmount | <code>number</code> |  |
-| company | <code>[CompanyHref](#CompanyHref)</code> |  |
-| contact | <code>[ContactHref](#ContactHref)</code> |  |
+| company | [<code>CompanyHref</code>](#CompanyHref) |  |
+| contact | [<code>ContactHref</code>](#ContactHref) |  |
 | coverAgreementExpense | <code>boolean</code> |  |
 | coverAgreementProduct | <code>boolean</code> |  |
 | coverAgreementTime | <code>boolean</code> |  |
@@ -4133,7 +4136,7 @@ Service Subtype
 | name | <code>string</code> | agreementName |
 | noEndingDateFlag | <code>boolean</code> |  |
 | oneTimeFlag | <code>boolean</code> |  |
-| opportunity | <code>[OpportunityHref](#OpportunityHref)</code> |  |
+| opportunity | [<code>OpportunityHref</code>](#OpportunityHref) |  |
 | parentAgreementId | <code>number</code> |  |
 | periodType | <code>string</code> | ['Current', 'Future', 'Both', 'Undefined'] |
 | projectTypeId | <code>number</code> |  |
@@ -4143,15 +4146,15 @@ Service Subtype
 | restrictLocationFlag | <code>boolean</code> |  |
 | slaId | <code>number</code> |  |
 | startDate | <code>string</code> |  |
-| subContractCompany | <code>[CompanyHref](#CompanyHref)</code> |  |
-| subContractContact | <code>[ContactHref](#ContactHref)</code> |  |
+| subContractCompany | [<code>CompanyHref</code>](#CompanyHref) |  |
+| subContractContact | [<code>ContactHref</code>](#ContactHref) |  |
 | taxCodeId | <code>number</code> |  |
 | taxable | <code>boolean</code> |  |
 | topComment | <code>boolean</code> |  |
-| type | <code>[AgreementTypeHref](#AgreementTypeHref)</code> |  |
+| type | [<code>AgreementTypeHref</code>](#AgreementTypeHref) |  |
 | workOrder | <code>string</code> |  |
-| workRole | <code>[WorkRoleHref](#WorkRoleHref)</code> |  |
-| workType | <code>[WorkTypeHref](#WorkTypeHref)</code> |  |
+| workRole | [<code>WorkRoleHref</code>](#WorkRoleHref) |  |
+| workType | [<code>WorkTypeHref</code>](#WorkTypeHref) |  |
 
 <a name="AgreementSite"></a>
 
@@ -4162,8 +4165,8 @@ Service Subtype
 | Name | Type |
 | --- | --- |
 | id | <code>number</code> | 
-| company | <code>[CompanyHref](#CompanyHref)</code> | 
-| site | <code>[SiteHref](#SiteHref)</code> | 
+| company | [<code>CompanyHref</code>](#CompanyHref) | 
+| site | [<code>SiteHref</code>](#SiteHref) | 
 | agreementId | <code>number</code> | 
 | _info | <code>object</code> | 
 
@@ -4176,8 +4179,8 @@ Service Subtype
 | Name | Type |
 | --- | --- |
 | id | <code>number</code> | 
-| board | <code>[BoardHref](#BoardHref)</code> | 
-| serviceType | <code>[ServiceTypeHref](#ServiceTypeHref)</code> | 
+| board | [<code>BoardHref</code>](#BoardHref) | 
+| serviceType | [<code>ServiceTypeHref</code>](#ServiceTypeHref) | 
 | defaultFlag | <code>boolean</code> | 
 | agreementId | <code>number</code> | 
 | _info | <code>object</code> | 
@@ -4190,14 +4193,14 @@ Service Subtype
 
 | Name | Type |
 | --- | --- |
-| Additions | <code>[Additions](#Additions)</code> | 
-| Adjustments | <code>[Adjustments](#Adjustments)</code> | 
-| Agreements | <code>[Agreements](#Agreements)</code> | 
-| AgreementSites | <code>[AgreementSites](#AgreementSites)</code> | 
-| BoardDefaults | <code>[BoardDefaults](#BoardDefaults)</code> | 
-| WorkRoles | <code>[WorkRoles](#WorkRoles)</code> | 
-| WorkTypeExclusions | <code>[WorkTypeExclusions](#WorkTypeExclusions)</code> | 
-| WorkTypes | <code>[WorkTypes](#WorkTypes)</code> | 
+| Additions | [<code>Additions</code>](#Additions) | 
+| Adjustments | [<code>Adjustments</code>](#Adjustments) | 
+| Agreements | [<code>Agreements</code>](#Agreements) | 
+| AgreementSites | [<code>AgreementSites</code>](#AgreementSites) | 
+| BoardDefaults | [<code>BoardDefaults</code>](#BoardDefaults) | 
+| WorkRoles | [<code>WorkRoles</code>](#WorkRoles) | 
+| WorkTypeExclusions | [<code>WorkTypeExclusions</code>](#WorkTypeExclusions) | 
+| WorkTypes | [<code>WorkTypes</code>](#WorkTypes) | 
 
 <a name="new_FinanceAPI_new"></a>
 
@@ -4216,7 +4219,7 @@ Service Subtype
 | Name | Type | Description |
 | --- | --- | --- |
 | id | <code>number</code> |  |
-| workRole | <code>[WorkRoleHref](#WorkRoleHref)</code> |  |
+| workRole | [<code>WorkRoleHref</code>](#WorkRoleHref) |  |
 | locationId | <code>number</code> |  |
 | rateType | <code>string</code> | ['AdjAmount', 'Custom', 'Multiplier'] |
 | rate | <code>number</code> |  |
@@ -4235,7 +4238,7 @@ Service Subtype
 | Name | Type |
 | --- | --- |
 | id | <code>number</code> | 
-| workType | <code>[WorkTypeHref](#WorkTypeHref)</code> | 
+| workType | [<code>WorkTypeHref</code>](#WorkTypeHref) | 
 | agreementId | <code>number</code> | 
 | _info | <code>object</code> | 
 | _info.lastUpdated | <code>string</code> | 
@@ -4250,7 +4253,7 @@ Service Subtype
 | Name | Type | Description |
 | --- | --- | --- |
 | id | <code>number</code> |  |
-| workType | <code>[WorkTypeHref](#WorkTypeHref)</code> |  |
+| workType | [<code>WorkTypeHref</code>](#WorkTypeHref) |  |
 | locationId | <code>number</code> |  |
 | rateType | <code>string</code> | ['AdjAmount', 'Custom', 'Multiplier'] |
 | billTime | <code>string</code> | ['Billable', 'DoNotBill', 'NoCharge', 'NoDefault'] |
@@ -4261,11 +4264,11 @@ Service Subtype
 | overageRate | <code>number</code> |  |
 | overageRateType | <code>string</code> | ['AdjAmount', 'Custom', 'Multiplier'] |
 | agreementLimit | <code>number</code> |  |
-| site | <code>[SiteHref](#SiteHref)</code> |  |
+| site | [<code>SiteHref</code>](#SiteHref) |  |
 | effectiveDate | <code>string</code> |  |
 | endingDate | <code>string</code> |  |
 | agreementId | <code>number</code> |  |
-| company | <code>[CompanyHref](#CompanyHref)</code> |  |
+| company | [<code>CompanyHref</code>](#CompanyHref) |  |
 | _info | <code>object</code> |  |
 | _info.lastUpdated | <code>string</code> |  |
 | _info.updatedBy | <code>string</code> |  |
@@ -4299,7 +4302,7 @@ Service Subtype
 | actualEnd | <code>string</code> |  |
 | actualHours | <code>number</code> |  |
 | actualStart | <code>string</code> |  |
-| agreement | <code>[AgreementHref](#AgreementHref)</code> |  |
+| agreement | [<code>AgreementHref</code>](#AgreementHref) |  |
 | billExpenses | <code>string</code> | ['Billable', 'DoNotBill', 'NoCharge', 'NoDefault'] |
 | billProducts | <code>string</code> | ['Billable', 'DoNotBill', 'NoCharge', 'NoDefault'] |
 | billProjectAfterClosedFlag | <code>boolean</code> |  |
@@ -4309,12 +4312,12 @@ Service Subtype
 | billingAttention | <code>string</code> |  |
 | billingMethod | <code>string</code> | ['ActualRates', 'FixedFee', 'NotToExceed', 'OverrideRate'] |
 | billingRateType | <code>string</code> | ['WorkRole', 'StaffMember'] |
-| board | <code>[BoardHref](#BoardHref)</code> |  |
+| board | [<code>BoardHref</code>](#BoardHref) |  |
 | budgetAnalysis | <code>string</code> | ['ActualHours', 'BillableHours'] |
 | budgetFlag | <code>boolean</code> |  |
 | budgetHours | <code>number</code> |  |
-| company | <code>[CompanyHref](#CompanyHref)</code> |  |
-| contact | <code>[ContactHref](#ContactHref)</code> |  |
+| company | [<code>CompanyHref</code>](#CompanyHref) |  |
+| contact | [<code>ContactHref</code>](#ContactHref) |  |
 | customerPO | <code>string</code> |  |
 | description | <code>string</code> |  |
 | downpayment | <code>number</code> | note: as of CW2016.1, this is typo'd as 'downpayment' and not 'downPayment' |
@@ -4324,23 +4327,33 @@ Service Subtype
 | estimatedProductRevenue | <code>number</code> |  |
 | estimatedStart | <code>string</code> |  |
 | estimatedTimeRevenue | <code>number</code> |  |
-| expenseApprover | <code>[MemberHref](#MemberHref)</code> |  |
+| expenseApprover | [<code>MemberHref</code>](#MemberHref) |  |
 | id | <code>number</code> | projectId |
-| manager | <code>[MemberHref](#MemberHref)</code> |  |
+| manager | [<code>MemberHref</code>](#MemberHref) |  |
 | name | <code>string</code> | projectName |
-| opportunity | <code>[OpportunityHref](#OpportunityHref)</code> |  |
+| opportunity | [<code>OpportunityHref</code>](#OpportunityHref) |  |
 | projectTemplateId | <code>number</code> |  |
 | restrictDownPaymentFlag | <code>boolean</code> |  |
 | scheduledEnd | <code>string</code> |  |
 | scheduledHours | <code>number</code> |  |
 | scheduledStart | <code>string</code> |  |
-| site | <code>[SiteHref](#SiteHref)</code> |  |
-| status | <code>[ProjectStatusHref](#ProjectStatusHref)</code> |  |
-| timeApprover | <code>[MemberHref](#MemberHref)</code> |  |
-| type | <code>[ProjectTypeHref](#ProjectTypeHref)</code> |  |
+| site | [<code>SiteHref</code>](#SiteHref) |  |
+| status | [<code>ProjectStatusHref</code>](#ProjectStatusHref) |  |
+| timeApprover | [<code>MemberHref</code>](#MemberHref) |  |
+| type | [<code>ProjectTypeHref</code>](#ProjectTypeHref) |  |
 | _info | <code>object</code> |  |
 | _info.lastUpdated | <code>string</code> |  |
 | _info.updatedBy | <code>string</code> |  |
+
+<a name="SalesAPI"></a>
+
+## SalesAPI : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| Activities | <code>Activities</code> | 
 
 <a name="ScheduleAPI"></a>
 
@@ -4350,8 +4363,8 @@ Service Subtype
 
 | Name | Type |
 | --- | --- |
-| ScheduleEntries | <code>[ScheduleEntries](#ScheduleEntries)</code> | 
-| ScheduleTypes | <code>[ScheduleTypes](#ScheduleTypes)</code> | 
+| ScheduleEntries | [<code>ScheduleEntries</code>](#ScheduleEntries) | 
+| ScheduleTypes | [<code>ScheduleTypes</code>](#ScheduleTypes) | 
 
 <a name="new_ScheduleAPI_new"></a>
 
@@ -4372,13 +4385,13 @@ Service Subtype
 | id |  | 
 | objectId |  | 
 | name |  | 
-| member | <code>[MemberHref](#MemberHref)</code> | 
-| where | <code>[ServiceLocationHref](#ServiceLocationHref)</code> | 
+| member | [<code>MemberHref</code>](#MemberHref) | 
+| where | [<code>ServiceLocationHref</code>](#ServiceLocationHref) | 
 | dateStart |  | 
 | dateEnd |  | 
-| reminder | <code>[ReminderHref](#ReminderHref)</code> | 
-| status | <code>[ScheduleStatusHref](#ScheduleStatusHref)</code> | 
-| type | <code>[ScheduleTypeHref](#ScheduleTypeHref)</code> | 
+| reminder | [<code>ReminderHref</code>](#ReminderHref) | 
+| status | [<code>ScheduleStatusHref</code>](#ScheduleStatusHref) | 
+| type | [<code>ScheduleTypeHref</code>](#ScheduleTypeHref) | 
 | doneFlag |  | 
 | acknowledgedFlag |  | 
 | ownerFlag |  | 
@@ -4388,7 +4401,7 @@ Service Subtype
 | mobileGuid |  | 
 | closeDate |  | 
 | hours |  | 
-| _info | <code>[InfoHref](#InfoHref)</code> | 
+| _info | [<code>InfoHref</code>](#InfoHref) | 
 
 <a name="ScheduleType"></a>
 
@@ -4401,8 +4414,8 @@ Service Subtype
 | id | <code>number</code> |  |
 | name | <code>string</code> | required |
 | identifier | <code>string</code> | required |
-| chargeCode | <code>[ChargeCodeHref](#ChargeCodeHref)</code> |  |
-| where | <code>[ServiceLocationHref](#ServiceLocationHref)</code> |  |
+| chargeCode | [<code>ChargeCodeHref</code>](#ChargeCodeHref) |  |
+| where | [<code>ServiceLocationHref</code>](#ServiceLocationHref) |  |
 | systemFlag | <code>boolean</code> |  |
 
 <a name="Board"></a>
@@ -4435,7 +4448,7 @@ Service Subtype
 | --- | --- |
 | id | <code>number</code> | 
 | name | <code>string</code> | 
-| teamLeader | <code>[MemberHref](#MemberHref)</code> | 
+| teamLeader | [<code>MemberHref</code>](#MemberHref) | 
 | members | <code>Array.&lt;number&gt;</code> | 
 | defaultFlag | <code>boolean</code> | 
 | notifyOnTicketDelete | <code>boolean</code> | 
@@ -4452,12 +4465,12 @@ Service Subtype
 
 | Name | Type |
 | --- | --- |
-| Tickets | <code>[Tickets](#Tickets)</code> | 
-| Boards | <code>[Boards](#Boards)</code> | 
-| BoardTeams | <code>[BoardTeams](#BoardTeams)</code> | 
-| Priorities | <code>[Priorities](#Priorities)</code> | 
-| Statuses | <code>[Statuses](#Statuses)</code> | 
-| ServiceNotes | <code>[ServiceNotes](#ServiceNotes)</code> | 
+| Tickets | [<code>Tickets</code>](#Tickets) | 
+| Boards | [<code>Boards</code>](#Boards) | 
+| BoardTeams | [<code>BoardTeams</code>](#BoardTeams) | 
+| Priorities | [<code>Priorities</code>](#Priorities) | 
+| Statuses | [<code>Statuses</code>](#Statuses) | 
+| ServiceNotes | [<code>ServiceNotes</code>](#ServiceNotes) | 
 
 <a name="new_ServiceDeskAPI_new"></a>
 
@@ -4465,7 +4478,7 @@ Service Subtype
 
 | Param | Type |
 | --- | --- |
-| options | <code>[CWOptions](#CWOptions)</code> | 
+| options | [<code>CWOptions</code>](#CWOptions) | 
 
 <a name="Priority"></a>
 
@@ -4497,10 +4510,10 @@ Service Subtype
 | detailDescriptionFlag | <code>boolean</code> |  |
 | internalAnalysisFlag | <code>boolean</code> |  |
 | resolutionFlag | <code>boolean</code> |  |
-| member | <code>[MemberHref](#MemberHref)</code> | null if not applicable |
-| contact | <code>[ContactHref](#ContactHref)</code> | null if not applicable |
-| customerUpdatedFlag | <code>boolean</code> |  |
-| processNotifications | <code>boolean</code> |  |
+| member | [<code>MemberHref</code>](#MemberHref) | null if not applicable |
+| contact | [<code>ContactHref</code>](#ContactHref) | null if not applicable |
+| [customerUpdatedFlag] | <code>boolean</code> |  |
+| [processNotifications] | <code>boolean</code> |  |
 | dateCreated | <code>string</code> |  |
 | createdBy | <code>string</code> |  |
 | internalFlag | <code>boolean</code> |  |
@@ -4540,28 +4553,28 @@ Service Subtype
 | actualHours | <code>string</code> |  |
 | addressLine1 | <code>string</code> |  |
 | addressLine2 | <code>string</code> |  |
-| agreement | <code>[AgreementHref](#AgreementHref)</code> |  |
+| agreement | [<code>AgreementHref</code>](#AgreementHref) |  |
 | allowAllClientsPortalView | <code>boolean</code> |  |
 | approved | <code>boolean</code> |  |
 | automaticEmailCc |  |  |
 | automaticEmailCcFlag |  |  |
 | automaticEmailContactFlag |  |  |
 | automaticEmailResourceFlag |  |  |
-| board | <code>[BoardHref](#BoardHref)</code> |  |
+| board | [<code>BoardHref</code>](#BoardHref) |  |
 | budgetHours | <code>number</code> |  |
 | city | <code>string</code> |  |
 | closedBy |  |  |
 | closedDate |  |  |
 | closedFlag |  |  |
-| company | <code>[CompanyHref](#CompanyHref)</code> |  |
-| contact | <code>[ContactHref](#ContactHref)</code> |  |
+| company | [<code>CompanyHref</code>](#CompanyHref) |  |
+| contact | [<code>ContactHref</code>](#ContactHref) |  |
 | contactEmailAddress | <code>string</code> |  |
 | contactEmailLookup |  |  |
 | contactPhoneExtension |  |  |
 | contactPhoneNumber | <code>string</code> |  |
-| country | <code>[CountryHref](#CountryHref)</code> |  |
+| country | [<code>CountryHref</code>](#CountryHref) |  |
 | customerUpdatedFlag | <code>boolean</code> |  |
-| customFields | <code>[Array.&lt;CustomField&gt;](#CustomField)</code> |  |
+| customFields | [<code>Array.&lt;CustomField&gt;</code>](#CustomField) |  |
 | dateEntered | <code>string</code> |  |
 | dateResolved | <code>string</code> |  |
 | dateResplan | <code>string</code> |  |
@@ -4575,17 +4588,17 @@ Service Subtype
 | initialInternalAnalysis |  |  |
 | initialResolution |  |  |
 | isInSla | <code>boolean</code> |  |
-| item | <code>[ItemHref](#ItemHref)</code> |  |
+| item | [<code>ItemHref</code>](#ItemHref) |  |
 | knowledgeBaseCategoryId |  |  |
 | knowledgeBaseLinkId |  |  |
 | knowledgeBaseLinkType |  |  |
 | knowledgeBaseSubCategoryId |  |  |
 | opportunity |  |  |
-| owner | <code>[OwnerHref](#OwnerHref)</code> |  |
+| owner | [<code>OwnerHref</code>](#OwnerHref) |  |
 | parentTicketId |  |  |
 | phase |  |  |
 | poNumber |  |  |
-| priority | <code>[PriorityHref](#PriorityHref)</code> |  |
+| priority | [<code>PriorityHref</code>](#PriorityHref) |  |
 | processNotifications |  |  |
 | project |  |  |
 | recordType | <code>string</code> |  |
@@ -4594,21 +4607,21 @@ Service Subtype
 | resolveMinutes | <code>number</code> |  |
 | resources | <code>string</code> |  |
 | respondMinutes | <code>number</code> |  |
-| serviceLocation | <code>[ServiceLocationHref](#ServiceLocationHref)</code> |  |
+| serviceLocation | [<code>ServiceLocationHref</code>](#ServiceLocationHref) |  |
 | severity | <code>string</code> |  |
-| site | <code>[SiteHref](#SiteHref)</code> |  |
+| site | [<code>SiteHref</code>](#SiteHref) |  |
 | siteName | <code>string</code> |  |
 | skipCallback |  |  |
-| source | <code>[SourceHref](#SourceHref)</code> |  |
+| source | [<code>SourceHref</code>](#SourceHref) |  |
 | stateIdentifier | <code>string</code> |  |
-| status | <code>[StatusHref](#StatusHref)</code> |  |
+| status | [<code>StatusHref</code>](#StatusHref) |  |
 | subBillingAmount |  |  |
 | subBillingMethod | <code>string</code> |  |
 | subDateAccepted |  |  |
-| subType | <code>[SubTypeHref](#SubTypeHref)</code> |  |
+| subType | [<code>SubTypeHref</code>](#SubTypeHref) |  |
 | summary | <code>string</code> |  |
-| team | <code>[TeamHref](#TeamHref)</code> |  |
-| type | <code>[TypeHref](#TypeHref)</code> |  |
+| team | [<code>TeamHref</code>](#TeamHref) |  |
+| type | [<code>TypeHref</code>](#TypeHref) |  |
 | wbsCode |  |  |
 | zip | <code>string</code> |  |
 | _info | <code>object</code> |  |
@@ -4632,8 +4645,8 @@ Service Subtype
 
 | Name | Type |
 | --- | --- |
-| Members | <code>[Members](#Members)</code> | 
-| Reports | <code>[Reports](#Reports)</code> | 
+| Members | [<code>Members</code>](#Members) | 
+| Reports | [<code>Reports</code>](#Reports) | 
 
 <a name="new_SystemAPI_new"></a>
 
@@ -4641,7 +4654,7 @@ Service Subtype
 
 | Param | Type |
 | --- | --- |
-| options | <code>[CWOptions](#CWOptions)</code> | 
+| options | [<code>CWOptions</code>](#CWOptions) | 
 
 <a name="Member"></a>
 
@@ -4655,7 +4668,7 @@ Service Subtype
 | adminFlag | <code>boolean</code> | 
 | billableForecast |  | 
 | calendar | <code>CalendarHref</code> | 
-| country | <code>[CountryHref](#CountryHref)</code> | 
+| country | [<code>CountryHref</code>](#CountryHref) | 
 | dailyCapacity |  | 
 | defaultEmail |  | 
 | defaultProjectBoard | <code>ProjectBoardHref</code> | 
@@ -4674,7 +4687,7 @@ Service Subtype
 | enableGpsFlag |  | 
 | enableLdapAuthenticationFlag |  | 
 | enableMobileFlag |  | 
-| expenseApprover | <code>[MemberHref](#MemberHref)</code> | 
+| expenseApprover | [<code>MemberHref</code>](#MemberHref) | 
 | firstName | <code>string</code> | 
 | hideFromDispatchFlag | <code>boolean</code> | 
 | hireDate | <code>string</code> | 
@@ -4694,7 +4707,7 @@ Service Subtype
 | officeEmail |  | 
 | officeExtension |  | 
 | officePhone |  | 
-| reportsTo | <code>[MemberHref](#MemberHref)</code> | 
+| reportsTo | [<code>MemberHref</code>](#MemberHref) | 
 | restrictDefaultSalesTerritoryFlag |  | 
 | restrictDefaultWarehouseBinFlag |  | 
 | restrictDefaultWarehouseFlag |  | 
@@ -4711,15 +4724,15 @@ Service Subtype
 | serviceTeams |  | 
 | systemRestrictToDefaultDepartmentFlag |  | 
 | systemRestrictToDefaultLocationFlag |  | 
-| timeApprover | <code>[MemberHref](#MemberHref)</code> | 
+| timeApprover | [<code>MemberHref</code>](#MemberHref) | 
 | timeZone | <code>TimeZoneHref</code> | 
 | title |  | 
 | type | <code>MemberTypeHref</code> | 
 | vendorNumber |  | 
 | warehouse |  | 
 | warehouseBin |  | 
-| workRole | <code>[WorkRoleHref](#WorkRoleHref)</code> | 
-| workType | <code>[WorkTypeHref](#WorkTypeHref)</code> | 
+| workRole | [<code>WorkRoleHref</code>](#WorkRoleHref) | 
+| workType | [<code>WorkTypeHref</code>](#WorkTypeHref) | 
 | _info | <code>object</code> | 
 | _info.lastUpdated | <code>string</code> | 
 | _info.updatedBy | <code>string</code> | 
@@ -4793,15 +4806,15 @@ Key-Vals interpolated into one object per row
 | Name | Type | Description |
 | --- | --- | --- |
 | id | <code>number</code> |  |
-| company | <code>[CompanyHref](#CompanyHref)</code> |  |
+| company | [<code>CompanyHref</code>](#CompanyHref) |  |
 | chargeToId | <code>number</code> |  |
 | chargeToType | <code>string</code> | ['ServiceTicket', 'ProjectTicket', 'ChargeCode', 'Activity'] |
-| member | <code>[MemberHref](#MemberHref)</code> |  |
+| member | [<code>MemberHref</code>](#MemberHref) |  |
 | locationId | <code>number</code> |  |
 | businessUnitId | <code>number</code> |  |
-| workType | <code>[WorkTypeHref](#WorkTypeHref)</code> |  |
-| workRole | <code>[WorkRoleHref](#WorkRoleHref)</code> |  |
-| agreement | <code>[AgreementHref](#AgreementHref)</code> |  |
+| workType | [<code>WorkTypeHref</code>](#WorkTypeHref) |  |
+| workRole | [<code>WorkRoleHref</code>](#WorkRoleHref) |  |
+| agreement | [<code>AgreementHref</code>](#AgreementHref) |  |
 | timeStart | <code>string</code> |  |
 | timeEnd | <code>string</code> |  |
 | hoursDeduct | <code>number</code> |  |
