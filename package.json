@@ -32,7 +32,7 @@
     "request": "^2.87.0"
   },
   "devDependencies": {
-    "jsdoc": "~3.4.3",
+    "jsdoc": "~3.5.5",
     "jsdoc-to-markdown": "^4.0.1"
   },
   "engines": {
