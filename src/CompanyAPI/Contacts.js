@@ -101,6 +101,14 @@ Contacts.prototype.getContactsCount = function (params) {
 };
 
 /**
+ * @param {ParamsConditions} params
+ * @returns {Promise<Count>}
+ */
+Contacts.prototype.getContactTypes = function (params) {
+  return this.api('/company/contacts/types', 'GET', params);
+};
+
+/**
  * @param {number|string} id
  * @param {number|string} transferContactId
  * @returns {Promise<DeleteResponse>}
