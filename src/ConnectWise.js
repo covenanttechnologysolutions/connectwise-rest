@@ -326,11 +326,11 @@ function parameterize(params) {
   var result = [];
   for (var param in params) {
     if (params.hasOwnProperty(param)) {
-      result.push(param + '=' + params[param]);
+      result.push(param + '=' + encodeURIComponent(params[param]));
     }
   }
 
-  return encodeURI('?' + result.join('&'));
+  return '?' + result.join('&');
 }
 
 /**
