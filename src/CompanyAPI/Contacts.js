@@ -54,6 +54,16 @@ var inherits = require('util').inherits,
  */
 
 /**
+ * @typedef {object} ContactType
+ * @property {number} id
+ * @property {string} description
+ * @property {boolean} defaultFlag
+ * @property {object} _info
+ * @property {string} _info.lastUpdated
+ * @property {string} _info.updatedBy
+ */
+
+/**
  * @typedef {object} PortalSecurity
  * @property {string} identifier
  * @property {boolean} enabled
@@ -74,6 +84,7 @@ var inherits = require('util').inherits,
 function Contacts(options) {
   ConnectWise.apply(this, Array.prototype.slice.call(arguments));
 }
+
 inherits(Contacts, ConnectWise);
 
 /**
@@ -102,7 +113,7 @@ Contacts.prototype.getContactsCount = function (params) {
 
 /**
  * @param {ParamsConditions} params
- * @returns {Promise<Count>}
+ * @returns {Promise<ContactType>}
  */
 Contacts.prototype.getContactTypes = function (params) {
   return this.api('/company/contacts/types', 'GET', params);

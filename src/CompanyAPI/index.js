@@ -8,6 +8,7 @@
  * @property {Companies} Companies
  * @property {Contacts} Contacts
  * @property {Configurations} Configurations
+ * @property {ContactRelationships} ContactRelationships
  */
 
 /**
@@ -19,15 +20,15 @@
 function CompanyAPI(options) {
   var _Companies = require('./Companies'),
     _Contacts = require('./Contacts'),
-    _Configurations = require('./Configurations');
-    _ContactRelationships = require('./ContactRelationships')
+    _Configurations = require('./Configurations'),
+    _ContactRelationships = require('./ContactRelationships');
 
   return {
     Companies: new _Companies(options),
     Contacts: new _Contacts(options),
     Configurations: new _Configurations(options),
-    ContactRelationships: new _ContactRelationships(options)
-  }
+    ContactRelationships: new _ContactRelationships(options),
+  };
 }
 
 /**
