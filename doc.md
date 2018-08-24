@@ -7,6 +7,8 @@
 <dd></dd>
 <dt><a href="#Configurations">Configurations</a></dt>
 <dd></dd>
+<dt><a href="#ContactRelationships">ContactRelationships</a></dt>
+<dd></dd>
 <dt><a href="#Contacts">Contacts</a></dt>
 <dd></dd>
 <dt><a href="#CompanyAPI">CompanyAPI</a></dt>
@@ -82,7 +84,11 @@
 <dd></dd>
 <dt><a href="#ConfigurationQuestion">ConfigurationQuestion</a> : <code>object</code></dt>
 <dd></dd>
+<dt><a href="#Relationship">Relationship</a> : <code>object</code></dt>
+<dd></dd>
 <dt><a href="#Contact">Contact</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#ContactType">ContactType</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#PortalSecurity">PortalSecurity</a> : <code>object</code></dt>
 <dd></dd>
@@ -548,6 +554,33 @@
 | id | <code>string</code> \| <code>number</code> | 
 | config | [<code>Configuration</code>](#Configuration) | 
 
+<a name="ContactRelationships"></a>
+
+## ContactRelationships
+**Kind**: global class  
+**Inherits**: [<code>ConnectWise</code>](#ConnectWise)  
+
+* [ContactRelationships](#ContactRelationships)
+    * [new ContactRelationships(options)](#new_ContactRelationships_new)
+    * [.getRelationships(params)](#ContactRelationships+getRelationships) ⇒ <code>Promise.&lt;Array.&lt;Relationship&gt;&gt;</code>
+
+<a name="new_ContactRelationships_new"></a>
+
+### new ContactRelationships(options)
+
+| Param | Type |
+| --- | --- |
+| options | [<code>CWOptions</code>](#CWOptions) | 
+
+<a name="ContactRelationships+getRelationships"></a>
+
+### contactRelationships.getRelationships(params) ⇒ <code>Promise.&lt;Array.&lt;Relationship&gt;&gt;</code>
+**Kind**: instance method of [<code>ContactRelationships</code>](#ContactRelationships)  
+
+| Param | Type |
+| --- | --- |
+| params | [<code>Params</code>](#Params) | 
+
 <a name="Contacts"></a>
 
 ## Contacts
@@ -559,6 +592,7 @@
     * [.getContacts(params)](#Contacts+getContacts) ⇒ <code>Promise.&lt;Array.&lt;Contact&gt;&gt;</code>
     * [.createContact(contact)](#Contacts+createContact) ⇒ [<code>Promise.&lt;Contact&gt;</code>](#Contact)
     * [.getContactsCount(params)](#Contacts+getContactsCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+    * [.getContactTypes(params)](#Contacts+getContactTypes) ⇒ [<code>Promise.&lt;ContactType&gt;</code>](#ContactType)
     * [.deleteContactById(id, transferContactId)](#Contacts+deleteContactById) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
     * [.getContactById(id)](#Contacts+getContactById) ⇒ [<code>Promise.&lt;Contact&gt;</code>](#Contact)
     * [.updateContact(id, operations)](#Contacts+updateContact) ⇒ [<code>Promise.&lt;Contact&gt;</code>](#Contact)
@@ -597,6 +631,15 @@
 <a name="Contacts+getContactsCount"></a>
 
 ### contacts.getContactsCount(params) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+**Kind**: instance method of [<code>Contacts</code>](#Contacts)  
+
+| Param | Type |
+| --- | --- |
+| params | [<code>ParamsConditions</code>](#ParamsConditions) | 
+
+<a name="Contacts+getContactTypes"></a>
+
+### contacts.getContactTypes(params) ⇒ [<code>Promise.&lt;ContactType&gt;</code>](#ContactType)
 **Kind**: instance method of [<code>Contacts</code>](#Contacts)  
 
 | Param | Type |
@@ -3228,6 +3271,20 @@ GET
 | numberOfDecimals | <code>number</code> |  |
 | fieldType | <code>string</code> | ['Text', 'Button', 'Currency', 'Date', 'Hyperlink', 'IPAddress', 'Checkbox', 'Number', 'Percent', 'TextArea', 'Password'] |
 
+<a name="Relationship"></a>
+
+## Relationship : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| id | <code>number</code> | 
+| name | <code>string</code> | 
+| _info | <code>object</code> | 
+| _info.lastUpdated | <code>string</code> | 
+| _info.updatedBy | <code>string</code> | 
+
 <a name="Contact"></a>
 
 ## Contact : <code>object</code>
@@ -3278,6 +3335,21 @@ GET
 | _info.tracks_href | <code>string</code> |  |
 | _info.updatedBy | <code>string</code> |  |
 
+<a name="ContactType"></a>
+
+## ContactType : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| id | <code>number</code> | 
+| description | <code>string</code> | 
+| defaultFlag | <code>boolean</code> | 
+| _info | <code>object</code> | 
+| _info.lastUpdated | <code>string</code> | 
+| _info.updatedBy | <code>string</code> | 
+
 <a name="PortalSecurity"></a>
 
 ## PortalSecurity : <code>object</code>
@@ -3311,6 +3383,7 @@ GET
 | Companies | [<code>Companies</code>](#Companies) | 
 | Contacts | [<code>Contacts</code>](#Contacts) | 
 | Configurations | [<code>Configurations</code>](#Configurations) | 
+| ContactRelationships | [<code>ContactRelationships</code>](#ContactRelationships) | 
 
 <a name="new_CompanyAPI_new"></a>
 
@@ -3342,11 +3415,11 @@ GET
 | Name | Type |
 | --- | --- |
 | API | [<code>ConnectWise</code>](#ConnectWise) | 
+| CompanyAPI | [<code>CompanyAPI</code>](#CompanyAPI) | 
 | FinanceAPI | [<code>FinanceAPI</code>](#FinanceAPI) | 
 | ServiceDeskAPI | [<code>ServiceDeskAPI</code>](#ServiceDeskAPI) | 
 | TimeAPI | [<code>TimeAPI</code>](#TimeAPI) | 
 | ProjectAPI | [<code>ProjectAPI</code>](#ProjectAPI) | 
-| CompanyAPI | [<code>CompanyAPI</code>](#CompanyAPI) | 
 | ScheduleAPI | [<code>ScheduleAPI</code>](#ScheduleAPI) | 
 | SystemAPI | [<code>SystemAPI</code>](#SystemAPI) | 
 | SalesAPI | [<code>SalesAPI</code>](#SalesAPI) | 
