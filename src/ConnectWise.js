@@ -18,23 +18,7 @@ var DEFAULTS = {
 };
 
 /**
- * @param {object} options
- * @param {string} options.companyId
- * @param {string} options.publicKey
- * @param {string} options.privateKey
- * @param {string} options.companyUrl
- * @param {string} options.apiVersion
- * @param {string} [options.entryPoint] defaults to 'v4_6_release'
- * @param {number} [options.timeout] defaults to 20000 (20 seconds)
- * @param {boolean} [options.retry] defaults to false
- * @param {object} [options.retryOptions] defaults to {
-      retries: 4,
-      minTimeout: 50,
-      maxTimeout: 20000,
-      randomize: true,
-    }
- * @param {boolean} [options.debug] defaults to false
- * @param {function} [options.logger] function(String:level, String:text, *:Object) defaults to console
+ * @property {CWOptions} options
  * @constructor
  */
 function ConnectWise(options) {
@@ -105,7 +89,7 @@ function ConnectWise(options) {
           console.log(`${level}: ${text}`, meta);
           return;
       }
-    }
+    };
   }
 
   this.config = {};
@@ -145,7 +129,10 @@ ConnectWise.prototype.api = function (path, method, params) {
       return apiPromise(path, method, params, config)
         .catch(err => {
           if (config.debug) {
-            config.logger('warn', `${method} ${path} ${Date.now() - startTime}ms network timeout occurred: ${err.code}, retry=${number}, params=${JSON.stringify(params)}`, err);
+            config.logger('warn',
+              `${method} ${path} ${Date.now() - startTime}ms error occurred: ${err.code}, retry=${number}, params=${JSON.stringify(
+                params)}`,
+              err);
           }
           startTime = Date.now();
           if (retryCodes.indexOf(err.code) >= 0) {
@@ -162,10 +149,12 @@ ConnectWise.prototype.api = function (path, method, params) {
       })
       .catch(err => {
         if (config.debug) {
-          config.logger('error', `${method} ${path} ${Date.now() - startTime}ms network timeout occurred: ${err.code}, params=${JSON.stringify(params)}`, err);
+          config.logger('error',
+            `${method} ${path} ${Date.now() - startTime}ms error occurred: ${err.code}, params=${JSON.stringify(params)}`,
+            err);
         }
         throw err;
-      })
+      });
   } else {
     return apiPromise(path, method, params, config)
       .then(res => {
@@ -186,10 +175,10 @@ ConnectWise.prototype.api = function (path, method, params) {
 function apiPromise(path, method, params, config) {
   return new Promise((resolve, reject) => {
     if (!path) {
-      return reject(new Error('path must be defined'))
+      return reject(new Error('path must be defined'));
     }
     if (!method) {
-      return reject(new Error('method must be defined'))
+      return reject(new Error('method must be defined'));
     }
 
     var options = {
@@ -319,7 +308,7 @@ ConnectWise.prototype.paginate = function (fn, args, module, pageSize, startPage
  * @returns {string}
  */
 function parameterize(params) {
-  if (typeof params === "string") {
+  if (typeof params === 'string') {
     return params;
   }
 

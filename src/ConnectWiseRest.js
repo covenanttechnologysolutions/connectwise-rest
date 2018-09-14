@@ -9,6 +9,17 @@
  * @property publicKey
  * @property privateKey
  * @property companyUrl
+ * @property {string} [entryPoint] defaults to 'v4_6_release'
+ * @property {number} [timeout] defaults to 20000 (20 seconds)
+ * @property {boolean} [retry] defaults to false
+ * @property {object} [retryOptions] defaults to {
+      retries: 4,
+      minTimeout: 50,
+      maxTimeout: 20000,
+      randomize: true,
+    }
+ * @property {boolean} [debug] defaults to false
+ * @property {function} [logger] function(String:level, String:text, *:Object) defaults to console
  */
 
 /**
@@ -25,33 +36,31 @@
  */
 
 /**
- *
- * @param options
- * @returns {ConnectWiseRest}
+ * @class ConnectWiseRest
+ * @param {CWOptions} options
+ * @type {ConnectWiseRest}
  * @constructor
  */
 function ConnectWiseRest(options) {
-  var _ConnectWise = require('./ConnectWise'),
-    _CompanyAPI = require('./CompanyAPI'),
-    _FinanceAPI = require('./FinanceAPI'),
-    _TimeAPI = require('./TimeAPI'),
-    _ServiceDeskAPI = require('./ServiceDeskAPI'),
-    _ProjectAPI = require('./ProjectAPI'),
-    _ScheduleAPI = require('./ScheduleAPI'),
-    _SystemAPI = require('./SystemAPI'),
-    _SalesAPI = require('./SalesAPI');
+  const _ConnectWise = require('./ConnectWise');
+  const _CompanyAPI = require('./CompanyAPI');
+  const _FinanceAPI = require('./FinanceAPI');
+  const _TimeAPI = require('./TimeAPI');
+  const _ServiceDeskAPI = require('./ServiceDeskAPI');
+  const _ProjectAPI = require('./ProjectAPI');
+  const _ScheduleAPI = require('./ScheduleAPI');
+  const _SystemAPI = require('./SystemAPI');
+  const _SalesAPI = require('./SalesAPI');
 
-  return {
-    API: new _ConnectWise(options),
-    CompanyAPI: new _CompanyAPI(options),
-    FinanceAPI: new _FinanceAPI(options),
-    ServiceDeskAPI: new _ServiceDeskAPI(options),
-    TimeAPI: new _TimeAPI(options),
-    ProjectAPI: new _ProjectAPI(options),
-    ScheduleAPI: new _ScheduleAPI(options),
-    SystemAPI: new _SystemAPI(options),
-    SalesAPI: new _SalesAPI(options),
-  };
+  this.API = new _ConnectWise(options);
+  this.CompanyAPI = new _CompanyAPI(options);
+  this.FinanceAPI = new _FinanceAPI(options);
+  this.TimeAPI = new _TimeAPI(options);
+  this.ServiceDeskAPI = new _ServiceDeskAPI(options);
+  this.ProjectAPI = new _ProjectAPI(options);
+  this.ScheduleAPI = new _ScheduleAPI(options);
+  this.SystemAPI = new _SystemAPI(options);
+  this.SalesAPI = new _SalesAPI(options);
 }
 
 /**
@@ -314,6 +323,11 @@ module.exports = ConnectWiseRest;
  * @property {string} _info.name
  * @property {string} _info.configuration_href
  *
+ */
+
+/**
+ * @typedef {object} CurrencyHref
+ * @property {string} currency_href
  */
 
 /**
