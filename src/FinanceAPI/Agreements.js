@@ -96,6 +96,7 @@ var inherits = require('util').inherits,
 function Agreements(options) {
   ConnectWise.apply(this, Array.prototype.slice.call(arguments));
 }
+
 inherits(Agreements, ConnectWise);
 
 /**
@@ -146,7 +147,7 @@ Agreements.prototype.getAgreementById = function (agreementId) {
 /**
  *
  * @param {string|number} agreementId
- * @param {Operations} operations
+ * @param {Operations[]} operations
  * @returns {Promise<Agreement>}
  */
 Agreements.prototype.updateAgreement = function (agreementId, operations) {
@@ -180,7 +181,7 @@ Agreements.prototype.getAgreementConfigurations = function (agreementId, params)
  * @returns {Promise<ConfigurationHref>}
  */
 Agreements.prototype.createConfigurationAssociation = function (agreementId, configuration) {
-  return this.api('/finance/agreements/' + agreementId + '/configurations', 'POST', configuration)
+  return this.api('/finance/agreements/' + agreementId + '/configurations', 'POST', configuration);
 };
 
 /**

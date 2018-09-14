@@ -138,7 +138,7 @@ Contacts.prototype.getContactById = function (id) {
 
 /**
  * @param {string|number} id
- * @param {Operations} operations
+ * @param {Operations[]} operations
  * @returns {Promise<Contact>}
  */
 Contacts.prototype.updateContact = function (id, operations) {

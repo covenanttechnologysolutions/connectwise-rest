@@ -27,6 +27,7 @@ var inherits = require('util').inherits,
 function BoardDefaults(options) {
   ConnectWise.apply(this, Array.prototype.slice.call(arguments));
 }
+
 inherits(BoardDefaults, ConnectWise);
 
 /**
@@ -83,7 +84,7 @@ BoardDefaults.prototype.getBoardDefaultById = function (agreementId, boardDefaul
  * PATCH
  * @param agreementId
  * @param boardDefaultId
- * @param {Operations} operations
+ * @param {Operations[]} operations
  * @returns {Promise<BoardDefault>}
  */
 BoardDefaults.prototype.updateBoardDefault = function (agreementId, boardDefaultId, operations) {

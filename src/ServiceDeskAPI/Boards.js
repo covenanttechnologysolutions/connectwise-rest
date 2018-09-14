@@ -8,6 +8,7 @@
  */
 var inherits = require('util').inherits,
   ConnectWise = require('../ConnectWise.js');
+
 /**
  * @typedef {object} Board
  * @property {number} id
@@ -32,6 +33,7 @@ var inherits = require('util').inherits,
 function Boards(options) {
   ConnectWise.apply(this, Array.prototype.slice.call(arguments));
 }
+
 inherits(Boards, ConnectWise);
 
 /**
@@ -73,7 +75,7 @@ Boards.prototype.getBoardsCount = function (params) {
 /**
  * PATCH
  * @param id
- * @param {Operations} ops
+ * @param {Operations[]} ops
  * @returns {Promise<Board>}
  */
 Boards.prototype.updateBoard = function (id, ops) {

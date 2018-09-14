@@ -27,6 +27,7 @@ var inherits = require('util').inherits,
 function ScheduleTypes(options) {
   ConnectWise.apply(this, Array.prototype.slice.call(arguments));
 }
+
 inherits(ScheduleTypes, ConnectWise);
 
 /**
@@ -60,7 +61,7 @@ ScheduleTypes.prototype.getScheduleTypesCount = function (params) {
  * @param scheduleTypeId
  * @returns {Promise<ScheduleType>}
  */
-ScheduleTypes.prototype.getScheduleTypeById = function(scheduleTypeId) {
+ScheduleTypes.prototype.getScheduleTypeById = function (scheduleTypeId) {
   return this.api('/schedule/types/' + scheduleTypeId, 'GET');
 };
 
@@ -69,7 +70,7 @@ ScheduleTypes.prototype.getScheduleTypeById = function(scheduleTypeId) {
  * @param scheduleTypeId
  * @returns {Promise<DeleteResponse>}
  */
-ScheduleTypes.prototype.deleteScheduleTypeById = function(scheduleTypeId) {
+ScheduleTypes.prototype.deleteScheduleTypeById = function (scheduleTypeId) {
   return this.api('/schedule/types/' + scheduleTypeId, 'DELETE');
 };
 
@@ -79,16 +80,16 @@ ScheduleTypes.prototype.deleteScheduleTypeById = function(scheduleTypeId) {
  * @param {ScheduleType} scheduleType
  * @returns {Promise<ScheduleType>}
  */
-ScheduleTypes.prototype.replaceScheduleType = function(scheduleTypeId, scheduleType) {
+ScheduleTypes.prototype.replaceScheduleType = function (scheduleTypeId, scheduleType) {
   return this.api('/schedule/types/' + scheduleTypeId, 'PUT', scheduleType);
 };
 
 /**
  * @param scheduleTypeId
- * @param {Operations} ops
+ * @param {Operations[]} ops
  * @returns {Promise<ScheduleType>}
  */
-ScheduleTypes.prototype.updateScheduleType = function(scheduleTypeId, ops) {
+ScheduleTypes.prototype.updateScheduleType = function (scheduleTypeId, ops) {
   return this.api('/schedule/types/' + scheduleTypeId, 'PATCH', ops);
 };
 

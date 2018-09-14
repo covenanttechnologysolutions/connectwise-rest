@@ -83,6 +83,7 @@ var inherits = require('util').inherits,
 function Configurations(options) {
   ConnectWise.apply(this, Array.prototype.slice.call(arguments));
 }
+
 inherits(Configurations, ConnectWise);
 
 /**
@@ -127,7 +128,7 @@ Configurations.prototype.getConfigurationById = function (id) {
 
 /**
  * @param {string|number} id
- * @param {Operations} ops
+ * @param {Operations[]} ops
  * @param {ParamsConfigUpdate} params
  * @returns {Promise<Configuration>}
  */

@@ -44,6 +44,7 @@ var inherits = require('util').inherits,
 function Additions(options) {
   ConnectWise.apply(this, Array.prototype.slice.call(arguments));
 }
+
 inherits(Additions, ConnectWise);
 
 /**
@@ -101,7 +102,7 @@ Additions.prototype.getAdditionById = function (agreementId, additionId) {
  * PATCH
  * @param agreementId
  * @param additionId
- * @param {Operations} operations
+ * @param {Operations[]} operations
  * @returns {Promise<Addition>}
  */
 Additions.prototype.updateAddition = function (agreementId, additionId, operations) {

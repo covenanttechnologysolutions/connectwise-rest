@@ -8,6 +8,7 @@
  */
 var inherits = require('util').inherits,
   ConnectWise = require('../ConnectWise.js');
+
 /**
  * @typedef {object} Status
  * @property {number} id
@@ -33,6 +34,7 @@ var inherits = require('util').inherits,
 function Statuses(options) {
   ConnectWise.apply(this, Array.prototype.slice.call(arguments));
 }
+
 inherits(Statuses, ConnectWise);
 
 /**
@@ -52,7 +54,7 @@ Statuses.prototype.getStatusesByBoardId = function (boardId, params) {
  * @returns {Promise<Status>}
  */
 Statuses.prototype.createStatuses = function (boardId, status) {
-  return this.api('/service/boards/' + boardId + '/statuses', 'POST', status)
+  return this.api('/service/boards/' + boardId + '/statuses', 'POST', status);
 };
 
 /**
@@ -71,7 +73,7 @@ Statuses.prototype.getStatusesCount = function (boardId) {
  * @returns {Promise<DeleteResponse>}
  */
 Statuses.prototype.deleteStatusById = function (boardId, statusId) {
-  return this.api('/service/boards/' + boardId + '/statuses/' + statusId, 'DELETE')
+  return this.api('/service/boards/' + boardId + '/statuses/' + statusId, 'DELETE');
 };
 
 /**
@@ -88,7 +90,7 @@ Statuses.prototype.getStatusById = function (boardId, statusId) {
  *
  * @param boardId
  * @param statusId
- * @param {Operations} operations
+ * @param {Operations[]} operations
  * @returns {Promise<Status>}
  */
 Statuses.prototype.updateStatus = function (boardId, statusId, operations) {

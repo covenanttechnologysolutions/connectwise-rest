@@ -42,6 +42,7 @@ var inherits = require('util').inherits,
 function ScheduleEntries(options) {
   ConnectWise.apply(this, Array.prototype.slice.call(arguments));
 }
+
 inherits(ScheduleEntries, ConnectWise);
 
 /**
@@ -94,7 +95,7 @@ ScheduleEntries.prototype.replaceSchedule = function (id) {
 
 /**
  * @param id scheduleId
- * @param {Operations} ops
+ * @param {Operations[]} ops
  * @returns {Promise<ScheduleEntry[]>}
  */
 ScheduleEntries.prototype.updateSchedule = function (id, ops) {

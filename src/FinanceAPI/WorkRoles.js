@@ -31,6 +31,7 @@ var inherits = require('util').inherits,
 function WorkRoles(options) {
   ConnectWise.apply(this, Array.prototype.slice.call(arguments));
 }
+
 inherits(WorkRoles, ConnectWise);
 
 /**
@@ -87,7 +88,7 @@ WorkRoles.prototype.getWorkRoleById = function (agreementId, workRoleId) {
  * PATCH
  * @param agreementId
  * @param workRoleId
- * @param {Operations} operations
+ * @param {Operations[]} operations
  * @returns {Promise<WorkRole>}
  */
 WorkRoles.prototype.updateWorkRole = function (agreementId, workRoleId, operations) {

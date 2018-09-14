@@ -68,6 +68,7 @@ var inherits = require('util').inherits,
 function Projects(options) {
   ConnectWise.apply(this, Array.prototype.slice.call(arguments));
 }
+
 inherits(Projects, ConnectWise);
 
 /**
@@ -118,7 +119,7 @@ Projects.prototype.getProjectById = function (projectId) {
 /**
  *
  * @param {string|number} projectId
- * @param {Operations} operations
+ * @param {Operations[]} operations
  * @returns {Promise<Project>}
  */
 Projects.prototype.updateProject = function (projectId, operations) {

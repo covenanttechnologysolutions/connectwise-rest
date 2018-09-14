@@ -33,6 +33,7 @@ var inherits = require('util').inherits,
 function CompanyTeams(options) {
   ConnectWise.apply(this, Array.prototype.slice.call(arguments));
 }
+
 inherits(CompanyTeams, ConnectWise);
 
 /**
@@ -93,7 +94,7 @@ CompanyTeams.prototype.replaceCompanyTeam = function (id, teamId, companyTeam) {
 /**
  * @param id companyId
  * @param teamId
- * @param {Operations} ops
+ * @param {Operations[]} ops
  * @returns {Promise<CompanyTeam>}
  */
 CompanyTeams.prototype.updateCompanyTeam = function (id, teamId, ops) {

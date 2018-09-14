@@ -70,6 +70,7 @@ var inherits = require('util').inherits,
 function Companies(options) {
   ConnectWise.apply(this, Array.prototype.slice.call(arguments));
 }
+
 inherits(Companies, ConnectWise);
 
 /**
@@ -123,7 +124,7 @@ Companies.prototype.deleteCompanyById = function (id) {
 
 /**
  * @param {string|number} id
- * @param {Operations} ops
+ * @param {Operations[]} ops
  * @returns {Promise<Company>}
  */
 Companies.prototype.updateCompany = function (id, ops) {

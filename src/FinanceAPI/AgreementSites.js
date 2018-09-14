@@ -26,6 +26,7 @@ var inherits = require('util').inherits,
 function AgreementSites(options) {
   ConnectWise.apply(this, Array.prototype.slice.call(arguments));
 }
+
 inherits(AgreementSites, ConnectWise);
 
 /**
@@ -82,7 +83,7 @@ AgreementSites.prototype.getAgreementSiteById = function (agreementId, siteId) {
  * PATCH
  * @param agreementId
  * @param siteId
- * @param {Operations} operations
+ * @param {Operations[]} operations
  * @returns {Promise<AgreementSite>}
  */
 AgreementSites.prototype.updateAgreementSite = function (agreementId, siteId, operations) {

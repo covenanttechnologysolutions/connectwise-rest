@@ -41,6 +41,7 @@ var inherits = require('util').inherits,
 function WorkTypes(options) {
   ConnectWise.apply(this, Array.prototype.slice.call(arguments));
 }
+
 inherits(WorkTypes, ConnectWise);
 
 /**
@@ -97,7 +98,7 @@ WorkTypes.prototype.getWorkTypeById = function (agreementId, workTypeId) {
  * PATCH
  * @param agreementId
  * @param workTypeId
- * @param {Operations} operations
+ * @param {Operations[]} operations
  * @returns {Promise<WorkType>}
  */
 WorkTypes.prototype.updateWorkType = function (agreementId, workTypeId, operations) {

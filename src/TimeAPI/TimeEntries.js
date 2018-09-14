@@ -46,6 +46,7 @@ var inherits = require('util').inherits,
 function TimeEntries(options) {
   ConnectWise.apply(this, Array.prototype.slice.call(arguments));
 }
+
 inherits(TimeEntries, ConnectWise);
 
 /**
@@ -96,7 +97,7 @@ TimeEntries.prototype.getTimeEntryById = function (id) {
 /**
  *
  * @param id
- * @param {Operations} operations
+ * @param {Operations[]} operations
  * @returns {Promise<TimeEntry>}
  */
 TimeEntries.prototype.updateTimeEntry = function (id, operations) {

@@ -128,7 +128,7 @@ Activities.prototype.deleteActivityById = function (id) {
 /**
  *
  * @param id
- * @param {Operations} ops
+ * @param {Operations[]} ops
  * @returns {Promise<Activity>}
  */
 Activities.prototype.updateActivity = function (id, ops) {

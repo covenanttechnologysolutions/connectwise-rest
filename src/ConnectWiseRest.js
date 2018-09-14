@@ -304,7 +304,7 @@ module.exports = ConnectWiseRest;
  */
 
 /**
- * @typedef {object[]} Operations
+ * @typedef {object} Operations
  * @property {string} op ['replace','remove']
  * @property {string} path the relative path to the variable to be updated, e.g. status
  * @property {string} value the value of the object property to replace, e.g. { id: 123 }
