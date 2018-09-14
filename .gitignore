@@ -12,8 +12,10 @@ pids
 *.seed
 
 node_modules
-test
+scratch
+test/.env
 docs/fonts/
 docs/styles/
 docs/scripts/
 docs/*.html
+.nyc_output
