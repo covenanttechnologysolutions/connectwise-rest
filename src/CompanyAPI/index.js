@@ -22,12 +22,14 @@ function CompanyAPI(options) {
     _Contacts = require('./Contacts'),
     _Configurations = require('./Configurations'),
     _ContactRelationships = require('./ContactRelationships');
+    _ContactContactTypeAssociations = require('./ContactContactTypeAssociations')
 
   return {
     Companies: new _Companies(options),
     Contacts: new _Contacts(options),
     Configurations: new _Configurations(options),
     ContactRelationships: new _ContactRelationships(options),
+    ContactContactTypeAssociations: new _ContactContactTypeAssociations(options)
   };
 }
 
