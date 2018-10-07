@@ -34,6 +34,13 @@ ContactContactTypeAssociations.prototype.update = function (contactId,  associat
   return this.api(path, 'PUT', params);
 };
 
+ContactContactTypeAssociations.prototype.create = function (contactId, params) {
+  var path ='/company/contacts/' + 
+    contactId + '/typeAssociations'
+
+  return this.api(path, 'POST', params);
+};
+
 /**
  * @type {ContactContactTypeAssociations}
  */
