@@ -1,5 +1,5 @@
-var inherits = require('util').inherits,
-  ConnectWise = require('../ConnectWise.js');
+var inherits = require('util').inherits
+var ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {object} ContactContactTypeAssociations
