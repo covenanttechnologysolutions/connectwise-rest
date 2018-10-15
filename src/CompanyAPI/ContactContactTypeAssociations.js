@@ -1,8 +1,17 @@
-var inherits = require('util').inherits
+var inherits = require('util').inherits;
 var ConnectWise = require('../ConnectWise.js');
 
 /**
- * @typedef {object} ContactContactTypeAssociations
+ * Company > ContactContactTypeAssociations
+ * @pilot
+ */
+
+/**
+ * @typedef {object} ContactTypeAssociation
+ * @property id
+ * @property type {ContactType}
+ * @property contact {ContactHref}
+ * @property _info
  */
 
 /**
@@ -18,25 +27,24 @@ function ContactContactTypeAssociations(options) {
 inherits(ContactContactTypeAssociations, ConnectWise);
 
 /**
+ * @param contactId
  * @param {Params} params
  * @returns {Promise<ContactTypeAssociation[]>}
  */
 ContactContactTypeAssociations.prototype.get = function (contactId, params) {
-  var path = '/company/contacts/' + contactId + '/typeAssociations'
+  var path = '/company/contacts/' + contactId + '/typeAssociations';
+
   return this.api(path, 'GET', params);
 };
 
-ContactContactTypeAssociations.prototype.update = function (contactId,  associationId, params) {
-  var path ='/company/contacts/' + 
-    contactId + '/typeAssociations/' + 
-    associationId 
+ContactContactTypeAssociations.prototype.update = function (contactId, associationId, params) {
+  var path = '/company/contacts/' + contactId + '/typeAssociations/' + associationId;
 
   return this.api(path, 'PUT', params);
 };
 
 ContactContactTypeAssociations.prototype.create = function (contactId, params) {
-  var path ='/company/contacts/' + 
-    contactId + '/typeAssociations'
+  var path = '/company/contacts/' + contactId + '/typeAssociations';
 
   return this.api(path, 'POST', params);
 };
