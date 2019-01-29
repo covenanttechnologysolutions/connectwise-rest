@@ -19,3 +19,4 @@ docs/styles/
 docs/scripts/
 docs/*.html
 .nyc_output
+test/definitions

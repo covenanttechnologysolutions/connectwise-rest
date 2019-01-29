@@ -3,9 +3,17 @@
 <dl>
 <dt><a href="#Companies">Companies</a></dt>
 <dd></dd>
+<dt><a href="#CompanyCompanyTypeAssociations">CompanyCompanyTypeAssociations</a></dt>
+<dd></dd>
 <dt><a href="#CompanyTeams">CompanyTeams</a></dt>
 <dd></dd>
+<dt><a href="#CompanyTypeInfos">CompanyTypeInfos</a></dt>
+<dd></dd>
+<dt><a href="#CompanyTypes">CompanyTypes</a></dt>
+<dd></dd>
 <dt><a href="#Configurations">Configurations</a></dt>
+<dd></dd>
+<dt><a href="#ContactContactTypeAssociations">ContactContactTypeAssociations</a></dt>
 <dd></dd>
 <dt><a href="#ContactRelationships">ContactRelationships</a></dt>
 <dd></dd>
@@ -15,8 +23,9 @@
 <dd></dd>
 <dt><a href="#ConnectWise">ConnectWise</a></dt>
 <dd></dd>
-<dt><a href="#ConnectWiseRest">ConnectWiseRest</a></dt>
-<dd></dd>
+<dt><a href="#ConnectWiseRest">ConnectWiseRest</a> : <code><a href="#ConnectWiseRest">ConnectWiseRest</a></code></dt>
+<dd><p>ConnectWiseRest</p>
+</dd>
 <dt><a href="#Additions">Additions</a></dt>
 <dd></dd>
 <dt><a href="#Adjustments">Adjustments</a></dt>
@@ -38,6 +47,8 @@
 <dt><a href="#ProjectAPI">ProjectAPI</a></dt>
 <dd></dd>
 <dt><a href="#Projects">Projects</a></dt>
+<dd></dd>
+<dt><a href="#Activities">Activities</a></dt>
 <dd></dd>
 <dt><a href="#ScheduleAPI">ScheduleAPI</a></dt>
 <dd></dd>
@@ -78,11 +89,21 @@
 <dd></dd>
 <dt><a href="#CompanyNote">CompanyNote</a> : <code>object</code></dt>
 <dd></dd>
+<dt><a href="#CompanyTypeAssociation">CompanyTypeAssociation</a> : <code>Object</code></dt>
+<dd></dd>
+<dt><a href="#CompanyTypeHref">CompanyTypeHref</a> : <code>Object</code></dt>
+<dd></dd>
 <dt><a href="#CompanyTeam">CompanyTeam</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#CompanyTypeInfo">CompanyTypeInfo</a> : <code>Object</code></dt>
+<dd></dd>
+<dt><a href="#CompanyType">CompanyType</a> : <code>Object</code></dt>
 <dd></dd>
 <dt><a href="#Configuration">Configuration</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#ConfigurationQuestion">ConfigurationQuestion</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#ContactTypeAssociation">ContactTypeAssociation</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#Relationship">Relationship</a> : <code>object</code></dt>
 <dd></dd>
@@ -162,11 +183,13 @@
 <dd></dd>
 <dt><a href="#WorkTypeHref">WorkTypeHref</a> : <code>object</code></dt>
 <dd></dd>
-<dt><a href="#Operations">Operations</a> : <code>Array.&lt;object&gt;</code></dt>
+<dt><a href="#Operations">Operations</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#Count">Count</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#ConfigurationHref">ConfigurationHref</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#CurrencyHref">CurrencyHref</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#MemberHref">MemberHref</a> : <code>object</code></dt>
 <dd></dd>
@@ -227,6 +250,10 @@
 <dt><a href="#ProjectAPI">ProjectAPI</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#Project">Project</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#Activity">Activity</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#ActivityType">ActivityType</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#SalesAPI">SalesAPI</a> : <code>object</code></dt>
 <dd></dd>
@@ -358,7 +385,7 @@
 | Param | Type |
 | --- | --- |
 | id | <code>string</code> \| <code>number</code> | 
-| ops | [<code>Operations</code>](#Operations) | 
+| ops | [<code>Array.&lt;Operations&gt;</code>](#Operations) | 
 
 <a name="Companies+mergeCompany"></a>
 
@@ -367,6 +394,102 @@
 **Todo**
 
 - [ ] finish this one
+
+<a name="CompanyCompanyTypeAssociations"></a>
+
+## CompanyCompanyTypeAssociations
+**Kind**: global class  
+**Inherits**: [<code>ConnectWise</code>](#ConnectWise)  
+
+* [CompanyCompanyTypeAssociations](#CompanyCompanyTypeAssociations)
+    * [new CompanyCompanyTypeAssociations(options)](#new_CompanyCompanyTypeAssociations_new)
+    * [.getCompanyTypeAssociations(id, params)](#CompanyCompanyTypeAssociations+getCompanyTypeAssociations) ⇒ <code>Promise.&lt;Array.&lt;CompanyTypeAssociation&gt;&gt;</code>
+    * [.createCompanyTypeAssociation(id, companyTypeAssociation)](#CompanyCompanyTypeAssociations+createCompanyTypeAssociation) ⇒ [<code>Promise.&lt;CompanyTypeAssociation&gt;</code>](#CompanyTypeAssociation)
+    * [.getCompanyTypeAssociationsCount(id, params)](#CompanyCompanyTypeAssociations+getCompanyTypeAssociationsCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+    * [.getCompanyTypeAssociationById(id, typeAssociationId)](#CompanyCompanyTypeAssociations+getCompanyTypeAssociationById) ⇒ [<code>Promise.&lt;CompanyTypeAssociation&gt;</code>](#CompanyTypeAssociation)
+    * [.deleteCompanyTypeAssociationById(id, typeAssociationId)](#CompanyCompanyTypeAssociations+deleteCompanyTypeAssociationById) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+    * [.replaceCompanyTypeAssociation(id, typeAssociationId, newTypeAssociation)](#CompanyCompanyTypeAssociations+replaceCompanyTypeAssociation) ⇒ [<code>Promise.&lt;CompanyTypeAssociation&gt;</code>](#CompanyTypeAssociation)
+    * [.updateCompanyTypeAssociation(id, typeAssociationId, operations)](#CompanyCompanyTypeAssociations+updateCompanyTypeAssociation) ⇒ <code>Promise.&lt;\*&gt;</code>
+
+<a name="new_CompanyCompanyTypeAssociations_new"></a>
+
+### new CompanyCompanyTypeAssociations(options)
+
+| Param | Type |
+| --- | --- |
+| options | [<code>CWOptions</code>](#CWOptions) | 
+
+<a name="CompanyCompanyTypeAssociations+getCompanyTypeAssociations"></a>
+
+### companyCompanyTypeAssociations.getCompanyTypeAssociations(id, params) ⇒ <code>Promise.&lt;Array.&lt;CompanyTypeAssociation&gt;&gt;</code>
+**Kind**: instance method of [<code>CompanyCompanyTypeAssociations</code>](#CompanyCompanyTypeAssociations)  
+
+| Param | Type |
+| --- | --- |
+| id |  | 
+| params | [<code>Params</code>](#Params) | 
+
+<a name="CompanyCompanyTypeAssociations+createCompanyTypeAssociation"></a>
+
+### companyCompanyTypeAssociations.createCompanyTypeAssociation(id, companyTypeAssociation) ⇒ [<code>Promise.&lt;CompanyTypeAssociation&gt;</code>](#CompanyTypeAssociation)
+**Kind**: instance method of [<code>CompanyCompanyTypeAssociations</code>](#CompanyCompanyTypeAssociations)  
+
+| Param | Type |
+| --- | --- |
+| id |  | 
+| companyTypeAssociation | [<code>CompanyTypeAssociation</code>](#CompanyTypeAssociation) | 
+
+<a name="CompanyCompanyTypeAssociations+getCompanyTypeAssociationsCount"></a>
+
+### companyCompanyTypeAssociations.getCompanyTypeAssociationsCount(id, params) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+**Kind**: instance method of [<code>CompanyCompanyTypeAssociations</code>](#CompanyCompanyTypeAssociations)  
+
+| Param |
+| --- |
+| id | 
+| params | 
+
+<a name="CompanyCompanyTypeAssociations+getCompanyTypeAssociationById"></a>
+
+### companyCompanyTypeAssociations.getCompanyTypeAssociationById(id, typeAssociationId) ⇒ [<code>Promise.&lt;CompanyTypeAssociation&gt;</code>](#CompanyTypeAssociation)
+**Kind**: instance method of [<code>CompanyCompanyTypeAssociations</code>](#CompanyCompanyTypeAssociations)  
+
+| Param |
+| --- |
+| id | 
+| typeAssociationId | 
+
+<a name="CompanyCompanyTypeAssociations+deleteCompanyTypeAssociationById"></a>
+
+### companyCompanyTypeAssociations.deleteCompanyTypeAssociationById(id, typeAssociationId) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+**Kind**: instance method of [<code>CompanyCompanyTypeAssociations</code>](#CompanyCompanyTypeAssociations)  
+
+| Param |
+| --- |
+| id | 
+| typeAssociationId | 
+
+<a name="CompanyCompanyTypeAssociations+replaceCompanyTypeAssociation"></a>
+
+### companyCompanyTypeAssociations.replaceCompanyTypeAssociation(id, typeAssociationId, newTypeAssociation) ⇒ [<code>Promise.&lt;CompanyTypeAssociation&gt;</code>](#CompanyTypeAssociation)
+**Kind**: instance method of [<code>CompanyCompanyTypeAssociations</code>](#CompanyCompanyTypeAssociations)  
+
+| Param |
+| --- |
+| id | 
+| typeAssociationId | 
+| newTypeAssociation | 
+
+<a name="CompanyCompanyTypeAssociations+updateCompanyTypeAssociation"></a>
+
+### companyCompanyTypeAssociations.updateCompanyTypeAssociation(id, typeAssociationId, operations) ⇒ <code>Promise.&lt;\*&gt;</code>
+**Kind**: instance method of [<code>CompanyCompanyTypeAssociations</code>](#CompanyCompanyTypeAssociations)  
+
+| Param | Type |
+| --- | --- |
+| id |  | 
+| typeAssociationId |  | 
+| operations | [<code>Array.&lt;Operations&gt;</code>](#Operations) | 
 
 <a name="CompanyTeams"></a>
 
@@ -462,7 +585,91 @@
 | --- | --- | --- |
 | id |  | companyId |
 | teamId |  |  |
-| ops | [<code>Operations</code>](#Operations) |  |
+| ops | [<code>Array.&lt;Operations&gt;</code>](#Operations) |  |
+
+<a name="CompanyTypeInfos"></a>
+
+## CompanyTypeInfos
+**Kind**: global class  
+**Inherits**: [<code>ConnectWise</code>](#ConnectWise)  
+
+* [CompanyTypeInfos](#CompanyTypeInfos)
+    * [new CompanyTypeInfos(options)](#new_CompanyTypeInfos_new)
+    * [.getCompanyTypeInfos(params)](#CompanyTypeInfos+getCompanyTypeInfos) ⇒ <code>Promise.&lt;Array.&lt;CompanyTypeInfo&gt;&gt;</code>
+    * [.getCompanyTypeInfosCount(params)](#CompanyTypeInfos+getCompanyTypeInfosCount) ⇒ <code>Promise.&lt;Array.&lt;CompanyTypeInfo&gt;&gt;</code>
+    * [.getCompanyTypeInfoById(id)](#CompanyTypeInfos+getCompanyTypeInfoById) ⇒ [<code>Promise.&lt;CompanyTypeInfo&gt;</code>](#CompanyTypeInfo)
+
+<a name="new_CompanyTypeInfos_new"></a>
+
+### new CompanyTypeInfos(options)
+
+| Param | Type |
+| --- | --- |
+| options | [<code>CWOptions</code>](#CWOptions) | 
+
+<a name="CompanyTypeInfos+getCompanyTypeInfos"></a>
+
+### companyTypeInfos.getCompanyTypeInfos(params) ⇒ <code>Promise.&lt;Array.&lt;CompanyTypeInfo&gt;&gt;</code>
+**Kind**: instance method of [<code>CompanyTypeInfos</code>](#CompanyTypeInfos)  
+
+| Param | Type |
+| --- | --- |
+| params | [<code>Params</code>](#Params) | 
+
+<a name="CompanyTypeInfos+getCompanyTypeInfosCount"></a>
+
+### companyTypeInfos.getCompanyTypeInfosCount(params) ⇒ <code>Promise.&lt;Array.&lt;CompanyTypeInfo&gt;&gt;</code>
+**Kind**: instance method of [<code>CompanyTypeInfos</code>](#CompanyTypeInfos)  
+
+| Param | Type |
+| --- | --- |
+| params | [<code>Params</code>](#Params) | 
+
+<a name="CompanyTypeInfos+getCompanyTypeInfoById"></a>
+
+### companyTypeInfos.getCompanyTypeInfoById(id) ⇒ [<code>Promise.&lt;CompanyTypeInfo&gt;</code>](#CompanyTypeInfo)
+**Kind**: instance method of [<code>CompanyTypeInfos</code>](#CompanyTypeInfos)  
+
+| Param |
+| --- |
+| id | 
+
+<a name="CompanyTypes"></a>
+
+## CompanyTypes
+**Kind**: global class  
+**Inherits**: [<code>ConnectWise</code>](#ConnectWise)  
+
+* [CompanyTypes](#CompanyTypes)
+    * [new CompanyTypes(options)](#new_CompanyTypes_new)
+    * [.getCompanyTypes(params)](#CompanyTypes+getCompanyTypes) ⇒ <code>Promise.&lt;Array.&lt;CompanyType&gt;&gt;</code>
+    * [.getCompanyTypeById(id)](#CompanyTypes+getCompanyTypeById) ⇒ [<code>Promise.&lt;CompanyType&gt;</code>](#CompanyType)
+
+<a name="new_CompanyTypes_new"></a>
+
+### new CompanyTypes(options)
+
+| Param | Type |
+| --- | --- |
+| options | [<code>CWOptions</code>](#CWOptions) | 
+
+<a name="CompanyTypes+getCompanyTypes"></a>
+
+### companyTypes.getCompanyTypes(params) ⇒ <code>Promise.&lt;Array.&lt;CompanyType&gt;&gt;</code>
+**Kind**: instance method of [<code>CompanyTypes</code>](#CompanyTypes)  
+
+| Param | Type |
+| --- | --- |
+| params | [<code>Params</code>](#Params) | 
+
+<a name="CompanyTypes+getCompanyTypeById"></a>
+
+### companyTypes.getCompanyTypeById(id) ⇒ [<code>Promise.&lt;CompanyType&gt;</code>](#CompanyType)
+**Kind**: instance method of [<code>CompanyTypes</code>](#CompanyTypes)  
+
+| Param |
+| --- |
+| id | 
 
 <a name="Configurations"></a>
 
@@ -541,7 +748,7 @@
 | Param | Type |
 | --- | --- |
 | id | <code>string</code> \| <code>number</code> | 
-| ops | [<code>Operations</code>](#Operations) | 
+| ops | [<code>Array.&lt;Operations&gt;</code>](#Operations) | 
 | params | [<code>ParamsConfigUpdate</code>](#ParamsConfigUpdate) | 
 
 <a name="Configurations+replaceConfiguration"></a>
@@ -553,6 +760,34 @@
 | --- | --- |
 | id | <code>string</code> \| <code>number</code> | 
 | config | [<code>Configuration</code>](#Configuration) | 
+
+<a name="ContactContactTypeAssociations"></a>
+
+## ContactContactTypeAssociations
+**Kind**: global class  
+**Inherits**: [<code>ConnectWise</code>](#ConnectWise)  
+
+* [ContactContactTypeAssociations](#ContactContactTypeAssociations)
+    * [new ContactContactTypeAssociations(options)](#new_ContactContactTypeAssociations_new)
+    * [.get(contactId, params)](#ContactContactTypeAssociations+get) ⇒ <code>Promise.&lt;Array.&lt;ContactTypeAssociation&gt;&gt;</code>
+
+<a name="new_ContactContactTypeAssociations_new"></a>
+
+### new ContactContactTypeAssociations(options)
+
+| Param | Type |
+| --- | --- |
+| options | [<code>CWOptions</code>](#CWOptions) | 
+
+<a name="ContactContactTypeAssociations+get"></a>
+
+### contactContactTypeAssociations.get(contactId, params) ⇒ <code>Promise.&lt;Array.&lt;ContactTypeAssociation&gt;&gt;</code>
+**Kind**: instance method of [<code>ContactContactTypeAssociations</code>](#ContactContactTypeAssociations)  
+
+| Param | Type |
+| --- | --- |
+| contactId |  | 
+| params | [<code>Params</code>](#Params) | 
 
 <a name="ContactRelationships"></a>
 
@@ -673,7 +908,7 @@
 | Param | Type |
 | --- | --- |
 | id | <code>string</code> \| <code>number</code> | 
-| operations | [<code>Operations</code>](#Operations) | 
+| operations | [<code>Array.&lt;Operations&gt;</code>](#Operations) | 
 
 <a name="Contacts+replaceContact"></a>
 
@@ -741,30 +976,16 @@
 
 ## ConnectWise
 **Kind**: global class  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| options | [<code>CWOptions</code>](#CWOptions) | 
+
 
 * [ConnectWise](#ConnectWise)
-    * [new ConnectWise(options)](#new_ConnectWise_new)
     * [.api(path, method, [params])](#ConnectWise+api) ⇒ <code>Promise.&lt;\*&gt;</code>
     * [.paginate(fn, args, module, [pageSize], [startPage])](#ConnectWise+paginate) ⇒ <code>Promise.&lt;\*&gt;</code>
-
-<a name="new_ConnectWise_new"></a>
-
-### new ConnectWise(options)
-
-| Param | Type | Description |
-| --- | --- | --- |
-| options | <code>object</code> |  |
-| options.companyId | <code>string</code> |  |
-| options.publicKey | <code>string</code> |  |
-| options.privateKey | <code>string</code> |  |
-| options.companyUrl | <code>string</code> |  |
-| options.apiVersion | <code>string</code> |  |
-| [options.entryPoint] | <code>string</code> | defaults to 'v4_6_release' |
-| [options.timeout] | <code>number</code> | defaults to 20000 (20 seconds) |
-| [options.retry] | <code>boolean</code> | defaults to false |
-| [options.retryOptions] | <code>object</code> | defaults to {       retries: 4,       minTimeout: 50,       maxTimeout: 20000,       randomize: true,     } |
-| [options.debug] | <code>boolean</code> | defaults to false |
-| [options.logger] | <code>function</code> | function(String:level, String:text, *:Object) defaults to console |
 
 <a name="ConnectWise+api"></a>
 
@@ -794,15 +1015,17 @@ Wrap a module's function to get all results.
 
 <a name="ConnectWiseRest"></a>
 
-## ConnectWiseRest
+## ConnectWiseRest : [<code>ConnectWiseRest</code>](#ConnectWiseRest)
+ConnectWiseRest
+
 **Kind**: global class  
 <a name="new_ConnectWiseRest_new"></a>
 
 ### new ConnectWiseRest(options)
 
-| Param |
-| --- |
-| options | 
+| Param | Type |
+| --- | --- |
+| options | [<code>CWOptions</code>](#CWOptions) | 
 
 <a name="Additions"></a>
 
@@ -899,7 +1122,7 @@ PATCH
 | --- | --- |
 | agreementId |  | 
 | additionId |  | 
-| operations | [<code>Operations</code>](#Operations) | 
+| operations | [<code>Array.&lt;Operations&gt;</code>](#Operations) | 
 
 <a name="Additions+replaceAddition"></a>
 
@@ -1113,7 +1336,7 @@ DELETE
 | Param | Type |
 | --- | --- |
 | agreementId | <code>string</code> \| <code>number</code> | 
-| operations | [<code>Operations</code>](#Operations) | 
+| operations | [<code>Array.&lt;Operations&gt;</code>](#Operations) | 
 
 <a name="Agreements+replaceAgreement"></a>
 
@@ -1273,7 +1496,7 @@ PATCH
 | --- | --- |
 | agreementId |  | 
 | siteId |  | 
-| operations | [<code>Operations</code>](#Operations) | 
+| operations | [<code>Array.&lt;Operations&gt;</code>](#Operations) | 
 
 <a name="AgreementSites+replaceAgreementSite"></a>
 
@@ -1383,7 +1606,7 @@ PATCH
 | --- | --- |
 | agreementId |  | 
 | boardDefaultId |  | 
-| operations | [<code>Operations</code>](#Operations) | 
+| operations | [<code>Array.&lt;Operations&gt;</code>](#Operations) | 
 
 <a name="BoardDefaults+replaceBoardDefault"></a>
 
@@ -1505,7 +1728,7 @@ PATCH
 | --- | --- |
 | agreementId |  | 
 | workRoleId |  | 
-| operations | [<code>Operations</code>](#Operations) | 
+| operations | [<code>Array.&lt;Operations&gt;</code>](#Operations) | 
 
 <a name="WorkRoles+replaceWorkRole"></a>
 
@@ -1684,7 +1907,7 @@ PATCH
 | --- | --- |
 | agreementId |  | 
 | workTypeId |  | 
-| operations | [<code>Operations</code>](#Operations) | 
+| operations | [<code>Array.&lt;Operations&gt;</code>](#Operations) | 
 
 <a name="WorkTypes+replaceWorkType"></a>
 
@@ -1788,7 +2011,7 @@ PUT
 | Param | Type |
 | --- | --- |
 | projectId | <code>string</code> \| <code>number</code> | 
-| operations | [<code>Operations</code>](#Operations) | 
+| operations | [<code>Array.&lt;Operations&gt;</code>](#Operations) | 
 
 <a name="Projects+replaceProject"></a>
 
@@ -1799,6 +2022,68 @@ PUT
 | --- | --- |
 | projectId | <code>string</code> \| <code>number</code> | 
 | project | [<code>Project</code>](#Project) | 
+
+<a name="Activities"></a>
+
+## Activities
+**Kind**: global class  
+
+* [Activities](#Activities)
+    * [.getActivities(params)](#Activities+getActivities) ⇒ <code>Promise.&lt;Array.&lt;Activity&gt;&gt;</code>
+    * [.getActivityTypes()](#Activities+getActivityTypes) ⇒ <code>Promise.&lt;Array.&lt;ActivityType&gt;&gt;</code>
+    * [.getActivityStatuses()](#Activities+getActivityStatuses) ⇒ <code>Promise.&lt;Array.&lt;ActivityStatus&gt;&gt;</code>
+    * [.deleteActivityById(id)](#Activities+deleteActivityById) ⇒ <code>Promise.&lt;{DeleteResponse}&gt;</code>
+    * [.updateActivity(id, ops)](#Activities+updateActivity) ⇒ [<code>Promise.&lt;Activity&gt;</code>](#Activity)
+    * [.getActivityById(id)](#Activities+getActivityById) ⇒ [<code>Promise.&lt;Activity&gt;</code>](#Activity)
+
+<a name="Activities+getActivities"></a>
+
+### activities.getActivities(params) ⇒ <code>Promise.&lt;Array.&lt;Activity&gt;&gt;</code>
+GET
+
+**Kind**: instance method of [<code>Activities</code>](#Activities)  
+
+| Param | Type |
+| --- | --- |
+| params | [<code>Params</code>](#Params) | 
+
+<a name="Activities+getActivityTypes"></a>
+
+### activities.getActivityTypes() ⇒ <code>Promise.&lt;Array.&lt;ActivityType&gt;&gt;</code>
+GET
+
+**Kind**: instance method of [<code>Activities</code>](#Activities)  
+<a name="Activities+getActivityStatuses"></a>
+
+### activities.getActivityStatuses() ⇒ <code>Promise.&lt;Array.&lt;ActivityStatus&gt;&gt;</code>
+**Kind**: instance method of [<code>Activities</code>](#Activities)  
+<a name="Activities+deleteActivityById"></a>
+
+### activities.deleteActivityById(id) ⇒ <code>Promise.&lt;{DeleteResponse}&gt;</code>
+**Kind**: instance method of [<code>Activities</code>](#Activities)  
+
+| Param |
+| --- |
+| id | 
+
+<a name="Activities+updateActivity"></a>
+
+### activities.updateActivity(id, ops) ⇒ [<code>Promise.&lt;Activity&gt;</code>](#Activity)
+**Kind**: instance method of [<code>Activities</code>](#Activities)  
+
+| Param | Type |
+| --- | --- |
+| id |  | 
+| ops | [<code>Array.&lt;Operations&gt;</code>](#Operations) | 
+
+<a name="Activities+getActivityById"></a>
+
+### activities.getActivityById(id) ⇒ [<code>Promise.&lt;Activity&gt;</code>](#Activity)
+**Kind**: instance method of [<code>Activities</code>](#Activities)  
+
+| Param |
+| --- |
+| id | 
 
 <a name="ScheduleAPI"></a>
 
@@ -1898,7 +2183,7 @@ PUT
 | Param | Type | Description |
 | --- | --- | --- |
 | id |  | scheduleId |
-| ops | [<code>Operations</code>](#Operations) |  |
+| ops | [<code>Array.&lt;Operations&gt;</code>](#Operations) |  |
 
 <a name="ScheduleTypes"></a>
 
@@ -1987,7 +2272,7 @@ PUT
 | Param | Type |
 | --- | --- |
 | scheduleTypeId |  | 
-| ops | [<code>Operations</code>](#Operations) | 
+| ops | [<code>Array.&lt;Operations&gt;</code>](#Operations) | 
 
 <a name="Boards"></a>
 
@@ -2065,7 +2350,7 @@ PATCH
 | Param | Type |
 | --- | --- |
 | id |  | 
-| ops | [<code>Operations</code>](#Operations) | 
+| ops | [<code>Array.&lt;Operations&gt;</code>](#Operations) | 
 
 <a name="Boards+replaceBoard"></a>
 
@@ -2451,7 +2736,7 @@ GET
 | --- | --- |
 | boardId |  | 
 | statusId |  | 
-| operations | [<code>Operations</code>](#Operations) | 
+| operations | [<code>Array.&lt;Operations&gt;</code>](#Operations) | 
 
 <a name="Statuses+replaceStatuses"></a>
 
@@ -3101,7 +3386,7 @@ GET
 | Param | Type |
 | --- | --- |
 | id |  | 
-| operations | [<code>Operations</code>](#Operations) | 
+| operations | [<code>Array.&lt;Operations&gt;</code>](#Operations) | 
 
 <a name="TimeEntries+replaceTimeEntry"></a>
 
@@ -3175,6 +3460,32 @@ GET
 | _info.lastUpdated | <code>string</code> |  |
 | _info.updatedBy | <code>string</code> |  |
 
+<a name="CompanyTypeAssociation"></a>
+
+## CompanyTypeAssociation : <code>Object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| id | <code>number</code> | 
+| type | [<code>CompanyTypeHref</code>](#CompanyTypeHref) | 
+| company | [<code>CompanyHref</code>](#CompanyHref) | 
+| _info |  | 
+
+<a name="CompanyTypeHref"></a>
+
+## CompanyTypeHref : <code>Object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name |
+| --- |
+| id | 
+| identifier | 
+| name | 
+| _info | 
+
 <a name="CompanyTeam"></a>
 
 ## CompanyTeam : <code>object</code>
@@ -3194,6 +3505,33 @@ GET
 | techFlag |  | 
 | salesFlag |  | 
 | _info | [<code>InfoHref</code>](#InfoHref) | 
+
+<a name="CompanyTypeInfo"></a>
+
+## CompanyTypeInfo : <code>Object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| id | <code>number</code> | 
+| name |  | 
+| _info |  | 
+
+<a name="CompanyType"></a>
+
+## CompanyType : <code>Object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| defaultFlag | <code>boolean</code> | 
+| id |  | 
+| name |  | 
+| serviceAlertFlag | <code>boolean</code> | 
+| vendorFlag | <code>boolean</code> | 
+| _info |  | 
 
 <a name="Configuration"></a>
 
@@ -3270,6 +3608,19 @@ GET
 | sequenceNumber | <code>number</code> |  |
 | numberOfDecimals | <code>number</code> |  |
 | fieldType | <code>string</code> | ['Text', 'Button', 'Currency', 'Date', 'Hyperlink', 'IPAddress', 'Checkbox', 'Number', 'Percent', 'TextArea', 'Password'] |
+
+<a name="ContactTypeAssociation"></a>
+
+## ContactTypeAssociation : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| id |  | 
+| type | [<code>ContactType</code>](#ContactType) | 
+| contact | [<code>ContactHref</code>](#ContactHref) | 
+| _info |  | 
 
 <a name="Relationship"></a>
 
@@ -3384,6 +3735,10 @@ GET
 | Contacts | [<code>Contacts</code>](#Contacts) | 
 | Configurations | [<code>Configurations</code>](#Configurations) | 
 | ContactRelationships | [<code>ContactRelationships</code>](#ContactRelationships) | 
+| ContactContactTypeAssociations | [<code>ContactContactTypeAssociations</code>](#ContactContactTypeAssociations) | 
+| CompanyCompanyTypeAssociations | [<code>CompanyCompanyTypeAssociations</code>](#CompanyCompanyTypeAssociations) | 
+| CompanyTypes | [<code>CompanyTypes</code>](#CompanyTypes) | 
+| CompanyTypeInfos | [<code>CompanyTypeInfos</code>](#CompanyTypeInfos) | 
 
 <a name="new_CompanyAPI_new"></a>
 
@@ -3399,12 +3754,18 @@ GET
 **Kind**: global typedef  
 **Properties**
 
-| Name |
-| --- |
-| companyId | 
-| publicKey | 
-| privateKey | 
-| companyUrl | 
+| Name | Type | Description |
+| --- | --- | --- |
+| companyId |  |  |
+| publicKey |  |  |
+| privateKey |  |  |
+| companyUrl |  |  |
+| [entryPoint] | <code>string</code> | defaults to 'v4_6_release' |
+| [timeout] | <code>number</code> | defaults to 20000 (20 seconds) |
+| [retry] | <code>boolean</code> | defaults to false |
+| [retryOptions] | <code>object</code> | defaults to {       retries: 4,       minTimeout: 50,       maxTimeout: 20000,       randomize: true,     } |
+| [debug] | <code>boolean</code> | defaults to false |
+| [logger] | <code>function</code> | function(String:level, String:text, *:Object) defaults to console |
 
 <a name="ConnectWiseRest"></a>
 
@@ -3428,9 +3789,9 @@ GET
 
 ### new ConnectWiseRest(options)
 
-| Param |
-| --- |
-| options | 
+| Param | Type |
+| --- | --- |
+| options | [<code>CWOptions</code>](#CWOptions) | 
 
 <a name="InfoHref"></a>
 
@@ -3822,7 +4183,7 @@ Service Subtype
 
 <a name="Operations"></a>
 
-## Operations : <code>Array.&lt;object&gt;</code>
+## Operations : <code>object</code>
 **Kind**: global typedef  
 **Properties**
 
@@ -3855,6 +4216,16 @@ Service Subtype
 | _info | <code>object</code> | 
 | _info.name | <code>string</code> | 
 | _info.configuration_href | <code>string</code> | 
+
+<a name="CurrencyHref"></a>
+
+## CurrencyHref : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| currency_href | <code>string</code> | 
 
 <a name="MemberHref"></a>
 
@@ -4418,6 +4789,79 @@ Service Subtype
 | _info.lastUpdated | <code>string</code> |  |
 | _info.updatedBy | <code>string</code> |  |
 
+<a name="Activity"></a>
+
+## Activity : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| id |  | 
+| name |  | 
+| type | <code>object</code> | 
+| type.id |  | 
+| type.name |  | 
+| type._info | [<code>TypeHref</code>](#TypeHref) | 
+| company | <code>object</code> | 
+| company.id |  | 
+| company.identifier |  | 
+| company.name |  | 
+| company._info | [<code>CompanyHref</code>](#CompanyHref) | 
+| contact | <code>object</code> | 
+| contact.id |  | 
+| contact.name |  | 
+| company._info | [<code>CompanyHref</code>](#CompanyHref) | 
+| email |  | 
+| status | <code>object</code> | 
+| status.id |  | 
+| status.name |  | 
+| status._info | [<code>StatusHref</code>](#StatusHref) | 
+| opportunity | <code>object</code> | 
+| opportunity.id |  | 
+| opportunity.name |  | 
+| opportunity._info | [<code>OpportunityHref</code>](#OpportunityHref) | 
+| notes |  | 
+| dateStart |  | 
+| assignedBy | <code>object</code> | 
+| assignedBy.id |  | 
+| assignedBy.identifier |  | 
+| assignedBy.name |  | 
+| assignedBy._info | [<code>MemberHref</code>](#MemberHref) | 
+| assignTo | <code>object</code> | 
+| assignTo.id |  | 
+| assignTo.identifier |  | 
+| assignTo.name |  | 
+| assignTo._info | [<code>MemberHref</code>](#MemberHref) | 
+| notifyFlag |  | 
+| mobileGuid |  | 
+| currency | <code>object</code> | 
+| currency.id |  | 
+| currency.symbol |  | 
+| currency.isoCode |  | 
+| currency.name |  | 
+| currency._info | [<code>CurrencyHref</code>](#CurrencyHref) | 
+| _info | [<code>InfoHref</code>](#InfoHref) | 
+
+<a name="ActivityType"></a>
+
+## ActivityType : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name |
+| --- |
+| id | 
+| name | 
+| points | 
+| defaultFlag | 
+| inactiveFlag | 
+| emailFlag | 
+| memoFlag | 
+| _info | 
+| _info.lastUpdated | 
+| _info.updatedBy | 
+
 <a name="SalesAPI"></a>
 
 ## SalesAPI : <code>object</code>
@@ -4426,7 +4870,7 @@ Service Subtype
 
 | Name | Type |
 | --- | --- |
-| Activities | <code>Activities</code> | 
+| Activities | [<code>Activities</code>](#Activities) | 
 
 <a name="ScheduleAPI"></a>
 

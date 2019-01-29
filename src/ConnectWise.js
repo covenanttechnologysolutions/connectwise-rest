@@ -124,8 +124,10 @@ ConnectWise.prototype.api = function (path, method, params) {
   const config = this.config;
   let startTime = Date.now();
 
+  // if retries are enabled
   if (config.retry) {
     return promiseRetry((retry, number) => {
+      // use retry promises
       return apiPromise(path, method, params, config)
         .catch(err => {
           if (config.debug) {
@@ -155,6 +157,8 @@ ConnectWise.prototype.api = function (path, method, params) {
         }
         throw err;
       });
+
+    // retries are not enabled
   } else {
     return apiPromise(path, method, params, config)
       .then(res => {
