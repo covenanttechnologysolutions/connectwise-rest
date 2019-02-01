@@ -26,6 +26,7 @@ Create a new API key, or API Only Member, then instantiate the module.
         companyUrl: 'your.connectwise.com',
         publicKey: '<public key>',
         privateKey: '<private key>',
+        clientId: '<your client id>',
         entryPoint: 'v4_6_release', // optional, defaults to 'v4_6_release'
         timeout: 20000,             // optional, request connection timeout in ms, defaults to 20000
         retry: false,               // optional, defaults to false

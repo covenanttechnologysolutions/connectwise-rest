@@ -100,6 +100,7 @@ function ConnectWise(options) {
   this.config.apiVersion = options.apiVersion;
   this.config.publicKey = options.publicKey;
   this.config.privateKey = options.privateKey;
+  this.config.clientId = options.clientId;
   this.config.authRaw = options.companyId + '+' + options.publicKey + ':' + options.privateKey;
   this.config.auth = 'Basic ' + Buffer.from(this.config.authRaw).toString('base64');
   this.config.timeout = options.timeout;
@@ -195,6 +196,10 @@ function apiPromise(path, method, params, config) {
       method: method,
       timeout: config.timeout,
     };
+
+    if (config.clientId) {
+      options.headers.clientid = config.clientId;
+    }
 
     //@TODO perform URL validation here
     if (path.match(/http:\/\//i) || path.match(/https:\/\//i)) {
