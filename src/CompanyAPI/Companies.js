@@ -38,7 +38,8 @@ var inherits = require('util').inherits,
  * @property {StatusHref} status
  * @property {number} territoryId
  * @property timeZone
- * @property {TypeHref} type
+ * @property {TypeHref} type removed in 2019.1
+ * @property typeIds added in 2019.1
  * @property {boolean} unsubscribeFlag
  * @property {string} website
  * @property {string} zip
@@ -80,6 +81,7 @@ inherits(Companies, ConnectWise);
 Companies.prototype.getCompanies = function (params) {
   return this.api('/company/companies', 'GET', params);
 };
+
 /**
  *
  * @param {Company} company

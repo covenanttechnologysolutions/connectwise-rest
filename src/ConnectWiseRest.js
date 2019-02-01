@@ -8,6 +8,7 @@
  * @property companyId
  * @property publicKey
  * @property privateKey
+ * @property clientId register for a clientId at https://developer.connectwise.com/ClientID
  * @property companyUrl
  * @property {string} [entryPoint] defaults to 'v4_6_release'
  * @property {number} [timeout] defaults to 20000 (20 seconds)
@@ -484,4 +485,19 @@ module.exports = ConnectWiseRest;
  * @property {number} id
  * @property {string} name
  * @property {object} _info
+ */
+
+/**
+ * @typedef {Object} Usage
+ * @property type
+ * @property count
+ * @property id
+ * @property description
+ * @property hyperlink
+ */
+
+/**
+ * @typedef {Object} UsageCount
+ * @property type
+ * @property count
  */

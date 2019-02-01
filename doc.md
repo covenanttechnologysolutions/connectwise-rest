@@ -56,9 +56,15 @@
 <dd></dd>
 <dt><a href="#ScheduleTypes">ScheduleTypes</a></dt>
 <dd></dd>
+<dt><a href="#BoardItems">BoardItems</a></dt>
+<dd></dd>
 <dt><a href="#Boards">Boards</a></dt>
 <dd></dd>
+<dt><a href="#BoardSubTypes">BoardSubTypes</a></dt>
+<dd></dd>
 <dt><a href="#BoardTeams">BoardTeams</a></dt>
+<dd></dd>
+<dt><a href="#BoardTypes">BoardTypes</a></dt>
 <dd></dd>
 <dt><a href="#ServiceDeskAPI">ServiceDeskAPI</a></dt>
 <dd></dd>
@@ -229,6 +235,10 @@
 <dd></dd>
 <dt><a href="#ChargeCodeHref">ChargeCodeHref</a> : <code>object</code></dt>
 <dd></dd>
+<dt><a href="#Usage">Usage</a> : <code>Object</code></dt>
+<dd></dd>
+<dt><a href="#UsageCount">UsageCount</a> : <code>Object</code></dt>
+<dd></dd>
 <dt><a href="#Addition">Addition</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#Adjustment">Adjustment</a> : <code>object</code></dt>
@@ -263,9 +273,15 @@
 <dd></dd>
 <dt><a href="#ScheduleType">ScheduleType</a> : <code>object</code></dt>
 <dd></dd>
+<dt><a href="#BoardItem">BoardItem</a> : <code>Object</code></dt>
+<dd></dd>
 <dt><a href="#Board">Board</a> : <code>object</code></dt>
 <dd></dd>
+<dt><a href="#BoardSubType">BoardSubType</a> : <code>object</code></dt>
+<dd></dd>
 <dt><a href="#BoardTeam">BoardTeam</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#BoardType">BoardType</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#ServiceDeskAPI">ServiceDeskAPI</a> : <code>object</code></dt>
 <dd></dd>
@@ -2274,6 +2290,123 @@ GET
 | scheduleTypeId |  | 
 | ops | [<code>Array.&lt;Operations&gt;</code>](#Operations) | 
 
+<a name="BoardItems"></a>
+
+## BoardItems
+**Kind**: global class  
+
+* [BoardItems](#BoardItems)
+    * [new BoardItems(options)](#new_BoardItems_new)
+    * [.getItems(id, params)](#BoardItems+getItems) ⇒ <code>Promise.&lt;Array.&lt;BoardItem&gt;&gt;</code>
+    * [.createItem(boardId, item)](#BoardItems+createItem) ⇒ [<code>Promise.&lt;BoardItem&gt;</code>](#BoardItem)
+    * [.getItemUsagesCount(boardId, itemId)](#BoardItems+getItemUsagesCount) ⇒ <code>Promise.&lt;Array.&lt;UsageCount&gt;&gt;</code>
+    * [.getItemUsages(boardId, itemId)](#BoardItems+getItemUsages) ⇒ <code>Promise.&lt;Array.&lt;Usage&gt;&gt;</code>
+    * [.getItemsCount(id, params)](#BoardItems+getItemsCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+    * [.getItemById(boardId, itemId)](#BoardItems+getItemById) ⇒ [<code>Promise.&lt;BoardItem&gt;</code>](#BoardItem)
+    * [.deleteItem(boardId, itemId)](#BoardItems+deleteItem) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+    * [.replaceItem(boardId, itemId, item)](#BoardItems+replaceItem) ⇒ [<code>Promise.&lt;BoardItem&gt;</code>](#BoardItem)
+    * [.updateItem(boardId, itemId, ops)](#BoardItems+updateItem) ⇒ [<code>Promise.&lt;BoardItem&gt;</code>](#BoardItem)
+
+<a name="new_BoardItems_new"></a>
+
+### new BoardItems(options)
+
+| Param | Type |
+| --- | --- |
+| options | [<code>CWOptions</code>](#CWOptions) | 
+
+<a name="BoardItems+getItems"></a>
+
+### boardItems.getItems(id, params) ⇒ <code>Promise.&lt;Array.&lt;BoardItem&gt;&gt;</code>
+**Kind**: instance method of [<code>BoardItems</code>](#BoardItems)  
+
+| Param | Type |
+| --- | --- |
+| id |  | 
+| params | [<code>Params</code>](#Params) | 
+
+<a name="BoardItems+createItem"></a>
+
+### boardItems.createItem(boardId, item) ⇒ [<code>Promise.&lt;BoardItem&gt;</code>](#BoardItem)
+**Kind**: instance method of [<code>BoardItems</code>](#BoardItems)  
+
+| Param | Type |
+| --- | --- |
+| boardId |  | 
+| item | [<code>BoardItem</code>](#BoardItem) | 
+
+<a name="BoardItems+getItemUsagesCount"></a>
+
+### boardItems.getItemUsagesCount(boardId, itemId) ⇒ <code>Promise.&lt;Array.&lt;UsageCount&gt;&gt;</code>
+**Kind**: instance method of [<code>BoardItems</code>](#BoardItems)  
+
+| Param |
+| --- |
+| boardId | 
+| itemId | 
+
+<a name="BoardItems+getItemUsages"></a>
+
+### boardItems.getItemUsages(boardId, itemId) ⇒ <code>Promise.&lt;Array.&lt;Usage&gt;&gt;</code>
+**Kind**: instance method of [<code>BoardItems</code>](#BoardItems)  
+
+| Param |
+| --- |
+| boardId | 
+| itemId | 
+
+<a name="BoardItems+getItemsCount"></a>
+
+### boardItems.getItemsCount(id, params) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+**Kind**: instance method of [<code>BoardItems</code>](#BoardItems)  
+
+| Param | Type |
+| --- | --- |
+| id |  | 
+| params | [<code>Params</code>](#Params) | 
+
+<a name="BoardItems+getItemById"></a>
+
+### boardItems.getItemById(boardId, itemId) ⇒ [<code>Promise.&lt;BoardItem&gt;</code>](#BoardItem)
+**Kind**: instance method of [<code>BoardItems</code>](#BoardItems)  
+
+| Param |
+| --- |
+| boardId | 
+| itemId | 
+
+<a name="BoardItems+deleteItem"></a>
+
+### boardItems.deleteItem(boardId, itemId) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+**Kind**: instance method of [<code>BoardItems</code>](#BoardItems)  
+
+| Param |
+| --- |
+| boardId | 
+| itemId | 
+
+<a name="BoardItems+replaceItem"></a>
+
+### boardItems.replaceItem(boardId, itemId, item) ⇒ [<code>Promise.&lt;BoardItem&gt;</code>](#BoardItem)
+**Kind**: instance method of [<code>BoardItems</code>](#BoardItems)  
+
+| Param | Type |
+| --- | --- |
+| boardId |  | 
+| itemId |  | 
+| item | [<code>BoardItem</code>](#BoardItem) | 
+
+<a name="BoardItems+updateItem"></a>
+
+### boardItems.updateItem(boardId, itemId, ops) ⇒ [<code>Promise.&lt;BoardItem&gt;</code>](#BoardItem)
+**Kind**: instance method of [<code>BoardItems</code>](#BoardItems)  
+
+| Param | Type |
+| --- | --- |
+| boardId |  | 
+| itemId |  | 
+| ops | [<code>Array.&lt;Operations&gt;</code>](#Operations) | 
+
 <a name="Boards"></a>
 
 ## Boards
@@ -2361,6 +2494,90 @@ PATCH
 | --- | --- |
 | id |  | 
 | board | [<code>Board</code>](#Board) | 
+
+<a name="BoardSubTypes"></a>
+
+## BoardSubTypes
+**Kind**: global class  
+
+* [BoardSubTypes](#BoardSubTypes)
+    * [new BoardSubTypes(options)](#new_BoardSubTypes_new)
+    * [.getSubTypes(boardId, params)](#BoardSubTypes+getSubTypes) ⇒ <code>Promise.&lt;Array.&lt;BoardSubType&gt;&gt;</code>
+    * [.createSubType(boardId, subType)](#BoardSubTypes+createSubType) ⇒ [<code>Promise.&lt;BoardSubType&gt;</code>](#BoardSubType)
+    * [.getSubTypesCount(id, params)](#BoardSubTypes+getSubTypesCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+    * [.deleteSubType(boardId, subTypeId)](#BoardSubTypes+deleteSubType) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+    * [.replaceType(boardId, subTypeId, subType)](#BoardSubTypes+replaceType) ⇒ [<code>Promise.&lt;BoardType&gt;</code>](#BoardType)
+    * [.updateSubType(boardId, subTypeId, ops)](#BoardSubTypes+updateSubType) ⇒ [<code>Promise.&lt;BoardSubType&gt;</code>](#BoardSubType)
+
+<a name="new_BoardSubTypes_new"></a>
+
+### new BoardSubTypes(options)
+
+| Param | Type |
+| --- | --- |
+| options | [<code>CWOptions</code>](#CWOptions) | 
+
+<a name="BoardSubTypes+getSubTypes"></a>
+
+### boardSubTypes.getSubTypes(boardId, params) ⇒ <code>Promise.&lt;Array.&lt;BoardSubType&gt;&gt;</code>
+**Kind**: instance method of [<code>BoardSubTypes</code>](#BoardSubTypes)  
+
+| Param | Type |
+| --- | --- |
+| boardId |  | 
+| params | [<code>Params</code>](#Params) | 
+
+<a name="BoardSubTypes+createSubType"></a>
+
+### boardSubTypes.createSubType(boardId, subType) ⇒ [<code>Promise.&lt;BoardSubType&gt;</code>](#BoardSubType)
+**Kind**: instance method of [<code>BoardSubTypes</code>](#BoardSubTypes)  
+
+| Param | Type |
+| --- | --- |
+| boardId |  | 
+| subType | [<code>BoardSubType</code>](#BoardSubType) | 
+
+<a name="BoardSubTypes+getSubTypesCount"></a>
+
+### boardSubTypes.getSubTypesCount(id, params) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+**Kind**: instance method of [<code>BoardSubTypes</code>](#BoardSubTypes)  
+
+| Param | Type |
+| --- | --- |
+| id |  | 
+| params | [<code>Params</code>](#Params) | 
+
+<a name="BoardSubTypes+deleteSubType"></a>
+
+### boardSubTypes.deleteSubType(boardId, subTypeId) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+**Kind**: instance method of [<code>BoardSubTypes</code>](#BoardSubTypes)  
+
+| Param |
+| --- |
+| boardId | 
+| subTypeId | 
+
+<a name="BoardSubTypes+replaceType"></a>
+
+### boardSubTypes.replaceType(boardId, subTypeId, subType) ⇒ [<code>Promise.&lt;BoardType&gt;</code>](#BoardType)
+**Kind**: instance method of [<code>BoardSubTypes</code>](#BoardSubTypes)  
+
+| Param | Type |
+| --- | --- |
+| boardId |  | 
+| subTypeId |  | 
+| subType | [<code>BoardSubType</code>](#BoardSubType) | 
+
+<a name="BoardSubTypes+updateSubType"></a>
+
+### boardSubTypes.updateSubType(boardId, subTypeId, ops) ⇒ [<code>Promise.&lt;BoardSubType&gt;</code>](#BoardSubType)
+**Kind**: instance method of [<code>BoardSubTypes</code>](#BoardSubTypes)  
+
+| Param | Type |
+| --- | --- |
+| boardId |  | 
+| subTypeId |  | 
+| ops | [<code>Array.&lt;Operations&gt;</code>](#Operations) | 
 
 <a name="BoardTeams"></a>
 
@@ -2470,6 +2687,134 @@ PUT
 | boardId |  | 
 | teamId |  | 
 | team | [<code>BoardTeam</code>](#BoardTeam) | 
+
+<a name="BoardTypes"></a>
+
+## BoardTypes
+**Kind**: global class  
+
+* [BoardTypes](#BoardTypes)
+    * [new BoardTypes(options)](#new_BoardTypes_new)
+    * [.getSubTypeById(boardId, subTypeId)](#BoardTypes+getSubTypeById) ⇒ [<code>Promise.&lt;BoardSubType&gt;</code>](#BoardSubType)
+    * [.getTypes(id, params)](#BoardTypes+getTypes) ⇒ <code>Promise.&lt;Array.&lt;BoardType&gt;&gt;</code>
+    * [.createType(boardId, type)](#BoardTypes+createType) ⇒ [<code>Promise.&lt;BoardType&gt;</code>](#BoardType)
+    * [.getTypeUsagesCount(boardId, typeId)](#BoardTypes+getTypeUsagesCount) ⇒ <code>Promise.&lt;Array.&lt;UsageCount&gt;&gt;</code>
+    * [.getTypeUsages(boardId, typeId)](#BoardTypes+getTypeUsages) ⇒ <code>Promise.&lt;Array.&lt;Usage&gt;&gt;</code>
+    * [.getTypesCount(id, params)](#BoardTypes+getTypesCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+    * [.getTypeById(boardId, typeId)](#BoardTypes+getTypeById) ⇒ [<code>Promise.&lt;BoardType&gt;</code>](#BoardType)
+    * [.deleteType(boardId, typeId)](#BoardTypes+deleteType) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+    * [.replaceType(boardId, typeId, type)](#BoardTypes+replaceType) ⇒ [<code>Promise.&lt;BoardType&gt;</code>](#BoardType)
+    * [.updateType(boardId, typeId, ops)](#BoardTypes+updateType) ⇒ [<code>Promise.&lt;BoardType&gt;</code>](#BoardType)
+
+<a name="new_BoardTypes_new"></a>
+
+### new BoardTypes(options)
+
+| Param | Type |
+| --- | --- |
+| options | [<code>CWOptions</code>](#CWOptions) | 
+
+<a name="BoardTypes+getSubTypeById"></a>
+
+### boardTypes.getSubTypeById(boardId, subTypeId) ⇒ [<code>Promise.&lt;BoardSubType&gt;</code>](#BoardSubType)
+**Kind**: instance method of [<code>BoardTypes</code>](#BoardTypes)  
+
+| Param |
+| --- |
+| boardId | 
+| subTypeId | 
+
+<a name="BoardTypes+getTypes"></a>
+
+### boardTypes.getTypes(id, params) ⇒ <code>Promise.&lt;Array.&lt;BoardType&gt;&gt;</code>
+**Kind**: instance method of [<code>BoardTypes</code>](#BoardTypes)  
+
+| Param | Type |
+| --- | --- |
+| id |  | 
+| params | [<code>Params</code>](#Params) | 
+
+<a name="BoardTypes+createType"></a>
+
+### boardTypes.createType(boardId, type) ⇒ [<code>Promise.&lt;BoardType&gt;</code>](#BoardType)
+**Kind**: instance method of [<code>BoardTypes</code>](#BoardTypes)  
+
+| Param | Type |
+| --- | --- |
+| boardId |  | 
+| type | [<code>BoardType</code>](#BoardType) | 
+
+<a name="BoardTypes+getTypeUsagesCount"></a>
+
+### boardTypes.getTypeUsagesCount(boardId, typeId) ⇒ <code>Promise.&lt;Array.&lt;UsageCount&gt;&gt;</code>
+**Kind**: instance method of [<code>BoardTypes</code>](#BoardTypes)  
+
+| Param |
+| --- |
+| boardId | 
+| typeId | 
+
+<a name="BoardTypes+getTypeUsages"></a>
+
+### boardTypes.getTypeUsages(boardId, typeId) ⇒ <code>Promise.&lt;Array.&lt;Usage&gt;&gt;</code>
+**Kind**: instance method of [<code>BoardTypes</code>](#BoardTypes)  
+
+| Param |
+| --- |
+| boardId | 
+| typeId | 
+
+<a name="BoardTypes+getTypesCount"></a>
+
+### boardTypes.getTypesCount(id, params) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+**Kind**: instance method of [<code>BoardTypes</code>](#BoardTypes)  
+
+| Param | Type |
+| --- | --- |
+| id |  | 
+| params | [<code>Params</code>](#Params) | 
+
+<a name="BoardTypes+getTypeById"></a>
+
+### boardTypes.getTypeById(boardId, typeId) ⇒ [<code>Promise.&lt;BoardType&gt;</code>](#BoardType)
+**Kind**: instance method of [<code>BoardTypes</code>](#BoardTypes)  
+
+| Param |
+| --- |
+| boardId | 
+| typeId | 
+
+<a name="BoardTypes+deleteType"></a>
+
+### boardTypes.deleteType(boardId, typeId) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
+**Kind**: instance method of [<code>BoardTypes</code>](#BoardTypes)  
+
+| Param |
+| --- |
+| boardId | 
+| typeId | 
+
+<a name="BoardTypes+replaceType"></a>
+
+### boardTypes.replaceType(boardId, typeId, type) ⇒ [<code>Promise.&lt;BoardType&gt;</code>](#BoardType)
+**Kind**: instance method of [<code>BoardTypes</code>](#BoardTypes)  
+
+| Param | Type |
+| --- | --- |
+| boardId |  | 
+| typeId |  | 
+| type | [<code>BoardType</code>](#BoardType) | 
+
+<a name="BoardTypes+updateType"></a>
+
+### boardTypes.updateType(boardId, typeId, ops) ⇒ [<code>Promise.&lt;BoardType&gt;</code>](#BoardType)
+**Kind**: instance method of [<code>BoardTypes</code>](#BoardTypes)  
+
+| Param | Type |
+| --- | --- |
+| boardId |  | 
+| typeId |  | 
+| ops | [<code>Array.&lt;Operations&gt;</code>](#Operations) | 
 
 <a name="ServiceDeskAPI"></a>
 
@@ -3434,7 +3779,8 @@ GET
 | status | [<code>StatusHref</code>](#StatusHref) |  |
 | territoryId | <code>number</code> |  |
 | timeZone |  |  |
-| type | [<code>TypeHref</code>](#TypeHref) |  |
+| type | [<code>TypeHref</code>](#TypeHref) | removed in 2019.1 |
+| typeIds |  | added in 2019.1 |
 | unsubscribeFlag | <code>boolean</code> |  |
 | website | <code>string</code> |  |
 | zip | <code>string</code> |  |
@@ -4469,6 +4815,31 @@ Service Subtype
 | name | <code>string</code> | 
 | _info | <code>object</code> | 
 
+<a name="Usage"></a>
+
+## Usage : <code>Object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name |
+| --- |
+| type | 
+| count | 
+| id | 
+| description | 
+| hyperlink | 
+
+<a name="UsageCount"></a>
+
+## UsageCount : <code>Object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name |
+| --- |
+| type | 
+| count | 
+
 <a name="Addition"></a>
 
 ## Addition : <code>object</code>
@@ -4935,25 +5306,57 @@ Service Subtype
 | where | [<code>ServiceLocationHref</code>](#ServiceLocationHref) |  |
 | systemFlag | <code>boolean</code> |  |
 
+<a name="BoardItem"></a>
+
+## BoardItem : <code>Object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| id |  |  |
+| name |  |  |
+| inactiveFlag |  | added in 2019.1 |
+| board | [<code>BoardHref</code>](#BoardHref) | added in 2019.1 |
+| boardId |  | removed in 2019.1 |
+
 <a name="Board"></a>
 
 ## Board : <code>object</code>
 **Kind**: global typedef  
 **Properties**
 
+| Name | Type | Description |
+| --- | --- | --- |
+| id | <code>number</code> |  |
+| name | <code>string</code> |  |
+| locationId | <code>number</code> |  |
+| businessUnitId | <code>number</code> |  |
+| inactive | <code>boolean</code> | removed in 2019.1 |
+| inactiveFlag | <code>boolean</code> | added in 2019.1 |
+| signOffTemplateId | <code>number</code> |  |
+| sendToContact | <code>boolean</code> |  |
+| contactTemplateId | <code>number</code> |  |
+| sendToResource | <code>boolean</code> |  |
+| resourceTemplateId | <code>number</code> |  |
+| _info | <code>object</code> |  |
+
+<a name="BoardSubType"></a>
+
+## BoardSubType : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
 | Name | Type |
 | --- | --- |
-| id | <code>number</code> | 
-| name | <code>string</code> | 
-| locationId | <code>number</code> | 
-| businessUnitId | <code>number</code> | 
-| inactive | <code>boolean</code> | 
-| signOffTemplateId | <code>number</code> | 
-| sendToContact | <code>boolean</code> | 
-| contactTemplateId | <code>number</code> | 
-| sendToResource | <code>boolean</code> | 
-| resourceTemplateId | <code>number</code> | 
-| _info | <code>object</code> | 
+| id |  | 
+| name |  | 
+| inactiveFlag |  | 
+| typeAssociationIds | <code>Array</code> | 
+| addAllTypesFlag |  | 
+| board | [<code>BoardHref</code>](#BoardHref) | 
+| removeAllTypesFlag |  | 
+| _info | [<code>InfoHref</code>](#InfoHref) | 
 
 <a name="BoardTeam"></a>
 
@@ -4974,6 +5377,26 @@ Service Subtype
 | businessUnitId | <code>number</code> | 
 | _info | <code>object</code> | 
 
+<a name="BoardType"></a>
+
+## BoardType : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| id |  |  |
+| name |  |  |
+| category |  | [Reactive, Proactive] |
+| defaultFlag |  |  |
+| inactiveFlag |  |  |
+| requestForChangeFlag |  |  |
+| integrationXref |  |  |
+| board |  |  |
+| location |  |  |
+| department |  |  |
+| _info | [<code>InfoHref</code>](#InfoHref) |  |
+
 <a name="ServiceDeskAPI"></a>
 
 ## ServiceDeskAPI : <code>object</code>
@@ -4988,6 +5411,9 @@ Service Subtype
 | Priorities | [<code>Priorities</code>](#Priorities) | 
 | Statuses | [<code>Statuses</code>](#Statuses) | 
 | ServiceNotes | [<code>ServiceNotes</code>](#ServiceNotes) | 
+| BoardItems | [<code>BoardItems</code>](#BoardItems) | 
+| BoardTypes | [<code>BoardTypes</code>](#BoardTypes) | 
+| BoardSubTypes | [<code>BoardSubTypes</code>](#BoardSubTypes) | 
 
 <a name="new_ServiceDeskAPI_new"></a>
 
@@ -5052,7 +5478,8 @@ Service Subtype
 | boardId | <code>number</code> |  |
 | sortOrder | <code>number</code> |  |
 | displayOnBoard | <code>boolean</code> |  |
-| inactive | <code>boolean</code> |  |
+| inactive | <code>boolean</code> | removed in 2019.1 |
+| inactiveFlag | <code>boolean</code> | added in 2019.1 |
 | closedStatus | <code>boolean</code> |  |
 | timeEntryNotAllowed | <code>boolean</code> |  |
 | defaultFlag | <code>boolean</code> |  |

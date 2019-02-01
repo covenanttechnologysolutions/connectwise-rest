@@ -16,7 +16,8 @@ var inherits = require('util').inherits,
  * @property {number} boardId
  * @property {number} sortOrder
  * @property {boolean} displayOnBoard
- * @property {boolean} inactive
+ * @property {boolean} inactive removed in 2019.1
+ * @property {boolean} inactiveFlag added in 2019.1
  * @property {boolean} closedStatus
  * @property {boolean} timeEntryNotAllowed
  * @property {boolean} defaultFlag

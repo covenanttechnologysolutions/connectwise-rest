@@ -15,7 +15,8 @@ var inherits = require('util').inherits,
  * @property {string} name
  * @property {number} locationId
  * @property {number} businessUnitId
- * @property {boolean} inactive
+ * @property {boolean} inactive removed in 2019.1
+ * @property {boolean} inactiveFlag added in 2019.1
  * @property {number} signOffTemplateId
  * @property {boolean} sendToContact
  * @property {number} contactTemplateId
