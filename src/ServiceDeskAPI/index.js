@@ -11,6 +11,9 @@
  * @property {Priorities} Priorities
  * @property {Statuses} Statuses
  * @property {ServiceNotes} ServiceNotes
+ * @property {BoardItems} BoardItems
+ * @property {BoardTypes} BoardTypes
+ * @property {BoardSubTypes} BoardSubTypes
  */
 
 /**
@@ -25,7 +28,10 @@ function ServiceDeskAPI(options) {
     _Priorities = require('./Priorities'),
     _BoardTeams = require('./BoardTeams'),
     _Statuses = require('./Statuses'),
-    _ServiceNotes = require('./ServiceNotes');
+    _ServiceNotes = require('./ServiceNotes'),
+    _BoardItems = require('./BoardItems'),
+    _BoardTypes = require('./BoardTypes'),
+    _BoardSubTypes = require('./BoardSubTypes');
 
   return {
     Tickets: new _Tickets(options),
@@ -33,8 +39,11 @@ function ServiceDeskAPI(options) {
     BoardTeams: new _BoardTeams(options),
     Priorities: new _Priorities(options),
     Statuses: new _Statuses(options),
-    ServiceNotes: new _ServiceNotes(options)
-  }
+    ServiceNotes: new _ServiceNotes(options),
+    BoardItems: new _BoardItems(options),
+    BoardTypes: new _BoardTypes(options),
+    BoardSubTypes: new _BoardSubTypes(options),
+  };
 }
 
 /**
