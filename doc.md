@@ -2505,6 +2505,7 @@ PATCH
     * [.getSubTypes(boardId, params)](#BoardSubTypes+getSubTypes) ⇒ <code>Promise.&lt;Array.&lt;BoardSubType&gt;&gt;</code>
     * [.createSubType(boardId, subType)](#BoardSubTypes+createSubType) ⇒ [<code>Promise.&lt;BoardSubType&gt;</code>](#BoardSubType)
     * [.getSubTypesCount(id, params)](#BoardSubTypes+getSubTypesCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
+    * [.getSubTypeById(boardId, subTypeId)](#BoardSubTypes+getSubTypeById) ⇒ [<code>Promise.&lt;BoardSubType&gt;</code>](#BoardSubType)
     * [.deleteSubType(boardId, subTypeId)](#BoardSubTypes+deleteSubType) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
     * [.replaceType(boardId, subTypeId, subType)](#BoardSubTypes+replaceType) ⇒ [<code>Promise.&lt;BoardType&gt;</code>](#BoardType)
     * [.updateSubType(boardId, subTypeId, ops)](#BoardSubTypes+updateSubType) ⇒ [<code>Promise.&lt;BoardSubType&gt;</code>](#BoardSubType)
@@ -2546,6 +2547,16 @@ PATCH
 | --- | --- |
 | id |  | 
 | params | [<code>Params</code>](#Params) | 
+
+<a name="BoardSubTypes+getSubTypeById"></a>
+
+### boardSubTypes.getSubTypeById(boardId, subTypeId) ⇒ [<code>Promise.&lt;BoardSubType&gt;</code>](#BoardSubType)
+**Kind**: instance method of [<code>BoardSubTypes</code>](#BoardSubTypes)  
+
+| Param |
+| --- |
+| boardId | 
+| subTypeId | 
 
 <a name="BoardSubTypes+deleteSubType"></a>
 
@@ -2695,7 +2706,6 @@ PUT
 
 * [BoardTypes](#BoardTypes)
     * [new BoardTypes(options)](#new_BoardTypes_new)
-    * [.getSubTypeById(boardId, subTypeId)](#BoardTypes+getSubTypeById) ⇒ [<code>Promise.&lt;BoardSubType&gt;</code>](#BoardSubType)
     * [.getTypes(id, params)](#BoardTypes+getTypes) ⇒ <code>Promise.&lt;Array.&lt;BoardType&gt;&gt;</code>
     * [.createType(boardId, type)](#BoardTypes+createType) ⇒ [<code>Promise.&lt;BoardType&gt;</code>](#BoardType)
     * [.getTypeUsagesCount(boardId, typeId)](#BoardTypes+getTypeUsagesCount) ⇒ <code>Promise.&lt;Array.&lt;UsageCount&gt;&gt;</code>
@@ -2713,16 +2723,6 @@ PUT
 | Param | Type |
 | --- | --- |
 | options | [<code>CWOptions</code>](#CWOptions) | 
-
-<a name="BoardTypes+getSubTypeById"></a>
-
-### boardTypes.getSubTypeById(boardId, subTypeId) ⇒ [<code>Promise.&lt;BoardSubType&gt;</code>](#BoardSubType)
-**Kind**: instance method of [<code>BoardTypes</code>](#BoardTypes)  
-
-| Param |
-| --- |
-| boardId | 
-| subTypeId | 
 
 <a name="BoardTypes+getTypes"></a>
 
@@ -4105,6 +4105,7 @@ GET
 | companyId |  |  |
 | publicKey |  |  |
 | privateKey |  |  |
+| clientId |  | register for a clientId at https://developer.connectwise.com/ClientID |
 | companyUrl |  |  |
 | [entryPoint] | <code>string</code> | defaults to 'v4_6_release' |
 | [timeout] | <code>number</code> | defaults to 20000 (20 seconds) |
