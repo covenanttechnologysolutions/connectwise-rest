@@ -1,6 +1,6 @@
 {
   "name": "connectwise-rest",
-  "version": "0.21.0",
+  "version": "0.21.1",
   "description": "A nodejs module for interacting with the ConnectWise REST API.",
   "main": "index.js",
   "scripts": {
@@ -29,7 +29,7 @@
   "homepage": "https://github.com/covenanttechnologysolutions/connectwise-rest",
   "dependencies": {
     "promise-retry": "^1.1.1",
-    "request": "^2.87.0"
+    "request": "^2.88.0"
   },
   "devDependencies": {
     "coveralls": "^3.0.2",
