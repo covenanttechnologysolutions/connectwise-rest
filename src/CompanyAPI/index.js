@@ -13,6 +13,7 @@
  * @property {CompanyCompanyTypeAssociations} CompanyCompanyTypeAssociations
  * @property {CompanyTypes} CompanyTypes
  * @property {CompanyTypeInfos} CompanyTypeInfos
+ * @property {CompanySites} CompanySites
  */
 
 /**
@@ -29,7 +30,8 @@ function CompanyAPI(options) {
     _ContactContactTypeAssociations = require('./ContactContactTypeAssociations'),
     _CompanyCompanyTypeAssociations = require('./CompanyCompanyTypeAssociations'),
     _CompanyTypes = require('./CompanyTypes'),
-    _CompanyTypeInfos = require('./CompanyTypeInfos');
+    _CompanyTypeInfos = require('./CompanyTypeInfos'),
+    _CompanySites = require('./CompanySites');
 
   return {
     Companies: new _Companies(options),
@@ -40,6 +42,7 @@ function CompanyAPI(options) {
     CompanyCompanyTypeAssociations: new _CompanyCompanyTypeAssociations(options),
     CompanyTypes: new _CompanyTypes(options),
     CompanyTypeInfos: new _CompanyTypeInfos(options),
+    CompanySites: new _CompanySites(options),
   };
 }
 
