@@ -11,6 +11,8 @@
 <dd></dd>
 <dt><a href="#CompanyTypes">CompanyTypes</a></dt>
 <dd></dd>
+<dt><a href="#CompanySites">CompanySites</a></dt>
+<dd></dd>
 <dt><a href="#Configurations">Configurations</a></dt>
 <dd></dd>
 <dt><a href="#ContactContactTypeAssociations">ContactContactTypeAssociations</a></dt>
@@ -687,6 +689,44 @@
 | --- |
 | id | 
 
+<a name="CompanySites"></a>
+
+## CompanySites
+**Kind**: global class  
+**Inherits**: [<code>ConnectWise</code>](#ConnectWise)  
+
+* [CompanySites](#CompanySites)
+    * [new CompanySites(options)](#new_CompanySites_new)
+    * [.getCompanySites(params)](#CompanySites+getCompanySites) ⇒ <code>Promise.&lt;Array.&lt;CompanySite&gt;&gt;</code>
+    * [.getCompanySiteById(id)](#CompanySites+getCompanySiteById) ⇒ [<code>Promise.&lt;CompanySite&gt;</code>](#CompanySite)
+
+<a name="new_CompanySites_new"></a>
+
+### new CompanySites(options)
+
+| Param | Type |
+| --- | --- |
+| options | [<code>CWOptions</code>](#CWOptions) | 
+
+<a name="CompanySites+getCompanySites"></a>
+
+### CompanySites.getCompanySites(params) ⇒ <code>Promise.&lt;Array.&lt;CompanySite&gt;&gt;</code>
+**Kind**: instance method of [<code>CompanySites</code>](#CompanySites)  
+
+| Param | Type |
+| --- | --- |
+| params | [<code>Params</code>](#Params) | 
+
+<a name="CompanyTypes+getCompanySiteById"></a>
+
+### CompanySites.getCompanySiteById(companyId, id) ⇒ [<code>Promise.&lt;CompanySite&gt;</code>](#CompanySites)
+**Kind**: instance method of [<code>CompanySites</code>](#CompanySites)  
+
+| Param |
+| --- |
+| companyId | 
+| id | 
+
 <a name="Configurations"></a>
 
 ## Configurations
@@ -1070,7 +1110,8 @@ ConnectWiseRest
 <a name="Additions+getAdditions"></a>
 
 ### additions.getAdditions(agreementId, params) ⇒ <code>Promise.&lt;Array.&lt;Addition&gt;&gt;</code>
-GETReturns non-cancelled active additions to an agreement
+GET
+Returns non-cancelled active additions to an agreement
 
 **Kind**: instance method of [<code>Additions</code>](#Additions)  
 
