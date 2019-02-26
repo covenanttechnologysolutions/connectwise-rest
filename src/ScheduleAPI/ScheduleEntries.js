@@ -5,8 +5,8 @@
 /**
  * @private
  */
-var inherits = require('util').inherits,
-  ConnectWise = require('../ConnectWise.js');
+const inherits = require('util').inherits;
+const ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {object} ScheduleEntry
@@ -74,7 +74,7 @@ ScheduleEntries.prototype.getScheduleEntriesCount = function (params) {
  * @returns {Promise<ScheduleEntry[]>}
  */
 ScheduleEntries.prototype.getScheduleEntryById = function (id) {
-  return this.api('/schedule/entries/' + id, 'GET');
+  return this.api(`/schedule/entries/${id}`, 'GET');
 };
 
 /**
@@ -82,7 +82,7 @@ ScheduleEntries.prototype.getScheduleEntryById = function (id) {
  * @returns {Promise<ScheduleEntry[]>}
  */
 ScheduleEntries.prototype.deleteById = function (id) {
-  return this.api('/schedule/entries/' + id, 'DELETE');
+  return this.api(`/schedule/entries/${id}`, 'DELETE');
 };
 
 /**
@@ -90,7 +90,7 @@ ScheduleEntries.prototype.deleteById = function (id) {
  * @returns {Promise<ScheduleEntry[]>}
  */
 ScheduleEntries.prototype.replaceSchedule = function (id) {
-  return this.api('/schedule/entries/' + id, 'PUT');
+  return this.api(`/schedule/entries/${id}`, 'PUT');
 };
 
 /**
@@ -99,7 +99,7 @@ ScheduleEntries.prototype.replaceSchedule = function (id) {
  * @returns {Promise<ScheduleEntry[]>}
  */
 ScheduleEntries.prototype.updateSchedule = function (id, ops) {
-  return this.api('/schedule/entries/' + id, 'PATCH', ops);
+  return this.api(`/schedule/entries/${id}`, 'PATCH', ops);
 };
 
 /**

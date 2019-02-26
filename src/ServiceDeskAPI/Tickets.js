@@ -7,8 +7,8 @@
  *
  * @private
  */
-var inherits = require('util').inherits,
-  ConnectWise = require('../ConnectWise.js');
+const inherits = require('util').inherits;
+const ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {object} Ticket
@@ -125,7 +125,7 @@ Tickets.prototype.getTickets = function (params) {
  * @returns {Promise<Ticket>}
  */
 Tickets.prototype.getTicketById = function (id) {
-  return this.api('/service/tickets/' + id, 'GET');
+  return this.api(`/service/tickets/${id}`, 'GET');
 };
 
 /**
@@ -153,7 +153,7 @@ Tickets.prototype.createTicket = function (ticket) {
  * @returns {Promise<Ticket>} The updated ticket
  */
 Tickets.prototype.updateTicket = function (id, operations) {
-  return this.api('/service/tickets/' + id, 'PATCH', operations);
+  return this.api(`/service/tickets/${id}`, 'PATCH', operations);
 };
 
 /**
@@ -172,7 +172,7 @@ Tickets.prototype.getTicketsCount = function (params) {
  * @returns {Promise<DeleteResponse>}
  */
 Tickets.prototype.deleteTicketsById = function (id) {
-  return this.api('/service/tickets/' + id, 'DELETE');
+  return this.api(`/service/tickets/${id}`, 'DELETE');
 };
 
 /**
@@ -182,7 +182,7 @@ Tickets.prototype.deleteTicketsById = function (id) {
  * @returns {Promise<Ticket>}
  */
 Tickets.prototype.replaceTicket = function (id, ticket) {
-  return this.api('/service/tickets/' + id, 'PUT', ticket);
+  return this.api(`/service/tickets/${id}`, 'PUT', ticket);
 };
 
 /**
@@ -192,7 +192,7 @@ Tickets.prototype.replaceTicket = function (id, ticket) {
  * @returns {Promise<Activity[]>}
  */
 Tickets.prototype.getTicketActivities = function (id, params) {
-  return this.api('/service/tickets/' + id + '/activities', 'GET', params);
+  return this.api(`/service/tickets/${id}/activities`, 'GET', params);
 };
 
 /**
@@ -201,7 +201,7 @@ Tickets.prototype.getTicketActivities = function (id, params) {
  * @returns {Promise<Count>} The number of activities associated with ticket number id
  */
 Tickets.prototype.getTicketActivitiesCount = function (id) {
-  return this.api('/service/tickets/' + id + '/activities/count', 'GET');
+  return this.api(`/service/tickets/${id}/activities/count`, 'GET');
 };
 
 /**
@@ -211,7 +211,7 @@ Tickets.prototype.getTicketActivitiesCount = function (id) {
  * @returns {Promise<TimeEntry[]>}
  */
 Tickets.prototype.getTicketTimeEntries = function (id, params) {
-  return this.api('/service/tickets/' + id + '/timeentries', 'GET', params);
+  return this.api(`/service/tickets/${id}/timeentries`, 'GET', params);
 };
 
 /**
@@ -220,7 +220,7 @@ Tickets.prototype.getTicketTimeEntries = function (id, params) {
  * @returns {Promise<Count>} The count of time entries attached to ticket id
  */
 Tickets.prototype.getTicketTimeEntriesCount = function (id) {
-  return this.api('/service/tickets/' + id + '/timeentries/count', 'GET');
+  return this.api(`/service/tickets/${id}/timeentries/count`, 'GET');
 };
 
 /**
@@ -230,7 +230,7 @@ Tickets.prototype.getTicketTimeEntriesCount = function (id) {
  * @returns {Promise<ConfigurationHref>}
  */
 Tickets.prototype.createConfigurationAssociation = function (id, configId) {
-  return this.api('/service/tickets/' + id + '/configurations', 'POST', {
+  return this.api(`/service/tickets/${id}/configurations`, 'POST', {
     id: configId
   });
 };
@@ -241,7 +241,7 @@ Tickets.prototype.createConfigurationAssociation = function (id, configId) {
  * @returns {Promise<ConfigurationHref[]>}
  */
 Tickets.prototype.getTicketConfigurations = function (id) {
-  return this.api('/service/tickets/' + id + '/configurations', 'GET');
+  return this.api(`/service/tickets/${id}/configurations`, 'GET');
 };
 
 /**
@@ -250,7 +250,7 @@ Tickets.prototype.getTicketConfigurations = function (id) {
  * @returns {Promise<Count>}
  */
 Tickets.prototype.getTicketConfigurationsCount = function (id) {
-  return this.api('/service/tickets/' + id + '/configurations/count', 'GET');
+  return this.api(`/service/tickets/${id}/configurations/count`, 'GET');
 };
 
 /**
@@ -261,7 +261,7 @@ Tickets.prototype.getTicketConfigurationsCount = function (id) {
  * @returns {Promise<DeleteResponse>}
  */
 Tickets.prototype.deleteConfigurationAssociation = function (id, configId) {
-  return this.api('/service/tickets/' + id + '/configurations/' + configId, 'DELETE');
+  return this.api(`/service/tickets/${id}/configurations/${configId}`, 'DELETE');
 };
 
 /**
@@ -271,7 +271,7 @@ Tickets.prototype.deleteConfigurationAssociation = function (id, configId) {
  * @returns {Promise<ConfigurationHref>}
  */
 Tickets.prototype.getConfigurationAssociation = function (id, configId) {
-  return this.api('/service/tickets/' + id + '/configurations/' + configId, 'GET');
+  return this.api(`/service/tickets/${id}/configurations/${configId}`, 'GET');
 };
 
 /**
@@ -281,7 +281,7 @@ Tickets.prototype.getConfigurationAssociation = function (id, configId) {
  * @returns {Promise<ScheduleEntryHref[]>}
  */
 Tickets.prototype.getTicketScheduleEntries = function (id, params) {
-  return this.api('/service/tickets/' + id + '/scheduleentries', 'GET', params);
+  return this.api(`/service/tickets/${id}/scheduleentries`, 'GET', params);
 };
 
 /**
@@ -290,7 +290,7 @@ Tickets.prototype.getTicketScheduleEntries = function (id, params) {
  * @returns {Promise<Count>}
  */
 Tickets.prototype.getTicketScheduleEntriesCount = function (id) {
-  return this.api('/service/tickets/' + id + '/scheduleentries/count', 'GET');
+  return this.api(`/service/tickets/${id}/scheduleentries/count`, 'GET');
 };
 
 /**
@@ -300,7 +300,7 @@ Tickets.prototype.getTicketScheduleEntriesCount = function (id) {
  * @returns {Promise<DocumentHref[]>}
  */
 Tickets.prototype.getTicketDocuments = function (id, params) {
-  return this.api('/service/tickets/' + id + '/documents', 'GET', params);
+  return this.api(`/service/tickets/${id}/documents`, 'GET', params);
 };
 
 /**
@@ -309,7 +309,7 @@ Tickets.prototype.getTicketDocuments = function (id, params) {
  * @returns {Promise<Count>}
  */
 Tickets.prototype.getTicketDocumentsCount = function (id) {
-  return this.api('/service/tickets/' + id + '/documents/count', 'GET');
+  return this.api(`/service/tickets/${id}/documents/count`, 'GET');
 };
 
 /**
@@ -318,7 +318,7 @@ Tickets.prototype.getTicketDocumentsCount = function (id) {
  * @returns {Promise<ProductHref[]>}
  */
 Tickets.prototype.getTicketProducts = function (id) {
-  return this.api('/service/tickets/' + id + '/products', 'GET');
+  return this.api(`/service/tickets/${id}/products`, 'GET');
 };
 
 /**
@@ -327,7 +327,7 @@ Tickets.prototype.getTicketProducts = function (id) {
  * @returns {Promise<Count>}
  */
 Tickets.prototype.getTicketProductsCount = function (id) {
-  return this.api('/service/tickets/' + id + '/products/count', 'GET');
+  return this.api(`/service/tickets/${id}/products/count`, 'GET');
 };
 
 /**
@@ -337,15 +337,15 @@ Tickets.prototype.getTicketProductsCount = function (id) {
  * @returns {Promise<Ticket[]>}
  */
 Tickets.prototype.updateTicketStatusByName = function (id, status) {
-  var self = this;
+  const self = this;
 
   return self.getTicketById(id)
     .then(function (ticket) {
-      var boardId = ticket.board.id;
-      return self.api('/service/boards/' + boardId + '/statuses', 'GET', {conditions: 'name = "' + status + '"'})
+      const boardId = ticket.board.id;
+      return self.api(`/service/boards/${boardId}/statuses`, 'GET', {conditions: `name = "${status}"`})
         .then(function (statuses) {
           if (statuses.length > 0) {
-            var statusId = statuses[0].id;
+            const statusId = statuses[0].id;
             return self.updateTicket(id, [{
               op: 'replace',
               path: 'status',
@@ -355,7 +355,7 @@ Tickets.prototype.updateTicketStatusByName = function (id, status) {
             throw {
               code: 'NotFound',
               errors: null,
-              message: 'Status ' + status + ' not found'
+              message: `Status ${status} not found`
             };
           }
         })
@@ -369,12 +369,12 @@ Tickets.prototype.updateTicketStatusByName = function (id, status) {
  * @returns {Promise<Ticket>}
  */
 Tickets.prototype.updateTicketPriority = function (id, priority) {
-  var self = this;
+  const self = this;
   return self.api('/service/priorities', 'GET', {
-    conditions: 'name like "%' + priority + '%"'
+    conditions: `name like "%${priority}%"`
   }).then(function (res) {
     if (res.length > 0) {
-      var priorityId = res[0].id;
+      const priorityId = res[0].id;
       return self.updateTicket(id, [{
         op: 'replace',
         path: 'priority',
@@ -397,15 +397,15 @@ Tickets.prototype.updateTicketPriority = function (id, priority) {
  * @returns {Promise<Ticket>}
  */
 Tickets.prototype.updateTicketServiceType = function (id, serviceType) {
-  var self = this;
+  const self = this;
   return self.getTicketById(id)
     .then(function (ticket) {
-      var boardId = ticket.board.id;
-      return self.api('/service/boards/' + boardId + '/types', 'GET', {
-        conditions: 'name = "' + serviceType + '"'
+      const boardId = ticket.board.id;
+      return self.api(`/service/boards/${boardId}/types`, 'GET', {
+        conditions: `name = "${serviceType}"`
       }).then(function (types) {
         if (types.length > 0) {
-          var serviceTypeId = types[0].id;
+          const serviceTypeId = types[0].id;
           return self.updateTicket(id, [{
             op: 'replace',
             path: 'type',
@@ -429,15 +429,15 @@ Tickets.prototype.updateTicketServiceType = function (id, serviceType) {
  * @returns {Promise<Ticket>}
  */
 Tickets.prototype.updateTicketServiceSubType = function (id, serviceSubType) {
-  var self = this;
+  const self = this;
   return self.getTicketById(id)
     .then(function (ticket) {
-      var boardId = ticket.board.id;
-      return self.api('/service/boards/' + boardId + '/subtypes', 'GET', {
-        conditions: 'name = "' + serviceSubType + '"'
+      const boardId = ticket.board.id;
+      return self.api(`/service/boards/${boardId}/subtypes`, 'GET', {
+        conditions: `name = "${serviceSubType}"`
       }).then(function (types) {
         if (types.length > 0) {
-          var serviceSubTypeId = types[0].id;
+          const serviceSubTypeId = types[0].id;
           return self.updateTicket(id, [{
             op: 'replace',
             path: 'subType',
@@ -463,7 +463,7 @@ Tickets.prototype.updateTicketServiceSubType = function (id, serviceSubType) {
  * @returns {Promise<Ticket>}
  */
 Tickets.prototype.updateTicketTypeSubTypeItem = function (id, type, subtype, item) {
-  var self = this;
+  const self = this;
   return self.updateTicketServiceType(id, type)
     .then(function () {
       return self.updateTicketServiceSubType(id, subtype)
@@ -480,15 +480,15 @@ Tickets.prototype.updateTicketTypeSubTypeItem = function (id, type, subtype, ite
  * @returns {Promise<Ticket>}
  */
 Tickets.prototype.updateTicketServiceItem = function (id, serviceItem) {
-  var self = this;
+  const self = this;
   return self.getTicketById(id)
     .then(function (ticket) {
-      var boardId = ticket.board.id;
-      return self.api('/service/boards/' + boardId + '/items', 'GET', {
-        conditions: 'name = "' + serviceItem + '"'
+      const boardId = ticket.board.id;
+      return self.api(`/service/boards/${boardId}/items`, 'GET', {
+        conditions: `name = "${serviceItem}"`
       }).then(function (items) {
         if (items.length > 0) {
-          var serviceItemId = items[0].id;
+          const serviceItemId = items[0].id;
           return self.updateTicket(id, [{
             op: 'replace',
             path: 'item',
@@ -515,7 +515,7 @@ Tickets.prototype.updateTicketServiceItem = function (id, serviceItem) {
 Tickets.prototype.updateTicketCustomFieldByIndex = function (id, index, value) {
   return this.updateTicket(id, [{
     op: 'replace',
-    path: 'customFields/' + index + '/value',
+    path: `customFields/${index}/value`,
     value: value
   }]);
 };
@@ -531,10 +531,10 @@ Tickets.prototype.updateTicketCustomFieldById = function (id, customFieldId, val
   if (typeof customFieldId === 'string') {
     customFieldId = parseInt(customFieldId);
   }
-  var self = this;
+  const self = this;
   return self.getTicketById(id)
     .then(function (ticket) {
-      var fieldIdx = -1;
+      let fieldIdx = -1;
       ticket.customFields.forEach(function (elem, idx) {
         if (elem.id === customFieldId) {
           return fieldIdx = idx;
@@ -559,10 +559,10 @@ Tickets.prototype.updateTicketCustomFieldById = function (id, customFieldId, val
  * @returns {Promise<Ticket>}
  */
 Tickets.prototype.updateTicketCustomFieldByCaption = function (id, caption, value) {
-  var self = this;
+  const self = this;
   return self.getTicketById(id)
     .then(function (ticket) {
-      var customFieldId;
+      let customFieldId;
       ticket.customFields.forEach(function (elem, idx) {
         if (elem.caption === caption) {
           customFieldId = elem.id;

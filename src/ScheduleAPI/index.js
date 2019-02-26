@@ -14,8 +14,8 @@
  * @constructor
  */
 function ScheduleAPI(options) {
-  var _ScheduleEntries = require('./ScheduleEntries');
-  var _ScheduleTypes = require('./ScheduleTypes');
+  const _ScheduleEntries = require('./ScheduleEntries');
+  const _ScheduleTypes = require('./ScheduleTypes');
 
   return {
     ScheduleEntries: new _ScheduleEntries(options),

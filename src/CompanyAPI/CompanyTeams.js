@@ -5,8 +5,8 @@
 /**
  * @private
  */
-var inherits = require('util').inherits,
-  ConnectWise = require('../ConnectWise.js');
+const inherits = require('util').inherits;
+const ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {object} CompanyTeam
@@ -42,7 +42,7 @@ inherits(CompanyTeams, ConnectWise);
  * @returns {Promise<CompanyTeam[]>}
  */
 CompanyTeams.prototype.getCompanyTeams = function (id, params) {
-  return this.api('/company/companies/' + id + '/teams', 'GET', params);
+  return this.api(`/company/companies/${id}/teams`, 'GET', params);
 };
 
 /**
@@ -51,7 +51,7 @@ CompanyTeams.prototype.getCompanyTeams = function (id, params) {
  * @returns {Promise<CompanyTeam>}
  */
 CompanyTeams.prototype.createCompanyTeam = function (id, companyTeam) {
-  return this.api('/company/companies/' + id + '/teams', 'POST', companyTeam);
+  return this.api(`/company/companies/${id}/teams`, 'POST', companyTeam);
 };
 
 /**
@@ -60,7 +60,7 @@ CompanyTeams.prototype.createCompanyTeam = function (id, companyTeam) {
  * @returns {Promise<Count[]>}
  */
 CompanyTeams.prototype.getCompanyTeamsCount = function (id, params) {
-  return this.api('/company/companies/' + id + '/teams/count', 'GET', params);
+  return this.api(`/company/companies/${id}/teams/count`, 'GET', params);
 };
 
 /**
@@ -69,7 +69,7 @@ CompanyTeams.prototype.getCompanyTeamsCount = function (id, params) {
  * @returns {Promise<CompanyTeam>}
  */
 CompanyTeams.prototype.getCompanyTeamById = function (id, teamId) {
-  return this.api('/company/companies/' + id + '/teams/' + teamId, 'GET', params);
+  return this.api(`/company/companies/${id}/teams/${teamId}`, 'GET', params);
 };
 
 /**
@@ -78,7 +78,7 @@ CompanyTeams.prototype.getCompanyTeamById = function (id, teamId) {
  * @returns {Promise<DeleteResponse>}
  */
 CompanyTeams.prototype.deleteCompanyTeamById = function (id, teamId) {
-  return this.api('/company/companies/' + id + '/teams/' + teamId, 'DELETE', params);
+  return this.api(`/company/companies/${id}/teams/${teamId}`, 'DELETE', params);
 };
 
 /**
@@ -88,7 +88,7 @@ CompanyTeams.prototype.deleteCompanyTeamById = function (id, teamId) {
  * @returns {Promise<CompanyTeam>}
  */
 CompanyTeams.prototype.replaceCompanyTeam = function (id, teamId, companyTeam) {
-  return this.api('/company/companies/' + id + '/teams/' + teamId, 'PUT', companyTeam);
+  return this.api(`/company/companies/${id}/teams/${teamId}`, 'PUT', companyTeam);
 };
 
 /**
@@ -98,7 +98,7 @@ CompanyTeams.prototype.replaceCompanyTeam = function (id, teamId, companyTeam) {
  * @returns {Promise<CompanyTeam>}
  */
 CompanyTeams.prototype.updateCompanyTeam = function (id, teamId, ops) {
-  return this.api('/company/companies/' + id + '/teams/' + teamId, 'PATCH', ops);
+  return this.api(`/company/companies/${id}/teams/${teamId}`, 'PATCH', ops);
 };
 
 /**

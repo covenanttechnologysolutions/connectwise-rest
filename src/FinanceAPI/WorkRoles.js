@@ -5,8 +5,8 @@
 /**
  * @private
  */
-var inherits = require('util').inherits,
-  ConnectWise = require('../ConnectWise.js');
+const inherits = require('util').inherits;
+const ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {object} WorkRole
@@ -41,7 +41,7 @@ inherits(WorkRoles, ConnectWise);
  * @returns {Promise<WorkRole[]>}
  */
 WorkRoles.prototype.getWorkRoles = function (agreementId, params) {
-  return this.api('/finance/agreements/' + agreementId + '/workroles', 'GET', params);
+  return this.api(`/finance/agreements/${agreementId}/workroles`, 'GET', params);
 };
 
 /**
@@ -51,7 +51,7 @@ WorkRoles.prototype.getWorkRoles = function (agreementId, params) {
  * @returns {Promise<WorkRole>}
  */
 WorkRoles.prototype.createWorkRole = function (agreementId, workRole) {
-  return this.api('/finance/agreements/' + agreementId + '/workroles', 'POST', workRole);
+  return this.api(`/finance/agreements/${agreementId}/workroles`, 'POST', workRole);
 };
 
 /**
@@ -61,7 +61,7 @@ WorkRoles.prototype.createWorkRole = function (agreementId, workRole) {
  * @returns {Promise<Count>}
  */
 WorkRoles.prototype.getWorkRolesCount = function (agreementId, params) {
-  return this.api('/finance/agreements/' + agreementId + '/workroles/count', 'GET', params);
+  return this.api(`/finance/agreements/${agreementId}/workroles/count`, 'GET', params);
 };
 
 /**
@@ -71,7 +71,7 @@ WorkRoles.prototype.getWorkRolesCount = function (agreementId, params) {
  * @returns {Promise<DeleteResponse>}
  */
 WorkRoles.prototype.deleteWorkRoleById = function (agreementId, workRoleId) {
-  return this.api('/finance/agreements/' + agreementId + '/workroles/' + workRoleId, 'DELETE');
+  return this.api(`/finance/agreements/${agreementId}/workroles/${workRoleId}`, 'DELETE');
 };
 
 /**
@@ -81,7 +81,7 @@ WorkRoles.prototype.deleteWorkRoleById = function (agreementId, workRoleId) {
  * @returns {Promise<WorkRole>}
  */
 WorkRoles.prototype.getWorkRoleById = function (agreementId, workRoleId) {
-  return this.api('/finance/agreements/' + agreementId + '/workroles/' + workRoleId, 'GET');
+  return this.api(`/finance/agreements/${agreementId}/workroles/${workRoleId}`, 'GET');
 };
 
 /**
@@ -92,7 +92,7 @@ WorkRoles.prototype.getWorkRoleById = function (agreementId, workRoleId) {
  * @returns {Promise<WorkRole>}
  */
 WorkRoles.prototype.updateWorkRole = function (agreementId, workRoleId, operations) {
-  return this.api('/finance/agreements/' + agreementId + '/workroles/' + workRoleId, 'PATCH', operations);
+  return this.api(`/finance/agreements/${agreementId}/workroles/${workRoleId}`, 'PATCH', operations);
 };
 
 /**
@@ -103,7 +103,7 @@ WorkRoles.prototype.updateWorkRole = function (agreementId, workRoleId, operatio
  * @returns {Promise<WorkRole>}
  */
 WorkRoles.prototype.replaceWorkRole = function (agreementId, workRoleId, workRole) {
-  return this.api('/finance/agreements/' + agreementId + '/workroles/' + workRoleId, 'PUT', workRole);
+  return this.api(`/finance/agreements/${agreementId}/workroles/${workRoleId}`, 'PUT', workRole);
 };
 
 /**

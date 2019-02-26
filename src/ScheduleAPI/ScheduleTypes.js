@@ -4,8 +4,8 @@
 /**
  * @private
  */
-var inherits = require('util').inherits,
-  ConnectWise = require('../ConnectWise.js');
+const inherits = require('util').inherits;
+const ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {object} ScheduleType
@@ -62,7 +62,7 @@ ScheduleTypes.prototype.getScheduleTypesCount = function (params) {
  * @returns {Promise<ScheduleType>}
  */
 ScheduleTypes.prototype.getScheduleTypeById = function (scheduleTypeId) {
-  return this.api('/schedule/types/' + scheduleTypeId, 'GET');
+  return this.api(`/schedule/types/${scheduleTypeId}`, 'GET');
 };
 
 /**
@@ -71,7 +71,7 @@ ScheduleTypes.prototype.getScheduleTypeById = function (scheduleTypeId) {
  * @returns {Promise<DeleteResponse>}
  */
 ScheduleTypes.prototype.deleteScheduleTypeById = function (scheduleTypeId) {
-  return this.api('/schedule/types/' + scheduleTypeId, 'DELETE');
+  return this.api(`/schedule/types/${scheduleTypeId}`, 'DELETE');
 };
 
 /**
@@ -81,7 +81,7 @@ ScheduleTypes.prototype.deleteScheduleTypeById = function (scheduleTypeId) {
  * @returns {Promise<ScheduleType>}
  */
 ScheduleTypes.prototype.replaceScheduleType = function (scheduleTypeId, scheduleType) {
-  return this.api('/schedule/types/' + scheduleTypeId, 'PUT', scheduleType);
+  return this.api(`/schedule/types/${scheduleTypeId}`, 'PUT', scheduleType);
 };
 
 /**
@@ -90,7 +90,7 @@ ScheduleTypes.prototype.replaceScheduleType = function (scheduleTypeId, schedule
  * @returns {Promise<ScheduleType>}
  */
 ScheduleTypes.prototype.updateScheduleType = function (scheduleTypeId, ops) {
-  return this.api('/schedule/types/' + scheduleTypeId, 'PATCH', ops);
+  return this.api(`/schedule/types/${scheduleTypeId}`, 'PATCH', ops);
 };
 
 

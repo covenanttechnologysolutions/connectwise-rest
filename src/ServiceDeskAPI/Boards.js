@@ -6,8 +6,8 @@
 /**
  * @private
  */
-var inherits = require('util').inherits,
-  ConnectWise = require('../ConnectWise.js');
+const inherits = require('util').inherits;
+const ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {object} Board
@@ -61,7 +61,7 @@ Boards.prototype.createBoard = function (board) {
  * @returns {Promise<Board[]>}
  */
 Boards.prototype.getBoardById = function (id) {
-  return this.api('/service/boards/' + id, 'GET');
+  return this.api(`/service/boards/${id}`, 'GET');
 };
 
 /**
@@ -80,7 +80,7 @@ Boards.prototype.getBoardsCount = function (params) {
  * @returns {Promise<Board>}
  */
 Boards.prototype.updateBoard = function (id, ops) {
-  return this.api('/service/boards/' + id, 'PATCH', ops);
+  return this.api(`/service/boards/${id}`, 'PATCH', ops);
 };
 
 /**
@@ -90,7 +90,7 @@ Boards.prototype.updateBoard = function (id, ops) {
  * @returns {Promise<Board>}
  */
 Boards.prototype.replaceBoard = function (id, board) {
-  return this.api('/service/boards/' + id, 'PUT', board);
+  return this.api(`/service/boards/${id}`, 'PUT', board);
 };
 
 /**

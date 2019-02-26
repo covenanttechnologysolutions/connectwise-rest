@@ -23,15 +23,15 @@
  * @constructor
  */
 function CompanyAPI(options) {
-  var _Companies = require('./Companies'),
-    _Contacts = require('./Contacts'),
-    _Configurations = require('./Configurations'),
-    _ContactRelationships = require('./ContactRelationships'),
-    _ContactContactTypeAssociations = require('./ContactContactTypeAssociations'),
-    _CompanyCompanyTypeAssociations = require('./CompanyCompanyTypeAssociations'),
-    _CompanyTypes = require('./CompanyTypes'),
-    _CompanyTypeInfos = require('./CompanyTypeInfos'),
-    _CompanySites = require('./CompanySites');
+  const _Companies = require('./Companies');
+  const _Contacts = require('./Contacts');
+  const _Configurations = require('./Configurations');
+  const _ContactRelationships = require('./ContactRelationships');
+  const _ContactContactTypeAssociations = require('./ContactContactTypeAssociations');
+  const _CompanyCompanyTypeAssociations = require('./CompanyCompanyTypeAssociations');
+  const _CompanyTypes = require('./CompanyTypes');
+  const _CompanyTypeInfos = require('./CompanyTypeInfos');
+  const _CompanySites = require('./CompanySites');
 
   return {
     Companies: new _Companies(options),

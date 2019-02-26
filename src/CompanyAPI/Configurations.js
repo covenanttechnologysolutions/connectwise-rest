@@ -5,8 +5,8 @@
 /**
  * @private
  */
-var inherits = require('util').inherits,
-  ConnectWise = require('../ConnectWise.js');
+const inherits = require('util').inherits;
+const ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {object} Configuration
@@ -115,7 +115,7 @@ Configurations.prototype.getConfigurationsCount = function (params) {
  * @returns {Promise<DeleteResponse>}
  */
 Configurations.prototype.deleteConfigurationById = function (id) {
-  return this.api('/company/configurations/' + id, 'DELETE');
+  return this.api(`/company/configurations/${id}`, 'DELETE');
 };
 
 /**
@@ -123,7 +123,7 @@ Configurations.prototype.deleteConfigurationById = function (id) {
  * @returns {Promise<Configuration>}
  */
 Configurations.prototype.getConfigurationById = function (id) {
-  return this.api('/company/configurations/' + id, 'GET');
+  return this.api(`/company/configurations/${id}`, 'GET');
 };
 
 /**
@@ -133,7 +133,7 @@ Configurations.prototype.getConfigurationById = function (id) {
  * @returns {Promise<Configuration>}
  */
 Configurations.prototype.updateConfiguration = function (id, ops, params) {
-  return this.api('/company/configurations/' + id, 'PATCH', params);
+  return this.api(`/company/configurations/${id}`, 'PATCH', params);
 };
 
 /**
@@ -142,7 +142,7 @@ Configurations.prototype.updateConfiguration = function (id, ops, params) {
  * @returns {Promise<Configuration>}
  */
 Configurations.prototype.replaceConfiguration = function (id, config) {
-  return this.api('/company/configurations/' + id, 'PUT', config);
+  return this.api(`/company/configurations/${id}`, 'PUT', config);
 };
 
 /**

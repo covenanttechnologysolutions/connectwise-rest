@@ -6,14 +6,14 @@
 /**
  * @private
  */
-var request = require('request'),
-  promiseRetry = require('promise-retry');
+const request = require('request');
+const promiseRetry = require('promise-retry');
 
 /**
  * @const {string} DEFAULTS.apiPath
  * @const {string} DEFAULTS.apiVersion
  */
-var DEFAULTS = {
+const DEFAULTS = {
   apiPath: '/apis/3.0',
 };
 
@@ -96,13 +96,13 @@ function ConnectWise(options) {
 
   this.config.companyId = options.companyId;
   this.config.companyUrl = options.companyUrl;
-  this.config.apiUrl = 'https://' + options.companyUrl + '/' + options.entryPoint + DEFAULTS.apiPath;
+  this.config.apiUrl = `https://${options.companyUrl}/${options.entryPoint}${DEFAULTS.apiPath}`;
   this.config.apiVersion = options.apiVersion;
   this.config.publicKey = options.publicKey;
   this.config.privateKey = options.privateKey;
   this.config.clientId = options.clientId;
-  this.config.authRaw = options.companyId + '+' + options.publicKey + ':' + options.privateKey;
-  this.config.auth = 'Basic ' + Buffer.from(this.config.authRaw).toString('base64');
+  this.config.authRaw = `${options.companyId}+${options.publicKey}:${options.privateKey}`;
+  this.config.auth = `Basic ${Buffer.from(this.config.authRaw).toString('base64')}`;
   this.config.timeout = options.timeout;
   this.config.retry = options.retry;
   this.config.retryOptions = options.retryOptions;
@@ -186,7 +186,7 @@ function apiPromise(path, method, params, config) {
       return reject(new Error('method must be defined'));
     }
 
-    var options = {
+    const options = {
       url: config.apiUrl + path,
       headers: {
         'Accept': `application/json; application/vnd.connectwise.com+json; version=${config.apiVersion}`,
@@ -228,7 +228,7 @@ function apiPromise(path, method, params, config) {
           return resolve({});
         } else {
           try {
-            var body = JSON.parse(res.body);
+            const body = JSON.parse(res.body);
             if (body.code) {
               return reject(body);
             } else {
@@ -258,9 +258,9 @@ function apiPromise(path, method, params, config) {
  */
 ConnectWise.prototype.paginate = function (fn, args, module, pageSize, startPage) {
   return new Promise((resolve, reject) => {
-    var results = [];
+    let results = [];
 
-    var page = startPage;
+    let page = startPage;
     if (startPage === undefined || startPage < 1) {
       page = 1;
     }
@@ -271,7 +271,7 @@ ConnectWise.prototype.paginate = function (fn, args, module, pageSize, startPage
 
     getPage(page);
 
-    function getPage(page) {
+    function getPage(pageNumber) {
 
       function pageHandler(res) {
         if (res.length > 0) {
@@ -279,7 +279,7 @@ ConnectWise.prototype.paginate = function (fn, args, module, pageSize, startPage
         }
 
         if (res.length === pageSize) {
-          getPage(++page);
+          getPage(++pageNumber);
         } else {
           return resolve(results);
         }
@@ -287,10 +287,10 @@ ConnectWise.prototype.paginate = function (fn, args, module, pageSize, startPage
 
       //inject page key into params arg
       args.forEach(function (arg) {
-        for (var key in arg) {
+        for (const key in arg) {
           if (arg.hasOwnProperty(key)) {
             if (key === 'page' || key === 'pageSize' || key === 'conditions' || key === 'orderBy') {
-              arg.page = page;
+              arg.page = pageNumber;
               arg.pageSize = pageSize;
             }
           }
@@ -321,14 +321,14 @@ function parameterize(params) {
     return params;
   }
 
-  var result = [];
-  for (var param in params) {
+  const result = [];
+  for (const param in params) {
     if (params.hasOwnProperty(param)) {
-      result.push(param + '=' + encodeURIComponent(params[param]));
+      result.push(`${param}=${encodeURIComponent(params[param])}`);
     }
   }
 
-  return '?' + result.join('&');
+  return `?${result.join('&')}`;
 }
 
 /**

@@ -5,8 +5,8 @@
 /**
  * @private
  */
-var inherits = require('util').inherits,
-  ConnectWise = require('../ConnectWise.js');
+const inherits = require('util').inherits;
+const ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {object} Agreement
@@ -132,7 +132,7 @@ Agreements.prototype.getAgreementsCount = function (params) {
  * @returns {Promise<DeleteResponse>}
  */
 Agreements.prototype.deleteAgreementById = function (agreementId) {
-  return this.api('/finance/agreements/' + agreementId, 'DELETE');
+  return this.api(`/finance/agreements/${agreementId}`, 'DELETE');
 };
 
 /**
@@ -141,7 +141,7 @@ Agreements.prototype.deleteAgreementById = function (agreementId) {
  * @returns {Promise<Agreement>}
  */
 Agreements.prototype.getAgreementById = function (agreementId) {
-  return this.api('/finance/agreements/' + agreementId, 'GET');
+  return this.api(`/finance/agreements/${agreementId}`, 'GET');
 };
 
 /**
@@ -151,7 +151,7 @@ Agreements.prototype.getAgreementById = function (agreementId) {
  * @returns {Promise<Agreement>}
  */
 Agreements.prototype.updateAgreement = function (agreementId, operations) {
-  return this.api('/finance/agreements/' + agreementId, 'PATCH', operations);
+  return this.api(`/finance/agreements/${agreementId}`, 'PATCH', operations);
 };
 
 /**
@@ -161,7 +161,7 @@ Agreements.prototype.updateAgreement = function (agreementId, operations) {
  * @returns {Promise<Agreement>}
  */
 Agreements.prototype.replaceAgreement = function (agreementId, agreement) {
-  return this.api('/finance/agreements/' + agreementId, 'PUT', agreement);
+  return this.api(`/finance/agreements/${agreementId}`, 'PUT', agreement);
 };
 
 /**
@@ -171,7 +171,7 @@ Agreements.prototype.replaceAgreement = function (agreementId, agreement) {
  * @returns {Promise<ConfigurationHref[]>}
  */
 Agreements.prototype.getAgreementConfigurations = function (agreementId, params) {
-  return this.api('/finance/agreements/' + agreementId + '/configurations', 'GET', params);
+  return this.api(`/finance/agreements/${agreementId}/configurations`, 'GET', params);
 };
 
 /**
@@ -181,7 +181,7 @@ Agreements.prototype.getAgreementConfigurations = function (agreementId, params)
  * @returns {Promise<ConfigurationHref>}
  */
 Agreements.prototype.createConfigurationAssociation = function (agreementId, configuration) {
-  return this.api('/finance/agreements/' + agreementId + '/configurations', 'POST', configuration);
+  return this.api(`/finance/agreements/${agreementId}/configurations`, 'POST', configuration);
 };
 
 /**
@@ -190,7 +190,7 @@ Agreements.prototype.createConfigurationAssociation = function (agreementId, con
  * @returns {Promise<Count>}
  */
 Agreements.prototype.getAgreementConfigurationsCount = function (agreementId) {
-  return this.api('/finance/agreements/' + agreementId + '/configurations/count', 'GET');
+  return this.api(`/finance/agreements/${agreementId}/configurations/count`, 'GET');
 };
 
 /**
@@ -200,7 +200,7 @@ Agreements.prototype.getAgreementConfigurationsCount = function (agreementId) {
  * @returns {Promise<DeleteResponse>}
  */
 Agreements.prototype.deleteConfigurationAssociation = function (agreementId, configurationId) {
-  return this.api('/finance/agreements/' + agreementId + '/configurations/' + configurationId, 'DELETE');
+  return this.api(`/finance/agreements/${agreementId}/configurations/${configurationId}`, 'DELETE');
 };
 
 /**
@@ -210,7 +210,7 @@ Agreements.prototype.deleteConfigurationAssociation = function (agreementId, con
  * @returns {Promise<ConfigurationHref>}
  */
 Agreements.prototype.getConfigurationAssociation = function (agreementId, configurationId) {
-  return this.api('/finance/agreements/' + agreementId + '/configurations/' + configurationId, 'GET');
+  return this.api(`/finance/agreements/${agreementId}/configurations/${configurationId}`, 'GET');
 };
 
 /**

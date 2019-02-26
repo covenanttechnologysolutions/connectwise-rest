@@ -5,8 +5,8 @@
 /**
  * @private
  */
-var inherits = require('util').inherits,
-  ConnectWise = require('../ConnectWise');
+const inherits = require('util').inherits;
+const ConnectWise = require('../ConnectWise');
 
 /**
  * @typedef {object} ReportNames
@@ -44,7 +44,7 @@ function Reports(options) {
 inherits(Reports, ConnectWise);
 
 function reportInterpolate() {
-  var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {column_definitions: [], row_values: []};
+  const data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {column_definitions: [], row_values: []};
 
   /* report data comes in like this:
    *  {
@@ -53,13 +53,13 @@ function reportInterpolate() {
    *  }
    */
 
-  var column_definitions = data.column_definitions,
-    row_values = data.row_values;
+  const column_definitions = data.column_definitions;
+  const row_values = data.row_values;
 
   return row_values.map(function (rowArray) {
-    var rowObj = {};
+    const rowObj = {};
     rowArray.forEach(function (value, idx) {
-      var key = Object.keys(column_definitions[idx])[0];
+      const key = Object.keys(column_definitions[idx])[0];
       rowObj[key] = value;
     });
     return rowObj;
@@ -83,7 +83,7 @@ Reports.prototype.getReports = function (params) {
  * @returns {Promise<ReportData[]|ReportDataInterpolated[]>}
  */
 Reports.prototype.getReport = function (reportName, params, disableInterpolate) {
-  return this.api('/system/reports/' + reportName + '/', 'GET', params)
+  return this.api(`/system/reports/${reportName}/`, 'GET', params)
     .then(function (data) {
       if (disableInterpolate) return data;
       return reportInterpolate(data);
@@ -97,7 +97,7 @@ Reports.prototype.getReport = function (reportName, params, disableInterpolate) 
  * @returns {Promise<Count>}
  */
 Reports.prototype.getReportResultsCount = function (reportName, params) {
-  return this.api('/system/reports/' + reportName + '/count', 'GET', params);
+  return this.api(`/system/reports/${reportName}/count`, 'GET', params);
 };
 
 /**
@@ -106,7 +106,7 @@ Reports.prototype.getReportResultsCount = function (reportName, params) {
  * @returns {Promise<ReportColumn[]>}
  */
 Reports.prototype.getColumnDefinitions = function (reportName) {
-  return this.api('/system/reports/' + reportName + '/columns', 'GET');
+  return this.api(`/system/reports/${reportName}/columns`, 'GET');
 };
 
 /**

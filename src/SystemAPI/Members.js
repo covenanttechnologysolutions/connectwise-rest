@@ -7,8 +7,8 @@
  *
  * @private
  */
-var inherits = require('util').inherits,
-  ConnectWise = require('../ConnectWise.js');
+const inherits = require('util').inherits;
+const ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {object} Member
@@ -113,7 +113,7 @@ Members.prototype.getMembers = function (params) {
  * @returns {Promise<Member>}
  */
 Members.prototype.getMemberByIdentifier = function (identifier) {
-  return this.api('/system/members/' + identifier, 'GET');
+  return this.api(`/system/members/${identifier}`, 'GET');
 };
 /**
  * Alias for getMemberByIdentifier because I keep spelling it wrong
@@ -129,7 +129,7 @@ Members.prototype.getMemberByIdentifer = Members.prototype.getMemberByIdentifier
  * @returns {Promise<*>}
  */
 Members.prototype.getMemberImage = function (identifier, params) {
-  return this.api('/system/members/' + identifier + '/image', 'GET', params)
+  return this.api(`/system/members/${identifier}/image`, 'GET', params)
 };
 
 /**

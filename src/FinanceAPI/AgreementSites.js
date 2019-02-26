@@ -5,8 +5,8 @@
 /**
  * @private
  */
-var inherits = require('util').inherits,
-  ConnectWise = require('../ConnectWise.js');
+const inherits = require('util').inherits;
+const ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {object} AgreementSite
@@ -36,7 +36,7 @@ inherits(AgreementSites, ConnectWise);
  * @returns {Promise<AgreementSite[]>}
  */
 AgreementSites.prototype.getAgreementSites = function (agreementId, params) {
-  return this.api('/finance/agreements/' + agreementId + '/sites', 'GET', params);
+  return this.api(`/finance/agreements/${agreementId}/sites`, 'GET', params);
 };
 
 /**
@@ -46,7 +46,7 @@ AgreementSites.prototype.getAgreementSites = function (agreementId, params) {
  * @returns {Promise<AgreementSite>}
  */
 AgreementSites.prototype.createAgreementSite = function (agreementId, site) {
-  return this.api('/finance/agreements/' + agreementId + '/sites', 'POST', site);
+  return this.api(`/finance/agreements/${agreementId}/sites`, 'POST', site);
 };
 
 /**
@@ -56,7 +56,7 @@ AgreementSites.prototype.createAgreementSite = function (agreementId, site) {
  * @returns {Promise<Count>}
  */
 AgreementSites.prototype.getAgreementSitesCount = function (agreementId, params) {
-  return this.api('/finance/agreements/' + agreementId + '/sites/count', 'GET', params);
+  return this.api(`/finance/agreements/${agreementId}/sites/count`, 'GET', params);
 };
 
 /**
@@ -66,7 +66,7 @@ AgreementSites.prototype.getAgreementSitesCount = function (agreementId, params)
  * @returns {Promise<DeleteResponse>}
  */
 AgreementSites.prototype.deleteAgreementSiteById = function (agreementId, siteId) {
-  return this.api('/finance/agreements/' + agreementId + '/sites/' + siteId, 'DELETE');
+  return this.api(`/finance/agreements/${agreementId}/sites/${siteId}`, 'DELETE');
 };
 
 /**
@@ -76,7 +76,7 @@ AgreementSites.prototype.deleteAgreementSiteById = function (agreementId, siteId
  * @returns {Promise<AgreementSite>}
  */
 AgreementSites.prototype.getAgreementSiteById = function (agreementId, siteId) {
-  return this.api('/finance/agreements/' + agreementId + '/sites/' + siteId, 'GET');
+  return this.api(`/finance/agreements/${agreementId}/sites/${siteId}`, 'GET');
 };
 
 /**
@@ -87,7 +87,7 @@ AgreementSites.prototype.getAgreementSiteById = function (agreementId, siteId) {
  * @returns {Promise<AgreementSite>}
  */
 AgreementSites.prototype.updateAgreementSite = function (agreementId, siteId, operations) {
-  return this.api('/finance/agreements/' + agreementId + '/sites/' + siteId, 'PATCH', operations);
+  return this.api(`/finance/agreements/${agreementId}/sites/${siteId}`, 'PATCH', operations);
 };
 
 /**
@@ -98,7 +98,7 @@ AgreementSites.prototype.updateAgreementSite = function (agreementId, siteId, op
  * @returns {Promise<AgreementSite>}
  */
 AgreementSites.prototype.replaceAgreementSite = function (agreementId, siteId, site) {
-  return this.api('/finance/agreements/' + agreementId + '/sites/' + siteId, 'PUT', site);
+  return this.api(`/finance/agreements/${agreementId}/sites/${siteId}`, 'PUT', site);
 };
 
 /**

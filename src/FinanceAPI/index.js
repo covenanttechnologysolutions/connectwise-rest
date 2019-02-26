@@ -22,14 +22,14 @@
  * @constructor
  */
 function FinanceAPI(options) {
-  var _Additions = require('./Additions'),
-    _Adjustments = require('./Adjustments'),
-    _Agreements = require('./Agreements'),
-    _AgreementSites = require('./AgreementSites'),
-    _BoardDefaults = require('./BoardDefaults'),
-    _WorkRoles = require('./WorkRoles'),
-    _WorkTypeExclusions = require('./WorkTypeExclusions'),
-    _WorkTypes = require('./WorkTypes');
+  const _Additions = require('./Additions');
+  const _Adjustments = require('./Adjustments');
+  const _Agreements = require('./Agreements');
+  const _AgreementSites = require('./AgreementSites');
+  const _BoardDefaults = require('./BoardDefaults');
+  const _WorkRoles = require('./WorkRoles');
+  const _WorkTypeExclusions = require('./WorkTypeExclusions');
+  const _WorkTypes = require('./WorkTypes');
 
   return {
     Additions: new _Additions(options),

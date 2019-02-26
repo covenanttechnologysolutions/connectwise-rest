@@ -5,8 +5,8 @@
 /**
  * @private
  */
-var inherits = require('util').inherits,
-  ConnectWise = require('../ConnectWise.js');
+const inherits = require('util').inherits;
+const ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {object} Contact
@@ -125,7 +125,7 @@ Contacts.prototype.getContactTypes = function (params) {
  * @returns {Promise<DeleteResponse>}
  */
 Contacts.prototype.deleteContactById = function (id, transferContactId) {
-  return this.api('/company/contacts/' + id, 'DELETE', {transferContactId: transferContactId});
+  return this.api(`/company/contacts/${id}`, 'DELETE', {transferContactId: transferContactId});
 };
 
 /**
@@ -133,7 +133,7 @@ Contacts.prototype.deleteContactById = function (id, transferContactId) {
  * @returns {Promise<Contact>}
  */
 Contacts.prototype.getContactById = function (id) {
-  return this.api('/company/contacts/' + id, 'GET');
+  return this.api(`/company/contacts/${id}`, 'GET');
 };
 
 /**
@@ -142,7 +142,7 @@ Contacts.prototype.getContactById = function (id) {
  * @returns {Promise<Contact>}
  */
 Contacts.prototype.updateContact = function (id, operations) {
-  return this.api('/company/contacts/' + id, 'PATCH', operations);
+  return this.api(`/company/contacts/${id}`, 'PATCH', operations);
 };
 
 /**
@@ -151,7 +151,7 @@ Contacts.prototype.updateContact = function (id, operations) {
  * @returns {Promise<Contact>}
  */
 Contacts.prototype.replaceContact = function (id, contact) {
-  return this.api('/company/contacts/' + id, 'PUT', contact);
+  return this.api(`/company/contacts/${id}`, 'PUT', contact);
 };
 
 /**
@@ -159,7 +159,7 @@ Contacts.prototype.replaceContact = function (id, contact) {
  * @returns {Promise<PortalSecurity[]>}
  */
 Contacts.prototype.getPortalSecurity = function (id) {
-  return this.api('/company/contacts/' + id + '/portalSecurity', 'GET');
+  return this.api(`/company/contacts/${id}/portalSecurity`, 'GET');
 };
 
 
@@ -189,7 +189,7 @@ Contacts.prototype.validatePortalCredentials = function (email, password) {
  * @returns {Promise<*>} @TODO check return type
  */
 Contacts.prototype.getContactImage = function (id, useDefaultFlag, lastModified) {
-  return this.api('/company/contacts/' + id + '/image', 'GET', params);
+  return this.api(`/company/contacts/${id}/image`, 'GET', params);
 };
 
 /**

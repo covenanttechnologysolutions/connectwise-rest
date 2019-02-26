@@ -16,8 +16,8 @@
  * @constructor
  */
 function SystemAPI(options) {
-  var _Members = require('./Members');
-  var _Reports = require('./Reports');
+  const _Members = require('./Members');
+  const _Reports = require('./Reports');
 
   return {
     Members: new _Members(options),

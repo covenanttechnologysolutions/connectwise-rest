@@ -6,8 +6,8 @@
 /**
  * @private
  */
-var inherits = require('util').inherits,
-  ConnectWise = require('../ConnectWise.js');
+const inherits = require('util').inherits;
+const ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {object} Project
@@ -104,7 +104,7 @@ Projects.prototype.getProjectsCount = function (conditions) {
  * @returns {Promise<DeleteResponse>}
  */
 Projects.prototype.deleteProjectById = function (projectId) {
-  return this.api('/project/projects/' + projectId, 'DELETE');
+  return this.api(`/project/projects/${projectId}`, 'DELETE');
 };
 
 /**
@@ -113,7 +113,7 @@ Projects.prototype.deleteProjectById = function (projectId) {
  * @returns {Promise<Project>}
  */
 Projects.prototype.getProjectById = function (projectId) {
-  return this.api('/project/projects/' + projectId, 'GET');
+  return this.api(`/project/projects/${projectId}`, 'GET');
 };
 
 /**
@@ -123,7 +123,7 @@ Projects.prototype.getProjectById = function (projectId) {
  * @returns {Promise<Project>}
  */
 Projects.prototype.updateProject = function (projectId, operations) {
-  return this.api('/project/projects/' + projectId, 'PATCH', operations);
+  return this.api(`/project/projects/${projectId}`, 'PATCH', operations);
 };
 
 /**
@@ -133,7 +133,7 @@ Projects.prototype.updateProject = function (projectId, operations) {
  * @returns {Promise<Project>}
  */
 Projects.prototype.replaceProject = function (projectId, project) {
-  return this.api('/project/projects/' + projectId, 'PUT', project);
+  return this.api(`/project/projects/${projectId}`, 'PUT', project);
 };
 
 /**

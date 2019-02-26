@@ -14,7 +14,7 @@
  * @constructor
  */
 function TimeAPI(options) {
-  var _TimeEntries = require('./TimeEntries');
+  const _TimeEntries = require('./TimeEntries');
   return {
     TimeEntries: new _TimeEntries(options)
   }

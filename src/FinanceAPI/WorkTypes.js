@@ -5,8 +5,8 @@
 /**
  * @private
  */
-var inherits = require('util').inherits,
-  ConnectWise = require('../ConnectWise.js');
+const inherits = require('util').inherits;
+const ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {object} WorkType
@@ -51,7 +51,7 @@ inherits(WorkTypes, ConnectWise);
  * @returns {Promise<WorkType[]>}
  */
 WorkTypes.prototype.getWorkTypes = function (agreementId, params) {
-  return this.api('/finance/agreements/' + agreementId + '/workTypes', 'GET', params);
+  return this.api(`/finance/agreements/${agreementId}/workTypes`, 'GET', params);
 };
 
 /**
@@ -61,7 +61,7 @@ WorkTypes.prototype.getWorkTypes = function (agreementId, params) {
  * @returns {Promise<WorkType>}
  */
 WorkTypes.prototype.createWorkType = function (agreementId, workType) {
-  return this.api('/finance/agreements/' + agreementId + '/workTypes', 'POST', workType);
+  return this.api(`/finance/agreements/${agreementId}/workTypes`, 'POST', workType);
 };
 
 /**
@@ -71,7 +71,7 @@ WorkTypes.prototype.createWorkType = function (agreementId, workType) {
  * @returns {Promise<Count>}
  */
 WorkTypes.prototype.getWorkTypesCount = function (agreementId, params) {
-  return this.api('/finance/agreements/' + agreementId + '/workTypes/count', 'GET', params);
+  return this.api(`/finance/agreements/${agreementId}/workTypes/count`, 'GET', params);
 };
 
 /**
@@ -81,7 +81,7 @@ WorkTypes.prototype.getWorkTypesCount = function (agreementId, params) {
  * @returns {Promise<DeleteResponse>}
  */
 WorkTypes.prototype.deleteWorkTypeById = function (agreementId, workTypeId) {
-  return this.api('/finance/agreements/' + agreementId + '/workTypes/' + workTypeId, 'DELETE');
+  return this.api(`/finance/agreements/${agreementId}/workTypes/${workTypeId}`, 'DELETE');
 };
 
 /**
@@ -91,7 +91,7 @@ WorkTypes.prototype.deleteWorkTypeById = function (agreementId, workTypeId) {
  * @returns {Promise<WorkType>}
  */
 WorkTypes.prototype.getWorkTypeById = function (agreementId, workTypeId) {
-  return this.api('/finance/agreements/' + agreementId + '/workTypes/' + workTypeId, 'GET');
+  return this.api(`/finance/agreements/${agreementId}/workTypes/${workTypeId}`, 'GET');
 };
 
 /**
@@ -102,7 +102,7 @@ WorkTypes.prototype.getWorkTypeById = function (agreementId, workTypeId) {
  * @returns {Promise<WorkType>}
  */
 WorkTypes.prototype.updateWorkType = function (agreementId, workTypeId, operations) {
-  return this.api('/finance/agreements/' + agreementId + '/workTypes/' + workTypeId, 'PATCH', operations);
+  return this.api(`/finance/agreements/${agreementId}/workTypes/${workTypeId}`, 'PATCH', operations);
 };
 
 /**
@@ -113,7 +113,7 @@ WorkTypes.prototype.updateWorkType = function (agreementId, workTypeId, operatio
  * @returns {Promise<WorkType>}
  */
 WorkTypes.prototype.replaceWorkType = function (agreementId, workTypeId, workType) {
-  return this.api('/finance/agreements/' + agreementId + '/workTypes/' + workTypeId, 'PUT', workType);
+  return this.api(`/finance/agreements/${agreementId}/workTypes/${workTypeId}`, 'PUT', workType);
 };
 
 /**

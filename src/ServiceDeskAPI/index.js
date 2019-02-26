@@ -23,15 +23,15 @@
  * @constructor
  */
 function ServiceDeskAPI(options) {
-  var _Tickets = require('./Tickets'),
-    _Boards = require('./Boards'),
-    _Priorities = require('./Priorities'),
-    _BoardTeams = require('./BoardTeams'),
-    _Statuses = require('./Statuses'),
-    _ServiceNotes = require('./ServiceNotes'),
-    _BoardItems = require('./BoardItems'),
-    _BoardTypes = require('./BoardTypes'),
-    _BoardSubTypes = require('./BoardSubTypes');
+  const _Tickets = require('./Tickets');
+  const _Boards = require('./Boards');
+  const _Priorities = require('./Priorities');
+  const _BoardTeams = require('./BoardTeams');
+  const _Statuses = require('./Statuses');
+  const _ServiceNotes = require('./ServiceNotes');
+  const _BoardItems = require('./BoardItems');
+  const _BoardTypes = require('./BoardTypes');
+  const _BoardSubTypes = require('./BoardSubTypes');
 
   return {
     Tickets: new _Tickets(options),

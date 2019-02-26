@@ -5,8 +5,8 @@
 /**
  * @private
  */
-var inherits = require('util').inherits,
-  ConnectWise = require('../ConnectWise.js');
+const inherits = require('util').inherits;
+const ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {object} Addition
@@ -55,7 +55,7 @@ inherits(Additions, ConnectWise);
  * @returns {Promise<Addition[]>}
  */
 Additions.prototype.getAdditions = function (agreementId, params) {
-  return this.api('/finance/agreements/' + agreementId + '/additions', 'GET', params);
+  return this.api(`/finance/agreements/${agreementId}/additions`, 'GET', params);
 };
 
 /**
@@ -65,7 +65,7 @@ Additions.prototype.getAdditions = function (agreementId, params) {
  * @returns {Promise<Addition>}
  */
 Additions.prototype.createAddition = function (agreementId, addition) {
-  return this.api('/finance/agreements/' + agreementId + '/additions', 'POST', addition);
+  return this.api(`/finance/agreements/${agreementId}/additions`, 'POST', addition);
 };
 
 /**
@@ -75,7 +75,7 @@ Additions.prototype.createAddition = function (agreementId, addition) {
  * @returns {Promise<Count>}
  */
 Additions.prototype.getAdditionsCount = function (agreementId, params) {
-  return this.api('/finance/agreements/' + agreementId + '/additions/count', 'GET', params);
+  return this.api(`/finance/agreements/${agreementId}/additions/count`, 'GET', params);
 };
 
 /**
@@ -85,7 +85,7 @@ Additions.prototype.getAdditionsCount = function (agreementId, params) {
  * @returns {Promise<DeleteResponse>}
  */
 Additions.prototype.deleteAdditionById = function (agreementId, additionId) {
-  return this.api('/finance/agreements/' + agreementId + '/additions/' + additionId, 'DELETE');
+  return this.api(`/finance/agreements/${agreementId}/additions/${additionId}`, 'DELETE');
 };
 
 /**
@@ -95,7 +95,7 @@ Additions.prototype.deleteAdditionById = function (agreementId, additionId) {
  * @returns {Promise<Addition>}
  */
 Additions.prototype.getAdditionById = function (agreementId, additionId) {
-  return this.api('/finance/agreements/' + agreementId + '/additions/' + additionId, 'GET');
+  return this.api(`/finance/agreements/${agreementId}/additions/${additionId}`, 'GET');
 };
 
 /**
@@ -106,7 +106,7 @@ Additions.prototype.getAdditionById = function (agreementId, additionId) {
  * @returns {Promise<Addition>}
  */
 Additions.prototype.updateAddition = function (agreementId, additionId, operations) {
-  return this.api('/finance/agreements/' + agreementId + '/additions/' + additionId, 'PATCH', operations);
+  return this.api(`/finance/agreements/${agreementId}/additions/${additionId}`, 'PATCH', operations);
 };
 
 /**
@@ -117,7 +117,7 @@ Additions.prototype.updateAddition = function (agreementId, additionId, operatio
  * @returns {Promise<Addition>}
  */
 Additions.prototype.replaceAddition = function (agreementId, additionId, addition) {
-  return this.api('/finance/agreements/' + agreementId + '/additions/' + additionId, 'PUT', addition);
+  return this.api(`/finance/agreements/${agreementId}/additions/${additionId}`, 'PUT', addition);
 };
 
 /**

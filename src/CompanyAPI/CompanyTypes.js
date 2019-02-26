@@ -5,8 +5,8 @@
 /**
  * @private
  */
-var inherits = require('util').inherits,
-  ConnectWise = require('../ConnectWise.js');
+const inherits = require('util').inherits;
+const ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {Object} CompanyType
@@ -36,7 +36,7 @@ inherits(CompanyTypes, ConnectWise);
  * @returns {Promise<CompanyType[]>}
  */
 CompanyTypes.prototype.getCompanyTypes = function (params) {
-  return this.api(`/company/companies/types`, 'GET', params);
+  return this.api('/company/companies/types', 'GET', params);
 };
 
 /**

@@ -6,8 +6,8 @@
 /**
  * @private
  */
-var inherits = require('util').inherits,
-  ConnectWise = require('../ConnectWise.js');
+const inherits = require('util').inherits;
+const ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {object} Status
@@ -45,7 +45,7 @@ inherits(Statuses, ConnectWise);
  * @returns {Promise<Status[]>}
  */
 Statuses.prototype.getStatusesByBoardId = function (boardId, params) {
-  return this.api('/service/boards/' + boardId + '/statuses', 'GET', params);
+  return this.api(`/service/boards/${boardId}/statuses`, 'GET', params);
 };
 
 /**
@@ -55,7 +55,7 @@ Statuses.prototype.getStatusesByBoardId = function (boardId, params) {
  * @returns {Promise<Status>}
  */
 Statuses.prototype.createStatuses = function (boardId, status) {
-  return this.api('/service/boards/' + boardId + '/statuses', 'POST', status);
+  return this.api(`/service/boards/${boardId}/statuses`, 'POST', status);
 };
 
 /**
@@ -64,7 +64,7 @@ Statuses.prototype.createStatuses = function (boardId, status) {
  * @returns {Promise<Count>}
  */
 Statuses.prototype.getStatusesCount = function (boardId) {
-  return this.api('/service/boards/' + boardId + '/statuses/count', 'GET');
+  return this.api(`/service/boards/${boardId}/statuses/count`, 'GET');
 };
 
 /**
@@ -74,7 +74,7 @@ Statuses.prototype.getStatusesCount = function (boardId) {
  * @returns {Promise<DeleteResponse>}
  */
 Statuses.prototype.deleteStatusById = function (boardId, statusId) {
-  return this.api('/service/boards/' + boardId + '/statuses/' + statusId, 'DELETE');
+  return this.api(`/service/boards/${boardId}/statuses/${statusId}`, 'DELETE');
 };
 
 /**
@@ -84,7 +84,7 @@ Statuses.prototype.deleteStatusById = function (boardId, statusId) {
  * @returns {Promise<Status>}
  */
 Statuses.prototype.getStatusById = function (boardId, statusId) {
-  return this.api('/service/boards/' + boardId + '/statuses/' + statusId, 'GET');
+  return this.api(`/service/boards/${boardId}/statuses/${statusId}`, 'GET');
 };
 
 /**
@@ -95,7 +95,7 @@ Statuses.prototype.getStatusById = function (boardId, statusId) {
  * @returns {Promise<Status>}
  */
 Statuses.prototype.updateStatus = function (boardId, statusId, operations) {
-  return this.api('/service/boards/' + boardId + '/statuses/' + statusId, 'PATCH', operations);
+  return this.api(`/service/boards/${boardId}/statuses/${statusId}`, 'PATCH', operations);
 };
 
 /**
@@ -106,7 +106,7 @@ Statuses.prototype.updateStatus = function (boardId, statusId, operations) {
  * @returns {Promise<Status>}
  */
 Statuses.prototype.replaceStatuses = function (boardId, statusId, status) {
-  return this.api('/service/boards/' + boardId + '/statuses/' + statusId, 'PUT', status);
+  return this.api(`/service/boards/${boardId}/statuses/${statusId}`, 'PUT', status);
 };
 
 /**

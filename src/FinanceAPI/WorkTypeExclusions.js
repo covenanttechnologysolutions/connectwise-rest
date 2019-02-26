@@ -5,8 +5,8 @@
 /**
  * @private
  */
-var inherits = require('util').inherits,
-  ConnectWise = require('../ConnectWise.js');
+const inherits = require('util').inherits;
+const ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {object} WorkTypeExclusion
@@ -36,7 +36,7 @@ inherits(WorkTypeExclusions, ConnectWise);
  * @returns {Promise<WorkTypeExclusion[]>}
  */
 WorkTypeExclusions.prototype.getWorkTypeExclusions = function (agreementId, params) {
-  return this.api('/finance/agreements/' + agreementId + '/workTypeExclusions', 'GET', params);
+  return this.api(`/finance/agreements/${agreementId}/workTypeExclusions`, 'GET', params);
 };
 
 /**
@@ -46,7 +46,7 @@ WorkTypeExclusions.prototype.getWorkTypeExclusions = function (agreementId, para
  * @returns {Promise<WorkTypeExclusion>}
  */
 WorkTypeExclusions.prototype.createWorkTypeExclusion = function (agreementId, workTypeExclusion) {
-  return this.api('/finance/agreements/' + agreementId + '/workTypeExclusions', 'POST', workTypeExclusion);
+  return this.api(`/finance/agreements/${agreementId}/workTypeExclusions`, 'POST', workTypeExclusion);
 };
 
 /**
@@ -56,7 +56,7 @@ WorkTypeExclusions.prototype.createWorkTypeExclusion = function (agreementId, wo
  * @returns {Promise<Count>}
  */
 WorkTypeExclusions.prototype.getWorkTypeExclusionsCount = function (agreementId, params) {
-  return this.api('/finance/agreements/' + agreementId + '/workTypeExclusions/count', 'GET', params);
+  return this.api(`/finance/agreements/${agreementId}/workTypeExclusions/count`, 'GET', params);
 };
 
 /**
@@ -66,7 +66,7 @@ WorkTypeExclusions.prototype.getWorkTypeExclusionsCount = function (agreementId,
  * @returns {Promise<DeleteResponse>}
  */
 WorkTypeExclusions.prototype.deleteWorkTypeExclusionById = function (agreementId, workTypeExclusionId) {
-  return this.api('/finance/agreements/' + agreementId + '/workTypeExclusions/' + workTypeExclusionId, 'DELETE');
+  return this.api(`/finance/agreements/${agreementId}/workTypeExclusions/${workTypeExclusionId}`, 'DELETE');
 };
 
 

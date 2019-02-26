@@ -1,5 +1,5 @@
-var inherits = require('util').inherits,
-  ConnectWise = require('../ConnectWise.js');
+const inherits = require('util').inherits;
+const ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {object} Activity
@@ -122,7 +122,7 @@ Activities.prototype.getActivityStatuses = function () {
  * @returns {Promise<{DeleteResponse}>}
  */
 Activities.prototype.deleteActivityById = function (id) {
-  return this.api('/sales/activities/' + id, 'DELETE');
+  return this.api(`/sales/activities/${id}`, 'DELETE');
 };
 
 /**
@@ -132,7 +132,7 @@ Activities.prototype.deleteActivityById = function (id) {
  * @returns {Promise<Activity>}
  */
 Activities.prototype.updateActivity = function (id, ops) {
-  return this.api('/sales/activities/' + id, 'PATCH', ops);
+  return this.api(`/sales/activities/${id}`, 'PATCH', ops);
 };
 
 /**
@@ -141,7 +141,7 @@ Activities.prototype.updateActivity = function (id, ops) {
  * @returns {Promise<Activity>}
  */
 Activities.prototype.getActivityById = function (id) {
-  return this.api('/sales/activities/' + id, 'GET');
+  return this.api(`/sales/activities/${id}`, 'GET');
 };
 
 module.exports = Activities;

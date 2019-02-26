@@ -5,8 +5,8 @@
 /**
  * @private
  */
-var inherits = require('util').inherits,
-  ConnectWise = require('../ConnectWise.js');
+const inherits = require('util').inherits;
+const ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {object} Company
@@ -104,7 +104,7 @@ Companies.prototype.getCompaniesCount = function (params) {
  * @returns {Promise<Company>}
  */
 Companies.prototype.getCompanyById = function (id) {
-  return this.api('/company/companies/' + id, 'GET');
+  return this.api(`/company/companies/${id}`, 'GET');
 };
 
 /**
@@ -113,7 +113,7 @@ Companies.prototype.getCompanyById = function (id) {
  * @returns {Promise<Company>}
  */
 Companies.prototype.replaceCompany = function (id, company) {
-  return this.api('/company/companies/' + id, 'PUT', company);
+  return this.api(`/company/companies/${id}`, 'PUT', company);
 };
 
 /**
@@ -121,7 +121,7 @@ Companies.prototype.replaceCompany = function (id, company) {
  * @returns {Promise<DeleteResponse>}
  */
 Companies.prototype.deleteCompanyById = function (id) {
-  return this.api('/company/companies/' + id, 'DELETE');
+  return this.api(`/company/companies/${id}`, 'DELETE');
 };
 
 /**
@@ -130,7 +130,7 @@ Companies.prototype.deleteCompanyById = function (id) {
  * @returns {Promise<Company>}
  */
 Companies.prototype.updateCompany = function (id, ops) {
-  return this.api('/company/companies/' + id, 'PATCH', ops);
+  return this.api(`/company/companies/${id}`, 'PATCH', ops);
 };
 
 
@@ -139,7 +139,7 @@ Companies.prototype.updateCompany = function (id, ops) {
  * @returns {Promise<*>}
  */
 Companies.prototype.mergeCompany = function () {
-  return this.api('/company/companies/' + id + '/merge', 'POST', params);
+  return this.api(`/company/companies/${id}/merge`, 'POST', params);
 };
 
 /**

@@ -1,5 +1,5 @@
-var inherits = require('util').inherits;
-var ConnectWise = require('../ConnectWise.js');
+const inherits = require('util').inherits;
+const ConnectWise = require('../ConnectWise.js');
 
 /**
  * Company > ContactContactTypeAssociations
@@ -32,19 +32,19 @@ inherits(ContactContactTypeAssociations, ConnectWise);
  * @returns {Promise<ContactTypeAssociation[]>}
  */
 ContactContactTypeAssociations.prototype.get = function (contactId, params) {
-  var path = '/company/contacts/' + contactId + '/typeAssociations';
+  const path = `/company/contacts/${contactId}/typeAssociations`;
 
   return this.api(path, 'GET', params);
 };
 
 ContactContactTypeAssociations.prototype.update = function (contactId, associationId, params) {
-  var path = '/company/contacts/' + contactId + '/typeAssociations/' + associationId;
+  const path = `/company/contacts/${contactId}/typeAssociations/${associationId}`;
 
   return this.api(path, 'PUT', params);
 };
 
 ContactContactTypeAssociations.prototype.create = function (contactId, params) {
-  var path = '/company/contacts/' + contactId + '/typeAssociations';
+  const path = `/company/contacts/${contactId}/typeAssociations`;
 
   return this.api(path, 'POST', params);
 };

@@ -6,8 +6,8 @@
 /**
  * @private
  */
-var inherits = require('util').inherits,
-  ConnectWise = require('../ConnectWise.js');
+const inherits = require('util').inherits;
+const ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {object} TimeEntry
@@ -82,7 +82,7 @@ TimeEntries.prototype.getTimeEntriesCount = function (params) {
  * @returns {Promise<DeleteResponse>}
  */
 TimeEntries.prototype.deleteTimeEntryById = function (id) {
-  return this.api('/time/entries/' + id, 'DELETE');
+  return this.api(`/time/entries/${id}`, 'DELETE');
 };
 
 /**
@@ -91,7 +91,7 @@ TimeEntries.prototype.deleteTimeEntryById = function (id) {
  * @returns {Promise<TimeEntry>}
  */
 TimeEntries.prototype.getTimeEntryById = function (id) {
-  return this.api('/time/entries/' + id, 'GET');
+  return this.api(`/time/entries/${id}`, 'GET');
 };
 
 /**
@@ -101,7 +101,7 @@ TimeEntries.prototype.getTimeEntryById = function (id) {
  * @returns {Promise<TimeEntry>}
  */
 TimeEntries.prototype.updateTimeEntry = function (id, operations) {
-  return this.api('/time/entries/' + id, 'PATCH', operations);
+  return this.api(`/time/entries/${id}`, 'PATCH', operations);
 };
 
 /**
@@ -111,7 +111,7 @@ TimeEntries.prototype.updateTimeEntry = function (id, operations) {
  * @returns {Promise<TimeEntry>}
  */
 TimeEntries.prototype.replaceTimeEntry = function (id, timeEntry) {
-  return this.api('/time/entries/' + id, 'PUT', timeEntry);
+  return this.api(`/time/entries/${id}`, 'PUT', timeEntry);
 };
 
 /**

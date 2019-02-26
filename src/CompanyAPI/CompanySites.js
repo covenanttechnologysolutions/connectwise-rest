@@ -5,8 +5,8 @@
 /**
  * @private
  */
-var inherits = require('util').inherits,
-    ConnectWise = require('../ConnectWise.js');
+const inherits = require('util').inherits;
+const ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {Object} CompanySite
@@ -29,7 +29,7 @@ var inherits = require('util').inherits,
  * @property {boolean} defaultBillingFlag
  * @property {boolean} defaultMailingFlag
  * @property {boolean} inactiveFlag
- * @property {uuid} mobileGuid
+ * @property {string} mobileGuid
  * @property calendar
  * @property timeZone
  * @property {CompanyHref} company
@@ -43,7 +43,7 @@ var inherits = require('util').inherits,
  * @constructor
  */
 function CompanySites(options) {
-    ConnectWise.apply(this, Array.prototype.slice.call(arguments));
+  ConnectWise.apply(this, Array.prototype.slice.call(arguments));
 }
 
 inherits(CompanySites, ConnectWise);
@@ -54,7 +54,7 @@ inherits(CompanySites, ConnectWise);
  * @returns {Promise<CompanySite[]>}
  */
 CompanySites.prototype.getCompanySites = function (companyId) {
-    return this.api(`/company/companies/${companyId}/sites`, 'GET');
+  return this.api(`/company/companies/${companyId}/sites`, 'GET');
 };
 
 /**
@@ -64,7 +64,7 @@ CompanySites.prototype.getCompanySites = function (companyId) {
  * @returns {Promise<CompanySite>}
  */
 CompanySites.prototype.getCompanySiteById = function (companyId, id) {
-    return this.api(`/company/companies/${companyId}/sites/${id}`, 'GET');
+  return this.api(`/company/companies/${companyId}/sites/${id}`, 'GET');
 };
 
 module.exports = CompanySites;

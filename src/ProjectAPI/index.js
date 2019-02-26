@@ -15,7 +15,7 @@
  * @constructor
  */
 function ProjectAPI(options) {
-  var _Projects = require('./Projects');
+  const _Projects = require('./Projects');
   return {
     Projects: new _Projects(options)
   }

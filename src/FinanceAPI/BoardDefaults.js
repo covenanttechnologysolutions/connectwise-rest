@@ -5,8 +5,8 @@
 /**
  * @private
  */
-var inherits = require('util').inherits,
-  ConnectWise = require('../ConnectWise.js');
+const inherits = require('util').inherits;
+const ConnectWise = require('../ConnectWise.js');
 
 /**
  * @typedef {object} BoardDefault
@@ -37,7 +37,7 @@ inherits(BoardDefaults, ConnectWise);
  * @returns {Promise<BoardDefault[]>}
  */
 BoardDefaults.prototype.getBoardDefaults = function (agreementId, params) {
-  return this.api('/finance/agreements/' + agreementId + '/boardDefaults', 'GET', params);
+  return this.api(`/finance/agreements/${agreementId}/boardDefaults`, 'GET', params);
 };
 
 /**
@@ -47,7 +47,7 @@ BoardDefaults.prototype.getBoardDefaults = function (agreementId, params) {
  * @returns {Promise<BoardDefault>}
  */
 BoardDefaults.prototype.createBoardDefault = function (agreementId, boardDefault) {
-  return this.api('/finance/agreements/' + agreementId + '/boardDefaults', 'POST', boardDefault);
+  return this.api(`/finance/agreements/${agreementId}/boardDefaults`, 'POST', boardDefault);
 };
 
 /**
@@ -57,7 +57,7 @@ BoardDefaults.prototype.createBoardDefault = function (agreementId, boardDefault
  * @returns {Promise<Count>}
  */
 BoardDefaults.prototype.getBoardDefaultsCount = function (agreementId, params) {
-  return this.api('/finance/agreements/' + agreementId + '/boardDefaults/count', 'GET', params);
+  return this.api(`/finance/agreements/${agreementId}/boardDefaults/count`, 'GET', params);
 };
 
 /**
@@ -67,7 +67,7 @@ BoardDefaults.prototype.getBoardDefaultsCount = function (agreementId, params) {
  * @returns {Promise<DeleteResponse>}
  */
 BoardDefaults.prototype.deleteBoardDefaultById = function (agreementId, boardDefaultId) {
-  return this.api('/finance/agreements/' + agreementId + '/boardDefaults/' + boardDefaultId, 'DELETE');
+  return this.api(`/finance/agreements/${agreementId}/boardDefaults/${boardDefaultId}`, 'DELETE');
 };
 
 /**
@@ -77,7 +77,7 @@ BoardDefaults.prototype.deleteBoardDefaultById = function (agreementId, boardDef
  * @returns {Promise<BoardDefault>}
  */
 BoardDefaults.prototype.getBoardDefaultById = function (agreementId, boardDefaultId) {
-  return this.api('/finance/agreements/' + agreementId + '/boardDefaults/' + boardDefaultId, 'GET');
+  return this.api(`/finance/agreements/${agreementId}/boardDefaults/${boardDefaultId}`, 'GET');
 };
 
 /**
@@ -88,7 +88,7 @@ BoardDefaults.prototype.getBoardDefaultById = function (agreementId, boardDefaul
  * @returns {Promise<BoardDefault>}
  */
 BoardDefaults.prototype.updateBoardDefault = function (agreementId, boardDefaultId, operations) {
-  return this.api('/finance/agreements/' + agreementId + '/boardDefaults/' + boardDefaultId, 'PATCH', operations);
+  return this.api(`/finance/agreements/${agreementId}/boardDefaults/${boardDefaultId}`, 'PATCH', operations);
 };
 
 /**
@@ -99,7 +99,7 @@ BoardDefaults.prototype.updateBoardDefault = function (agreementId, boardDefault
  * @returns {Promise<BoardDefault>}
  */
 BoardDefaults.prototype.replaceBoardDefault = function (agreementId, boardDefaultId, boardDefault) {
-  return this.api('/finance/agreements/' + agreementId + '/boardDefaults/' + boardDefaultId, 'PUT', boardDefault);
+  return this.api(`/finance/agreements/${agreementId}/boardDefaults/${boardDefaultId}`, 'PUT', boardDefault);
 };
 
 /**
