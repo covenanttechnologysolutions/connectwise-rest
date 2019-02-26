@@ -4,7 +4,7 @@
   "description": "A nodejs module for interacting with the ConnectWise REST API.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "nyc mocha",
     "jsdoc": "jsdoc src -r -c ./docs/jsdoc.json -d docs",
     "jsdocmd": "jsdoc2md src/**/*.js > doc.md",
     "eslint": "eslint --ext .js src/",
