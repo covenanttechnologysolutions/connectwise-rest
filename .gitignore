@@ -17,6 +17,6 @@ test/.env
 docs/fonts/
 docs/styles/
 docs/scripts/
-docs/*.html
+docs/*.html*
 .nyc_output
 test/definitions

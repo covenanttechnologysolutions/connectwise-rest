@@ -1,6 +1,7 @@
 /**
  * Created by kgrube on 9/11/2018
  */
+/* eslint-disable promise/no-callback-in-promise */
 
 require('dotenv').config({path: require('path').join(__dirname, '.env')});
 const ConnectWise = require('../index');
@@ -68,6 +69,20 @@ describe('CW', () => {
     it('should have TimeAPI', done => {
       assert(cw.TimeAPI);
       done();
+    });
+  });
+
+  describe('ServiceDeskAPI', () => {
+    describe('Tickets', () => {
+      it('should return a ticket object', done => {
+        cw.ServiceDeskAPI.Tickets.getTickets({pageSize: 1})
+          .then(([ticket]) => {
+            assert(ticket.id);
+            assert(ticket.dateEntered);
+            return done();
+          })
+          .catch(err => done(err));
+      });
     });
   });
 });

@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - "6"
+  - "8"
+  - "10"
+after_script:
+  - npm run coveralls
+before_script:
+  - npm run eslint

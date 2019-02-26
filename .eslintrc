@@ -1,0 +1,59 @@
+{
+  "env": {
+    "browser": false,
+    "node": true,
+    "es6": true
+  },
+  "extends": ["plugin:promise/recommended"],
+  "plugins": ["promise"],
+  "rules": {
+    "promise/avoid-new": "off",
+    "promise/no-nesting": "off",
+    "space-before-function-paren": 0,
+    "object-curly-spacing": 0,
+    "arrow-body-style": 0,
+    "linebreak-style": 0,
+    "consistent-return": "off",
+    "prefer-template": "warn",
+    "global-require": "off",
+    "no-case-declarations": "off",
+    "no-underscore-dangle": "off",
+    "no-var": "error",
+    "prefer-const": "error",
+    "one-var": ["error", "never"],
+    "template-curly-spacing": ["error", "never"],
+    "no-shadow": [
+      "error", {
+        "allow": [
+          "then", "catch", "done"
+        ]
+      }
+    ],
+    "max-len": [
+      "error", {
+        "code": 140,
+        "ignoreComments": true
+      }
+    ],
+    // use ide formatting
+    "indent": [
+      2, 2, {
+        "SwitchCase": 1
+      }
+    ],
+    "quotes": [
+      2, "single"
+    ],
+    "new-cap": 0,
+    "no-prototype-builtins": 0,
+    "no-restricted-syntax": [
+      "error", "WithStatement"
+    ],
+    "no-use-before-define": [
+      "error", {
+        "functions": false,
+        "classes": true
+      }
+    ]
+  }
+}
