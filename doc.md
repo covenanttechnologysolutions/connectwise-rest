@@ -5,13 +5,13 @@
 <dd></dd>
 <dt><a href="#CompanyCompanyTypeAssociations">CompanyCompanyTypeAssociations</a></dt>
 <dd></dd>
+<dt><a href="#CompanySites">CompanySites</a></dt>
+<dd></dd>
 <dt><a href="#CompanyTeams">CompanyTeams</a></dt>
 <dd></dd>
 <dt><a href="#CompanyTypeInfos">CompanyTypeInfos</a></dt>
 <dd></dd>
 <dt><a href="#CompanyTypes">CompanyTypes</a></dt>
-<dd></dd>
-<dt><a href="#CompanySites">CompanySites</a></dt>
 <dd></dd>
 <dt><a href="#Configurations">Configurations</a></dt>
 <dd></dd>
@@ -100,6 +100,8 @@
 <dt><a href="#CompanyTypeAssociation">CompanyTypeAssociation</a> : <code>Object</code></dt>
 <dd></dd>
 <dt><a href="#CompanyTypeHref">CompanyTypeHref</a> : <code>Object</code></dt>
+<dd></dd>
+<dt><a href="#CompanySite">CompanySite</a> : <code>Object</code></dt>
 <dd></dd>
 <dt><a href="#CompanyTeam">CompanyTeam</a> : <code>object</code></dt>
 <dd></dd>
@@ -509,6 +511,44 @@
 | typeAssociationId |  | 
 | operations | [<code>Array.&lt;Operations&gt;</code>](#Operations) | 
 
+<a name="CompanySites"></a>
+
+## CompanySites
+**Kind**: global class  
+**Inherits**: [<code>ConnectWise</code>](#ConnectWise)  
+
+* [CompanySites](#CompanySites)
+    * [new CompanySites(options)](#new_CompanySites_new)
+    * [.getCompanySites(companyId)](#CompanySites+getCompanySites) ⇒ <code>Promise.&lt;Array.&lt;CompanySite&gt;&gt;</code>
+    * [.getCompanySiteById(companyId, id)](#CompanySites+getCompanySiteById) ⇒ [<code>Promise.&lt;CompanySite&gt;</code>](#CompanySite)
+
+<a name="new_CompanySites_new"></a>
+
+### new CompanySites(options)
+
+| Param | Type |
+| --- | --- |
+| options | [<code>CWOptions</code>](#CWOptions) | 
+
+<a name="CompanySites+getCompanySites"></a>
+
+### companySites.getCompanySites(companyId) ⇒ <code>Promise.&lt;Array.&lt;CompanySite&gt;&gt;</code>
+**Kind**: instance method of [<code>CompanySites</code>](#CompanySites)  
+
+| Param |
+| --- |
+| companyId | 
+
+<a name="CompanySites+getCompanySiteById"></a>
+
+### companySites.getCompanySiteById(companyId, id) ⇒ [<code>Promise.&lt;CompanySite&gt;</code>](#CompanySite)
+**Kind**: instance method of [<code>CompanySites</code>](#CompanySites)  
+
+| Param |
+| --- |
+| companyId | 
+| id | 
+
 <a name="CompanyTeams"></a>
 
 ## CompanyTeams
@@ -687,44 +727,6 @@
 
 | Param |
 | --- |
-| id | 
-
-<a name="CompanySites"></a>
-
-## CompanySites
-**Kind**: global class  
-**Inherits**: [<code>ConnectWise</code>](#ConnectWise)  
-
-* [CompanySites](#CompanySites)
-    * [new CompanySites(options)](#new_CompanySites_new)
-    * [.getCompanySites(params)](#CompanySites+getCompanySites) ⇒ <code>Promise.&lt;Array.&lt;CompanySite&gt;&gt;</code>
-    * [.getCompanySiteById(id)](#CompanySites+getCompanySiteById) ⇒ [<code>Promise.&lt;CompanySite&gt;</code>](#CompanySite)
-
-<a name="new_CompanySites_new"></a>
-
-### new CompanySites(options)
-
-| Param | Type |
-| --- | --- |
-| options | [<code>CWOptions</code>](#CWOptions) | 
-
-<a name="CompanySites+getCompanySites"></a>
-
-### CompanySites.getCompanySites(params) ⇒ <code>Promise.&lt;Array.&lt;CompanySite&gt;&gt;</code>
-**Kind**: instance method of [<code>CompanySites</code>](#CompanySites)  
-
-| Param | Type |
-| --- | --- |
-| params | [<code>Params</code>](#Params) | 
-
-<a name="CompanyTypes+getCompanySiteById"></a>
-
-### CompanySites.getCompanySiteById(companyId, id) ⇒ [<code>Promise.&lt;CompanySite&gt;</code>](#CompanySites)
-**Kind**: instance method of [<code>CompanySites</code>](#CompanySites)  
-
-| Param |
-| --- |
-| companyId | 
 | id | 
 
 <a name="Configurations"></a>
@@ -1110,8 +1112,7 @@ ConnectWiseRest
 <a name="Additions+getAdditions"></a>
 
 ### additions.getAdditions(agreementId, params) ⇒ <code>Promise.&lt;Array.&lt;Addition&gt;&gt;</code>
-GET
-Returns non-cancelled active additions to an agreement
+GETReturns non-cancelled active additions to an agreement
 
 **Kind**: instance method of [<code>Additions</code>](#Additions)  
 
@@ -3873,6 +3874,39 @@ GET
 | name | 
 | _info | 
 
+<a name="CompanySite"></a>
+
+## CompanySite : <code>Object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| id | <code>number</code> | 
+| name | <code>string</code> | 
+| addressLine1 | <code>string</code> | 
+| addressLine2 | <code>string</code> | 
+| city | <code>string</code> | 
+| state | <code>string</code> | 
+| zip | <code>string</code> | 
+| country | [<code>CountryHref</code>](#CountryHref) | 
+| addressFormat | <code>string</code> | 
+| phoneNumber | <code>string</code> | 
+| faxNumber | <code>string</code> | 
+| taxCodeId | <code>number</code> | 
+| entityType |  | 
+| expenseReimbursement | <code>number</code> | 
+| primaryAddressFlag | <code>boolean</code> | 
+| defaultShippingFlag | <code>boolean</code> | 
+| defaultBillingFlag | <code>boolean</code> | 
+| defaultMailingFlag | <code>boolean</code> | 
+| inactiveFlag | <code>boolean</code> | 
+| mobileGuid | <code>string</code> | 
+| calendar |  | 
+| timeZone |  | 
+| company | [<code>CompanyHref</code>](#CompanyHref) | 
+| _info | [<code>InfoHref</code>](#InfoHref) | 
+
 <a name="CompanyTeam"></a>
 
 ## CompanyTeam : <code>object</code>
@@ -4126,6 +4160,7 @@ GET
 | CompanyCompanyTypeAssociations | [<code>CompanyCompanyTypeAssociations</code>](#CompanyCompanyTypeAssociations) | 
 | CompanyTypes | [<code>CompanyTypes</code>](#CompanyTypes) | 
 | CompanyTypeInfos | [<code>CompanyTypeInfos</code>](#CompanyTypeInfos) | 
+| CompanySites | [<code>CompanySites</code>](#CompanySites) | 
 
 <a name="new_CompanyAPI_new"></a>
 
