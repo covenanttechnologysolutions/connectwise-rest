@@ -742,7 +742,7 @@
     * [.getConfigurationsCount(params)](#Configurations+getConfigurationsCount) ⇒ [<code>Promise.&lt;Count&gt;</code>](#Count)
     * [.deleteConfigurationById(id)](#Configurations+deleteConfigurationById) ⇒ [<code>Promise.&lt;DeleteResponse&gt;</code>](#DeleteResponse)
     * [.getConfigurationById(id)](#Configurations+getConfigurationById) ⇒ [<code>Promise.&lt;Configuration&gt;</code>](#Configuration)
-    * [.updateConfiguration(id, ops, params)](#Configurations+updateConfiguration) ⇒ [<code>Promise.&lt;Configuration&gt;</code>](#Configuration)
+    * [.updateConfiguration(id, ops, [params])](#Configurations+updateConfiguration) ⇒ [<code>Promise.&lt;Configuration&gt;</code>](#Configuration)
     * [.replaceConfiguration(id, config)](#Configurations+replaceConfiguration) ⇒ [<code>Promise.&lt;Configuration&gt;</code>](#Configuration)
 
 <a name="new_Configurations_new"></a>
@@ -800,14 +800,14 @@
 
 <a name="Configurations+updateConfiguration"></a>
 
-### configurations.updateConfiguration(id, ops, params) ⇒ [<code>Promise.&lt;Configuration&gt;</code>](#Configuration)
+### configurations.updateConfiguration(id, ops, [params]) ⇒ [<code>Promise.&lt;Configuration&gt;</code>](#Configuration)
 **Kind**: instance method of [<code>Configurations</code>](#Configurations)  
 
-| Param | Type |
-| --- | --- |
-| id | <code>string</code> \| <code>number</code> | 
-| ops | [<code>Array.&lt;Operations&gt;</code>](#Operations) | 
-| params | [<code>ParamsConfigUpdate</code>](#ParamsConfigUpdate) | 
+| Param | Type | Description |
+| --- | --- | --- |
+| id | <code>string</code> \| <code>number</code> |  |
+| ops | [<code>Array.&lt;Operations&gt;</code>](#Operations) |  |
+| [params] | [<code>ParamsConfigUpdate</code>](#ParamsConfigUpdate) | unused currently @todo figure this out |
 
 <a name="Configurations+replaceConfiguration"></a>
 
@@ -4614,7 +4614,7 @@ Service Subtype
 | --- | --- | --- |
 | op | <code>string</code> | ['replace','remove'] |
 | path | <code>string</code> | the relative path to the variable to be updated, e.g. status |
-| value | <code>string</code> | the value of the object property to replace, e.g. { id: 123 } |
+| value | <code>string</code> \| <code>boolean</code> \| <code>object</code> \| <code>number</code> | the value of the object property to replace, e.g. { id: 123 } |
 
 <a name="Count"></a>
 

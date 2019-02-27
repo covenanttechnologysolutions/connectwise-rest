@@ -129,11 +129,11 @@ Configurations.prototype.getConfigurationById = function (id) {
 /**
  * @param {string|number} id
  * @param {Operations[]} ops
- * @param {ParamsConfigUpdate} params
+ * @param {ParamsConfigUpdate} [params] unused currently @todo figure this out
  * @returns {Promise<Configuration>}
  */
 Configurations.prototype.updateConfiguration = function (id, ops, params) {
-  return this.api(`/company/configurations/${id}`, 'PATCH', params);
+  return this.api(`/company/configurations/${id}`, 'PATCH', ops);
 };
 
 /**
