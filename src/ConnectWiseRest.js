@@ -34,6 +34,7 @@
  * @property {ScheduleAPI} ScheduleAPI
  * @property {SystemAPI} SystemAPI
  * @property {SalesAPI} SalesAPI
+ * @property {CWUtils} utils
  */
 
 /**
@@ -52,6 +53,7 @@ function ConnectWiseRest(options) {
   const _ScheduleAPI = require('./ScheduleAPI');
   const _SystemAPI = require('./SystemAPI');
   const _SalesAPI = require('./SalesAPI');
+  const _utils = require('./utils');
 
   this.API = new _ConnectWise(options);
   this.CompanyAPI = new _CompanyAPI(options);
@@ -62,6 +64,7 @@ function ConnectWiseRest(options) {
   this.ScheduleAPI = new _ScheduleAPI(options);
   this.SystemAPI = new _SystemAPI(options);
   this.SalesAPI = new _SalesAPI(options);
+  this.utils = _utils;
 }
 
 /**
