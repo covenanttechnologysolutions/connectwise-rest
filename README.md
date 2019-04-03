@@ -95,12 +95,13 @@ To access cloud-hosted ConnectWise, use the `companyUrl` of `api-na.myconnectwis
 | North America | api-na.myconnectwise.net |
 | Europe | api-eu.myconnectwise.net |
 | Australia | api-aus.myconnectwise.net |
+| Demo | api-staging.connectwisedev.com |
 
 ```javascript
     options = {
         companyId: 'company',
         companyUrl: 'api-na.myconnectwise.net',
-        entryPoint: 'v2016_2',
+        entryPoint: 'v2019_3', // change to the current hosted version 
         publicKey: '<public key>',
         privateKey: '<private key>'
     }
