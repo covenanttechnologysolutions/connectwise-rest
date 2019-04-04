@@ -90,6 +90,22 @@
 <dd></dd>
 </dl>
 
+## Functions
+
+<dl>
+<dt><a href="#verifyCallback">verifyCallback(callbackBody, contentSignature)</a> ⇒ <code>Promise.&lt;boolean&gt;</code></dt>
+<dd><p>Load signing key and verify the message</p>
+</dd>
+<dt><a href="#verifyMessage">verifyMessage(callbackBody, contentSignature, signingKey)</a> ⇒ <code>boolean</code></dt>
+<dd><p>Validate a callback body against signed key</p>
+</dd>
+<dt><a href="#middleware">middleware(cb)</a></dt>
+<dd><p>Express style middleware</p>
+</dd>
+<dt><a href="#all">all(series, concurrent, delay)</a> ⇒ <code>Promise.&lt;*&gt;</code></dt>
+<dd></dd>
+</dl>
+
 ## Typedefs
 
 <dl>
@@ -314,6 +330,14 @@
 <dt><a href="#TimeAPI">TimeAPI</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#TimeEntry">TimeEntry</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#CallbackPayload">CallbackPayload</a> : <code>Object</code></dt>
+<dd></dd>
+<dt><a href="#CWCallback">CWCallback</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#CWUtils">CWUtils</a> : <code>Object</code></dt>
+<dd></dd>
+<dt><a href="#CWSeries">CWSeries</a> : <code>Object</code></dt>
 <dd></dd>
 </dl>
 
@@ -3785,6 +3809,54 @@ GET
 | id |  | 
 | timeEntry | [<code>TimeEntry</code>](#TimeEntry) | 
 
+<a name="verifyCallback"></a>
+
+## verifyCallback(callbackBody, contentSignature) ⇒ <code>Promise.&lt;boolean&gt;</code>
+Load signing key and verify the message
+
+**Kind**: global function  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| callbackBody | [<code>CallbackPayload</code>](#CallbackPayload) |  |
+| contentSignature | <code>string</code> | base64 content signature req.headers[x-content-signature] |
+
+<a name="verifyMessage"></a>
+
+## verifyMessage(callbackBody, contentSignature, signingKey) ⇒ <code>boolean</code>
+Validate a callback body against signed key
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| callbackBody | [<code>CallbackPayload</code>](#CallbackPayload) | 
+| contentSignature | <code>string</code> | 
+| signingKey | <code>string</code> | 
+
+<a name="middleware"></a>
+
+## middleware(cb)
+Express style middleware
+
+**Kind**: global function  
+**Example:**: ```app.post('/your/api', cw.utils.middleware((err, req, res, verified, payload) => { if (err) {   //handle error   res.status(500).end(); } else if (!verified) {   // send 403 on verification failure   res.status(403).end(); } else {   res.status(200).end() } const {action, id} = req.query; // do something with the payload}));```  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| cb | <code>function</code> | callback(err, req, res, verified, payload) |
+
+<a name="all"></a>
+
+## all(series, concurrent, delay) ⇒ <code>Promise.&lt;\*&gt;</code>
+**Kind**: global function  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| series | <code>array.&lt;(function()\|Promise)&gt;</code> |  |
+| concurrent | <code>number</code> | number of concurrent requests |
+| delay | <code>number</code> | number of ms between request groups |
+
 <a name="Company"></a>
 
 ## Company : <code>object</code>
@@ -4207,6 +4279,7 @@ GET
 | ScheduleAPI | [<code>ScheduleAPI</code>](#ScheduleAPI) | 
 | SystemAPI | [<code>SystemAPI</code>](#SystemAPI) | 
 | SalesAPI | [<code>SalesAPI</code>](#SalesAPI) | 
+| utils | [<code>CWUtils</code>](#CWUtils) | 
 
 <a name="new_ConnectWiseRest_new"></a>
 
@@ -5851,4 +5924,55 @@ Key-Vals interpolated into one object per row
 | emailCcFlag | <code>boolean</code> |  |
 | emailCc | <code>string</code> |  |
 | hoursBilled | <code>number</code> |  |
+
+<a name="CallbackPayload"></a>
+
+## CallbackPayload : <code>Object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| Action |  |  |
+| CompanyId |  |  |
+| Entity |  | json string |
+| FromUrl |  |  |
+| ID |  |  |
+| MemberId |  |  |
+| Metadata | <code>object</code> |  |
+| Metadata.key_url |  |  |
+| Type |  |  |
+
+<a name="CWCallback"></a>
+
+## CWCallback : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name |
+| --- |
+| verifyCallback | 
+| verifyMessage | 
+| middleware | 
+
+<a name="CWUtils"></a>
+
+## CWUtils : <code>Object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| Series | [<code>CWCallback</code>](#CWCallback) | 
+| Callback | [<code>CWCallback</code>](#CWCallback) | 
+
+<a name="CWSeries"></a>
+
+## CWSeries : <code>Object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| all | <code>function</code> | 
 

@@ -6,7 +6,7 @@ A nodejs module for interacting with the ConnectWise REST API.   This module is 
 
 ## Requirements
 
-- ConnectWise 2015.3+, though these functions are written for ConnectWise 2016.1 APIs (API3.0 v1.0.0). 
+- ConnectWise 2018.1+, though these functions are written for ConnectWise 2016.1 APIs (API3.0 v1.0.0). 
 - ConnectWise API keys (available on ConnectWise 2015.3+), or API Only Member keys (only available on ConnectWise 2015.6+).  See the [documentation](https://developer.connectwise.com/Authentication) for more details. 
 
 ## Documentation
@@ -19,9 +19,9 @@ Create a new API key, or API Only Member, then instantiate the module.
 
 ```javascript
     
-    var ConnectWiseRest = require('connectwise-rest');
+    const ConnectWiseRest = require('connectwise-rest');
     
-    var cw = new ConnectWiseRest({
+    const cw = new ConnectWiseRest({
         companyId: 'company',
         companyUrl: 'your.connectwise.com',
         publicKey: '<public key>',
@@ -41,10 +41,10 @@ Create a new API key, or API Only Member, then instantiate the module.
     });
     
     cw.ServiceDeskAPI.Tickets.getTicketById(1234)
-        .then(function (result){
+        .then((ticket) => {
             //do something with results
         })
-        .catch(function (error){
+        .catch((error) => {
             //handle errors
         });
 ```
@@ -53,9 +53,9 @@ Or if you only require access to one API component:
 
 ```javascript
 
-    var ConnectWiseRest = require('connectwise-rest');
+    const ConnectWiseRest = require('connectwise-rest');
     
-    var tickets = new ConnectWiseRest(options).ServiceDeskAPI.Tickets;
+    const tickets = new ConnectWiseRest(options).ServiceDeskAPI.Tickets;
     
     tickets.getTicketById(1234)
         .then(function (result){
@@ -70,18 +70,18 @@ You can also manually access the API:
 
 ```javascript
 
-    var ConnectWiseRest = require('connectwise-rest');
+    const ConnectWiseRest = require('connectwise-rest');
 
-    var api = new ConnectWiseRest(options).API.api;
+    const api = new ConnectWiseRest(options).API.api;
 
     api('/path/to/api', 'POST', {
         'param1': 'val1',
         'param2': 'val2'
     })
-    .then(function (result){
+    .then((result) => {
         //do something with results
     })
-    .catch(function (error){
+    .catch((error) => {
         //handle errors
     });
 ```
@@ -146,8 +146,8 @@ Get ticket 1234 and print ticket number, summary and status.
 ```javascript
 
     tickets.getTicketById(1234)
-        .then(function (res) { console.log(res.id, res.summary, res.status.name); })
-        .catch(function (err) { console.log(err); });
+        .then((ticket) => { console.log(ticket.id, ticket.summary, ticket.status.name); })
+        .catch((err) => { console.log(err); });
 ```
 
 Create new ticket on service board, then print the returned ticket number, or any errors
@@ -166,8 +166,8 @@ Create new ticket on service board, then print the returned ticket number, or an
         recordType: "ServiceTicket"
         //can also pass in any other Ticket object settings as needed
     })
-    .then(function (res) { console.log(res.id); });
-    .catch(function (err) { console.log(err); });    
+    .then((ticket) => { console.log(ticket.id); })
+    .catch((err) => { console.log(err); });    
     
 ```
 
@@ -182,8 +182,8 @@ Change the status of a ticket
     }, {
         //second or more operations
     }])
-    .then(function(res) { //do something with returned ticket });
-    .catch(function(err) { //do something with errors });    
+    .then((res) => { //do something with returned ticket });
+    .catch((err) => { //do something with errors });    
 
 ```
 
@@ -193,9 +193,37 @@ Valid example conditions string:
   
 ```javascript
 
-    var conditions = '(contact/name like "Fred%" and closedFlag = false) and dateEntered > [2015-12-23T05:53:27Z] or summary contains "test" AND  summary != "Some Summary"'
+    const conditions = '(contact/name like "Fred%" and closedFlag = false) and dateEntered > [2015-12-23T05:53:27Z] or summary contains "test" AND  summary != "Some Summary"'
 
 ```
 
 Error message returned from server when invalid conditions are passed in:
 > Expected a boolean value, not a numeric. String values should be enclosed with double or single quotes; DateTime values should be enclosed in square brackets; numbers should consist of only digits, and optionally a decimal point and a negation sign; boolean values should be indicated with the keywords true or false; null values should be indicated by the keyword null.
+
+
+### Callbacks
+
+This library includes an express style callback middleware that will parse and verify the payload signature.
+
+```javascript 
+
+  const CWCallback = cw.utils.Callback;
+  
+  router.post('/your/callback', CWCallback.middleware((err, req, res, verified, payload) => {
+    if (err) {
+      //handle error, parsing, malformed object, etc
+      res.status(500).end();
+    } else if (!verified) {
+      // send 403 on verification failure, 
+      // or handle some other way
+      res.status(403).end();
+    } else {
+      res.status(200).end()
+    }
+    const {action, id} = req.query;
+    // do something with the payload
+  }));
+
+```
+
+See also using [verifyCallback](https://github.com/covenanttechnologysolutions/connectwise-rest/blob/master/doc.md#verifyCallback) manually.
