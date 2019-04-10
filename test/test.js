@@ -31,6 +31,11 @@ describe('CW', () => {
       done();
     });
 
+    it('should have utils', done => {
+      assert(cw.utils);
+      done();
+    });
+
     it('should have CompanyAPI', done => {
       assert(cw.CompanyAPI);
       done();
@@ -83,6 +88,27 @@ describe('CW', () => {
           })
           .catch(err => done(err));
       });
+    });
+  });
+});
+
+describe('ConnectWise', () => {
+  describe('class', () => {
+    it('should have utils property', done => {
+      assert(ConnectWise.utils);
+      done();
+    });
+  });
+
+  describe('utils', () => {
+    it('should have Callback property', done => {
+      assert(ConnectWise.utils.Callback);
+      done();
+    });
+
+    it('should have Series property', done => {
+      assert(ConnectWise.utils.Series);
+      done();
     });
   });
 });

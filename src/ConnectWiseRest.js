@@ -4,6 +4,13 @@
  */
 
 /**
+ * @type {CWUtils}
+ * @private
+ */
+const _utils = require('./utils');
+
+
+/**
  * @typedef {object} CWOptions
  * @property companyId
  * @property publicKey
@@ -53,7 +60,6 @@ function ConnectWiseRest(options) {
   const _ScheduleAPI = require('./ScheduleAPI');
   const _SystemAPI = require('./SystemAPI');
   const _SalesAPI = require('./SalesAPI');
-  const _utils = require('./utils');
 
   this.API = new _ConnectWise(options);
   this.CompanyAPI = new _CompanyAPI(options);
@@ -66,6 +72,8 @@ function ConnectWiseRest(options) {
   this.SalesAPI = new _SalesAPI(options);
   this.utils = _utils;
 }
+
+ConnectWiseRest.utils = _utils;
 
 /**
  *
