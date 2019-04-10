@@ -1,6 +1,6 @@
 {
   "name": "connectwise-rest",
-  "version": "0.23.0",
+  "version": "0.23.1",
   "description": "A nodejs module for interacting with the ConnectWise REST API.",
   "main": "index.js",
   "scripts": {
@@ -34,9 +34,9 @@
     "request": "^2.88.0"
   },
   "devDependencies": {
-    "coveralls": "^3.0.2",
+    "coveralls": "^3.0.3",
     "dotenv": "^6.2.0",
-    "eslint": "^5.14.1",
+    "eslint": "^5.16.0",
     "eslint-plugin-promise": "^4.0.1",
     "jsdoc": "~3.5.5",
     "jsdoc-to-markdown": "^4.0.1",
