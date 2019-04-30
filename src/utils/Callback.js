@@ -70,8 +70,7 @@ function verifyMessage(callbackBody, contentSignature, signingKey) {
 
 /**
  * Express style middleware
- * @Example:
- * ```
+ * @example
  * app.post('/your/api', cw.utils.middleware((err, req, res, verified, payload) => {
  *  if (err) {
  *    //handle error
@@ -85,7 +84,7 @@ function verifyMessage(callbackBody, contentSignature, signingKey) {
  *  const {action, id} = req.query;
  *  // do something with the payload
  * }));
- * ```
+ *
  * @param {function} cb callback(err, req, res, verified, payload)
  */
 function middleware(cb) {

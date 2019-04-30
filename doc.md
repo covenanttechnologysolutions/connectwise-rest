@@ -143,10 +143,6 @@
 <dd></dd>
 <dt><a href="#CompanyAPI">CompanyAPI</a> : <code>object</code></dt>
 <dd></dd>
-<dt><a href="#CWOptions">CWOptions</a> : <code>object</code></dt>
-<dd></dd>
-<dt><a href="#ConnectWiseRest">ConnectWiseRest</a> : <code>object</code></dt>
-<dd></dd>
 <dt><a href="#InfoHref">InfoHref</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#AgreementHref">AgreementHref</a> : <code>object</code></dt>
@@ -258,6 +254,10 @@
 <dt><a href="#Usage">Usage</a> : <code>Object</code></dt>
 <dd></dd>
 <dt><a href="#UsageCount">UsageCount</a> : <code>Object</code></dt>
+<dd></dd>
+<dt><a href="#CWOptions">CWOptions</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#ConnectWiseRest">ConnectWiseRest</a> : <code>object</code></dt>
 <dd></dd>
 <dt><a href="#Addition">Addition</a> : <code>object</code></dt>
 <dd></dd>
@@ -3840,12 +3840,15 @@ Validate a callback body against signed key
 Express style middleware
 
 **Kind**: global function  
-**Example:**: ```app.post('/your/api', cw.utils.middleware((err, req, res, verified, payload) => { if (err) {   //handle error   res.status(500).end(); } else if (!verified) {   // send 403 on verification failure   res.status(403).end(); } else {   res.status(200).end() } const {action, id} = req.query; // do something with the payload}));```  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | cb | <code>function</code> | callback(err, req, res, verified, payload) |
 
+**Example**  
+```js
+app.post('/your/api', cw.utils.middleware((err, req, res, verified, payload) => { if (err) {   //handle error   res.status(500).end(); } else if (!verified) {   // send 403 on verification failure   res.status(403).end(); } else {   res.status(200).end() } const {action, id} = req.query; // do something with the payload}));
+```
 <a name="all"></a>
 
 ## all(series, concurrent, delay) ⇒ <code>Promise.&lt;\*&gt;</code>
@@ -4241,53 +4244,6 @@ Express style middleware
 | Param |
 | --- |
 | options | 
-
-<a name="CWOptions"></a>
-
-## CWOptions : <code>object</code>
-**Kind**: global typedef  
-**Properties**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| companyId |  |  |
-| publicKey |  |  |
-| privateKey |  |  |
-| clientId |  | register for a clientId at https://developer.connectwise.com/ClientID |
-| companyUrl |  |  |
-| [entryPoint] | <code>string</code> | defaults to 'v4_6_release' |
-| [timeout] | <code>number</code> | defaults to 20000 (20 seconds) |
-| [retry] | <code>boolean</code> | defaults to false |
-| [retryOptions] | <code>object</code> | defaults to {       retries: 4,       minTimeout: 50,       maxTimeout: 20000,       randomize: true,     } |
-| [debug] | <code>boolean</code> | defaults to false |
-| [logger] | <code>function</code> | function(String:level, String:text, *:Object) defaults to console |
-
-<a name="ConnectWiseRest"></a>
-
-## ConnectWiseRest : <code>object</code>
-**Kind**: global typedef  
-**Properties**
-
-| Name | Type |
-| --- | --- |
-| API | [<code>ConnectWise</code>](#ConnectWise) | 
-| CompanyAPI | [<code>CompanyAPI</code>](#CompanyAPI) | 
-| FinanceAPI | [<code>FinanceAPI</code>](#FinanceAPI) | 
-| ServiceDeskAPI | [<code>ServiceDeskAPI</code>](#ServiceDeskAPI) | 
-| TimeAPI | [<code>TimeAPI</code>](#TimeAPI) | 
-| ProjectAPI | [<code>ProjectAPI</code>](#ProjectAPI) | 
-| ScheduleAPI | [<code>ScheduleAPI</code>](#ScheduleAPI) | 
-| SystemAPI | [<code>SystemAPI</code>](#SystemAPI) | 
-| SalesAPI | [<code>SalesAPI</code>](#SalesAPI) | 
-| utils | [<code>CWUtils</code>](#CWUtils) | 
-
-<a name="new_ConnectWiseRest_new"></a>
-
-### new ConnectWiseRest(options)
-
-| Param | Type |
-| --- | --- |
-| options | [<code>CWOptions</code>](#CWOptions) | 
 
 <a name="InfoHref"></a>
 
@@ -4989,6 +4945,53 @@ Service Subtype
 | --- |
 | type | 
 | count | 
+
+<a name="CWOptions"></a>
+
+## CWOptions : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| companyId |  |  |
+| publicKey |  |  |
+| privateKey |  |  |
+| clientId |  | register for a clientId at https://developer.connectwise.com/ClientID |
+| companyUrl |  |  |
+| [entryPoint] | <code>string</code> | defaults to 'v4_6_release' |
+| [timeout] | <code>number</code> | defaults to 20000 (20 seconds) |
+| [retry] | <code>boolean</code> | defaults to false |
+| [retryOptions] | <code>object</code> | defaults to {       retries: 4,       minTimeout: 50,       maxTimeout: 20000,       randomize: true,     } |
+| [debug] | <code>boolean</code> | defaults to false |
+| [logger] | <code>function</code> | function(String:level, String:text, *:Object) defaults to console |
+
+<a name="ConnectWiseRest"></a>
+
+## ConnectWiseRest : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| API | [<code>ConnectWise</code>](#ConnectWise) | 
+| CompanyAPI | [<code>CompanyAPI</code>](#CompanyAPI) | 
+| FinanceAPI | [<code>FinanceAPI</code>](#FinanceAPI) | 
+| ServiceDeskAPI | [<code>ServiceDeskAPI</code>](#ServiceDeskAPI) | 
+| TimeAPI | [<code>TimeAPI</code>](#TimeAPI) | 
+| ProjectAPI | [<code>ProjectAPI</code>](#ProjectAPI) | 
+| ScheduleAPI | [<code>ScheduleAPI</code>](#ScheduleAPI) | 
+| SystemAPI | [<code>SystemAPI</code>](#SystemAPI) | 
+| SalesAPI | [<code>SalesAPI</code>](#SalesAPI) | 
+| utils | [<code>CWUtils</code>](#CWUtils) | 
+
+<a name="new_ConnectWiseRest_new"></a>
+
+### new ConnectWiseRest(options)
+
+| Param | Type |
+| --- | --- |
+| options | [<code>CWOptions</code>](#CWOptions) | 
 
 <a name="Addition"></a>
 
