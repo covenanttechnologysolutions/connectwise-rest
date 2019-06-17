@@ -189,7 +189,7 @@ function apiPromise(path, method, params, config) {
     const options = {
       url: config.apiUrl + path,
       headers: {
-        'Accept': `application/json; application/vnd.connectwise.com+json; version=${config.apiVersion}`,
+        'Accept': `application/vnd.connectwise.com+json; version=${config.apiVersion}, application/json`,
         'Cache-Control': 'no-cache',
         'Authorization': config.auth,
       },
