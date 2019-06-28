@@ -4952,19 +4952,22 @@ Service Subtype
 **Kind**: global typedef  
 **Properties**
 
-| Name | Type | Description |
-| --- | --- | --- |
-| companyId |  |  |
-| publicKey |  |  |
-| privateKey |  |  |
-| clientId |  | register for a clientId at https://developer.connectwise.com/ClientID |
-| companyUrl |  |  |
-| [entryPoint] | <code>string</code> | defaults to 'v4_6_release' |
-| [timeout] | <code>number</code> | defaults to 20000 (20 seconds) |
-| [retry] | <code>boolean</code> | defaults to false |
-| [retryOptions] | <code>object</code> | defaults to {       retries: 4,       minTimeout: 50,       maxTimeout: 20000,       randomize: true,     } |
-| [debug] | <code>boolean</code> | defaults to false |
-| [logger] | <code>function</code> | function(String:level, String:text, *:Object) defaults to console |
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| companyId |  |  |  |
+| publicKey |  |  |  |
+| privateKey |  |  |  |
+| clientId |  |  | register for a clientId at https://developer.connectwise.com/ClientID |
+| companyUrl |  |  |  |
+| [entryPoint] | <code>string</code> | <code>&quot;v4_6_release&quot;</code> | defaults to 'v4_6_release' |
+| [timeout] | <code>number</code> | <code>20000</code> | defaults to 20000 (20 seconds) |
+| [retry] | <code>boolean</code> | <code>false</code> | enable automatic retries |
+| [retryOptions] | <code>object</code> |  | configure retry options |
+| [retryOptions.minTimeout] | <code>number</code> | <code>50</code> | minimum time between retries |
+| [retryOptions.maxTimeout] | <code>number</code> | <code>20000</code> | maximum time to wait for a timeout |
+| [retryOptions.randomize] | <code>boolean</code> | <code>true</code> | randomize delay between retires |
+| [debug] | <code>boolean</code> | <code>false</code> | enable debug output |
+| [logger] | <code>function</code> | <code>console</code> | function(String:level, String:text, *:Object) defaults to console |
 
 <a name="ConnectWiseRest"></a>
 
