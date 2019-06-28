@@ -28,6 +28,7 @@ Create a new API key, or API Only Member, then instantiate the module.
         privateKey: '<private key>',
         clientId: '<your client id>',
         entryPoint: 'v4_6_release', // optional, defaults to 'v4_6_release'
+        apiVersion: '3.0.0',        // optional, defaults to '3.0.0'
         timeout: 20000,             // optional, request connection timeout in ms, defaults to 20000
         retry: false,               // optional, defaults to false
         retryOptions: {             // optional, override retry behavior, defaults as shown
@@ -86,7 +87,7 @@ You can also manually access the API:
     });
 ```
 
-### Cloud-Hosted ConnectWise 
+### Cloud-Hosted ConnectWise Manage
 
 To access cloud-hosted ConnectWise, use the `companyUrl` of `api-na.myconnectwise.net` and override the default `entryPoint`.
 

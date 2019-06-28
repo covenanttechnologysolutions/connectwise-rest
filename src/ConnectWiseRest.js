@@ -17,17 +17,15 @@ const _utils = require('./utils');
  * @property privateKey
  * @property clientId register for a clientId at https://developer.connectwise.com/ClientID
  * @property companyUrl
- * @property {string} [entryPoint] defaults to 'v4_6_release'
- * @property {number} [timeout] defaults to 20000 (20 seconds)
- * @property {boolean} [retry] defaults to false
- * @property {object} [retryOptions] defaults to {
-      retries: 4,
-      minTimeout: 50,
-      maxTimeout: 20000,
-      randomize: true,
-    }
- * @property {boolean} [debug] defaults to false
- * @property {function} [logger] function(String:level, String:text, *:Object) defaults to console
+ * @property {string} [entryPoint=v4_6_release] defaults to 'v4_6_release'
+ * @property {number} [timeout=20000] defaults to 20000 (20 seconds)
+ * @property {boolean} [retry=false] enable automatic retries
+ * @property {object} [retryOptions] configure retry options
+ * @property {number} [retryOptions.minTimeout=50] minimum time between retries
+ * @property {number} [retryOptions.maxTimeout=20000] maximum time to wait for a timeout
+ * @property {boolean} [retryOptions.randomize=true] randomize delay between retires
+ * @property {boolean} [debug=false] enable debug output
+ * @property {function} [logger=console] function(String:level, String:text, *:Object) defaults to console
  */
 
 /**
