@@ -195,6 +195,7 @@ function apiPromise(path, method, params, config) {
       },
       method: method,
       timeout: config.timeout,
+      gzip: true,
     };
 
     if (config.clientId) {
