@@ -22,6 +22,6 @@ function TimeAPI(options) {
 
 /**
  *
- * @type {TimeEntries}
+ * @type {TimeAPI}
  */
 module.exports = TimeAPI;
