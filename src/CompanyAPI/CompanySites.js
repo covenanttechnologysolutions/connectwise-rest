@@ -67,4 +67,14 @@ CompanySites.prototype.getCompanySiteById = function (companyId, id) {
   return this.api(`/company/companies/${companyId}/sites/${id}`, 'GET');
 };
 
+/**
+ * @param companyId
+ * @param id
+ * @param {Operations[]} ops
+ * @returns {Promise<CompanySite>}
+ */
+CompanySites.prototype.updateCompanySite = function (companyId, id, ops) {
+  return this.api(`/company/companies/${companyId}/sites/${id}`, 'PATCH', ops);
+};
+
 module.exports = CompanySites;
