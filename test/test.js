@@ -16,12 +16,14 @@ const API_COMPANY = process.env.API_COMPANY;
 const API_URL = process.env.API_URL;
 const API_PUBLIC_KEY = process.env.API_PUBLIC_KEY;
 const API_PRIVATE_KEY = process.env.API_PRIVATE_KEY;
+const API_CLIENTID = process.env.API_CLIENTID;
 
 const cw = new ConnectWise({
   companyId: API_COMPANY,
   companyUrl: API_URL,
   publicKey: API_PUBLIC_KEY,
   privateKey: API_PRIVATE_KEY,
+  clientId: API_CLIENTID,
 });
 
 describe('CW', () => {
