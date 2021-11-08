@@ -46,7 +46,6 @@ function all({series, concurrent = 1, delay = 0}) {
 
         setTimeout(() => {
           Promise.all(concurrentPromises)
-          /* eslint-disable promise/no-callback-in-promise */
             .then(next)
             .catch(reject);
         }, delay);

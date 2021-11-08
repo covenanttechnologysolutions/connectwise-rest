@@ -1,8 +1,6 @@
 /**
  * Created by kgrube on 9/11/2018
  */
-/* eslint-disable promise/no-callback-in-promise */
-
 require('dotenv').config({path: require('path').join(__dirname, '.env')});
 const ConnectWise = require('../index');
 
@@ -24,6 +22,7 @@ const cw = new ConnectWise({
   publicKey: API_PUBLIC_KEY,
   privateKey: API_PRIVATE_KEY,
   clientId: API_CLIENTID,
+  apiVersion: '2021.2',
 });
 
 describe('CW', () => {
@@ -85,7 +84,8 @@ describe('CW', () => {
         cw.ServiceDeskAPI.Tickets.getTickets({pageSize: 1})
           .then(([ticket]) => {
             assert(ticket.id);
-            assert(ticket.dateEntered);
+            assert(ticket._info);
+            assert(ticket._info.dateEntered);
             return done();
           })
           .catch(err => done(err));

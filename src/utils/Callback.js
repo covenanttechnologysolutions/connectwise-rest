@@ -109,7 +109,6 @@ function middleware(cb) {
 
     verifyCallback(callbackBody, contentSignature)
       .then(verified => {
-        /* eslint-disable promise/no-callback-in-promise */
         return cb(null, req, res, verified, Object.assign(callbackBody, {Entity: parsedEntity}));
       })
       .catch(err => {

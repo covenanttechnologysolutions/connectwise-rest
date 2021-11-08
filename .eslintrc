@@ -4,11 +4,10 @@
     "node": true,
     "es6": true
   },
-  "extends": ["plugin:promise/recommended"],
-  "plugins": ["promise"],
+  "extends": ["eslint:recommended"],
   "rules": {
-    "promise/avoid-new": "off",
-    "promise/no-nesting": "off",
+    "no-undef": "warn",
+    "no-unused-vars": "warn",
     "space-before-function-paren": 0,
     "object-curly-spacing": 0,
     "arrow-body-style": 0,
