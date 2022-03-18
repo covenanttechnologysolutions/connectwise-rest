@@ -2,8 +2,8 @@
  * Created by kgrube on 4/3/2019
  * @private
  */
-const request = require('request');
-const crypto = require('crypto');
+import axios from 'axios'
+import crypto from 'crypto'
 
 /**
  * @typedef {Object} CallbackPayload
@@ -35,23 +35,26 @@ const crypto = require('crypto');
 function verifyCallback(callbackBody, contentSignature) {
   return new Promise((resolve, reject) => {
     if (!callbackBody || !contentSignature) {
-      throw new Error('callbackBody and contentSignature must be defined.');
+      throw new Error('callbackBody and contentSignature must be defined.')
     }
 
-    const key_url = callbackBody.Metadata && callbackBody.Metadata.key_url;
+    const key_url = callbackBody.Metadata && callbackBody.Metadata.key_url
 
-    request(key_url, (err, res, body) => {
-      if (err) throw err;
-      try {
-        const parsed = JSON.parse(body);
-        const signingKey = parsed.signing_key;
+    axios
+      .get(key_url)
+      .then((response) => {
+        const body = response.data
+        try {
+          const parsed = JSON.parse(body)
+          const signingKey = parsed.signing_key
 
-        return resolve(verifyMessage(callbackBody, contentSignature, signingKey));
-      } catch (parseErr) {
-        throw parseErr;
-      }
-    });
-  });
+          return resolve(verifyMessage(callbackBody, contentSignature, signingKey))
+        } catch (parseErr) {
+          return reject(parseErr)
+        }
+      })
+      .catch((err) => reject(err))
+  })
 }
 
 /**
@@ -62,10 +65,10 @@ function verifyCallback(callbackBody, contentSignature) {
  * @returns {boolean}
  */
 function verifyMessage(callbackBody, contentSignature, signingKey) {
-  const hash = crypto.createHash('sha256').update(signingKey).digest();
-  const hmac = crypto.createHmac('sha256', hash);
+  const hash = crypto.createHash('sha256').update(signingKey).digest()
+  const hmac = crypto.createHmac('sha256', hash)
 
-  return contentSignature === hmac.update(JSON.stringify(callbackBody)).digest('base64');
+  return contentSignature === hmac.update(JSON.stringify(callbackBody)).digest('base64')
 }
 
 /**
@@ -89,36 +92,36 @@ function verifyMessage(callbackBody, contentSignature, signingKey) {
  */
 function middleware(cb) {
   if (!cb || typeof cb !== 'function') {
-    throw new Error('callback must be a function.');
+    throw new Error('callback must be a function.')
   }
 
   return (req, res) => {
     if (!req || !req.body || !req.body.Metadata) {
-      return cb(new Error('callback payload is invalid.'), req, res, false);
+      return cb(new Error('callback payload is invalid.'), req, res, false)
     }
 
-    const contentSignature = req.headers['x-content-signature'];
-    const callbackBody = req.body;
+    const contentSignature = req.headers['x-content-signature']
+    const callbackBody = req.body
 
-    let parsedEntity;
+    let parsedEntity
     try {
-      parsedEntity = JSON.parse(callbackBody.Entity);
+      parsedEntity = JSON.parse(callbackBody.Entity)
     } catch (parseErr) {
-      return cb(parseErr, req, res, false);
+      return cb(parseErr, req, res, false)
     }
 
     verifyCallback(callbackBody, contentSignature)
-      .then(verified => {
-        return cb(null, req, res, verified, Object.assign(callbackBody, {Entity: parsedEntity}));
+      .then((verified) => {
+        return cb(null, req, res, verified, Object.assign(callbackBody, { Entity: parsedEntity }))
       })
-      .catch(err => {
-        return cb(err, req, res, false);
-      });
-  };
+      .catch((err) => {
+        return cb(err, req, res, false)
+      })
+  }
 }
 
 module.exports = {
   verifyMessage,
   verifyCallback,
   middleware,
-};
+}

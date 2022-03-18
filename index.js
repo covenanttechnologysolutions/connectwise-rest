@@ -3,8 +3,4 @@
  * @author kgrube
  */
 
-/**
- *
- * @type {ConnectWiseRest}
- */
-module.exports = require('./src/ConnectWiseRest.js');
+module.exports = require('./src/index.js')
