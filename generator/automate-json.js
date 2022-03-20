@@ -68,5 +68,3 @@ files.forEach((file) => {
   automate.components.schemas = { ...schemas, ...automate.components.schemas }
   automate.paths = { ...paths, ...automate.paths }
 })
-
-console.log(automate)

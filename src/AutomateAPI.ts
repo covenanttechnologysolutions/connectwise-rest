@@ -1,4 +1,18 @@
-import Automate from './Automate/Automate.js'
+import Automate from './Automate.js'
+import { CWLogger, RetryOptions } from './types'
+
+export interface CWAOptions {
+  serverUrl: string
+  username?: string
+  password?: string
+  twoFactorPasscode?: string
+  token?: string
+  clientId: string
+  timeout?: number
+  retry?: boolean
+  retryOptions?: RetryOptions
+  logger?: CWLogger
+}
 
 export default class AutomateAPI extends Automate {
   /**
@@ -15,7 +29,7 @@ export default class AutomateAPI extends Automate {
    * @param {object} [options.retryOptions]
    * @param {function} [options.logger]
    */
-  constructor(options) {
+  constructor(options: CWAOptions) {
     super(options)
   }
 }

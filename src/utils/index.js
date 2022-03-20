@@ -2,8 +2,8 @@
  * Created by kgrube on 4/3/2019
  * @private
  */
-const Series = require('./Series');
-const Callback = require('./Callback');
+const Series = require('./Series')
+const Callback = require('./Callback')
 
 /**
  * @typedef {Object} CWUtils
@@ -18,4 +18,4 @@ const Callback = require('./Callback');
 module.exports = {
   Series,
   Callback,
-};
+}

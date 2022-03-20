@@ -3,21 +3,28 @@
  */
 import dotenv from 'dotenv'
 import path from 'path'
-import Manage from '../src/Manage/Manage.js'
+import { AutomateAPI, ManageAPI } from '../src/index.js'
 import assert from 'assert'
 import { describe, it } from 'mocha'
 import should from 'should'
+import Automate from '../src/Automate.ts'
 
 const __dirname = path.resolve()
 dotenv.config({ path: path.join(__dirname, 'test/.env') })
 
-const MANAGE_API_COMPANY = process.env.MANAGE_API_COMPANY
-const MANAGE_API_URL = process.env.MANAGE_API_URL
-const MANAGE_API_PUBLIC_KEY = process.env.MANAGE_API_PUBLIC_KEY
-const MANAGE_API_PRIVATE_KEY = process.env.MANAGE_API_PRIVATE_KEY
-const MANAGE_API_CLIENT_ID = process.env.MANAGE_API_CLIENT_ID
+const {
+  MANAGE_API_COMPANY,
+  MANAGE_API_URL,
+  MANAGE_API_PUBLIC_KEY,
+  MANAGE_API_PRIVATE_KEY,
+  MANAGE_API_CLIENT_ID,
+  AUTOMATE_API_CLIENT_ID,
+  AUTOMATE_API_PASSWORD,
+  AUTOMATE_API_URL,
+  AUTOMATE_API_USER,
+} = process.env
 
-const cwm = new Manage({
+const cwm = new ManageAPI({
   companyId: MANAGE_API_COMPANY,
   companyUrl: MANAGE_API_URL,
   publicKey: MANAGE_API_PUBLIC_KEY,
@@ -26,10 +33,26 @@ const cwm = new Manage({
   apiVersion: '2021.2',
 })
 
+const cwa = new AutomateAPI({
+  clientId: AUTOMATE_API_CLIENT_ID,
+  serverUrl: AUTOMATE_API_URL,
+  username: AUTOMATE_API_USER,
+  password: AUTOMATE_API_PASSWORD,
+})
+
+describe('Automate', () => {
+  describe('instance', () => {
+    it('should be an instance of Automate', (done) => {
+      assert(cwa instanceof AutomateAPI)
+      done()
+    })
+  })
+})
+
 describe('Manage', () => {
   describe('instance', () => {
     it('should be an instance of Manage', (done) => {
-      assert(cwm instanceof Manage)
+      assert(cwm instanceof ManageAPI)
       done()
     })
 
@@ -76,11 +99,7 @@ describe('Manage', () => {
 
   describe('Ticket', () => {
     it('should return a ticket object', (done) => {
-      cwm
-        .request({
-          path: '/service/tickets/123456',
-          method: 'get',
-        })
+      cwm.Service.getServiceTicketsById(123456)
         .then((result) => {
           console.log('result', result)
         })

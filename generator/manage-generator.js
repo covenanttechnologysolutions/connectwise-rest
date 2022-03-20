@@ -2,84 +2,57 @@ import { createRequire } from 'module'
 import fs from 'fs'
 import path from 'path'
 import { ESLint } from 'eslint'
+
 const eslint = new ESLint({ fix: true })
 const require = createRequire(import.meta.url)
 const spec = require('./manage-json/manage.json')
 const __dirname = path.resolve()
 
-const paramTypeMap = (input = '') => {
+const typeMapSanitize = (input = '') => {
   switch (input) {
     case 'integer':
       return 'number'
+    case 'application/octet-stream':
+      return 'OctetStreamResponse'
+    case 'application/pdf':
+      return 'PDFResponse'
+    case 'text/html':
+      return 'HTMLResponse'
     default:
+      if (/\./g.test(input)) {
+        console.log('input', input)
+        console.log('sanitized', sanitizeType(input))
+      }
       return sanitizeType(input)
   }
 }
 
-const sanitizeType = (input = '') => input.replace(/\./g, '')
+const sanitizeType = (input = '') => input.replace(/\./g, '').replace(/\//g, '')
 
-// remove . from schema names
-Object.keys(spec.components.schemas).map((schemaName) => {
-  spec.components.schemas[sanitizeType(schemaName)] = spec.components.schemas[schemaName]
-})
+const generateTypeDef = ({ type }) => {
+  let typeName = sanitizeType(type)
 
-const generateTypeDef = ({ name, schema }) => {
-  let { type = '' } = schema
-  const { properties = {}, required = [] } = schema
-  const propertyArray = []
-
-  Object.keys(properties).forEach((propertyName) => {
-    const {
-      enum: enums = [],
-      description,
-      format,
-      nullable,
-      $ref,
-      ...rest
-    } = properties[propertyName]
-
-    let { type: propType } = properties[propertyName]
-
-    if ($ref) {
-      propType = $ref.split('/').pop()
-    }
-
-    if (required.includes(propertyName)) {
-      propertyArray.push(
-        `* @property {${paramTypeMap(propType)}} ${propertyName} ${description ?? ''} ${
-          format ?? ''
-        } ${nullable ? 'nullable' : ''}`,
-      )
-    } else {
-      propertyArray.push(
-        `* @property {${paramTypeMap(propType)}} [${propertyName}] ${description ?? ''} ${
-          format ?? ''
-        } ${nullable ? 'nullable' : ''} `,
-      )
-    }
-  })
-
-  type = sanitizeType(type)
-  name = sanitizeType(name)
-
-  return `/**
- * ${name}
- * @typedef {${type}} ${name}
- ${propertyArray.join('\n  ')}
- */`
+  return `type ${typeName} = schemas['${type}']`
 }
 
 const generateAPIClass = ({ apiName, operations = [], schemas }) => {
+  // types holder for generating type aliases
   const types = {}
 
+  // loop over each defined operation for this module
   const functions = operations.map(({ url, methods }) =>
     Object.keys(methods)
       .map((method) => {
-        const { summary, responses, operationId, parameters, requestBody } = methods[method]
+        const { responses, operationId, parameters, requestBody } = methods[method]
         const queryParams = parameters.filter(({ in: in_ }) => in_ === 'query')
         const pathParams = parameters.filter(({ in: in_ }) => in_ === 'path')
 
-        let bodyParam = requestBody
+        // store generated names/types
+        const functionParams = [] // args to the class function
+        const requestParams = [] // args to this.request
+        let bodyParam = {}
+
+        // generally if a post command is defined
         if (requestBody) {
           if (requestBody.content && requestBody.content['application/json']) {
             const schema = requestBody.content['application/json'].schema
@@ -88,73 +61,56 @@ const generateAPIClass = ({ apiName, operations = [], schemas }) => {
                 const tempName = schema.items.$ref.split('/').pop()
                 bodyParam.type = tempName + '[]'
                 bodyParam.name = tempName.charAt(0).toLowerCase() + tempName.slice(1) + 's'
+                types[tempName] = true
               }
             } else if (schema.$ref) {
               bodyParam.type = schema.$ref.split('/').pop()
               bodyParam.name = requestBody.description
+              types[bodyParam.type] = true
             }
-          } else if (requestBody.description.startsWith('List of')) {
-            const name = requestBody.description.replace('List of', '')
-            bodyParam.name = name.charAt(0).toLowerCase() + name.slice(1) + 's'
-            bodyParam.type = 'array'
           } else if (requestBody.content && requestBody.content['multipart/form-data']) {
             const schema = requestBody.content['multipart/form-data'].schema
             if (schema.$ref) {
               bodyParam.type = schema.$ref.split('/').pop()
               bodyParam.name = bodyParam.type.charAt(0).toLowerCase() + bodyParam.type.slice(1)
+              types[bodyParam.type] = true
             }
           } else {
             bodyParam.name = requestBody.description
             bodyParam.type = 'object'
           }
 
-          bodyParam.type = sanitizeType(bodyParam.type)
           bodyParam.name = sanitizeType(bodyParam.name)
         }
 
-        const jsdoc = []
-        const functionParams = []
-        const requestParams = []
-
         if (pathParams.length > 0) {
           pathParams.forEach((parameter) => {
-            jsdoc.push(`* @param {${paramTypeMap(parameter.schema.type)}} ${parameter.name}`)
-            functionParams.push(parameter.name)
+            functionParams.push(`${parameter.name}: ${typeMapSanitize(parameter.schema.type)}`)
           })
         }
         requestParams.push(`path: \`${url.replace(/({.*})/g, (_, p1) => `$${p1}`)}\``)
         requestParams.push(`method: '${method}'`)
 
         if (requestBody) {
-          jsdoc.push(`* @param {${bodyParam.type}} ${bodyParam.name} ${requestBody.description}`)
-          functionParams.push(bodyParam.name)
+          functionParams.push(`${bodyParam.name}: ${typeMapSanitize(bodyParam.type)}`)
           requestParams.push(`data: ${bodyParam.name}`)
         }
 
         if (queryParams.length > 0) {
-          jsdoc.push('* @param {object} params')
-          queryParams.forEach((queryParam) => {
-            if (queryParam.required) {
-              jsdoc.push(
-                `* @param {${paramTypeMap(queryParam.schema.type)}} params.${queryParam.name}`,
-              )
-            } else {
-              jsdoc.push(
-                `* @param {${paramTypeMap(queryParam.schema.type)}} [params.${queryParam.name}]`,
-              )
-            }
-          })
-          functionParams.push('params = {}')
+          functionParams.push('params: CommonParameters = {}')
           requestParams.push(`params`)
         }
         let returnType
         if (responses[204]) {
-          returnType = 'NoContent'
+          returnType = 'NoContentResponse'
         } else {
           const { description, content } = responses[Object.keys(responses).pop()]
 
           if (responses['default']) {
-            returnType = '*'
+            returnType = 'any'
+            if (responses['default'].description) {
+              returnType = `${returnType}`
+            }
           } else if (content) {
             const { schema } = content[Object.keys(content).pop()]
 
@@ -170,26 +126,25 @@ const generateAPIClass = ({ apiName, operations = [], schemas }) => {
               returnType = schema.$ref.split('/').pop()
               types[returnType] = true
             } else {
-              returnType = paramTypeMap(schema.type)
+              returnType = schema.type
             }
           } else {
             returnType = description.split(' ').pop()
           }
         }
 
-        returnType = sanitizeType(returnType)
+        returnType = typeMapSanitize(returnType)
 
         if (!returnType) {
-          returnType = '*'
+          returnType = 'any'
+        }
+
+        if (operationId === 'getSystemAudittrailCount') {
+          console.log()
         }
 
         return `
-  /**
-   * ${summary}
-   ${jsdoc.map((doc) => doc).join('\n   ')}
-   * @returns {Promise<${returnType}>}
-   */
-   ${operationId}(${functionParams.map((param) => param).join(', ')}) {
+   ${operationId}(${functionParams.map((param) => param).join(', ')}): Promise<${returnType}> {
     return this.request({
       ${requestParams.map((param) => param).join(', ')}
     })
@@ -198,20 +153,31 @@ const generateAPIClass = ({ apiName, operations = [], schemas }) => {
       .join('\n'),
   )
 
-  const typeDefs = Object.keys(types).map((type) =>
-    generateTypeDef({ name: type, schema: schemas[type] }),
-  )
+  // use true/false map to generate required types for this module
+  const typeDefs = Object.keys(
+    // sort keys to order imports
+    Object.keys(types)
+      .sort()
+      .reduce((obj, key) => {
+        obj[key] = types[key]
+        return obj
+      }, {}),
+  ).map((type) => generateTypeDef({ type }))
 
-  return `import Manage from './Manage.js'
+  return `/* This file was auto-generated, do not manually edit. */
+import Manage from '../Manage'
+import { components } from '../ManageTypes'
+import { CommonParameters, CWMOptions } from '../ManageAPI'
+import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
+type schemas = components['schemas']
+${typeDefs.join('\n')}
 
-${typeDefs.join('\n\n')}
-
-export default class ${apiName} extends Manage {
-  constructor(props) {
+export default class ${apiName}API extends Manage {
+  constructor(props: CWMOptions) {
     super(props)
   }
 
-  ${functions.join('')}
+  ${functions.join('\n')}
 }
   `
 }
@@ -243,7 +209,7 @@ async function generate() {
     const apiName = section.charAt(0).toUpperCase() + section.slice(1)
     const operations = sections[section]
     const file = generateAPIClass({ apiName, operations, schemas })
-    const fileName = path.join(__dirname, 'Manage', `${apiName}.js`)
+    const fileName = path.join(__dirname, 'generator/Manage', `${apiName}API.ts`)
     if (fs.existsSync(fileName)) {
       fs.rmSync(fileName)
     }
@@ -251,20 +217,26 @@ async function generate() {
     fs.writeFileSync(fileName, file)
   }
 
-  const results = await eslint.lintFiles(['**/*.js'])
-  await ESLint.outputFixes(results)
-  const formatter = await eslint.loadFormatter('stylish')
-  const resultText = formatter.format(results)
-  console.log(resultText)
-
   console.log('copying files to src/')
-  const files = fs.readdirSync(path.join(__dirname, 'Manage'))
+  const files = fs.readdirSync(path.join(__dirname, 'generator', 'Manage'))
   files.forEach((file) => {
-    fs.copyFileSync(
-      path.join(__dirname, 'Manage', file),
-      path.join(__dirname, '../', 'src', 'Manage', file),
-    )
+    const manageFolder = path.join(__dirname, 'src', 'Manage')
+    if (!fs.existsSync(manageFolder)) {
+      fs.mkdirSync(manageFolder)
+    }
+    const src = path.join(__dirname, 'generator', 'Manage', file)
+    const dest = path.join(__dirname, 'src', 'Manage', file)
+    console.log(`${src} ==> ${dest}`)
+    fs.copyFileSync(src, dest)
   })
+
+  // console.log('running eslint')
+  // const results = await eslint.lintFiles(['src/Manage/**/*.ts'])
+  // await ESLint.outputFixes(results)
+  // const formatter = await eslint.loadFormatter('stylish')
+  // const resultText = formatter.format(results)
+  // console.log(resultText)
 }
+
 console.log('generating static manage client files')
 generate().then(() => console.log('done'))

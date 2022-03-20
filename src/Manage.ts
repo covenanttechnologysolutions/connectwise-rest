@@ -1,12 +1,15 @@
-import axios from 'axios'
+import axios, { AxiosError, AxiosInstance, AxiosResponse } from 'axios'
 import promiseRetry from 'promise-retry'
+import type { CWMOptions } from './ManageAPI'
+import { CWLogger, DataResponse, ErrorResponse, RequestOptions, RetryOptions } from './types'
 
 const CW_MANAGE_DEBUG = !!process.env.CW_MANAGE_DEBUG
 
-/**
- * @type {{retryOptions: {minTimeout: number, retries: number, maxTimeout: number, randomize: boolean}, apiPath: string, logger: DEFAULTS.logger}}
- */
-export const DEFAULTS = {
+export const DEFAULTS: {
+  retryOptions: RetryOptions
+  apiPath: string
+  logger: CWLogger
+} = {
   apiPath: '/apis/3.0',
   retryOptions: {
     retries: 4,
@@ -20,7 +23,7 @@ export const DEFAULTS = {
         console.error(`${level}: ${text}`, meta)
         return
       case 'info': {
-        if (options.debug) {
+        if (CW_MANAGE_DEBUG) {
           console.info(`${level}: ${text}`, meta)
         }
         return
@@ -32,9 +35,13 @@ export const DEFAULTS = {
   },
 }
 
+interface ManageConfig extends CWMOptions {
+  authorization: string
+}
+
 export default class Manage {
-  config = {}
-  #axios
+  config: ManageConfig
+  private instance: AxiosInstance
 
   constructor({
     companyId,
@@ -48,7 +55,7 @@ export default class Manage {
     retry = false,
     retryOptions = DEFAULTS.retryOptions,
     logger = DEFAULTS.logger,
-  } = {}) {
+  }: CWMOptions) {
     if (!companyId || !publicKey || !privateKey || !companyUrl || !clientId) {
       throw new Error('Missing options [companyId, publicKey, privateKey, companyUrl]')
     }
@@ -72,7 +79,7 @@ export default class Manage {
       )}`,
     }
 
-    this.#axios = axios.create({
+    this.instance = axios.create({
       timeout,
       baseURL: `https://${companyUrl}/${entryPoint}${DEFAULTS.apiPath}`,
       headers: {
@@ -84,17 +91,9 @@ export default class Manage {
     })
   }
 
-  /**
-   *
-   * @param path
-   * @param {string} method ['get', 'del', 'post', 'patch']
-   * @param params
-   * @param data
-   * @returns {Promise|Promise<Object|Object[]>}
-   */
-  request({ path, method = 'get', params, data }) {
+  request({ path, method = 'get', params, data }: RequestOptions): Promise<any> {
     const retryCodes = ['ECONNRESET', 'ETIMEDOUT', 'ESOCKETTIMEDOUT']
-    let startTime = Date.now()
+    const startTime = Date.now()
 
     if (!path) {
       throw new Error('path must be defined.')
@@ -111,16 +110,14 @@ export default class Manage {
     }
   }
 
-  /**
-   * @param path
-   * @param method
-   * @param params
-   * @param data
-   * @returns {Promise<{data: *, message: *, status: *}|*>}
-   */
-  async #api({ path, method, params, data }) {
+  async #api({
+    path,
+    method,
+    params,
+    data,
+  }: RequestOptions): Promise<ErrorResponse | DataResponse> {
     try {
-      const result = await this.#axios.request({
+      const result = await this.instance({
         url: path,
         method,
         params,
@@ -128,12 +125,17 @@ export default class Manage {
       })
 
       return result?.data
-    } catch (error) {
-      return {
-        status: error.response?.status,
-        data: error.response?.data,
-        message: error?.message,
+    } catch (error: any) {
+      if (error.isAxiosError()) {
+        return {
+          status: error.response?.status,
+          data: error.response?.data,
+          message: error?.message,
+        }
       }
+
+      // something else catastrophic went wrong
+      throw error
     }
   }
 }

@@ -1,7 +1,8 @@
-/**
+/*
  * Created by kgrube on 4/3/2019
  * @private
  */
+
 import axios from 'axios'
 import crypto from 'crypto'
 
