@@ -1,6 +1,9 @@
-import Automate from './Automate.js'
+import Automate from './Automate'
 import { CWLogger, RetryOptions } from './types'
 
+/**
+ * @public
+ */
 export interface CWAOptions {
   serverUrl: string
   username?: string
@@ -14,21 +17,22 @@ export interface CWAOptions {
   logger?: CWLogger
 }
 
+export interface CommonParameters {
+  page: number
+  pageSize: number
+  condition: string
+  /* eslint-disable @typescript-eslint/no-explicit-any */
+  expands: any
+  includedFields: Array<string>
+  excludedFields: Array<string>
+  ids: Array<string>
+  timeout: number
+}
+
+/**
+ * @public
+ */
 export default class AutomateAPI extends Automate {
-  /**
-   *
-   * @param {object} options
-   * @param {string} options.serverUrl fdqn format, i.e. server.domain.com
-   * @param {string} options.username
-   * @param {string} options.password
-   * @param {string} [options.twoFactorPasscode]
-   * @param {string} [options.token]
-   * @param {string} options.clientId
-   * @param {number} [options.timeout]
-   * @param {boolean} [options.retry]
-   * @param {object} [options.retryOptions]
-   * @param {function} [options.logger]
-   */
   constructor(options: CWAOptions) {
     super(options)
   }

@@ -39,6 +39,9 @@ interface ManageConfig extends CWMOptions {
   authorization: string
 }
 
+/**
+ * @internal
+ */
 export default class Manage {
   config: ManageConfig
   private instance: AxiosInstance

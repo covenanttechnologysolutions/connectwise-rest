@@ -46,6 +46,9 @@ type Team = schemas['Team']
 type Ticket = schemas['Ticket']
 type Usage = schemas['Usage']
 
+/**
+ * @internal
+ */
 export default class SalesAPI extends Manage {
   constructor(props: CWMOptions) {
     super(props)

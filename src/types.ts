@@ -1,12 +1,25 @@
 import { PatchOperation } from './ManageAPI'
 
-export * as ManageTypes from './ManageTypes'
+import * as AutomateTypes from './AutomateTypes'
+import * as ManageTypes from './ManageTypes'
+
+export type { AutomateTypes, ManageTypes }
 
 export enum StatusCode {
+  OK = 200,
+  Created = 201,
+  Accepted = 202,
+  NoContent = 204,
+  MovedPermanently = 301,
+  BadRequest = 400,
   Unauthorized = 401,
   Forbidden = 403,
+  NotFound = 404,
   TooManyRequests = 429,
   InternalServerError = 500,
+  BadGateway = 502,
+  ServiceUnavailable = 503,
+  GatewayTimeout = 504,
 }
 
 export type Methods = 'get' | 'put' | 'delete' | 'post' | 'patch'

@@ -9,6 +9,9 @@ type ConfigurationTypeQuestionInfo = schemas['ConfigurationTypeQuestionInfo']
 type ConfigurationTypeQuestionValueInfo = schemas['ConfigurationTypeQuestionValueInfo']
 type Count = schemas['Count']
 
+/**
+ * @internal
+ */
 export default class ConfigurationsAPI extends Manage {
   constructor(props: CWMOptions) {
     super(props)

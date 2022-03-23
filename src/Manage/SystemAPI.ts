@@ -146,6 +146,9 @@ type WorkflowTableTypeInfo = schemas['WorkflowTableTypeInfo']
 type WorkflowTrigger = schemas['WorkflowTrigger']
 type WorkflowTriggerOption = schemas['WorkflowTriggerOption']
 
+/**
+ * @internal
+ */
 export default class SystemAPI extends Manage {
   constructor(props: CWMOptions) {
     super(props)

@@ -75,6 +75,9 @@ type TicketSync = schemas['TicketSync']
 type TimeEntryReference = schemas['TimeEntryReference']
 type Usage = schemas['Usage']
 
+/**
+ * @internal
+ */
 export default class ServiceAPI extends Manage {
   constructor(props: CWMOptions) {
     super(props)

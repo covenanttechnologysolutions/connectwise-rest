@@ -38,18 +38,7 @@ export const DEFAULTS: {
 }
 
 /**
- * @typedef {object} Token
- * @property {string} AccessToken
- * @property {string} TokenType
- * @property {string} ExpirationDate
- * @property {string} AbsoluteExpirationDate
- * @property {string|number} UserId
- * @property {boolean} IsTwoFactorRequired
- * @property {boolean} IsInternalTwoFactorRequired
- */
-
-/**
- * @class {Automate}
+ * @internal
  */
 export default class Automate {
   config: CWAOptions

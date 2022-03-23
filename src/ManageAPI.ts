@@ -44,34 +44,37 @@ export interface CWMOptions {
   logger?: CWLogger
 }
 
+/**
+ * @public
+ */
 export default class ManageAPI extends Manage {
-  Company: CompanyAPI
-  Configurations: ConfigurationsAPI
-  Expense: ExpenseAPI
-  Finance: FinanceAPI
-  Marketing: MarketingAPI
-  Procurement: ProcurementAPI
-  Project: ProjectAPI
-  Sales: SalesAPI
-  Schedule: ScheduleAPI
-  Service: ServiceAPI
-  System: SystemAPI
-  Time: TimeAPI
+  CompanyAPI: CompanyAPI
+  ConfigurationsAPI: ConfigurationsAPI
+  ExpenseAPI: ExpenseAPI
+  FinanceAPI: FinanceAPI
+  MarketingAPI: MarketingAPI
+  ProcurementAPI: ProcurementAPI
+  ProjectAPI: ProjectAPI
+  SalesAPI: SalesAPI
+  ScheduleAPI: ScheduleAPI
+  ServiceAPI: ServiceAPI
+  SystemAPI: SystemAPI
+  TimeAPI: TimeAPI
 
   constructor(options: CWMOptions) {
     super(options)
 
-    this.Company = new CompanyAPI(options)
-    this.Configurations = new ConfigurationsAPI(options)
-    this.Expense = new ExpenseAPI(options)
-    this.Finance = new FinanceAPI(options)
-    this.Marketing = new MarketingAPI(options)
-    this.Procurement = new ProcurementAPI(options)
-    this.Project = new ProjectAPI(options)
-    this.Sales = new SalesAPI(options)
-    this.Schedule = new ScheduleAPI(options)
-    this.Service = new ServiceAPI(options)
-    this.System = new SystemAPI(options)
-    this.Time = new TimeAPI(options)
+    this.CompanyAPI = new CompanyAPI(options)
+    this.ConfigurationsAPI = new ConfigurationsAPI(options)
+    this.ExpenseAPI = new ExpenseAPI(options)
+    this.FinanceAPI = new FinanceAPI(options)
+    this.MarketingAPI = new MarketingAPI(options)
+    this.ProcurementAPI = new ProcurementAPI(options)
+    this.ProjectAPI = new ProjectAPI(options)
+    this.SalesAPI = new SalesAPI(options)
+    this.ScheduleAPI = new ScheduleAPI(options)
+    this.ServiceAPI = new ServiceAPI(options)
+    this.SystemAPI = new SystemAPI(options)
+    this.TimeAPI = new TimeAPI(options)
   }
 }

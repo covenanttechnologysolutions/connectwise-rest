@@ -18,6 +18,9 @@ type PaymentType = schemas['PaymentType']
 type PaymentTypeInfo = schemas['PaymentTypeInfo']
 type SuccessResponse = schemas['SuccessResponse']
 
+/**
+ * @internal
+ */
 export default class ExpenseAPI extends Manage {
   constructor(props: CWMOptions) {
     super(props)

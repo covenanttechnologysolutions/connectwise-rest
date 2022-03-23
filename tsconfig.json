@@ -3,24 +3,26 @@
     "src/**/*.js",
     "src/**/*.ts"
   ],
+  "exclude": ["scripts"],
   "compilerOptions": {
     "baseUrl": "./src",
     "declaration": true,
     "declarationMap": true,
+    "sourceMap": true,
     "esModuleInterop": true,
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
-    "lib": ["ES2018"],
+    "lib": ["ES2015"],
+    "module": "commonjs",
     "moduleResolution": "Node",
     "noImplicitReturns": true,
     "outDir": "./dist",
-    "removeComments": true,
     "strict": true,
     "target": "ES2018",
     "useDefineForClassFields": true
   },
   "typedocOptions": {
-    "entryPoints": ["src/index.js", "src/ManageTypes.ts"],
+    "entryPoints": ["src/index.ts"],
     "out": "docs"
   }
 }

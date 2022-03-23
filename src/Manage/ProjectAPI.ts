@@ -37,6 +37,9 @@ type TicketTask = schemas['TicketTask']
 type TimeEntryReference = schemas['TimeEntryReference']
 type Usage = schemas['Usage']
 
+/**
+ * @internal
+ */
 export default class ProjectAPI extends Manage {
   constructor(props: CWMOptions) {
     super(props)

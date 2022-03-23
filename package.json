@@ -3,20 +3,20 @@
   "version": "1.0.0",
   "description": "A nodejs module for interacting with the ConnectWise Manage and Automate REST APIs.",
   "main": "dist/index.js",
-  "type": "module",
+  "types": "dist/connectwise-rest.d.ts",
   "scripts": {
     "clean:generator": "npx rimraf generator/Manage/*.ts generator/Automate/*.js",
     "clean:dist": "npx rimraf dist/",
     "clean:src": "npx rimraf src/Manage & npx rimraf src/Automate",
     "clean": "npm run clean:dist & npm run clean:generator & npm run clean:src",
-    "test": "nyc mocha",
+    "test": "nyc mocha -r ts-node/register",
     "jsdoc": "jsdoc src -r -c ./docs/jsdoc.json -d docs",
     "pregenerate": "npm run clean",
-    "generate": "node generator/manage-generator.js & node generator/automate-generator.js",
+    "generate": "node generator/manage-generator.mjs & npx ts-node generator/automate-generator.ts",
     "postgenerate": "npx rimraf generator/Manage/*.ts generator/Automate/*.js & npm run lint",
     "jsdocmd": "jsdoc2md src/**/*.js > doc.md",
     "prebuild": "npm run generate",
-    "build": "tsc",
+    "build": "tsc & npx api-extractor run --local --verbose",
     "lint": "npx eslint -c .eslintrc --fix",
     "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
@@ -47,6 +47,10 @@
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.16.7",
+    "@microsoft/api-documenter": "^7.16.0",
+    "@microsoft/api-extractor": "^7.19.5",
+    "@types/eslint": "^8.4.1",
+    "@types/mocha": "^9.1.0",
     "@types/node": "^17.0.21",
     "@types/promise-retry": "^1.1.3",
     "@typescript-eslint/eslint-plugin": "^5.15.0",
@@ -65,11 +69,9 @@
     "openapi-typescript": "^5.2.0",
     "prettier": "^2.6.0",
     "rimraf": "^3.0.2",
-    "should": "^13.2.3",
-    "ts-loader": "^9.2.8",
+    "ts-node": "^10.7.0",
     "typedoc": "^0.22.13",
-    "typescript": "^4.6.2",
-    "webpack": "^5.70.0"
+    "typescript": "^4.6.2"
   },
   "engines": {
     "node": ">=16"

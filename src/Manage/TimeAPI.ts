@@ -30,6 +30,9 @@ type WorkRoleLocation = schemas['WorkRoleLocation']
 type WorkType = schemas['WorkType']
 type WorkTypeInfo = schemas['WorkTypeInfo']
 
+/**
+ * @internal
+ */
 export default class TimeAPI extends Manage {
   constructor(props: CWMOptions) {
     super(props)

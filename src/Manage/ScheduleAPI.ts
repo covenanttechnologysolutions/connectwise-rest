@@ -22,6 +22,9 @@ type ScheduleType = schemas['ScheduleType']
 type ScheduleTypeInfo = schemas['ScheduleTypeInfo']
 type Usage = schemas['Usage']
 
+/**
+ * @internal
+ */
 export default class ScheduleAPI extends Manage {
   constructor(props: CWMOptions) {
     super(props)

@@ -1,39 +1,41 @@
 /*
  * Created by kgrube on 4/3/2019
- * @private
  */
-
 import axios from 'axios'
 import crypto from 'crypto'
+import type { ClientRequest, ServerResponse } from 'http'
 
-/**
- * @typedef {Object} CallbackPayload
- * @property Action
- * @property CompanyId
- * @property Entity json string
- * @property FromUrl
- * @property ID
- * @property MemberId
- * @property {object} Metadata
- * @property Metadata.key_url
- * @property Type
- */
+interface ExpressRequest extends ClientRequest {
+  body: CallbackPayload
+  headers: Record<string, string>
+}
 
-/**
- * @typedef {object} CWCallback
- * @property verifyCallback
- * @property verifyMessage
- * @property middleware
- *
- */
+type CallbackPayload = {
+  Action: string
+  CompanyId: string | number
+  Entity: string
+  FromUrl: string
+  ID: string | number
+  MemberId: string | number
+  Metadata: {
+    key_url: string
+  }
+  Type: string
+}
+
+export type Entity = Record<string, unknown> | Array<Record<string, unknown>>
 
 /**
  * Load signing key and verify the message
- * @param {CallbackPayload} callbackBody
- * @param {string} contentSignature base64 content signature req.headers[x-content-signature]
- * @return {Promise<boolean>}
+ * @param callbackBody -
+ * @param contentSignature - base64 content signature req.headers[x-content-signature]
+ * @returns verifies callback signature
+ * @public
  */
-function verifyCallback(callbackBody, contentSignature) {
+export function verifyCallback(
+  callbackBody: CallbackPayload,
+  contentSignature: string,
+): Promise<boolean> {
   return new Promise((resolve, reject) => {
     if (!callbackBody || !contentSignature) {
       throw new Error('callbackBody and contentSignature must be defined.')
@@ -60,12 +62,17 @@ function verifyCallback(callbackBody, contentSignature) {
 
 /**
  * Validate a callback body against signed key
- * @param {CallbackPayload} callbackBody
- * @param {string} contentSignature
- * @param {string} signingKey
- * @returns {boolean}
+ * @param callbackBody -
+ * @param contentSignature -
+ * @param signingKey -
+ * @returns boolean if verified
+ * @public
  */
-function verifyMessage(callbackBody, contentSignature, signingKey) {
+export function verifyMessage(
+  callbackBody: CallbackPayload,
+  contentSignature: string,
+  signingKey: string,
+): boolean {
   const hash = crypto.createHash('sha256').update(signingKey).digest()
   const hmac = crypto.createHmac('sha256', hash)
 
@@ -73,8 +80,10 @@ function verifyMessage(callbackBody, contentSignature, signingKey) {
 }
 
 /**
- * Express style middleware
+ *
  * @example
+ * Express style middleware
+ * ```
  * app.post('/your/api', cw.utils.middleware((err, req, res, verified, payload) => {
  *  if (err) {
  *    //handle error
@@ -88,27 +97,39 @@ function verifyMessage(callbackBody, contentSignature, signingKey) {
  *  const {action, id} = req.query;
  *  // do something with the payload
  * }));
+ * ```
  *
- * @param {function} cb callback(err, req, res, verified, payload)
+ * @param cb - callback(err, req, res, verified, payload)
+ * @public
  */
-function middleware(cb) {
+export function middleware(
+  cb: (
+    err: Error | null,
+    req: ExpressRequest,
+    res: ServerResponse,
+    verified: boolean,
+    payload: Entity | undefined,
+  ) => void,
+) {
   if (!cb || typeof cb !== 'function') {
     throw new Error('callback must be a function.')
   }
 
-  return (req, res) => {
+  return (req: ExpressRequest, res: ServerResponse) => {
     if (!req || !req.body || !req.body.Metadata) {
-      return cb(new Error('callback payload is invalid.'), req, res, false)
+      return cb(new Error('callback payload is invalid.'), req, res, false, undefined)
     }
 
     const contentSignature = req.headers['x-content-signature']
     const callbackBody = req.body
 
-    let parsedEntity
+    let parsedEntity: Entity
     try {
       parsedEntity = JSON.parse(callbackBody.Entity)
     } catch (parseErr) {
-      return cb(parseErr, req, res, false)
+      if (parseErr instanceof Error) {
+        return cb(parseErr, req, res, false, undefined)
+      }
     }
 
     verifyCallback(callbackBody, contentSignature)
@@ -116,13 +137,9 @@ function middleware(cb) {
         return cb(null, req, res, verified, Object.assign(callbackBody, { Entity: parsedEntity }))
       })
       .catch((err) => {
-        return cb(err, req, res, false)
+        return cb(err, req, res, false, undefined)
       })
   }
 }
 
-module.exports = {
-  verifyMessage,
-  verifyCallback,
-  middleware,
-}
+export default { middleware, verifyCallback, verifyMessage }

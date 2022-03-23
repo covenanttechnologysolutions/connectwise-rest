@@ -17,8 +17,6 @@
   "rules": {},
   "ignorePatterns": [
     "dist",
-    "generator/Manage",
-    "generator/Automate",
     "src/AutomateTypes.js",
     "src/ManageTypes.js"
   ]

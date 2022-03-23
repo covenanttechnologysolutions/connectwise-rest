@@ -63,6 +63,9 @@ type WarehouseBin = schemas['WarehouseBin']
 type WarehouseBinInfo = schemas['WarehouseBinInfo']
 type WarehouseInfo = schemas['WarehouseInfo']
 
+/**
+ * @internal
+ */
 export default class ProcurementAPI extends Manage {
   constructor(props: CWMOptions) {
     super(props)

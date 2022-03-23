@@ -93,6 +93,9 @@ type Usage = schemas['Usage']
 type ValidatePortalRequest = schemas['ValidatePortalRequest']
 type ValidatePortalResponse = schemas['ValidatePortalResponse']
 
+/**
+ * @internal
+ */
 export default class CompanyAPI extends Manage {
   constructor(props: CWMOptions) {
     super(props)

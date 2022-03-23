@@ -79,6 +79,9 @@ type UnpostedProcurementTaxableLevel = schemas['UnpostedProcurementTaxableLevel'
 type Usage = schemas['Usage']
 type WorkRoleExemption = schemas['WorkRoleExemption']
 
+/**
+ * @internal
+ */
 export default class FinanceAPI extends Manage {
   constructor(props: CWMOptions) {
     super(props)
