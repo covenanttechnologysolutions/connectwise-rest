@@ -1,13 +1,13 @@
 {
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 2020
+    "ecmaVersion": "latest"
   },
   "plugins": ["@typescript-eslint", "prettier"],
   "env": {
     "node": true,
     "mocha": true,
-    "es6": true
+    "es6": true,
   },
   "extends": [
     "plugin:@typescript-eslint/eslint-recommended",
@@ -19,5 +19,8 @@
     "dist",
     "src/AutomateTypes.js",
     "src/ManageTypes.js"
-  ]
+  ],
+  "settings": {
+
+  }
 }

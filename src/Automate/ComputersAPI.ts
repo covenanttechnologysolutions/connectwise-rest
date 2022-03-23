@@ -1,7 +1,7 @@
 /* This file was auto-generated, do not manually edit. */
 import Automate from '../Automate'
 import { components } from '../AutomateTypes'
-import { CommonParameters, CWAOptions} from '../AutomateAPI'
+import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 type AutomateApiDomainContractsPatchingComputerPatchingStats = schemas['Automate.Api.Domain.Contracts.Patching.ComputerPatchingStats']
@@ -80,9 +80,9 @@ export default class ComputersAPI extends Automate {
     })
    }
 
-   CommandExecute_PostCommandExecute(computerId: number, : LabTechModelsCommandExecute): Promise<LabTechModelsCommandExecute> {
+   CommandExecute_PostCommandExecute(computerId: number, CommandExecute: LabTechModelsCommandExecute): Promise<LabTechModelsCommandExecute> {
     return this.request({
-      path: `/api/v1/Computers/${computerId}/CommandExecute`, method: 'post', data: 
+      path: `/api/v1/Computers/${computerId}/CommandExecute`, method: 'post', data: CommandExecute
     })
    }
 
@@ -188,9 +188,9 @@ export default class ComputersAPI extends Automate {
     })
    }
 
-   ScheduledScript_PostComputerScheduledScript(computerId: number, : LabTechModelsScheduledScript): Promise<LabTechModelsScheduledScript> {
+   ScheduledScript_PostComputerScheduledScript(computerId: number, ScheduledScript: LabTechModelsScheduledScript): Promise<LabTechModelsScheduledScript> {
     return this.request({
-      path: `/api/v1/Computers/${computerId}/ScheduledScripts`, method: 'post', data: 
+      path: `/api/v1/Computers/${computerId}/ScheduledScripts`, method: 'post', data: ScheduledScript
     })
    }
 
@@ -206,9 +206,9 @@ export default class ComputersAPI extends Automate {
     })
    }
 
-   ComputerScheduledTasks_PostScheduledTask(computerId: number, : LabTechModelsComputerScheduledTask): Promise<NoContentResponse> {
+   ComputerScheduledTasks_PostScheduledTask(computerId: number, ComputerScheduledTask: LabTechModelsComputerScheduledTask): Promise<NoContentResponse> {
     return this.request({
-      path: `/api/v1/Computers/${computerId}/ScheduledTasks`, method: 'post', data: 
+      path: `/api/v1/Computers/${computerId}/ScheduledTasks`, method: 'post', data: ComputerScheduledTask
     })
    }
 
@@ -236,9 +236,9 @@ export default class ComputersAPI extends Automate {
     })
    }
 
-   ComputerSoftwareActions_UninstallSoftware(computerId: number, softwareId: number, : LabTechRESTApiRpcContractsSoftwareUninstallInfo): Promise<NoContentResponse> {
+   ComputerSoftwareActions_UninstallSoftware(computerId: number, softwareId: number, SoftwareUninstallInfo: LabTechRESTApiRpcContractsSoftwareUninstallInfo): Promise<NoContentResponse> {
     return this.request({
-      path: `/api/v1/computers/${computerId}/software/{softwareId}/uninstall`, method: 'post', data: 
+      path: `/api/v1/computers/${computerId}/software/{softwareId}/uninstall`, method: 'post', data: SoftwareUninstallInfo
     })
    }
 

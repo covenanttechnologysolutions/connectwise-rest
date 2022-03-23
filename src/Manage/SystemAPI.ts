@@ -5984,7 +5984,7 @@ export default class SystemAPI extends Manage {
     id: number,
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<any> {
+  ): Promise<Array<array>> {
     return this.request({
       path: `/system/workflows/${parentId}/events/{id}/test`,
       method: 'get',

@@ -1,10 +1,7 @@
-import openapiTS from 'openapi-typescript'
-import fs from 'fs'
-import path from 'path'
-import { createRequire } from 'module'
-const require = createRequire(import.meta.url)
-const __dirname = path.resolve()
-
+/* eslint-disable @typescript-eslint/no-var-requires */
+const openapiTS = require('openapi-typescript')
+const fs = require('fs')
+const path = require('path')
 const spec = require('./manage-json/manage.json')
 
 const types = await openapiTS(spec)

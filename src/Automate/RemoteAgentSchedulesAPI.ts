@@ -1,7 +1,7 @@
 /* This file was auto-generated, do not manually edit. */
 import Automate from '../Automate'
 import { components } from '../AutomateTypes'
-import { CommonParameters, CWAOptions} from '../AutomateAPI'
+import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 type LabTechModelsRemoteAgentSchedule = schemas['LabTech.Models.RemoteAgentSchedule']
@@ -14,17 +14,23 @@ export default class RemoteAgentSchedulesAPI extends Automate {
     super(props)
   }
 
-  
-   RemoteAgentSchedules_GetRemoteAgentScheduleList(params: CommonParameters = {}): Promise<LabTechModelsRemoteAgentSchedule[]> {
+  RemoteAgentSchedules_GetRemoteAgentScheduleList(
+    params: CommonParameters = {},
+  ): Promise<LabTechModelsRemoteAgentSchedule[]> {
     return this.request({
-      path: `/api/v1/RemoteAgentSchedules`, method: 'get', params
+      path: `/api/v1/RemoteAgentSchedules`,
+      method: 'get',
+      params,
     })
-   }
+  }
 
-   RemoteAgentSchedules_PostRemoteAgentSchedule(: object): Promise<LabTechModelsRemoteAgentSchedule> {
+  RemoteAgentSchedules_PostRemoteAgentSchedule(
+    RemoteAgentSchedule: LabTechModelsRemoteAgentSchedule,
+  ): Promise<LabTechModelsRemoteAgentSchedule> {
     return this.request({
-      path: `/api/v1/RemoteAgentSchedules`, method: 'post', data: 
+      path: `/api/v1/RemoteAgentSchedules`,
+      method: 'post',
+      data: RemoteAgentSchedule,
     })
-   }
+  }
 }
-  

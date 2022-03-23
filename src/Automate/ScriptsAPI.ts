@@ -1,7 +1,7 @@
 /* This file was auto-generated, do not manually edit. */
 import Automate from '../Automate'
 import { components } from '../AutomateTypes'
-import { CommonParameters, CWAOptions} from '../AutomateAPI'
+import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 type LabTechModelsScript = schemas['LabTech.Models.Script']
@@ -14,23 +14,26 @@ export default class ScriptsAPI extends Automate {
     super(props)
   }
 
-  
-   Scripts_GetScriptList(params: CommonParameters = {}): Promise<LabTechModelsScript[]> {
+  Scripts_GetScriptList(params: CommonParameters = {}): Promise<LabTechModelsScript[]> {
     return this.request({
-      path: `/api/v1/Scripts`, method: 'get', params
+      path: `/api/v1/Scripts`,
+      method: 'get',
+      params,
     })
-   }
+  }
 
-   Scripts_PostScript(: object): Promise<LabTechModelsScript> {
+  Scripts_PostScript(Script: LabTechModelsScript): Promise<LabTechModelsScript> {
     return this.request({
-      path: `/api/v1/Scripts`, method: 'post', data: 
+      path: `/api/v1/Scripts`,
+      method: 'post',
+      data: Script,
     })
-   }
+  }
 
-   ScriptActions_GetScriptCopyAsync(scriptId: number): Promise<number> {
+  ScriptActions_GetScriptCopyAsync(scriptId: number): Promise<number> {
     return this.request({
-      path: `/api/v1/Scripts/${scriptId}/Copy`, method: 'post'
+      path: `/api/v1/Scripts/${scriptId}/Copy`,
+      method: 'post',
     })
-   }
+  }
 }
-  

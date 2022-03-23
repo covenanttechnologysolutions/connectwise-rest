@@ -1,7 +1,7 @@
 /* This file was auto-generated, do not manually edit. */
 import Automate from '../Automate'
 import { components } from '../AutomateTypes'
-import { CommonParameters, CWAOptions} from '../AutomateAPI'
+import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 type LabTechModelsRemoteAgentTemplate = schemas['LabTech.Models.RemoteAgentTemplate']
@@ -14,17 +14,23 @@ export default class RemoteAgentTemplatesAPI extends Automate {
     super(props)
   }
 
-  
-   RemoteAgentTemplates_GetRemoteAgentTemplateListAsync(params: CommonParameters = {}): Promise<LabTechModelsRemoteAgentTemplate[]> {
+  RemoteAgentTemplates_GetRemoteAgentTemplateListAsync(
+    params: CommonParameters = {},
+  ): Promise<LabTechModelsRemoteAgentTemplate[]> {
     return this.request({
-      path: `/api/v1/RemoteAgentTemplates`, method: 'get', params
+      path: `/api/v1/RemoteAgentTemplates`,
+      method: 'get',
+      params,
     })
-   }
+  }
 
-   RemoteAgentTemplates_PostRemoteAgentTemplateAsync(: object): Promise<LabTechModelsRemoteAgentTemplate> {
+  RemoteAgentTemplates_PostRemoteAgentTemplateAsync(
+    RemoteAgentTemplate: LabTechModelsRemoteAgentTemplate,
+  ): Promise<LabTechModelsRemoteAgentTemplate> {
     return this.request({
-      path: `/api/v1/RemoteAgentTemplates`, method: 'post', data: 
+      path: `/api/v1/RemoteAgentTemplates`,
+      method: 'post',
+      data: RemoteAgentTemplate,
     })
-   }
+  }
 }
-  

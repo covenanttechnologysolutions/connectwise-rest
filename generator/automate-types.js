@@ -1,9 +1,10 @@
-import openapiTS from 'openapi-typescript'
-import fs from 'fs'
-import path from 'path'
-import { automate } from './automate-json.js'
-const __dirname = path.resolve()
+/* eslint-disable @typescript-eslint/no-var-requires */
+const openapiTS = require('openapi-typescript')
+const fs = require('fs')
+const path = require('path')
+const { getAutomateJson } = require('./automate-json.js')
 
+const automate = await getAutomateJson()
 const types = await openapiTS(automate)
 fs.writeFileSync(path.join(__dirname, 'AutomateTypes.ts'), types)
 fs.copyFileSync(

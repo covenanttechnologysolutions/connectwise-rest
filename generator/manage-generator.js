@@ -1,18 +1,11 @@
-import { createRequire } from 'module'
-import fs from 'fs'
-import path from 'path'
-import { ESLint } from 'eslint'
-import {
-  generateAPIClass,
-  generateTypeDef,
-  sanitizeType,
-  typeMapSanitize,
-} from './generator.mjs'
+/* eslint-disable @typescript-eslint/no-var-requires */
+const fs = require('fs')
+const path = require('path')
+const { ESLint } = require('eslint')
+const { generateAPIClass } = require('./generator.js')
+const spec = require('./manage-json/manage.json')
 
 const eslint = new ESLint({ fix: true })
-const require = createRequire(import.meta.url)
-const spec = require('./manage-json/manage.json')
-const __dirname = path.resolve()
 
 async function generate() {
   const {
@@ -20,11 +13,12 @@ async function generate() {
     components: { schemas },
   } = spec
 
+  const tempFolder = path.join(__dirname, 'Manage')
   const sections = {}
 
   // generate temp directory
-  if (!fs.existsSync(path.join(__dirname, 'generator', 'Manage'))) {
-    fs.mkdirSync(path.join(__dirname, 'generator', 'Manage'))
+  if (!fs.existsSync(tempFolder)) {
+    fs.mkdirSync(tempFolder)
   }
 
   Object.keys(paths).forEach((url) => {
@@ -42,7 +36,7 @@ async function generate() {
     const apiName = section.charAt(0).toUpperCase() + section.slice(1)
     const operations = sections[section]
     const file = generateAPIClass({ apiName, operations, generatorType: 'Manage' })
-    const fileName = path.join(__dirname, 'generator/Manage', `${apiName}API.ts`)
+    const fileName = path.join(tempFolder, `${apiName}API.ts`)
     if (fs.existsSync(fileName)) {
       fs.rmSync(fileName)
     }
@@ -58,17 +52,19 @@ async function generate() {
   console.log(resultText)
 
   console.log('copying files to src/')
-  const files = fs.readdirSync(path.join(__dirname, 'generator', 'Manage'))
+  const files = fs.readdirSync(tempFolder)
   files.forEach((file) => {
-    const manageFolder = path.join(__dirname, 'src', 'Manage')
+    const manageFolder = path.join(__dirname, '../src', 'Manage')
     if (!fs.existsSync(manageFolder)) {
       fs.mkdirSync(manageFolder)
     }
-    const src = path.join(__dirname, 'generator', 'Manage', file)
-    const dest = path.join(__dirname, 'src', 'Manage', file)
+    const src = path.join(tempFolder, file)
+    const dest = path.join(manageFolder, file)
     console.log(`${src} ==> ${dest}`)
     fs.copyFileSync(src, dest)
   })
+  fs.rmSync(tempFolder, { recursive: true })
+  console.log('temp folder removed')
 }
 
 console.log('generating static Manage client files')

@@ -1,10 +1,11 @@
 import Automate from './Automate'
 import { CWLogger, RetryOptions } from './types'
+import type { AutomateTypes } from './types'
 
 /**
  * @public
  */
-export interface CWAOptions {
+export type CWAOptions = {
   serverUrl: string
   username?: string
   password?: string
@@ -17,16 +18,39 @@ export interface CWAOptions {
   logger?: CWLogger
 }
 
-export interface CommonParameters {
-  page: number
-  pageSize: number
-  condition: string
-  /* eslint-disable @typescript-eslint/no-explicit-any */
-  expands: any
-  includedFields: Array<string>
-  excludedFields: Array<string>
-  ids: Array<string>
-  timeout: number
+export type OrderBy = {
+  name?: string
+  type?: 'Undefined' | 'Ascending' | 'Descending'
+}
+
+/**
+ * @public
+ */
+export type CommonParameters = {
+  orderBy?: OrderBy
+  page?: number
+  pageSize?: number
+  condition?: string
+  expands?: {
+    [key: string]: QueryOptionExpand
+  }
+  includedFields?: Array<string>
+  excludedFields?: Array<string>
+  ids?: Array<string>
+  timeout?: number
+}
+
+export type QueryOptionExpand = {
+  fieldName?: string
+  page?: number
+  pageSize?: number
+  condition?: string
+  expands?: {
+    [key: string]: QueryOptionExpand
+  }
+  orderBy?: OrderBy
+  includedFields?: string[]
+  excludedFields?: string[]
 }
 
 /**

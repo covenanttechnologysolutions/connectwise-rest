@@ -139,12 +139,7 @@ export default class Automate {
     }
   }
 
-  async request({
-    path,
-    method = 'get',
-    params,
-    data,
-  }: RequestOptions): Promise<ErrorResponse | DataResponse> {
+  async request({ path, method = 'get', params, data }: RequestOptions): Promise<any> {
     return this.api({ path, method, params, data })
   }
 
