@@ -70,6 +70,10 @@ function generateAPIClass({ apiName, operations = [], generatorType }) {
                 bodyParam.name = schema.$ref.split('.').pop()
               }
               types[bodyParam.type] = bodyParam.type
+              // if clause for MonitorAlertSuspensions_PostSuspension
+            } else if (!schema.description) {
+              bodyParam.type = schema.type
+              bodyParam.name = schema.type
             }
           } else if (requestBody.content && requestBody.content['multipart/form-data']) {
             const schema = requestBody.content['multipart/form-data'].schema
@@ -131,7 +135,7 @@ function generateAPIClass({ apiName, operations = [], generatorType }) {
                 types[tempName] = tempName
               } else if (schema.type) {
                 if (schema.items.type) {
-                  returnType = `Array<${schema.type}>`
+                  returnType = `Array<${schema.items.type}>`
                 } else {
                   returnType = schema.type
                 }
@@ -153,10 +157,6 @@ function generateAPIClass({ apiName, operations = [], generatorType }) {
 
         if (!returnType) {
           returnType = 'any'
-        }
-
-        if (url === '/api/v1/APIToken') {
-          console.log()
         }
 
         return `

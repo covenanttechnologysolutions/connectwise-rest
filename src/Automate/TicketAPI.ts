@@ -8,7 +8,7 @@ type schemas = components['schemas']
 /**
  * @internal
  */
-export default class TicketsAPI extends Automate {
+export default class TicketAPI extends Automate {
   constructor(props: CWAOptions) {
     super(props)
   }

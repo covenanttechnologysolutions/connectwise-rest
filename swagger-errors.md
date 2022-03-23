@@ -1,5 +1,9 @@
 # API Spec Errors
 
+## Automate
+
+**System
+
 ## Manage
 
 **Company.deleteCompanyContactsById**

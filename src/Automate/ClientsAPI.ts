@@ -58,19 +58,19 @@ export default class ClientsAPI extends Automate {
     })
    }
 
-   ClientPermissions_GetUserClassPermissions(clientId: number, userClassId: number, params: CommonParameters = {}): Promise<Array<array>> {
+   ClientPermissions_GetUserClassPermissions(clientId: number, userClassId: number, params: CommonParameters = {}): Promise<Array<string>> {
     return this.request({
       path: `/api/v1/clients/${clientId}/permissions/{userClassId}`, method: 'get', params
     })
    }
 
-   ClientPermissions_PutUserClassPermissions(clientId: number, userClassId: number, #componentsrequestBodiesClientPermissions_PutUserClassPermissionsPermissions: ClientPermissions_PutUserClassPermissionsPermissions): Promise<Array<array>> {
+   ClientPermissions_PutUserClassPermissions(clientId: number, userClassId: number, #componentsrequestBodiesClientPermissions_PutUserClassPermissionsPermissions: ClientPermissions_PutUserClassPermissionsPermissions): Promise<Array<string>> {
     return this.request({
       path: `/api/v1/clients/${clientId}/permissions/{userClassId}`, method: 'put', data: #componentsrequestBodiesClientPermissions_PutUserClassPermissionsPermissions
     })
    }
 
-   ClientPermissions_PostUserClassPermissions(clientId: number, userClassId: number, #componentsrequestBodiesClientPermissions_PutUserClassPermissionsPermissions: ClientPermissions_PutUserClassPermissionsPermissions): Promise<Array<array>> {
+   ClientPermissions_PostUserClassPermissions(clientId: number, userClassId: number, #componentsrequestBodiesClientPermissions_PutUserClassPermissionsPermissions: ClientPermissions_PutUserClassPermissionsPermissions): Promise<Array<string>> {
     return this.request({
       path: `/api/v1/clients/${clientId}/permissions/{userClassId}`, method: 'post', data: #componentsrequestBodiesClientPermissions_PutUserClassPermissionsPermissions
     })

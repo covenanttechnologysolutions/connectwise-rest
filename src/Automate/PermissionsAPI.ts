@@ -13,14 +13,14 @@ export default class PermissionsAPI extends Automate {
     super(props)
   }
 
-  Permissions_GetClientPermissionList(clientId: number): Promise<Array<array>> {
+  Permissions_GetClientPermissionList(clientId: number): Promise<Array<string>> {
     return this.request({
       path: `/api/v1/Permissions/Clients/${clientId}`,
       method: 'get',
     })
   }
 
-  Permissions_GetUserPermissionList(): Promise<Array<array>> {
+  Permissions_GetUserPermissionList(): Promise<Array<string>> {
     return this.request({
       path: `/api/v1/Permissions/Users`,
       method: 'get',

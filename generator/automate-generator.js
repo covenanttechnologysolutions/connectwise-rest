@@ -26,12 +26,14 @@ async function generate() {
     const methods = paths[url]
 
     if (url === '/cwa/api/v1/Tickets') {
-      sections['Tickets'] = [{ url, methods }]
+      sections['Ticket'] = [{ url, methods }]
     }
 
     const [_, _1, _2, section] = url
       .split('/')
       .map((section) => section.charAt(0).toUpperCase() + section.slice(1))
+
+    // const section = paths[url][Object.keys(paths[url]).pop()].tags[0].split('_')[0]
 
     if (!sections[section]) {
       sections[section] = []
@@ -60,7 +62,7 @@ async function generate() {
   await ESLint.outputFixes(results)
   const formatter = await eslint.loadFormatter('stylish')
   const resultText = formatter.format(results)
-  console.log(resultText)
+  console.log('eslint results', resultText)
 
   console.log('copying files to src/')
   const files = fs.readdirSync(path.join(__dirname, 'Automate'))
