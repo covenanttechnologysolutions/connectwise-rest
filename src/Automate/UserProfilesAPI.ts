@@ -15,7 +15,7 @@ export default class UserProfilesAPI extends Automate {
     super(props)
   }
 
-  UserProfiles_GetUserProfile(): Promise<LabTechRepositoriesMySQLDomainModelsPresentationLayerUserProfile> {
+  GetUserProfile(): Promise<LabTechRepositoriesMySQLDomainModelsPresentationLayerUserProfile> {
     return this.request({
       path: `/api/v1/UserProfiles`,
       method: 'get',

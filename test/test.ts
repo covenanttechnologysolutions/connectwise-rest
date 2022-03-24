@@ -3,12 +3,14 @@
  */
 import dotenv from 'dotenv'
 import path from 'path'
+// import { ManageAPI, AutomateAPI, utils } from '../dist/index'
 import { ManageAPI, AutomateAPI, utils } from '../src/index'
 import assert from 'assert'
 import { describe, it } from 'mocha'
 import type { components } from '../src/ManageTypes'
 import { isArrayOfPromises, PromiseArray } from './test-utils'
 import { isPromise } from 'util/types'
+import ComputersAPI from '../src/Automate/ComputersAPI'
 type Ticket = components['schemas']['Ticket']
 
 dotenv.config({ path: path.join(__dirname, '.env') })
@@ -27,8 +29,6 @@ declare global {
       AUTOMATE_API_URL: string
       AUTOMATE_API_USER: string
       NODE_ENV: 'development' | 'production'
-      PORT?: string
-      PWD: string
     }
   }
 }
@@ -66,6 +66,25 @@ describe('Automate', () => {
     it('should be an instance of Automate', (done) => {
       assert(cwa instanceof AutomateAPI)
       done()
+    })
+
+    it('should have ComputersAPI', (done) => {
+      assert(cwa.ComputersAPI)
+      done()
+    })
+  })
+
+  describe('ComputersAPI', () => {
+    it('should return a list of computers', (done) => {
+      cwa.ComputersAPI.Computers_GetComputerList({ pageSize: 1 })
+        .then((results) => {
+          assert(results.length === 1)
+          const computer = results[0]
+          assert(computer.Id)
+          assert(computer.ComputerName)
+          done()
+        })
+        .catch((error) => done(error))
     })
   })
 })

@@ -15,7 +15,7 @@ export default class EventLogsAPI extends Automate {
     super(props)
   }
 
-  EventLog_GetEventLogsAsync(
+  GetEventLogsAsync(
     params: CommonParameters = {},
   ): Promise<LabTechDatabaseResultSetWithCount_LabTechModelsEventLog_> {
     return this.request({

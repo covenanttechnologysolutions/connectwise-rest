@@ -24,16 +24,7 @@ async function generate() {
 
   Object.keys(paths).forEach((url) => {
     const methods = paths[url]
-
-    if (url === '/cwa/api/v1/Tickets') {
-      sections['Ticket'] = [{ url, methods }]
-    }
-
-    const [_, _1, _2, section] = url
-      .split('/')
-      .map((section) => section.charAt(0).toUpperCase() + section.slice(1))
-
-    // const section = paths[url][Object.keys(paths[url]).pop()].tags[0].split('_')[0]
+    const section = paths[url][Object.keys(methods).pop()].section
 
     if (!sections[section]) {
       sections[section] = []

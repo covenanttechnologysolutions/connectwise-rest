@@ -14,7 +14,7 @@ export default class CommandsAPI extends Automate {
     super(props)
   }
 
-  Commands_GetCommandList(params: CommonParameters = {}): Promise<LabTechModelsCommand[]> {
+  GetCommandList(params: CommonParameters = {}): Promise<LabTechModelsCommand[]> {
     return this.request({
       path: `/api/v1/Commands`,
       method: 'get',
@@ -22,10 +22,7 @@ export default class CommandsAPI extends Automate {
     })
   }
 
-  Commands_GetCommand(
-    entityId: string,
-    params: CommonParameters = {},
-  ): Promise<LabTechModelsCommand> {
+  GetCommand(entityId: string, params: CommonParameters = {}): Promise<LabTechModelsCommand> {
     return this.request({
       path: `/api/v1/Commands/${entityId}`,
       method: 'get',

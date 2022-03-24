@@ -4,13 +4,26 @@ import { components } from '../AutomateTypes'
 import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
-type LabTechDatabaseResultSetWithCount_LabTechModelsLocation_ =
-  schemas['LabTech.Database.ResultSetWithCount_LabTech.Models.Location_']
-type LabTechModelsLocation = schemas['LabTech.Models.Location']
 type LabTechRESTApiRpcContractsNewProbeConfiguration =
   schemas['LabTech.RESTApi.RpcContracts.NewProbeConfiguration']
+type LabTechRepositoriesMySQLDomainModelsNetworkProbeEncryptionMethod =
+  schemas['LabTech.Repositories.MySQL.Domain.Models.NetworkProbe.EncryptionMethod']
+type LabTechRepositoriesMySQLDomainModelsNetworkProbeHashMethod =
+  schemas['LabTech.Repositories.MySQL.Domain.Models.NetworkProbe.HashMethod']
 type LabTechRepositoriesMySQLDomainModelsNetworkProbeProbeConfiguration =
   schemas['LabTech.Repositories.MySQL.Domain.Models.NetworkProbe.ProbeConfiguration']
+type LabTechRepositoriesMySQLDomainModelsNetworkProbeProbeConfigurationCredentials =
+  schemas['LabTech.Repositories.MySQL.Domain.Models.NetworkProbe.ProbeConfigurationCredentials']
+type LabTechRepositoriesMySQLDomainModelsNetworkProbeProbeSnmpConfiguration =
+  schemas['LabTech.Repositories.MySQL.Domain.Models.NetworkProbe.ProbeSnmpConfiguration']
+type LabTechRepositoriesMySQLDomainModelsNetworkProbeScanFrequency =
+  schemas['LabTech.Repositories.MySQL.Domain.Models.NetworkProbe.ScanFrequency']
+type LabTechRepositoriesMySQLDomainModelsNetworkProbeStatusScanNetworkPortOption =
+  schemas['LabTech.Repositories.MySQL.Domain.Models.NetworkProbe.StatusScanNetworkPortOption']
+type LabTechRepositoriesMySQLDomainModelsProbeEvent =
+  schemas['LabTech.Repositories.MySQL.Domain.Models.ProbeEvent']
+type LabTechRepositoriesMySQLDomainModelsProbeEventLevel =
+  schemas['LabTech.Repositories.MySQL.Domain.Models.ProbeEventLevel']
 
 /**
  * @internal
@@ -20,7 +33,7 @@ export default class LocationsAPI extends Automate {
     super(props)
   }
 
-  ProbeConfiguration_GetProbeConfiguration(
+  GetProbeConfiguration(
     locationId: number,
     params: CommonParameters = {},
   ): Promise<LabTechRepositoriesMySQLDomainModelsNetworkProbeProbeConfiguration> {
@@ -31,7 +44,7 @@ export default class LocationsAPI extends Automate {
     })
   }
 
-  ProbeConfiguration_PostProbeConfiguration(
+  PostProbeConfiguration(
     locationId: number,
     NewProbeConfiguration: LabTechRESTApiRpcContractsNewProbeConfiguration,
   ): Promise<LabTechRepositoriesMySQLDomainModelsNetworkProbeProbeConfiguration> {
@@ -42,14 +55,14 @@ export default class LocationsAPI extends Automate {
     })
   }
 
-  ProbeConfiguration_DeleteProbeConfiguration(locationId: number): Promise<NoContentResponse> {
+  DeleteProbeConfiguration(locationId: number): Promise<NoContentResponse> {
     return this.request({
       path: `/api/v1/Locations/${locationId}/ProbeConfiguration`,
       method: 'delete',
     })
   }
 
-  ProbeConfiguration_PatchProbeConfiguration(
+  PatchProbeConfiguration(
     locationId: number,
     PatchOperationArray: LabTechRESTApiModelsPatchOperationArray,
   ): Promise<LabTechRepositoriesMySQLDomainModelsNetworkProbeProbeConfiguration> {
@@ -60,10 +73,7 @@ export default class LocationsAPI extends Automate {
     })
   }
 
-  ProbeConfiguration_UpgradeProbe(
-    locationId: number,
-    params: CommonParameters = {},
-  ): Promise<NoContentResponse> {
+  UpgradeProbe(locationId: number, params: CommonParameters = {}): Promise<NoContentResponse> {
     return this.request({
       path: `/api/v1/Locations/${locationId}/UpgradeProbe`,
       method: 'post',
@@ -71,21 +81,123 @@ export default class LocationsAPI extends Automate {
     })
   }
 
-  Locations_GetLocationList(
+  GetProbeEventLevelList(
     params: CommonParameters = {},
-  ): Promise<LabTechDatabaseResultSetWithCount_LabTechModelsLocation_> {
+  ): Promise<LabTechRepositoriesMySQLDomainModelsProbeEventLevel[]> {
     return this.request({
-      path: `/api/v1/Locations`,
+      path: `/api/v1/Lookups/ProbeEventLevels`,
       method: 'get',
       params,
     })
   }
 
-  Locations_PostLocation(Location: LabTechModelsLocation): Promise<LabTechModelsLocation> {
+  GetScanFrequencyList(
+    params: CommonParameters = {},
+  ): Promise<LabTechRepositoriesMySQLDomainModelsNetworkProbeScanFrequency[]> {
     return this.request({
-      path: `/api/v1/Locations`,
+      path: `/api/v1/Lookups/ScanFrequencies`,
+      method: 'get',
+      params,
+    })
+  }
+
+  GetSnmpEncryptionMethodList(
+    params: CommonParameters = {},
+  ): Promise<LabTechRepositoriesMySQLDomainModelsNetworkProbeEncryptionMethod[]> {
+    return this.request({
+      path: `/api/v1/Lookups/SnmpEncryptionMethods`,
+      method: 'get',
+      params,
+    })
+  }
+
+  GetSnmpHashMethodList(
+    params: CommonParameters = {},
+  ): Promise<LabTechRepositoriesMySQLDomainModelsNetworkProbeHashMethod[]> {
+    return this.request({
+      path: `/api/v1/Lookups/SnmpHashMethods`,
+      method: 'get',
+      params,
+    })
+  }
+
+  GetStatusScanNetworkPortOptionList(
+    params: CommonParameters = {},
+  ): Promise<LabTechRepositoriesMySQLDomainModelsNetworkProbeStatusScanNetworkPortOption[]> {
+    return this.request({
+      path: `/api/v1/Lookups/StatusScanNetworkPortOptions`,
+      method: 'get',
+      params,
+    })
+  }
+
+  GetAgentPushCredentialsList(
+    probeConfigurationId: number,
+    params: CommonParameters = {},
+  ): Promise<LabTechRepositoriesMySQLDomainModelsNetworkProbeProbeConfigurationCredentials[]> {
+    return this.request({
+      path: `/api/v1/ProbeConfiguration/${probeConfigurationId}/AgentPushCredentials`,
+      method: 'get',
+      params,
+    })
+  }
+
+  PutAgentPushCredentialsList(
+    probeConfigurationId: number,
+    labTechRepositoriesMySQLDomainModelsNetworkProbeProbeConfigurationCredentialss: LabTechRepositoriesMySQLDomainModelsNetworkProbeProbeConfigurationCredentials[],
+  ): Promise<LabTechRepositoriesMySQLDomainModelsNetworkProbeProbeConfigurationCredentials[]> {
+    return this.request({
+      path: `/api/v1/ProbeConfiguration/${probeConfigurationId}/AgentPushCredentials`,
+      method: 'put',
+      data: labTechRepositoriesMySQLDomainModelsNetworkProbeProbeConfigurationCredentialss,
+    })
+  }
+
+  DeleteAgentPushCredentials(probeConfigurationId: number): Promise<NoContentResponse> {
+    return this.request({
+      path: `/api/v1/ProbeConfiguration/${probeConfigurationId}/AgentPushCredentials`,
+      method: 'delete',
+    })
+  }
+
+  GetProbeSnmpConfigurationAsync(
+    probeConfigurationId: number,
+    params: CommonParameters = {},
+  ): Promise<LabTechRepositoriesMySQLDomainModelsNetworkProbeProbeSnmpConfiguration> {
+    return this.request({
+      path: `/api/v1/ProbeConfiguration/${probeConfigurationId}/SnmpConfiguration`,
+      method: 'get',
+      params,
+    })
+  }
+
+  PatchProbeSnmpConfigurationAsync(
+    probeConfigurationId: number,
+    PatchOperationArray: LabTechRESTApiModelsPatchOperationArray,
+  ): Promise<LabTechRepositoriesMySQLDomainModelsNetworkProbeProbeSnmpConfiguration> {
+    return this.request({
+      path: `/api/v1/ProbeConfiguration/${probeConfigurationId}/SnmpConfiguration`,
+      method: 'patch',
+      data: PatchOperationArray,
+    })
+  }
+
+  EnableProbe(
+    computerId: number,
+  ): Promise<LabTechRepositoriesMySQLDomainModelsNetworkProbeProbeConfiguration> {
+    return this.request({
+      path: `/api/v1/ProbeConfiguration/EnableProbe/${computerId}`,
       method: 'post',
-      data: Location,
+    })
+  }
+
+  GetProbeEventList(
+    params: CommonParameters = {},
+  ): Promise<LabTechRepositoriesMySQLDomainModelsProbeEvent[]> {
+    return this.request({
+      path: `/api/v1/ProbeEvents`,
+      method: 'get',
+      params,
     })
   }
 }

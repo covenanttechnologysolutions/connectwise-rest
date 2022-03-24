@@ -2,6 +2,7 @@ import axios, { AxiosInstance, AxiosError } from 'axios'
 import { CWLogger, DataResponse, ErrorResponse, RequestOptions, RetryOptions } from './types'
 import { CWAOptions } from './AutomateAPI'
 import { components } from './AutomateTypes'
+import { makeRequest } from './BaseAPI'
 type schemas = components['schemas']
 type TokenResult = schemas['Automate.Api.Domain.Contracts.Security.TokenResult']
 
@@ -10,7 +11,7 @@ const CW_AUTOMATE_DEBUG = !!process.env.CW_AUTOMATE_DEBUG
 export const DEFAULTS: {
   entryPoint: string
   retryOptions: RetryOptions
-  logger: CWLogger
+  logger: (debug: boolean) => CWLogger
 } = {
   entryPoint: 'cwa',
   retryOptions: {
@@ -19,30 +20,47 @@ export const DEFAULTS: {
     maxTimeout: 20000,
     randomize: true,
   },
-  logger: (level, text, meta) => {
-    switch (level) {
-      case 'error':
-        console.error(`${level}: ${text}`, meta)
-        return
-      case 'info': {
-        if (CW_AUTOMATE_DEBUG) {
-          console.info(`${level}: ${text}`, meta)
+  logger:
+    (debug = false) =>
+    (level, text, meta) => {
+      switch (level) {
+        case 'error':
+          console.error(`${level}: ${text}`, meta)
+          return
+        case 'warn':
+          if (debug) {
+            console.log(`${level}: ${text}`, meta)
+          }
+          return
+        case 'info': {
+          if (debug) {
+            console.info(`${level}: ${text}`, meta)
+          }
+          return
         }
-        return
+        default:
+          console.log(`${level}: ${text}`, meta)
+          return
       }
-      default:
-        console.log(`${level}: ${text}`, meta)
-        return
-    }
-  },
+    },
+}
+
+export interface AutomateConfig extends CWAOptions {
+  logger: CWLogger
+  retry: boolean
+  retryOptions: RetryOptions
 }
 
 /**
  * @internal
  */
 export default class Automate {
-  config: CWAOptions
+  config: AutomateConfig
   private instance: AxiosInstance
+  /**
+   * @public
+   */
+  request: (args: RequestOptions) => Promise<any>
 
   constructor({
     serverUrl,
@@ -54,7 +72,8 @@ export default class Automate {
     timeout = 20000,
     retry = false,
     retryOptions = DEFAULTS.retryOptions,
-    logger = DEFAULTS.logger,
+    logger,
+    debug,
   }: CWAOptions) {
     if (token && username && password) {
       throw new Error(
@@ -63,11 +82,11 @@ export default class Automate {
     }
 
     if (!token && !username && !password) {
-      throw new Error('token or username and password missing')
+      throw new Error('Missing options [token] or [username, password]')
     }
 
     if (!clientId) {
-      throw new Error('clientId is required')
+      throw new Error('Missing option [clientId]')
     }
 
     this.config = {
@@ -79,7 +98,8 @@ export default class Automate {
       timeout,
       retry,
       retryOptions: { ...DEFAULTS.retryOptions, ...retryOptions },
-      logger,
+      logger: logger ? logger : DEFAULTS.logger(debug || CW_AUTOMATE_DEBUG),
+      debug: debug || CW_AUTOMATE_DEBUG,
     }
 
     this.instance = axios.create()
@@ -88,6 +108,8 @@ export default class Automate {
       this.config.token = token
       this.#createAxiosInstance()
     }
+
+    this.request = makeRequest({ config: this.config, api: this.api, thisObj: this })
   }
 
   get token() {
@@ -139,10 +161,9 @@ export default class Automate {
     }
   }
 
-  async request({ path, method = 'get', params, data }: RequestOptions): Promise<any> {
-    return this.api({ path, method, params, data })
-  }
-
+  /**
+   * @internal
+   */
   private async api({
     path,
     method,

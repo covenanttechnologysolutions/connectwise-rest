@@ -42,6 +42,7 @@ export interface CWMOptions {
   retry?: boolean
   retryOptions?: RetryOptions
   logger?: CWLogger
+  debug?: boolean
 }
 
 /**

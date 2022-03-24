@@ -1,48 +1,28 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require('fs')
+const path = require('path')
 
 async function getAutomateJson() {
-  const files = [
-    JSON.parse(fs.readFileSync('./generator/automate-json/swagger (1).json', { encoding: 'utf8' })),
-    JSON.parse(fs.readFileSync('./generator/automate-json/swagger (2).json', { encoding: 'utf8' })),
-    JSON.parse(fs.readFileSync('./generator/automate-json/swagger (3).json', { encoding: 'utf8' })),
-    JSON.parse(fs.readFileSync('./generator/automate-json/swagger (4).json', { encoding: 'utf8' })),
-    JSON.parse(fs.readFileSync('./generator/automate-json/swagger (5).json', { encoding: 'utf8' })),
-    JSON.parse(fs.readFileSync('./generator/automate-json/swagger (6).json', { encoding: 'utf8' })),
-    JSON.parse(fs.readFileSync('./generator/automate-json/swagger (7).json', { encoding: 'utf8' })),
-    JSON.parse(fs.readFileSync('./generator/automate-json/swagger (8).json', { encoding: 'utf8' })),
-    JSON.parse(fs.readFileSync('./generator/automate-json/swagger (9).json', { encoding: 'utf8' })),
-    JSON.parse(
-      fs.readFileSync('./generator/automate-json/swagger (10).json', { encoding: 'utf8' }),
-    ),
-    JSON.parse(
-      fs.readFileSync('./generator/automate-json/swagger (11).json', { encoding: 'utf8' }),
-    ),
-    JSON.parse(
-      fs.readFileSync('./generator/automate-json/swagger (12).json', { encoding: 'utf8' }),
-    ),
-    JSON.parse(
-      fs.readFileSync('./generator/automate-json/swagger (13).json', { encoding: 'utf8' }),
-    ),
-    JSON.parse(
-      fs.readFileSync('./generator/automate-json/swagger (14).json', { encoding: 'utf8' }),
-    ),
-    JSON.parse(
-      fs.readFileSync('./generator/automate-json/swagger (15).json', { encoding: 'utf8' }),
-    ),
-    JSON.parse(
-      fs.readFileSync('./generator/automate-json/swagger (16).json', { encoding: 'utf8' }),
-    ),
-    JSON.parse(
-      fs.readFileSync('./generator/automate-json/swagger (17).json', { encoding: 'utf8' }),
-    ),
-    JSON.parse(
-      fs.readFileSync('./generator/automate-json/swagger (18).json', { encoding: 'utf8' }),
-    ),
-    JSON.parse(
-      fs.readFileSync('./generator/automate-json/swagger (19).json', { encoding: 'utf8' }),
-    ),
-  ]
+  const sections = []
+
+  const files = fs.readdirSync(path.join(__dirname, 'automate-json'))
+  files.forEach((fileName) => {
+    const section = require(path.join(__dirname, 'automate-json', fileName))
+
+    Object.keys(section.paths).forEach((path) => {
+      Object.keys(section.paths[path]).forEach((method) => {
+        const definition = section.paths[path][method]
+        section.paths[path][method] = {
+          ...definition,
+          // manually define api section
+          // clean up operation names
+          operationId: definition.operationId.split('_').pop(),
+          section: fileName.replace('.json', ''),
+        }
+      })
+    })
+    sections.push(section)
+  })
 
   const automate = {
     openapi: '',
@@ -54,13 +34,13 @@ async function getAutomateJson() {
     paths: {},
   }
 
-  files.forEach((file) => {
+  sections.forEach((section) => {
     const {
       openapi,
       info,
       components: { requestBodies, schemas },
       paths,
-    } = file
+    } = section
 
     automate.openapi = openapi
     automate.info = { ...info }

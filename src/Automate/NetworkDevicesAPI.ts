@@ -5,6 +5,7 @@ import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 type LabTechModelsNetworkDevice = schemas['LabTech.Models.NetworkDevice']
+type LabTechModelsRouter = schemas['LabTech.Models.Router']
 
 /**
  * @internal
@@ -14,9 +15,7 @@ export default class NetworkDevicesAPI extends Automate {
     super(props)
   }
 
-  NetworkDevices_GetNetworkDeviceList(
-    params: CommonParameters = {},
-  ): Promise<LabTechModelsNetworkDevice[]> {
+  GetNetworkDeviceList(params: CommonParameters = {}): Promise<LabTechModelsNetworkDevice[]> {
     return this.request({
       path: `/api/v1/NetworkDevices`,
       method: 'get',
@@ -24,13 +23,21 @@ export default class NetworkDevicesAPI extends Automate {
     })
   }
 
-  NetworkDevices_PostNetworkDevice(
+  PostNetworkDevice(
     NetworkDevice: LabTechModelsNetworkDevice,
   ): Promise<LabTechModelsNetworkDevice> {
     return this.request({
       path: `/api/v1/NetworkDevices`,
       method: 'post',
       data: NetworkDevice,
+    })
+  }
+
+  GetRouters(params: CommonParameters = {}): Promise<LabTechModelsRouter[]> {
+    return this.request({
+      path: `/api/v1/routers`,
+      method: 'get',
+      params,
     })
   }
 }

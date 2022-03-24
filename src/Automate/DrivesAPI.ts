@@ -6,6 +6,8 @@ import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } fro
 type schemas = components['schemas']
 type LabTechDatabaseResultSetWithCount_LabTechRepositoriesMySQLDomainModelsDriveStats_ =
   schemas['LabTech.Database.ResultSetWithCount_LabTech.Repositories.MySQL.Domain.Models.DriveStats_']
+type LabTechRepositoriesMySQLDomainModelsDriveStatistics =
+  schemas['LabTech.Repositories.MySQL.Domain.Models.DriveStatistics']
 
 /**
  * @internal
@@ -15,7 +17,7 @@ export default class DrivesAPI extends Automate {
     super(props)
   }
 
-  DriveStats_GetDailyDriveStats(
+  GetDailyDriveStats(
     driveId: number,
     params: CommonParameters = {},
   ): Promise<LabTechDatabaseResultSetWithCount_LabTechRepositoriesMySQLDomainModelsDriveStats_> {
@@ -26,7 +28,7 @@ export default class DrivesAPI extends Automate {
     })
   }
 
-  DriveStats_GetWeeklyDriveStats(
+  GetWeeklyDriveStats(
     driveId: number,
     params: CommonParameters = {},
   ): Promise<LabTechDatabaseResultSetWithCount_LabTechRepositoriesMySQLDomainModelsDriveStats_> {
@@ -37,7 +39,7 @@ export default class DrivesAPI extends Automate {
     })
   }
 
-  DriveStats_GetYearlyDriveStats(
+  GetYearlyDriveStats(
     driveId: number,
     params: CommonParameters = {},
   ): Promise<LabTechDatabaseResultSetWithCount_LabTechRepositoriesMySQLDomainModelsDriveStats_> {
@@ -48,12 +50,22 @@ export default class DrivesAPI extends Automate {
     })
   }
 
-  DriveStats_GetMonthlyDriveStats(
+  GetMonthlyDriveStats(
     driveId: number,
     params: CommonParameters = {},
   ): Promise<LabTechDatabaseResultSetWithCount_LabTechRepositoriesMySQLDomainModelsDriveStats_> {
     return this.request({
       path: `/api/v1/drives/${driveId}/drivestats/monthly`,
+      method: 'get',
+      params,
+    })
+  }
+
+  GetDriveStatisticsList(
+    params: CommonParameters = {},
+  ): Promise<LabTechRepositoriesMySQLDomainModelsDriveStatistics[]> {
+    return this.request({
+      path: `/api/v1/Statistics/Drives`,
       method: 'get',
       params,
     })

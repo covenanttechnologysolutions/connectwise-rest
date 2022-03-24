@@ -15,7 +15,7 @@ export default class MaintenanceWindowDefinitionsAPI extends Automate {
     super(props)
   }
 
-  MaintenanceWindowDefinition_GetDefinitionList(
+  GetDefinitionList(
     params: CommonParameters = {},
   ): Promise<LabTechDatabaseResultSetWithCount_AutomateApiDomainContractsMaintenanceMaintenanceWindowDefinition_> {
     return this.request({

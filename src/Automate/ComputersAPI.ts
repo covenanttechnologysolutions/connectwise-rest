@@ -36,6 +36,8 @@ type LabTechDatabaseResultSetWithCount_LabTechModelsComputer_ =
   schemas['LabTech.Database.ResultSetWithCount_LabTech.Models.Computer_']
 type LabTechDatabaseResultSetWithCount_LabTechModelsMaintenanceMode_ =
   schemas['LabTech.Database.ResultSetWithCount_LabTech.Models.MaintenanceMode_']
+type LabTechDatabaseResultSetWithCount_LabTechModelsRetiredAsset_ =
+  schemas['LabTech.Database.ResultSetWithCount_LabTech.Models.RetiredAsset_']
 type LabTechDatabaseResultSetWithCount_LabTechModelsSmartData_ =
   schemas['LabTech.Database.ResultSetWithCount_LabTech.Models.SmartData_']
 type LabTechDatabaseResultSetWithCount_LabTechRepositoriesMySQLDomainModelsComputerDriver_ =
@@ -45,12 +47,15 @@ type LabTechModelsComputerBios = schemas['LabTech.Models.ComputerBios']
 type LabTechModelsComputerDevice = schemas['LabTech.Models.ComputerDevice']
 type LabTechModelsComputerEffectivePatchingPolicy =
   schemas['LabTech.Models.ComputerEffectivePatchingPolicy']
+type LabTechModelsComputerMenu = schemas['LabTech.Models.ComputerMenu']
 type LabTechModelsComputerOperatingSystem = schemas['LabTech.Models.ComputerOperatingSystem']
 type LabTechModelsComputerRunningScript = schemas['LabTech.Models.ComputerRunningScript']
 type LabTechModelsComputerScheduledTask = schemas['LabTech.Models.ComputerScheduledTask']
 type LabTechModelsComputerScriptHistory = schemas['LabTech.Models.ComputerScriptHistory']
 type LabTechModelsComputerUps = schemas['LabTech.Models.ComputerUps']
 type LabTechModelsScheduledScript = schemas['LabTech.Models.ScheduledScript']
+type LabTechModelsServiceClassification = schemas['LabTech.Models.ServiceClassification']
+type LabTechModelsVirusScannerDef = schemas['LabTech.Models.VirusScannerDef']
 type LabTechRESTApiRpcContractsSoftwareUninstallInfo =
   schemas['LabTech.RESTApi.RpcContracts.SoftwareUninstallInfo']
 type LabTechRepositoriesMySQLDomainModelsAlertingMonitorAlertSuspension =
@@ -64,7 +69,23 @@ export default class ComputersAPI extends Automate {
     super(props)
   }
 
-  Computers_GetComputerList(
+  GetComputerMenuList(params: CommonParameters = {}): Promise<LabTechModelsComputerMenu[]> {
+    return this.request({
+      path: `/api/v1/ComputerMenus`,
+      method: 'get',
+      params,
+    })
+  }
+
+  PostComputerMenu(ComputerMenu: LabTechModelsComputerMenu): Promise<LabTechModelsComputerMenu> {
+    return this.request({
+      path: `/api/v1/ComputerMenus`,
+      method: 'post',
+      data: ComputerMenu,
+    })
+  }
+
+  GetComputerList(
     params: CommonParameters = {},
   ): Promise<LabTechDatabaseResultSetWithCount_LabTechModelsComputer_> {
     return this.request({
@@ -74,10 +95,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  ComputerAlerts_GetComputerAlerts(
-    computerId: number,
-    params: CommonParameters = {},
-  ): Promise<object> {
+  GetComputerAlerts(computerId: number, params: CommonParameters = {}): Promise<object> {
     return this.request({
       path: `/api/v1/Computers/${computerId}/Alerts`,
       method: 'get',
@@ -85,10 +103,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  MaintenanceAlertSuspensions_GetSuspensionList(
-    computerId: number,
-    params: CommonParameters = {},
-  ): Promise<object> {
+  GetSuspensionList(computerId: number, params: CommonParameters = {}): Promise<object> {
     return this.request({
       path: `/api/v1/Computers/${computerId}/AlertSuspensions/MaintenanceWindow`,
       method: 'get',
@@ -96,10 +111,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  TemplateAlertSuspension_GetSuspensionList(
-    computerId: number,
-    params: CommonParameters = {},
-  ): Promise<object> {
+  GetSuspensionList(computerId: number, params: CommonParameters = {}): Promise<object> {
     return this.request({
       path: `/api/v1/Computers/${computerId}/AlertSuspensions/TemplateDiversion`,
       method: 'get',
@@ -107,7 +119,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  ComputerBios_GetComputerBios(
+  GetComputerBios(
     computerId: number,
     params: CommonParameters = {},
   ): Promise<LabTechModelsComputerBios> {
@@ -118,7 +130,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  CommandExecute_GetCommandExecuteList(
+  GetCommandExecuteList(
     computerId: number,
     params: CommonParameters = {},
   ): Promise<LabTechDatabaseResultSetWithCount_LabTechModelsCommandExecute_> {
@@ -129,7 +141,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  CommandExecute_PostCommandExecute(
+  PostCommandExecute(
     computerId: number,
     CommandExecute: LabTechModelsCommandExecute,
   ): Promise<LabTechModelsCommandExecute> {
@@ -140,7 +152,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  CommandHistory_GetCommandHistoryList(
+  GetCommandHistoryList(
     computerId: number,
     params: CommonParameters = {},
   ): Promise<LabTechDatabaseResultSetWithCount_LabTechModelsCommandHistory_> {
@@ -151,7 +163,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  ComputerPatchingPolicies_GetComputerPatchingPolicyListAsync(
+  GetComputerPatchingPolicyListAsync(
     computerId: number,
     params: CommonParameters = {},
   ): Promise<LabTechDatabaseResultSetWithCount_LabTechModelsComputerPatchingPolicy_> {
@@ -162,7 +174,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  Computers_GetComputerDeviceList(
+  GetComputerDeviceList(
     computerId: number,
     params: CommonParameters = {},
   ): Promise<LabTechModelsComputerDevice[]> {
@@ -173,7 +185,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  ComputerDrivers_GetComputerDrivers(
+  GetComputerDrivers(
     computerId: number,
     params: CommonParameters = {},
   ): Promise<LabTechDatabaseResultSetWithCount_LabTechRepositoriesMySQLDomainModelsComputerDriver_> {
@@ -184,7 +196,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  ComputerDrives_GetComputerDriveSmartDataList(
+  GetComputerDriveSmartDataList(
     computerId: number,
     driveId: number,
     params: CommonParameters = {},
@@ -196,7 +208,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  ComputerEffectivePatchingPolicy_GetComputerEffectivePatchingPolicy(
+  GetComputerEffectivePatchingPolicy(
     computerId: number,
     params: CommonParameters = {},
   ): Promise<LabTechModelsComputerEffectivePatchingPolicy> {
@@ -207,7 +219,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  ComputerMicrosoftUpdateData_GetComputerMicrosoftUpdateDataListAsync(
+  GetComputerMicrosoftUpdateDataListAsync(
     computerId: number,
     params: CommonParameters = {},
   ): Promise<object> {
@@ -218,10 +230,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  MonitorAlertSuspensions_GetSuspensionList(
-    computerId: number,
-    params: CommonParameters = {},
-  ): Promise<object> {
+  GetSuspensionList(computerId: number, params: CommonParameters = {}): Promise<object> {
     return this.request({
       path: `/api/v1/Computers/${computerId}/MonitorAlertSuspensions`,
       method: 'get',
@@ -229,7 +238,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  MonitorAlertSuspensions_PostSuspension(
+  PostSuspension(
     computerId: number,
     integer: number,
   ): Promise<LabTechRepositoriesMySQLDomainModelsAlertingMonitorAlertSuspension> {
@@ -240,10 +249,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  ComputerMonitors_GetComputerMonitorsList(
-    computerId: number,
-    params: CommonParameters = {},
-  ): Promise<object> {
+  GetComputerMonitorsList(computerId: number, params: CommonParameters = {}): Promise<object> {
     return this.request({
       path: `/api/v1/Computers/${computerId}/Monitors`,
       method: 'get',
@@ -251,7 +257,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  ComputerOperatingSystem_GetComputerOperatingSystem(
+  GetComputerOperatingSystem(
     computerId: number,
     params: CommonParameters = {},
   ): Promise<LabTechModelsComputerOperatingSystem> {
@@ -262,7 +268,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  DevicePatchingStatistics_GetDevicePatchingStatisticsAsync(
+  GetDevicePatchingStatisticsAsync(
     computerId: number,
     params: CommonParameters = {},
   ): Promise<AutomateApiDomainContractsPatchingComputerPatchingStats> {
@@ -273,10 +279,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  PatchJob_GetComputerPatchJobListAsync(
-    computerId: number,
-    params: CommonParameters = {},
-  ): Promise<object> {
+  GetComputerPatchJobListAsync(computerId: number, params: CommonParameters = {}): Promise<object> {
     return this.request({
       path: `/api/v1/Computers/${computerId}/PatchJobs`,
       method: 'get',
@@ -284,7 +287,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  ComputerPrinters_GetComputerPrintersList(
+  GetComputerPrintersList(
     computerId: number,
     params: CommonParameters = {},
   ): Promise<LabTechDatabaseResultSetWithCount_LabTechModelsComputerPrinter_> {
@@ -295,7 +298,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  Computers_GetComputerProcessorList(
+  GetComputerProcessorList(
     computerId: number,
     params: CommonParameters = {},
   ): Promise<LabTechDatabaseResultSetWithCount_LabTechModelsComputerProcessor_> {
@@ -306,7 +309,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  ComputerRunningScripts_GetComputerRunningScripts(
+  GetComputerRunningScripts(
     computerId: number,
     params: CommonParameters = {},
   ): Promise<LabTechModelsComputerRunningScript[]> {
@@ -317,7 +320,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  ScheduledScript_GetComputerScheduledScripts(
+  GetComputerScheduledScripts(
     computerId: number,
     params: CommonParameters = {},
   ): Promise<LabTechModelsScheduledScript[]> {
@@ -328,7 +331,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  ScheduledScript_PostComputerScheduledScript(
+  PostComputerScheduledScript(
     computerId: number,
     ScheduledScript: LabTechModelsScheduledScript,
   ): Promise<LabTechModelsScheduledScript> {
@@ -339,7 +342,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  ScheduledScript_GetComputerScheduledScript(
+  GetComputerScheduledScript(
     computerId: number,
     entityId: number,
     params: CommonParameters = {},
@@ -351,10 +354,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  ComputerScheduledTasks_GetScheduledTaskList(
-    computerId: number,
-    params: CommonParameters = {},
-  ): Promise<object> {
+  GetScheduledTaskList(computerId: number, params: CommonParameters = {}): Promise<object> {
     return this.request({
       path: `/api/v1/Computers/${computerId}/ScheduledTasks`,
       method: 'get',
@@ -362,7 +362,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  ComputerScheduledTasks_PostScheduledTask(
+  PostScheduledTask(
     computerId: number,
     ComputerScheduledTask: LabTechModelsComputerScheduledTask,
   ): Promise<NoContentResponse> {
@@ -373,7 +373,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  ComputerScriptHistory_GetComputerScriptHistoryList(
+  GetComputerScriptHistoryList(
     computerId: number,
     params: CommonParameters = {},
   ): Promise<LabTechModelsComputerScriptHistory[]> {
@@ -384,7 +384,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  ComputerSensor_GetComputerSensorListAsync(
+  GetComputerSensorListAsync(
     computerId: number,
     params: CommonParameters = {},
   ): Promise<LabTechDatabaseResultSetWithCount_LabTechModelsComputerSensor_> {
@@ -395,7 +395,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  Computers_GetComputerServiceList(
+  GetComputerServiceList(
     computerId: number,
     params: CommonParameters = {},
   ): Promise<LabTechDatabaseResultSetWithCount_LabTechModelsComputerService_> {
@@ -406,7 +406,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  Computers_GetComputerSoftwareList(
+  GetComputerSoftwareList(
     computerId: number,
     params: CommonParameters = {},
   ): Promise<LabTechDatabaseResultSetWithCount_LabTechModelsComputerSoftware_> {
@@ -417,7 +417,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  ComputerSoftwareActions_UninstallSoftware(
+  UninstallSoftware(
     computerId: number,
     softwareId: number,
     SoftwareUninstallInfo: LabTechRESTApiRpcContractsSoftwareUninstallInfo,
@@ -429,7 +429,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  ComputerSystemSlots_GetComputerSystemSlotList(
+  GetComputerSystemSlotList(
     computerId: number,
     params: CommonParameters = {},
   ): Promise<LabTechDatabaseResultSetWithCount_LabTechModelsComputerSystemSlot_> {
@@ -440,7 +440,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  ComputerThirdPartyPatches_GetComputerThirdPartyPatchListAsync(
+  GetComputerThirdPartyPatchListAsync(
     computerId: number,
     params: CommonParameters = {},
   ): Promise<object> {
@@ -451,7 +451,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  ComputerUps_GetComputerUpsListAsync(
+  GetComputerUpsListAsync(
     computerId: number,
     params: CommonParameters = {},
   ): Promise<LabTechModelsComputerUps[]> {
@@ -462,7 +462,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  Computers_GetComputerVideoCardList(
+  GetComputerVideoCardList(
     computerId: number,
     params: CommonParameters = {},
   ): Promise<LabTechDatabaseResultSetWithCount_LabTechModelsComputerVideoCard_> {
@@ -473,7 +473,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  Chassis_GetComputerChassis(
+  GetComputerChassis(
     params: CommonParameters = {},
   ): Promise<LabTechDatabaseResultSetWithCount_LabTechModelsComputerChassis_> {
     return this.request({
@@ -483,7 +483,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  ComputerDrives_GetComputerDriveList(
+  GetComputerDriveList(
     params: CommonParameters = {},
   ): Promise<LabTechDatabaseResultSetWithCount_LabTechModelsComputerDrive_> {
     return this.request({
@@ -493,7 +493,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  Computers_GetComputerMaintenanceModeList(
+  GetComputerMaintenanceModeList(
     params: CommonParameters = {},
   ): Promise<LabTechDatabaseResultSetWithCount_LabTechModelsMaintenanceMode_> {
     return this.request({
@@ -503,7 +503,7 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  Computers_GetComputerMemorySlotList(
+  GetComputerMemorySlotList(
     params: CommonParameters = {},
   ): Promise<LabTechDatabaseResultSetWithCount_LabTechModelsComputerMemorySlot_> {
     return this.request({
@@ -513,13 +513,54 @@ export default class ComputersAPI extends Automate {
     })
   }
 
-  Computers_GetComputerSoftwareList(
+  GetComputerSoftwareList(
     params: CommonParameters = {},
   ): Promise<LabTechDatabaseResultSetWithCount_LabTechModelsComputerSoftware_> {
     return this.request({
       path: `/api/v1/Computers/Software`,
       method: 'get',
       params,
+    })
+  }
+
+  GetRetiredAssetList(
+    params: CommonParameters = {},
+  ): Promise<LabTechDatabaseResultSetWithCount_LabTechModelsRetiredAsset_> {
+    return this.request({
+      path: `/api/v1/RetiredAssets`,
+      method: 'get',
+      params,
+    })
+  }
+
+  ClassifyService(
+    serviceId: number,
+    ServiceClassification: LabTechModelsServiceClassification,
+  ): Promise<NoContentResponse> {
+    return this.request({
+      path: `/api/v1/services/${serviceId}/classify`,
+      method: 'post',
+      data: ServiceClassification,
+    })
+  }
+
+  GetVirusScannerDefinitionList(
+    params: CommonParameters = {},
+  ): Promise<LabTechModelsVirusScannerDef[]> {
+    return this.request({
+      path: `/api/v1/VirusScannerDefs`,
+      method: 'get',
+      params,
+    })
+  }
+
+  PostVirusScannerDefinition(
+    VirusScannerDef: LabTechModelsVirusScannerDef,
+  ): Promise<LabTechModelsVirusScannerDef> {
+    return this.request({
+      path: `/api/v1/VirusScannerDefs`,
+      method: 'post',
+      data: VirusScannerDef,
     })
   }
 }

@@ -29,18 +29,26 @@ export type RetryOptions = {
   retries: number
   maxTimeout: number
   randomize: boolean
+  factor?: number
 }
 
 export type RequestOptions = {
   path: string
   method?: Methods
   params?: Record<string, unknown>
-  data?: Record<string, unknown> | Record<string, unknown>[] | PatchOperation[] | null | undefined
+  data?:
+    | Record<string, unknown>
+    | Record<string, unknown>[]
+    | PatchOperation[]
+    | null
+    | string
+    | number
+    | undefined
 }
 
-export type LoggingLevels = 'error' | 'info' | 'debug'
-
-export type CWLogger = (level: LoggingLevels, text: string, meta: Record<string, unknown>) => void
+export type LoggingLevels = 'error' | 'warn' | 'info' | 'debug'
+export type CWLoggerCurry = (debug: boolean) => CWLogger
+export type CWLogger = (level: LoggingLevels, text: string, meta?: Record<string, unknown>) => void
 
 export type DataResponse =
   | Record<string, unknown>

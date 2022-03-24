@@ -8,14 +8,14 @@ type schemas = components['schemas']
 /**
  * @internal
  */
-export default class MonitorHistoryAPI extends Automate {
+export default class TicketsAPI extends Automate {
   constructor(props: CWAOptions) {
     super(props)
   }
 
-  MonitorsHistory_GetMonitorHistoryList(params: CommonParameters = {}): Promise<object> {
+  GetTicketList(params: CommonParameters = {}): Promise<object> {
     return this.request({
-      path: `/api/v1/MonitorHistory`,
+      path: `/cwa/api/v1/Tickets`,
       method: 'get',
       params,
     })

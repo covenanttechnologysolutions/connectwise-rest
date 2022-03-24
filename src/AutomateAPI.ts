@@ -1,6 +1,7 @@
 import Automate from './Automate'
 import { CWLogger, RetryOptions } from './types'
-import type { AutomateTypes } from './types'
+import ComputersAPI from './Automate/ComputersAPI'
+import TicketAPI from './Automate/TicketAPI'
 
 /**
  * @public
@@ -16,6 +17,7 @@ export type CWAOptions = {
   retry?: boolean
   retryOptions?: RetryOptions
   logger?: CWLogger
+  debug?: boolean
 }
 
 export type OrderBy = {
@@ -57,7 +59,14 @@ export type QueryOptionExpand = {
  * @public
  */
 export default class AutomateAPI extends Automate {
+  ComputersAPI: ComputersAPI
+  TicketAPI: TicketAPI
+
   constructor(options: CWAOptions) {
     super(options)
+
+    this.ComputersAPI = new ComputersAPI(options)
+
+    this.TicketAPI = new TicketAPI(options)
   }
 }

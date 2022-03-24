@@ -19,7 +19,7 @@ export default class ContactsAPI extends Automate {
     super(props)
   }
 
-  Contacts_GetContactList(
+  GetContactList(
     params: CommonParameters = {},
   ): Promise<LabTechDatabaseResultSetWithCount_LabTechModelsContact_> {
     return this.request({
@@ -29,7 +29,17 @@ export default class ContactsAPI extends Automate {
     })
   }
 
-  V2Contacts_GetContactList(
+  GetSystemContactList(
+    params: CommonParameters = {},
+  ): Promise<LabTechDatabaseResultSetWithCount_LabTechModelsContact_> {
+    return this.request({
+      path: `/api/v1/SystemContacts`,
+      method: 'get',
+      params,
+    })
+  }
+
+  GetContactList(
     params: CommonParameters = {},
   ): Promise<LabTechDatabaseResultSetWithCount_AutomateApiDomainContractsClientsContact_> {
     return this.request({
@@ -39,7 +49,7 @@ export default class ContactsAPI extends Automate {
     })
   }
 
-  V2Contacts_GetContact(
+  GetContact(
     contactId: number,
     params: CommonParameters = {},
   ): Promise<AutomateApiDomainContractsClientsContact> {

@@ -1,4 +1,5 @@
 import axios, { AxiosError, AxiosInstance, AxiosResponse } from 'axios'
+import { makeRequest } from './BaseAPI'
 import promiseRetry from 'promise-retry'
 import type { CWMOptions } from './ManageAPI'
 import { CWLogger, DataResponse, ErrorResponse, RequestOptions, RetryOptions } from './types'
@@ -8,7 +9,7 @@ const CW_MANAGE_DEBUG = !!process.env.CW_MANAGE_DEBUG
 export const DEFAULTS: {
   retryOptions: RetryOptions
   apiPath: string
-  logger: CWLogger
+  logger: (debug: boolean) => CWLogger
 } = {
   apiPath: '/apis/3.0',
   retryOptions: {
@@ -17,26 +18,40 @@ export const DEFAULTS: {
     maxTimeout: 20000,
     randomize: true,
   },
-  logger: (level, text, meta) => {
-    switch (level) {
-      case 'error':
-        console.error(`${level}: ${text}`, meta)
-        return
-      case 'info': {
-        if (CW_MANAGE_DEBUG) {
-          console.info(`${level}: ${text}`, meta)
+  logger:
+    (debug = false) =>
+    (level, text, meta) => {
+      switch (level) {
+        case 'error':
+          console.error(`${level}: ${text}`, meta)
+          return
+        case 'warn':
+          if (debug) {
+            console.log(`${level}: ${text}`, meta)
+          }
+          return
+        case 'info': {
+          if (debug) {
+            console.info(`${level}: ${text}`, meta)
+          }
+          return
         }
-        return
+        default:
+          console.log(`${level}: ${text}`, meta)
+          return
       }
-      default:
-        console.log(`${level}: ${text}`, meta)
-        return
-    }
-  },
+    },
 }
 
-interface ManageConfig extends CWMOptions {
+export interface ManageConfig extends CWMOptions {
   authorization: string
+  entryPoint: string
+  timeout: number
+  apiVersion: string
+  retry: boolean
+  retryOptions: RetryOptions
+  logger: CWLogger
+  debug: boolean
 }
 
 /**
@@ -45,6 +60,10 @@ interface ManageConfig extends CWMOptions {
 export default class Manage {
   config: ManageConfig
   private instance: AxiosInstance
+  /**
+   * @public
+   */
+  request: (args: RequestOptions) => Promise<any>
 
   constructor({
     companyId,
@@ -57,10 +76,11 @@ export default class Manage {
     apiVersion = '3.0.0',
     retry = false,
     retryOptions = DEFAULTS.retryOptions,
-    logger = DEFAULTS.logger,
+    logger,
+    debug = false,
   }: CWMOptions) {
     if (!companyId || !publicKey || !privateKey || !companyUrl || !clientId) {
-      throw new Error('Missing options [companyId, publicKey, privateKey, companyUrl]')
+      throw new Error('Missing options [companyId, publicKey, privateKey, companyUrl, clientId]')
     }
 
     this.config = {
@@ -72,11 +92,13 @@ export default class Manage {
       entryPoint,
       apiVersion,
       retry,
+      timeout,
+      logger: logger ? logger : DEFAULTS.logger(debug || CW_MANAGE_DEBUG),
+      debug: debug || CW_MANAGE_DEBUG,
       retryOptions: {
         ...DEFAULTS.retryOptions,
         ...retryOptions,
       },
-      logger,
       authorization: `Basic ${Buffer.from(`${companyId}+${publicKey}:${privateKey}`).toString(
         'base64',
       )}`,
@@ -92,28 +114,14 @@ export default class Manage {
         clientId: this.config.clientId,
       },
     })
+
+    this.request = makeRequest({ config: this.config, api: this.api, thisObj: this })
   }
 
-  request({ path, method = 'get', params, data }: RequestOptions): Promise<any> {
-    const retryCodes = ['ECONNRESET', 'ETIMEDOUT', 'ESOCKETTIMEDOUT']
-    const startTime = Date.now()
-
-    if (!path) {
-      throw new Error('path must be defined.')
-    }
-
-    const { retry } = this.config
-
-    if (retry) {
-      return promiseRetry((retry, number) => {
-        return this.#api({ path, method, params, data })
-      })
-    } else {
-      return this.#api({ path, method, params, data })
-    }
-  }
-
-  async #api({
+  /**
+   * @internal
+   */
+  private async api({
     path,
     method,
     params,
