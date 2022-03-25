@@ -23,6 +23,19 @@ export type SeriesOptions = {
  * @param options.delay - number of ms between request groups
  * @returns array of promise results
  * @public
+ *
+ * @example
+ * ```javascript
+ *    const results = await Series.all({
+ *      series: [
+ *        () => true,
+ *        new Promise((resolve) => resolve(true),
+ *        () => new Promise((resolve) => resolve(true)
+ *      ],
+ *      concurrent: 3,
+ *      delay: 10,
+ *    })
+ * ```
  */
 function all({ series = [], concurrent = 1, delay = 0 }: SeriesOptions): Promise<Array<unknown>> {
   const promises = series.slice()
@@ -64,4 +77,6 @@ function all({ series = [], concurrent = 1, delay = 0 }: SeriesOptions): Promise
   })
 }
 
-export default { all }
+const Series = { all }
+
+export default Series

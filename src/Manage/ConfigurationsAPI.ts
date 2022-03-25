@@ -4,7 +4,7 @@ import { components } from '../ManageTypes'
 import { CommonParameters, CWMOptions } from '../ManageAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
-false
+
 export type ConfigurationTypeInfo = schemas['ConfigurationTypeInfo']
 export type ConfigurationTypeQuestionInfo = schemas['ConfigurationTypeQuestionInfo']
 export type ConfigurationTypeQuestionValueInfo = schemas['ConfigurationTypeQuestionValueInfo']

@@ -234,7 +234,7 @@ ${
 }
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
-${generatorType === 'Automate' && `type requestBodies = components['requestBodies']`}
+${generatorType === 'Automate' ? `type requestBodies = components['requestBodies']` : ''}
 ${typeDefs.join('\n')}
 
 /**

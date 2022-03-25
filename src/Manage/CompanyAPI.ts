@@ -4,7 +4,7 @@ import { components } from '../ManageTypes'
 import { CommonParameters, CWMOptions } from '../ManageAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
-false
+
 export type AddressFormat = schemas['AddressFormat']
 export type AddressFormatInfo = schemas['AddressFormatInfo']
 export type BulkResult = schemas['BulkResult']
