@@ -40,7 +40,7 @@ jobs:
         AUTOMATE_API_USER: ${{ secrets.AUTOMATE_API_USER }}
         AUTOMATE_API_PASSWORD: ${{ secrets.AUTOMATE_API_PASSWORD }}
         AUTOMATE_API_CLIENT_ID: ${{ secrets.AUTOMATE_API_CLIENT_ID }}
-    - run: npm coveralls
+    - run: npm run coveralls
     - name: Coveralls
       uses: coverallsapp/github-action@v1.1.0
       env:
