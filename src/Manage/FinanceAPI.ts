@@ -4,7 +4,7 @@ import { components } from '../ManageTypes'
 import { CommonParameters, CWMOptions } from '../ManageAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
-false
+
 export type AccountingBatch = schemas['AccountingBatch']
 export type AccountingPackage = schemas['AccountingPackage']
 export type AccountingPackageSetup = schemas['AccountingPackageSetup']

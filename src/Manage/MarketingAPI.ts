@@ -4,7 +4,7 @@ import { components } from '../ManageTypes'
 import { CommonParameters, CWMOptions } from '../ManageAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
-false
+
 export type ActivityReference = schemas['ActivityReference']
 export type Campaign = schemas['Campaign']
 export type CampaignSubTypeCampaignSubType = schemas['Campaign.SubType.CampaignSubType']
