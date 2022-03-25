@@ -9,7 +9,7 @@ export type LabTechModelsSearch = schemas['LabTech.Models.Search']
 export type LabTechModelsSearchFolder = schemas['LabTech.Models.SearchFolder']
 
 /**
- * @internal
+ * @public
  */
 export default class SearchesAPI extends Automate {
   constructor(props: CWAOptions) {

@@ -48,7 +48,7 @@ export type Ticket = schemas['Ticket']
 export type Usage = schemas['Usage']
 
 /**
- * @internal
+ * @public
  */
 export default class SalesAPI extends Manage {
   constructor(props: CWMOptions) {

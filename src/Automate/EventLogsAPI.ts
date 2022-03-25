@@ -8,7 +8,7 @@ type requestBodies = components['requestBodies']
 export type LabTechModelsEventLog = schemas['LabTech.Models.EventLog']
 
 /**
- * @internal
+ * @public
  */
 export default class EventLogsAPI extends Automate {
   constructor(props: CWAOptions) {

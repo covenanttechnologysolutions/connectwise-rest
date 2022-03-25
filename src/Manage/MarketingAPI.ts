@@ -25,7 +25,7 @@ export type TypeSubTypeCampaignSubType = schemas['Type.SubType.CampaignSubType']
 export type Usage = schemas['Usage']
 
 /**
- * @internal
+ * @public
  */
 export default class MarketingAPI extends Manage {
   constructor(props: CWMOptions) {

@@ -14,7 +14,7 @@ export type LabTechModelsManagedLicense = schemas['LabTech.Models.ManagedLicense
 export type LabTechModelsProductKey = schemas['LabTech.Models.ProductKey']
 
 /**
- * @internal
+ * @public
  */
 export default class ClientsAPI extends Automate {
   constructor(props: CWAOptions) {

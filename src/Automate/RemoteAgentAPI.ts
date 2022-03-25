@@ -9,7 +9,7 @@ export type LabTechModelsRemoteAgentSchedule = schemas['LabTech.Models.RemoteAge
 export type LabTechModelsRemoteAgentTemplate = schemas['LabTech.Models.RemoteAgentTemplate']
 
 /**
- * @internal
+ * @public
  */
 export default class RemoteAgentAPI extends Automate {
   constructor(props: CWAOptions) {

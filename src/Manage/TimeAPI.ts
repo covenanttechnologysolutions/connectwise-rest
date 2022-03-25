@@ -32,7 +32,7 @@ export type WorkType = schemas['WorkType']
 export type WorkTypeInfo = schemas['WorkTypeInfo']
 
 /**
- * @internal
+ * @public
  */
 export default class TimeAPI extends Manage {
   constructor(props: CWMOptions) {

@@ -15,7 +15,7 @@ export type LabTechRESTApiModelsPatchOperationArray =
   requestBodies['LabTech.RESTApi.Models.PatchOperationArray']
 
 /**
- * @internal
+ * @public
  */
 export default class ScriptingAPI extends Automate {
   constructor(props: CWAOptions) {

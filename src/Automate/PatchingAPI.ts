@@ -10,7 +10,7 @@ export type AutomateApiDomainContractsPatchingGroupPatchingPolicy =
 export type LabTechModelsPatchActionArgs = requestBodies['LabTech.Models.PatchActionArgs']
 
 /**
- * @internal
+ * @public
  */
 export default class PatchingAPI extends Automate {
   constructor(props: CWAOptions) {

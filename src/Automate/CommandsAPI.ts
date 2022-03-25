@@ -8,7 +8,7 @@ type requestBodies = components['requestBodies']
 export type LabTechModelsCommand = schemas['LabTech.Models.Command']
 
 /**
- * @internal
+ * @public
  */
 export default class CommandsAPI extends Automate {
   constructor(props: CWAOptions) {

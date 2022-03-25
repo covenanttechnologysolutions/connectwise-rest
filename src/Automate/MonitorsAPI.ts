@@ -10,7 +10,7 @@ export type LabTechRepositoriesMySQLDomainModelsMonitorDataCollectionSettings =
   schemas['LabTech.Repositories.MySQL.Domain.Models.MonitorDataCollectionSettings']
 
 /**
- * @internal
+ * @public
  */
 export default class MonitorsAPI extends Automate {
   constructor(props: CWAOptions) {

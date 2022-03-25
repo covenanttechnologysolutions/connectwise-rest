@@ -9,7 +9,7 @@ export type AutomateApiDomainContractsMaintenanceMaintenanceWindowDefinition =
   schemas['Automate.Api.Domain.Contracts.Maintenance.MaintenanceWindowDefinition']
 
 /**
- * @internal
+ * @public
  */
 export default class MaintenanceWindowDefinitionsAPI extends Automate {
   constructor(props: CWAOptions) {

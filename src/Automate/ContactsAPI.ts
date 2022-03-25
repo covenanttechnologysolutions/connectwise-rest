@@ -10,7 +10,7 @@ export type AutomateApiDomainContractsClientsContact =
 export type LabTechModelsContact = schemas['LabTech.Models.Contact']
 
 /**
- * @internal
+ * @public
  */
 export default class ContactsAPI extends Automate {
   constructor(props: CWAOptions) {

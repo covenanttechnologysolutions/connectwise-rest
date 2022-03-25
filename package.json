@@ -18,7 +18,7 @@
     "build": "npx tsc",
     "postbuild": "npm run lint",
     "lint": "npx eslint -c .eslintrc --fix",
-    "coveralls": "npx nyc report --reporter=text-lcov",
+    "coveralls": "npx nyc report --reporter=text-lcov | npx coveralls",
     "docs": "npx typedoc src/index.ts",
     "gh-pages": "npx gh-pages -d docs"
   },

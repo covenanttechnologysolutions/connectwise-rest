@@ -9,7 +9,7 @@ export type LabTechModelsNetworkDevice = schemas['LabTech.Models.NetworkDevice']
 export type LabTechModelsRouter = schemas['LabTech.Models.Router']
 
 /**
- * @internal
+ * @public
  */
 export default class NetworkDevicesAPI extends Automate {
   constructor(props: CWAOptions) {

@@ -13,7 +13,7 @@ export type LabTechModelsTemplateAvailableProperty =
 export type LabTechModelsTemplateProperty = schemas['LabTech.Models.TemplateProperty']
 
 /**
- * @internal
+ * @public
  */
 export default class AVTemplatePoliciesAPI extends Automate {
   constructor(props: CWAOptions) {

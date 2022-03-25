@@ -29,7 +29,7 @@ export type LabTechRepositoriesMySQLDomainModelsProbeEventLevel =
   schemas['LabTech.Repositories.MySQL.Domain.Models.ProbeEventLevel']
 
 /**
- * @internal
+ * @public
  */
 export default class LocationsAPI extends Automate {
   constructor(props: CWAOptions) {

@@ -238,7 +238,7 @@ ${generatorType === 'Automate' ? `type requestBodies = components['requestBodies
 ${typeDefs.join('\n')}
 
 /**
- * @internal
+ * @public
  */
 export default class ${apiName}API extends ${generatorType} {
   constructor(props: ${generatorType === 'Manage' ? 'CWMOptions' : 'CWAOptions'}) {

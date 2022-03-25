@@ -45,7 +45,7 @@ export type LabTechRepositoriesMySQLDomainModelsComputerDriver =
   schemas['LabTech.Repositories.MySQL.Domain.Models.ComputerDriver']
 
 /**
- * @internal
+ * @public
  */
 export default class ComputersAPI extends Automate {
   constructor(props: CWAOptions) {

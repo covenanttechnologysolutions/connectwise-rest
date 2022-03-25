@@ -42,7 +42,7 @@ export type LabTechRESTApiSecurityAuthServiceCredentials =
   schemas['LabTech.RESTApi.Security.AuthServiceCredentials']
 
 /**
- * @internal
+ * @public
  */
 export default class SystemAPI extends Automate {
   constructor(props: CWAOptions) {

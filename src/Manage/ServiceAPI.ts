@@ -77,7 +77,7 @@ export type TimeEntryReference = schemas['TimeEntryReference']
 export type Usage = schemas['Usage']
 
 /**
- * @internal
+ * @public
  */
 export default class ServiceAPI extends Manage {
   constructor(props: CWMOptions) {

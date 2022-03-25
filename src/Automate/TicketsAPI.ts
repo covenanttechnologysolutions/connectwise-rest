@@ -7,7 +7,7 @@ type schemas = components['schemas']
 type requestBodies = components['requestBodies']
 
 /**
- * @internal
+ * @public
  */
 export default class TicketsAPI extends Automate {
   constructor(props: CWAOptions) {

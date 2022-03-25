@@ -9,7 +9,7 @@ export type LabTechRepositoriesMySQLDomainModelsPresentationLayerUserProfile =
   schemas['LabTech.Repositories.MySQL.Domain.Models.PresentationLayer.UserProfile']
 
 /**
- * @internal
+ * @public
  */
 export default class UserProfilesAPI extends Automate {
   constructor(props: CWAOptions) {

@@ -65,7 +65,7 @@ export type WarehouseBinInfo = schemas['WarehouseBinInfo']
 export type WarehouseInfo = schemas['WarehouseInfo']
 
 /**
- * @internal
+ * @public
  */
 export default class ProcurementAPI extends Manage {
   constructor(props: CWMOptions) {

@@ -81,7 +81,7 @@ export type Usage = schemas['Usage']
 export type WorkRoleExemption = schemas['WorkRoleExemption']
 
 /**
- * @internal
+ * @public
  */
 export default class FinanceAPI extends Manage {
   constructor(props: CWMOptions) {
