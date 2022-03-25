@@ -1,0 +1,60 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Node.js CI
+
+on:
+  push:
+    branches: [ master, dev ]
+  pull_request:
+    branches: [ master, dev ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+      env:
+        MANAGE_API_COMPANY: ${{ secrets.MANAGE_API_COMPANY }}
+        MANAGE_API_URL: ${{ secrets.MANAGE_API_URL }}
+        MANAGE_API_PUBLIC_KEY: ${{ secrets.MANAGE_API_PUBLIC_KEY }}
+        MANAGE_API_PRIVATE_KEY: ${{ secrets.MANAGE_API_PRIVATE_KEY }}
+        MANAGE_API_CLIENT_ID: ${{ secrets.MANAGE_API_CLIENT_ID }}
+
+        AUTOMATE_API_URL: ${{ secrets.AUTOMATE_API_URL }}
+        AUTOMATE_API_USER: ${{ secrets.AUTOMATE_API_USER }}
+        AUTOMATE_API_PASSWORD: ${{ secrets.AUTOMATE_API_PASSWORD }}
+        AUTOMATE_API_CLIENT_ID: ${{ secrets.AUTOMATE_API_CLIENT_ID }}
+    - run: npm ci
+    - run: npm run build --if-present
+    - run: npm test
+    - name: Coveralls
+      uses: coverallsapp/github-action@v1.1.0
+      env:
+        NODE_COVERALLS_DEBUG: 1
+      with:
+        github-token: ${{ secrets.github_token }}
+        parallel: true
+        flag-name: run-${{ matrix.node-version }}
+     
+  finish:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Coveralls Finished
+        uses: coverallsapp/github-action@v1.1.0
+        with:
+          github-token: ${{ secrets.github_token }}
+          parallel-finished: true
