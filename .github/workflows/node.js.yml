@@ -40,23 +40,3 @@ jobs:
         AUTOMATE_API_USER: ${{ secrets.AUTOMATE_API_USER }}
         AUTOMATE_API_PASSWORD: ${{ secrets.AUTOMATE_API_PASSWORD }}
         AUTOMATE_API_CLIENT_ID: ${{ secrets.AUTOMATE_API_CLIENT_ID }}
-    - run: npm run coveralls
-    - name: Coveralls
-      uses: coverallsapp/github-action@v1.1.0
-      env:
-        NODE_COVERALLS_DEBUG: 1
-      with:
-        path-to-lcov: ./nyc_output/lcov.info
-        github-token: ${{ secrets.github_token }}
-        parallel: true
-        flag-name: run-${{ matrix.node-version }}
-
-  finish:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Coveralls Finished
-        uses: coverallsapp/github-action@v1.1.0
-        with:
-          github-token: ${{ secrets.github_token }}
-          parallel-finished: true

@@ -24,80 +24,80 @@ See the full documentation [here](https://covenanttechnologysolutions.github.io/
 ### Manage
 
 ```javascript
-    // CommonJS
-    import { ManageAPI } from 'connectwise-rest';
-    // ESM
-    const { ManageAPI } = require('connectwise-rest');
-    
-    const cwm = new ManageAPI({
-        companyId: 'company',
-        companyUrl: 'your.connectwise.com',
-        publicKey: '<public key>',
-        privateKey: '<private key>',
-        clientId: '<your client id>',
-        entryPoint: 'v4_6_release', // optional, defaults to 'v4_6_release'
-        apiVersion: '3.0.0',        // optional, defaults to '3.0.0'
-        timeout: 20000,             // optional, request connection timeout in ms, defaults to 20000
-        retry: false,               // optional, defaults to false
-        retryOptions: {             // optional, override retry behavior, defaults as shown
-          retries: 4,               // maximum number of retries
-          minTimeout: 50,           // number of ms to wait between retries
-          maxTimeout: 20000,        // maximum number of ms between retries
-          randomize: true,          // randomize timeouts
-        },
-        debug: false,               // optional, enable debug logging
-        logger: (level, text, meta) => { } // optional, pass in logging function
-    });
-    
-    cwm.ServiceDeskAPI.Tickets.getTicketById(1234)
-        .then((ticket) => {
-            //do something with results
-        })
-        .catch((error) => {
-            //handle errors
-        });
+// ESM
+import { AutomateAPI } from 'connectwise-rest';
+// CommonJS
+const { AutomateAPI } = require('connectwise-rest');
+
+const cwm = new ManageAPI({
+  companyId: 'company',
+  companyUrl: 'your.connectwise.com',
+  publicKey: '<public key>',
+  privateKey: '<private key>',
+  clientId: '<your client id>',
+  entryPoint: 'v4_6_release', // optional, defaults to 'v4_6_release'
+  apiVersion: '3.0.0',        // optional, defaults to '3.0.0'
+  timeout: 20000,             // optional, request connection timeout in ms, defaults to 20000
+  retry: false,               // optional, defaults to false
+  retryOptions: {             // optional, override retry behavior, defaults as shown
+    retries: 4,               // maximum number of retries
+    minTimeout: 50,           // number of ms to wait between retries
+    maxTimeout: 20000,        // maximum number of ms between retries
+    randomize: true,          // randomize timeouts
+  },
+  debug: false,               // optional, enable debug logging
+  logger: (level, text, meta) => { } // optional, pass in logging function
+});
+
+cwm.ServiceDeskAPI.Tickets.getTicketById(1234)
+  .then((ticket) => {
+      //do something with results
+  })
+  .catch((error) => {
+      //handle errors
+  });
 ```
 
 
 ### Automate
 
 ```javascript
-    // CommonJS
-    import { AutomateAPI } from 'connectwise-rest';
-    // ESM
-    const { AutomateAPI } = require('connectwise-rest');
-    
-    const cwa = new ManageAPI({
-        companyId: 'company',
-        serverUrl: 'your.connectwise.com',
-        clientId: '<your client id>',
-        // One of the following: token, integrator username and password or username, password and two-factor code
-        token: '<bearer token>',
-      
-        // or integrator username/password:
-        username: '<username>',
-        password: '<private key>',
-        twoFactorPasscode: '<2fa code>',
+// ESM
+import { AutomateAPI } from 'connectwise-rest';
+// CommonJS
+const { AutomateAPI } = require('connectwise-rest');
 
-        timeout: 20000,             // optional, request connection timeout in ms, defaults to 20000
-        retry: false,               // optional, defaults to false
-        retryOptions: {             // optional, override retry behavior, defaults as shown
-          retries: 4,               // maximum number of retries
-          minTimeout: 50,           // number of ms to wait between retries
-          maxTimeout: 20000,        // maximum number of ms between retries
-          randomize: true,          // randomize timeouts
-        },
-        debug: false,               // optional, enable debug logging
-        logger: (level, text, meta) => { } // optional, pass in logging function
-    });
-    
-    cwa.ComputersAPI.getComputerList()
-        .then((computers) => {
-            //do something with results
-        })
-        .catch((error) => {
-            //handle errors
-        });
+const cwa = new ManageAPI({
+  companyId: 'company',
+  serverUrl: 'your.connectwise.com',
+  clientId: '<your client id>',
+  // One of the following: token, integrator username and password or username, password and two-factor code
+  token: '<bearer token>',
+
+  // or integrator username/password:
+  username: '<username>',
+  password: '<private key>',
+  twoFactorPasscode: '<2fa code>',
+
+  timeout: 20000,             // optional, request connection timeout in ms, defaults to 20000
+  retry: false,               // optional, defaults to false
+  retryOptions: {             // optional, override retry behavior, defaults as shown
+    retries: 4,               // maximum number of retries
+    minTimeout: 50,           // number of ms to wait between retries
+    maxTimeout: 20000,        // maximum number of ms between retries
+    randomize: true,          // randomize timeouts
+  },
+  debug: false,               // optional, enable debug logging
+  logger: (level, text, meta) => { } // optional, pass in logging function
+});
+
+cwa.ComputersAPI.getComputerList()
+  .then((computers) => {
+      //do something with results
+  })
+  .catch((error) => {
+      //handle errors
+  });
 ```
 
 ### APIs Without Typings
