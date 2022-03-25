@@ -20,3 +20,11 @@ docs/scripts/
 docs/*.html*
 .nyc_output
 test/definitions
+v0
+generator/automate-json
+generator/manage-json
+generator/Manage
+generator/Automate
+dist
+temp
+docs

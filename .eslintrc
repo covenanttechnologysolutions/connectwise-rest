@@ -1,58 +1,26 @@
 {
-  "env": {
-    "browser": false,
-    "node": true,
-    "es6": true
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest"
   },
-  "extends": ["eslint:recommended"],
-  "rules": {
-    "no-undef": "warn",
-    "no-unused-vars": "warn",
-    "space-before-function-paren": 0,
-    "object-curly-spacing": 0,
-    "arrow-body-style": 0,
-    "linebreak-style": 0,
-    "consistent-return": "off",
-    "prefer-template": "warn",
-    "global-require": "off",
-    "no-case-declarations": "off",
-    "no-underscore-dangle": "off",
-    "no-var": "error",
-    "prefer-const": "error",
-    "one-var": ["error", "never"],
-    "template-curly-spacing": ["error", "never"],
-    "no-shadow": [
-      "error", {
-        "allow": [
-          "then", "catch", "done"
-        ]
-      }
-    ],
-    "max-len": [
-      "error", {
-        "code": 140,
-        "ignoreComments": true
-      }
-    ],
-    // use ide formatting
-    "indent": [
-      2, 2, {
-        "SwitchCase": 1
-      }
-    ],
-    "quotes": [
-      2, "single"
-    ],
-    "new-cap": 0,
-    "no-prototype-builtins": 0,
-    "no-restricted-syntax": [
-      "error", "WithStatement"
-    ],
-    "no-use-before-define": [
-      "error", {
-        "functions": false,
-        "classes": true
-      }
-    ]
+  "plugins": ["@typescript-eslint", "prettier"],
+  "env": {
+    "node": true,
+    "mocha": true,
+    "es6": true,
+  },
+  "extends": [
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {},
+  "ignorePatterns": [
+    "dist",
+    "src/AutomateTypes.js",
+    "src/ManageTypes.js"
+  ],
+  "settings": {
+
   }
 }

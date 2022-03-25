@@ -1,0 +1,29 @@
+{
+  "include": [
+    "src/**/*.js",
+    "src/**/*.ts"
+  ],
+  "exclude": ["scripts"],
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["ES2015"],
+    "module": "commonjs",
+    "moduleResolution": "Node",
+    "noImplicitReturns": true,
+    "outDir": "./dist",
+    "strict": true,
+    "target": "ES2018",
+    "useDefineForClassFields": true
+  },
+  "typedocOptions": {
+    "entryPoints": ["src/index.ts"],
+    "entryPointStrategy": "resolve",
+    "out": "docs"
+  }
+}

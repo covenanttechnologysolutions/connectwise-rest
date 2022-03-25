@@ -1,0 +1,5 @@
+{
+  "timeout": 10000,
+  "ui": "bdd",
+  "extension": ["ts", "js"]
+}
