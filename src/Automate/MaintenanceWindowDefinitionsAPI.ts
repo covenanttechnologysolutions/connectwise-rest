@@ -4,8 +4,9 @@ import { components } from '../AutomateTypes'
 import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
-type LabTechDatabaseResultSetWithCount_AutomateApiDomainContractsMaintenanceMaintenanceWindowDefinition_ =
-  schemas['LabTech.Database.ResultSetWithCount_Automate.Api.Domain.Contracts.Maintenance.MaintenanceWindowDefinition_']
+type requestBodies = components['requestBodies']
+export type AutomateApiDomainContractsMaintenanceMaintenanceWindowDefinition =
+  schemas['Automate.Api.Domain.Contracts.Maintenance.MaintenanceWindowDefinition']
 
 /**
  * @internal
@@ -15,9 +16,9 @@ export default class MaintenanceWindowDefinitionsAPI extends Automate {
     super(props)
   }
 
-  GetDefinitionList(
+  getDefinitionList(
     params: CommonParameters = {},
-  ): Promise<LabTechDatabaseResultSetWithCount_AutomateApiDomainContractsMaintenanceMaintenanceWindowDefinition_> {
+  ): Promise<Array<AutomateApiDomainContractsMaintenanceMaintenanceWindowDefinition>> {
     return this.request({
       path: `/api/v1/MaintenanceWindowDefinitions`,
       method: 'get',

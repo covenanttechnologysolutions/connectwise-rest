@@ -4,31 +4,32 @@ import { components } from '../ManageTypes'
 import { CommonParameters, CWMOptions } from '../ManageAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
-type ActivityStopwatch = schemas['ActivityStopwatch']
-type ChargeCode = schemas['ChargeCode']
-type ChargeCodeExpenseType = schemas['ChargeCodeExpenseType']
-type ChargeCodeInfo = schemas['ChargeCodeInfo']
-type Count = schemas['Count']
-type PatchOperation = schemas['PatchOperation']
-type ScheduleStopwatch = schemas['ScheduleStopwatch']
-type SuccessResponse = schemas['SuccessResponse']
-type TicketStopwatch = schemas['TicketStopwatch']
-type TimeAccrual = schemas['TimeAccrual']
-type TimeAccrualDetail = schemas['TimeAccrualDetail']
-type TimeEntry = schemas['TimeEntry']
-type TimeEntryAudit = schemas['TimeEntryAudit']
-type TimePeriod = schemas['TimePeriod']
-type TimePeriodSetup = schemas['TimePeriodSetup']
-type TimePeriodSetupDefaults = schemas['TimePeriodSetupDefaults']
-type TimeSheet = schemas['TimeSheet']
-type TimeSheetAudit = schemas['TimeSheetAudit']
-type TimeSheetTierUpdate = schemas['TimeSheetTierUpdate']
-type Usage = schemas['Usage']
-type WorkRole = schemas['WorkRole']
-type WorkRoleInfo = schemas['WorkRoleInfo']
-type WorkRoleLocation = schemas['WorkRoleLocation']
-type WorkType = schemas['WorkType']
-type WorkTypeInfo = schemas['WorkTypeInfo']
+false
+export type ActivityStopwatch = schemas['ActivityStopwatch']
+export type ChargeCode = schemas['ChargeCode']
+export type ChargeCodeExpenseType = schemas['ChargeCodeExpenseType']
+export type ChargeCodeInfo = schemas['ChargeCodeInfo']
+export type Count = schemas['Count']
+export type PatchOperation = schemas['PatchOperation']
+export type ScheduleStopwatch = schemas['ScheduleStopwatch']
+export type SuccessResponse = schemas['SuccessResponse']
+export type TicketStopwatch = schemas['TicketStopwatch']
+export type TimeAccrual = schemas['TimeAccrual']
+export type TimeAccrualDetail = schemas['TimeAccrualDetail']
+export type TimeEntry = schemas['TimeEntry']
+export type TimeEntryAudit = schemas['TimeEntryAudit']
+export type TimePeriod = schemas['TimePeriod']
+export type TimePeriodSetup = schemas['TimePeriodSetup']
+export type TimePeriodSetupDefaults = schemas['TimePeriodSetupDefaults']
+export type TimeSheet = schemas['TimeSheet']
+export type TimeSheetAudit = schemas['TimeSheetAudit']
+export type TimeSheetTierUpdate = schemas['TimeSheetTierUpdate']
+export type Usage = schemas['Usage']
+export type WorkRole = schemas['WorkRole']
+export type WorkRoleInfo = schemas['WorkRoleInfo']
+export type WorkRoleLocation = schemas['WorkRoleLocation']
+export type WorkType = schemas['WorkType']
+export type WorkTypeInfo = schemas['WorkTypeInfo']
 
 /**
  * @internal
@@ -38,7 +39,7 @@ export default class TimeAPI extends Manage {
     super(props)
   }
 
-  getTimeAccruals(params: CommonParameters = {}): Promise<TimeAccrual[]> {
+  getTimeAccruals(params: CommonParameters = {}): Promise<Array<TimeAccrual>> {
     return this.request({
       path: `/time/accruals`,
       method: 'get',
@@ -77,7 +78,7 @@ export default class TimeAPI extends Manage {
     })
   }
 
-  patchTimeAccrualsById(id: number, patchOperations: PatchOperation[]): Promise<TimeAccrual> {
+  patchTimeAccrualsById(id: number, patchOperations: Array<PatchOperation>): Promise<TimeAccrual> {
     return this.request({
       path: `/time/accruals/${id}`,
       method: 'patch',
@@ -88,7 +89,7 @@ export default class TimeAPI extends Manage {
   getTimeAccrualsByParentIdDetails(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<TimeAccrualDetail[]> {
+  ): Promise<Array<TimeAccrualDetail>> {
     return this.request({
       path: `/time/accruals/${parentId}/details`,
       method: 'get',
@@ -113,7 +114,7 @@ export default class TimeAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<TimeAccrualDetail> {
     return this.request({
-      path: `/time/accruals/${parentId}/details/{id}`,
+      path: `/time/accruals/${parentId}/details/${id}`,
       method: 'get',
       params,
     })
@@ -124,7 +125,7 @@ export default class TimeAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/time/accruals/${parentId}/details/{id}`,
+      path: `/time/accruals/${parentId}/details/${id}`,
       method: 'delete',
     })
   }
@@ -135,7 +136,7 @@ export default class TimeAPI extends Manage {
     timeAccrualDetail: TimeAccrualDetail,
   ): Promise<TimeAccrualDetail> {
     return this.request({
-      path: `/time/accruals/${parentId}/details/{id}`,
+      path: `/time/accruals/${parentId}/details/${id}`,
       method: 'put',
       data: timeAccrualDetail,
     })
@@ -144,10 +145,10 @@ export default class TimeAPI extends Manage {
   patchTimeAccrualsByParentIdDetailsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<TimeAccrualDetail> {
     return this.request({
-      path: `/time/accruals/${parentId}/details/{id}`,
+      path: `/time/accruals/${parentId}/details/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -172,7 +173,7 @@ export default class TimeAPI extends Manage {
     })
   }
 
-  getTimeActivitystopwatches(params: CommonParameters = {}): Promise<ActivityStopwatch[]> {
+  getTimeActivitystopwatches(params: CommonParameters = {}): Promise<Array<ActivityStopwatch>> {
     return this.request({
       path: `/time/activitystopwatches`,
       method: 'get',
@@ -219,7 +220,7 @@ export default class TimeAPI extends Manage {
 
   patchTimeActivitystopwatchesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ActivityStopwatch> {
     return this.request({
       path: `/time/activitystopwatches/${id}`,
@@ -236,7 +237,7 @@ export default class TimeAPI extends Manage {
     })
   }
 
-  getTimeChargeCodes(params: CommonParameters = {}): Promise<ChargeCode[]> {
+  getTimeChargeCodes(params: CommonParameters = {}): Promise<Array<ChargeCode>> {
     return this.request({
       path: `/time/chargeCodes`,
       method: 'get',
@@ -275,7 +276,10 @@ export default class TimeAPI extends Manage {
     })
   }
 
-  patchTimeChargeCodesById(id: number, patchOperations: PatchOperation[]): Promise<ChargeCode> {
+  patchTimeChargeCodesById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<ChargeCode> {
     return this.request({
       path: `/time/chargeCodes/${id}`,
       method: 'patch',
@@ -291,7 +295,7 @@ export default class TimeAPI extends Manage {
     })
   }
 
-  getTimeChargeCodesByIdUsages(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getTimeChargeCodesByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
       path: `/time/chargeCodes/${id}/usages`,
       method: 'get',
@@ -299,7 +303,10 @@ export default class TimeAPI extends Manage {
     })
   }
 
-  getTimeChargeCodesByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getTimeChargeCodesByIdUsagesList(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/time/chargeCodes/${id}/usages/list`,
       method: 'get',
@@ -310,7 +317,7 @@ export default class TimeAPI extends Manage {
   getTimeChargeCodesByParentIdExpenseTypes(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ChargeCodeExpenseType[]> {
+  ): Promise<Array<ChargeCodeExpenseType>> {
     return this.request({
       path: `/time/chargeCodes/${parentId}/expenseTypes`,
       method: 'get',
@@ -335,7 +342,7 @@ export default class TimeAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<ChargeCodeExpenseType> {
     return this.request({
-      path: `/time/chargeCodes/${parentId}/expenseTypes/{id}`,
+      path: `/time/chargeCodes/${parentId}/expenseTypes/${id}`,
       method: 'get',
       params,
     })
@@ -346,7 +353,7 @@ export default class TimeAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/time/chargeCodes/${parentId}/expenseTypes/{id}`,
+      path: `/time/chargeCodes/${parentId}/expenseTypes/${id}`,
       method: 'delete',
     })
   }
@@ -357,7 +364,7 @@ export default class TimeAPI extends Manage {
     chargeCodeExpenseType: ChargeCodeExpenseType,
   ): Promise<ChargeCodeExpenseType> {
     return this.request({
-      path: `/time/chargeCodes/${parentId}/expenseTypes/{id}`,
+      path: `/time/chargeCodes/${parentId}/expenseTypes/${id}`,
       method: 'put',
       data: chargeCodeExpenseType,
     })
@@ -366,10 +373,10 @@ export default class TimeAPI extends Manage {
   patchTimeChargeCodesByParentIdExpenseTypesById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ChargeCodeExpenseType> {
     return this.request({
-      path: `/time/chargeCodes/${parentId}/expenseTypes/{id}`,
+      path: `/time/chargeCodes/${parentId}/expenseTypes/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -394,7 +401,7 @@ export default class TimeAPI extends Manage {
     })
   }
 
-  getTimeChargeCodesInfo(params: CommonParameters = {}): Promise<ChargeCodeInfo[]> {
+  getTimeChargeCodesInfo(params: CommonParameters = {}): Promise<Array<ChargeCodeInfo>> {
     return this.request({
       path: `/time/chargeCodes/info`,
       method: 'get',
@@ -410,7 +417,7 @@ export default class TimeAPI extends Manage {
     })
   }
 
-  getTimeEntries(params: CommonParameters = {}): Promise<TimeEntry[]> {
+  getTimeEntries(params: CommonParameters = {}): Promise<Array<TimeEntry>> {
     return this.request({
       path: `/time/entries`,
       method: 'get',
@@ -449,7 +456,7 @@ export default class TimeAPI extends Manage {
     })
   }
 
-  patchTimeEntriesById(id: number, patchOperations: PatchOperation[]): Promise<TimeEntry> {
+  patchTimeEntriesById(id: number, patchOperations: Array<PatchOperation>): Promise<TimeEntry> {
     return this.request({
       path: `/time/entries/${id}`,
       method: 'patch',
@@ -460,7 +467,7 @@ export default class TimeAPI extends Manage {
   getTimeEntriesByParentIdAudits(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<TimeEntryAudit[]> {
+  ): Promise<Array<TimeEntryAudit>> {
     return this.request({
       path: `/time/entries/${parentId}/audits`,
       method: 'get',
@@ -474,7 +481,7 @@ export default class TimeAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<TimeEntryAudit> {
     return this.request({
-      path: `/time/entries/${parentId}/audits/{id}`,
+      path: `/time/entries/${parentId}/audits/${id}`,
       method: 'get',
       params,
     })
@@ -509,7 +516,7 @@ export default class TimeAPI extends Manage {
 
   getTimeInfoChargeCodeExpenseTypes(
     params: CommonParameters = {},
-  ): Promise<ChargeCodeExpenseType[]> {
+  ): Promise<Array<ChargeCodeExpenseType>> {
     return this.request({
       path: `/time/info/chargeCodeExpenseTypes`,
       method: 'get',
@@ -525,7 +532,7 @@ export default class TimeAPI extends Manage {
     })
   }
 
-  getTimeSchedulestopwatches(params: CommonParameters = {}): Promise<ScheduleStopwatch[]> {
+  getTimeSchedulestopwatches(params: CommonParameters = {}): Promise<Array<ScheduleStopwatch>> {
     return this.request({
       path: `/time/schedulestopwatches`,
       method: 'get',
@@ -572,7 +579,7 @@ export default class TimeAPI extends Manage {
 
   patchTimeSchedulestopwatchesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ScheduleStopwatch> {
     return this.request({
       path: `/time/schedulestopwatches/${id}`,
@@ -589,7 +596,7 @@ export default class TimeAPI extends Manage {
     })
   }
 
-  getTimeSheets(params: CommonParameters = {}): Promise<TimeSheet[]> {
+  getTimeSheets(params: CommonParameters = {}): Promise<Array<TimeSheet>> {
     return this.request({
       path: `/time/sheets`,
       method: 'get',
@@ -637,7 +644,7 @@ export default class TimeAPI extends Manage {
   getTimeSheetsByParentIdAudits(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<TimeSheetAudit[]> {
+  ): Promise<Array<TimeSheetAudit>> {
     return this.request({
       path: `/time/sheets/${parentId}/audits`,
       method: 'get',
@@ -651,7 +658,7 @@ export default class TimeAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<TimeSheetAudit> {
     return this.request({
-      path: `/time/sheets/${parentId}/audits/{id}`,
+      path: `/time/sheets/${parentId}/audits/${id}`,
       method: 'get',
       params,
     })
@@ -676,7 +683,7 @@ export default class TimeAPI extends Manage {
     })
   }
 
-  getTimeTicketstopwatches(params: CommonParameters = {}): Promise<TicketStopwatch[]> {
+  getTimeTicketstopwatches(params: CommonParameters = {}): Promise<Array<TicketStopwatch>> {
     return this.request({
       path: `/time/ticketstopwatches`,
       method: 'get',
@@ -723,7 +730,7 @@ export default class TimeAPI extends Manage {
 
   patchTimeTicketstopwatchesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<TicketStopwatch> {
     return this.request({
       path: `/time/ticketstopwatches/${id}`,
@@ -740,7 +747,7 @@ export default class TimeAPI extends Manage {
     })
   }
 
-  getTimeTimePeriodSetups(params: CommonParameters = {}): Promise<TimePeriodSetup[]> {
+  getTimeTimePeriodSetups(params: CommonParameters = {}): Promise<Array<TimePeriodSetup>> {
     return this.request({
       path: `/time/timePeriodSetups`,
       method: 'get',
@@ -784,7 +791,7 @@ export default class TimeAPI extends Manage {
 
   patchTimeTimePeriodSetupsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<TimePeriodSetup> {
     return this.request({
       path: `/time/timePeriodSetups/${id}`,
@@ -796,7 +803,7 @@ export default class TimeAPI extends Manage {
   getTimeTimePeriodSetupsByParentIdPeriods(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<TimePeriod[]> {
+  ): Promise<Array<TimePeriod>> {
     return this.request({
       path: `/time/timePeriodSetups/${parentId}/periods`,
       method: 'get',
@@ -810,7 +817,7 @@ export default class TimeAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<TimePeriod> {
     return this.request({
-      path: `/time/timePeriodSetups/${parentId}/periods/{id}`,
+      path: `/time/timePeriodSetups/${parentId}/periods/${id}`,
       method: 'get',
       params,
     })
@@ -843,7 +850,7 @@ export default class TimeAPI extends Manage {
     })
   }
 
-  getTimeWorkRoles(params: CommonParameters = {}): Promise<WorkRole[]> {
+  getTimeWorkRoles(params: CommonParameters = {}): Promise<Array<WorkRole>> {
     return this.request({
       path: `/time/workRoles`,
       method: 'get',
@@ -882,7 +889,7 @@ export default class TimeAPI extends Manage {
     })
   }
 
-  patchTimeWorkRolesById(id: number, patchOperations: PatchOperation[]): Promise<WorkRole> {
+  patchTimeWorkRolesById(id: number, patchOperations: Array<PatchOperation>): Promise<WorkRole> {
     return this.request({
       path: `/time/workRoles/${id}`,
       method: 'patch',
@@ -898,7 +905,7 @@ export default class TimeAPI extends Manage {
     })
   }
 
-  getTimeWorkRolesByIdUsages(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getTimeWorkRolesByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
       path: `/time/workRoles/${id}/usages`,
       method: 'get',
@@ -906,7 +913,7 @@ export default class TimeAPI extends Manage {
     })
   }
 
-  getTimeWorkRolesByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getTimeWorkRolesByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
       path: `/time/workRoles/${id}/usages/list`,
       method: 'get',
@@ -917,7 +924,7 @@ export default class TimeAPI extends Manage {
   getTimeWorkRolesByParentIdLocations(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<WorkRoleLocation[]> {
+  ): Promise<Array<WorkRoleLocation>> {
     return this.request({
       path: `/time/workRoles/${parentId}/locations`,
       method: 'get',
@@ -942,7 +949,7 @@ export default class TimeAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<WorkRoleLocation> {
     return this.request({
-      path: `/time/workRoles/${parentId}/locations/{id}`,
+      path: `/time/workRoles/${parentId}/locations/${id}`,
       method: 'get',
       params,
     })
@@ -953,7 +960,7 @@ export default class TimeAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/time/workRoles/${parentId}/locations/{id}`,
+      path: `/time/workRoles/${parentId}/locations/${id}`,
       method: 'delete',
     })
   }
@@ -964,7 +971,7 @@ export default class TimeAPI extends Manage {
     workRoleLocation: WorkRoleLocation,
   ): Promise<WorkRoleLocation> {
     return this.request({
-      path: `/time/workRoles/${parentId}/locations/{id}`,
+      path: `/time/workRoles/${parentId}/locations/${id}`,
       method: 'put',
       data: workRoleLocation,
     })
@@ -973,10 +980,10 @@ export default class TimeAPI extends Manage {
   patchTimeWorkRolesByParentIdLocationsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<WorkRoleLocation> {
     return this.request({
-      path: `/time/workRoles/${parentId}/locations/{id}`,
+      path: `/time/workRoles/${parentId}/locations/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -1001,7 +1008,7 @@ export default class TimeAPI extends Manage {
     })
   }
 
-  getTimeWorkRolesInfo(params: CommonParameters = {}): Promise<WorkRoleInfo[]> {
+  getTimeWorkRolesInfo(params: CommonParameters = {}): Promise<Array<WorkRoleInfo>> {
     return this.request({
       path: `/time/workRoles/info`,
       method: 'get',
@@ -1017,7 +1024,7 @@ export default class TimeAPI extends Manage {
     })
   }
 
-  getTimeWorkTypes(params: CommonParameters = {}): Promise<WorkType[]> {
+  getTimeWorkTypes(params: CommonParameters = {}): Promise<Array<WorkType>> {
     return this.request({
       path: `/time/workTypes`,
       method: 'get',
@@ -1056,7 +1063,7 @@ export default class TimeAPI extends Manage {
     })
   }
 
-  patchTimeWorkTypesById(id: number, patchOperations: PatchOperation[]): Promise<WorkType> {
+  patchTimeWorkTypesById(id: number, patchOperations: Array<PatchOperation>): Promise<WorkType> {
     return this.request({
       path: `/time/workTypes/${id}`,
       method: 'patch',
@@ -1072,7 +1079,7 @@ export default class TimeAPI extends Manage {
     })
   }
 
-  getTimeWorkTypesByIdUsages(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getTimeWorkTypesByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
       path: `/time/workTypes/${id}/usages`,
       method: 'get',
@@ -1080,7 +1087,7 @@ export default class TimeAPI extends Manage {
     })
   }
 
-  getTimeWorkTypesByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getTimeWorkTypesByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
       path: `/time/workTypes/${id}/usages/list`,
       method: 'get',
@@ -1096,7 +1103,7 @@ export default class TimeAPI extends Manage {
     })
   }
 
-  getTimeWorkTypesInfo(params: CommonParameters = {}): Promise<WorkTypeInfo[]> {
+  getTimeWorkTypesInfo(params: CommonParameters = {}): Promise<Array<WorkTypeInfo>> {
     return this.request({
       path: `/time/workTypes/info`,
       method: 'get',

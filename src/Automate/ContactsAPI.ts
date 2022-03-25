@@ -4,12 +4,10 @@ import { components } from '../AutomateTypes'
 import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
-type AutomateApiDomainContractsClientsContact =
+type requestBodies = components['requestBodies']
+export type AutomateApiDomainContractsClientsContact =
   schemas['Automate.Api.Domain.Contracts.Clients.Contact']
-type LabTechDatabaseResultSetWithCount_AutomateApiDomainContractsClientsContact_ =
-  schemas['LabTech.Database.ResultSetWithCount_Automate.Api.Domain.Contracts.Clients.Contact_']
-type LabTechDatabaseResultSetWithCount_LabTechModelsContact_ =
-  schemas['LabTech.Database.ResultSetWithCount_LabTech.Models.Contact_']
+export type LabTechModelsContact = schemas['LabTech.Models.Contact']
 
 /**
  * @internal
@@ -19,9 +17,7 @@ export default class ContactsAPI extends Automate {
     super(props)
   }
 
-  GetContactList(
-    params: CommonParameters = {},
-  ): Promise<LabTechDatabaseResultSetWithCount_LabTechModelsContact_> {
+  getContactList(params: CommonParameters = {}): Promise<Array<LabTechModelsContact>> {
     return this.request({
       path: `/api/v1/Contacts`,
       method: 'get',
@@ -29,9 +25,7 @@ export default class ContactsAPI extends Automate {
     })
   }
 
-  GetSystemContactList(
-    params: CommonParameters = {},
-  ): Promise<LabTechDatabaseResultSetWithCount_LabTechModelsContact_> {
+  getSystemContactList(params: CommonParameters = {}): Promise<Array<LabTechModelsContact>> {
     return this.request({
       path: `/api/v1/SystemContacts`,
       method: 'get',
@@ -39,9 +33,9 @@ export default class ContactsAPI extends Automate {
     })
   }
 
-  GetContactList(
+  getContactListV2(
     params: CommonParameters = {},
-  ): Promise<LabTechDatabaseResultSetWithCount_AutomateApiDomainContractsClientsContact_> {
+  ): Promise<Array<AutomateApiDomainContractsClientsContact>> {
     return this.request({
       path: `/api/v2/Contacts`,
       method: 'get',
@@ -49,7 +43,7 @@ export default class ContactsAPI extends Automate {
     })
   }
 
-  GetContact(
+  getContact(
     contactId: number,
     params: CommonParameters = {},
   ): Promise<AutomateApiDomainContractsClientsContact> {

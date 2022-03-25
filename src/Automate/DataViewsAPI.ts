@@ -4,9 +4,9 @@ import { components } from '../AutomateTypes'
 import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
-type LabTechDatabaseResultSetWithCount_LabTechModelsDataViewFolder_ =
-  schemas['LabTech.Database.ResultSetWithCount_LabTech.Models.DataViewFolder_']
-type LabTechModelsDataView = schemas['LabTech.Models.DataView']
+type requestBodies = components['requestBodies']
+export type LabTechModelsDataView = schemas['LabTech.Models.DataView']
+export type LabTechModelsDataViewFolder = schemas['LabTech.Models.DataViewFolder']
 
 /**
  * @internal
@@ -16,9 +16,9 @@ export default class DataViewsAPI extends Automate {
     super(props)
   }
 
-  GetDataViewFolderList(
+  getDataViewFolderList(
     params: CommonParameters = {},
-  ): Promise<LabTechDatabaseResultSetWithCount_LabTechModelsDataViewFolder_> {
+  ): Promise<Array<LabTechModelsDataViewFolder>> {
     return this.request({
       path: `/api/v1/DataViewFolders`,
       method: 'get',
@@ -26,7 +26,7 @@ export default class DataViewsAPI extends Automate {
     })
   }
 
-  GetDataViewList(params: CommonParameters = {}): Promise<LabTechModelsDataView[]> {
+  getDataViewList(params: CommonParameters = {}): Promise<Array<LabTechModelsDataView>> {
     return this.request({
       path: `/api/v1/DataViews`,
       method: 'get',

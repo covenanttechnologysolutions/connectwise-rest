@@ -4,10 +4,11 @@ import { components } from '../ManageTypes'
 import { CommonParameters, CWMOptions } from '../ManageAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
-type ConfigurationTypeInfo = schemas['ConfigurationTypeInfo']
-type ConfigurationTypeQuestionInfo = schemas['ConfigurationTypeQuestionInfo']
-type ConfigurationTypeQuestionValueInfo = schemas['ConfigurationTypeQuestionValueInfo']
-type Count = schemas['Count']
+false
+export type ConfigurationTypeInfo = schemas['ConfigurationTypeInfo']
+export type ConfigurationTypeQuestionInfo = schemas['ConfigurationTypeQuestionInfo']
+export type ConfigurationTypeQuestionValueInfo = schemas['ConfigurationTypeQuestionValueInfo']
+export type Count = schemas['Count']
 
 /**
  * @internal
@@ -24,7 +25,7 @@ export default class ConfigurationsAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<ConfigurationTypeQuestionInfo> {
     return this.request({
-      path: `/configurations/types/${grandparentId}/questions/{parentId}/values/{id}/info`,
+      path: `/configurations/types/${grandparentId}/questions/${parentId}/values/${id}/info`,
       method: 'get',
       params,
     })
@@ -34,9 +35,9 @@ export default class ConfigurationsAPI extends Manage {
     grandparentId: number,
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ConfigurationTypeQuestionValueInfo[]> {
+  ): Promise<Array<ConfigurationTypeQuestionValueInfo>> {
     return this.request({
-      path: `/configurations/types/${grandparentId}/questions/{parentId}/values/info`,
+      path: `/configurations/types/${grandparentId}/questions/${parentId}/values/info`,
       method: 'get',
       params,
     })
@@ -48,7 +49,7 @@ export default class ConfigurationsAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<Count> {
     return this.request({
-      path: `/configurations/types/${grandparentId}/questions/{parentId}/values/info/count`,
+      path: `/configurations/types/${grandparentId}/questions/${parentId}/values/info/count`,
       method: 'get',
       params,
     })
@@ -60,7 +61,7 @@ export default class ConfigurationsAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<ConfigurationTypeQuestionInfo> {
     return this.request({
-      path: `/configurations/types/${parentId}/questions/{id}/info`,
+      path: `/configurations/types/${parentId}/questions/${id}/info`,
       method: 'get',
       params,
     })
@@ -69,7 +70,7 @@ export default class ConfigurationsAPI extends Manage {
   getConfigurationsTypesByParentIdQuestionsInfo(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ConfigurationTypeQuestionInfo[]> {
+  ): Promise<Array<ConfigurationTypeQuestionInfo>> {
     return this.request({
       path: `/configurations/types/${parentId}/questions/info`,
       method: 'get',
@@ -88,7 +89,7 @@ export default class ConfigurationsAPI extends Manage {
     })
   }
 
-  getConfigurationsTypesInfo(params: CommonParameters = {}): Promise<ConfigurationTypeInfo[]> {
+  getConfigurationsTypesInfo(params: CommonParameters = {}): Promise<Array<ConfigurationTypeInfo>> {
     return this.request({
       path: `/configurations/types/info`,
       method: 'get',

@@ -8,7 +8,7 @@ const { generateAPIClass } = require('./generator')
 const eslint = new ESLint({ fix: true })
 
 async function generate() {
-  const automate = await getAutomateJson()
+  const automate = getAutomateJson()
   const {
     paths,
     components: { schemas },

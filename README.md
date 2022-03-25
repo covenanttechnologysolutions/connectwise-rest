@@ -2,26 +2,34 @@
 
  [![npm version](https://img.shields.io/npm/v/connectwise-rest.svg)](https://www.npmjs.com/package/connectwise-rest) [![npm downloads](https://img.shields.io/npm/dt/connectwise-rest.svg)](https://www.npmjs.com/package/connectwise-rest) [![travis build](https://api.travis-ci.org/covenanttechnologysolutions/connectwise-rest.svg?branch=master)](https://travis-ci.org/covenanttechnologysolutions/connectwise-rest)
 
-A nodejs module for interacting with the ConnectWise REST API.   This module is currently under construction.  This module provides bindings for ease of development against the ConnectWise REST API. 
+A Node.JS TypeScript module for interacting with the ConnectWise Manage and Automate REST APIs.  This module provides bindings for ease of development against the ConnectWise REST APIs. 
 
 ## Requirements
 
-- ConnectWise 2018.1+, though these functions are written for ConnectWise 2016.1 APIs (API3.0 v1.0.0). 
-- ConnectWise API keys (available on ConnectWise 2015.3+), or API Only Member keys (only available on ConnectWise 2015.6+).  See the [documentation](https://developer.connectwise.com/Authentication) for more details. 
+### Manage 
+
+- ConnectWise Manage 2018.1+, though these functions are written for ConnectWise Manage 2021.1 APIs.
+- ConnectWise Manage API keys (available on ConnectWise 2015.3+), or API Only Member keys (only available on ConnectWise 2015.6+).  See the [documentation](https://developer.connectwise.com/Authentication) for more details. 
+### Automate
+
+- ConnectWise Automate 2020+
+- ConnectWise Automate integrator login, your own generated token, or user account with 2FA.
 
 ## Documentation
 
-See the documentation [here](https://github.com/covenanttechnologysolutions/connectwise-rest/blob/master/doc.md)
+See the full documentation [here](https://covenanttechnologysolutions.github.io/connectwise-rest/index.html)
 
 ## Usage
 
-Create a new API key, or API Only Member, then instantiate the module.  
+### Manage
 
 ```javascript
+    // CommonJS
+    import { ManageAPI } from 'connectwise-rest';
+    // ESM
+    const { ManageAPI } = require('connectwise-rest');
     
-    const ConnectWiseRest = require('connectwise-rest');
-    
-    const cw = new ConnectWiseRest({
+    const cwm = new ManageAPI({
         companyId: 'company',
         companyUrl: 'your.connectwise.com',
         publicKey: '<public key>',
@@ -41,7 +49,7 @@ Create a new API key, or API Only Member, then instantiate the module.
         logger: (level, text, meta) => { } // optional, pass in logging function
     });
     
-    cw.ServiceDeskAPI.Tickets.getTicketById(1234)
+    cwm.ServiceDeskAPI.Tickets.getTicketById(1234)
         .then((ticket) => {
             //do something with results
         })
@@ -50,93 +58,98 @@ Create a new API key, or API Only Member, then instantiate the module.
         });
 ```
 
-Or if you only require access to one API component:
+
+### Automate
 
 ```javascript
+    // CommonJS
+    import { AutomateAPI } from 'connectwise-rest';
+    // ESM
+    const { AutomateAPI } = require('connectwise-rest');
+    
+    const cwa = new ManageAPI({
+        companyId: 'company',
+        serverUrl: 'your.connectwise.com',
+        clientId: '<your client id>',
+        // One of the following: token, integrator username and password or username, password and two-factor code
+        token: '<bearer token>',
+      
+        // or integrator username/password:
+        username: '<username>',
+        password: '<private key>',
+        twoFactorPasscode: '<2fa code>',
 
-    const ConnectWiseRest = require('connectwise-rest');
+        timeout: 20000,             // optional, request connection timeout in ms, defaults to 20000
+        retry: false,               // optional, defaults to false
+        retryOptions: {             // optional, override retry behavior, defaults as shown
+          retries: 4,               // maximum number of retries
+          minTimeout: 50,           // number of ms to wait between retries
+          maxTimeout: 20000,        // maximum number of ms between retries
+          randomize: true,          // randomize timeouts
+        },
+        debug: false,               // optional, enable debug logging
+        logger: (level, text, meta) => { } // optional, pass in logging function
+    });
     
-    const tickets = new ConnectWiseRest(options).ServiceDeskAPI.Tickets;
-    
-    tickets.getTicketById(1234)
-        .then(function (result){
+    cwa.ComputersAPI.getComputerList()
+        .then((computers) => {
             //do something with results
         })
-        .catch(function (error){
+        .catch((error) => {
             //handle errors
         });
 ```
 
-You can also manually access the API:
+### APIs Without Typings
+
+You can also manually access the API without typings:
 
 ```javascript
 
-    const ConnectWiseRest = require('connectwise-rest');
+    const { Manage, Automate } = require('connectwise-rest');
 
-    const api = new ConnectWiseRest(options).API.api;
-
-    api('/path/to/api', 'POST', {
-        'param1': 'val1',
-        'param2': 'val2'
+    const cwm = new Manage(CWMOptions);
+    const cwa = new Automate(CWAOptions);
+    
+    // use cwa.request or cwm.request
+    cwm.request({
+      path: '/path/to/api',
+      method: 'POST', 
+      params: {
+        'queryParam1': 'val1',
+        'queryParam2': 'val2'
+      },
+      data: {
+        'dataValue': 'val1',
     })
-    .then((result) => {
-        //do something with results
-    })
-    .catch((error) => {
-        //handle errors
-    });
+      .then((result) => {
+          //do something with results
+      })
+      .catch((error) => {
+          //handle errors
+      });
 ```
 
 ### Cloud-Hosted ConnectWise Manage
 
 To access cloud-hosted ConnectWise, use the `companyUrl` of `api-na.myconnectwise.net` and override the default `entryPoint`.
 
-| Region | |
-| --- | --- |
-| North America | api-na.myconnectwise.net |
-| Europe | api-eu.myconnectwise.net |
-| Australia | api-aus.myconnectwise.net |
+| Region | URL                            |
+| --- |--------------------------------|
+| North America | api-na.myconnectwise.net       |
+| Europe | api-eu.myconnectwise.net       |
+| Australia | api-aus.myconnectwise.net      |
 | Demo | api-staging.connectwisedev.com |
 
 ```javascript
     options = {
         companyId: 'company',
         companyUrl: 'api-na.myconnectwise.net',
-        entryPoint: 'v2019_3', // change to the current hosted version 
+        entryPoint: 'v2022.1', // change to the current hosted version 
         publicKey: '<public key>',
         privateKey: '<private key>'
     }
 ```
-
-## Implemented APIs
-
-| Module           | API                 | Status                        |
-| ---------------- | ------------------- | ----------------------------- |
-| Company API      | Companies           | Complete                      |
-| Company API      | CompanyTeams        | Complete                      |
-| Company API      | Configurations      | Complete                      |
-| Company API      | Contacts            | Complete                      |
-| Finance API      | Additions           | Complete                      |
-| Finance API      | Adjustments         | Complete                      |
-| Finance API      | Agreements          | Complete                      |
-| Finance API      | AgreementSites      | Complete                      |
-| Finance API      | BoardDefaults       | Complete                      |
-| Finance API      | WorkRoles           | Complete                      |
-| Finance API      | WorkTypeExclusions  | Complete                      |
-| Finance API      | WorkTypes           | Complete                      |
-| Project API      | Projects            | Complete                      |
-| ScheduleAPI      | ScheduleEntries     | Complete                      |
-| ScheduleAPI      | ScheduleTypes       | Complete                      |
-| Service Desk API | Boards              | Complete                      |
-| Service Desk API | BoardTeams          | Complete                      |
-| Service Desk API | Priorities          | Complete                      |
-| Service Desk API | ServiceNotes        | Complete                      |
-| Service Desk API | Statuses            | Complete                      |
-| Service Desk API | Tickets             | Complete                      |
-| System API       | Members             | Complete                      |
-| System API       | Reports             | Complete                      |
-| Time API         | TimeEntries         | Complete                      |
-
 
 ## Examples
 
@@ -146,7 +159,7 @@ Get ticket 1234 and print ticket number, summary and status.
 
 ```javascript
 
-    tickets.getTicketById(1234)
+    cwm.ServiceAPI.getServiceTicketsById(1234)
         .then((ticket) => { console.log(ticket.id, ticket.summary, ticket.status.name); })
         .catch((err) => { console.log(err); });
 ```
@@ -154,18 +167,17 @@ Get ticket 1234 and print ticket number, summary and status.
 Create new ticket on service board, then print the returned ticket number, or any errors
 
 ```javascript
-
-    tickets.createTicket({
-        summary: "This is the summary",
-        board: {
-            name: "Service Board"
-        },
-        company: {
-            identifier: "ABC" //company ID
-        },
-        initialDescription: "ticket description",
-        recordType: "ServiceTicket"
-        //can also pass in any other Ticket object settings as needed
+    cwm.ServiceAPI.postServiceTickets({
+      summary: "This is the summary",
+      board: {
+          name: "Service Board"
+      },
+      company: {
+          identifier: "ABC" //company ID
+      },
+      initialDescription: "ticket description",
+      recordType: "ServiceTicket"
+      //can also pass in any other Ticket object settings as needed
     })
     .then((ticket) => { console.log(ticket.id); })
     .catch((err) => { console.log(err); });    
@@ -175,20 +187,23 @@ Create new ticket on service board, then print the returned ticket number, or an
 Change the status of a ticket
 
 ```javascript
-
-    updateTicket(1234, [{
+    cwa.ServiceAPI.patchServiceTicketsById(1234, [{
         op: 'replace',
         path: 'status',
         value: {id: 123} //id of the status to change to, find with boards.getBoards and status.getStatuses
     }, {
         //second or more operations
     }])
-    .then((res) => { //do something with returned ticket });
-    .catch((err) => { //do something with errors });    
+    .then((res) => { 
+      //do something with returned ticket 
+    })
+    .catch((err) => { 
+      //do something with errors 
+    });    
 
 ```
 
-### Conditions 
+### Manage Conditions Example
 
 Valid example conditions string:
   
@@ -206,9 +221,9 @@ Error message returned from server when invalid conditions are passed in:
 
 This library includes an express style callback middleware that will parse and verify the payload signature.
 
-```javascript 
-
-  const CWCallback = cw.utils.Callback;
+```javascript
+  const {utils} = require('connectwise-rest')
+  const CWCallback = utils.Callback;
   
   router.post('/your/callback', CWCallback.middleware((err, req, res, verified, payload) => {
     if (err) {
@@ -226,5 +241,3 @@ This library includes an express style callback middleware that will parse and v
   }));
 
 ```
-
-See also using [verifyCallback](https://github.com/covenanttechnologysolutions/connectwise-rest/blob/master/doc.md#verifyCallback) manually.

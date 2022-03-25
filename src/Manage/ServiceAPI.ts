@@ -4,76 +4,77 @@ import { components } from '../ManageTypes'
 import { CommonParameters, CWMOptions } from '../ManageAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
-type ActivityReference = schemas['ActivityReference']
-type Board = schemas['Board']
-type BoardAutoAssignResource = schemas['BoardAutoAssignResource']
-type BoardAutoTemplate = schemas['BoardAutoTemplate']
-type BoardCopy = schemas['BoardCopy']
-type BoardExcludedMember = schemas['BoardExcludedMember']
-type BoardInfo = schemas['BoardInfo']
-type BoardItem = schemas['BoardItem']
-type BoardItemAssociation = schemas['BoardItemAssociation']
-type BoardNotification = schemas['BoardNotification']
-type BoardStatus = schemas['BoardStatus']
-type BoardStatusInfo = schemas['BoardStatusInfo']
-type BoardStatusNotification = schemas['BoardStatusNotification']
-type BoardSubType = schemas['BoardSubType']
-type BoardSubTypeInfo = schemas['BoardSubTypeInfo']
-type BoardTeam = schemas['BoardTeam']
-type BoardTeamInfo = schemas['BoardTeamInfo']
-type BoardType = schemas['BoardType']
-type BoardTypeInfo = schemas['BoardTypeInfo']
-type BoardTypeSubTypeItemAssociation = schemas['BoardTypeSubTypeItemAssociation']
-type Code = schemas['Code']
-type ConfigurationReference = schemas['ConfigurationReference']
-type ConvertToProject = schemas['ConvertToProject']
-type Count = schemas['Count']
-type DocumentReference = schemas['DocumentReference']
-type FilterValues = schemas['FilterValues']
-type Impact = schemas['Impact']
-type KnowledgeBaseArticle = schemas['KnowledgeBaseArticle']
-type KnowledgeBaseCategory = schemas['KnowledgeBaseCategory']
-type KnowledgeBaseSettings = schemas['KnowledgeBaseSettings']
-type KnowledgeBaseSubCategory = schemas['KnowledgeBaseSubCategory']
-type PatchOperation = schemas['PatchOperation']
-type Priority = schemas['Priority']
-type PriorityInfo = schemas['PriorityInfo']
-type ProductReference = schemas['ProductReference']
-type SLA = schemas['SLA']
-type SLAInfo = schemas['SLAInfo']
-type SLAPriority = schemas['SLAPriority']
-type ScheduleEntryReference = schemas['ScheduleEntryReference']
-type SchedulingMemberInfo = schemas['SchedulingMemberInfo']
-type ServiceEmailTemplate = schemas['ServiceEmailTemplate']
-type ServiceLocation = schemas['ServiceLocation']
-type ServiceLocationInfo = schemas['ServiceLocationInfo']
-type ServiceNote = schemas['ServiceNote']
-type ServiceSignoff = schemas['ServiceSignoff']
-type ServiceSignoffInfo = schemas['ServiceSignoffInfo']
-type ServiceSurvey = schemas['ServiceSurvey']
-type ServiceSurveyQuestion = schemas['ServiceSurveyQuestion']
-type ServiceTeam = schemas['ServiceTeam']
-type ServiceTemplate = schemas['ServiceTemplate']
-type ServiceTemplateInfo = schemas['ServiceTemplateInfo']
-type ServiceTicketLink = schemas['ServiceTicketLink']
-type ServiceTicketLinkInfo = schemas['ServiceTicketLinkInfo']
-type ServiceTicketNote = schemas['ServiceTicketNote']
-type Severity = schemas['Severity']
-type Source = schemas['Source']
-type SourceInfo = schemas['SourceInfo']
-type SuccessResponse = schemas['SuccessResponse']
-type SurveyOption = schemas['SurveyOption']
-type SurveyResult = schemas['SurveyResult']
-type Task = schemas['Task']
-type TeamMember = schemas['TeamMember']
-type TemplateGeneratedCountsModel = schemas['TemplateGeneratedCountsModel']
-type Ticket = schemas['Ticket']
-type TicketBundle = schemas['TicketBundle']
-type TicketInfo = schemas['TicketInfo']
-type TicketMerge = schemas['TicketMerge']
-type TicketSync = schemas['TicketSync']
-type TimeEntryReference = schemas['TimeEntryReference']
-type Usage = schemas['Usage']
+false
+export type ActivityReference = schemas['ActivityReference']
+export type Board = schemas['Board']
+export type BoardAutoAssignResource = schemas['BoardAutoAssignResource']
+export type BoardAutoTemplate = schemas['BoardAutoTemplate']
+export type BoardCopy = schemas['BoardCopy']
+export type BoardExcludedMember = schemas['BoardExcludedMember']
+export type BoardInfo = schemas['BoardInfo']
+export type BoardItem = schemas['BoardItem']
+export type BoardItemAssociation = schemas['BoardItemAssociation']
+export type BoardNotification = schemas['BoardNotification']
+export type BoardStatus = schemas['BoardStatus']
+export type BoardStatusInfo = schemas['BoardStatusInfo']
+export type BoardStatusNotification = schemas['BoardStatusNotification']
+export type BoardSubType = schemas['BoardSubType']
+export type BoardSubTypeInfo = schemas['BoardSubTypeInfo']
+export type BoardTeam = schemas['BoardTeam']
+export type BoardTeamInfo = schemas['BoardTeamInfo']
+export type BoardType = schemas['BoardType']
+export type BoardTypeInfo = schemas['BoardTypeInfo']
+export type BoardTypeSubTypeItemAssociation = schemas['BoardTypeSubTypeItemAssociation']
+export type Code = schemas['Code']
+export type ConfigurationReference = schemas['ConfigurationReference']
+export type ConvertToProject = schemas['ConvertToProject']
+export type Count = schemas['Count']
+export type DocumentReference = schemas['DocumentReference']
+export type FilterValues = schemas['FilterValues']
+export type Impact = schemas['Impact']
+export type KnowledgeBaseArticle = schemas['KnowledgeBaseArticle']
+export type KnowledgeBaseCategory = schemas['KnowledgeBaseCategory']
+export type KnowledgeBaseSettings = schemas['KnowledgeBaseSettings']
+export type KnowledgeBaseSubCategory = schemas['KnowledgeBaseSubCategory']
+export type PatchOperation = schemas['PatchOperation']
+export type Priority = schemas['Priority']
+export type PriorityInfo = schemas['PriorityInfo']
+export type ProductReference = schemas['ProductReference']
+export type SLA = schemas['SLA']
+export type SLAInfo = schemas['SLAInfo']
+export type SLAPriority = schemas['SLAPriority']
+export type ScheduleEntryReference = schemas['ScheduleEntryReference']
+export type SchedulingMemberInfo = schemas['SchedulingMemberInfo']
+export type ServiceEmailTemplate = schemas['ServiceEmailTemplate']
+export type ServiceLocation = schemas['ServiceLocation']
+export type ServiceLocationInfo = schemas['ServiceLocationInfo']
+export type ServiceNote = schemas['ServiceNote']
+export type ServiceSignoff = schemas['ServiceSignoff']
+export type ServiceSignoffInfo = schemas['ServiceSignoffInfo']
+export type ServiceSurvey = schemas['ServiceSurvey']
+export type ServiceSurveyQuestion = schemas['ServiceSurveyQuestion']
+export type ServiceTeam = schemas['ServiceTeam']
+export type ServiceTemplate = schemas['ServiceTemplate']
+export type ServiceTemplateInfo = schemas['ServiceTemplateInfo']
+export type ServiceTicketLink = schemas['ServiceTicketLink']
+export type ServiceTicketLinkInfo = schemas['ServiceTicketLinkInfo']
+export type ServiceTicketNote = schemas['ServiceTicketNote']
+export type Severity = schemas['Severity']
+export type Source = schemas['Source']
+export type SourceInfo = schemas['SourceInfo']
+export type SuccessResponse = schemas['SuccessResponse']
+export type SurveyOption = schemas['SurveyOption']
+export type SurveyResult = schemas['SurveyResult']
+export type Task = schemas['Task']
+export type TeamMember = schemas['TeamMember']
+export type TemplateGeneratedCountsModel = schemas['TemplateGeneratedCountsModel']
+export type Ticket = schemas['Ticket']
+export type TicketBundle = schemas['TicketBundle']
+export type TicketInfo = schemas['TicketInfo']
+export type TicketMerge = schemas['TicketMerge']
+export type TicketSync = schemas['TicketSync']
+export type TimeEntryReference = schemas['TimeEntryReference']
+export type Usage = schemas['Usage']
 
 /**
  * @internal
@@ -83,7 +84,7 @@ export default class ServiceAPI extends Manage {
     super(props)
   }
 
-  getServiceBoards(params: CommonParameters = {}): Promise<Board[]> {
+  getServiceBoards(params: CommonParameters = {}): Promise<Array<Board>> {
     return this.request({
       path: `/service/boards`,
       method: 'get',
@@ -103,9 +104,9 @@ export default class ServiceAPI extends Manage {
     parentId: number,
     grandparentId: number,
     params: CommonParameters = {},
-  ): Promise<BoardItemAssociation[]> {
+  ): Promise<Array<BoardItemAssociation>> {
     return this.request({
-      path: `/service/boards/${grandparentId}/items/{parentId}/associations`,
+      path: `/service/boards/${grandparentId}/items/${parentId}/associations`,
       method: 'get',
       params,
     })
@@ -118,7 +119,7 @@ export default class ServiceAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<BoardItemAssociation> {
     return this.request({
-      path: `/service/boards/${grandparentId}/items/{parentId}/associations/{id}`,
+      path: `/service/boards/${grandparentId}/items/${parentId}/associations/${id}`,
       method: 'get',
       params,
     })
@@ -131,7 +132,7 @@ export default class ServiceAPI extends Manage {
     itemAssociation: BoardItemAssociation,
   ): Promise<BoardItemAssociation> {
     return this.request({
-      path: `/service/boards/${grandparentId}/items/{parentId}/associations/{id}`,
+      path: `/service/boards/${grandparentId}/items/${parentId}/associations/${id}`,
       method: 'put',
       data: itemAssociation,
     })
@@ -141,10 +142,10 @@ export default class ServiceAPI extends Manage {
     id: number,
     parentId: number,
     grandparentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<BoardItemAssociation> {
     return this.request({
-      path: `/service/boards/${grandparentId}/items/{parentId}/associations/{id}`,
+      path: `/service/boards/${grandparentId}/items/${parentId}/associations/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -156,7 +157,7 @@ export default class ServiceAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<Count> {
     return this.request({
-      path: `/service/boards/${grandparentId}/items/{parentId}/associations/count`,
+      path: `/service/boards/${grandparentId}/items/${parentId}/associations/count`,
       method: 'get',
       params,
     })
@@ -166,9 +167,9 @@ export default class ServiceAPI extends Manage {
     parentId: number,
     grandparentId: number,
     params: CommonParameters = {},
-  ): Promise<BoardStatusNotification[]> {
+  ): Promise<Array<BoardStatusNotification>> {
     return this.request({
-      path: `/service/boards/${grandparentId}/statuses/{parentId}/notifications`,
+      path: `/service/boards/${grandparentId}/statuses/${parentId}/notifications`,
       method: 'get',
       params,
     })
@@ -180,7 +181,7 @@ export default class ServiceAPI extends Manage {
     boardStatusNotification: BoardStatusNotification,
   ): Promise<BoardStatusNotification> {
     return this.request({
-      path: `/service/boards/${grandparentId}/statuses/{parentId}/notifications`,
+      path: `/service/boards/${grandparentId}/statuses/${parentId}/notifications`,
       method: 'post',
       data: boardStatusNotification,
     })
@@ -193,7 +194,7 @@ export default class ServiceAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<BoardStatusNotification> {
     return this.request({
-      path: `/service/boards/${grandparentId}/statuses/{parentId}/notifications/{id}`,
+      path: `/service/boards/${grandparentId}/statuses/${parentId}/notifications/${id}`,
       method: 'get',
       params,
     })
@@ -205,7 +206,7 @@ export default class ServiceAPI extends Manage {
     grandparentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/service/boards/${grandparentId}/statuses/{parentId}/notifications/{id}`,
+      path: `/service/boards/${grandparentId}/statuses/${parentId}/notifications/${id}`,
       method: 'delete',
     })
   }
@@ -217,7 +218,7 @@ export default class ServiceAPI extends Manage {
     boardStatusNotification: BoardStatusNotification,
   ): Promise<BoardStatusNotification> {
     return this.request({
-      path: `/service/boards/${grandparentId}/statuses/{parentId}/notifications/{id}`,
+      path: `/service/boards/${grandparentId}/statuses/${parentId}/notifications/${id}`,
       method: 'put',
       data: boardStatusNotification,
     })
@@ -227,10 +228,10 @@ export default class ServiceAPI extends Manage {
     id: number,
     parentId: number,
     grandparentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<BoardStatusNotification> {
     return this.request({
-      path: `/service/boards/${grandparentId}/statuses/{parentId}/notifications/{id}`,
+      path: `/service/boards/${grandparentId}/statuses/${parentId}/notifications/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -242,7 +243,7 @@ export default class ServiceAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<Count> {
     return this.request({
-      path: `/service/boards/${grandparentId}/statuses/{parentId}/notifications/count`,
+      path: `/service/boards/${grandparentId}/statuses/${parentId}/notifications/count`,
       method: 'get',
       params,
     })
@@ -271,7 +272,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  patchServiceBoardsById(id: number, patchOperations: PatchOperation[]): Promise<Board> {
+  patchServiceBoardsById(id: number, patchOperations: Array<PatchOperation>): Promise<Board> {
     return this.request({
       path: `/service/boards/${id}`,
       method: 'patch',
@@ -279,7 +280,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceBoardsByIdUsages(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getServiceBoardsByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
       path: `/service/boards/${id}/usages`,
       method: 'get',
@@ -287,7 +288,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceBoardsByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getServiceBoardsByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
       path: `/service/boards/${id}/usages/list`,
       method: 'get',
@@ -298,7 +299,7 @@ export default class ServiceAPI extends Manage {
   getServiceBoardsByParentIdAutoAssignResources(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<BoardAutoAssignResource[]> {
+  ): Promise<Array<BoardAutoAssignResource>> {
     return this.request({
       path: `/service/boards/${parentId}/autoAssignResources`,
       method: 'get',
@@ -323,7 +324,7 @@ export default class ServiceAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<BoardAutoAssignResource> {
     return this.request({
-      path: `/service/boards/${parentId}/autoAssignResources/{id}`,
+      path: `/service/boards/${parentId}/autoAssignResources/${id}`,
       method: 'get',
       params,
     })
@@ -334,7 +335,7 @@ export default class ServiceAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/service/boards/${parentId}/autoAssignResources/{id}`,
+      path: `/service/boards/${parentId}/autoAssignResources/${id}`,
       method: 'delete',
     })
   }
@@ -345,7 +346,7 @@ export default class ServiceAPI extends Manage {
     boardAutoAssignResource: BoardAutoAssignResource,
   ): Promise<BoardAutoAssignResource> {
     return this.request({
-      path: `/service/boards/${parentId}/autoAssignResources/{id}`,
+      path: `/service/boards/${parentId}/autoAssignResources/${id}`,
       method: 'put',
       data: boardAutoAssignResource,
     })
@@ -354,10 +355,10 @@ export default class ServiceAPI extends Manage {
   patchServiceBoardsByParentIdAutoAssignResourcesById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<BoardAutoAssignResource> {
     return this.request({
-      path: `/service/boards/${parentId}/autoAssignResources/{id}`,
+      path: `/service/boards/${parentId}/autoAssignResources/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -377,7 +378,7 @@ export default class ServiceAPI extends Manage {
   getServiceBoardsByParentIdAutoTemplates(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<BoardAutoTemplate[]> {
+  ): Promise<Array<BoardAutoTemplate>> {
     return this.request({
       path: `/service/boards/${parentId}/autoTemplates`,
       method: 'get',
@@ -402,7 +403,7 @@ export default class ServiceAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<BoardAutoTemplate> {
     return this.request({
-      path: `/service/boards/${parentId}/autoTemplates/{id}`,
+      path: `/service/boards/${parentId}/autoTemplates/${id}`,
       method: 'get',
       params,
     })
@@ -413,7 +414,7 @@ export default class ServiceAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/service/boards/${parentId}/autoTemplates/{id}`,
+      path: `/service/boards/${parentId}/autoTemplates/${id}`,
       method: 'delete',
     })
   }
@@ -424,7 +425,7 @@ export default class ServiceAPI extends Manage {
     boardAutoTemplate: BoardAutoTemplate,
   ): Promise<BoardAutoTemplate> {
     return this.request({
-      path: `/service/boards/${parentId}/autoTemplates/{id}`,
+      path: `/service/boards/${parentId}/autoTemplates/${id}`,
       method: 'put',
       data: boardAutoTemplate,
     })
@@ -433,10 +434,10 @@ export default class ServiceAPI extends Manage {
   patchServiceBoardsByParentIdAutoTemplatesById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<BoardAutoTemplate> {
     return this.request({
-      path: `/service/boards/${parentId}/autoTemplates/{id}`,
+      path: `/service/boards/${parentId}/autoTemplates/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -456,7 +457,7 @@ export default class ServiceAPI extends Manage {
   getServiceBoardsByParentIdExcludedMembers(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<BoardExcludedMember[]> {
+  ): Promise<Array<BoardExcludedMember>> {
     return this.request({
       path: `/service/boards/${parentId}/excludedMembers`,
       method: 'get',
@@ -481,7 +482,7 @@ export default class ServiceAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<BoardExcludedMember> {
     return this.request({
-      path: `/service/boards/${parentId}/excludedMembers/{id}`,
+      path: `/service/boards/${parentId}/excludedMembers/${id}`,
       method: 'get',
       params,
     })
@@ -492,7 +493,7 @@ export default class ServiceAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/service/boards/${parentId}/excludedMembers/{id}`,
+      path: `/service/boards/${parentId}/excludedMembers/${id}`,
       method: 'delete',
     })
   }
@@ -511,7 +512,7 @@ export default class ServiceAPI extends Manage {
   getServiceBoardsByParentIdItems(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<BoardItem[]> {
+  ): Promise<Array<BoardItem>> {
     return this.request({
       path: `/service/boards/${parentId}/items`,
       method: 'get',
@@ -533,7 +534,7 @@ export default class ServiceAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<BoardItem> {
     return this.request({
-      path: `/service/boards/${parentId}/items/{id}`,
+      path: `/service/boards/${parentId}/items/${id}`,
       method: 'get',
       params,
     })
@@ -541,7 +542,7 @@ export default class ServiceAPI extends Manage {
 
   deleteServiceBoardsByParentIdItemsById(id: number, parentId: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/service/boards/${parentId}/items/{id}`,
+      path: `/service/boards/${parentId}/items/${id}`,
       method: 'delete',
     })
   }
@@ -552,7 +553,7 @@ export default class ServiceAPI extends Manage {
     boardItem: BoardItem,
   ): Promise<BoardItem> {
     return this.request({
-      path: `/service/boards/${parentId}/items/{id}`,
+      path: `/service/boards/${parentId}/items/${id}`,
       method: 'put',
       data: boardItem,
     })
@@ -561,10 +562,10 @@ export default class ServiceAPI extends Manage {
   patchServiceBoardsByParentIdItemsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<BoardItem> {
     return this.request({
-      path: `/service/boards/${parentId}/items/{id}`,
+      path: `/service/boards/${parentId}/items/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -574,9 +575,9 @@ export default class ServiceAPI extends Manage {
     id: number,
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
-      path: `/service/boards/${parentId}/items/{id}/usages`,
+      path: `/service/boards/${parentId}/items/${id}/usages`,
       method: 'get',
       params,
     })
@@ -586,9 +587,9 @@ export default class ServiceAPI extends Manage {
     id: number,
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
-      path: `/service/boards/${parentId}/items/{id}/usages/list`,
+      path: `/service/boards/${parentId}/items/${id}/usages/list`,
       method: 'get',
       params,
     })
@@ -608,7 +609,7 @@ export default class ServiceAPI extends Manage {
   getServiceBoardsByParentIdNotifications(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<BoardNotification[]> {
+  ): Promise<Array<BoardNotification>> {
     return this.request({
       path: `/service/boards/${parentId}/notifications`,
       method: 'get',
@@ -633,7 +634,7 @@ export default class ServiceAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<BoardNotification> {
     return this.request({
-      path: `/service/boards/${parentId}/notifications/{id}`,
+      path: `/service/boards/${parentId}/notifications/${id}`,
       method: 'get',
       params,
     })
@@ -644,7 +645,7 @@ export default class ServiceAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/service/boards/${parentId}/notifications/{id}`,
+      path: `/service/boards/${parentId}/notifications/${id}`,
       method: 'delete',
     })
   }
@@ -655,7 +656,7 @@ export default class ServiceAPI extends Manage {
     boardNotification: BoardNotification,
   ): Promise<BoardNotification> {
     return this.request({
-      path: `/service/boards/${parentId}/notifications/{id}`,
+      path: `/service/boards/${parentId}/notifications/${id}`,
       method: 'put',
       data: boardNotification,
     })
@@ -664,10 +665,10 @@ export default class ServiceAPI extends Manage {
   patchServiceBoardsByParentIdNotificationsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<BoardNotification> {
     return this.request({
-      path: `/service/boards/${parentId}/notifications/{id}`,
+      path: `/service/boards/${parentId}/notifications/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -687,7 +688,7 @@ export default class ServiceAPI extends Manage {
   getServiceBoardsByParentIdStatuses(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<BoardStatus[]> {
+  ): Promise<Array<BoardStatus>> {
     return this.request({
       path: `/service/boards/${parentId}/statuses`,
       method: 'get',
@@ -712,7 +713,7 @@ export default class ServiceAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<BoardStatus> {
     return this.request({
-      path: `/service/boards/${parentId}/statuses/{id}`,
+      path: `/service/boards/${parentId}/statuses/${id}`,
       method: 'get',
       params,
     })
@@ -723,7 +724,7 @@ export default class ServiceAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/service/boards/${parentId}/statuses/{id}`,
+      path: `/service/boards/${parentId}/statuses/${id}`,
       method: 'delete',
     })
   }
@@ -734,7 +735,7 @@ export default class ServiceAPI extends Manage {
     boardStatus: BoardStatus,
   ): Promise<BoardStatus> {
     return this.request({
-      path: `/service/boards/${parentId}/statuses/{id}`,
+      path: `/service/boards/${parentId}/statuses/${id}`,
       method: 'put',
       data: boardStatus,
     })
@@ -743,10 +744,10 @@ export default class ServiceAPI extends Manage {
   patchServiceBoardsByParentIdStatusesById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<BoardStatus> {
     return this.request({
-      path: `/service/boards/${parentId}/statuses/{id}`,
+      path: `/service/boards/${parentId}/statuses/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -758,7 +759,7 @@ export default class ServiceAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<BoardStatusInfo> {
     return this.request({
-      path: `/service/boards/${parentId}/statuses/{id}/info`,
+      path: `/service/boards/${parentId}/statuses/${id}/info`,
       method: 'get',
       params,
     })
@@ -768,9 +769,9 @@ export default class ServiceAPI extends Manage {
     id: number,
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
-      path: `/service/boards/${parentId}/statuses/{id}/usages`,
+      path: `/service/boards/${parentId}/statuses/${id}/usages`,
       method: 'get',
       params,
     })
@@ -780,9 +781,9 @@ export default class ServiceAPI extends Manage {
     id: number,
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
-      path: `/service/boards/${parentId}/statuses/{id}/usages/list`,
+      path: `/service/boards/${parentId}/statuses/${id}/usages/list`,
       method: 'get',
       params,
     })
@@ -802,7 +803,7 @@ export default class ServiceAPI extends Manage {
   getServiceBoardsByParentIdStatusesInfo(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<BoardStatusInfo[]> {
+  ): Promise<Array<BoardStatusInfo>> {
     return this.request({
       path: `/service/boards/${parentId}/statuses/info`,
       method: 'get',
@@ -824,7 +825,7 @@ export default class ServiceAPI extends Manage {
   getServiceBoardsByParentIdSubtypes(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<BoardSubType[]> {
+  ): Promise<Array<BoardSubType>> {
     return this.request({
       path: `/service/boards/${parentId}/subtypes`,
       method: 'get',
@@ -849,7 +850,7 @@ export default class ServiceAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<BoardSubType> {
     return this.request({
-      path: `/service/boards/${parentId}/subtypes/{id}`,
+      path: `/service/boards/${parentId}/subtypes/${id}`,
       method: 'get',
       params,
     })
@@ -860,7 +861,7 @@ export default class ServiceAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/service/boards/${parentId}/subtypes/{id}`,
+      path: `/service/boards/${parentId}/subtypes/${id}`,
       method: 'delete',
     })
   }
@@ -871,7 +872,7 @@ export default class ServiceAPI extends Manage {
     boardSubType: BoardSubType,
   ): Promise<BoardSubType> {
     return this.request({
-      path: `/service/boards/${parentId}/subtypes/{id}`,
+      path: `/service/boards/${parentId}/subtypes/${id}`,
       method: 'put',
       data: boardSubType,
     })
@@ -880,10 +881,10 @@ export default class ServiceAPI extends Manage {
   patchServiceBoardsByParentIdSubtypesById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<BoardSubType> {
     return this.request({
-      path: `/service/boards/${parentId}/subtypes/{id}`,
+      path: `/service/boards/${parentId}/subtypes/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -895,7 +896,7 @@ export default class ServiceAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<BoardSubTypeInfo> {
     return this.request({
-      path: `/service/boards/${parentId}/subtypes/{id}/info`,
+      path: `/service/boards/${parentId}/subtypes/${id}/info`,
       method: 'get',
       params,
     })
@@ -905,9 +906,9 @@ export default class ServiceAPI extends Manage {
     id: number,
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
-      path: `/service/boards/${parentId}/subtypes/{id}/usages`,
+      path: `/service/boards/${parentId}/subtypes/${id}/usages`,
       method: 'get',
       params,
     })
@@ -917,9 +918,9 @@ export default class ServiceAPI extends Manage {
     id: number,
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
-      path: `/service/boards/${parentId}/subtypes/{id}/usages/list`,
+      path: `/service/boards/${parentId}/subtypes/${id}/usages/list`,
       method: 'get',
       params,
     })
@@ -939,7 +940,7 @@ export default class ServiceAPI extends Manage {
   getServiceBoardsByParentIdSubtypesInfo(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<BoardSubTypeInfo[]> {
+  ): Promise<Array<BoardSubTypeInfo>> {
     return this.request({
       path: `/service/boards/${parentId}/subtypes/info`,
       method: 'get',
@@ -961,7 +962,7 @@ export default class ServiceAPI extends Manage {
   getServiceBoardsByParentIdTeams(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<BoardTeam[]> {
+  ): Promise<Array<BoardTeam>> {
     return this.request({
       path: `/service/boards/${parentId}/teams`,
       method: 'get',
@@ -983,7 +984,7 @@ export default class ServiceAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<BoardTeam> {
     return this.request({
-      path: `/service/boards/${parentId}/teams/{id}`,
+      path: `/service/boards/${parentId}/teams/${id}`,
       method: 'get',
       params,
     })
@@ -991,7 +992,7 @@ export default class ServiceAPI extends Manage {
 
   deleteServiceBoardsByParentIdTeamsById(id: number, parentId: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/service/boards/${parentId}/teams/{id}`,
+      path: `/service/boards/${parentId}/teams/${id}`,
       method: 'delete',
     })
   }
@@ -1002,7 +1003,7 @@ export default class ServiceAPI extends Manage {
     _boardTeam: BoardTeam,
   ): Promise<BoardTeam> {
     return this.request({
-      path: `/service/boards/${parentId}/teams/{id}`,
+      path: `/service/boards/${parentId}/teams/${id}`,
       method: 'put',
       data: _boardTeam,
     })
@@ -1011,10 +1012,10 @@ export default class ServiceAPI extends Manage {
   patchServiceBoardsByParentIdTeamsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<BoardTeam> {
     return this.request({
-      path: `/service/boards/${parentId}/teams/{id}`,
+      path: `/service/boards/${parentId}/teams/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -1026,7 +1027,7 @@ export default class ServiceAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<BoardTeamInfo> {
     return this.request({
-      path: `/service/boards/${parentId}/teams/{id}/info`,
+      path: `/service/boards/${parentId}/teams/${id}/info`,
       method: 'get',
       params,
     })
@@ -1036,9 +1037,9 @@ export default class ServiceAPI extends Manage {
     id: number,
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
-      path: `/service/boards/${parentId}/teams/{id}/usages/list`,
+      path: `/service/boards/${parentId}/teams/${id}/usages/list`,
       method: 'get',
       params,
     })
@@ -1058,7 +1059,7 @@ export default class ServiceAPI extends Manage {
   getServiceBoardsByParentIdTeamsInfo(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<BoardTeamInfo[]> {
+  ): Promise<Array<BoardTeamInfo>> {
     return this.request({
       path: `/service/boards/${parentId}/teams/info`,
       method: 'get',
@@ -1080,7 +1081,7 @@ export default class ServiceAPI extends Manage {
   getServiceBoardsByParentIdTypes(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<BoardType[]> {
+  ): Promise<Array<BoardType>> {
     return this.request({
       path: `/service/boards/${parentId}/types`,
       method: 'get',
@@ -1102,7 +1103,7 @@ export default class ServiceAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<BoardType> {
     return this.request({
-      path: `/service/boards/${parentId}/types/{id}`,
+      path: `/service/boards/${parentId}/types/${id}`,
       method: 'get',
       params,
     })
@@ -1110,7 +1111,7 @@ export default class ServiceAPI extends Manage {
 
   deleteServiceBoardsByParentIdTypesById(id: number, parentId: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/service/boards/${parentId}/types/{id}`,
+      path: `/service/boards/${parentId}/types/${id}`,
       method: 'delete',
     })
   }
@@ -1121,7 +1122,7 @@ export default class ServiceAPI extends Manage {
     boardType: BoardType,
   ): Promise<BoardType> {
     return this.request({
-      path: `/service/boards/${parentId}/types/{id}`,
+      path: `/service/boards/${parentId}/types/${id}`,
       method: 'put',
       data: boardType,
     })
@@ -1130,10 +1131,10 @@ export default class ServiceAPI extends Manage {
   patchServiceBoardsByParentIdTypesById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<BoardType> {
     return this.request({
-      path: `/service/boards/${parentId}/types/{id}`,
+      path: `/service/boards/${parentId}/types/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -1143,9 +1144,9 @@ export default class ServiceAPI extends Manage {
     id: number,
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
-      path: `/service/boards/${parentId}/types/{id}/usages`,
+      path: `/service/boards/${parentId}/types/${id}/usages`,
       method: 'get',
       params,
     })
@@ -1155,9 +1156,9 @@ export default class ServiceAPI extends Manage {
     id: number,
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
-      path: `/service/boards/${parentId}/types/{id}/usages/list`,
+      path: `/service/boards/${parentId}/types/${id}/usages/list`,
       method: 'get',
       params,
     })
@@ -1177,7 +1178,7 @@ export default class ServiceAPI extends Manage {
   getServiceBoardsByParentIdTypeSubTypeItemAssociations(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<BoardTypeSubTypeItemAssociation[]> {
+  ): Promise<Array<BoardTypeSubTypeItemAssociation>> {
     return this.request({
       path: `/service/boards/${parentId}/typeSubTypeItemAssociations`,
       method: 'get',
@@ -1191,7 +1192,7 @@ export default class ServiceAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<BoardTypeSubTypeItemAssociation> {
     return this.request({
-      path: `/service/boards/${parentId}/typeSubTypeItemAssociations/{id}`,
+      path: `/service/boards/${parentId}/typeSubTypeItemAssociations/${id}`,
       method: 'get',
       params,
     })
@@ -1224,7 +1225,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceCodes(params: CommonParameters = {}): Promise<Code[]> {
+  getServiceCodes(params: CommonParameters = {}): Promise<Array<Code>> {
     return this.request({
       path: `/service/codes`,
       method: 'get',
@@ -1263,7 +1264,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  patchServiceCodesById(id: number, patchOperations: PatchOperation[]): Promise<Code> {
+  patchServiceCodesById(id: number, patchOperations: Array<PatchOperation>): Promise<Code> {
     return this.request({
       path: `/service/codes/${id}`,
       method: 'patch',
@@ -1279,7 +1280,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceEmailTemplates(params: CommonParameters = {}): Promise<ServiceEmailTemplate[]> {
+  getServiceEmailTemplates(params: CommonParameters = {}): Promise<Array<ServiceEmailTemplate>> {
     return this.request({
       path: `/service/emailTemplates`,
       method: 'get',
@@ -1328,7 +1329,7 @@ export default class ServiceAPI extends Manage {
 
   patchServiceEmailTemplatesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ServiceEmailTemplate> {
     return this.request({
       path: `/service/emailTemplates/${id}`,
@@ -1337,7 +1338,10 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceEmailTemplatesByIdUsages(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getServiceEmailTemplatesByIdUsages(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/service/emailTemplates/${id}/usages`,
       method: 'get',
@@ -1348,7 +1352,7 @@ export default class ServiceAPI extends Manage {
   getServiceEmailTemplatesByIdUsagesList(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/service/emailTemplates/${id}/usages/list`,
       method: 'get',
@@ -1364,7 +1368,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceImpacts(params: CommonParameters = {}): Promise<Impact[]> {
+  getServiceImpacts(params: CommonParameters = {}): Promise<Array<Impact>> {
     return this.request({
       path: `/service/impacts`,
       method: 'get',
@@ -1388,7 +1392,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  patchServiceImpactsById(id: number, patchOperations: PatchOperation[]): Promise<Impact> {
+  patchServiceImpactsById(id: number, patchOperations: Array<PatchOperation>): Promise<Impact> {
     return this.request({
       path: `/service/impacts/${id}`,
       method: 'patch',
@@ -1404,7 +1408,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceInfoBoards(params: CommonParameters = {}): Promise<BoardInfo[]> {
+  getServiceInfoBoards(params: CommonParameters = {}): Promise<Array<BoardInfo>> {
     return this.request({
       path: `/service/info/boards`,
       method: 'get',
@@ -1428,7 +1432,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceInfoBoardtypes(params: CommonParameters = {}): Promise<BoardTypeInfo[]> {
+  getServiceInfoBoardtypes(params: CommonParameters = {}): Promise<Array<BoardTypeInfo>> {
     return this.request({
       path: `/service/info/boardtypes`,
       method: 'get',
@@ -1452,7 +1456,9 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceKnowledgeBaseArticles(params: CommonParameters = {}): Promise<KnowledgeBaseArticle[]> {
+  getServiceKnowledgeBaseArticles(
+    params: CommonParameters = {},
+  ): Promise<Array<KnowledgeBaseArticle>> {
     return this.request({
       path: `/service/knowledgeBaseArticles`,
       method: 'get',
@@ -1501,7 +1507,7 @@ export default class ServiceAPI extends Manage {
 
   patchServiceKnowledgeBaseArticlesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<KnowledgeBaseArticle> {
     return this.request({
       path: `/service/knowledgeBaseArticles/${id}`,
@@ -1520,7 +1526,7 @@ export default class ServiceAPI extends Manage {
 
   getServiceKnowledgeBaseCategories(
     params: CommonParameters = {},
-  ): Promise<KnowledgeBaseCategory[]> {
+  ): Promise<Array<KnowledgeBaseCategory>> {
     return this.request({
       path: `/service/knowledgeBaseCategories`,
       method: 'get',
@@ -1569,7 +1575,7 @@ export default class ServiceAPI extends Manage {
 
   patchServiceKnowledgeBaseCategoriesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<KnowledgeBaseCategory> {
     return this.request({
       path: `/service/knowledgeBaseCategories/${id}`,
@@ -1628,7 +1634,7 @@ export default class ServiceAPI extends Manage {
 
   patchServiceKnowledgebasesettingsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<KnowledgeBaseSettings> {
     return this.request({
       path: `/service/knowledgebasesettings/${id}`,
@@ -1639,7 +1645,7 @@ export default class ServiceAPI extends Manage {
 
   getServiceKnowledgeBaseSubCategories(
     params: CommonParameters = {},
-  ): Promise<KnowledgeBaseSubCategory[]> {
+  ): Promise<Array<KnowledgeBaseSubCategory>> {
     return this.request({
       path: `/service/knowledgeBaseSubCategories`,
       method: 'get',
@@ -1688,7 +1694,7 @@ export default class ServiceAPI extends Manage {
 
   patchServiceKnowledgeBaseSubCategoriesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<KnowledgeBaseSubCategory> {
     return this.request({
       path: `/service/knowledgeBaseSubCategories/${id}`,
@@ -1700,7 +1706,7 @@ export default class ServiceAPI extends Manage {
   getServiceKnowledgeBaseSubCategoriesByIdUsages(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/service/knowledgeBaseSubCategories/${id}/usages`,
       method: 'get',
@@ -1711,7 +1717,7 @@ export default class ServiceAPI extends Manage {
   getServiceKnowledgeBaseSubCategoriesByIdUsagesList(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/service/knowledgeBaseSubCategories/${id}/usages/list`,
       method: 'get',
@@ -1727,7 +1733,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceLocations(params: CommonParameters = {}): Promise<ServiceLocation[]> {
+  getServiceLocations(params: CommonParameters = {}): Promise<Array<ServiceLocation>> {
     return this.request({
       path: `/service/locations`,
       method: 'get',
@@ -1768,7 +1774,7 @@ export default class ServiceAPI extends Manage {
 
   patchServiceLocationsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ServiceLocation> {
     return this.request({
       path: `/service/locations/${id}`,
@@ -1796,7 +1802,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceLocationsInfo(params: CommonParameters = {}): Promise<ServiceLocationInfo[]> {
+  getServiceLocationsInfo(params: CommonParameters = {}): Promise<Array<ServiceLocationInfo>> {
     return this.request({
       path: `/service/locations/info`,
       method: 'get',
@@ -1812,7 +1818,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServicePriorities(params: CommonParameters = {}): Promise<Priority[]> {
+  getServicePriorities(params: CommonParameters = {}): Promise<Array<Priority>> {
     return this.request({
       path: `/service/priorities`,
       method: 'get',
@@ -1851,7 +1857,10 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  patchServicePrioritiesById(id: number, patchOperations: PatchOperation[]): Promise<Priority> {
+  patchServicePrioritiesById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<Priority> {
     return this.request({
       path: `/service/priorities/${id}`,
       method: 'patch',
@@ -1872,7 +1881,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServicePrioritiesByIdUsages(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getServicePrioritiesByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
       path: `/service/priorities/${id}/usages`,
       method: 'get',
@@ -1880,7 +1889,10 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServicePrioritiesByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getServicePrioritiesByIdUsagesList(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/service/priorities/${id}/usages/list`,
       method: 'get',
@@ -1904,7 +1916,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServicePriorityInfo(params: CommonParameters = {}): Promise<PriorityInfo[]> {
+  getServicePriorityInfo(params: CommonParameters = {}): Promise<Array<PriorityInfo>> {
     return this.request({
       path: `/service/priority/info`,
       method: 'get',
@@ -1923,7 +1935,9 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceSchedulingMembersInfo(params: CommonParameters = {}): Promise<SchedulingMemberInfo[]> {
+  getServiceSchedulingMembersInfo(
+    params: CommonParameters = {},
+  ): Promise<Array<SchedulingMemberInfo>> {
     return this.request({
       path: `/service/scheduling/members/info`,
       method: 'get',
@@ -1939,7 +1953,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceServiceSignoff(params: CommonParameters = {}): Promise<ServiceSignoff[]> {
+  getServiceServiceSignoff(params: CommonParameters = {}): Promise<Array<ServiceSignoff>> {
     return this.request({
       path: `/service/serviceSignoff`,
       method: 'get',
@@ -1983,7 +1997,7 @@ export default class ServiceAPI extends Manage {
 
   patchServiceServiceSignoffById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ServiceSignoff> {
     return this.request({
       path: `/service/serviceSignoff/${id}`,
@@ -2003,7 +2017,10 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceServiceSignoffByIdUsages(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getServiceServiceSignoffByIdUsages(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/service/serviceSignoff/${id}/usages`,
       method: 'get',
@@ -2014,7 +2031,7 @@ export default class ServiceAPI extends Manage {
   getServiceServiceSignoffByIdUsagesList(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/service/serviceSignoff/${id}/usages/list`,
       method: 'get',
@@ -2030,7 +2047,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceServiceSignoffInfo(params: CommonParameters = {}): Promise<ServiceSignoffInfo[]> {
+  getServiceServiceSignoffInfo(params: CommonParameters = {}): Promise<Array<ServiceSignoffInfo>> {
     return this.request({
       path: `/service/serviceSignoff/info`,
       method: 'get',
@@ -2046,7 +2063,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceSeverities(params: CommonParameters = {}): Promise<Severity[]> {
+  getServiceSeverities(params: CommonParameters = {}): Promise<Array<Severity>> {
     return this.request({
       path: `/service/severities`,
       method: 'get',
@@ -2070,7 +2087,10 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  patchServiceSeveritiesById(id: number, patchOperations: PatchOperation[]): Promise<Severity> {
+  patchServiceSeveritiesById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<Severity> {
     return this.request({
       path: `/service/severities/${id}`,
       method: 'patch',
@@ -2094,7 +2114,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceSlainfoInfo(params: CommonParameters = {}): Promise<SLAInfo[]> {
+  getServiceSlainfoInfo(params: CommonParameters = {}): Promise<Array<SLAInfo>> {
     return this.request({
       path: `/service/slainfo/info`,
       method: 'get',
@@ -2102,7 +2122,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceSLAs(params: CommonParameters = {}): Promise<SLA[]> {
+  getServiceSLAs(params: CommonParameters = {}): Promise<Array<SLA>> {
     return this.request({
       path: `/service/SLAs`,
       method: 'get',
@@ -2141,7 +2161,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  patchServiceSLAsById(id: number, patchOperations: PatchOperation[]): Promise<SLA> {
+  patchServiceSLAsById(id: number, patchOperations: Array<PatchOperation>): Promise<SLA> {
     return this.request({
       path: `/service/SLAs/${id}`,
       method: 'patch',
@@ -2149,7 +2169,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceSLAsByIdUsages(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getServiceSLAsByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
       path: `/service/SLAs/${id}/usages`,
       method: 'get',
@@ -2157,7 +2177,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceSLAsByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getServiceSLAsByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
       path: `/service/SLAs/${id}/usages/list`,
       method: 'get',
@@ -2168,7 +2188,7 @@ export default class ServiceAPI extends Manage {
   getServiceSLAsByParentIdPriorities(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<SLAPriority[]> {
+  ): Promise<Array<SLAPriority>> {
     return this.request({
       path: `/service/SLAs/${parentId}/priorities`,
       method: 'get',
@@ -2193,7 +2213,7 @@ export default class ServiceAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<SLAPriority> {
     return this.request({
-      path: `/service/SLAs/${parentId}/priorities/{id}`,
+      path: `/service/SLAs/${parentId}/priorities/${id}`,
       method: 'get',
       params,
     })
@@ -2204,7 +2224,7 @@ export default class ServiceAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/service/SLAs/${parentId}/priorities/{id}`,
+      path: `/service/SLAs/${parentId}/priorities/${id}`,
       method: 'delete',
     })
   }
@@ -2215,7 +2235,7 @@ export default class ServiceAPI extends Manage {
     sLAPriority: SLAPriority,
   ): Promise<SLAPriority> {
     return this.request({
-      path: `/service/SLAs/${parentId}/priorities/{id}`,
+      path: `/service/SLAs/${parentId}/priorities/${id}`,
       method: 'put',
       data: sLAPriority,
     })
@@ -2224,10 +2244,10 @@ export default class ServiceAPI extends Manage {
   patchServiceSLAsByParentIdPrioritiesById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<SLAPriority> {
     return this.request({
-      path: `/service/SLAs/${parentId}/priorities/{id}`,
+      path: `/service/SLAs/${parentId}/priorities/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -2260,7 +2280,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceSources(params: CommonParameters = {}): Promise<Source[]> {
+  getServiceSources(params: CommonParameters = {}): Promise<Array<Source>> {
     return this.request({
       path: `/service/sources`,
       method: 'get',
@@ -2299,7 +2319,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  patchServiceSourcesById(id: number, patchOperations: PatchOperation[]): Promise<Source> {
+  patchServiceSourcesById(id: number, patchOperations: Array<PatchOperation>): Promise<Source> {
     return this.request({
       path: `/service/sources/${id}`,
       method: 'patch',
@@ -2315,7 +2335,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceSourcesByIdUsages(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getServiceSourcesByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
       path: `/service/sources/${id}/usages`,
       method: 'get',
@@ -2323,7 +2343,10 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceSourcesByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getServiceSourcesByIdUsagesList(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/service/sources/${id}/usages/list`,
       method: 'get',
@@ -2339,7 +2362,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceSourcesInfo(params: CommonParameters = {}): Promise<SourceInfo[]> {
+  getServiceSourcesInfo(params: CommonParameters = {}): Promise<Array<SourceInfo>> {
     return this.request({
       path: `/service/sources/info`,
       method: 'get',
@@ -2355,7 +2378,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceSurveys(params: CommonParameters = {}): Promise<ServiceSurvey[]> {
+  getServiceSurveys(params: CommonParameters = {}): Promise<Array<ServiceSurvey>> {
     return this.request({
       path: `/service/surveys`,
       method: 'get',
@@ -2375,9 +2398,9 @@ export default class ServiceAPI extends Manage {
     parentId: number,
     grandparentId: number,
     params: CommonParameters = {},
-  ): Promise<SurveyOption[]> {
+  ): Promise<Array<SurveyOption>> {
     return this.request({
-      path: `/service/surveys/${grandparentId}/questions/{parentId}/options`,
+      path: `/service/surveys/${grandparentId}/questions/${parentId}/options`,
       method: 'get',
       params,
     })
@@ -2389,7 +2412,7 @@ export default class ServiceAPI extends Manage {
     surveyOption: SurveyOption,
   ): Promise<SurveyOption> {
     return this.request({
-      path: `/service/surveys/${grandparentId}/questions/{parentId}/options`,
+      path: `/service/surveys/${grandparentId}/questions/${parentId}/options`,
       method: 'post',
       data: surveyOption,
     })
@@ -2402,7 +2425,7 @@ export default class ServiceAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<SurveyOption> {
     return this.request({
-      path: `/service/surveys/${grandparentId}/questions/{parentId}/options/{id}`,
+      path: `/service/surveys/${grandparentId}/questions/${parentId}/options/${id}`,
       method: 'get',
       params,
     })
@@ -2414,7 +2437,7 @@ export default class ServiceAPI extends Manage {
     grandparentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/service/surveys/${grandparentId}/questions/{parentId}/options/{id}`,
+      path: `/service/surveys/${grandparentId}/questions/${parentId}/options/${id}`,
       method: 'delete',
     })
   }
@@ -2426,7 +2449,7 @@ export default class ServiceAPI extends Manage {
     surveyOption: SurveyOption,
   ): Promise<SurveyOption> {
     return this.request({
-      path: `/service/surveys/${grandparentId}/questions/{parentId}/options/{id}`,
+      path: `/service/surveys/${grandparentId}/questions/${parentId}/options/${id}`,
       method: 'put',
       data: surveyOption,
     })
@@ -2436,10 +2459,10 @@ export default class ServiceAPI extends Manage {
     id: number,
     parentId: number,
     grandparentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<SurveyOption> {
     return this.request({
-      path: `/service/surveys/${grandparentId}/questions/{parentId}/options/{id}`,
+      path: `/service/surveys/${grandparentId}/questions/${parentId}/options/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -2451,7 +2474,7 @@ export default class ServiceAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<Count> {
     return this.request({
-      path: `/service/surveys/${grandparentId}/questions/{parentId}/options/count`,
+      path: `/service/surveys/${grandparentId}/questions/${parentId}/options/count`,
       method: 'get',
       params,
     })
@@ -2480,7 +2503,10 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  patchServiceSurveysById(id: number, patchOperations: PatchOperation[]): Promise<ServiceSurvey> {
+  patchServiceSurveysById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<ServiceSurvey> {
     return this.request({
       path: `/service/surveys/${id}`,
       method: 'patch',
@@ -2495,7 +2521,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceSurveysByIdUsages(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getServiceSurveysByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
       path: `/service/surveys/${id}/usages`,
       method: 'get',
@@ -2503,7 +2529,10 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceSurveysByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getServiceSurveysByIdUsagesList(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/service/surveys/${id}/usages/list`,
       method: 'get',
@@ -2514,7 +2543,7 @@ export default class ServiceAPI extends Manage {
   getServiceSurveysByParentIdQuestions(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ServiceSurveyQuestion[]> {
+  ): Promise<Array<ServiceSurveyQuestion>> {
     return this.request({
       path: `/service/surveys/${parentId}/questions`,
       method: 'get',
@@ -2539,7 +2568,7 @@ export default class ServiceAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<ServiceSurveyQuestion> {
     return this.request({
-      path: `/service/surveys/${parentId}/questions/{id}`,
+      path: `/service/surveys/${parentId}/questions/${id}`,
       method: 'get',
       params,
     })
@@ -2550,7 +2579,7 @@ export default class ServiceAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/service/surveys/${parentId}/questions/{id}`,
+      path: `/service/surveys/${parentId}/questions/${id}`,
       method: 'delete',
     })
   }
@@ -2561,7 +2590,7 @@ export default class ServiceAPI extends Manage {
     serviceSurveyQuestion: ServiceSurveyQuestion,
   ): Promise<ServiceSurveyQuestion> {
     return this.request({
-      path: `/service/surveys/${parentId}/questions/{id}`,
+      path: `/service/surveys/${parentId}/questions/${id}`,
       method: 'put',
       data: serviceSurveyQuestion,
     })
@@ -2570,10 +2599,10 @@ export default class ServiceAPI extends Manage {
   patchServiceSurveysByParentIdQuestionsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ServiceSurveyQuestion> {
     return this.request({
-      path: `/service/surveys/${parentId}/questions/{id}`,
+      path: `/service/surveys/${parentId}/questions/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -2584,7 +2613,7 @@ export default class ServiceAPI extends Manage {
     parentId: number,
   ): Promise<ServiceSurveyQuestion> {
     return this.request({
-      path: `/service/surveys/${parentId}/questions/{id}/copy`,
+      path: `/service/surveys/${parentId}/questions/${id}/copy`,
       method: 'post',
     })
   }
@@ -2603,7 +2632,7 @@ export default class ServiceAPI extends Manage {
   getServiceSurveysByParentIdResults(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<SurveyResult[]> {
+  ): Promise<Array<SurveyResult>> {
     return this.request({
       path: `/service/surveys/${parentId}/results`,
       method: 'get',
@@ -2628,7 +2657,7 @@ export default class ServiceAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<SurveyResult> {
     return this.request({
-      path: `/service/surveys/${parentId}/results/{id}`,
+      path: `/service/surveys/${parentId}/results/${id}`,
       method: 'get',
       params,
     })
@@ -2639,7 +2668,7 @@ export default class ServiceAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/service/surveys/${parentId}/results/{id}`,
+      path: `/service/surveys/${parentId}/results/${id}`,
       method: 'delete',
     })
   }
@@ -2650,7 +2679,7 @@ export default class ServiceAPI extends Manage {
     surveyResult: SurveyResult,
   ): Promise<SurveyResult> {
     return this.request({
-      path: `/service/surveys/${parentId}/results/{id}`,
+      path: `/service/surveys/${parentId}/results/${id}`,
       method: 'put',
       data: surveyResult,
     })
@@ -2659,10 +2688,10 @@ export default class ServiceAPI extends Manage {
   patchServiceSurveysByParentIdResultsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<SurveyResult> {
     return this.request({
-      path: `/service/surveys/${parentId}/results/{id}`,
+      path: `/service/surveys/${parentId}/results/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -2695,7 +2724,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceTeams(params: CommonParameters = {}): Promise<ServiceTeam[]> {
+  getServiceTeams(params: CommonParameters = {}): Promise<Array<ServiceTeam>> {
     return this.request({
       path: `/service/teams`,
       method: 'get',
@@ -2719,7 +2748,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceTemplates(params: CommonParameters = {}): Promise<ServiceTemplate[]> {
+  getServiceTemplates(params: CommonParameters = {}): Promise<Array<ServiceTemplate>> {
     return this.request({
       path: `/service/templates`,
       method: 'get',
@@ -2761,7 +2790,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceTemplatesInfo(params: CommonParameters = {}): Promise<ServiceTemplateInfo[]> {
+  getServiceTemplatesInfo(params: CommonParameters = {}): Promise<Array<ServiceTemplateInfo>> {
     return this.request({
       path: `/service/templates/info`,
       method: 'get',
@@ -2777,7 +2806,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceTicketLinks(params: CommonParameters = {}): Promise<ServiceTicketLink[]> {
+  getServiceTicketLinks(params: CommonParameters = {}): Promise<Array<ServiceTicketLink>> {
     return this.request({
       path: `/service/ticketLinks`,
       method: 'get',
@@ -2821,7 +2850,7 @@ export default class ServiceAPI extends Manage {
 
   patchServiceTicketLinksById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ServiceTicketLink> {
     return this.request({
       path: `/service/ticketLinks/${id}`,
@@ -2849,7 +2878,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceTicketLinksInfo(params: CommonParameters = {}): Promise<ServiceTicketLinkInfo[]> {
+  getServiceTicketLinksInfo(params: CommonParameters = {}): Promise<Array<ServiceTicketLinkInfo>> {
     return this.request({
       path: `/service/ticketLinks/info`,
       method: 'get',
@@ -2865,7 +2894,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceTickets(params: CommonParameters = {}): Promise<Ticket[]> {
+  getServiceTickets(params: CommonParameters = {}): Promise<Array<Ticket>> {
     return this.request({
       path: `/service/tickets`,
       method: 'get',
@@ -2904,7 +2933,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  patchServiceTicketsById(id: number, patchOperations: PatchOperation[]): Promise<Ticket> {
+  patchServiceTicketsById(id: number, patchOperations: Array<PatchOperation>): Promise<Ticket> {
     return this.request({
       path: `/service/tickets/${id}`,
       method: 'patch',
@@ -2923,7 +2952,7 @@ export default class ServiceAPI extends Manage {
   getServiceTicketsByParentIdActivities(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ActivityReference[]> {
+  ): Promise<Array<ActivityReference>> {
     return this.request({
       path: `/service/tickets/${parentId}/activities`,
       method: 'get',
@@ -2945,7 +2974,7 @@ export default class ServiceAPI extends Manage {
   getServiceTicketsByParentIdAllNotes(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ServiceTicketNote[]> {
+  ): Promise<Array<ServiceTicketNote>> {
     return this.request({
       path: `/service/tickets/${parentId}/allNotes`,
       method: 'get',
@@ -2967,7 +2996,7 @@ export default class ServiceAPI extends Manage {
   getServiceTicketsByParentIdConfigurations(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ConfigurationReference[]> {
+  ): Promise<Array<ConfigurationReference>> {
     return this.request({
       path: `/service/tickets/${parentId}/configurations`,
       method: 'get',
@@ -2992,7 +3021,7 @@ export default class ServiceAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<ConfigurationReference> {
     return this.request({
-      path: `/service/tickets/${parentId}/configurations/{id}`,
+      path: `/service/tickets/${parentId}/configurations/${id}`,
       method: 'get',
       params,
     })
@@ -3003,7 +3032,7 @@ export default class ServiceAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/service/tickets/${parentId}/configurations/{id}`,
+      path: `/service/tickets/${parentId}/configurations/${id}`,
       method: 'delete',
     })
   }
@@ -3033,7 +3062,7 @@ export default class ServiceAPI extends Manage {
   getServiceTicketsByParentIdDocuments(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<DocumentReference[]> {
+  ): Promise<Array<DocumentReference>> {
     return this.request({
       path: `/service/tickets/${parentId}/documents`,
       method: 'get',
@@ -3066,7 +3095,7 @@ export default class ServiceAPI extends Manage {
   getServiceTicketsByParentIdNotes(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ServiceNote[]> {
+  ): Promise<Array<ServiceNote>> {
     return this.request({
       path: `/service/tickets/${parentId}/notes`,
       method: 'get',
@@ -3091,7 +3120,7 @@ export default class ServiceAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<ServiceNote> {
     return this.request({
-      path: `/service/tickets/${parentId}/notes/{id}`,
+      path: `/service/tickets/${parentId}/notes/${id}`,
       method: 'get',
       params,
     })
@@ -3102,7 +3131,7 @@ export default class ServiceAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/service/tickets/${parentId}/notes/{id}`,
+      path: `/service/tickets/${parentId}/notes/${id}`,
       method: 'delete',
     })
   }
@@ -3113,7 +3142,7 @@ export default class ServiceAPI extends Manage {
     serviceNote: ServiceNote,
   ): Promise<ServiceNote> {
     return this.request({
-      path: `/service/tickets/${parentId}/notes/{id}`,
+      path: `/service/tickets/${parentId}/notes/${id}`,
       method: 'put',
       data: serviceNote,
     })
@@ -3122,10 +3151,10 @@ export default class ServiceAPI extends Manage {
   patchServiceTicketsByParentIdNotesById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ServiceNote> {
     return this.request({
-      path: `/service/tickets/${parentId}/notes/{id}`,
+      path: `/service/tickets/${parentId}/notes/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -3145,7 +3174,7 @@ export default class ServiceAPI extends Manage {
   getServiceTicketsByParentIdProducts(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ProductReference[]> {
+  ): Promise<Array<ProductReference>> {
     return this.request({
       path: `/service/tickets/${parentId}/products`,
       method: 'get',
@@ -3167,7 +3196,7 @@ export default class ServiceAPI extends Manage {
   getServiceTicketsByParentIdScheduleentries(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ScheduleEntryReference[]> {
+  ): Promise<Array<ScheduleEntryReference>> {
     return this.request({
       path: `/service/tickets/${parentId}/scheduleentries`,
       method: 'get',
@@ -3189,7 +3218,7 @@ export default class ServiceAPI extends Manage {
   getServiceTicketsByParentIdTasks(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<Task[]> {
+  ): Promise<Array<Task>> {
     return this.request({
       path: `/service/tickets/${parentId}/tasks`,
       method: 'get',
@@ -3211,7 +3240,7 @@ export default class ServiceAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<Task> {
     return this.request({
-      path: `/service/tickets/${parentId}/tasks/{id}`,
+      path: `/service/tickets/${parentId}/tasks/${id}`,
       method: 'get',
       params,
     })
@@ -3222,14 +3251,14 @@ export default class ServiceAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/service/tickets/${parentId}/tasks/{id}`,
+      path: `/service/tickets/${parentId}/tasks/${id}`,
       method: 'delete',
     })
   }
 
   putServiceTicketsByParentIdTasksById(id: number, parentId: number, task: Task): Promise<Task> {
     return this.request({
-      path: `/service/tickets/${parentId}/tasks/{id}`,
+      path: `/service/tickets/${parentId}/tasks/${id}`,
       method: 'put',
       data: task,
     })
@@ -3238,10 +3267,10 @@ export default class ServiceAPI extends Manage {
   patchServiceTicketsByParentIdTasksById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<Task> {
     return this.request({
-      path: `/service/tickets/${parentId}/tasks/{id}`,
+      path: `/service/tickets/${parentId}/tasks/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -3261,7 +3290,7 @@ export default class ServiceAPI extends Manage {
   getServiceTicketsByParentIdTimeentries(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<TimeEntryReference[]> {
+  ): Promise<Array<TimeEntryReference>> {
     return this.request({
       path: `/service/tickets/${parentId}/timeentries`,
       method: 'get',
@@ -3288,7 +3317,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceTicketsInfo(params: CommonParameters = {}): Promise<TicketInfo[]> {
+  getServiceTicketsInfo(params: CommonParameters = {}): Promise<Array<TicketInfo>> {
     return this.request({
       path: `/service/tickets/info`,
       method: 'get',
@@ -3304,7 +3333,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  postServiceTicketsSearch(filterValues: FilterValues): Promise<Ticket[]> {
+  postServiceTicketsSearch(filterValues: FilterValues): Promise<Array<Ticket>> {
     return this.request({
       path: `/service/tickets/search`,
       method: 'post',
@@ -3312,7 +3341,7 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  getServiceTicketSyncs(params: CommonParameters = {}): Promise<TicketSync[]> {
+  getServiceTicketSyncs(params: CommonParameters = {}): Promise<Array<TicketSync>> {
     return this.request({
       path: `/service/ticketSyncs`,
       method: 'get',
@@ -3351,7 +3380,10 @@ export default class ServiceAPI extends Manage {
     })
   }
 
-  patchServiceTicketSyncsById(id: number, patchOperations: PatchOperation[]): Promise<TicketSync> {
+  patchServiceTicketSyncsById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<TicketSync> {
     return this.request({
       path: `/service/ticketSyncs/${id}`,
       method: 'patch',

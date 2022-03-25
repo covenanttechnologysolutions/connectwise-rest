@@ -4,94 +4,96 @@ import { components } from '../ManageTypes'
 import { CommonParameters, CWMOptions } from '../ManageAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
-type AddressFormat = schemas['AddressFormat']
-type AddressFormatInfo = schemas['AddressFormatInfo']
-type BulkResult = schemas['BulkResult']
-type ClearPickerRequest = schemas['ClearPickerRequest']
-type CommunicationType = schemas['CommunicationType']
-type CommunicationTypeInfo = schemas['CommunicationTypeInfo']
-type Company = schemas['Company']
-type CompanyCompanyTypeAssociation = schemas['Company.CompanyTypeAssociation']
-type CompanyConfiguration = schemas['Company.Configuration']
-type CompanyContactTypeAssociation = schemas['Company.ContactTypeAssociation']
-type CompanyCompanyTypeAssociationCompanyTypeAssociation =
+false
+export type AddressFormat = schemas['AddressFormat']
+export type AddressFormatInfo = schemas['AddressFormatInfo']
+export type BulkResult = schemas['BulkResult']
+export type ClearPickerRequest = schemas['ClearPickerRequest']
+export type CommunicationType = schemas['CommunicationType']
+export type CommunicationTypeInfo = schemas['CommunicationTypeInfo']
+export type Company = schemas['Company']
+export type CompanyCompanyTypeAssociation = schemas['Company.CompanyTypeAssociation']
+export type CompanyConfiguration = schemas['Company.Configuration']
+export type CompanyContactTypeAssociation = schemas['Company.ContactTypeAssociation']
+export type CompanyCompanyTypeAssociationCompanyTypeAssociation =
   schemas['CompanyCompanyTypeAssociation.CompanyTypeAssociation']
-type CompanyCustomNote = schemas['CompanyCustomNote']
-type CompanyFinance = schemas['CompanyFinance']
-type CompanyGroup = schemas['CompanyGroup']
-type CompanyManagementSummary = schemas['CompanyManagementSummary']
-type CompanyMerge = schemas['CompanyMerge']
-type CompanyNote = schemas['CompanyNote']
-type CompanyNoteType = schemas['CompanyNoteType']
-type CompanyNoteTypeInfo = schemas['CompanyNoteTypeInfo']
-type CompanyPickerItem = schemas['CompanyPickerItem']
-type CompanySite = schemas['CompanySite']
-type CompanyStatus = schemas['CompanyStatus']
-type CompanyTeam = schemas['CompanyTeam']
-type CompanyType = schemas['CompanyType']
-type CompanyTypeInfo = schemas['CompanyTypeInfo']
-type ConfigurationStatus = schemas['ConfigurationStatus']
-type ConfigurationStatusInfo = schemas['ConfigurationStatusInfo']
-type ConfigurationType = schemas['ConfigurationType']
-type ConfigurationTypeInfo = schemas['ConfigurationTypeInfo']
-type ConfigurationTypeQuestion = schemas['ConfigurationTypeQuestion']
-type ConfigurationTypeQuestionValue = schemas['ConfigurationTypeQuestionValue']
-type Contact = schemas['Contact']
-type ContactCommunication = schemas['ContactCommunication']
-type ContactContactTypeAssociationContactTypeAssociation =
+export type CompanyCustomNote = schemas['CompanyCustomNote']
+export type CompanyFinance = schemas['CompanyFinance']
+export type CompanyGroup = schemas['CompanyGroup']
+export type CompanyManagementSummary = schemas['CompanyManagementSummary']
+export type CompanyMerge = schemas['CompanyMerge']
+export type CompanyNote = schemas['CompanyNote']
+export type CompanyNoteType = schemas['CompanyNoteType']
+export type CompanyNoteTypeInfo = schemas['CompanyNoteTypeInfo']
+export type CompanyPickerItem = schemas['CompanyPickerItem']
+export type CompanySite = schemas['CompanySite']
+export type CompanyStatus = schemas['CompanyStatus']
+export type CompanyTeam = schemas['CompanyTeam']
+export type CompanyType = schemas['CompanyType']
+export type CompanyTypeInfo = schemas['CompanyTypeInfo']
+export type ConfigurationStatus = schemas['ConfigurationStatus']
+export type ConfigurationStatusInfo = schemas['ConfigurationStatusInfo']
+export type ConfigurationType = schemas['ConfigurationType']
+export type ConfigurationTypeInfo = schemas['ConfigurationTypeInfo']
+export type ConfigurationTypeQuestion = schemas['ConfigurationTypeQuestion']
+export type ConfigurationTypeQuestionValue = schemas['ConfigurationTypeQuestionValue']
+export type Contact = schemas['Contact']
+export type ContactCommunication = schemas['ContactCommunication']
+export type ContactContactTypeAssociationContactTypeAssociation =
   schemas['ContactContactTypeAssociation.ContactTypeAssociation']
-type ContactDepartment = schemas['ContactDepartment']
-type ContactDepartmentInfo = schemas['ContactDepartmentInfo']
-type ContactGroup = schemas['ContactGroup']
-type ContactNote = schemas['ContactNote']
-type ContactRelationship = schemas['ContactRelationship']
-type ContactTrack = schemas['ContactTrack']
-type ContactType = schemas['ContactType']
-type ContactTypeInfo = schemas['ContactTypeInfo']
-type Count = schemas['Count']
-type Country = schemas['Country']
-type CountryInfo = schemas['CountryInfo']
-type EntityType = schemas['EntityType']
-type EntityTypeInfo = schemas['EntityTypeInfo']
-type ManagedDevicesIntegration = schemas['ManagedDevicesIntegration']
-type ManagedDevicesIntegrationCrossReference = schemas['ManagedDevicesIntegrationCrossReference']
-type ManagedDevicesIntegrationInfo = schemas['ManagedDevicesIntegrationInfo']
-type ManagedDevicesIntegrationLogin = schemas['ManagedDevicesIntegrationLogin']
-type ManagedDevicesIntegrationNotification = schemas['ManagedDevicesIntegrationNotification']
-type Management = schemas['Management']
-type ManagementBackup = schemas['ManagementBackup']
-type ManagementItSolution = schemas['ManagementItSolution']
-type ManagementItSolutionAgreementInterfaceParameter =
+export type ContactDepartment = schemas['ContactDepartment']
+export type ContactDepartmentInfo = schemas['ContactDepartmentInfo']
+export type ContactGroup = schemas['ContactGroup']
+export type ContactNote = schemas['ContactNote']
+export type ContactRelationship = schemas['ContactRelationship']
+export type ContactTrack = schemas['ContactTrack']
+export type ContactType = schemas['ContactType']
+export type ContactTypeInfo = schemas['ContactTypeInfo']
+export type Count = schemas['Count']
+export type Country = schemas['Country']
+export type CountryInfo = schemas['CountryInfo']
+export type EntityType = schemas['EntityType']
+export type EntityTypeInfo = schemas['EntityTypeInfo']
+export type ManagedDevicesIntegration = schemas['ManagedDevicesIntegration']
+export type ManagedDevicesIntegrationCrossReference =
+  schemas['ManagedDevicesIntegrationCrossReference']
+export type ManagedDevicesIntegrationInfo = schemas['ManagedDevicesIntegrationInfo']
+export type ManagedDevicesIntegrationLogin = schemas['ManagedDevicesIntegrationLogin']
+export type ManagedDevicesIntegrationNotification = schemas['ManagedDevicesIntegrationNotification']
+export type Management = schemas['Management']
+export type ManagementBackup = schemas['ManagementBackup']
+export type ManagementItSolution = schemas['ManagementItSolution']
+export type ManagementItSolutionAgreementInterfaceParameter =
   schemas['ManagementItSolutionAgreementInterfaceParameter']
-type ManagementLogDocumentInfo = schemas['ManagementLogDocumentInfo']
-type ManagementReportNotification = schemas['ManagementReportNotification']
-type ManagementReportSetup = schemas['ManagementReportSetup']
-type MarketDescription = schemas['MarketDescription']
-type MarketDescriptionInfo = schemas['MarketDescriptionInfo']
-type OwnershipType = schemas['OwnershipType']
-type OwnershipTypeInfo = schemas['OwnershipTypeInfo']
-type PatchOperation = schemas['PatchOperation']
-type PortalConfiguration = schemas['PortalConfiguration']
-type PortalConfigurationInvoiceSetup = schemas['PortalConfigurationInvoiceSetup']
-type PortalConfigurationOpportunitySetup = schemas['PortalConfigurationOpportunitySetup']
-type PortalConfigurationPasswordEmailSetup = schemas['PortalConfigurationPasswordEmailSetup']
-type PortalConfigurationPaymentProcessor = schemas['PortalConfigurationPaymentProcessor']
-type PortalConfigurationProjectSetup = schemas['PortalConfigurationProjectSetup']
-type PortalConfigurationServiceSetup = schemas['PortalConfigurationServiceSetup']
-type PortalSecurity = schemas['PortalSecurity']
-type PortalSecurityLevel = schemas['PortalSecurityLevel']
-type PortalSecuritySetting = schemas['PortalSecuritySetting']
-type RequestPasswordRequest = schemas['RequestPasswordRequest']
-type State = schemas['State']
-type StateInfo = schemas['StateInfo']
-type SuccessResponse = schemas['SuccessResponse']
-type TeamRole = schemas['TeamRole']
-type TeamRoleInfo = schemas['TeamRoleInfo']
-type Track = schemas['Track']
-type TrackAction = schemas['TrackAction']
-type Usage = schemas['Usage']
-type ValidatePortalRequest = schemas['ValidatePortalRequest']
-type ValidatePortalResponse = schemas['ValidatePortalResponse']
+export type ManagementLogDocumentInfo = schemas['ManagementLogDocumentInfo']
+export type ManagementReportNotification = schemas['ManagementReportNotification']
+export type ManagementReportSetup = schemas['ManagementReportSetup']
+export type MarketDescription = schemas['MarketDescription']
+export type MarketDescriptionInfo = schemas['MarketDescriptionInfo']
+export type OwnershipType = schemas['OwnershipType']
+export type OwnershipTypeInfo = schemas['OwnershipTypeInfo']
+export type PatchOperation = schemas['PatchOperation']
+export type PortalConfiguration = schemas['PortalConfiguration']
+export type PortalConfigurationInvoiceSetup = schemas['PortalConfigurationInvoiceSetup']
+export type PortalConfigurationOpportunitySetup = schemas['PortalConfigurationOpportunitySetup']
+export type PortalConfigurationPasswordEmailSetup = schemas['PortalConfigurationPasswordEmailSetup']
+export type PortalConfigurationPaymentProcessor = schemas['PortalConfigurationPaymentProcessor']
+export type PortalConfigurationProjectSetup = schemas['PortalConfigurationProjectSetup']
+export type PortalConfigurationServiceSetup = schemas['PortalConfigurationServiceSetup']
+export type PortalSecurity = schemas['PortalSecurity']
+export type PortalSecurityLevel = schemas['PortalSecurityLevel']
+export type PortalSecuritySetting = schemas['PortalSecuritySetting']
+export type RequestPasswordRequest = schemas['RequestPasswordRequest']
+export type State = schemas['State']
+export type StateInfo = schemas['StateInfo']
+export type SuccessResponse = schemas['SuccessResponse']
+export type TeamRole = schemas['TeamRole']
+export type TeamRoleInfo = schemas['TeamRoleInfo']
+export type Track = schemas['Track']
+export type TrackAction = schemas['TrackAction']
+export type Usage = schemas['Usage']
+export type ValidatePortalRequest = schemas['ValidatePortalRequest']
+export type ValidatePortalResponse = schemas['ValidatePortalResponse']
 
 /**
  * @internal
@@ -101,7 +103,7 @@ export default class CompanyAPI extends Manage {
     super(props)
   }
 
-  getCompanyAddressFormats(params: CommonParameters = {}): Promise<AddressFormat[]> {
+  getCompanyAddressFormats(params: CommonParameters = {}): Promise<Array<AddressFormat>> {
     return this.request({
       path: `/company/addressFormats`,
       method: 'get',
@@ -142,7 +144,7 @@ export default class CompanyAPI extends Manage {
 
   patchCompanyAddressFormatsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<AddressFormat> {
     return this.request({
       path: `/company/addressFormats/${id}`,
@@ -170,7 +172,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyAddressFormatsInfo(params: CommonParameters = {}): Promise<AddressFormatInfo[]> {
+  getCompanyAddressFormatsInfo(params: CommonParameters = {}): Promise<Array<AddressFormatInfo>> {
     return this.request({
       path: `/company/addressFormats/info`,
       method: 'get',
@@ -194,7 +196,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyCommunicationTypes(params: CommonParameters = {}): Promise<CommunicationType[]> {
+  getCompanyCommunicationTypes(params: CommonParameters = {}): Promise<Array<CommunicationType>> {
     return this.request({
       path: `/company/communicationTypes`,
       method: 'get',
@@ -241,7 +243,7 @@ export default class CompanyAPI extends Manage {
 
   patchCompanyCommunicationTypesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<CommunicationType> {
     return this.request({
       path: `/company/communicationTypes/${id}`,
@@ -264,7 +266,7 @@ export default class CompanyAPI extends Manage {
   getCompanyCommunicationTypesByIdUsages(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/company/communicationTypes/${id}/usages`,
       method: 'get',
@@ -275,7 +277,7 @@ export default class CompanyAPI extends Manage {
   getCompanyCommunicationTypesByIdUsagesList(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/company/communicationTypes/${id}/usages/list`,
       method: 'get',
@@ -293,7 +295,7 @@ export default class CompanyAPI extends Manage {
 
   getCompanyCommunicationTypesInfo(
     params: CommonParameters = {},
-  ): Promise<CommunicationTypeInfo[]> {
+  ): Promise<Array<CommunicationTypeInfo>> {
     return this.request({
       path: `/company/communicationTypes/info`,
       method: 'get',
@@ -309,7 +311,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyCompanies(params: CommonParameters = {}): Promise<Company[]> {
+  getCompanyCompanies(params: CommonParameters = {}): Promise<Array<Company>> {
     return this.request({
       path: `/company/companies`,
       method: 'get',
@@ -348,7 +350,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  patchCompanyCompaniesById(id: number, patchOperations: PatchOperation[]): Promise<Company> {
+  patchCompanyCompaniesById(id: number, patchOperations: Array<PatchOperation>): Promise<Company> {
     return this.request({
       path: `/company/companies/${id}`,
       method: 'patch',
@@ -364,7 +366,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyCompaniesByIdUsages(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getCompanyCompaniesByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
       path: `/company/companies/${id}/usages`,
       method: 'get',
@@ -372,7 +374,10 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyCompaniesByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getCompanyCompaniesByIdUsagesList(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/company/companies/${id}/usages/list`,
       method: 'get',
@@ -383,7 +388,7 @@ export default class CompanyAPI extends Manage {
   getCompanyCompaniesByParentIdCustomStatusNotes(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<CompanyCustomNote[]> {
+  ): Promise<Array<CompanyCustomNote>> {
     return this.request({
       path: `/company/companies/${parentId}/customStatusNotes`,
       method: 'get',
@@ -408,7 +413,7 @@ export default class CompanyAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<CompanyCustomNote> {
     return this.request({
-      path: `/company/companies/${parentId}/customStatusNotes/{id}`,
+      path: `/company/companies/${parentId}/customStatusNotes/${id}`,
       method: 'get',
       params,
     })
@@ -419,7 +424,7 @@ export default class CompanyAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/companies/${parentId}/customStatusNotes/{id}`,
+      path: `/company/companies/${parentId}/customStatusNotes/${id}`,
       method: 'delete',
     })
   }
@@ -430,7 +435,7 @@ export default class CompanyAPI extends Manage {
     customNote: CompanyCustomNote,
   ): Promise<CompanyCustomNote> {
     return this.request({
-      path: `/company/companies/${parentId}/customStatusNotes/{id}`,
+      path: `/company/companies/${parentId}/customStatusNotes/${id}`,
       method: 'put',
       data: customNote,
     })
@@ -439,10 +444,10 @@ export default class CompanyAPI extends Manage {
   patchCompanyCompaniesByParentIdCustomStatusNotesById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<CompanyCustomNote> {
     return this.request({
-      path: `/company/companies/${parentId}/customStatusNotes/{id}`,
+      path: `/company/companies/${parentId}/customStatusNotes/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -462,7 +467,7 @@ export default class CompanyAPI extends Manage {
   getCompanyCompaniesByParentIdGroups(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<CompanyGroup[]> {
+  ): Promise<Array<CompanyGroup>> {
     return this.request({
       path: `/company/companies/${parentId}/groups`,
       method: 'get',
@@ -487,7 +492,7 @@ export default class CompanyAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<CompanyGroup> {
     return this.request({
-      path: `/company/companies/${parentId}/groups/{id}`,
+      path: `/company/companies/${parentId}/groups/${id}`,
       method: 'get',
       params,
     })
@@ -498,7 +503,7 @@ export default class CompanyAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/companies/${parentId}/groups/{id}`,
+      path: `/company/companies/${parentId}/groups/${id}`,
       method: 'delete',
     })
   }
@@ -509,7 +514,7 @@ export default class CompanyAPI extends Manage {
     companyGroup: CompanyGroup,
   ): Promise<CompanyGroup> {
     return this.request({
-      path: `/company/companies/${parentId}/groups/{id}`,
+      path: `/company/companies/${parentId}/groups/${id}`,
       method: 'put',
       data: companyGroup,
     })
@@ -518,10 +523,10 @@ export default class CompanyAPI extends Manage {
   patchCompanyCompaniesByParentIdGroupsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<CompanyGroup> {
     return this.request({
-      path: `/company/companies/${parentId}/groups/{id}`,
+      path: `/company/companies/${parentId}/groups/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -541,7 +546,7 @@ export default class CompanyAPI extends Manage {
   getCompanyCompaniesByParentIdManagementReportNotifications(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ManagementReportNotification[]> {
+  ): Promise<Array<ManagementReportNotification>> {
     return this.request({
       path: `/company/companies/${parentId}/managementReportNotifications`,
       method: 'get',
@@ -566,7 +571,7 @@ export default class CompanyAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<ManagementReportNotification> {
     return this.request({
-      path: `/company/companies/${parentId}/managementReportNotifications/{id}`,
+      path: `/company/companies/${parentId}/managementReportNotifications/${id}`,
       method: 'get',
       params,
     })
@@ -577,7 +582,7 @@ export default class CompanyAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/companies/${parentId}/managementReportNotifications/{id}`,
+      path: `/company/companies/${parentId}/managementReportNotifications/${id}`,
       method: 'delete',
     })
   }
@@ -588,7 +593,7 @@ export default class CompanyAPI extends Manage {
     managementReportNotification: ManagementReportNotification,
   ): Promise<ManagementReportNotification> {
     return this.request({
-      path: `/company/companies/${parentId}/managementReportNotifications/{id}`,
+      path: `/company/companies/${parentId}/managementReportNotifications/${id}`,
       method: 'put',
       data: managementReportNotification,
     })
@@ -597,10 +602,10 @@ export default class CompanyAPI extends Manage {
   patchCompanyCompaniesByParentIdManagementReportNotificationsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ManagementReportNotification> {
     return this.request({
-      path: `/company/companies/${parentId}/managementReportNotifications/{id}`,
+      path: `/company/companies/${parentId}/managementReportNotifications/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -620,7 +625,7 @@ export default class CompanyAPI extends Manage {
   getCompanyCompaniesByParentIdManagementReportSetup(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ManagementReportSetup[]> {
+  ): Promise<Array<ManagementReportSetup>> {
     return this.request({
       path: `/company/companies/${parentId}/managementReportSetup`,
       method: 'get',
@@ -645,7 +650,7 @@ export default class CompanyAPI extends Manage {
     managementReportSetup: ManagementReportSetup,
   ): Promise<ManagementReportSetup> {
     return this.request({
-      path: `/company/companies/${parentId}/managementReportSetup/{id}`,
+      path: `/company/companies/${parentId}/managementReportSetup/${id}`,
       method: 'put',
       data: managementReportSetup,
     })
@@ -654,10 +659,10 @@ export default class CompanyAPI extends Manage {
   patchCompanyCompaniesByParentIdManagementReportSetupById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ManagementReportSetup> {
     return this.request({
-      path: `/company/companies/${parentId}/managementReportSetup/{id}`,
+      path: `/company/companies/${parentId}/managementReportSetup/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -666,7 +671,7 @@ export default class CompanyAPI extends Manage {
   getCompanyCompaniesByParentIdManagementSummaryReports(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<CompanyManagementSummary[]> {
+  ): Promise<Array<CompanyManagementSummary>> {
     return this.request({
       path: `/company/companies/${parentId}/managementSummaryReports`,
       method: 'get',
@@ -691,7 +696,7 @@ export default class CompanyAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<CompanyManagementSummary> {
     return this.request({
-      path: `/company/companies/${parentId}/managementSummaryReports/{id}`,
+      path: `/company/companies/${parentId}/managementSummaryReports/${id}`,
       method: 'get',
       params,
     })
@@ -702,7 +707,7 @@ export default class CompanyAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/companies/${parentId}/managementSummaryReports/{id}`,
+      path: `/company/companies/${parentId}/managementSummaryReports/${id}`,
       method: 'delete',
     })
   }
@@ -713,7 +718,7 @@ export default class CompanyAPI extends Manage {
     managementSummary: CompanyManagementSummary,
   ): Promise<CompanyManagementSummary> {
     return this.request({
-      path: `/company/companies/${parentId}/managementSummaryReports/{id}`,
+      path: `/company/companies/${parentId}/managementSummaryReports/${id}`,
       method: 'put',
       data: managementSummary,
     })
@@ -722,10 +727,10 @@ export default class CompanyAPI extends Manage {
   patchCompanyCompaniesByParentIdManagementSummaryReportsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<CompanyManagementSummary> {
     return this.request({
-      path: `/company/companies/${parentId}/managementSummaryReports/{id}`,
+      path: `/company/companies/${parentId}/managementSummaryReports/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -745,7 +750,7 @@ export default class CompanyAPI extends Manage {
   getCompanyCompaniesByParentIdNotes(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<CompanyNote[]> {
+  ): Promise<Array<CompanyNote>> {
     return this.request({
       path: `/company/companies/${parentId}/notes`,
       method: 'get',
@@ -770,7 +775,7 @@ export default class CompanyAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<CompanyNote> {
     return this.request({
-      path: `/company/companies/${parentId}/notes/{id}`,
+      path: `/company/companies/${parentId}/notes/${id}`,
       method: 'get',
       params,
     })
@@ -781,7 +786,7 @@ export default class CompanyAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/companies/${parentId}/notes/{id}`,
+      path: `/company/companies/${parentId}/notes/${id}`,
       method: 'delete',
     })
   }
@@ -792,7 +797,7 @@ export default class CompanyAPI extends Manage {
     companyNote: CompanyNote,
   ): Promise<CompanyNote> {
     return this.request({
-      path: `/company/companies/${parentId}/notes/{id}`,
+      path: `/company/companies/${parentId}/notes/${id}`,
       method: 'put',
       data: companyNote,
     })
@@ -801,10 +806,10 @@ export default class CompanyAPI extends Manage {
   patchCompanyCompaniesByParentIdNotesById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<CompanyNote> {
     return this.request({
-      path: `/company/companies/${parentId}/notes/{id}`,
+      path: `/company/companies/${parentId}/notes/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -824,7 +829,7 @@ export default class CompanyAPI extends Manage {
   getCompanyCompaniesByParentIdSites(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<CompanySite[]> {
+  ): Promise<Array<CompanySite>> {
     return this.request({
       path: `/company/companies/${parentId}/sites`,
       method: 'get',
@@ -846,7 +851,7 @@ export default class CompanyAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<CompanySite> {
     return this.request({
-      path: `/company/companies/${parentId}/sites/{id}`,
+      path: `/company/companies/${parentId}/sites/${id}`,
       method: 'get',
       params,
     })
@@ -857,7 +862,7 @@ export default class CompanyAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/companies/${parentId}/sites/{id}`,
+      path: `/company/companies/${parentId}/sites/${id}`,
       method: 'delete',
     })
   }
@@ -868,7 +873,7 @@ export default class CompanyAPI extends Manage {
     site: CompanySite,
   ): Promise<CompanySite> {
     return this.request({
-      path: `/company/companies/${parentId}/sites/{id}`,
+      path: `/company/companies/${parentId}/sites/${id}`,
       method: 'put',
       data: site,
     })
@@ -877,10 +882,10 @@ export default class CompanyAPI extends Manage {
   patchCompanyCompaniesByParentIdSitesById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<CompanySite> {
     return this.request({
-      path: `/company/companies/${parentId}/sites/{id}`,
+      path: `/company/companies/${parentId}/sites/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -890,9 +895,9 @@ export default class CompanyAPI extends Manage {
     id: number,
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/companies/${parentId}/sites/{id}/usages`,
+      path: `/company/companies/${parentId}/sites/${id}/usages`,
       method: 'get',
       params,
     })
@@ -902,9 +907,9 @@ export default class CompanyAPI extends Manage {
     id: number,
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/companies/${parentId}/sites/{id}/usages/list`,
+      path: `/company/companies/${parentId}/sites/${id}/usages/list`,
       method: 'get',
       params,
     })
@@ -935,7 +940,7 @@ export default class CompanyAPI extends Manage {
   getCompanyCompaniesByParentIdTeams(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<CompanyTeam[]> {
+  ): Promise<Array<CompanyTeam>> {
     return this.request({
       path: `/company/companies/${parentId}/teams`,
       method: 'get',
@@ -960,7 +965,7 @@ export default class CompanyAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<CompanyTeam> {
     return this.request({
-      path: `/company/companies/${parentId}/teams/{id}`,
+      path: `/company/companies/${parentId}/teams/${id}`,
       method: 'get',
       params,
     })
@@ -971,7 +976,7 @@ export default class CompanyAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/companies/${parentId}/teams/{id}`,
+      path: `/company/companies/${parentId}/teams/${id}`,
       method: 'delete',
     })
   }
@@ -982,7 +987,7 @@ export default class CompanyAPI extends Manage {
     companyTeam: CompanyTeam,
   ): Promise<CompanyTeam> {
     return this.request({
-      path: `/company/companies/${parentId}/teams/{id}`,
+      path: `/company/companies/${parentId}/teams/${id}`,
       method: 'put',
       data: companyTeam,
     })
@@ -991,10 +996,10 @@ export default class CompanyAPI extends Manage {
   patchCompanyCompaniesByParentIdTeamsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<CompanyTeam> {
     return this.request({
-      path: `/company/companies/${parentId}/teams/{id}`,
+      path: `/company/companies/${parentId}/teams/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -1014,7 +1019,7 @@ export default class CompanyAPI extends Manage {
   getCompanyCompaniesByParentIdTracks(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ContactTrack[]> {
+  ): Promise<Array<ContactTrack>> {
     return this.request({
       path: `/company/companies/${parentId}/tracks`,
       method: 'get',
@@ -1039,7 +1044,7 @@ export default class CompanyAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<ContactTrack> {
     return this.request({
-      path: `/company/companies/${parentId}/tracks/{id}`,
+      path: `/company/companies/${parentId}/tracks/${id}`,
       method: 'get',
       params,
     })
@@ -1050,7 +1055,7 @@ export default class CompanyAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/companies/${parentId}/tracks/{id}`,
+      path: `/company/companies/${parentId}/tracks/${id}`,
       method: 'delete',
     })
   }
@@ -1069,7 +1074,7 @@ export default class CompanyAPI extends Manage {
   getCompanyCompaniesByParentIdTypeAssociations(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<CompanyCompanyTypeAssociationCompanyTypeAssociation[]> {
+  ): Promise<Array<CompanyCompanyTypeAssociationCompanyTypeAssociation>> {
     return this.request({
       path: `/company/companies/${parentId}/typeAssociations`,
       method: 'get',
@@ -1094,7 +1099,7 @@ export default class CompanyAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<CompanyCompanyTypeAssociationCompanyTypeAssociation> {
     return this.request({
-      path: `/company/companies/${parentId}/typeAssociations/{id}`,
+      path: `/company/companies/${parentId}/typeAssociations/${id}`,
       method: 'get',
       params,
     })
@@ -1105,7 +1110,7 @@ export default class CompanyAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/companies/${parentId}/typeAssociations/{id}`,
+      path: `/company/companies/${parentId}/typeAssociations/${id}`,
       method: 'delete',
     })
   }
@@ -1116,7 +1121,7 @@ export default class CompanyAPI extends Manage {
     companyTypeAssociation: CompanyCompanyTypeAssociationCompanyTypeAssociation,
   ): Promise<CompanyCompanyTypeAssociationCompanyTypeAssociation> {
     return this.request({
-      path: `/company/companies/${parentId}/typeAssociations/{id}`,
+      path: `/company/companies/${parentId}/typeAssociations/${id}`,
       method: 'put',
       data: companyTypeAssociation,
     })
@@ -1125,10 +1130,10 @@ export default class CompanyAPI extends Manage {
   patchCompanyCompaniesByParentIdTypeAssociationsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<CompanyCompanyTypeAssociationCompanyTypeAssociation> {
     return this.request({
-      path: `/company/companies/${parentId}/typeAssociations/{id}`,
+      path: `/company/companies/${parentId}/typeAssociations/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -1161,7 +1166,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyCompaniesInfoTypes(params: CommonParameters = {}): Promise<CompanyTypeInfo[]> {
+  getCompanyCompaniesInfoTypes(params: CommonParameters = {}): Promise<Array<CompanyTypeInfo>> {
     return this.request({
       path: `/company/companies/info/types`,
       method: 'get',
@@ -1188,7 +1193,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyCompaniesStatuses(params: CommonParameters = {}): Promise<CompanyStatus[]> {
+  getCompanyCompaniesStatuses(params: CommonParameters = {}): Promise<Array<CompanyStatus>> {
     return this.request({
       path: `/company/companies/statuses`,
       method: 'get',
@@ -1235,7 +1240,7 @@ export default class CompanyAPI extends Manage {
 
   patchCompanyCompaniesStatusesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<CompanyStatus> {
     return this.request({
       path: `/company/companies/statuses/${id}`,
@@ -1247,7 +1252,7 @@ export default class CompanyAPI extends Manage {
   getCompanyCompaniesStatusesByIdUsages(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/company/companies/statuses/${id}/usages`,
       method: 'get',
@@ -1258,7 +1263,7 @@ export default class CompanyAPI extends Manage {
   getCompanyCompaniesStatusesByIdUsagesList(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/company/companies/statuses/${id}/usages/list`,
       method: 'get',
@@ -1274,7 +1279,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyCompaniesTypes(params: CommonParameters = {}): Promise<CompanyType[]> {
+  getCompanyCompaniesTypes(params: CommonParameters = {}): Promise<Array<CompanyType>> {
     return this.request({
       path: `/company/companies/types`,
       method: 'get',
@@ -1315,7 +1320,7 @@ export default class CompanyAPI extends Manage {
 
   patchCompanyCompaniesTypesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<CompanyType> {
     return this.request({
       path: `/company/companies/types/${id}`,
@@ -1324,7 +1329,10 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyCompaniesTypesByIdUsages(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getCompanyCompaniesTypesByIdUsages(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/company/companies/types/${id}/usages`,
       method: 'get',
@@ -1335,7 +1343,7 @@ export default class CompanyAPI extends Manage {
   getCompanyCompaniesTypesByIdUsagesList(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/company/companies/types/${id}/usages/list`,
       method: 'get',
@@ -1362,7 +1370,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyCompanyPickerItems(params: CommonParameters = {}): Promise<CompanyPickerItem[]> {
+  getCompanyCompanyPickerItems(params: CommonParameters = {}): Promise<Array<CompanyPickerItem>> {
     return this.request({
       path: `/company/companyPickerItems`,
       method: 'get',
@@ -1416,7 +1424,7 @@ export default class CompanyAPI extends Manage {
 
   getCompanyCompanyTypeAssociations(
     params: CommonParameters = {},
-  ): Promise<CompanyCompanyTypeAssociation[]> {
+  ): Promise<Array<CompanyCompanyTypeAssociation>> {
     return this.request({
       path: `/company/companyTypeAssociations`,
       method: 'get',
@@ -1465,7 +1473,7 @@ export default class CompanyAPI extends Manage {
 
   patchCompanyCompanyTypeAssociationsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<CompanyCompanyTypeAssociation> {
     return this.request({
       path: `/company/companyTypeAssociations/${id}`,
@@ -1485,7 +1493,7 @@ export default class CompanyAPI extends Manage {
   getCompanyConfigurations(
     managedIdentifier: string,
     params: CommonParameters = {},
-  ): Promise<CompanyConfiguration[]> {
+  ): Promise<Array<CompanyConfiguration>> {
     return this.request({
       path: `/company/configurations`,
       method: 'get',
@@ -1538,7 +1546,7 @@ export default class CompanyAPI extends Manage {
 
   patchCompanyConfigurationsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
     params: CommonParameters = {},
   ): Promise<CompanyConfiguration> {
     return this.request({
@@ -1551,7 +1559,7 @@ export default class CompanyAPI extends Manage {
 
   patchCompanyConfigurationsByIdChangeType(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<CompanyConfiguration> {
     return this.request({
       path: `/company/configurations/${id}/changeType`,
@@ -1561,7 +1569,7 @@ export default class CompanyAPI extends Manage {
   }
 
   postCompanyConfigurationsBulk(
-    companyConfigurations: CompanyConfiguration[],
+    companyConfigurations: Array<CompanyConfiguration>,
   ): Promise<CompanyConfiguration> {
     return this.request({
       path: `/company/configurations/bulk`,
@@ -1578,7 +1586,7 @@ export default class CompanyAPI extends Manage {
   }
 
   putCompanyConfigurationsBulk(
-    companyConfigurations: CompanyConfiguration[],
+    companyConfigurations: Array<CompanyConfiguration>,
   ): Promise<CompanyConfiguration> {
     return this.request({
       path: `/company/configurations/bulk`,
@@ -1598,7 +1606,9 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyConfigurationsStatuses(params: CommonParameters = {}): Promise<ConfigurationStatus[]> {
+  getCompanyConfigurationsStatuses(
+    params: CommonParameters = {},
+  ): Promise<Array<ConfigurationStatus>> {
     return this.request({
       path: `/company/configurations/statuses`,
       method: 'get',
@@ -1647,7 +1657,7 @@ export default class CompanyAPI extends Manage {
 
   patchCompanyConfigurationsStatusesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ConfigurationStatus> {
     return this.request({
       path: `/company/configurations/statuses/${id}`,
@@ -1670,7 +1680,7 @@ export default class CompanyAPI extends Manage {
   getCompanyConfigurationsStatusesByIdUsages(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/company/configurations/statuses/${id}/usages`,
       method: 'get',
@@ -1681,7 +1691,7 @@ export default class CompanyAPI extends Manage {
   getCompanyConfigurationsStatusesByIdUsagesList(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/company/configurations/statuses/${id}/usages/list`,
       method: 'get',
@@ -1699,7 +1709,7 @@ export default class CompanyAPI extends Manage {
 
   getCompanyConfigurationsStatusesInfo(
     params: CommonParameters = {},
-  ): Promise<ConfigurationStatusInfo[]> {
+  ): Promise<Array<ConfigurationStatusInfo>> {
     return this.request({
       path: `/company/configurations/statuses/info`,
       method: 'get',
@@ -1715,7 +1725,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyConfigurationsTypes(params: CommonParameters = {}): Promise<ConfigurationType[]> {
+  getCompanyConfigurationsTypes(params: CommonParameters = {}): Promise<Array<ConfigurationType>> {
     return this.request({
       path: `/company/configurations/types`,
       method: 'get',
@@ -1735,9 +1745,9 @@ export default class CompanyAPI extends Manage {
     parentId: number,
     grandparentId: number,
     params: CommonParameters = {},
-  ): Promise<ConfigurationTypeQuestionValue[]> {
+  ): Promise<Array<ConfigurationTypeQuestionValue>> {
     return this.request({
-      path: `/company/configurations/types/${grandparentId}/questions/{parentId}/values`,
+      path: `/company/configurations/types/${grandparentId}/questions/${parentId}/values`,
       method: 'get',
       params,
     })
@@ -1749,7 +1759,7 @@ export default class CompanyAPI extends Manage {
     configurationTypeQuestionValue: ConfigurationTypeQuestionValue,
   ): Promise<ConfigurationTypeQuestionValue> {
     return this.request({
-      path: `/company/configurations/types/${grandparentId}/questions/{parentId}/values`,
+      path: `/company/configurations/types/${grandparentId}/questions/${parentId}/values`,
       method: 'post',
       data: configurationTypeQuestionValue,
     })
@@ -1762,7 +1772,7 @@ export default class CompanyAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<ConfigurationTypeQuestionValue> {
     return this.request({
-      path: `/company/configurations/types/${grandparentId}/questions/{parentId}/values/{id}`,
+      path: `/company/configurations/types/${grandparentId}/questions/${parentId}/values/${id}`,
       method: 'get',
       params,
     })
@@ -1774,7 +1784,7 @@ export default class CompanyAPI extends Manage {
     grandparentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/configurations/types/${grandparentId}/questions/{parentId}/values/{id}`,
+      path: `/company/configurations/types/${grandparentId}/questions/${parentId}/values/${id}`,
       method: 'delete',
     })
   }
@@ -1786,7 +1796,7 @@ export default class CompanyAPI extends Manage {
     configurationTypeQuestionValue: ConfigurationTypeQuestionValue,
   ): Promise<ConfigurationTypeQuestionValue> {
     return this.request({
-      path: `/company/configurations/types/${grandparentId}/questions/{parentId}/values/{id}`,
+      path: `/company/configurations/types/${grandparentId}/questions/${parentId}/values/${id}`,
       method: 'put',
       data: configurationTypeQuestionValue,
     })
@@ -1796,10 +1806,10 @@ export default class CompanyAPI extends Manage {
     id: number,
     parentId: number,
     grandparentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ConfigurationTypeQuestionValue> {
     return this.request({
-      path: `/company/configurations/types/${grandparentId}/questions/{parentId}/values/{id}`,
+      path: `/company/configurations/types/${grandparentId}/questions/${parentId}/values/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -1810,9 +1820,9 @@ export default class CompanyAPI extends Manage {
     parentId: number,
     grandparentId: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/configurations/types/${grandparentId}/questions/{parentId}/values/{id}/usages`,
+      path: `/company/configurations/types/${grandparentId}/questions/${parentId}/values/${id}/usages`,
       method: 'get',
       params,
     })
@@ -1823,9 +1833,9 @@ export default class CompanyAPI extends Manage {
     parentId: number,
     grandparentId: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/configurations/types/${grandparentId}/questions/{parentId}/values/{id}/usages/list`,
+      path: `/company/configurations/types/${grandparentId}/questions/${parentId}/values/${id}/usages/list`,
       method: 'get',
       params,
     })
@@ -1837,7 +1847,7 @@ export default class CompanyAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<Count> {
     return this.request({
-      path: `/company/configurations/types/${grandparentId}/questions/{parentId}/values/count`,
+      path: `/company/configurations/types/${grandparentId}/questions/${parentId}/values/count`,
       method: 'get',
       params,
     })
@@ -1874,7 +1884,7 @@ export default class CompanyAPI extends Manage {
 
   patchCompanyConfigurationsTypesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ConfigurationType> {
     return this.request({
       path: `/company/configurations/types/${id}`,
@@ -1897,7 +1907,7 @@ export default class CompanyAPI extends Manage {
   getCompanyConfigurationsTypesByIdUsages(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/company/configurations/types/${id}/usages`,
       method: 'get',
@@ -1908,7 +1918,7 @@ export default class CompanyAPI extends Manage {
   getCompanyConfigurationsTypesByIdUsagesList(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/company/configurations/types/${id}/usages/list`,
       method: 'get',
@@ -1919,7 +1929,7 @@ export default class CompanyAPI extends Manage {
   getCompanyConfigurationsTypesByParentIdQuestions(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ConfigurationTypeQuestion[]> {
+  ): Promise<Array<ConfigurationTypeQuestion>> {
     return this.request({
       path: `/company/configurations/types/${parentId}/questions`,
       method: 'get',
@@ -1944,7 +1954,7 @@ export default class CompanyAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<ConfigurationTypeQuestion> {
     return this.request({
-      path: `/company/configurations/types/${parentId}/questions/{id}`,
+      path: `/company/configurations/types/${parentId}/questions/${id}`,
       method: 'get',
       params,
     })
@@ -1955,7 +1965,7 @@ export default class CompanyAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/configurations/types/${parentId}/questions/{id}`,
+      path: `/company/configurations/types/${parentId}/questions/${id}`,
       method: 'delete',
     })
   }
@@ -1966,7 +1976,7 @@ export default class CompanyAPI extends Manage {
     configurationTypeQuestion: ConfigurationTypeQuestion,
   ): Promise<ConfigurationTypeQuestion> {
     return this.request({
-      path: `/company/configurations/types/${parentId}/questions/{id}`,
+      path: `/company/configurations/types/${parentId}/questions/${id}`,
       method: 'put',
       data: configurationTypeQuestion,
     })
@@ -1975,10 +1985,10 @@ export default class CompanyAPI extends Manage {
   patchCompanyConfigurationsTypesByParentIdQuestionsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ConfigurationTypeQuestion> {
     return this.request({
-      path: `/company/configurations/types/${parentId}/questions/{id}`,
+      path: `/company/configurations/types/${parentId}/questions/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -2003,7 +2013,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyContacts(params: CommonParameters = {}): Promise<Contact[]> {
+  getCompanyContacts(params: CommonParameters = {}): Promise<Array<Contact>> {
     return this.request({
       path: `/company/contacts`,
       method: 'get',
@@ -2042,7 +2052,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  patchCompanyContactsById(id: number, patchOperations: PatchOperation[]): Promise<Contact> {
+  patchCompanyContactsById(id: number, patchOperations: Array<PatchOperation>): Promise<Contact> {
     return this.request({
       path: `/company/contacts/${id}`,
       method: 'patch',
@@ -2066,7 +2076,7 @@ export default class CompanyAPI extends Manage {
   getCompanyContactsByIdPortalSecurity(
     id: number,
     params: CommonParameters = {},
-  ): Promise<PortalSecurity[]> {
+  ): Promise<Array<PortalSecurity>> {
     return this.request({
       path: `/company/contacts/${id}/portalSecurity`,
       method: 'get',
@@ -2074,7 +2084,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyContactsByIdUsages(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getCompanyContactsByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
       path: `/company/contacts/${id}/usages`,
       method: 'get',
@@ -2082,7 +2092,10 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyContactsByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getCompanyContactsByIdUsagesList(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/company/contacts/${id}/usages/list`,
       method: 'get',
@@ -2093,7 +2106,7 @@ export default class CompanyAPI extends Manage {
   getCompanyContactsByParentIdCommunications(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ContactCommunication[]> {
+  ): Promise<Array<ContactCommunication>> {
     return this.request({
       path: `/company/contacts/${parentId}/communications`,
       method: 'get',
@@ -2118,7 +2131,7 @@ export default class CompanyAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<ContactCommunication> {
     return this.request({
-      path: `/company/contacts/${parentId}/communications/{id}`,
+      path: `/company/contacts/${parentId}/communications/${id}`,
       method: 'get',
       params,
     })
@@ -2129,7 +2142,7 @@ export default class CompanyAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/contacts/${parentId}/communications/{id}`,
+      path: `/company/contacts/${parentId}/communications/${id}`,
       method: 'delete',
     })
   }
@@ -2140,7 +2153,7 @@ export default class CompanyAPI extends Manage {
     contactCommunication: ContactCommunication,
   ): Promise<ContactCommunication> {
     return this.request({
-      path: `/company/contacts/${parentId}/communications/{id}`,
+      path: `/company/contacts/${parentId}/communications/${id}`,
       method: 'put',
       data: contactCommunication,
     })
@@ -2149,10 +2162,10 @@ export default class CompanyAPI extends Manage {
   patchCompanyContactsByParentIdCommunicationsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ContactCommunication> {
     return this.request({
-      path: `/company/contacts/${parentId}/communications/{id}`,
+      path: `/company/contacts/${parentId}/communications/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -2172,7 +2185,7 @@ export default class CompanyAPI extends Manage {
   getCompanyContactsByParentIdGroups(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ContactGroup[]> {
+  ): Promise<Array<ContactGroup>> {
     return this.request({
       path: `/company/contacts/${parentId}/groups`,
       method: 'get',
@@ -2197,7 +2210,7 @@ export default class CompanyAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<ContactGroup> {
     return this.request({
-      path: `/company/contacts/${parentId}/groups/{id}`,
+      path: `/company/contacts/${parentId}/groups/${id}`,
       method: 'get',
       params,
     })
@@ -2208,7 +2221,7 @@ export default class CompanyAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/contacts/${parentId}/groups/{id}`,
+      path: `/company/contacts/${parentId}/groups/${id}`,
       method: 'delete',
     })
   }
@@ -2219,7 +2232,7 @@ export default class CompanyAPI extends Manage {
     contactGroup: ContactGroup,
   ): Promise<ContactGroup> {
     return this.request({
-      path: `/company/contacts/${parentId}/groups/{id}`,
+      path: `/company/contacts/${parentId}/groups/${id}`,
       method: 'put',
       data: contactGroup,
     })
@@ -2228,10 +2241,10 @@ export default class CompanyAPI extends Manage {
   patchCompanyContactsByParentIdGroupsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ContactGroup> {
     return this.request({
-      path: `/company/contacts/${parentId}/groups/{id}`,
+      path: `/company/contacts/${parentId}/groups/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -2251,7 +2264,7 @@ export default class CompanyAPI extends Manage {
   getCompanyContactsByParentIdNotes(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ContactNote[]> {
+  ): Promise<Array<ContactNote>> {
     return this.request({
       path: `/company/contacts/${parentId}/notes`,
       method: 'get',
@@ -2276,7 +2289,7 @@ export default class CompanyAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<ContactNote> {
     return this.request({
-      path: `/company/contacts/${parentId}/notes/{id}`,
+      path: `/company/contacts/${parentId}/notes/${id}`,
       method: 'get',
       params,
     })
@@ -2287,7 +2300,7 @@ export default class CompanyAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/contacts/${parentId}/notes/{id}`,
+      path: `/company/contacts/${parentId}/notes/${id}`,
       method: 'delete',
     })
   }
@@ -2298,7 +2311,7 @@ export default class CompanyAPI extends Manage {
     contactNote: ContactNote,
   ): Promise<ContactNote> {
     return this.request({
-      path: `/company/contacts/${parentId}/notes/{id}`,
+      path: `/company/contacts/${parentId}/notes/${id}`,
       method: 'put',
       data: contactNote,
     })
@@ -2307,10 +2320,10 @@ export default class CompanyAPI extends Manage {
   patchCompanyContactsByParentIdNotesById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ContactNote> {
     return this.request({
-      path: `/company/contacts/${parentId}/notes/{id}`,
+      path: `/company/contacts/${parentId}/notes/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -2330,7 +2343,7 @@ export default class CompanyAPI extends Manage {
   getCompanyContactsByParentIdTracks(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ContactTrack[]> {
+  ): Promise<Array<ContactTrack>> {
     return this.request({
       path: `/company/contacts/${parentId}/tracks`,
       method: 'get',
@@ -2355,7 +2368,7 @@ export default class CompanyAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<ContactTrack> {
     return this.request({
-      path: `/company/contacts/${parentId}/tracks/{id}`,
+      path: `/company/contacts/${parentId}/tracks/${id}`,
       method: 'get',
       params,
     })
@@ -2366,7 +2379,7 @@ export default class CompanyAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/contacts/${parentId}/tracks/{id}`,
+      path: `/company/contacts/${parentId}/tracks/${id}`,
       method: 'delete',
     })
   }
@@ -2385,7 +2398,7 @@ export default class CompanyAPI extends Manage {
   getCompanyContactsByParentIdTypeAssociations(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ContactContactTypeAssociationContactTypeAssociation[]> {
+  ): Promise<Array<ContactContactTypeAssociationContactTypeAssociation>> {
     return this.request({
       path: `/company/contacts/${parentId}/typeAssociations`,
       method: 'get',
@@ -2410,7 +2423,7 @@ export default class CompanyAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<ContactContactTypeAssociationContactTypeAssociation> {
     return this.request({
-      path: `/company/contacts/${parentId}/typeAssociations/{id}`,
+      path: `/company/contacts/${parentId}/typeAssociations/${id}`,
       method: 'get',
       params,
     })
@@ -2421,7 +2434,7 @@ export default class CompanyAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/contacts/${parentId}/typeAssociations/{id}`,
+      path: `/company/contacts/${parentId}/typeAssociations/${id}`,
       method: 'delete',
     })
   }
@@ -2432,7 +2445,7 @@ export default class CompanyAPI extends Manage {
     contactTypeAssociation: ContactContactTypeAssociationContactTypeAssociation,
   ): Promise<ContactContactTypeAssociationContactTypeAssociation> {
     return this.request({
-      path: `/company/contacts/${parentId}/typeAssociations/{id}`,
+      path: `/company/contacts/${parentId}/typeAssociations/${id}`,
       method: 'put',
       data: contactTypeAssociation,
     })
@@ -2441,10 +2454,10 @@ export default class CompanyAPI extends Manage {
   patchCompanyContactsByParentIdTypeAssociationsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ContactContactTypeAssociationContactTypeAssociation> {
     return this.request({
-      path: `/company/contacts/${parentId}/typeAssociations/{id}`,
+      path: `/company/contacts/${parentId}/typeAssociations/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -2477,7 +2490,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyContactsDepartments(params: CommonParameters = {}): Promise<ContactDepartment[]> {
+  getCompanyContactsDepartments(params: CommonParameters = {}): Promise<Array<ContactDepartment>> {
     return this.request({
       path: `/company/contacts/departments`,
       method: 'get',
@@ -2524,7 +2537,7 @@ export default class CompanyAPI extends Manage {
 
   patchCompanyContactsDepartmentsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ContactDepartment> {
     return this.request({
       path: `/company/contacts/departments/${id}`,
@@ -2547,7 +2560,7 @@ export default class CompanyAPI extends Manage {
   getCompanyContactsDepartmentsByIdUsages(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/company/contacts/departments/${id}/usages`,
       method: 'get',
@@ -2558,7 +2571,7 @@ export default class CompanyAPI extends Manage {
   getCompanyContactsDepartmentsByIdUsagesList(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/company/contacts/departments/${id}/usages/list`,
       method: 'get',
@@ -2576,7 +2589,7 @@ export default class CompanyAPI extends Manage {
 
   getCompanyContactsDepartmentsInfo(
     params: CommonParameters = {},
-  ): Promise<ContactDepartmentInfo[]> {
+  ): Promise<Array<ContactDepartmentInfo>> {
     return this.request({
       path: `/company/contacts/departments/info`,
       method: 'get',
@@ -2592,7 +2605,9 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyContactsRelationships(params: CommonParameters = {}): Promise<ContactRelationship[]> {
+  getCompanyContactsRelationships(
+    params: CommonParameters = {},
+  ): Promise<Array<ContactRelationship>> {
     return this.request({
       path: `/company/contacts/relationships`,
       method: 'get',
@@ -2641,7 +2656,7 @@ export default class CompanyAPI extends Manage {
 
   patchCompanyContactsRelationshipsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ContactRelationship> {
     return this.request({
       path: `/company/contacts/relationships/${id}`,
@@ -2666,7 +2681,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyContactsTypes(params: CommonParameters = {}): Promise<ContactType[]> {
+  getCompanyContactsTypes(params: CommonParameters = {}): Promise<Array<ContactType>> {
     return this.request({
       path: `/company/contacts/types`,
       method: 'get',
@@ -2707,7 +2722,7 @@ export default class CompanyAPI extends Manage {
 
   patchCompanyContactsTypesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ContactType> {
     return this.request({
       path: `/company/contacts/types/${id}`,
@@ -2743,7 +2758,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyContactsTypesInfo(params: CommonParameters = {}): Promise<ContactTypeInfo[]> {
+  getCompanyContactsTypesInfo(params: CommonParameters = {}): Promise<Array<ContactTypeInfo>> {
     return this.request({
       path: `/company/contacts/types/info`,
       method: 'get',
@@ -2763,7 +2778,7 @@ export default class CompanyAPI extends Manage {
 
   getCompanyContactTypeAssociations(
     params: CommonParameters = {},
-  ): Promise<CompanyContactTypeAssociation[]> {
+  ): Promise<Array<CompanyContactTypeAssociation>> {
     return this.request({
       path: `/company/contactTypeAssociations`,
       method: 'get',
@@ -2812,7 +2827,7 @@ export default class CompanyAPI extends Manage {
 
   patchCompanyContactTypeAssociationsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<CompanyContactTypeAssociation> {
     return this.request({
       path: `/company/contactTypeAssociations/${id}`,
@@ -2829,7 +2844,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyCountries(params: CommonParameters = {}): Promise<Country[]> {
+  getCompanyCountries(params: CommonParameters = {}): Promise<Array<Country>> {
     return this.request({
       path: `/company/countries`,
       method: 'get',
@@ -2868,7 +2883,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  patchCompanyCountriesById(id: number, patchOperations: PatchOperation[]): Promise<Country> {
+  patchCompanyCountriesById(id: number, patchOperations: Array<PatchOperation>): Promise<Country> {
     return this.request({
       path: `/company/countries/${id}`,
       method: 'patch',
@@ -2892,7 +2907,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyCountriesInfo(params: CommonParameters = {}): Promise<CountryInfo[]> {
+  getCompanyCountriesInfo(params: CommonParameters = {}): Promise<Array<CountryInfo>> {
     return this.request({
       path: `/company/countries/info`,
       method: 'get',
@@ -2908,7 +2923,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyEntityTypes(params: CommonParameters = {}): Promise<EntityType[]> {
+  getCompanyEntityTypes(params: CommonParameters = {}): Promise<Array<EntityType>> {
     return this.request({
       path: `/company/entityTypes`,
       method: 'get',
@@ -2943,7 +2958,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyEntitytypesInfo(params: CommonParameters = {}): Promise<EntityTypeInfo[]> {
+  getCompanyEntitytypesInfo(params: CommonParameters = {}): Promise<Array<EntityTypeInfo>> {
     return this.request({
       path: `/company/entitytypes/info`,
       method: 'get',
@@ -2969,7 +2984,7 @@ export default class CompanyAPI extends Manage {
 
   getCompanyManagedDevicesIntegrations(
     params: CommonParameters = {},
-  ): Promise<ManagedDevicesIntegration[]> {
+  ): Promise<Array<ManagedDevicesIntegration>> {
     return this.request({
       path: `/company/managedDevicesIntegrations`,
       method: 'get',
@@ -3018,7 +3033,7 @@ export default class CompanyAPI extends Manage {
 
   patchCompanyManagedDevicesIntegrationsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ManagedDevicesIntegration> {
     return this.request({
       path: `/company/managedDevicesIntegrations/${id}`,
@@ -3041,7 +3056,7 @@ export default class CompanyAPI extends Manage {
   getCompanyManagedDevicesIntegrationsByIdUsages(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/company/managedDevicesIntegrations/${id}/usages`,
       method: 'get',
@@ -3052,7 +3067,7 @@ export default class CompanyAPI extends Manage {
   getCompanyManagedDevicesIntegrationsByIdUsagesList(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/company/managedDevicesIntegrations/${id}/usages/list`,
       method: 'get',
@@ -3063,7 +3078,7 @@ export default class CompanyAPI extends Manage {
   getCompanyManagedDevicesIntegrationsByParentIdCrossReferences(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ManagedDevicesIntegrationCrossReference[]> {
+  ): Promise<Array<ManagedDevicesIntegrationCrossReference>> {
     return this.request({
       path: `/company/managedDevicesIntegrations/${parentId}/crossReferences`,
       method: 'get',
@@ -3088,7 +3103,7 @@ export default class CompanyAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<ManagedDevicesIntegrationCrossReference> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${parentId}/crossReferences/{id}`,
+      path: `/company/managedDevicesIntegrations/${parentId}/crossReferences/${id}`,
       method: 'get',
       params,
     })
@@ -3100,7 +3115,7 @@ export default class CompanyAPI extends Manage {
     crossReference: ManagedDevicesIntegrationCrossReference,
   ): Promise<ManagedDevicesIntegrationCrossReference> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${parentId}/crossReferences/{id}`,
+      path: `/company/managedDevicesIntegrations/${parentId}/crossReferences/${id}`,
       method: 'put',
       data: crossReference,
     })
@@ -3109,10 +3124,10 @@ export default class CompanyAPI extends Manage {
   patchCompanyManagedDevicesIntegrationsByParentIdCrossReferencesById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ManagedDevicesIntegrationCrossReference> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${parentId}/crossReferences/{id}`,
+      path: `/company/managedDevicesIntegrations/${parentId}/crossReferences/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -3123,7 +3138,7 @@ export default class CompanyAPI extends Manage {
     parentId: number,
   ): Promise<ManagedDevicesIntegrationCrossReference> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${parentId}/crossReferences/{id}`,
+      path: `/company/managedDevicesIntegrations/${parentId}/crossReferences/${id}`,
       method: 'delete',
     })
   }
@@ -3142,7 +3157,7 @@ export default class CompanyAPI extends Manage {
   getCompanyManagedDevicesIntegrationsByParentIdLogins(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ManagedDevicesIntegrationLogin[]> {
+  ): Promise<Array<ManagedDevicesIntegrationLogin>> {
     return this.request({
       path: `/company/managedDevicesIntegrations/${parentId}/logins`,
       method: 'get',
@@ -3167,7 +3182,7 @@ export default class CompanyAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<ManagedDevicesIntegrationLogin> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${parentId}/logins/{id}`,
+      path: `/company/managedDevicesIntegrations/${parentId}/logins/${id}`,
       method: 'get',
       params,
     })
@@ -3179,7 +3194,7 @@ export default class CompanyAPI extends Manage {
     login: ManagedDevicesIntegrationLogin,
   ): Promise<ManagedDevicesIntegrationLogin> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${parentId}/logins/{id}`,
+      path: `/company/managedDevicesIntegrations/${parentId}/logins/${id}`,
       method: 'put',
       data: login,
     })
@@ -3188,10 +3203,10 @@ export default class CompanyAPI extends Manage {
   patchCompanyManagedDevicesIntegrationsByParentIdLoginsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ManagedDevicesIntegrationLogin> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${parentId}/logins/{id}`,
+      path: `/company/managedDevicesIntegrations/${parentId}/logins/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -3202,7 +3217,7 @@ export default class CompanyAPI extends Manage {
     parentId: number,
   ): Promise<ManagedDevicesIntegrationLogin> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${parentId}/logins/{id}`,
+      path: `/company/managedDevicesIntegrations/${parentId}/logins/${id}`,
       method: 'delete',
     })
   }
@@ -3221,7 +3236,7 @@ export default class CompanyAPI extends Manage {
   getCompanyManagedDevicesIntegrationsByParentIdNotifications(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ManagedDevicesIntegrationNotification[]> {
+  ): Promise<Array<ManagedDevicesIntegrationNotification>> {
     return this.request({
       path: `/company/managedDevicesIntegrations/${parentId}/notifications`,
       method: 'get',
@@ -3246,7 +3261,7 @@ export default class CompanyAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<ManagedDevicesIntegrationNotification> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${parentId}/notifications/{id}`,
+      path: `/company/managedDevicesIntegrations/${parentId}/notifications/${id}`,
       method: 'get',
       params,
     })
@@ -3258,7 +3273,7 @@ export default class CompanyAPI extends Manage {
     notification: ManagedDevicesIntegrationNotification,
   ): Promise<ManagedDevicesIntegrationNotification> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${parentId}/notifications/{id}`,
+      path: `/company/managedDevicesIntegrations/${parentId}/notifications/${id}`,
       method: 'put',
       data: notification,
     })
@@ -3267,10 +3282,10 @@ export default class CompanyAPI extends Manage {
   patchCompanyManagedDevicesIntegrationsByParentIdNotificationsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ManagedDevicesIntegrationNotification> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${parentId}/notifications/{id}`,
+      path: `/company/managedDevicesIntegrations/${parentId}/notifications/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -3281,7 +3296,7 @@ export default class CompanyAPI extends Manage {
     parentId: number,
   ): Promise<ManagedDevicesIntegrationNotification> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${parentId}/notifications/{id}`,
+      path: `/company/managedDevicesIntegrations/${parentId}/notifications/${id}`,
       method: 'delete',
     })
   }
@@ -3307,7 +3322,7 @@ export default class CompanyAPI extends Manage {
 
   getCompanyManagedDevicesIntegrationsInfo(
     params: CommonParameters = {},
-  ): Promise<ManagedDevicesIntegrationInfo[]> {
+  ): Promise<Array<ManagedDevicesIntegrationInfo>> {
     return this.request({
       path: `/company/managedDevicesIntegrations/info`,
       method: 'get',
@@ -3323,7 +3338,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyManagement(params: CommonParameters = {}): Promise<Management[]> {
+  getCompanyManagement(params: CommonParameters = {}): Promise<Array<Management>> {
     return this.request({
       path: `/company/management`,
       method: 'get',
@@ -3347,7 +3362,10 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  patchCompanyManagementById(id: number, patchOperations: PatchOperation[]): Promise<Management> {
+  patchCompanyManagementById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<Management> {
     return this.request({
       path: `/company/management/${id}`,
       method: 'patch',
@@ -3377,7 +3395,7 @@ export default class CompanyAPI extends Manage {
   getCompanyManagementByIdLogs(
     id: number,
     params: CommonParameters = {},
-  ): Promise<ManagementLogDocumentInfo[]> {
+  ): Promise<Array<ManagementLogDocumentInfo>> {
     return this.request({
       path: `/company/management/${id}/logs`,
       method: 'get',
@@ -3388,7 +3406,7 @@ export default class CompanyAPI extends Manage {
   getCompanyManagementByParentIdManagementReportNotifications(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ManagementReportNotification[]> {
+  ): Promise<Array<ManagementReportNotification>> {
     return this.request({
       path: `/company/management/${parentId}/managementReportNotifications`,
       method: 'get',
@@ -3413,7 +3431,7 @@ export default class CompanyAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<ManagementReportNotification> {
     return this.request({
-      path: `/company/management/${parentId}/managementReportNotifications/{id}`,
+      path: `/company/management/${parentId}/managementReportNotifications/${id}`,
       method: 'get',
       params,
     })
@@ -3424,7 +3442,7 @@ export default class CompanyAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/management/${parentId}/managementReportNotifications/{id}`,
+      path: `/company/management/${parentId}/managementReportNotifications/${id}`,
       method: 'delete',
     })
   }
@@ -3435,7 +3453,7 @@ export default class CompanyAPI extends Manage {
     managementReportNotification: ManagementReportNotification,
   ): Promise<ManagementReportNotification> {
     return this.request({
-      path: `/company/management/${parentId}/managementReportNotifications/{id}`,
+      path: `/company/management/${parentId}/managementReportNotifications/${id}`,
       method: 'put',
       data: managementReportNotification,
     })
@@ -3444,10 +3462,10 @@ export default class CompanyAPI extends Manage {
   patchCompanyManagementByParentIdManagementReportNotificationsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ManagementReportNotification> {
     return this.request({
-      path: `/company/management/${parentId}/managementReportNotifications/{id}`,
+      path: `/company/management/${parentId}/managementReportNotifications/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -3472,7 +3490,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyManagementBackups(params: CommonParameters = {}): Promise<ManagementBackup[]> {
+  getCompanyManagementBackups(params: CommonParameters = {}): Promise<Array<ManagementBackup>> {
     return this.request({
       path: `/company/managementBackups`,
       method: 'get',
@@ -3519,7 +3537,7 @@ export default class CompanyAPI extends Manage {
 
   patchCompanyManagementBackupsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ManagementBackup> {
     return this.request({
       path: `/company/managementBackups/${id}`,
@@ -3536,7 +3554,9 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyManagementItSolutions(params: CommonParameters = {}): Promise<ManagementItSolution[]> {
+  getCompanyManagementItSolutions(
+    params: CommonParameters = {},
+  ): Promise<Array<ManagementItSolution>> {
     return this.request({
       path: `/company/managementItSolutions`,
       method: 'get',
@@ -3585,7 +3605,7 @@ export default class CompanyAPI extends Manage {
 
   patchCompanyManagementItSolutionsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ManagementItSolution> {
     return this.request({
       path: `/company/managementItSolutions/${id}`,
@@ -3597,7 +3617,7 @@ export default class CompanyAPI extends Manage {
   getCompanyManagementItSolutionsByIdUsages(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/company/managementItSolutions/${id}/usages`,
       method: 'get',
@@ -3608,7 +3628,7 @@ export default class CompanyAPI extends Manage {
   getCompanyManagementItSolutionsByIdUsagesList(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/company/managementItSolutions/${id}/usages/list`,
       method: 'get',
@@ -3619,7 +3639,7 @@ export default class CompanyAPI extends Manage {
   getCompanyManagementItSolutionsByParentIdManagementProducts(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ManagementItSolutionAgreementInterfaceParameter[]> {
+  ): Promise<Array<ManagementItSolutionAgreementInterfaceParameter>> {
     return this.request({
       path: `/company/managementItSolutions/${parentId}/managementProducts`,
       method: 'get',
@@ -3644,7 +3664,7 @@ export default class CompanyAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<ManagementItSolutionAgreementInterfaceParameter> {
     return this.request({
-      path: `/company/managementItSolutions/${parentId}/managementProducts/{id}`,
+      path: `/company/managementItSolutions/${parentId}/managementProducts/${id}`,
       method: 'get',
       params,
     })
@@ -3656,7 +3676,7 @@ export default class CompanyAPI extends Manage {
     managementProduct: ManagementItSolutionAgreementInterfaceParameter,
   ): Promise<ManagementItSolutionAgreementInterfaceParameter> {
     return this.request({
-      path: `/company/managementItSolutions/${parentId}/managementProducts/{id}`,
+      path: `/company/managementItSolutions/${parentId}/managementProducts/${id}`,
       method: 'put',
       data: managementProduct,
     })
@@ -3665,10 +3685,10 @@ export default class CompanyAPI extends Manage {
   patchCompanyManagementItSolutionsByParentIdManagementProductsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ManagementItSolutionAgreementInterfaceParameter> {
     return this.request({
-      path: `/company/managementItSolutions/${parentId}/managementProducts/{id}`,
+      path: `/company/managementItSolutions/${parentId}/managementProducts/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -3679,7 +3699,7 @@ export default class CompanyAPI extends Manage {
     parentId: number,
   ): Promise<ManagementItSolutionAgreementInterfaceParameter> {
     return this.request({
-      path: `/company/managementItSolutions/${parentId}/managementProducts/{id}`,
+      path: `/company/managementItSolutions/${parentId}/managementProducts/${id}`,
       method: 'delete',
     })
   }
@@ -3703,7 +3723,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyMarketDescriptions(params: CommonParameters = {}): Promise<MarketDescription[]> {
+  getCompanyMarketDescriptions(params: CommonParameters = {}): Promise<Array<MarketDescription>> {
     return this.request({
       path: `/company/marketDescriptions`,
       method: 'get',
@@ -3750,7 +3770,7 @@ export default class CompanyAPI extends Manage {
 
   patchCompanyMarketDescriptionsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<MarketDescription> {
     return this.request({
       path: `/company/marketDescriptions/${id}`,
@@ -3773,7 +3793,7 @@ export default class CompanyAPI extends Manage {
   getCompanyMarketDescriptionsByIdUsages(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/company/marketDescriptions/${id}/usages`,
       method: 'get',
@@ -3784,7 +3804,7 @@ export default class CompanyAPI extends Manage {
   getCompanyMarketDescriptionsByIdUsagesList(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/company/marketDescriptions/${id}/usages/list`,
       method: 'get',
@@ -3802,7 +3822,7 @@ export default class CompanyAPI extends Manage {
 
   getCompanyMarketDescriptionsInfo(
     params: CommonParameters = {},
-  ): Promise<MarketDescriptionInfo[]> {
+  ): Promise<Array<MarketDescriptionInfo>> {
     return this.request({
       path: `/company/marketDescriptions/info`,
       method: 'get',
@@ -3818,7 +3838,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyNoteTypes(params: CommonParameters = {}): Promise<CompanyNoteType[]> {
+  getCompanyNoteTypes(params: CommonParameters = {}): Promise<Array<CompanyNoteType>> {
     return this.request({
       path: `/company/noteTypes`,
       method: 'get',
@@ -3859,7 +3879,7 @@ export default class CompanyAPI extends Manage {
 
   patchCompanyNoteTypesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<CompanyNoteType> {
     return this.request({
       path: `/company/noteTypes/${id}`,
@@ -3895,7 +3915,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyNoteTypesInfo(params: CommonParameters = {}): Promise<CompanyNoteTypeInfo[]> {
+  getCompanyNoteTypesInfo(params: CommonParameters = {}): Promise<Array<CompanyNoteTypeInfo>> {
     return this.request({
       path: `/company/noteTypes/info`,
       method: 'get',
@@ -3903,7 +3923,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyOwnershipTypes(params: CommonParameters = {}): Promise<OwnershipType[]> {
+  getCompanyOwnershipTypes(params: CommonParameters = {}): Promise<Array<OwnershipType>> {
     return this.request({
       path: `/company/ownershipTypes`,
       method: 'get',
@@ -3944,7 +3964,7 @@ export default class CompanyAPI extends Manage {
 
   patchCompanyOwnershipTypesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<OwnershipType> {
     return this.request({
       path: `/company/ownershipTypes/${id}`,
@@ -3972,7 +3992,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyOwnershipTypesInfo(params: CommonParameters = {}): Promise<OwnershipTypeInfo[]> {
+  getCompanyOwnershipTypesInfo(params: CommonParameters = {}): Promise<Array<OwnershipTypeInfo>> {
     return this.request({
       path: `/company/ownershipTypes/info`,
       method: 'get',
@@ -3996,7 +4016,9 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyPortalConfigurations(params: CommonParameters = {}): Promise<PortalConfiguration[]> {
+  getCompanyPortalConfigurations(
+    params: CommonParameters = {},
+  ): Promise<Array<PortalConfiguration>> {
     return this.request({
       path: `/company/portalConfigurations`,
       method: 'get',
@@ -4045,7 +4067,7 @@ export default class CompanyAPI extends Manage {
 
   patchCompanyPortalConfigurationsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<PortalConfiguration> {
     return this.request({
       path: `/company/portalConfigurations/${id}`,
@@ -4057,7 +4079,7 @@ export default class CompanyAPI extends Manage {
   getCompanyPortalConfigurationsByParentIdInvoiceSetups(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<PortalConfigurationInvoiceSetup[]> {
+  ): Promise<Array<PortalConfigurationInvoiceSetup>> {
     return this.request({
       path: `/company/portalConfigurations/${parentId}/invoiceSetups`,
       method: 'get',
@@ -4071,7 +4093,7 @@ export default class CompanyAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<PortalConfigurationInvoiceSetup> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/invoiceSetups/{id}`,
+      path: `/company/portalConfigurations/${parentId}/invoiceSetups/${id}`,
       method: 'get',
       params,
     })
@@ -4083,7 +4105,7 @@ export default class CompanyAPI extends Manage {
     portalConfigurationInvoiceSetup: PortalConfigurationInvoiceSetup,
   ): Promise<PortalConfigurationInvoiceSetup> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/invoiceSetups/{id}`,
+      path: `/company/portalConfigurations/${parentId}/invoiceSetups/${id}`,
       method: 'put',
       data: portalConfigurationInvoiceSetup,
     })
@@ -4092,10 +4114,10 @@ export default class CompanyAPI extends Manage {
   patchCompanyPortalConfigurationsByParentIdInvoiceSetupsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<PortalConfigurationInvoiceSetup> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/invoiceSetups/{id}`,
+      path: `/company/portalConfigurations/${parentId}/invoiceSetups/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -4107,7 +4129,7 @@ export default class CompanyAPI extends Manage {
     portalConfigurationInvoiceSetup: PortalConfigurationInvoiceSetup,
   ): Promise<SuccessResponse> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/invoiceSetups/{id}/testTransaction`,
+      path: `/company/portalConfigurations/${parentId}/invoiceSetups/${id}/testTransaction`,
       method: 'post',
       data: portalConfigurationInvoiceSetup,
     })
@@ -4127,7 +4149,7 @@ export default class CompanyAPI extends Manage {
   getCompanyPortalConfigurationsByParentIdOpportunitySetups(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<PortalConfigurationOpportunitySetup[]> {
+  ): Promise<Array<PortalConfigurationOpportunitySetup>> {
     return this.request({
       path: `/company/portalConfigurations/${parentId}/opportunitySetups`,
       method: 'get',
@@ -4148,7 +4170,7 @@ export default class CompanyAPI extends Manage {
 
   patchCompanyPortalConfigurationsByParentIdOpportunitySetups(
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<PortalConfigurationOpportunitySetup> {
     return this.request({
       path: `/company/portalConfigurations/${parentId}/opportunitySetups`,
@@ -4163,7 +4185,7 @@ export default class CompanyAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<PortalConfigurationOpportunitySetup> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/opportunitySetups/{id}`,
+      path: `/company/portalConfigurations/${parentId}/opportunitySetups/${id}`,
       method: 'get',
       params,
     })
@@ -4175,7 +4197,7 @@ export default class CompanyAPI extends Manage {
     opportunitySetup: PortalConfigurationOpportunitySetup,
   ): Promise<PortalConfigurationOpportunitySetup> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/opportunitySetups/{id}`,
+      path: `/company/portalConfigurations/${parentId}/opportunitySetups/${id}`,
       method: 'put',
       data: opportunitySetup,
     })
@@ -4184,10 +4206,10 @@ export default class CompanyAPI extends Manage {
   patchCompanyPortalConfigurationsByParentIdOpportunitySetupsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<PortalConfigurationOpportunitySetup> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/opportunitySetups/{id}`,
+      path: `/company/portalConfigurations/${parentId}/opportunitySetups/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -4196,7 +4218,7 @@ export default class CompanyAPI extends Manage {
   getCompanyPortalConfigurationsByParentIdPasswordEmailSetups(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<PortalConfigurationPasswordEmailSetup[]> {
+  ): Promise<Array<PortalConfigurationPasswordEmailSetup>> {
     return this.request({
       path: `/company/portalConfigurations/${parentId}/passwordEmailSetups`,
       method: 'get',
@@ -4210,7 +4232,7 @@ export default class CompanyAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<PortalConfigurationPasswordEmailSetup> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/passwordEmailSetups/{id}`,
+      path: `/company/portalConfigurations/${parentId}/passwordEmailSetups/${id}`,
       method: 'get',
       params,
     })
@@ -4222,7 +4244,7 @@ export default class CompanyAPI extends Manage {
     passwordEmailSetup: PortalConfigurationPasswordEmailSetup,
   ): Promise<PortalConfigurationPasswordEmailSetup> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/passwordEmailSetups/{id}`,
+      path: `/company/portalConfigurations/${parentId}/passwordEmailSetups/${id}`,
       method: 'put',
       data: passwordEmailSetup,
     })
@@ -4231,10 +4253,10 @@ export default class CompanyAPI extends Manage {
   patchCompanyPortalConfigurationsByParentIdPasswordEmailSetupsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<PortalConfigurationPasswordEmailSetup> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/passwordEmailSetups/{id}`,
+      path: `/company/portalConfigurations/${parentId}/passwordEmailSetups/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -4243,7 +4265,7 @@ export default class CompanyAPI extends Manage {
   getCompanyPortalConfigurationsByParentIdProjectSetups(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<PortalConfigurationProjectSetup[]> {
+  ): Promise<Array<PortalConfigurationProjectSetup>> {
     return this.request({
       path: `/company/portalConfigurations/${parentId}/projectSetups`,
       method: 'get',
@@ -4257,7 +4279,7 @@ export default class CompanyAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<PortalConfigurationProjectSetup> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/projectSetups/{id}`,
+      path: `/company/portalConfigurations/${parentId}/projectSetups/${id}`,
       method: 'get',
       params,
     })
@@ -4269,7 +4291,7 @@ export default class CompanyAPI extends Manage {
     portalConfigurationProjectSetup: PortalConfigurationProjectSetup,
   ): Promise<PortalConfigurationProjectSetup> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/projectSetups/{id}`,
+      path: `/company/portalConfigurations/${parentId}/projectSetups/${id}`,
       method: 'put',
       data: portalConfigurationProjectSetup,
     })
@@ -4278,10 +4300,10 @@ export default class CompanyAPI extends Manage {
   patchCompanyPortalConfigurationsByParentIdProjectSetupsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<PortalConfigurationProjectSetup> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/projectSetups/{id}`,
+      path: `/company/portalConfigurations/${parentId}/projectSetups/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -4301,7 +4323,7 @@ export default class CompanyAPI extends Manage {
   getCompanyPortalConfigurationsByParentIdServiceSetups(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<PortalConfigurationServiceSetup[]> {
+  ): Promise<Array<PortalConfigurationServiceSetup>> {
     return this.request({
       path: `/company/portalConfigurations/${parentId}/serviceSetups`,
       method: 'get',
@@ -4315,7 +4337,7 @@ export default class CompanyAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<PortalConfigurationServiceSetup> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/serviceSetups/{id}`,
+      path: `/company/portalConfigurations/${parentId}/serviceSetups/${id}`,
       method: 'get',
       params,
     })
@@ -4327,7 +4349,7 @@ export default class CompanyAPI extends Manage {
     portalConfigurationServiceSetup: PortalConfigurationServiceSetup,
   ): Promise<PortalConfigurationServiceSetup> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/serviceSetups/{id}`,
+      path: `/company/portalConfigurations/${parentId}/serviceSetups/${id}`,
       method: 'put',
       data: portalConfigurationServiceSetup,
     })
@@ -4336,10 +4358,10 @@ export default class CompanyAPI extends Manage {
   patchCompanyPortalConfigurationsByParentIdServiceSetupsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<PortalConfigurationServiceSetup> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/serviceSetups/{id}`,
+      path: `/company/portalConfigurations/${parentId}/serviceSetups/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -4374,7 +4396,7 @@ export default class CompanyAPI extends Manage {
 
   getCompanyPortalConfigurationsInvoiceSetupPaymentProcessors(
     params: CommonParameters = {},
-  ): Promise<PortalConfigurationPaymentProcessor[]> {
+  ): Promise<Array<PortalConfigurationPaymentProcessor>> {
     return this.request({
       path: `/company/portalConfigurations/invoiceSetup/paymentProcessors`,
       method: 'get',
@@ -4403,7 +4425,9 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyPortalSecurityLevels(params: CommonParameters = {}): Promise<PortalSecurityLevel[]> {
+  getCompanyPortalSecurityLevels(
+    params: CommonParameters = {},
+  ): Promise<Array<PortalSecurityLevel>> {
     return this.request({
       path: `/company/portalSecurityLevels`,
       method: 'get',
@@ -4435,7 +4459,7 @@ export default class CompanyAPI extends Manage {
 
   patchCompanyPortalSecurityLevelsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<PortalSecurityLevel> {
     return this.request({
       path: `/company/portalSecurityLevels/${id}`,
@@ -4454,7 +4478,7 @@ export default class CompanyAPI extends Manage {
 
   getCompanyPortalSecuritySettings(
     params: CommonParameters = {},
-  ): Promise<PortalSecuritySetting[]> {
+  ): Promise<Array<PortalSecuritySetting>> {
     return this.request({
       path: `/company/portalSecuritySettings`,
       method: 'get',
@@ -4486,7 +4510,7 @@ export default class CompanyAPI extends Manage {
 
   patchCompanyPortalSecuritySettingsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<PortalSecuritySetting> {
     return this.request({
       path: `/company/portalSecuritySettings/${id}`,
@@ -4503,7 +4527,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyStates(params: CommonParameters = {}): Promise<State[]> {
+  getCompanyStates(params: CommonParameters = {}): Promise<Array<State>> {
     return this.request({
       path: `/company/states`,
       method: 'get',
@@ -4535,7 +4559,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  patchCompanyStatesById(id: number, patchOperations: PatchOperation[]): Promise<State> {
+  patchCompanyStatesById(id: number, patchOperations: Array<PatchOperation>): Promise<State> {
     return this.request({
       path: `/company/states/${id}`,
       method: 'patch',
@@ -4558,7 +4582,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyStatesByIdUsages(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getCompanyStatesByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
       path: `/company/states/${id}/usages`,
       method: 'get',
@@ -4566,7 +4590,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyStatesByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getCompanyStatesByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
       path: `/company/states/${id}/usages/list`,
       method: 'get',
@@ -4582,7 +4606,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyStatesInfo(params: CommonParameters = {}): Promise<StateInfo[]> {
+  getCompanyStatesInfo(params: CommonParameters = {}): Promise<Array<StateInfo>> {
     return this.request({
       path: `/company/states/info`,
       method: 'get',
@@ -4598,7 +4622,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyTeamRoles(params: CommonParameters = {}): Promise<TeamRole[]> {
+  getCompanyTeamRoles(params: CommonParameters = {}): Promise<Array<TeamRole>> {
     return this.request({
       path: `/company/teamRoles`,
       method: 'get',
@@ -4637,7 +4661,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  patchCompanyTeamRolesById(id: number, patchOperations: PatchOperation[]): Promise<TeamRole> {
+  patchCompanyTeamRolesById(id: number, patchOperations: Array<PatchOperation>): Promise<TeamRole> {
     return this.request({
       path: `/company/teamRoles/${id}`,
       method: 'patch',
@@ -4653,7 +4677,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyTeamRolesByIdUsages(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getCompanyTeamRolesByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
       path: `/company/teamRoles/${id}/usages`,
       method: 'get',
@@ -4661,7 +4685,10 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyTeamRolesByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getCompanyTeamRolesByIdUsagesList(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/company/teamRoles/${id}/usages/list`,
       method: 'get',
@@ -4677,7 +4704,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyTeamRolesInfo(params: CommonParameters = {}): Promise<TeamRoleInfo[]> {
+  getCompanyTeamRolesInfo(params: CommonParameters = {}): Promise<Array<TeamRoleInfo>> {
     return this.request({
       path: `/company/teamRoles/info`,
       method: 'get',
@@ -4693,7 +4720,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyTracks(params: CommonParameters = {}): Promise<Track[]> {
+  getCompanyTracks(params: CommonParameters = {}): Promise<Array<Track>> {
     return this.request({
       path: `/company/tracks`,
       method: 'get',
@@ -4732,7 +4759,7 @@ export default class CompanyAPI extends Manage {
     })
   }
 
-  patchCompanyTracksById(id: number, patchOperations: PatchOperation[]): Promise<Track> {
+  patchCompanyTracksById(id: number, patchOperations: Array<PatchOperation>): Promise<Track> {
     return this.request({
       path: `/company/tracks/${id}`,
       method: 'patch',
@@ -4743,7 +4770,7 @@ export default class CompanyAPI extends Manage {
   getCompanyTracksByParentIdActions(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<TrackAction[]> {
+  ): Promise<Array<TrackAction>> {
     return this.request({
       path: `/company/tracks/${parentId}/actions`,
       method: 'get',
@@ -4768,7 +4795,7 @@ export default class CompanyAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<TrackAction> {
     return this.request({
-      path: `/company/tracks/${parentId}/actions/{id}`,
+      path: `/company/tracks/${parentId}/actions/${id}`,
       method: 'get',
       params,
     })
@@ -4780,7 +4807,7 @@ export default class CompanyAPI extends Manage {
     trackAction: TrackAction,
   ): Promise<TrackAction> {
     return this.request({
-      path: `/company/tracks/${parentId}/actions/{id}`,
+      path: `/company/tracks/${parentId}/actions/${id}`,
       method: 'put',
       data: trackAction,
     })
@@ -4788,7 +4815,7 @@ export default class CompanyAPI extends Manage {
 
   patchCompanyTracksByParentIdActionsById(id: number, parentId: number): Promise<TrackAction> {
     return this.request({
-      path: `/company/tracks/${parentId}/actions/{id}`,
+      path: `/company/tracks/${parentId}/actions/${id}`,
       method: 'patch',
     })
   }
@@ -4798,7 +4825,7 @@ export default class CompanyAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/tracks/${parentId}/actions/{id}`,
+      path: `/company/tracks/${parentId}/actions/${id}`,
       method: 'delete',
     })
   }

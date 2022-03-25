@@ -4,8 +4,8 @@ import { components } from '../AutomateTypes'
 import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
-type LabTechDatabaseResultSetWithCount_LabTechModelsEventLog_ =
-  schemas['LabTech.Database.ResultSetWithCount_LabTech.Models.EventLog_']
+type requestBodies = components['requestBodies']
+export type LabTechModelsEventLog = schemas['LabTech.Models.EventLog']
 
 /**
  * @internal
@@ -15,9 +15,7 @@ export default class EventLogsAPI extends Automate {
     super(props)
   }
 
-  GetEventLogsAsync(
-    params: CommonParameters = {},
-  ): Promise<LabTechDatabaseResultSetWithCount_LabTechModelsEventLog_> {
+  getEventLogsAsync(params: CommonParameters = {}): Promise<Array<LabTechModelsEventLog>> {
     return this.request({
       path: `/api/v1/EventLogs`,
       method: 'get',

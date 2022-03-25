@@ -1,9 +1,4 @@
-import { PatchOperation } from './ManageAPI'
-
-import * as AutomateTypes from './AutomateTypes'
-import * as ManageTypes from './ManageTypes'
-
-export type { AutomateTypes, ManageTypes }
+import * as ManageAPI from './ManageAPI'
 
 export enum StatusCode {
   OK = 200,
@@ -47,7 +42,6 @@ export type RequestOptions = {
 }
 
 export type LoggingLevels = 'error' | 'warn' | 'info' | 'debug'
-export type CWLoggerCurry = (debug: boolean) => CWLogger
 export type CWLogger = (level: LoggingLevels, text: string, meta?: Record<string, unknown>) => void
 
 export type DataResponse =
@@ -69,3 +63,4 @@ export type NoContentResponse = undefined
 export type OctetStreamResponse = Buffer
 export type PDFResponse = Blob
 export type HTMLResponse = string
+export type PatchOperation = ManageAPI.PatchOperation

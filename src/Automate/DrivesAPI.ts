@@ -4,10 +4,11 @@ import { components } from '../AutomateTypes'
 import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
-type LabTechDatabaseResultSetWithCount_LabTechRepositoriesMySQLDomainModelsDriveStats_ =
-  schemas['LabTech.Database.ResultSetWithCount_LabTech.Repositories.MySQL.Domain.Models.DriveStats_']
-type LabTechRepositoriesMySQLDomainModelsDriveStatistics =
+type requestBodies = components['requestBodies']
+export type LabTechRepositoriesMySQLDomainModelsDriveStatistics =
   schemas['LabTech.Repositories.MySQL.Domain.Models.DriveStatistics']
+export type LabTechRepositoriesMySQLDomainModelsDriveStats =
+  schemas['LabTech.Repositories.MySQL.Domain.Models.DriveStats']
 
 /**
  * @internal
@@ -17,10 +18,10 @@ export default class DrivesAPI extends Automate {
     super(props)
   }
 
-  GetDailyDriveStats(
+  getDailyDriveStats(
     driveId: number,
     params: CommonParameters = {},
-  ): Promise<LabTechDatabaseResultSetWithCount_LabTechRepositoriesMySQLDomainModelsDriveStats_> {
+  ): Promise<Array<LabTechRepositoriesMySQLDomainModelsDriveStats>> {
     return this.request({
       path: `/api/v1/drives/${driveId}/drivestats/daily`,
       method: 'get',
@@ -28,10 +29,10 @@ export default class DrivesAPI extends Automate {
     })
   }
 
-  GetWeeklyDriveStats(
+  getWeeklyDriveStats(
     driveId: number,
     params: CommonParameters = {},
-  ): Promise<LabTechDatabaseResultSetWithCount_LabTechRepositoriesMySQLDomainModelsDriveStats_> {
+  ): Promise<Array<LabTechRepositoriesMySQLDomainModelsDriveStats>> {
     return this.request({
       path: `/api/v1/drives/${driveId}/drivestats/weekly`,
       method: 'get',
@@ -39,10 +40,10 @@ export default class DrivesAPI extends Automate {
     })
   }
 
-  GetYearlyDriveStats(
+  getYearlyDriveStats(
     driveId: number,
     params: CommonParameters = {},
-  ): Promise<LabTechDatabaseResultSetWithCount_LabTechRepositoriesMySQLDomainModelsDriveStats_> {
+  ): Promise<Array<LabTechRepositoriesMySQLDomainModelsDriveStats>> {
     return this.request({
       path: `/api/v1/drives/${driveId}/drivestats/yearly`,
       method: 'get',
@@ -50,10 +51,10 @@ export default class DrivesAPI extends Automate {
     })
   }
 
-  GetMonthlyDriveStats(
+  getMonthlyDriveStats(
     driveId: number,
     params: CommonParameters = {},
-  ): Promise<LabTechDatabaseResultSetWithCount_LabTechRepositoriesMySQLDomainModelsDriveStats_> {
+  ): Promise<Array<LabTechRepositoriesMySQLDomainModelsDriveStats>> {
     return this.request({
       path: `/api/v1/drives/${driveId}/drivestats/monthly`,
       method: 'get',
@@ -61,9 +62,9 @@ export default class DrivesAPI extends Automate {
     })
   }
 
-  GetDriveStatisticsList(
+  getDriveStatisticsList(
     params: CommonParameters = {},
-  ): Promise<LabTechRepositoriesMySQLDomainModelsDriveStatistics[]> {
+  ): Promise<Array<LabTechRepositoriesMySQLDomainModelsDriveStatistics>> {
     return this.request({
       path: `/api/v1/Statistics/Drives`,
       method: 'get',

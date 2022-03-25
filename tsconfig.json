@@ -23,6 +23,7 @@
   },
   "typedocOptions": {
     "entryPoints": ["src/index.ts"],
+    "entryPointStrategy": "resolve",
     "out": "docs"
   }
 }

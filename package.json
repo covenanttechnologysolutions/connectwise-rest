@@ -5,22 +5,23 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "clean:generator": "npx rimraf generator/Manage/*.ts generator/Automate/*.js",
+    "clean:docs": "npx rimraf docs/",
+    "clean:generator": "npx rimraf generator/Manage/*.ts generator/Automate/*.ts",
     "clean:dist": "npx rimraf dist/",
     "clean:src": "npx rimraf src/Manage/ & npx rimraf src/Automate/",
     "clean": "npm run clean:dist & npm run clean:generator & npm run clean:src",
     "test": "nyc mocha -r ts-node/register",
-    "jsdoc": "jsdoc src -r -c ./docs/jsdoc.json -d docs",
     "pregenerate": "npm run clean",
     "generate:automate": "node generator/automate-generator.js",
     "generate:manage": "node generator/manage-generator.js",
     "generate": "npm run generate:automate & npm run generate:manage",
-    "jsdocmd": "jsdoc2md src/**/*.js > doc.md",
     "prebuild": "npm run generate",
-    "build": "tsc",
+    "build": "npx tsc",
     "postbuild": "npm run lint",
     "lint": "npx eslint -c .eslintrc --fix",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "docs": "npx typedoc src/index.ts",
+    "gh-pages": "npx gh-pages -d docs"
   },
   "repository": {
     "type": "git",
@@ -48,7 +49,6 @@
     "promise-retry": "^2.0.1"
   },
   "devDependencies": {
-    "@babel/preset-typescript": "^7.16.7",
     "@microsoft/api-documenter": "^7.16.0",
     "@microsoft/api-extractor": "^7.19.5",
     "@types/eslint": "^8.4.1",
@@ -62,8 +62,7 @@
     "eslint": "^8.11.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "jsdoc": "^3.6.10",
-    "jsdoc-to-markdown": "^7.1.1",
+    "gh-pages": "^3.2.3",
     "lodash": "^4.17.21",
     "mocha": "^9.2.2",
     "mocha-lcov-reporter": "^1.3.0",

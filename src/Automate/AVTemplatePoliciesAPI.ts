@@ -4,11 +4,13 @@ import { components } from '../AutomateTypes'
 import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
-type LabTechModelsAVTemplatePolicy = schemas['LabTech.Models.AVTemplatePolicy']
-type LabTechModelsAVTemplatePolicyData = schemas['LabTech.Models.AVTemplatePolicyData']
-type LabTechModelsGroup = schemas['LabTech.Models.Group']
-type LabTechModelsTemplateAvailableProperty = schemas['LabTech.Models.TemplateAvailableProperty']
-type LabTechModelsTemplateProperty = schemas['LabTech.Models.TemplateProperty']
+type requestBodies = components['requestBodies']
+export type LabTechModelsAVTemplatePolicy = schemas['LabTech.Models.AVTemplatePolicy']
+export type LabTechModelsAVTemplatePolicyData = schemas['LabTech.Models.AVTemplatePolicyData']
+export type LabTechModelsGroup = schemas['LabTech.Models.Group']
+export type LabTechModelsTemplateAvailableProperty =
+  schemas['LabTech.Models.TemplateAvailableProperty']
+export type LabTechModelsTemplateProperty = schemas['LabTech.Models.TemplateProperty']
 
 /**
  * @internal
@@ -18,7 +20,7 @@ export default class AVTemplatePoliciesAPI extends Automate {
     super(props)
   }
 
-  GetAntivirusTemplatePolicyList(params: CommonParameters = {}): Promise<object> {
+  getAntivirusTemplatePolicyList(params: CommonParameters = {}): Promise<object> {
     return this.request({
       path: `/api/v1/AVTemplatePolicies`,
       method: 'get',
@@ -26,7 +28,7 @@ export default class AVTemplatePoliciesAPI extends Automate {
     })
   }
 
-  PostAntivirusTemplatePolicy(
+  postAntivirusTemplatePolicy(
     AVTemplatePolicy: LabTechModelsAVTemplatePolicy,
   ): Promise<LabTechModelsAVTemplatePolicy> {
     return this.request({
@@ -36,7 +38,7 @@ export default class AVTemplatePoliciesAPI extends Automate {
     })
   }
 
-  GetAntivirusTemplatePolicyDataList(params: CommonParameters = {}): Promise<object> {
+  getAntivirusTemplatePolicyDataList(params: CommonParameters = {}): Promise<object> {
     return this.request({
       path: `/api/v1/AVTemplatePolicyData`,
       method: 'get',
@@ -44,7 +46,7 @@ export default class AVTemplatePoliciesAPI extends Automate {
     })
   }
 
-  PostAntivirusTemplatePolicyData(
+  postAntivirusTemplatePolicyData(
     AVTemplatePolicyData: LabTechModelsAVTemplatePolicyData,
   ): Promise<LabTechModelsAVTemplatePolicyData> {
     return this.request({
@@ -54,7 +56,7 @@ export default class AVTemplatePoliciesAPI extends Automate {
     })
   }
 
-  GetGroupList(params: CommonParameters = {}): Promise<LabTechModelsGroup[]> {
+  getGroupList(params: CommonParameters = {}): Promise<Array<LabTechModelsGroup>> {
     return this.request({
       path: `/api/v1/Groups`,
       method: 'get',
@@ -62,7 +64,7 @@ export default class AVTemplatePoliciesAPI extends Automate {
     })
   }
 
-  PostGroup(Group: LabTechModelsGroup): Promise<LabTechModelsGroup> {
+  postGroup(Group: LabTechModelsGroup): Promise<LabTechModelsGroup> {
     return this.request({
       path: `/api/v1/Groups`,
       method: 'post',
@@ -70,9 +72,9 @@ export default class AVTemplatePoliciesAPI extends Automate {
     })
   }
 
-  GetTemplateAvailablePropertyList(
+  getTemplateAvailablePropertyList(
     params: CommonParameters = {},
-  ): Promise<LabTechModelsTemplateAvailableProperty[]> {
+  ): Promise<Array<LabTechModelsTemplateAvailableProperty>> {
     return this.request({
       path: `/api/v1/TemplateAvailableProperties`,
       method: 'get',
@@ -80,7 +82,7 @@ export default class AVTemplatePoliciesAPI extends Automate {
     })
   }
 
-  PostTemplateAvailableProperty(
+  postTemplateAvailableProperty(
     TemplateAvailableProperty: LabTechModelsTemplateAvailableProperty,
   ): Promise<LabTechModelsTemplateAvailableProperty> {
     return this.request({
@@ -90,7 +92,9 @@ export default class AVTemplatePoliciesAPI extends Automate {
     })
   }
 
-  GetTemplatePropertyList(params: CommonParameters = {}): Promise<LabTechModelsTemplateProperty[]> {
+  getTemplatePropertyList(
+    params: CommonParameters = {},
+  ): Promise<Array<LabTechModelsTemplateProperty>> {
     return this.request({
       path: `/api/v1/TemplateProperties`,
       method: 'get',
@@ -98,7 +102,7 @@ export default class AVTemplatePoliciesAPI extends Automate {
     })
   }
 
-  PostTemplateProperty(
+  postTemplateProperty(
     TemplateProperty: LabTechModelsTemplateProperty,
   ): Promise<LabTechModelsTemplateProperty> {
     return this.request({

@@ -4,19 +4,20 @@ import { components } from '../ManageTypes'
 import { CommonParameters, CWMOptions } from '../ManageAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
-type Classification = schemas['Classification']
-type Count = schemas['Count']
-type ExpenseEntry = schemas['ExpenseEntry']
-type ExpenseEntryAudit = schemas['ExpenseEntryAudit']
-type ExpenseReport = schemas['ExpenseReport']
-type ExpenseReportAudit = schemas['ExpenseReportAudit']
-type ExpenseTaxTypeInfo = schemas['ExpenseTaxTypeInfo']
-type ExpenseType = schemas['ExpenseType']
-type ExpenseTypeInfo = schemas['ExpenseTypeInfo']
-type PatchOperation = schemas['PatchOperation']
-type PaymentType = schemas['PaymentType']
-type PaymentTypeInfo = schemas['PaymentTypeInfo']
-type SuccessResponse = schemas['SuccessResponse']
+false
+export type Classification = schemas['Classification']
+export type Count = schemas['Count']
+export type ExpenseEntry = schemas['ExpenseEntry']
+export type ExpenseEntryAudit = schemas['ExpenseEntryAudit']
+export type ExpenseReport = schemas['ExpenseReport']
+export type ExpenseReportAudit = schemas['ExpenseReportAudit']
+export type ExpenseTaxTypeInfo = schemas['ExpenseTaxTypeInfo']
+export type ExpenseType = schemas['ExpenseType']
+export type ExpenseTypeInfo = schemas['ExpenseTypeInfo']
+export type PatchOperation = schemas['PatchOperation']
+export type PaymentType = schemas['PaymentType']
+export type PaymentTypeInfo = schemas['PaymentTypeInfo']
+export type SuccessResponse = schemas['SuccessResponse']
 
 /**
  * @internal
@@ -26,7 +27,7 @@ export default class ExpenseAPI extends Manage {
     super(props)
   }
 
-  getExpenseClassifications(params: CommonParameters = {}): Promise<Classification[]> {
+  getExpenseClassifications(params: CommonParameters = {}): Promise<Array<Classification>> {
     return this.request({
       path: `/expense/classifications`,
       method: 'get',
@@ -53,7 +54,7 @@ export default class ExpenseAPI extends Manage {
     })
   }
 
-  getExpenseEntries(params: CommonParameters = {}): Promise<ExpenseEntry[]> {
+  getExpenseEntries(params: CommonParameters = {}): Promise<Array<ExpenseEntry>> {
     return this.request({
       path: `/expense/entries`,
       method: 'get',
@@ -92,7 +93,10 @@ export default class ExpenseAPI extends Manage {
     })
   }
 
-  patchExpenseEntriesById(id: number, patchOperations: PatchOperation[]): Promise<ExpenseEntry> {
+  patchExpenseEntriesById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<ExpenseEntry> {
     return this.request({
       path: `/expense/entries/${id}`,
       method: 'patch',
@@ -103,7 +107,7 @@ export default class ExpenseAPI extends Manage {
   getExpenseEntriesByParentIdAudits(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ExpenseEntryAudit[]> {
+  ): Promise<Array<ExpenseEntryAudit>> {
     return this.request({
       path: `/expense/entries/${parentId}/audits`,
       method: 'get',
@@ -117,7 +121,7 @@ export default class ExpenseAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<ExpenseEntryAudit> {
     return this.request({
-      path: `/expense/entries/${parentId}/audits/{id}`,
+      path: `/expense/entries/${parentId}/audits/${id}`,
       method: 'get',
       params,
     })
@@ -142,7 +146,7 @@ export default class ExpenseAPI extends Manage {
     })
   }
 
-  getExpenseInfoTaxTypes(params: CommonParameters = {}): Promise<ExpenseTaxTypeInfo[]> {
+  getExpenseInfoTaxTypes(params: CommonParameters = {}): Promise<Array<ExpenseTaxTypeInfo>> {
     return this.request({
       path: `/expense/info/taxTypes`,
       method: 'get',
@@ -169,7 +173,7 @@ export default class ExpenseAPI extends Manage {
     })
   }
 
-  getExpensePaymentTypes(params: CommonParameters = {}): Promise<PaymentType[]> {
+  getExpensePaymentTypes(params: CommonParameters = {}): Promise<Array<PaymentType>> {
     return this.request({
       path: `/expense/paymentTypes`,
       method: 'get',
@@ -210,7 +214,7 @@ export default class ExpenseAPI extends Manage {
 
   patchExpensePaymentTypesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<PaymentType> {
     return this.request({
       path: `/expense/paymentTypes/${id}`,
@@ -238,7 +242,7 @@ export default class ExpenseAPI extends Manage {
     })
   }
 
-  getExpensePaymentTypesInfo(params: CommonParameters = {}): Promise<PaymentTypeInfo[]> {
+  getExpensePaymentTypesInfo(params: CommonParameters = {}): Promise<Array<PaymentTypeInfo>> {
     return this.request({
       path: `/expense/paymentTypes/info`,
       method: 'get',
@@ -246,7 +250,7 @@ export default class ExpenseAPI extends Manage {
     })
   }
 
-  getExpenseReports(params: CommonParameters = {}): Promise<ExpenseReport[]> {
+  getExpenseReports(params: CommonParameters = {}): Promise<Array<ExpenseReport>> {
     return this.request({
       path: `/expense/reports`,
       method: 'get',
@@ -279,7 +283,7 @@ export default class ExpenseAPI extends Manage {
   getExpenseReportsByParentIdAudits(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ExpenseReportAudit[]> {
+  ): Promise<Array<ExpenseReportAudit>> {
     return this.request({
       path: `/expense/reports/${parentId}/audits`,
       method: 'get',
@@ -293,7 +297,7 @@ export default class ExpenseAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<ExpenseReportAudit> {
     return this.request({
-      path: `/expense/reports/${parentId}/audits/{id}`,
+      path: `/expense/reports/${parentId}/audits/${id}`,
       method: 'get',
       params,
     })
@@ -318,7 +322,7 @@ export default class ExpenseAPI extends Manage {
     })
   }
 
-  getExpenseTypes(params: CommonParameters = {}): Promise<ExpenseType[]> {
+  getExpenseTypes(params: CommonParameters = {}): Promise<Array<ExpenseType>> {
     return this.request({
       path: `/expense/types`,
       method: 'get',
@@ -357,7 +361,7 @@ export default class ExpenseAPI extends Manage {
     })
   }
 
-  patchExpenseTypesById(id: number, patchOperations: PatchOperation[]): Promise<ExpenseType> {
+  patchExpenseTypesById(id: number, patchOperations: Array<PatchOperation>): Promise<ExpenseType> {
     return this.request({
       path: `/expense/types/${id}`,
       method: 'patch',
@@ -381,7 +385,7 @@ export default class ExpenseAPI extends Manage {
     })
   }
 
-  getExpenseTypesInfo(params: CommonParameters = {}): Promise<ExpenseTypeInfo[]> {
+  getExpenseTypesInfo(params: CommonParameters = {}): Promise<Array<ExpenseTypeInfo>> {
     return this.request({
       path: `/expense/types/info`,
       method: 'get',

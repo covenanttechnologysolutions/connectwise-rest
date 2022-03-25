@@ -73,7 +73,7 @@ export default class Manage {
     clientId,
     entryPoint = 'v4_6_release',
     timeout = 20000,
-    apiVersion = '3.0.0',
+    apiVersion = '2021.1',
     retry = false,
     retryOptions = DEFAULTS.retryOptions,
     logger,

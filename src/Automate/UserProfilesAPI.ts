@@ -4,7 +4,8 @@ import { components } from '../AutomateTypes'
 import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
-type LabTechRepositoriesMySQLDomainModelsPresentationLayerUserProfile =
+type requestBodies = components['requestBodies']
+export type LabTechRepositoriesMySQLDomainModelsPresentationLayerUserProfile =
   schemas['LabTech.Repositories.MySQL.Domain.Models.PresentationLayer.UserProfile']
 
 /**
@@ -15,7 +16,7 @@ export default class UserProfilesAPI extends Automate {
     super(props)
   }
 
-  GetUserProfile(): Promise<LabTechRepositoriesMySQLDomainModelsPresentationLayerUserProfile> {
+  getUserProfile(): Promise<LabTechRepositoriesMySQLDomainModelsPresentationLayerUserProfile> {
     return this.request({
       path: `/api/v1/UserProfiles`,
       method: 'get',

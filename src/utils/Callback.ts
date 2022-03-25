@@ -5,12 +5,12 @@ import axios from 'axios'
 import crypto from 'crypto'
 import type { ClientRequest, ServerResponse } from 'http'
 
-interface ExpressRequest extends ClientRequest {
+export interface ExpressRequest extends ClientRequest {
   body: CallbackPayload
   headers: Record<string, string>
 }
 
-type CallbackPayload = {
+export type CallbackPayload = {
   Action: string
   CompanyId: string | number
   Entity: string

@@ -106,7 +106,7 @@ export default class Automate {
 
     if (token) {
       this.config.token = token
-      this.#createAxiosInstance()
+      this.createAxiosInstance()
     }
 
     this.request = makeRequest({ config: this.config, api: this.api, thisObj: this })
@@ -174,7 +174,7 @@ export default class Automate {
     if (!this.config.token || !this.instance) {
       const result = await Automate.getToken({ username, password, serverUrl, twoFactorPasscode })
       this.config.token = result.AccessToken
-      this.#createAxiosInstance()
+      this.createAxiosInstance()
     }
 
     try {
@@ -200,7 +200,7 @@ export default class Automate {
     }
   }
 
-  #createAxiosInstance() {
+  private createAxiosInstance() {
     const { serverUrl, timeout, clientId } = this.config
     this.instance = axios.create({
       timeout,

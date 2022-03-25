@@ -3,7 +3,9 @@ node_js:
   - "8"
   - "10"
   - "12"
+  - "14"
+  - "16"
 after_script:
   - npm run coveralls
 before_script:
-  - npm run eslint
+  - npm run build

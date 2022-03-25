@@ -4,12 +4,15 @@ import { components } from '../AutomateTypes'
 import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
-type AutomateApiDomainContractsScriptsRunningScriptsRunningScript =
+type requestBodies = components['requestBodies']
+export type AutomateApiDomainContractsScriptsRunningScriptsRunningScript =
   schemas['Automate.Api.Domain.Contracts.Scripts.RunningScripts.RunningScript']
-type AutomateApiDomainContractsScriptsScheduledScript =
+export type AutomateApiDomainContractsScriptsScheduledScript =
   schemas['Automate.Api.Domain.Contracts.Scripts.ScheduledScript']
-type LabTechModelsScript = schemas['LabTech.Models.Script']
-type LabTechModelsScriptFolder = schemas['LabTech.Models.ScriptFolder']
+export type LabTechModelsScript = schemas['LabTech.Models.Script']
+export type LabTechModelsScriptFolder = schemas['LabTech.Models.ScriptFolder']
+export type LabTechRESTApiModelsPatchOperationArray =
+  requestBodies['LabTech.RESTApi.Models.PatchOperationArray']
 
 /**
  * @internal
@@ -19,7 +22,7 @@ export default class ScriptingAPI extends Automate {
     super(props)
   }
 
-  GetScriptFolderList(params: CommonParameters = {}): Promise<LabTechModelsScriptFolder[]> {
+  getScriptFolderList(params: CommonParameters = {}): Promise<Array<LabTechModelsScriptFolder>> {
     return this.request({
       path: `/api/v1/ScriptFolders`,
       method: 'get',
@@ -27,7 +30,7 @@ export default class ScriptingAPI extends Automate {
     })
   }
 
-  PostScriptFolder(ScriptFolder: LabTechModelsScriptFolder): Promise<LabTechModelsScriptFolder> {
+  postScriptFolder(ScriptFolder: LabTechModelsScriptFolder): Promise<LabTechModelsScriptFolder> {
     return this.request({
       path: `/api/v1/ScriptFolders`,
       method: 'post',
@@ -35,14 +38,14 @@ export default class ScriptingAPI extends Automate {
     })
   }
 
-  GetScriptFolderHierarchy(): Promise<LabTechModelsScriptFolder[]> {
+  getScriptFolderHierarchy(): Promise<Array<LabTechModelsScriptFolder>> {
     return this.request({
       path: `/api/v1/ScriptFolders/Hierarchy`,
       method: 'get',
     })
   }
 
-  GetScriptFolder(
+  getScriptFolder(
     entityId: string,
     params: CommonParameters = {},
   ): Promise<LabTechModelsScriptFolder> {
@@ -53,14 +56,14 @@ export default class ScriptingAPI extends Automate {
     })
   }
 
-  DeleteScriptFolder(entityId: string): Promise<NoContentResponse> {
+  deleteScriptFolder(entityId: string): Promise<NoContentResponse> {
     return this.request({
       path: `/api/v1/ScriptFolders/${entityId}`,
       method: 'delete',
     })
   }
 
-  PatchScriptFolder(
+  patchScriptFolder(
     entityId: string,
     PatchOperationArray: LabTechRESTApiModelsPatchOperationArray,
   ): Promise<LabTechModelsScriptFolder> {
@@ -71,9 +74,9 @@ export default class ScriptingAPI extends Automate {
     })
   }
 
-  GetRunningScripts(
+  getRunningScripts(
     params: CommonParameters = {},
-  ): Promise<AutomateApiDomainContractsScriptsRunningScriptsRunningScript[]> {
+  ): Promise<Array<AutomateApiDomainContractsScriptsRunningScriptsRunningScript>> {
     return this.request({
       path: `/api/v1/Scripting/RunningScripts`,
       method: 'get',
@@ -81,9 +84,9 @@ export default class ScriptingAPI extends Automate {
     })
   }
 
-  GetScheduledScripts(
+  getScheduledScripts(
     params: CommonParameters = {},
-  ): Promise<AutomateApiDomainContractsScriptsScheduledScript[]> {
+  ): Promise<Array<AutomateApiDomainContractsScriptsScheduledScript>> {
     return this.request({
       path: `/api/v1/Scripting/ScriptSchedules`,
       method: 'get',
@@ -91,14 +94,14 @@ export default class ScriptingAPI extends Automate {
     })
   }
 
-  DeleteScriptSchedule(scheduledId: number): Promise<NoContentResponse> {
+  deleteScriptSchedule(scheduledId: number): Promise<NoContentResponse> {
     return this.request({
       path: `/api/v1/Scripting/ScriptSchedules/${scheduledId}`,
       method: 'delete',
     })
   }
 
-  PatchScriptSchedule(
+  patchScriptSchedule(
     scheduledId: number,
     PatchOperationArray: LabTechRESTApiModelsPatchOperationArray,
   ): Promise<AutomateApiDomainContractsScriptsScheduledScript> {
@@ -109,7 +112,7 @@ export default class ScriptingAPI extends Automate {
     })
   }
 
-  GetScriptList(params: CommonParameters = {}): Promise<LabTechModelsScript[]> {
+  getScriptList(params: CommonParameters = {}): Promise<Array<LabTechModelsScript>> {
     return this.request({
       path: `/api/v1/Scripts`,
       method: 'get',
@@ -117,7 +120,7 @@ export default class ScriptingAPI extends Automate {
     })
   }
 
-  PostScript(Script: LabTechModelsScript): Promise<LabTechModelsScript> {
+  postScript(Script: LabTechModelsScript): Promise<LabTechModelsScript> {
     return this.request({
       path: `/api/v1/Scripts`,
       method: 'post',
@@ -125,7 +128,7 @@ export default class ScriptingAPI extends Automate {
     })
   }
 
-  GetScriptCopyAsync(scriptId: number): Promise<number> {
+  getScriptCopyAsync(scriptId: number): Promise<number> {
     return this.request({
       path: `/api/v1/Scripts/${scriptId}/Copy`,
       method: 'post',

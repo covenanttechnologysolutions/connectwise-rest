@@ -4,147 +4,148 @@ import { components } from '../ManageTypes'
 import { CommonParameters, CWMOptions } from '../ManageAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
-type AllowedFileType = schemas['AllowedFileType']
-type AllowedOrigin = schemas['AllowedOrigin']
-type ApiMember = schemas['ApiMember']
-type AuditTrailEntry = schemas['AuditTrailEntry']
-type AuthAnvil = schemas['AuthAnvil']
-type AutoSyncTime = schemas['AutoSyncTime']
-type BulkResult = schemas['BulkResult']
-type BundleRequestsCollection = schemas['BundleRequestsCollection']
-type BundleResultsCollection = schemas['BundleResultsCollection']
-type CallbackEntry = schemas['CallbackEntry']
-type Certification = schemas['Certification']
-type ConnectWiseHostedScreen = schemas['ConnectWiseHostedScreen']
-type ConnectWiseHostedSetup = schemas['ConnectWiseHostedSetup']
-type CorporateStructure = schemas['CorporateStructure']
-type CorporateStructureInfo = schemas['CorporateStructureInfo']
-type CorporateStructureLevel = schemas['CorporateStructureLevel']
-type Count = schemas['Count']
-type Crm = schemas['Crm']
-type CrmInfo = schemas['CrmInfo']
-type CustomReport = schemas['CustomReport']
-type CustomReportParameter = schemas['CustomReportParameter']
-type CwTimeZone = schemas['CwTimeZone']
-type Department = schemas['Department']
-type DepartmentInfo = schemas['DepartmentInfo']
-type DepartmentLocation = schemas['DepartmentLocation']
-type DepartmentLocationInfo = schemas['DepartmentLocationInfo']
-type DocumentFormData = schemas['DocumentFormData']
-type DocumentInfo = schemas['DocumentInfo']
-type DocumentSetup = schemas['DocumentSetup']
-type EPayConfiguration = schemas['EPayConfiguration']
-type EmailConnector = schemas['EmailConnector']
-type EmailConnectorInfo = schemas['EmailConnectorInfo']
-type EmailConnectorParsingRule = schemas['EmailConnectorParsingRule']
-type EmailConnectorParsingStyle = schemas['EmailConnectorParsingStyle']
-type EmailExclusion = schemas['EmailExclusion']
-type EmailToken = schemas['EmailToken']
-type Experiment = schemas['Experiment']
-type FileUploadSetting = schemas['FileUploadSetting']
-type GoogleEmailSetup = schemas['GoogleEmailSetup']
-type IdCollection = schemas['IdCollection']
-type Imap = schemas['Imap']
-type ImapInfo = schemas['ImapInfo']
-type ImportMassMaintenance = schemas['ImportMassMaintenance']
-type InOutBoard = schemas['InOutBoard']
-type InOutType = schemas['InOutType']
-type InOutTypeInfo = schemas['InOutTypeInfo']
-type Info = schemas['Info']
-type IntegratorLogin = schemas['IntegratorLogin']
-type IntegratorTag = schemas['IntegratorTag']
-type KPI = schemas['KPI']
-type KPICategory = schemas['KPICategory']
-type LdapConfiguration = schemas['LdapConfiguration']
-type LdapConfigurationInfo = schemas['LdapConfigurationInfo']
-type LdapConfigurationTestLink = schemas['LdapConfigurationTestLink']
-type Link = schemas['Link']
-type LinkInfo = schemas['LinkInfo']
-type LinkResolveUrlInfo = schemas['LinkResolveUrlInfo']
-type LocaleInfo = schemas['LocaleInfo']
-type Location = schemas['Location']
-type LocationDepartment = schemas['LocationDepartment']
-type LocationInfo = schemas['LocationInfo']
-type LocationWorkRole = schemas['LocationWorkRole']
-type ManagedDeviceAccount = schemas['ManagedDeviceAccount']
-type ManagementNetworkSecurity = schemas['ManagementNetworkSecurity']
-type MarketplaceImport = schemas['MarketplaceImport']
-type Member = schemas['Member']
-type MemberAccrual = schemas['MemberAccrual']
-type MemberCertification = schemas['MemberCertification']
-type MemberDeactivation = schemas['MemberDeactivation']
-type MemberDelegation = schemas['MemberDelegation']
-type MemberInfo = schemas['MemberInfo']
-type MemberLinkSsoUser = schemas['MemberLinkSsoUser']
-type MemberNotificationSetting = schemas['MemberNotificationSetting']
-type MemberPersona = schemas['MemberPersona']
-type MemberSkill = schemas['MemberSkill']
-type MemberSsoToken = schemas['MemberSsoToken']
-type MemberType = schemas['MemberType']
-type MemberTypeInfo = schemas['MemberTypeInfo']
-type MenuEntry = schemas['MenuEntry']
-type MenuEntryLocation = schemas['MenuEntryLocation']
-type MyAccount = schemas['MyAccount']
-type MyMember = schemas['MyMember']
-type MyMemberInfo = schemas['MyMemberInfo']
-type MySecurity = schemas['MySecurity']
-type MySecurityCustomizeItem = schemas['MySecurityCustomizeItem']
-type NotificationRecipient = schemas['NotificationRecipient']
-type Office365EmailSetup = schemas['Office365EmailSetup']
-type OsGradeWeight = schemas['OsGradeWeight']
-type Other = schemas['Other']
-type ParsingType = schemas['ParsingType']
-type ParsingVariable = schemas['ParsingVariable']
-type PatchOperation = schemas['PatchOperation']
-type PersonasInfo = schemas['PersonasInfo']
-type PortalReport = schemas['PortalReport']
-type QuoteLink = schemas['QuoteLink']
-type Report = schemas['Report']
-type ReportCard = schemas['ReportCard']
-type ReportCardDetail = schemas['ReportCardDetail']
-type ReportCardInfo = schemas['ReportCardInfo']
-type ReportColumnDefinition = schemas['ReportColumnDefinition']
-type ReportDataResponse = schemas['ReportDataResponse']
-type ReportingService = schemas['ReportingService']
-type SecurityRole = schemas['SecurityRole']
-type SecurityRoleInfo = schemas['SecurityRoleInfo']
-type SecurityRoleSetting = schemas['SecurityRoleSetting']
-type Service = schemas['Service']
-type ServiceInfo = schemas['ServiceInfo']
-type SetupScreen = schemas['SetupScreen']
-type Skill = schemas['Skill']
-type SkillCategory = schemas['SkillCategory']
-type SkillInfo = schemas['SkillInfo']
-type SsoConfiguration = schemas['SsoConfiguration']
-type SsoUser = schemas['SsoUser']
-type StandardNote = schemas['StandardNote']
-type StandardNoteInfo = schemas['StandardNoteInfo']
-type SuccessResponse = schemas['SuccessResponse']
-type Survey = schemas['Survey']
-type SurveyInfo = schemas['SurveyInfo']
-type SurveyQuestion = schemas['SurveyQuestion']
-type SurveyQuestionValue = schemas['SurveyQuestionValue']
-type SystemSetting = schemas['SystemSetting']
-type TimeExpense = schemas['TimeExpense']
-type TimeZoneSetup = schemas['TimeZoneSetup']
-type TimeZoneSetupInfo = schemas['TimeZoneSetupInfo']
-type TodayPageCategory = schemas['TodayPageCategory']
-type Token = schemas['Token']
-type Usage = schemas['Usage']
-type UserDefinedField = schemas['UserDefinedField']
-type UserDefinedFieldInfo = schemas['UserDefinedFieldInfo']
-type Workflow = schemas['Workflow']
-type WorkflowAction = schemas['WorkflowAction']
-type WorkflowActionAutomateParameter = schemas['WorkflowActionAutomateParameter']
-type WorkflowActionUserDefinedField = schemas['WorkflowActionUserDefinedField']
-type WorkflowAttachment = schemas['WorkflowAttachment']
-type WorkflowEvent = schemas['WorkflowEvent']
-type WorkflowNotifyType = schemas['WorkflowNotifyType']
-type WorkflowNotifyTypeInfo = schemas['WorkflowNotifyTypeInfo']
-type WorkflowTableType = schemas['WorkflowTableType']
-type WorkflowTableTypeInfo = schemas['WorkflowTableTypeInfo']
-type WorkflowTrigger = schemas['WorkflowTrigger']
-type WorkflowTriggerOption = schemas['WorkflowTriggerOption']
+false
+export type AllowedFileType = schemas['AllowedFileType']
+export type AllowedOrigin = schemas['AllowedOrigin']
+export type ApiMember = schemas['ApiMember']
+export type AuditTrailEntry = schemas['AuditTrailEntry']
+export type AuthAnvil = schemas['AuthAnvil']
+export type AutoSyncTime = schemas['AutoSyncTime']
+export type BulkResult = schemas['BulkResult']
+export type BundleRequestsCollection = schemas['BundleRequestsCollection']
+export type BundleResultsCollection = schemas['BundleResultsCollection']
+export type CallbackEntry = schemas['CallbackEntry']
+export type Certification = schemas['Certification']
+export type ConnectWiseHostedScreen = schemas['ConnectWiseHostedScreen']
+export type ConnectWiseHostedSetup = schemas['ConnectWiseHostedSetup']
+export type CorporateStructure = schemas['CorporateStructure']
+export type CorporateStructureInfo = schemas['CorporateStructureInfo']
+export type CorporateStructureLevel = schemas['CorporateStructureLevel']
+export type Count = schemas['Count']
+export type Crm = schemas['Crm']
+export type CrmInfo = schemas['CrmInfo']
+export type CustomReport = schemas['CustomReport']
+export type CustomReportParameter = schemas['CustomReportParameter']
+export type CwTimeZone = schemas['CwTimeZone']
+export type Department = schemas['Department']
+export type DepartmentInfo = schemas['DepartmentInfo']
+export type DepartmentLocation = schemas['DepartmentLocation']
+export type DepartmentLocationInfo = schemas['DepartmentLocationInfo']
+export type DocumentFormData = schemas['DocumentFormData']
+export type DocumentInfo = schemas['DocumentInfo']
+export type DocumentSetup = schemas['DocumentSetup']
+export type EPayConfiguration = schemas['EPayConfiguration']
+export type EmailConnector = schemas['EmailConnector']
+export type EmailConnectorInfo = schemas['EmailConnectorInfo']
+export type EmailConnectorParsingRule = schemas['EmailConnectorParsingRule']
+export type EmailConnectorParsingStyle = schemas['EmailConnectorParsingStyle']
+export type EmailExclusion = schemas['EmailExclusion']
+export type EmailToken = schemas['EmailToken']
+export type Experiment = schemas['Experiment']
+export type FileUploadSetting = schemas['FileUploadSetting']
+export type GoogleEmailSetup = schemas['GoogleEmailSetup']
+export type IdCollection = schemas['IdCollection']
+export type Imap = schemas['Imap']
+export type ImapInfo = schemas['ImapInfo']
+export type ImportMassMaintenance = schemas['ImportMassMaintenance']
+export type InOutBoard = schemas['InOutBoard']
+export type InOutType = schemas['InOutType']
+export type InOutTypeInfo = schemas['InOutTypeInfo']
+export type Info = schemas['Info']
+export type IntegratorLogin = schemas['IntegratorLogin']
+export type IntegratorTag = schemas['IntegratorTag']
+export type KPI = schemas['KPI']
+export type KPICategory = schemas['KPICategory']
+export type LdapConfiguration = schemas['LdapConfiguration']
+export type LdapConfigurationInfo = schemas['LdapConfigurationInfo']
+export type LdapConfigurationTestLink = schemas['LdapConfigurationTestLink']
+export type Link = schemas['Link']
+export type LinkInfo = schemas['LinkInfo']
+export type LinkResolveUrlInfo = schemas['LinkResolveUrlInfo']
+export type LocaleInfo = schemas['LocaleInfo']
+export type Location = schemas['Location']
+export type LocationDepartment = schemas['LocationDepartment']
+export type LocationInfo = schemas['LocationInfo']
+export type LocationWorkRole = schemas['LocationWorkRole']
+export type ManagedDeviceAccount = schemas['ManagedDeviceAccount']
+export type ManagementNetworkSecurity = schemas['ManagementNetworkSecurity']
+export type MarketplaceImport = schemas['MarketplaceImport']
+export type Member = schemas['Member']
+export type MemberAccrual = schemas['MemberAccrual']
+export type MemberCertification = schemas['MemberCertification']
+export type MemberDeactivation = schemas['MemberDeactivation']
+export type MemberDelegation = schemas['MemberDelegation']
+export type MemberInfo = schemas['MemberInfo']
+export type MemberLinkSsoUser = schemas['MemberLinkSsoUser']
+export type MemberNotificationSetting = schemas['MemberNotificationSetting']
+export type MemberPersona = schemas['MemberPersona']
+export type MemberSkill = schemas['MemberSkill']
+export type MemberSsoToken = schemas['MemberSsoToken']
+export type MemberType = schemas['MemberType']
+export type MemberTypeInfo = schemas['MemberTypeInfo']
+export type MenuEntry = schemas['MenuEntry']
+export type MenuEntryLocation = schemas['MenuEntryLocation']
+export type MyAccount = schemas['MyAccount']
+export type MyMember = schemas['MyMember']
+export type MyMemberInfo = schemas['MyMemberInfo']
+export type MySecurity = schemas['MySecurity']
+export type MySecurityCustomizeItem = schemas['MySecurityCustomizeItem']
+export type NotificationRecipient = schemas['NotificationRecipient']
+export type Office365EmailSetup = schemas['Office365EmailSetup']
+export type OsGradeWeight = schemas['OsGradeWeight']
+export type Other = schemas['Other']
+export type ParsingType = schemas['ParsingType']
+export type ParsingVariable = schemas['ParsingVariable']
+export type PatchOperation = schemas['PatchOperation']
+export type PersonasInfo = schemas['PersonasInfo']
+export type PortalReport = schemas['PortalReport']
+export type QuoteLink = schemas['QuoteLink']
+export type Report = schemas['Report']
+export type ReportCard = schemas['ReportCard']
+export type ReportCardDetail = schemas['ReportCardDetail']
+export type ReportCardInfo = schemas['ReportCardInfo']
+export type ReportColumnDefinition = schemas['ReportColumnDefinition']
+export type ReportDataResponse = schemas['ReportDataResponse']
+export type ReportingService = schemas['ReportingService']
+export type SecurityRole = schemas['SecurityRole']
+export type SecurityRoleInfo = schemas['SecurityRoleInfo']
+export type SecurityRoleSetting = schemas['SecurityRoleSetting']
+export type Service = schemas['Service']
+export type ServiceInfo = schemas['ServiceInfo']
+export type SetupScreen = schemas['SetupScreen']
+export type Skill = schemas['Skill']
+export type SkillCategory = schemas['SkillCategory']
+export type SkillInfo = schemas['SkillInfo']
+export type SsoConfiguration = schemas['SsoConfiguration']
+export type SsoUser = schemas['SsoUser']
+export type StandardNote = schemas['StandardNote']
+export type StandardNoteInfo = schemas['StandardNoteInfo']
+export type SuccessResponse = schemas['SuccessResponse']
+export type Survey = schemas['Survey']
+export type SurveyInfo = schemas['SurveyInfo']
+export type SurveyQuestion = schemas['SurveyQuestion']
+export type SurveyQuestionValue = schemas['SurveyQuestionValue']
+export type SystemSetting = schemas['SystemSetting']
+export type TimeExpense = schemas['TimeExpense']
+export type TimeZoneSetup = schemas['TimeZoneSetup']
+export type TimeZoneSetupInfo = schemas['TimeZoneSetupInfo']
+export type TodayPageCategory = schemas['TodayPageCategory']
+export type Token = schemas['Token']
+export type Usage = schemas['Usage']
+export type UserDefinedField = schemas['UserDefinedField']
+export type UserDefinedFieldInfo = schemas['UserDefinedFieldInfo']
+export type Workflow = schemas['Workflow']
+export type WorkflowAction = schemas['WorkflowAction']
+export type WorkflowActionAutomateParameter = schemas['WorkflowActionAutomateParameter']
+export type WorkflowActionUserDefinedField = schemas['WorkflowActionUserDefinedField']
+export type WorkflowAttachment = schemas['WorkflowAttachment']
+export type WorkflowEvent = schemas['WorkflowEvent']
+export type WorkflowNotifyType = schemas['WorkflowNotifyType']
+export type WorkflowNotifyTypeInfo = schemas['WorkflowNotifyTypeInfo']
+export type WorkflowTableType = schemas['WorkflowTableType']
+export type WorkflowTableTypeInfo = schemas['WorkflowTableTypeInfo']
+export type WorkflowTrigger = schemas['WorkflowTrigger']
+export type WorkflowTriggerOption = schemas['WorkflowTriggerOption']
 
 /**
  * @internal
@@ -154,7 +155,7 @@ export default class SystemAPI extends Manage {
     super(props)
   }
 
-  getSystemAllowedfiletypes(params: CommonParameters = {}): Promise<AllowedFileType[]> {
+  getSystemAllowedfiletypes(params: CommonParameters = {}): Promise<Array<AllowedFileType>> {
     return this.request({
       path: `/system/allowedfiletypes/`,
       method: 'get',
@@ -201,7 +202,7 @@ export default class SystemAPI extends Manage {
 
   patchSystemAllowedfiletypesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<AllowedFileType> {
     return this.request({
       path: `/system/allowedfiletypes/${id}`,
@@ -218,7 +219,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemAllowedorigins(params: CommonParameters = {}): Promise<AllowedOrigin[]> {
+  getSystemAllowedorigins(params: CommonParameters = {}): Promise<Array<AllowedOrigin>> {
     return this.request({
       path: `/system/allowedorigins`,
       method: 'get',
@@ -259,7 +260,7 @@ export default class SystemAPI extends Manage {
 
   patchSystemAllowedoriginsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<AllowedOrigin> {
     return this.request({
       path: `/system/allowedorigins/${id}`,
@@ -276,7 +277,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemApiMembers(params: CommonParameters = {}): Promise<ApiMember[]> {
+  getSystemApiMembers(params: CommonParameters = {}): Promise<Array<ApiMember>> {
     return this.request({
       path: `/system/apiMembers`,
       method: 'get',
@@ -308,7 +309,10 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  patchSystemApiMembersById(id: number, patchOperations: PatchOperation[]): Promise<ApiMember> {
+  patchSystemApiMembersById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<ApiMember> {
     return this.request({
       path: `/system/apiMembers/${id}`,
       method: 'patch',
@@ -332,7 +336,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemAudittrail(params: CommonParameters = {}): Promise<AuditTrailEntry[]> {
+  getSystemAudittrail(params: CommonParameters = {}): Promise<Array<AuditTrailEntry>> {
     return this.request({
       path: `/system/audittrail`,
       method: 'get',
@@ -348,7 +352,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemAuthAnvils(params: CommonParameters = {}): Promise<AuthAnvil[]> {
+  getSystemAuthAnvils(params: CommonParameters = {}): Promise<Array<AuthAnvil>> {
     return this.request({
       path: `/system/authAnvils`,
       method: 'get',
@@ -372,7 +376,10 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  patchSystemAuthAnvilsById(id: number, patchOperations: PatchOperation[]): Promise<AuthAnvil> {
+  patchSystemAuthAnvilsById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<AuthAnvil> {
     return this.request({
       path: `/system/authAnvils/${id}`,
       method: 'patch',
@@ -396,7 +403,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemAutoSyncTime(params: CommonParameters = {}): Promise<AutoSyncTime[]> {
+  getSystemAutoSyncTime(params: CommonParameters = {}): Promise<Array<AutoSyncTime>> {
     return this.request({
       path: `/system/autoSyncTime`,
       method: 'get',
@@ -437,7 +444,7 @@ export default class SystemAPI extends Manage {
 
   patchSystemAutoSyncTimeById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<AutoSyncTime> {
     return this.request({
       path: `/system/autoSyncTime/${id}`,
@@ -470,7 +477,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemCallbacks(params: CommonParameters = {}): Promise<CallbackEntry[]> {
+  getSystemCallbacks(params: CommonParameters = {}): Promise<Array<CallbackEntry>> {
     return this.request({
       path: `/system/callbacks`,
       method: 'get',
@@ -509,7 +516,10 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  patchSystemCallbacksById(id: number, patchOperations: PatchOperation[]): Promise<CallbackEntry> {
+  patchSystemCallbacksById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<CallbackEntry> {
     return this.request({
       path: `/system/callbacks/${id}`,
       method: 'patch',
@@ -525,7 +535,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemCertifications(params: CommonParameters = {}): Promise<Certification[]> {
+  getSystemCertifications(params: CommonParameters = {}): Promise<Array<Certification>> {
     return this.request({
       path: `/system/certifications`,
       method: 'get',
@@ -566,7 +576,7 @@ export default class SystemAPI extends Manage {
 
   patchSystemCertificationsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<Certification> {
     return this.request({
       path: `/system/certifications/${id}`,
@@ -575,7 +585,10 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemCertificationsByIdUsages(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getSystemCertificationsByIdUsages(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/system/certifications/${id}/usages`,
       method: 'get',
@@ -586,7 +599,7 @@ export default class SystemAPI extends Manage {
   getSystemCertificationsByIdUsagesList(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/system/certifications/${id}/usages/list`,
       method: 'get',
@@ -604,7 +617,7 @@ export default class SystemAPI extends Manage {
 
   getSystemConnectWiseHostedScreens(
     params: CommonParameters = {},
-  ): Promise<ConnectWiseHostedScreen[]> {
+  ): Promise<Array<ConnectWiseHostedScreen>> {
     return this.request({
       path: `/system/connectWiseHostedScreens`,
       method: 'get',
@@ -633,7 +646,7 @@ export default class SystemAPI extends Manage {
 
   getSystemConnectwisehostedsetups(
     params: CommonParameters = {},
-  ): Promise<ConnectWiseHostedSetup[]> {
+  ): Promise<Array<ConnectWiseHostedSetup>> {
     return this.request({
       path: `/system/connectwisehostedsetups`,
       method: 'get',
@@ -682,7 +695,7 @@ export default class SystemAPI extends Manage {
 
   patchSystemConnectwisehostedsetupsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ConnectWiseHostedSetup> {
     return this.request({
       path: `/system/connectwisehostedsetups/${id}`,
@@ -699,7 +712,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemCustomReports(params: CommonParameters = {}): Promise<CustomReport[]> {
+  getSystemCustomReports(params: CommonParameters = {}): Promise<Array<CustomReport>> {
     return this.request({
       path: `/system/customReports`,
       method: 'get',
@@ -740,7 +753,7 @@ export default class SystemAPI extends Manage {
 
   patchSystemCustomReportsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<CustomReport> {
     return this.request({
       path: `/system/customReports/${id}`,
@@ -752,7 +765,7 @@ export default class SystemAPI extends Manage {
   getSystemCustomReportsByParentIdParameters(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<CustomReportParameter[]> {
+  ): Promise<Array<CustomReportParameter>> {
     return this.request({
       path: `/system/customReports/${parentId}/parameters`,
       method: 'get',
@@ -777,7 +790,7 @@ export default class SystemAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<CustomReportParameter> {
     return this.request({
-      path: `/system/customReports/${parentId}/parameters/{id}`,
+      path: `/system/customReports/${parentId}/parameters/${id}`,
       method: 'get',
       params,
     })
@@ -788,7 +801,7 @@ export default class SystemAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/system/customReports/${parentId}/parameters/{id}`,
+      path: `/system/customReports/${parentId}/parameters/${id}`,
       method: 'delete',
     })
   }
@@ -799,7 +812,7 @@ export default class SystemAPI extends Manage {
     customReportParameter: CustomReportParameter,
   ): Promise<CustomReportParameter> {
     return this.request({
-      path: `/system/customReports/${parentId}/parameters/{id}`,
+      path: `/system/customReports/${parentId}/parameters/${id}`,
       method: 'put',
       data: customReportParameter,
     })
@@ -808,10 +821,10 @@ export default class SystemAPI extends Manage {
   patchSystemCustomReportsByParentIdParametersById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<CustomReportParameter> {
     return this.request({
-      path: `/system/customReports/${parentId}/parameters/{id}`,
+      path: `/system/customReports/${parentId}/parameters/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -836,7 +849,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemCwTimeZones(params: CommonParameters = {}): Promise<CwTimeZone[]> {
+  getSystemCwTimeZones(params: CommonParameters = {}): Promise<Array<CwTimeZone>> {
     return this.request({
       path: `/system/cwTimeZones`,
       method: 'get',
@@ -860,7 +873,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemDepartments(params: CommonParameters = {}): Promise<Department[]> {
+  getSystemDepartments(params: CommonParameters = {}): Promise<Array<Department>> {
     return this.request({
       path: `/system/departments`,
       method: 'get',
@@ -899,7 +912,10 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  patchSystemDepartmentsById(id: number, patchOperations: PatchOperation[]): Promise<Department> {
+  patchSystemDepartmentsById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<Department> {
     return this.request({
       path: `/system/departments/${id}`,
       method: 'patch',
@@ -907,7 +923,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemDepartmentsByIdUsages(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getSystemDepartmentsByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
       path: `/system/departments/${id}/usages`,
       method: 'get',
@@ -915,7 +931,10 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemDepartmentsByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getSystemDepartmentsByIdUsagesList(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/system/departments/${id}/usages/list`,
       method: 'get',
@@ -926,7 +945,7 @@ export default class SystemAPI extends Manage {
   getSystemDepartmentsByParentIdLocations(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<DepartmentLocation[]> {
+  ): Promise<Array<DepartmentLocation>> {
     return this.request({
       path: `/system/departments/${parentId}/locations`,
       method: 'get',
@@ -951,7 +970,7 @@ export default class SystemAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<DepartmentLocation> {
     return this.request({
-      path: `/system/departments/${parentId}/locations/{id}`,
+      path: `/system/departments/${parentId}/locations/${id}`,
       method: 'get',
       params,
     })
@@ -962,7 +981,7 @@ export default class SystemAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/system/departments/${parentId}/locations/{id}`,
+      path: `/system/departments/${parentId}/locations/${id}`,
       method: 'delete',
     })
   }
@@ -973,7 +992,7 @@ export default class SystemAPI extends Manage {
     departmentLocation: DepartmentLocation,
   ): Promise<DepartmentLocation> {
     return this.request({
-      path: `/system/departments/${parentId}/locations/{id}`,
+      path: `/system/departments/${parentId}/locations/${id}`,
       method: 'put',
       data: departmentLocation,
     })
@@ -982,10 +1001,10 @@ export default class SystemAPI extends Manage {
   patchSystemDepartmentsByParentIdLocationsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<DepartmentLocation> {
     return this.request({
-      path: `/system/departments/${parentId}/locations/{id}`,
+      path: `/system/departments/${parentId}/locations/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -1010,7 +1029,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemDocuments(params: CommonParameters = {}): Promise<DocumentInfo[]> {
+  getSystemDocuments(params: CommonParameters = {}): Promise<Array<DocumentInfo>> {
     return this.request({
       path: `/system/documents`,
       method: 'get',
@@ -1080,7 +1099,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemEmailConnectors(params: CommonParameters = {}): Promise<EmailConnector[]> {
+  getSystemEmailConnectors(params: CommonParameters = {}): Promise<Array<EmailConnector>> {
     return this.request({
       path: `/system/emailConnectors`,
       method: 'get',
@@ -1100,9 +1119,9 @@ export default class SystemAPI extends Manage {
     parentId: number,
     grandparentId: number,
     params: CommonParameters = {},
-  ): Promise<EmailConnectorParsingRule[]> {
+  ): Promise<Array<EmailConnectorParsingRule>> {
     return this.request({
-      path: `/system/emailConnectors/${grandparentId}/parsingStyles/{parentId}/parsingRules`,
+      path: `/system/emailConnectors/${grandparentId}/parsingStyles/${parentId}/parsingRules`,
       method: 'get',
       params,
     })
@@ -1114,7 +1133,7 @@ export default class SystemAPI extends Manage {
     emailConnectorParsingRule: EmailConnectorParsingRule,
   ): Promise<EmailConnectorParsingRule> {
     return this.request({
-      path: `/system/emailConnectors/${grandparentId}/parsingStyles/{parentId}/parsingRules`,
+      path: `/system/emailConnectors/${grandparentId}/parsingStyles/${parentId}/parsingRules`,
       method: 'post',
       data: emailConnectorParsingRule,
     })
@@ -1127,7 +1146,7 @@ export default class SystemAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<EmailConnectorParsingRule> {
     return this.request({
-      path: `/system/emailConnectors/${grandparentId}/parsingStyles/{parentId}/parsingRules/{id}`,
+      path: `/system/emailConnectors/${grandparentId}/parsingStyles/${parentId}/parsingRules/${id}`,
       method: 'get',
       params,
     })
@@ -1139,7 +1158,7 @@ export default class SystemAPI extends Manage {
     grandparentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/system/emailConnectors/${grandparentId}/parsingStyles/{parentId}/parsingRules/{id}`,
+      path: `/system/emailConnectors/${grandparentId}/parsingStyles/${parentId}/parsingRules/${id}`,
       method: 'delete',
     })
   }
@@ -1151,7 +1170,7 @@ export default class SystemAPI extends Manage {
     emailConnectorParsingRule: EmailConnectorParsingRule,
   ): Promise<EmailConnectorParsingRule> {
     return this.request({
-      path: `/system/emailConnectors/${grandparentId}/parsingStyles/{parentId}/parsingRules/{id}`,
+      path: `/system/emailConnectors/${grandparentId}/parsingStyles/${parentId}/parsingRules/${id}`,
       method: 'put',
       data: emailConnectorParsingRule,
     })
@@ -1161,10 +1180,10 @@ export default class SystemAPI extends Manage {
     id: number,
     parentId: number,
     grandparentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<EmailConnectorParsingRule> {
     return this.request({
-      path: `/system/emailConnectors/${grandparentId}/parsingStyles/{parentId}/parsingRules/{id}`,
+      path: `/system/emailConnectors/${grandparentId}/parsingStyles/${parentId}/parsingRules/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -1176,7 +1195,7 @@ export default class SystemAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<Count> {
     return this.request({
-      path: `/system/emailConnectors/${grandparentId}/parsingStyles/{parentId}/parsingRules/count`,
+      path: `/system/emailConnectors/${grandparentId}/parsingStyles/${parentId}/parsingRules/count`,
       method: 'get',
       params,
     })
@@ -1210,7 +1229,7 @@ export default class SystemAPI extends Manage {
 
   patchSystemEmailConnectorsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<EmailConnector> {
     return this.request({
       path: `/system/emailConnectors/${id}`,
@@ -1233,7 +1252,7 @@ export default class SystemAPI extends Manage {
   getSystemEmailConnectorsByParentIdParsingStyles(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<EmailConnectorParsingStyle[]> {
+  ): Promise<Array<EmailConnectorParsingStyle>> {
     return this.request({
       path: `/system/emailConnectors/${parentId}/parsingStyles`,
       method: 'get',
@@ -1258,7 +1277,7 @@ export default class SystemAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<EmailConnectorParsingStyle> {
     return this.request({
-      path: `/system/emailConnectors/${parentId}/parsingStyles/{id}`,
+      path: `/system/emailConnectors/${parentId}/parsingStyles/${id}`,
       method: 'get',
       params,
     })
@@ -1269,7 +1288,7 @@ export default class SystemAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/system/emailConnectors/${parentId}/parsingStyles/{id}`,
+      path: `/system/emailConnectors/${parentId}/parsingStyles/${id}`,
       method: 'delete',
     })
   }
@@ -1280,7 +1299,7 @@ export default class SystemAPI extends Manage {
     emailConnectorParsingStyle: EmailConnectorParsingStyle,
   ): Promise<EmailConnectorParsingStyle> {
     return this.request({
-      path: `/system/emailConnectors/${parentId}/parsingStyles/{id}`,
+      path: `/system/emailConnectors/${parentId}/parsingStyles/${id}`,
       method: 'put',
       data: emailConnectorParsingStyle,
     })
@@ -1289,10 +1308,10 @@ export default class SystemAPI extends Manage {
   patchSystemEmailConnectorsByParentIdParsingStylesById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<EmailConnectorParsingStyle> {
     return this.request({
-      path: `/system/emailConnectors/${parentId}/parsingStyles/{id}`,
+      path: `/system/emailConnectors/${parentId}/parsingStyles/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -1317,7 +1336,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemEmailConnectorsInfo(params: CommonParameters = {}): Promise<EmailConnectorInfo[]> {
+  getSystemEmailConnectorsInfo(params: CommonParameters = {}): Promise<Array<EmailConnectorInfo>> {
     return this.request({
       path: `/system/emailConnectors/info`,
       method: 'get',
@@ -1333,7 +1352,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemEmailExclusions(params: CommonParameters = {}): Promise<EmailExclusion[]> {
+  getSystemEmailExclusions(params: CommonParameters = {}): Promise<Array<EmailExclusion>> {
     return this.request({
       path: `/system/emailExclusions`,
       method: 'get',
@@ -1377,7 +1396,7 @@ export default class SystemAPI extends Manage {
 
   patchSystemEmailExclusionsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<EmailExclusion> {
     return this.request({
       path: `/system/emailExclusions/${id}`,
@@ -1394,7 +1413,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemEmailTokens(params: CommonParameters = {}): Promise<EmailToken[]> {
+  getSystemEmailTokens(params: CommonParameters = {}): Promise<Array<EmailToken>> {
     return this.request({
       path: `/system/emailTokens`,
       method: 'get',
@@ -1418,7 +1437,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemEPayConfigurations(params: CommonParameters = {}): Promise<EPayConfiguration[]> {
+  getSystemEPayConfigurations(params: CommonParameters = {}): Promise<Array<EPayConfiguration>> {
     return this.request({
       path: `/system/ePayConfigurations`,
       method: 'get',
@@ -1465,7 +1484,7 @@ export default class SystemAPI extends Manage {
 
   patchSystemEPayConfigurationsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<EPayConfiguration> {
     return this.request({
       path: `/system/ePayConfigurations/${id}`,
@@ -1482,7 +1501,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemExperiments(params: CommonParameters = {}): Promise<Experiment[]> {
+  getSystemExperiments(params: CommonParameters = {}): Promise<Array<Experiment>> {
     return this.request({
       path: `/system/experiments`,
       method: 'get',
@@ -1506,7 +1525,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemFileuploadsettings(params: CommonParameters = {}): Promise<FileUploadSetting[]> {
+  getSystemFileuploadsettings(params: CommonParameters = {}): Promise<Array<FileUploadSetting>> {
     return this.request({
       path: `/system/fileuploadsettings/`,
       method: 'get',
@@ -1538,7 +1557,7 @@ export default class SystemAPI extends Manage {
 
   patchSystemFileuploadsettingsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<FileUploadSetting> {
     return this.request({
       path: `/system/fileuploadsettings/${id}`,
@@ -1555,7 +1574,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemGoogleemailsetup(params: CommonParameters = {}): Promise<GoogleEmailSetup[]> {
+  getSystemGoogleemailsetup(params: CommonParameters = {}): Promise<Array<GoogleEmailSetup>> {
     return this.request({
       path: `/system/googleemailsetup/`,
       method: 'get',
@@ -1602,7 +1621,7 @@ export default class SystemAPI extends Manage {
 
   patchSystemGoogleemailsetupById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<GoogleEmailSetup> {
     return this.request({
       path: `/system/googleemailsetup/${id}`,
@@ -1626,7 +1645,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemImaps(params: CommonParameters = {}): Promise<Imap[]> {
+  getSystemImaps(params: CommonParameters = {}): Promise<Array<Imap>> {
     return this.request({
       path: `/system/imaps`,
       method: 'get',
@@ -1665,7 +1684,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  patchSystemImapsById(id: number, patchOperations: PatchOperation[]): Promise<Imap> {
+  patchSystemImapsById(id: number, patchOperations: Array<PatchOperation>): Promise<Imap> {
     return this.request({
       path: `/system/imaps/${id}`,
       method: 'patch',
@@ -1689,7 +1708,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemImapsInfo(params: CommonParameters = {}): Promise<ImapInfo[]> {
+  getSystemImapsInfo(params: CommonParameters = {}): Promise<Array<ImapInfo>> {
     return this.request({
       path: `/system/imaps/info`,
       method: 'get',
@@ -1722,7 +1741,7 @@ export default class SystemAPI extends Manage {
 
   getSystemInfoDepartmentlocations(
     params: CommonParameters = {},
-  ): Promise<DepartmentLocationInfo[]> {
+  ): Promise<Array<DepartmentLocationInfo>> {
     return this.request({
       path: `/system/info/departmentlocations`,
       method: 'get',
@@ -1749,7 +1768,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemInfoDepartments(params: CommonParameters = {}): Promise<DepartmentInfo[]> {
+  getSystemInfoDepartments(params: CommonParameters = {}): Promise<Array<DepartmentInfo>> {
     return this.request({
       path: `/system/info/departments`,
       method: 'get',
@@ -1773,7 +1792,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemInfoLinks(params: CommonParameters = {}): Promise<LinkInfo[]> {
+  getSystemInfoLinks(params: CommonParameters = {}): Promise<Array<LinkInfo>> {
     return this.request({
       path: `/system/info/links`,
       method: 'get',
@@ -1808,7 +1827,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemInfoLocales(params: CommonParameters = {}): Promise<LocaleInfo[]> {
+  getSystemInfoLocales(params: CommonParameters = {}): Promise<Array<LocaleInfo>> {
     return this.request({
       path: `/system/info/locales`,
       method: 'get',
@@ -1832,7 +1851,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemInfoLocations(params: CommonParameters = {}): Promise<LocationInfo[]> {
+  getSystemInfoLocations(params: CommonParameters = {}): Promise<Array<LocationInfo>> {
     return this.request({
       path: `/system/info/locations`,
       method: 'get',
@@ -1856,7 +1875,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemInfoMembers(params: CommonParameters = {}): Promise<MemberInfo[]> {
+  getSystemInfoMembers(params: CommonParameters = {}): Promise<Array<MemberInfo>> {
     return this.request({
       path: `/system/info/members`,
       method: 'get',
@@ -1890,7 +1909,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemInfoPersonas(params: CommonParameters = {}): Promise<PersonasInfo[]> {
+  getSystemInfoPersonas(params: CommonParameters = {}): Promise<Array<PersonasInfo>> {
     return this.request({
       path: `/system/info/personas`,
       method: 'get',
@@ -1914,7 +1933,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemInfoStandardNotes(params: CommonParameters = {}): Promise<StandardNoteInfo[]> {
+  getSystemInfoStandardNotes(params: CommonParameters = {}): Promise<Array<StandardNoteInfo>> {
     return this.request({
       path: `/system/info/standardNotes`,
       method: 'get',
@@ -1941,7 +1960,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemInOutBoards(params: CommonParameters = {}): Promise<InOutBoard[]> {
+  getSystemInOutBoards(params: CommonParameters = {}): Promise<Array<InOutBoard>> {
     return this.request({
       path: `/system/inOutBoards`,
       method: 'get',
@@ -1980,7 +1999,10 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  patchSystemInOutBoardsById(id: number, patchOperations: PatchOperation[]): Promise<InOutBoard> {
+  patchSystemInOutBoardsById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<InOutBoard> {
     return this.request({
       path: `/system/inOutBoards/${id}`,
       method: 'patch',
@@ -1996,7 +2018,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemInOutTypes(params: CommonParameters = {}): Promise<InOutType[]> {
+  getSystemInOutTypes(params: CommonParameters = {}): Promise<Array<InOutType>> {
     return this.request({
       path: `/system/inOutTypes`,
       method: 'get',
@@ -2035,7 +2057,10 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  patchSystemInOutTypesById(id: number, patchOperations: PatchOperation[]): Promise<InOutType> {
+  patchSystemInOutTypesById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<InOutType> {
     return this.request({
       path: `/system/inOutTypes/${id}`,
       method: 'patch',
@@ -2067,7 +2092,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemInOutTypesInfo(params: CommonParameters = {}): Promise<InOutTypeInfo[]> {
+  getSystemInOutTypesInfo(params: CommonParameters = {}): Promise<Array<InOutTypeInfo>> {
     return this.request({
       path: `/system/inOutTypes/info`,
       method: 'get',
@@ -2075,7 +2100,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemIntegratorlogins(params: CommonParameters = {}): Promise<IntegratorLogin[]> {
+  getSystemIntegratorlogins(params: CommonParameters = {}): Promise<Array<IntegratorLogin>> {
     return this.request({
       path: `/system/integratorlogins`,
       method: 'get',
@@ -2122,7 +2147,7 @@ export default class SystemAPI extends Manage {
 
   patchSystemIntegratorloginsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<IntegratorLogin> {
     return this.request({
       path: `/system/integratorlogins/${id}`,
@@ -2139,7 +2164,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemIntegratorTags(params: CommonParameters = {}): Promise<IntegratorTag[]> {
+  getSystemIntegratorTags(params: CommonParameters = {}): Promise<Array<IntegratorTag>> {
     return this.request({
       path: `/system/integratorTags`,
       method: 'get',
@@ -2180,7 +2205,7 @@ export default class SystemAPI extends Manage {
 
   patchSystemIntegratorTagsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<IntegratorTag> {
     return this.request({
       path: `/system/integratorTags/${id}`,
@@ -2197,7 +2222,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemKpiCategories(params: CommonParameters = {}): Promise<KPICategory[]> {
+  getSystemKpiCategories(params: CommonParameters = {}): Promise<Array<KPICategory>> {
     return this.request({
       path: `/system/kpiCategories`,
       method: 'get',
@@ -2221,7 +2246,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemKpis(params: CommonParameters = {}): Promise<KPI[]> {
+  getSystemKpis(params: CommonParameters = {}): Promise<Array<KPI>> {
     return this.request({
       path: `/system/kpis`,
       method: 'get',
@@ -2245,7 +2270,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemLdapConfigurations(params: CommonParameters = {}): Promise<LdapConfiguration[]> {
+  getSystemLdapConfigurations(params: CommonParameters = {}): Promise<Array<LdapConfiguration>> {
     return this.request({
       path: `/system/ldapConfigurations`,
       method: 'get',
@@ -2292,7 +2317,7 @@ export default class SystemAPI extends Manage {
 
   patchSystemLdapConfigurationsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<LdapConfiguration> {
     return this.request({
       path: `/system/ldapConfigurations/${id}`,
@@ -2320,7 +2345,9 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemLdapConfigurationsInfo(params: CommonParameters = {}): Promise<LdapConfigurationInfo[]> {
+  getSystemLdapConfigurationsInfo(
+    params: CommonParameters = {},
+  ): Promise<Array<LdapConfigurationInfo>> {
     return this.request({
       path: `/system/ldapConfigurations/info`,
       method: 'get',
@@ -2346,7 +2373,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemLinks(params: CommonParameters = {}): Promise<Link[]> {
+  getSystemLinks(params: CommonParameters = {}): Promise<Array<Link>> {
     return this.request({
       path: `/system/links`,
       method: 'get',
@@ -2385,7 +2412,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  patchSystemLinksById(id: number, patchOperations: PatchOperation[]): Promise<Link> {
+  patchSystemLinksById(id: number, patchOperations: Array<PatchOperation>): Promise<Link> {
     return this.request({
       path: `/system/links/${id}`,
       method: 'patch',
@@ -2401,7 +2428,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemLocations(params: CommonParameters = {}): Promise<Location[]> {
+  getSystemLocations(params: CommonParameters = {}): Promise<Array<Location>> {
     return this.request({
       path: `/system/locations`,
       method: 'get',
@@ -2440,7 +2467,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  patchSystemLocationsById(id: number, patchOperations: PatchOperation[]): Promise<Location> {
+  patchSystemLocationsById(id: number, patchOperations: Array<PatchOperation>): Promise<Location> {
     return this.request({
       path: `/system/locations/${id}`,
       method: 'patch',
@@ -2448,7 +2475,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemLocationsByIdUsages(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getSystemLocationsByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
       path: `/system/locations/${id}/usages`,
       method: 'get',
@@ -2456,7 +2483,10 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemLocationsByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getSystemLocationsByIdUsagesList(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/system/locations/${id}/usages/list`,
       method: 'get',
@@ -2467,7 +2497,7 @@ export default class SystemAPI extends Manage {
   getSystemLocationsByParentIdDepartments(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<LocationDepartment[]> {
+  ): Promise<Array<LocationDepartment>> {
     return this.request({
       path: `/system/locations/${parentId}/departments`,
       method: 'get',
@@ -2481,7 +2511,7 @@ export default class SystemAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<LocationDepartment> {
     return this.request({
-      path: `/system/locations/${parentId}/departments/{id}`,
+      path: `/system/locations/${parentId}/departments/${id}`,
       method: 'get',
       params,
     })
@@ -2501,7 +2531,7 @@ export default class SystemAPI extends Manage {
   getSystemLocationsByParentIdWorkRoles(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<LocationWorkRole[]> {
+  ): Promise<Array<LocationWorkRole>> {
     return this.request({
       path: `/system/locations/${parentId}/workRoles`,
       method: 'get',
@@ -2515,7 +2545,7 @@ export default class SystemAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<LocationWorkRole> {
     return this.request({
-      path: `/system/locations/${parentId}/workRoles/{id}`,
+      path: `/system/locations/${parentId}/workRoles/${id}`,
       method: 'get',
       params,
     })
@@ -2542,7 +2572,7 @@ export default class SystemAPI extends Manage {
 
   getSystemManagementNetworkSecurities(
     params: CommonParameters = {},
-  ): Promise<ManagementNetworkSecurity[]> {
+  ): Promise<Array<ManagementNetworkSecurity>> {
     return this.request({
       path: `/system/managementNetworkSecurities`,
       method: 'get',
@@ -2591,7 +2621,7 @@ export default class SystemAPI extends Manage {
 
   patchSystemManagementNetworkSecuritiesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ManagementNetworkSecurity> {
     return this.request({
       path: `/system/managementNetworkSecurities/${id}`,
@@ -2640,7 +2670,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemMembers(params: CommonParameters = {}): Promise<Member[]> {
+  getSystemMembers(params: CommonParameters = {}): Promise<Array<Member>> {
     return this.request({
       path: `/system/members`,
       method: 'get',
@@ -2672,7 +2702,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  patchSystemMembersById(id: number, patchOperations: PatchOperation[]): Promise<Member> {
+  patchSystemMembersById(id: number, patchOperations: Array<PatchOperation>): Promise<Member> {
     return this.request({
       path: `/system/members/${id}`,
       method: 'patch',
@@ -2734,7 +2764,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemMembersByIdUsages(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getSystemMembersByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
       path: `/system/members/${id}/usages`,
       method: 'get',
@@ -2742,7 +2772,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemMembersByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getSystemMembersByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
       path: `/system/members/${id}/usages/list`,
       method: 'get',
@@ -2771,7 +2801,7 @@ export default class SystemAPI extends Manage {
   getSystemMembersByParentIdAccruals(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<MemberAccrual[]> {
+  ): Promise<Array<MemberAccrual>> {
     return this.request({
       path: `/system/members/${parentId}/accruals`,
       method: 'get',
@@ -2796,7 +2826,7 @@ export default class SystemAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<MemberAccrual> {
     return this.request({
-      path: `/system/members/${parentId}/accruals/{id}`,
+      path: `/system/members/${parentId}/accruals/${id}`,
       method: 'get',
       params,
     })
@@ -2807,7 +2837,7 @@ export default class SystemAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/system/members/${parentId}/accruals/{id}`,
+      path: `/system/members/${parentId}/accruals/${id}`,
       method: 'delete',
     })
   }
@@ -2818,7 +2848,7 @@ export default class SystemAPI extends Manage {
     memberAccrual: MemberAccrual,
   ): Promise<MemberAccrual> {
     return this.request({
-      path: `/system/members/${parentId}/accruals/{id}`,
+      path: `/system/members/${parentId}/accruals/${id}`,
       method: 'put',
       data: memberAccrual,
     })
@@ -2827,10 +2857,10 @@ export default class SystemAPI extends Manage {
   patchSystemMembersByParentIdAccrualsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<MemberAccrual> {
     return this.request({
-      path: `/system/members/${parentId}/accruals/{id}`,
+      path: `/system/members/${parentId}/accruals/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -2850,7 +2880,7 @@ export default class SystemAPI extends Manage {
   getSystemMembersByParentIdCertifications(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<MemberCertification[]> {
+  ): Promise<Array<MemberCertification>> {
     return this.request({
       path: `/system/members/${parentId}/certifications`,
       method: 'get',
@@ -2875,7 +2905,7 @@ export default class SystemAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<MemberCertification> {
     return this.request({
-      path: `/system/members/${parentId}/certifications/{id}`,
+      path: `/system/members/${parentId}/certifications/${id}`,
       method: 'get',
       params,
     })
@@ -2886,7 +2916,7 @@ export default class SystemAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/system/members/${parentId}/certifications/{id}`,
+      path: `/system/members/${parentId}/certifications/${id}`,
       method: 'delete',
     })
   }
@@ -2897,7 +2927,7 @@ export default class SystemAPI extends Manage {
     memberCertification: MemberCertification,
   ): Promise<MemberCertification> {
     return this.request({
-      path: `/system/members/${parentId}/certifications/{id}`,
+      path: `/system/members/${parentId}/certifications/${id}`,
       method: 'put',
       data: memberCertification,
     })
@@ -2906,10 +2936,10 @@ export default class SystemAPI extends Manage {
   patchSystemMembersByParentIdCertificationsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<MemberCertification> {
     return this.request({
-      path: `/system/members/${parentId}/certifications/{id}`,
+      path: `/system/members/${parentId}/certifications/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -2929,7 +2959,7 @@ export default class SystemAPI extends Manage {
   getSystemMembersByParentIdDelegations(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<MemberDelegation[]> {
+  ): Promise<Array<MemberDelegation>> {
     return this.request({
       path: `/system/members/${parentId}/delegations`,
       method: 'get',
@@ -2954,7 +2984,7 @@ export default class SystemAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<MemberDelegation> {
     return this.request({
-      path: `/system/members/${parentId}/delegations/{id}`,
+      path: `/system/members/${parentId}/delegations/${id}`,
       method: 'get',
       params,
     })
@@ -2965,7 +2995,7 @@ export default class SystemAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/system/members/${parentId}/delegations/{id}`,
+      path: `/system/members/${parentId}/delegations/${id}`,
       method: 'delete',
     })
   }
@@ -2976,7 +3006,7 @@ export default class SystemAPI extends Manage {
     memberDelegation: MemberDelegation,
   ): Promise<MemberDelegation> {
     return this.request({
-      path: `/system/members/${parentId}/delegations/{id}`,
+      path: `/system/members/${parentId}/delegations/${id}`,
       method: 'put',
       data: memberDelegation,
     })
@@ -2985,10 +3015,10 @@ export default class SystemAPI extends Manage {
   patchSystemMembersByParentIdDelegationsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<MemberDelegation> {
     return this.request({
-      path: `/system/members/${parentId}/delegations/{id}`,
+      path: `/system/members/${parentId}/delegations/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -3008,7 +3038,7 @@ export default class SystemAPI extends Manage {
   getSystemMembersByParentIdManagedDeviceAccounts(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ManagedDeviceAccount[]> {
+  ): Promise<Array<ManagedDeviceAccount>> {
     return this.request({
       path: `/system/members/${parentId}/managedDeviceAccounts`,
       method: 'get',
@@ -3029,7 +3059,7 @@ export default class SystemAPI extends Manage {
 
   putSystemMembersByParentIdManagedDeviceAccountsBulk(
     parentId: number,
-    managedDeviceAccounts: ManagedDeviceAccount[],
+    managedDeviceAccounts: Array<ManagedDeviceAccount>,
   ): Promise<BulkResult> {
     return this.request({
       path: `/system/members/${parentId}/managedDeviceAccounts/bulk`,
@@ -3041,7 +3071,7 @@ export default class SystemAPI extends Manage {
   getSystemMembersByParentIdMycertifications(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<MemberCertification[]> {
+  ): Promise<Array<MemberCertification>> {
     return this.request({
       path: `/system/members/${parentId}/mycertifications`,
       method: 'get',
@@ -3066,7 +3096,7 @@ export default class SystemAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<MemberCertification> {
     return this.request({
-      path: `/system/members/${parentId}/mycertifications/{id}`,
+      path: `/system/members/${parentId}/mycertifications/${id}`,
       method: 'get',
       params,
     })
@@ -3077,7 +3107,7 @@ export default class SystemAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/system/members/${parentId}/mycertifications/{id}`,
+      path: `/system/members/${parentId}/mycertifications/${id}`,
       method: 'delete',
     })
   }
@@ -3088,7 +3118,7 @@ export default class SystemAPI extends Manage {
     memberCertification: MemberCertification,
   ): Promise<MemberCertification> {
     return this.request({
-      path: `/system/members/${parentId}/mycertifications/{id}`,
+      path: `/system/members/${parentId}/mycertifications/${id}`,
       method: 'put',
       data: memberCertification,
     })
@@ -3097,10 +3127,10 @@ export default class SystemAPI extends Manage {
   patchSystemMembersByParentIdMycertificationsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<MemberCertification> {
     return this.request({
-      path: `/system/members/${parentId}/mycertifications/{id}`,
+      path: `/system/members/${parentId}/mycertifications/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -3120,7 +3150,7 @@ export default class SystemAPI extends Manage {
   getSystemMembersByParentIdNotificationSettings(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<MemberNotificationSetting[]> {
+  ): Promise<Array<MemberNotificationSetting>> {
     return this.request({
       path: `/system/members/${parentId}/notificationSettings`,
       method: 'get',
@@ -3145,7 +3175,7 @@ export default class SystemAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<MemberNotificationSetting> {
     return this.request({
-      path: `/system/members/${parentId}/notificationSettings/{id}`,
+      path: `/system/members/${parentId}/notificationSettings/${id}`,
       method: 'get',
       params,
     })
@@ -3156,7 +3186,7 @@ export default class SystemAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/system/members/${parentId}/notificationSettings/{id}`,
+      path: `/system/members/${parentId}/notificationSettings/${id}`,
       method: 'delete',
     })
   }
@@ -3167,7 +3197,7 @@ export default class SystemAPI extends Manage {
     memberNotificationSetting: MemberNotificationSetting,
   ): Promise<MemberNotificationSetting> {
     return this.request({
-      path: `/system/members/${parentId}/notificationSettings/{id}`,
+      path: `/system/members/${parentId}/notificationSettings/${id}`,
       method: 'put',
       data: memberNotificationSetting,
     })
@@ -3176,10 +3206,10 @@ export default class SystemAPI extends Manage {
   patchSystemMembersByParentIdNotificationSettingsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<MemberNotificationSetting> {
     return this.request({
-      path: `/system/members/${parentId}/notificationSettings/{id}`,
+      path: `/system/members/${parentId}/notificationSettings/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -3199,7 +3229,7 @@ export default class SystemAPI extends Manage {
   getSystemMembersByParentIdPersonas(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<MemberPersona[]> {
+  ): Promise<Array<MemberPersona>> {
     return this.request({
       path: `/system/members/${parentId}/personas`,
       method: 'get',
@@ -3213,7 +3243,7 @@ export default class SystemAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<MemberPersona> {
     return this.request({
-      path: `/system/members/${parentId}/personas/{id}`,
+      path: `/system/members/${parentId}/personas/${id}`,
       method: 'get',
       params,
     })
@@ -3233,7 +3263,7 @@ export default class SystemAPI extends Manage {
   getSystemMembersByParentIdSkills(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<MemberSkill[]> {
+  ): Promise<Array<MemberSkill>> {
     return this.request({
       path: `/system/members/${parentId}/skills`,
       method: 'get',
@@ -3258,7 +3288,7 @@ export default class SystemAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<MemberSkill> {
     return this.request({
-      path: `/system/members/${parentId}/skills/{id}`,
+      path: `/system/members/${parentId}/skills/${id}`,
       method: 'get',
       params,
     })
@@ -3269,7 +3299,7 @@ export default class SystemAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/system/members/${parentId}/skills/{id}`,
+      path: `/system/members/${parentId}/skills/${id}`,
       method: 'delete',
     })
   }
@@ -3280,7 +3310,7 @@ export default class SystemAPI extends Manage {
     memberSkill: MemberSkill,
   ): Promise<MemberSkill> {
     return this.request({
-      path: `/system/members/${parentId}/skills/{id}`,
+      path: `/system/members/${parentId}/skills/${id}`,
       method: 'put',
       data: memberSkill,
     })
@@ -3289,10 +3319,10 @@ export default class SystemAPI extends Manage {
   patchSystemMembersByParentIdSkillsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<MemberSkill> {
     return this.request({
-      path: `/system/members/${parentId}/skills/{id}`,
+      path: `/system/members/${parentId}/skills/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -3317,7 +3347,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemMembersTypes(params: CommonParameters = {}): Promise<MemberType[]> {
+  getSystemMembersTypes(params: CommonParameters = {}): Promise<Array<MemberType>> {
     return this.request({
       path: `/system/members/types`,
       method: 'get',
@@ -3356,7 +3386,10 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  patchSystemMembersTypesById(id: number, patchOperations: PatchOperation[]): Promise<MemberType> {
+  patchSystemMembersTypesById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<MemberType> {
     return this.request({
       path: `/system/members/types/${id}`,
       method: 'patch',
@@ -3383,7 +3416,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemMembersTypesInfo(params: CommonParameters = {}): Promise<MemberTypeInfo[]> {
+  getSystemMembersTypesInfo(params: CommonParameters = {}): Promise<Array<MemberTypeInfo>> {
     return this.request({
       path: `/system/members/types/info`,
       method: 'get',
@@ -3399,7 +3432,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemMembersWithSso(params: CommonParameters = {}): Promise<Member[]> {
+  getSystemMembersWithSso(params: CommonParameters = {}): Promise<Array<Member>> {
     return this.request({
       path: `/system/members/withSso`,
       method: 'get',
@@ -3407,7 +3440,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemMenuentries(params: CommonParameters = {}): Promise<MenuEntry[]> {
+  getSystemMenuentries(params: CommonParameters = {}): Promise<Array<MenuEntry>> {
     return this.request({
       path: `/system/menuentries`,
       method: 'get',
@@ -3446,7 +3479,10 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  patchSystemMenuentriesById(id: number, patchOperations: PatchOperation[]): Promise<MenuEntry> {
+  patchSystemMenuentriesById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<MenuEntry> {
     return this.request({
       path: `/system/menuentries/${id}`,
       method: 'patch',
@@ -3477,7 +3513,7 @@ export default class SystemAPI extends Manage {
   getSystemMenuEntriesByParentIdLocations(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<MenuEntryLocation[]> {
+  ): Promise<Array<MenuEntryLocation>> {
     return this.request({
       path: `/system/menuEntries/${parentId}/locations`,
       method: 'get',
@@ -3502,7 +3538,7 @@ export default class SystemAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<MenuEntryLocation> {
     return this.request({
-      path: `/system/menuEntries/${parentId}/locations/{id}`,
+      path: `/system/menuEntries/${parentId}/locations/${id}`,
       method: 'get',
       params,
     })
@@ -3513,7 +3549,7 @@ export default class SystemAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/system/menuEntries/${parentId}/locations/{id}`,
+      path: `/system/menuEntries/${parentId}/locations/${id}`,
       method: 'delete',
     })
   }
@@ -3553,7 +3589,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  patchSystemMyAccountById(id: number, patchOperations: PatchOperation[]): Promise<MyAccount> {
+  patchSystemMyAccountById(id: number, patchOperations: Array<PatchOperation>): Promise<MyAccount> {
     return this.request({
       path: `/system/myAccount/${id}`,
       method: 'patch',
@@ -3564,7 +3600,7 @@ export default class SystemAPI extends Manage {
   getSystemMyAccountByParentIdDelegations(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<MemberDelegation[]> {
+  ): Promise<Array<MemberDelegation>> {
     return this.request({
       path: `/system/myAccount/${parentId}/delegations`,
       method: 'get',
@@ -3589,7 +3625,7 @@ export default class SystemAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<MemberDelegation> {
     return this.request({
-      path: `/system/myAccount/${parentId}/delegations/{id}`,
+      path: `/system/myAccount/${parentId}/delegations/${id}`,
       method: 'get',
       params,
     })
@@ -3600,7 +3636,7 @@ export default class SystemAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/system/myAccount/${parentId}/delegations/{id}`,
+      path: `/system/myAccount/${parentId}/delegations/${id}`,
       method: 'delete',
     })
   }
@@ -3611,7 +3647,7 @@ export default class SystemAPI extends Manage {
     memberDelegation: MemberDelegation,
   ): Promise<MemberDelegation> {
     return this.request({
-      path: `/system/myAccount/${parentId}/delegations/{id}`,
+      path: `/system/myAccount/${parentId}/delegations/${id}`,
       method: 'put',
       data: memberDelegation,
     })
@@ -3620,10 +3656,10 @@ export default class SystemAPI extends Manage {
   patchSystemMyAccountByParentIdDelegationsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<MemberDelegation> {
     return this.request({
-      path: `/system/myAccount/${parentId}/delegations/{id}`,
+      path: `/system/myAccount/${parentId}/delegations/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -3643,7 +3679,7 @@ export default class SystemAPI extends Manage {
   getSystemMyAccountByParentIdSkills(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<MemberSkill[]> {
+  ): Promise<Array<MemberSkill>> {
     return this.request({
       path: `/system/myAccount/${parentId}/skills`,
       method: 'get',
@@ -3668,7 +3704,7 @@ export default class SystemAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<MemberSkill> {
     return this.request({
-      path: `/system/myAccount/${parentId}/skills/{id}`,
+      path: `/system/myAccount/${parentId}/skills/${id}`,
       method: 'get',
       params,
     })
@@ -3679,7 +3715,7 @@ export default class SystemAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/system/myAccount/${parentId}/skills/{id}`,
+      path: `/system/myAccount/${parentId}/skills/${id}`,
       method: 'delete',
     })
   }
@@ -3690,7 +3726,7 @@ export default class SystemAPI extends Manage {
     memberSkill: MemberSkill,
   ): Promise<MemberSkill> {
     return this.request({
-      path: `/system/myAccount/${parentId}/skills/{id}`,
+      path: `/system/myAccount/${parentId}/skills/${id}`,
       method: 'put',
       data: memberSkill,
     })
@@ -3699,10 +3735,10 @@ export default class SystemAPI extends Manage {
   patchSystemMyAccountByParentIdSkillsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<MemberSkill> {
     return this.request({
-      path: `/system/myAccount/${parentId}/skills/{id}`,
+      path: `/system/myAccount/${parentId}/skills/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -3721,7 +3757,7 @@ export default class SystemAPI extends Manage {
 
   getSystemMyCompanyCorporateStructure(
     params: CommonParameters = {},
-  ): Promise<CorporateStructure[]> {
+  ): Promise<Array<CorporateStructure>> {
     return this.request({
       path: `/system/myCompany/corporateStructure`,
       method: 'get',
@@ -3753,7 +3789,7 @@ export default class SystemAPI extends Manage {
 
   patchSystemMyCompanyCorporateStructureById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<CorporateStructure> {
     return this.request({
       path: `/system/myCompany/corporateStructure/${id}`,
@@ -3783,7 +3819,7 @@ export default class SystemAPI extends Manage {
 
   getSystemMyCompanyCorporateStructureInfo(
     params: CommonParameters = {},
-  ): Promise<CorporateStructureInfo[]> {
+  ): Promise<Array<CorporateStructureInfo>> {
     return this.request({
       path: `/system/myCompany/corporateStructure/info`,
       method: 'get',
@@ -3801,7 +3837,7 @@ export default class SystemAPI extends Manage {
 
   getSystemMyCompanyCorporateStructureLevels(
     params: CommonParameters = {},
-  ): Promise<CorporateStructureLevel[]> {
+  ): Promise<Array<CorporateStructureLevel>> {
     return this.request({
       path: `/system/myCompany/corporateStructureLevels`,
       method: 'get',
@@ -3828,7 +3864,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemMyCompanyCrm(params: CommonParameters = {}): Promise<Crm[]> {
+  getSystemMyCompanyCrm(params: CommonParameters = {}): Promise<Array<Crm>> {
     return this.request({
       path: `/system/myCompany/crm`,
       method: 'get',
@@ -3852,7 +3888,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  patchSystemMyCompanyCrmById(id: number, patchOperations: PatchOperation[]): Promise<Crm> {
+  patchSystemMyCompanyCrmById(id: number, patchOperations: Array<PatchOperation>): Promise<Crm> {
     return this.request({
       path: `/system/myCompany/crm/${id}`,
       method: 'patch',
@@ -3876,7 +3912,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemMyCompanyCrmInfo(params: CommonParameters = {}): Promise<CrmInfo[]> {
+  getSystemMyCompanyCrmInfo(params: CommonParameters = {}): Promise<Array<CrmInfo>> {
     return this.request({
       path: `/system/myCompany/crm/info`,
       method: 'get',
@@ -3892,7 +3928,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemMycompanyDocuments(params: CommonParameters = {}): Promise<DocumentSetup[]> {
+  getSystemMycompanyDocuments(params: CommonParameters = {}): Promise<Array<DocumentSetup>> {
     return this.request({
       path: `/system/mycompany/documents`,
       method: 'get',
@@ -3921,7 +3957,7 @@ export default class SystemAPI extends Manage {
 
   patchSystemMycompanyDocumentsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<DocumentSetup> {
     return this.request({
       path: `/system/mycompany/documents/${id}`,
@@ -3930,7 +3966,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemMycompanyInfoServices(params: CommonParameters = {}): Promise<ServiceInfo[]> {
+  getSystemMycompanyInfoServices(params: CommonParameters = {}): Promise<Array<ServiceInfo>> {
     return this.request({
       path: `/system/mycompany/info/services`,
       method: 'get',
@@ -3949,7 +3985,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemMyCompanyOther(params: CommonParameters = {}): Promise<Other[]> {
+  getSystemMyCompanyOther(params: CommonParameters = {}): Promise<Array<Other>> {
     return this.request({
       path: `/system/myCompany/other`,
       method: 'get',
@@ -3973,7 +4009,10 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  patchSystemMyCompanyOtherById(id: number, patchOperations: PatchOperation[]): Promise<Other> {
+  patchSystemMyCompanyOtherById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<Other> {
     return this.request({
       path: `/system/myCompany/other/${id}`,
       method: 'patch',
@@ -3989,7 +4028,9 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemMycompanyReportingServices(params: CommonParameters = {}): Promise<ReportingService[]> {
+  getSystemMycompanyReportingServices(
+    params: CommonParameters = {},
+  ): Promise<Array<ReportingService>> {
     return this.request({
       path: `/system/mycompany/reportingServices`,
       method: 'get',
@@ -4021,7 +4062,7 @@ export default class SystemAPI extends Manage {
 
   patchSystemMycompanyReportingServicesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ReportingService> {
     return this.request({
       path: `/system/mycompany/reportingServices/${id}`,
@@ -4037,7 +4078,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemMycompanyServices(params: CommonParameters = {}): Promise<Service[]> {
+  getSystemMycompanyServices(params: CommonParameters = {}): Promise<Array<Service>> {
     return this.request({
       path: `/system/mycompany/services`,
       method: 'get',
@@ -4063,7 +4104,7 @@ export default class SystemAPI extends Manage {
 
   patchSystemMycompanyServicesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<Service> {
     return this.request({
       path: `/system/mycompany/services/${id}`,
@@ -4072,7 +4113,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemMyCompanyTimeExpense(params: CommonParameters = {}): Promise<TimeExpense[]> {
+  getSystemMyCompanyTimeExpense(params: CommonParameters = {}): Promise<Array<TimeExpense>> {
     return this.request({
       path: `/system/myCompany/timeExpense`,
       method: 'get',
@@ -4101,7 +4142,7 @@ export default class SystemAPI extends Manage {
 
   patchSystemMyCompanyTimeExpenseById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<TimeExpense> {
     return this.request({
       path: `/system/myCompany/timeExpense/${id}`,
@@ -4134,7 +4175,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemMySecurity(params: CommonParameters = {}): Promise<MySecurity[]> {
+  getSystemMySecurity(params: CommonParameters = {}): Promise<Array<MySecurity>> {
     return this.request({
       path: `/system/mySecurity`,
       method: 'get',
@@ -4144,7 +4185,7 @@ export default class SystemAPI extends Manage {
 
   getSystemMySecurityCustomizeItems(
     params: CommonParameters = {},
-  ): Promise<MySecurityCustomizeItem[]> {
+  ): Promise<Array<MySecurityCustomizeItem>> {
     return this.request({
       path: `/system/mySecurity/customizeItems/`,
       method: 'get',
@@ -4152,7 +4193,9 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemNotificationRecipients(params: CommonParameters = {}): Promise<NotificationRecipient[]> {
+  getSystemNotificationRecipients(
+    params: CommonParameters = {},
+  ): Promise<Array<NotificationRecipient>> {
     return this.request({
       path: `/system/notificationRecipients`,
       method: 'get',
@@ -4179,7 +4222,9 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemOffice365EmailSetups(params: CommonParameters = {}): Promise<Office365EmailSetup[]> {
+  getSystemOffice365EmailSetups(
+    params: CommonParameters = {},
+  ): Promise<Array<Office365EmailSetup>> {
     return this.request({
       path: `/system/office365/emailSetups`,
       method: 'get',
@@ -4226,7 +4271,7 @@ export default class SystemAPI extends Manage {
 
   patchSystemOffice365EmailSetupsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<Office365EmailSetup> {
     return this.request({
       path: `/system/office365/emailSetups/${id}`,
@@ -4257,7 +4302,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemOsgradeweights(params: CommonParameters = {}): Promise<OsGradeWeight[]> {
+  getSystemOsgradeweights(params: CommonParameters = {}): Promise<Array<OsGradeWeight>> {
     return this.request({
       path: `/system/osgradeweights`,
       method: 'get',
@@ -4283,7 +4328,7 @@ export default class SystemAPI extends Manage {
 
   patchSystemOsgradeweightsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<OsGradeWeight> {
     return this.request({
       path: `/system/osgradeweights/${id}`,
@@ -4300,7 +4345,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemParsingTypes(params: CommonParameters = {}): Promise<ParsingType[]> {
+  getSystemParsingTypes(params: CommonParameters = {}): Promise<Array<ParsingType>> {
     return this.request({
       path: `/system/parsingTypes`,
       method: 'get',
@@ -4324,7 +4369,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemParsingVariables(params: CommonParameters = {}): Promise<ParsingVariable[]> {
+  getSystemParsingVariables(params: CommonParameters = {}): Promise<Array<ParsingVariable>> {
     return this.request({
       path: `/system/parsingVariables`,
       method: 'get',
@@ -4351,7 +4396,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemPortalReports(params: CommonParameters = {}): Promise<PortalReport[]> {
+  getSystemPortalReports(params: CommonParameters = {}): Promise<Array<PortalReport>> {
     return this.request({
       path: `/system/portalReports`,
       method: 'get',
@@ -4392,7 +4437,7 @@ export default class SystemAPI extends Manage {
 
   patchSystemPortalReportsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<PortalReport> {
     return this.request({
       path: `/system/portalReports/${id}`,
@@ -4409,7 +4454,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemQuoteLinkSetup(params: CommonParameters = {}): Promise<QuoteLink[]> {
+  getSystemQuoteLinkSetup(params: CommonParameters = {}): Promise<Array<QuoteLink>> {
     return this.request({
       path: `/system/quoteLinkSetup`,
       method: 'get',
@@ -4448,7 +4493,10 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  patchSystemQuoteLinkSetupById(id: number, patchOperations: PatchOperation[]): Promise<QuoteLink> {
+  patchSystemQuoteLinkSetupById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<QuoteLink> {
     return this.request({
       path: `/system/quoteLinkSetup/${id}`,
       method: 'patch',
@@ -4475,7 +4523,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemReportCards(params: CommonParameters = {}): Promise<ReportCard[]> {
+  getSystemReportCards(params: CommonParameters = {}): Promise<Array<ReportCard>> {
     return this.request({
       path: `/system/reportCards`,
       method: 'get',
@@ -4514,7 +4562,10 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  patchSystemReportCardsById(id: number, patchOperations: PatchOperation[]): Promise<ReportCard> {
+  patchSystemReportCardsById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<ReportCard> {
     return this.request({
       path: `/system/reportCards/${id}`,
       method: 'patch',
@@ -4533,7 +4584,7 @@ export default class SystemAPI extends Manage {
   getSystemReportCardsByParentIdDetails(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ReportCardDetail[]> {
+  ): Promise<Array<ReportCardDetail>> {
     return this.request({
       path: `/system/reportCards/${parentId}/details`,
       method: 'get',
@@ -4558,7 +4609,7 @@ export default class SystemAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<ReportCardDetail> {
     return this.request({
-      path: `/system/reportCards/${parentId}/details/{id}`,
+      path: `/system/reportCards/${parentId}/details/${id}`,
       method: 'get',
       params,
     })
@@ -4569,7 +4620,7 @@ export default class SystemAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/system/reportCards/${parentId}/details/{id}`,
+      path: `/system/reportCards/${parentId}/details/${id}`,
       method: 'delete',
     })
   }
@@ -4580,7 +4631,7 @@ export default class SystemAPI extends Manage {
     reportCardDetail: ReportCardDetail,
   ): Promise<ReportCardDetail> {
     return this.request({
-      path: `/system/reportCards/${parentId}/details/{id}`,
+      path: `/system/reportCards/${parentId}/details/${id}`,
       method: 'put',
       data: reportCardDetail,
     })
@@ -4589,10 +4640,10 @@ export default class SystemAPI extends Manage {
   patchSystemReportCardsByParentIdDetailsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ReportCardDetail> {
     return this.request({
-      path: `/system/reportCards/${parentId}/details/{id}`,
+      path: `/system/reportCards/${parentId}/details/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -4617,7 +4668,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemReportCardsInfo(params: CommonParameters = {}): Promise<ReportCardInfo[]> {
+  getSystemReportCardsInfo(params: CommonParameters = {}): Promise<Array<ReportCardInfo>> {
     return this.request({
       path: `/system/reportCards/info`,
       method: 'get',
@@ -4633,7 +4684,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemReports(params: CommonParameters = {}): Promise<Report[]> {
+  getSystemReports(params: CommonParameters = {}): Promise<Array<Report>> {
     return this.request({
       path: `/system/reports`,
       method: 'get',
@@ -4655,7 +4706,7 @@ export default class SystemAPI extends Manage {
   getSystemReportsByReportNameColumns(
     reportName: string,
     params: CommonParameters = {},
-  ): Promise<ReportColumnDefinition[]> {
+  ): Promise<Array<ReportColumnDefinition>> {
     return this.request({
       path: `/system/reports/${reportName}/columns`,
       method: 'get',
@@ -4674,7 +4725,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemSecurityroles(params: CommonParameters = {}): Promise<SecurityRole[]> {
+  getSystemSecurityroles(params: CommonParameters = {}): Promise<Array<SecurityRole>> {
     return this.request({
       path: `/system/securityroles`,
       method: 'get',
@@ -4719,7 +4770,7 @@ export default class SystemAPI extends Manage {
   getSystemSecurityRolesByParentIdSettings(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<SecurityRoleSetting[]> {
+  ): Promise<Array<SecurityRoleSetting>> {
     return this.request({
       path: `/system/securityRoles/${parentId}/settings`,
       method: 'get',
@@ -4733,7 +4784,7 @@ export default class SystemAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<SecurityRoleSetting> {
     return this.request({
-      path: `/system/securityRoles/${parentId}/settings/{id}`,
+      path: `/system/securityRoles/${parentId}/settings/${id}`,
       method: 'get',
       params,
     })
@@ -4758,7 +4809,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemSecurityrolesInfo(params: CommonParameters = {}): Promise<SecurityRoleInfo[]> {
+  getSystemSecurityrolesInfo(params: CommonParameters = {}): Promise<Array<SecurityRoleInfo>> {
     return this.request({
       path: `/system/securityroles/info`,
       method: 'get',
@@ -4774,7 +4825,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemSettings(params: CommonParameters = {}): Promise<SystemSetting[]> {
+  getSystemSettings(params: CommonParameters = {}): Promise<Array<SystemSetting>> {
     return this.request({
       path: `/system/settings`,
       method: 'get',
@@ -4798,7 +4849,10 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  patchSystemSettingsById(id: number, patchOperations: PatchOperation[]): Promise<SystemSetting> {
+  patchSystemSettingsById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<SystemSetting> {
     return this.request({
       path: `/system/settings/${id}`,
       method: 'patch',
@@ -4814,7 +4868,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemSetupScreens(params: CommonParameters = {}): Promise<SetupScreen[]> {
+  getSystemSetupScreens(params: CommonParameters = {}): Promise<Array<SetupScreen>> {
     return this.request({
       path: `/system/setupScreens`,
       method: 'get',
@@ -4838,7 +4892,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemSkillCategories(params: CommonParameters = {}): Promise<SkillCategory[]> {
+  getSystemSkillCategories(params: CommonParameters = {}): Promise<Array<SkillCategory>> {
     return this.request({
       path: `/system/skillCategories`,
       method: 'get',
@@ -4879,7 +4933,7 @@ export default class SystemAPI extends Manage {
 
   patchSystemSkillCategoriesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<SkillCategory> {
     return this.request({
       path: `/system/skillCategories/${id}`,
@@ -4896,7 +4950,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemSkills(params: CommonParameters = {}): Promise<Skill[]> {
+  getSystemSkills(params: CommonParameters = {}): Promise<Array<Skill>> {
     return this.request({
       path: `/system/skills`,
       method: 'get',
@@ -4935,7 +4989,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  patchSystemSkillsById(id: number, patchOperations: PatchOperation[]): Promise<Skill> {
+  patchSystemSkillsById(id: number, patchOperations: Array<PatchOperation>): Promise<Skill> {
     return this.request({
       path: `/system/skills/${id}`,
       method: 'patch',
@@ -4959,7 +5013,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemSkillsInfo(params: CommonParameters = {}): Promise<SkillInfo[]> {
+  getSystemSkillsInfo(params: CommonParameters = {}): Promise<Array<SkillInfo>> {
     return this.request({
       path: `/system/skills/info`,
       method: 'get',
@@ -4975,7 +5029,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemSsoConfigurations(params: CommonParameters = {}): Promise<SsoConfiguration[]> {
+  getSystemSsoConfigurations(params: CommonParameters = {}): Promise<Array<SsoConfiguration>> {
     return this.request({
       path: `/system/ssoConfigurations`,
       method: 'get',
@@ -5015,7 +5069,7 @@ export default class SystemAPI extends Manage {
 
   patchSystemSsoConfigurationsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<SsoConfiguration> {
     return this.request({
       path: `/system/ssoConfigurations/${id}`,
@@ -5061,7 +5115,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemSsoUsers(params: CommonParameters = {}): Promise<SsoUser[]> {
+  getSystemSsoUsers(params: CommonParameters = {}): Promise<Array<SsoUser>> {
     return this.request({
       path: `/system/ssoUsers`,
       method: 'get',
@@ -5088,7 +5142,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemStandardNotes(params: CommonParameters = {}): Promise<StandardNote[]> {
+  getSystemStandardNotes(params: CommonParameters = {}): Promise<Array<StandardNote>> {
     return this.request({
       path: `/system/standardNotes`,
       method: 'get',
@@ -5129,7 +5183,7 @@ export default class SystemAPI extends Manage {
 
   patchSystemStandardNotesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<StandardNote> {
     return this.request({
       path: `/system/standardNotes/${id}`,
@@ -5146,7 +5200,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemSurveys(params: CommonParameters = {}): Promise<Survey[]> {
+  getSystemSurveys(params: CommonParameters = {}): Promise<Array<Survey>> {
     return this.request({
       path: `/system/surveys`,
       method: 'get',
@@ -5166,9 +5220,9 @@ export default class SystemAPI extends Manage {
     parentId: number,
     grandparentId: number,
     params: CommonParameters = {},
-  ): Promise<SurveyQuestionValue[]> {
+  ): Promise<Array<SurveyQuestionValue>> {
     return this.request({
-      path: `/system/surveys/${grandparentId}/questions/{parentId}/values`,
+      path: `/system/surveys/${grandparentId}/questions/${parentId}/values`,
       method: 'get',
       params,
     })
@@ -5180,7 +5234,7 @@ export default class SystemAPI extends Manage {
     surveyQuestionValue: SurveyQuestionValue,
   ): Promise<SurveyQuestionValue> {
     return this.request({
-      path: `/system/surveys/${grandparentId}/questions/{parentId}/values`,
+      path: `/system/surveys/${grandparentId}/questions/${parentId}/values`,
       method: 'post',
       data: surveyQuestionValue,
     })
@@ -5193,7 +5247,7 @@ export default class SystemAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<SurveyQuestionValue> {
     return this.request({
-      path: `/system/surveys/${grandparentId}/questions/{parentId}/values/{id}`,
+      path: `/system/surveys/${grandparentId}/questions/${parentId}/values/${id}`,
       method: 'get',
       params,
     })
@@ -5205,7 +5259,7 @@ export default class SystemAPI extends Manage {
     grandparentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/system/surveys/${grandparentId}/questions/{parentId}/values/{id}`,
+      path: `/system/surveys/${grandparentId}/questions/${parentId}/values/${id}`,
       method: 'delete',
     })
   }
@@ -5217,7 +5271,7 @@ export default class SystemAPI extends Manage {
     surveyQuestionValue: SurveyQuestionValue,
   ): Promise<SurveyQuestionValue> {
     return this.request({
-      path: `/system/surveys/${grandparentId}/questions/{parentId}/values/{id}`,
+      path: `/system/surveys/${grandparentId}/questions/${parentId}/values/${id}`,
       method: 'put',
       data: surveyQuestionValue,
     })
@@ -5227,10 +5281,10 @@ export default class SystemAPI extends Manage {
     id: number,
     parentId: number,
     grandparentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<SurveyQuestionValue> {
     return this.request({
-      path: `/system/surveys/${grandparentId}/questions/{parentId}/values/{id}`,
+      path: `/system/surveys/${grandparentId}/questions/${parentId}/values/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -5259,7 +5313,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  patchSystemSurveysById(id: number, patchOperations: PatchOperation[]): Promise<Survey> {
+  patchSystemSurveysById(id: number, patchOperations: Array<PatchOperation>): Promise<Survey> {
     return this.request({
       path: `/system/surveys/${id}`,
       method: 'patch',
@@ -5285,7 +5339,7 @@ export default class SystemAPI extends Manage {
   getSystemSurveysByParentIdQuestions(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<SurveyQuestion[]> {
+  ): Promise<Array<SurveyQuestion>> {
     return this.request({
       path: `/system/surveys/${parentId}/questions`,
       method: 'get',
@@ -5310,7 +5364,7 @@ export default class SystemAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<SurveyQuestion> {
     return this.request({
-      path: `/system/surveys/${parentId}/questions/{id}`,
+      path: `/system/surveys/${parentId}/questions/${id}`,
       method: 'get',
       params,
     })
@@ -5321,7 +5375,7 @@ export default class SystemAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/system/surveys/${parentId}/questions/{id}`,
+      path: `/system/surveys/${parentId}/questions/${id}`,
       method: 'delete',
     })
   }
@@ -5332,7 +5386,7 @@ export default class SystemAPI extends Manage {
     surveyQuestion: SurveyQuestion,
   ): Promise<SurveyQuestion> {
     return this.request({
-      path: `/system/surveys/${parentId}/questions/{id}`,
+      path: `/system/surveys/${parentId}/questions/${id}`,
       method: 'put',
       data: surveyQuestion,
     })
@@ -5341,10 +5395,10 @@ export default class SystemAPI extends Manage {
   patchSystemSurveysByParentIdQuestionsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<SurveyQuestion> {
     return this.request({
-      path: `/system/surveys/${parentId}/questions/{id}`,
+      path: `/system/surveys/${parentId}/questions/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -5369,7 +5423,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemSurveysInfo(params: CommonParameters = {}): Promise<SurveyInfo[]> {
+  getSystemSurveysInfo(params: CommonParameters = {}): Promise<Array<SurveyInfo>> {
     return this.request({
       path: `/system/surveys/info`,
       method: 'get',
@@ -5385,7 +5439,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemTimeZoneSetups(params: CommonParameters = {}): Promise<TimeZoneSetup[]> {
+  getSystemTimeZoneSetups(params: CommonParameters = {}): Promise<Array<TimeZoneSetup>> {
     return this.request({
       path: `/system/timeZoneSetups`,
       method: 'get',
@@ -5419,7 +5473,7 @@ export default class SystemAPI extends Manage {
 
   patchSystemTimeZoneSetupsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<TimeZoneSetup> {
     return this.request({
       path: `/system/timeZoneSetups/${id}`,
@@ -5454,7 +5508,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemTimeZoneSetupsInfo(params: CommonParameters = {}): Promise<TimeZoneSetupInfo[]> {
+  getSystemTimeZoneSetupsInfo(params: CommonParameters = {}): Promise<Array<TimeZoneSetupInfo>> {
     return this.request({
       path: `/system/timeZoneSetups/info`,
       method: 'get',
@@ -5470,7 +5524,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemTodayPageCategories(params: CommonParameters = {}): Promise<TodayPageCategory[]> {
+  getSystemTodayPageCategories(params: CommonParameters = {}): Promise<Array<TodayPageCategory>> {
     return this.request({
       path: `/system/todayPageCategories`,
       method: 'get',
@@ -5517,7 +5571,7 @@ export default class SystemAPI extends Manage {
 
   patchSystemTodayPageCategoriesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<TodayPageCategory> {
     return this.request({
       path: `/system/todayPageCategories/${id}`,
@@ -5534,7 +5588,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemUserDefinedFields(params: CommonParameters = {}): Promise<UserDefinedField[]> {
+  getSystemUserDefinedFields(params: CommonParameters = {}): Promise<Array<UserDefinedField>> {
     return this.request({
       path: `/system/userDefinedFields`,
       method: 'get',
@@ -5581,7 +5635,7 @@ export default class SystemAPI extends Manage {
 
   patchSystemUserDefinedFieldsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<UserDefinedField> {
     return this.request({
       path: `/system/userDefinedFields/${id}`,
@@ -5609,7 +5663,9 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemUserDefinedFieldsInfo(params: CommonParameters = {}): Promise<UserDefinedFieldInfo[]> {
+  getSystemUserDefinedFieldsInfo(
+    params: CommonParameters = {},
+  ): Promise<Array<UserDefinedFieldInfo>> {
     return this.request({
       path: `/system/userDefinedFields/info`,
       method: 'get',
@@ -5628,7 +5684,7 @@ export default class SystemAPI extends Manage {
   getSystemWorkflowActionsByParentIdAutomateParameters(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<WorkflowActionAutomateParameter[]> {
+  ): Promise<Array<WorkflowActionAutomateParameter>> {
     return this.request({
       path: `/system/workflowActions/${parentId}/automateParameters`,
       method: 'get',
@@ -5653,7 +5709,7 @@ export default class SystemAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<WorkflowActionAutomateParameter> {
     return this.request({
-      path: `/system/workflowActions/${parentId}/automateParameters/{id}`,
+      path: `/system/workflowActions/${parentId}/automateParameters/${id}`,
       method: 'get',
       params,
     })
@@ -5664,7 +5720,7 @@ export default class SystemAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/system/workflowActions/${parentId}/automateParameters/{id}`,
+      path: `/system/workflowActions/${parentId}/automateParameters/${id}`,
       method: 'delete',
     })
   }
@@ -5675,7 +5731,7 @@ export default class SystemAPI extends Manage {
     workflowActionAutomateParameter: WorkflowActionAutomateParameter,
   ): Promise<WorkflowActionAutomateParameter> {
     return this.request({
-      path: `/system/workflowActions/${parentId}/automateParameters/{id}`,
+      path: `/system/workflowActions/${parentId}/automateParameters/${id}`,
       method: 'put',
       data: workflowActionAutomateParameter,
     })
@@ -5684,10 +5740,10 @@ export default class SystemAPI extends Manage {
   patchSystemWorkflowActionsByParentIdAutomateParametersById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<WorkflowActionAutomateParameter> {
     return this.request({
-      path: `/system/workflowActions/${parentId}/automateParameters/{id}`,
+      path: `/system/workflowActions/${parentId}/automateParameters/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -5704,7 +5760,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemWorkflows(params: CommonParameters = {}): Promise<Workflow[]> {
+  getSystemWorkflows(params: CommonParameters = {}): Promise<Array<Workflow>> {
     return this.request({
       path: `/system/workflows`,
       method: 'get',
@@ -5724,9 +5780,9 @@ export default class SystemAPI extends Manage {
     parentId: number,
     grandparentId: number,
     params: CommonParameters = {},
-  ): Promise<WorkflowAction[]> {
+  ): Promise<Array<WorkflowAction>> {
     return this.request({
-      path: `/system/workflows/${grandparentId}/events/{parentId}/actions`,
+      path: `/system/workflows/${grandparentId}/events/${parentId}/actions`,
       method: 'get',
       params,
     })
@@ -5738,7 +5794,7 @@ export default class SystemAPI extends Manage {
     workflowAction: WorkflowAction,
   ): Promise<WorkflowAction> {
     return this.request({
-      path: `/system/workflows/${grandparentId}/events/{parentId}/actions`,
+      path: `/system/workflows/${grandparentId}/events/${parentId}/actions`,
       method: 'post',
       data: workflowAction,
     })
@@ -5751,7 +5807,7 @@ export default class SystemAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<WorkflowAction> {
     return this.request({
-      path: `/system/workflows/${grandparentId}/events/{parentId}/actions/{id}`,
+      path: `/system/workflows/${grandparentId}/events/${parentId}/actions/${id}`,
       method: 'get',
       params,
     })
@@ -5763,7 +5819,7 @@ export default class SystemAPI extends Manage {
     grandparentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/system/workflows/${grandparentId}/events/{parentId}/actions/{id}`,
+      path: `/system/workflows/${grandparentId}/events/${parentId}/actions/${id}`,
       method: 'delete',
     })
   }
@@ -5775,7 +5831,7 @@ export default class SystemAPI extends Manage {
     workflowAction: WorkflowAction,
   ): Promise<WorkflowAction> {
     return this.request({
-      path: `/system/workflows/${grandparentId}/events/{parentId}/actions/{id}`,
+      path: `/system/workflows/${grandparentId}/events/${parentId}/actions/${id}`,
       method: 'put',
       data: workflowAction,
     })
@@ -5785,10 +5841,10 @@ export default class SystemAPI extends Manage {
     id: number,
     parentId: number,
     grandparentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<WorkflowAction> {
     return this.request({
-      path: `/system/workflows/${grandparentId}/events/{parentId}/actions/{id}`,
+      path: `/system/workflows/${grandparentId}/events/${parentId}/actions/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -5800,7 +5856,7 @@ export default class SystemAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<Count> {
     return this.request({
-      path: `/system/workflows/${grandparentId}/events/{parentId}/actions/count`,
+      path: `/system/workflows/${grandparentId}/events/${parentId}/actions/count`,
       method: 'get',
       params,
     })
@@ -5810,9 +5866,9 @@ export default class SystemAPI extends Manage {
     parentId: number,
     grandparentId: number,
     params: CommonParameters = {},
-  ): Promise<WorkflowTriggerOption[]> {
+  ): Promise<Array<WorkflowTriggerOption>> {
     return this.request({
-      path: `/system/workflows/${grandparentId}/triggers/{parentId}/options`,
+      path: `/system/workflows/${grandparentId}/triggers/${parentId}/options`,
       method: 'get',
       params,
     })
@@ -5824,7 +5880,7 @@ export default class SystemAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<Count> {
     return this.request({
-      path: `/system/workflows/${grandparentId}/triggers/{parentId}/options/count`,
+      path: `/system/workflows/${grandparentId}/triggers/${parentId}/options/count`,
       method: 'get',
       params,
     })
@@ -5853,7 +5909,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  patchSystemWorkflowsById(id: number, patchOperations: PatchOperation[]): Promise<Workflow> {
+  patchSystemWorkflowsById(id: number, patchOperations: Array<PatchOperation>): Promise<Workflow> {
     return this.request({
       path: `/system/workflows/${id}`,
       method: 'patch',
@@ -5871,7 +5927,7 @@ export default class SystemAPI extends Manage {
   getSystemWorkflowsByParentIdAttachments(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<WorkflowAttachment[]> {
+  ): Promise<Array<WorkflowAttachment>> {
     return this.request({
       path: `/system/workflows/${parentId}/attachments`,
       method: 'get',
@@ -5885,7 +5941,7 @@ export default class SystemAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<WorkflowAttachment> {
     return this.request({
-      path: `/system/workflows/${parentId}/attachments/{id}`,
+      path: `/system/workflows/${parentId}/attachments/${id}`,
       method: 'get',
       params,
     })
@@ -5905,7 +5961,7 @@ export default class SystemAPI extends Manage {
   getSystemWorkflowsByParentIdEvents(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<WorkflowEvent[]> {
+  ): Promise<Array<WorkflowEvent>> {
     return this.request({
       path: `/system/workflows/${parentId}/events`,
       method: 'get',
@@ -5930,7 +5986,7 @@ export default class SystemAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<WorkflowEvent> {
     return this.request({
-      path: `/system/workflows/${parentId}/events/{id}`,
+      path: `/system/workflows/${parentId}/events/${id}`,
       method: 'get',
       params,
     })
@@ -5941,7 +5997,7 @@ export default class SystemAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/system/workflows/${parentId}/events/{id}`,
+      path: `/system/workflows/${parentId}/events/${id}`,
       method: 'delete',
     })
   }
@@ -5952,7 +6008,7 @@ export default class SystemAPI extends Manage {
     workflowEvent: WorkflowEvent,
   ): Promise<WorkflowEvent> {
     return this.request({
-      path: `/system/workflows/${parentId}/events/{id}`,
+      path: `/system/workflows/${parentId}/events/${id}`,
       method: 'put',
       data: workflowEvent,
     })
@@ -5961,10 +6017,10 @@ export default class SystemAPI extends Manage {
   patchSystemWorkflowsByParentIdEventsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<WorkflowEvent> {
     return this.request({
-      path: `/system/workflows/${parentId}/events/{id}`,
+      path: `/system/workflows/${parentId}/events/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -5975,7 +6031,7 @@ export default class SystemAPI extends Manage {
     parentId: number,
   ): Promise<WorkflowEvent> {
     return this.request({
-      path: `/system/workflows/${parentId}/events/{id}/copy`,
+      path: `/system/workflows/${parentId}/events/${id}/copy`,
       method: 'post',
     })
   }
@@ -5986,7 +6042,7 @@ export default class SystemAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<Array<object>> {
     return this.request({
-      path: `/system/workflows/${parentId}/events/{id}/test`,
+      path: `/system/workflows/${parentId}/events/${id}/test`,
       method: 'get',
       params,
     })
@@ -6006,7 +6062,7 @@ export default class SystemAPI extends Manage {
   getSystemWorkflowsByParentIdNotifyTypes(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<WorkflowNotifyType[]> {
+  ): Promise<Array<WorkflowNotifyType>> {
     return this.request({
       path: `/system/workflows/${parentId}/notifyTypes`,
       method: 'get',
@@ -6020,7 +6076,7 @@ export default class SystemAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<WorkflowNotifyType> {
     return this.request({
-      path: `/system/workflows/${parentId}/notifyTypes/{id}`,
+      path: `/system/workflows/${parentId}/notifyTypes/${id}`,
       method: 'get',
       params,
     })
@@ -6032,7 +6088,7 @@ export default class SystemAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<WorkflowNotifyTypeInfo> {
     return this.request({
-      path: `/system/workflows/${parentId}/notifyTypes/{id}/info`,
+      path: `/system/workflows/${parentId}/notifyTypes/${id}/info`,
       method: 'get',
       params,
     })
@@ -6052,7 +6108,7 @@ export default class SystemAPI extends Manage {
   getSystemWorkflowsByParentIdNotifyTypesInfo(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<WorkflowNotifyTypeInfo[]> {
+  ): Promise<Array<WorkflowNotifyTypeInfo>> {
     return this.request({
       path: `/system/workflows/${parentId}/notifyTypes/info`,
       method: 'get',
@@ -6074,7 +6130,7 @@ export default class SystemAPI extends Manage {
   getSystemWorkflowsByParentIdTriggers(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<WorkflowTrigger[]> {
+  ): Promise<Array<WorkflowTrigger>> {
     return this.request({
       path: `/system/workflows/${parentId}/triggers`,
       method: 'get',
@@ -6101,7 +6157,7 @@ export default class SystemAPI extends Manage {
     })
   }
 
-  getSystemWorkflowsTableTypes(params: CommonParameters = {}): Promise<WorkflowTableType[]> {
+  getSystemWorkflowsTableTypes(params: CommonParameters = {}): Promise<Array<WorkflowTableType>> {
     return this.request({
       path: `/system/workflows/tableTypes`,
       method: 'get',
@@ -6141,7 +6197,7 @@ export default class SystemAPI extends Manage {
 
   getSystemWorkflowsTableTypesInfo(
     params: CommonParameters = {},
-  ): Promise<WorkflowTableTypeInfo[]> {
+  ): Promise<Array<WorkflowTableTypeInfo>> {
     return this.request({
       path: `/system/workflows/tableTypes/info`,
       method: 'get',
@@ -6170,7 +6226,7 @@ export default class SystemAPI extends Manage {
 
   patchSystemWorkflowsUserdefinedfieldsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<WorkflowActionUserDefinedField> {
     return this.request({
       path: `/system/workflows/userdefinedfields/${id}`,
@@ -6203,9 +6259,9 @@ export default class SystemAPI extends Manage {
     parentId: number,
     grandparentId: number,
     params: CommonParameters = {},
-  ): Promise<WorkflowActionUserDefinedField[]> {
+  ): Promise<Array<WorkflowActionUserDefinedField>> {
     return this.request({
-      path: `/system/workflows/userdefinedfields/events${grandparentId}/actions/{parentId}`,
+      path: `/system/workflows/userdefinedfields/events${grandparentId}/actions/${parentId}`,
       method: 'get',
       params,
     })

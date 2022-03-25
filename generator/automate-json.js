@@ -2,7 +2,10 @@
 const fs = require('fs')
 const path = require('path')
 
-async function getAutomateJson() {
+/**
+ * @internal
+ */
+function getAutomateJson() {
   const sections = []
 
   const files = fs.readdirSync(path.join(__dirname, 'automate-json'))
@@ -12,11 +15,12 @@ async function getAutomateJson() {
     Object.keys(section.paths).forEach((path) => {
       Object.keys(section.paths[path]).forEach((method) => {
         const definition = section.paths[path][method]
+        const operationId = definition.operationId.split('_').pop()
         section.paths[path][method] = {
           ...definition,
           // manually define api section
           // clean up operation names
-          operationId: definition.operationId.split('_').pop(),
+          operationId: operationId.charAt(0).toLowerCase() + operationId.slice(1),
           section: fileName.replace('.json', ''),
         }
       })

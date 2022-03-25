@@ -4,64 +4,65 @@ import { components } from '../ManageTypes'
 import { CommonParameters, CWMOptions } from '../ManageAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
-type AdjustmentDetail = schemas['AdjustmentDetail']
-type AdjustmentType = schemas['AdjustmentType']
-type AdjustmentTypeInfo = schemas['AdjustmentTypeInfo']
-type BulkResult = schemas['BulkResult']
-type CatalogComponent = schemas['CatalogComponent']
-type CatalogInventory = schemas['CatalogInventory']
-type CatalogItem = schemas['CatalogItem']
-type CatalogItemInfo = schemas['CatalogItemInfo']
-type CatalogPricing = schemas['CatalogPricing']
-type Category = schemas['Category']
-type CategoryInfo = schemas['CategoryInfo']
-type Conversion = schemas['Conversion']
-type Count = schemas['Count']
-type IdCollection = schemas['IdCollection']
-type InventoryOnHand = schemas['InventoryOnHand']
-type LegacySubCategory = schemas['LegacySubCategory']
-type LegacySubCategoryInfo = schemas['LegacySubCategoryInfo']
-type Manufacturer = schemas['Manufacturer']
-type ManufacturerInfo = schemas['ManufacturerInfo']
-type MinimumStockByWarehouse = schemas['MinimumStockByWarehouse']
-type OnHandSerialNumber = schemas['OnHandSerialNumber']
-type PatchOperation = schemas['PatchOperation']
-type PricingBreak = schemas['PricingBreak']
-type PricingDetail = schemas['PricingDetail']
-type PricingSchedule = schemas['PricingSchedule']
-type ProcurementAdjustment = schemas['ProcurementAdjustment']
-type ProcurementSetting = schemas['ProcurementSetting']
-type ProductComponent = schemas['ProductComponent']
-type ProductDetach = schemas['ProductDetach']
-type ProductItem = schemas['ProductItem']
-type ProductPickingShippingDetail = schemas['ProductPickingShippingDetail']
-type ProductType = schemas['ProductType']
-type ProductTypeInfo = schemas['ProductTypeInfo']
-type PurchaseOrder = schemas['PurchaseOrder']
-type PurchaseOrderLineItem = schemas['PurchaseOrderLineItem']
-type PurchaseOrderStatus = schemas['PurchaseOrderStatus']
-type PurchaseOrderStatusEmailTemplate = schemas['PurchaseOrderStatusEmailTemplate']
-type PurchaseOrderStatusNotification = schemas['PurchaseOrderStatusNotification']
-type PurchasingDemand = schemas['PurchasingDemand']
-type RmaAction = schemas['RmaAction']
-type RmaActionInfo = schemas['RmaActionInfo']
-type RmaDisposition = schemas['RmaDisposition']
-type RmaDispositionInfo = schemas['RmaDispositionInfo']
-type RmaStatus = schemas['RmaStatus']
-type RmaStatusEmailTemplate = schemas['RmaStatusEmailTemplate']
-type RmaStatusInfo = schemas['RmaStatusInfo']
-type RmaStatusNotification = schemas['RmaStatusNotification']
-type RmaTag = schemas['RmaTag']
-type ShipmentMethod = schemas['ShipmentMethod']
-type ShipmentMethodInfo = schemas['ShipmentMethodInfo']
-type SubCategory = schemas['SubCategory']
-type SubCategoryInfo = schemas['SubCategoryInfo']
-type UnitOfMeasure = schemas['UnitOfMeasure']
-type Usage = schemas['Usage']
-type Warehouse = schemas['Warehouse']
-type WarehouseBin = schemas['WarehouseBin']
-type WarehouseBinInfo = schemas['WarehouseBinInfo']
-type WarehouseInfo = schemas['WarehouseInfo']
+false
+export type AdjustmentDetail = schemas['AdjustmentDetail']
+export type AdjustmentType = schemas['AdjustmentType']
+export type AdjustmentTypeInfo = schemas['AdjustmentTypeInfo']
+export type BulkResult = schemas['BulkResult']
+export type CatalogComponent = schemas['CatalogComponent']
+export type CatalogInventory = schemas['CatalogInventory']
+export type CatalogItem = schemas['CatalogItem']
+export type CatalogItemInfo = schemas['CatalogItemInfo']
+export type CatalogPricing = schemas['CatalogPricing']
+export type Category = schemas['Category']
+export type CategoryInfo = schemas['CategoryInfo']
+export type Conversion = schemas['Conversion']
+export type Count = schemas['Count']
+export type IdCollection = schemas['IdCollection']
+export type InventoryOnHand = schemas['InventoryOnHand']
+export type LegacySubCategory = schemas['LegacySubCategory']
+export type LegacySubCategoryInfo = schemas['LegacySubCategoryInfo']
+export type Manufacturer = schemas['Manufacturer']
+export type ManufacturerInfo = schemas['ManufacturerInfo']
+export type MinimumStockByWarehouse = schemas['MinimumStockByWarehouse']
+export type OnHandSerialNumber = schemas['OnHandSerialNumber']
+export type PatchOperation = schemas['PatchOperation']
+export type PricingBreak = schemas['PricingBreak']
+export type PricingDetail = schemas['PricingDetail']
+export type PricingSchedule = schemas['PricingSchedule']
+export type ProcurementAdjustment = schemas['ProcurementAdjustment']
+export type ProcurementSetting = schemas['ProcurementSetting']
+export type ProductComponent = schemas['ProductComponent']
+export type ProductDetach = schemas['ProductDetach']
+export type ProductItem = schemas['ProductItem']
+export type ProductPickingShippingDetail = schemas['ProductPickingShippingDetail']
+export type ProductType = schemas['ProductType']
+export type ProductTypeInfo = schemas['ProductTypeInfo']
+export type PurchaseOrder = schemas['PurchaseOrder']
+export type PurchaseOrderLineItem = schemas['PurchaseOrderLineItem']
+export type PurchaseOrderStatus = schemas['PurchaseOrderStatus']
+export type PurchaseOrderStatusEmailTemplate = schemas['PurchaseOrderStatusEmailTemplate']
+export type PurchaseOrderStatusNotification = schemas['PurchaseOrderStatusNotification']
+export type PurchasingDemand = schemas['PurchasingDemand']
+export type RmaAction = schemas['RmaAction']
+export type RmaActionInfo = schemas['RmaActionInfo']
+export type RmaDisposition = schemas['RmaDisposition']
+export type RmaDispositionInfo = schemas['RmaDispositionInfo']
+export type RmaStatus = schemas['RmaStatus']
+export type RmaStatusEmailTemplate = schemas['RmaStatusEmailTemplate']
+export type RmaStatusInfo = schemas['RmaStatusInfo']
+export type RmaStatusNotification = schemas['RmaStatusNotification']
+export type RmaTag = schemas['RmaTag']
+export type ShipmentMethod = schemas['ShipmentMethod']
+export type ShipmentMethodInfo = schemas['ShipmentMethodInfo']
+export type SubCategory = schemas['SubCategory']
+export type SubCategoryInfo = schemas['SubCategoryInfo']
+export type UnitOfMeasure = schemas['UnitOfMeasure']
+export type Usage = schemas['Usage']
+export type Warehouse = schemas['Warehouse']
+export type WarehouseBin = schemas['WarehouseBin']
+export type WarehouseBinInfo = schemas['WarehouseBinInfo']
+export type WarehouseInfo = schemas['WarehouseInfo']
 
 /**
  * @internal
@@ -71,7 +72,7 @@ export default class ProcurementAPI extends Manage {
     super(props)
   }
 
-  getProcurementAdjustments(params: CommonParameters = {}): Promise<ProcurementAdjustment[]> {
+  getProcurementAdjustments(params: CommonParameters = {}): Promise<Array<ProcurementAdjustment>> {
     return this.request({
       path: `/procurement/adjustments`,
       method: 'get',
@@ -118,7 +119,7 @@ export default class ProcurementAPI extends Manage {
 
   patchProcurementAdjustmentsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ProcurementAdjustment> {
     return this.request({
       path: `/procurement/adjustments/${id}`,
@@ -130,7 +131,7 @@ export default class ProcurementAPI extends Manage {
   getProcurementAdjustmentsByParentIdDetails(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<AdjustmentDetail[]> {
+  ): Promise<Array<AdjustmentDetail>> {
     return this.request({
       path: `/procurement/adjustments/${parentId}/details`,
       method: 'get',
@@ -155,7 +156,7 @@ export default class ProcurementAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<AdjustmentDetail> {
     return this.request({
-      path: `/procurement/adjustments/${parentId}/details/{id}`,
+      path: `/procurement/adjustments/${parentId}/details/${id}`,
       method: 'get',
       params,
     })
@@ -166,7 +167,7 @@ export default class ProcurementAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/procurement/adjustments/${parentId}/details/{id}`,
+      path: `/procurement/adjustments/${parentId}/details/${id}`,
       method: 'delete',
     })
   }
@@ -190,7 +191,7 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementAdjustmentsTypes(params: CommonParameters = {}): Promise<AdjustmentType[]> {
+  getProcurementAdjustmentsTypes(params: CommonParameters = {}): Promise<Array<AdjustmentType>> {
     return this.request({
       path: `/procurement/adjustments/types`,
       method: 'get',
@@ -237,7 +238,7 @@ export default class ProcurementAPI extends Manage {
 
   patchProcurementAdjustmentsTypesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<AdjustmentType> {
     return this.request({
       path: `/procurement/adjustments/types/${id}`,
@@ -260,7 +261,7 @@ export default class ProcurementAPI extends Manage {
   getProcurementAdjustmentsTypesByIdUsages(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/procurement/adjustments/types/${id}/usages`,
       method: 'get',
@@ -271,7 +272,7 @@ export default class ProcurementAPI extends Manage {
   getProcurementAdjustmentsTypesByIdUsagesList(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/procurement/adjustments/types/${id}/usages/list`,
       method: 'get',
@@ -287,7 +288,9 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementAdjustmentsTypesInfo(params: CommonParameters = {}): Promise<AdjustmentTypeInfo[]> {
+  getProcurementAdjustmentsTypesInfo(
+    params: CommonParameters = {},
+  ): Promise<Array<AdjustmentTypeInfo>> {
     return this.request({
       path: `/procurement/adjustments/types/info`,
       method: 'get',
@@ -303,7 +306,7 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementCatalog(params: CommonParameters = {}): Promise<CatalogItem[]> {
+  getProcurementCatalog(params: CommonParameters = {}): Promise<Array<CatalogItem>> {
     return this.request({
       path: `/procurement/catalog`,
       method: 'get',
@@ -354,7 +357,10 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  patchProcurementCatalogById(id: number, patchOperations: PatchOperation[]): Promise<CatalogItem> {
+  patchProcurementCatalogById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<CatalogItem> {
     return this.request({
       path: `/procurement/catalog/${id}`,
       method: 'patch',
@@ -387,7 +393,7 @@ export default class ProcurementAPI extends Manage {
   getProcurementCatalogByParentIdComponents(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<CatalogComponent[]> {
+  ): Promise<Array<CatalogComponent>> {
     return this.request({
       path: `/procurement/catalog/${parentId}/components`,
       method: 'get',
@@ -412,7 +418,7 @@ export default class ProcurementAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<CatalogComponent> {
     return this.request({
-      path: `/procurement/catalog/${parentId}/components/{id}`,
+      path: `/procurement/catalog/${parentId}/components/${id}`,
       method: 'get',
       params,
     })
@@ -423,7 +429,7 @@ export default class ProcurementAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/procurement/catalog/${parentId}/components/{id}`,
+      path: `/procurement/catalog/${parentId}/components/${id}`,
       method: 'delete',
     })
   }
@@ -434,7 +440,7 @@ export default class ProcurementAPI extends Manage {
     catalogComponent: CatalogComponent,
   ): Promise<CatalogComponent> {
     return this.request({
-      path: `/procurement/catalog/${parentId}/components/{id}`,
+      path: `/procurement/catalog/${parentId}/components/${id}`,
       method: 'put',
       data: catalogComponent,
     })
@@ -443,10 +449,10 @@ export default class ProcurementAPI extends Manage {
   patchProcurementCatalogByParentIdComponentsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<CatalogComponent> {
     return this.request({
-      path: `/procurement/catalog/${parentId}/components/{id}`,
+      path: `/procurement/catalog/${parentId}/components/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -466,7 +472,7 @@ export default class ProcurementAPI extends Manage {
   getProcurementCatalogByParentIdInventory(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<CatalogInventory[]> {
+  ): Promise<Array<CatalogInventory>> {
     return this.request({
       path: `/procurement/catalog/${parentId}/inventory`,
       method: 'get',
@@ -480,7 +486,7 @@ export default class ProcurementAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<CatalogInventory> {
     return this.request({
-      path: `/procurement/catalog/${parentId}/inventory/{id}`,
+      path: `/procurement/catalog/${parentId}/inventory/${id}`,
       method: 'get',
       params,
     })
@@ -500,7 +506,7 @@ export default class ProcurementAPI extends Manage {
   getProcurementCatalogByParentIdMinimumStockByWarehouse(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<MinimumStockByWarehouse[]> {
+  ): Promise<Array<MinimumStockByWarehouse>> {
     return this.request({
       path: `/procurement/catalog/${parentId}/minimumStockByWarehouse`,
       method: 'get',
@@ -525,7 +531,7 @@ export default class ProcurementAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<MinimumStockByWarehouse> {
     return this.request({
-      path: `/procurement/catalog/${parentId}/minimumStockByWarehouse/{id}`,
+      path: `/procurement/catalog/${parentId}/minimumStockByWarehouse/${id}`,
       method: 'get',
       params,
     })
@@ -536,7 +542,7 @@ export default class ProcurementAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/procurement/catalog/${parentId}/minimumStockByWarehouse/{id}`,
+      path: `/procurement/catalog/${parentId}/minimumStockByWarehouse/${id}`,
       method: 'delete',
     })
   }
@@ -547,7 +553,7 @@ export default class ProcurementAPI extends Manage {
     minimumStockByWarehouse: MinimumStockByWarehouse,
   ): Promise<MinimumStockByWarehouse> {
     return this.request({
-      path: `/procurement/catalog/${parentId}/minimumStockByWarehouse/{id}`,
+      path: `/procurement/catalog/${parentId}/minimumStockByWarehouse/${id}`,
       method: 'put',
       data: minimumStockByWarehouse,
     })
@@ -556,10 +562,10 @@ export default class ProcurementAPI extends Manage {
   patchProcurementCatalogByParentIdMinimumStockByWarehouseById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<MinimumStockByWarehouse> {
     return this.request({
-      path: `/procurement/catalog/${parentId}/minimumStockByWarehouse/{id}`,
+      path: `/procurement/catalog/${parentId}/minimumStockByWarehouse/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -584,7 +590,7 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementCatalogInfo(params: CommonParameters = {}): Promise<CatalogItemInfo[]> {
+  getProcurementCatalogInfo(params: CommonParameters = {}): Promise<Array<CatalogItemInfo>> {
     return this.request({
       path: `/procurement/catalog/info`,
       method: 'get',
@@ -600,7 +606,7 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementCategories(params: CommonParameters = {}): Promise<Category[]> {
+  getProcurementCategories(params: CommonParameters = {}): Promise<Array<Category>> {
     return this.request({
       path: `/procurement/categories`,
       method: 'get',
@@ -639,7 +645,10 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  patchProcurementCategoriesById(id: number, patchOperations: PatchOperation[]): Promise<Category> {
+  patchProcurementCategoriesById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<Category> {
     return this.request({
       path: `/procurement/categories/${id}`,
       method: 'patch',
@@ -661,7 +670,7 @@ export default class ProcurementAPI extends Manage {
   getProcurementCategoriesByParentIdSubcategories(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<LegacySubCategory[]> {
+  ): Promise<Array<LegacySubCategory>> {
     return this.request({
       path: `/procurement/categories/${parentId}/subcategories/`,
       method: 'get',
@@ -686,7 +695,7 @@ export default class ProcurementAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<LegacySubCategory> {
     return this.request({
-      path: `/procurement/categories/${parentId}/subcategories/{id}`,
+      path: `/procurement/categories/${parentId}/subcategories/${id}`,
       method: 'get',
       params,
     })
@@ -697,7 +706,7 @@ export default class ProcurementAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/procurement/categories/${parentId}/subcategories/{id}`,
+      path: `/procurement/categories/${parentId}/subcategories/${id}`,
       method: 'delete',
     })
   }
@@ -708,7 +717,7 @@ export default class ProcurementAPI extends Manage {
     subCategory: LegacySubCategory,
   ): Promise<LegacySubCategory> {
     return this.request({
-      path: `/procurement/categories/${parentId}/subcategories/{id}`,
+      path: `/procurement/categories/${parentId}/subcategories/${id}`,
       method: 'put',
       data: subCategory,
     })
@@ -717,10 +726,10 @@ export default class ProcurementAPI extends Manage {
   patchProcurementCategoriesByParentIdSubcategoriesById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<LegacySubCategory> {
     return this.request({
-      path: `/procurement/categories/${parentId}/subcategories/{id}`,
+      path: `/procurement/categories/${parentId}/subcategories/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -732,7 +741,7 @@ export default class ProcurementAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<LegacySubCategoryInfo> {
     return this.request({
-      path: `/procurement/categories/${parentId}/subcategories/{id}/info`,
+      path: `/procurement/categories/${parentId}/subcategories/${id}/info`,
       method: 'get',
       params,
     })
@@ -752,7 +761,7 @@ export default class ProcurementAPI extends Manage {
   getProcurementCategoriesByParentIdSubcategoriesInfo(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<LegacySubCategoryInfo[]> {
+  ): Promise<Array<LegacySubCategoryInfo>> {
     return this.request({
       path: `/procurement/categories/${parentId}/subcategories/info`,
       method: 'get',
@@ -779,7 +788,7 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementCategoriesInfo(params: CommonParameters = {}): Promise<CategoryInfo[]> {
+  getProcurementCategoriesInfo(params: CommonParameters = {}): Promise<Array<CategoryInfo>> {
     return this.request({
       path: `/procurement/categories/info`,
       method: 'get',
@@ -795,7 +804,7 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementManufacturers(params: CommonParameters = {}): Promise<Manufacturer[]> {
+  getProcurementManufacturers(params: CommonParameters = {}): Promise<Array<Manufacturer>> {
     return this.request({
       path: `/procurement/manufacturers`,
       method: 'get',
@@ -839,7 +848,7 @@ export default class ProcurementAPI extends Manage {
 
   patchProcurementManufacturersById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<Manufacturer> {
     return this.request({
       path: `/procurement/manufacturers/${id}`,
@@ -875,7 +884,7 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementManufacturersInfo(params: CommonParameters = {}): Promise<ManufacturerInfo[]> {
+  getProcurementManufacturersInfo(params: CommonParameters = {}): Promise<Array<ManufacturerInfo>> {
     return this.request({
       path: `/procurement/manufacturers/info`,
       method: 'get',
@@ -883,7 +892,9 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementOnhandserialnumbers(params: CommonParameters = {}): Promise<OnHandSerialNumber[]> {
+  getProcurementOnhandserialnumbers(
+    params: CommonParameters = {},
+  ): Promise<Array<OnHandSerialNumber>> {
     return this.request({
       path: `/procurement/onhandserialnumbers`,
       method: 'get',
@@ -910,7 +921,7 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementPricingschedules(params: CommonParameters = {}): Promise<PricingSchedule[]> {
+  getProcurementPricingschedules(params: CommonParameters = {}): Promise<Array<PricingSchedule>> {
     return this.request({
       path: `/procurement/pricingschedules`,
       method: 'get',
@@ -930,9 +941,9 @@ export default class ProcurementAPI extends Manage {
     parentId: number,
     grandparentId: number,
     params: CommonParameters = {},
-  ): Promise<PricingBreak[]> {
+  ): Promise<Array<PricingBreak>> {
     return this.request({
-      path: `/procurement/pricingschedules/${grandparentId}/details/{parentId}/breaks`,
+      path: `/procurement/pricingschedules/${grandparentId}/details/${parentId}/breaks`,
       method: 'get',
       params,
     })
@@ -944,7 +955,7 @@ export default class ProcurementAPI extends Manage {
     pricingBreak: PricingBreak,
   ): Promise<PricingBreak> {
     return this.request({
-      path: `/procurement/pricingschedules/${grandparentId}/details/{parentId}/breaks`,
+      path: `/procurement/pricingschedules/${grandparentId}/details/${parentId}/breaks`,
       method: 'post',
       data: pricingBreak,
     })
@@ -957,7 +968,7 @@ export default class ProcurementAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<PricingBreak> {
     return this.request({
-      path: `/procurement/pricingschedules/${grandparentId}/details/{parentId}/breaks/{id}`,
+      path: `/procurement/pricingschedules/${grandparentId}/details/${parentId}/breaks/${id}`,
       method: 'get',
       params,
     })
@@ -969,7 +980,7 @@ export default class ProcurementAPI extends Manage {
     grandparentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/procurement/pricingschedules/${grandparentId}/details/{parentId}/breaks/{id}`,
+      path: `/procurement/pricingschedules/${grandparentId}/details/${parentId}/breaks/${id}`,
       method: 'delete',
     })
   }
@@ -981,7 +992,7 @@ export default class ProcurementAPI extends Manage {
     pricingBreak: PricingBreak,
   ): Promise<PricingBreak> {
     return this.request({
-      path: `/procurement/pricingschedules/${grandparentId}/details/{parentId}/breaks/{id}`,
+      path: `/procurement/pricingschedules/${grandparentId}/details/${parentId}/breaks/${id}`,
       method: 'put',
       data: pricingBreak,
     })
@@ -991,10 +1002,10 @@ export default class ProcurementAPI extends Manage {
     id: number,
     parentId: number,
     grandparentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<PricingBreak> {
     return this.request({
-      path: `/procurement/pricingschedules/${grandparentId}/details/{parentId}/breaks/{id}`,
+      path: `/procurement/pricingschedules/${grandparentId}/details/${parentId}/breaks/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -1006,7 +1017,7 @@ export default class ProcurementAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<Count> {
     return this.request({
-      path: `/procurement/pricingschedules/${grandparentId}/details/{parentId}/breaks/count`,
+      path: `/procurement/pricingschedules/${grandparentId}/details/${parentId}/breaks/count`,
       method: 'get',
       params,
     })
@@ -1043,7 +1054,7 @@ export default class ProcurementAPI extends Manage {
 
   patchProcurementPricingschedulesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<PricingSchedule> {
     return this.request({
       path: `/procurement/pricingschedules/${id}`,
@@ -1055,7 +1066,7 @@ export default class ProcurementAPI extends Manage {
   getProcurementPricingschedulesByParentIdDetails(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<PricingDetail[]> {
+  ): Promise<Array<PricingDetail>> {
     return this.request({
       path: `/procurement/pricingschedules/${parentId}/details`,
       method: 'get',
@@ -1080,7 +1091,7 @@ export default class ProcurementAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<PricingDetail> {
     return this.request({
-      path: `/procurement/pricingschedules/${parentId}/details/{id}`,
+      path: `/procurement/pricingschedules/${parentId}/details/${id}`,
       method: 'get',
       params,
     })
@@ -1091,7 +1102,7 @@ export default class ProcurementAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/procurement/pricingschedules/${parentId}/details/{id}`,
+      path: `/procurement/pricingschedules/${parentId}/details/${id}`,
       method: 'delete',
     })
   }
@@ -1102,7 +1113,7 @@ export default class ProcurementAPI extends Manage {
     pricingDetail: PricingDetail,
   ): Promise<PricingDetail> {
     return this.request({
-      path: `/procurement/pricingschedules/${parentId}/details/{id}`,
+      path: `/procurement/pricingschedules/${parentId}/details/${id}`,
       method: 'put',
       data: pricingDetail,
     })
@@ -1111,10 +1122,10 @@ export default class ProcurementAPI extends Manage {
   patchProcurementPricingschedulesByParentIdDetailsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<PricingDetail> {
     return this.request({
-      path: `/procurement/pricingschedules/${parentId}/details/{id}`,
+      path: `/procurement/pricingschedules/${parentId}/details/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -1139,7 +1150,7 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementProducts(params: CommonParameters = {}): Promise<ProductItem[]> {
+  getProcurementProducts(params: CommonParameters = {}): Promise<Array<ProductItem>> {
     return this.request({
       path: `/procurement/products`,
       method: 'get',
@@ -1180,7 +1191,7 @@ export default class ProcurementAPI extends Manage {
 
   patchProcurementProductsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ProductItem> {
     return this.request({
       path: `/procurement/products/${id}`,
@@ -1200,7 +1211,7 @@ export default class ProcurementAPI extends Manage {
   getProcurementProductsByParentIdComponents(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ProductComponent[]> {
+  ): Promise<Array<ProductComponent>> {
     return this.request({
       path: `/procurement/products/${parentId}/components`,
       method: 'get',
@@ -1211,7 +1222,7 @@ export default class ProcurementAPI extends Manage {
   postProcurementProductsByParentIdComponents(
     parentId: number,
     productComponent: ProductComponent,
-  ): Promise<ProductComponent[]> {
+  ): Promise<Array<ProductComponent>> {
     return this.request({
       path: `/procurement/products/${parentId}/components`,
       method: 'post',
@@ -1223,9 +1234,9 @@ export default class ProcurementAPI extends Manage {
     id: number,
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ProductComponent[]> {
+  ): Promise<Array<ProductComponent>> {
     return this.request({
-      path: `/procurement/products/${parentId}/components/{id}`,
+      path: `/procurement/products/${parentId}/components/${id}`,
       method: 'get',
       params,
     })
@@ -1236,7 +1247,7 @@ export default class ProcurementAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/procurement/products/${parentId}/components/{id}`,
+      path: `/procurement/products/${parentId}/components/${id}`,
       method: 'delete',
     })
   }
@@ -1245,9 +1256,9 @@ export default class ProcurementAPI extends Manage {
     id: number,
     parentId: number,
     productComponent: ProductComponent,
-  ): Promise<ProductComponent[]> {
+  ): Promise<Array<ProductComponent>> {
     return this.request({
-      path: `/procurement/products/${parentId}/components/{id}`,
+      path: `/procurement/products/${parentId}/components/${id}`,
       method: 'put',
       data: productComponent,
     })
@@ -1256,10 +1267,10 @@ export default class ProcurementAPI extends Manage {
   patchProcurementProductsByParentIdComponentsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
-  ): Promise<ProductComponent[]> {
+    patchOperations: Array<PatchOperation>,
+  ): Promise<Array<ProductComponent>> {
     return this.request({
-      path: `/procurement/products/${parentId}/components/{id}`,
+      path: `/procurement/products/${parentId}/components/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -1279,7 +1290,7 @@ export default class ProcurementAPI extends Manage {
   getProcurementProductsByParentIdPickingShippingDetails(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ProductPickingShippingDetail[]> {
+  ): Promise<Array<ProductPickingShippingDetail>> {
     return this.request({
       path: `/procurement/products/${parentId}/pickingShippingDetails`,
       method: 'get',
@@ -1290,7 +1301,7 @@ export default class ProcurementAPI extends Manage {
   postProcurementProductsByParentIdPickingShippingDetails(
     parentId: number,
     productPickingShippingDetails: ProductPickingShippingDetail,
-  ): Promise<ProductPickingShippingDetail[]> {
+  ): Promise<Array<ProductPickingShippingDetail>> {
     return this.request({
       path: `/procurement/products/${parentId}/pickingShippingDetails`,
       method: 'post',
@@ -1302,9 +1313,9 @@ export default class ProcurementAPI extends Manage {
     id: number,
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ProductPickingShippingDetail[]> {
+  ): Promise<Array<ProductPickingShippingDetail>> {
     return this.request({
-      path: `/procurement/products/${parentId}/pickingShippingDetails/{id}`,
+      path: `/procurement/products/${parentId}/pickingShippingDetails/${id}`,
       method: 'get',
       params,
     })
@@ -1315,7 +1326,7 @@ export default class ProcurementAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/procurement/products/${parentId}/pickingShippingDetails/{id}`,
+      path: `/procurement/products/${parentId}/pickingShippingDetails/${id}`,
       method: 'delete',
     })
   }
@@ -1324,9 +1335,9 @@ export default class ProcurementAPI extends Manage {
     id: number,
     parentId: number,
     productPickingShippingDetails: ProductPickingShippingDetail,
-  ): Promise<ProductPickingShippingDetail[]> {
+  ): Promise<Array<ProductPickingShippingDetail>> {
     return this.request({
-      path: `/procurement/products/${parentId}/pickingShippingDetails/{id}`,
+      path: `/procurement/products/${parentId}/pickingShippingDetails/${id}`,
       method: 'put',
       data: productPickingShippingDetails,
     })
@@ -1335,10 +1346,10 @@ export default class ProcurementAPI extends Manage {
   patchProcurementProductsByParentIdPickingShippingDetailsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
-  ): Promise<ProductPickingShippingDetail[]> {
+    patchOperations: Array<PatchOperation>,
+  ): Promise<Array<ProductPickingShippingDetail>> {
     return this.request({
-      path: `/procurement/products/${parentId}/pickingShippingDetails/{id}`,
+      path: `/procurement/products/${parentId}/pickingShippingDetails/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -1363,7 +1374,7 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementPurchaseorders(params: CommonParameters = {}): Promise<PurchaseOrder[]> {
+  getProcurementPurchaseorders(params: CommonParameters = {}): Promise<Array<PurchaseOrder>> {
     return this.request({
       path: `/procurement/purchaseorders`,
       method: 'get',
@@ -1410,7 +1421,7 @@ export default class ProcurementAPI extends Manage {
 
   patchProcurementPurchaseordersById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<PurchaseOrder> {
     return this.request({
       path: `/procurement/purchaseorders/${id}`,
@@ -1422,7 +1433,7 @@ export default class ProcurementAPI extends Manage {
   getProcurementPurchaseordersByParentIdLineitems(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<PurchaseOrderLineItem[]> {
+  ): Promise<Array<PurchaseOrderLineItem>> {
     return this.request({
       path: `/procurement/purchaseorders/${parentId}/lineitems`,
       method: 'get',
@@ -1447,7 +1458,7 @@ export default class ProcurementAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<PurchaseOrderLineItem> {
     return this.request({
-      path: `/procurement/purchaseorders/${parentId}/lineitems/{id}`,
+      path: `/procurement/purchaseorders/${parentId}/lineitems/${id}`,
       method: 'get',
       params,
     })
@@ -1458,7 +1469,7 @@ export default class ProcurementAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/procurement/purchaseorders/${parentId}/lineitems/{id}`,
+      path: `/procurement/purchaseorders/${parentId}/lineitems/${id}`,
       method: 'delete',
     })
   }
@@ -1469,7 +1480,7 @@ export default class ProcurementAPI extends Manage {
     purchaseOrderLineItem: PurchaseOrderLineItem,
   ): Promise<PurchaseOrderLineItem> {
     return this.request({
-      path: `/procurement/purchaseorders/${parentId}/lineitems/{id}`,
+      path: `/procurement/purchaseorders/${parentId}/lineitems/${id}`,
       method: 'put',
       data: purchaseOrderLineItem,
     })
@@ -1478,10 +1489,10 @@ export default class ProcurementAPI extends Manage {
   patchProcurementPurchaseordersByParentIdLineitemsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<PurchaseOrderLineItem> {
     return this.request({
-      path: `/procurement/purchaseorders/${parentId}/lineitems/{id}`,
+      path: `/procurement/purchaseorders/${parentId}/lineitems/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -1489,7 +1500,7 @@ export default class ProcurementAPI extends Manage {
 
   postProcurementPurchaseordersByParentIdLineitemsBulk(
     parentId: number,
-    purchaseOrderLineItems: PurchaseOrderLineItem[],
+    purchaseOrderLineItems: Array<PurchaseOrderLineItem>,
   ): Promise<BulkResult> {
     return this.request({
       path: `/procurement/purchaseorders/${parentId}/lineitems/bulk`,
@@ -1511,7 +1522,7 @@ export default class ProcurementAPI extends Manage {
 
   putProcurementPurchaseordersByParentIdLineitemsBulk(
     parentId: number,
-    purchaseOrderLineItems: PurchaseOrderLineItem[],
+    purchaseOrderLineItems: Array<PurchaseOrderLineItem>,
   ): Promise<BulkResult> {
     return this.request({
       path: `/procurement/purchaseorders/${parentId}/lineitems/bulk`,
@@ -1541,7 +1552,7 @@ export default class ProcurementAPI extends Manage {
 
   getProcurementPurchaseorderstatuses(
     params: CommonParameters = {},
-  ): Promise<PurchaseOrderStatus[]> {
+  ): Promise<Array<PurchaseOrderStatus>> {
     return this.request({
       path: `/procurement/purchaseorderstatuses`,
       method: 'get',
@@ -1579,7 +1590,7 @@ export default class ProcurementAPI extends Manage {
 
   patchProcurementPurchaseorderstatusesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<PurchaseOrderStatus> {
     return this.request({
       path: `/procurement/purchaseorderstatuses/${id}`,
@@ -1602,7 +1613,7 @@ export default class ProcurementAPI extends Manage {
   getProcurementPurchaseorderstatusesByIdUsages(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/procurement/purchaseorderstatuses/${id}/usages`,
       method: 'get',
@@ -1613,7 +1624,7 @@ export default class ProcurementAPI extends Manage {
   getProcurementPurchaseorderstatusesByIdUsagesList(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/procurement/purchaseorderstatuses/${id}/usages/list`,
       method: 'get',
@@ -1624,7 +1635,7 @@ export default class ProcurementAPI extends Manage {
   getProcurementPurchaseorderstatusesByParentIdEmailtemplates(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<PurchaseOrderStatusEmailTemplate[]> {
+  ): Promise<Array<PurchaseOrderStatusEmailTemplate>> {
     return this.request({
       path: `/procurement/purchaseorderstatuses/${parentId}/emailtemplates/`,
       method: 'get',
@@ -1649,7 +1660,7 @@ export default class ProcurementAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<PurchaseOrderStatusEmailTemplate> {
     return this.request({
-      path: `/procurement/purchaseorderstatuses/${parentId}/emailtemplates/{id}`,
+      path: `/procurement/purchaseorderstatuses/${parentId}/emailtemplates/${id}`,
       method: 'get',
       params,
     })
@@ -1660,7 +1671,7 @@ export default class ProcurementAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/procurement/purchaseorderstatuses/${parentId}/emailtemplates/{id}`,
+      path: `/procurement/purchaseorderstatuses/${parentId}/emailtemplates/${id}`,
       method: 'delete',
     })
   }
@@ -1671,7 +1682,7 @@ export default class ProcurementAPI extends Manage {
     purchaseOrderStatusEmailTemplate: PurchaseOrderStatusEmailTemplate,
   ): Promise<PurchaseOrderStatusEmailTemplate> {
     return this.request({
-      path: `/procurement/purchaseorderstatuses/${parentId}/emailtemplates/{id}`,
+      path: `/procurement/purchaseorderstatuses/${parentId}/emailtemplates/${id}`,
       method: 'put',
       data: purchaseOrderStatusEmailTemplate,
     })
@@ -1680,10 +1691,10 @@ export default class ProcurementAPI extends Manage {
   patchProcurementPurchaseorderstatusesByParentIdEmailtemplatesById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<PurchaseOrderStatusEmailTemplate> {
     return this.request({
-      path: `/procurement/purchaseorderstatuses/${parentId}/emailtemplates/{id}`,
+      path: `/procurement/purchaseorderstatuses/${parentId}/emailtemplates/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -1703,7 +1714,7 @@ export default class ProcurementAPI extends Manage {
   getProcurementPurchaseorderstatusesByParentIdNotifications(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<PurchaseOrderStatusNotification[]> {
+  ): Promise<Array<PurchaseOrderStatusNotification>> {
     return this.request({
       path: `/procurement/purchaseorderstatuses/${parentId}/notifications`,
       method: 'get',
@@ -1728,7 +1739,7 @@ export default class ProcurementAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<PurchaseOrderStatusNotification> {
     return this.request({
-      path: `/procurement/purchaseorderstatuses/${parentId}/notifications/{id}`,
+      path: `/procurement/purchaseorderstatuses/${parentId}/notifications/${id}`,
       method: 'get',
       params,
     })
@@ -1739,7 +1750,7 @@ export default class ProcurementAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/procurement/purchaseorderstatuses/${parentId}/notifications/{id}`,
+      path: `/procurement/purchaseorderstatuses/${parentId}/notifications/${id}`,
       method: 'delete',
     })
   }
@@ -1750,7 +1761,7 @@ export default class ProcurementAPI extends Manage {
     purchaseOrderStatusNotification: PurchaseOrderStatusNotification,
   ): Promise<PurchaseOrderStatusNotification> {
     return this.request({
-      path: `/procurement/purchaseorderstatuses/${parentId}/notifications/{id}`,
+      path: `/procurement/purchaseorderstatuses/${parentId}/notifications/${id}`,
       method: 'put',
       data: purchaseOrderStatusNotification,
     })
@@ -1759,10 +1770,10 @@ export default class ProcurementAPI extends Manage {
   patchProcurementPurchaseorderstatusesByParentIdNotificationsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<PurchaseOrderStatusNotification> {
     return this.request({
-      path: `/procurement/purchaseorderstatuses/${parentId}/notifications/{id}`,
+      path: `/procurement/purchaseorderstatuses/${parentId}/notifications/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -1795,7 +1806,7 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementRmaActions(params: CommonParameters = {}): Promise<RmaAction[]> {
+  getProcurementRmaActions(params: CommonParameters = {}): Promise<Array<RmaAction>> {
     return this.request({
       path: `/procurement/rmaActions`,
       method: 'get',
@@ -1836,7 +1847,7 @@ export default class ProcurementAPI extends Manage {
 
   patchProcurementRmaActionsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<RmaAction> {
     return this.request({
       path: `/procurement/rmaActions/${id}`,
@@ -1864,7 +1875,7 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementRmaActionsInfo(params: CommonParameters = {}): Promise<RmaActionInfo[]> {
+  getProcurementRmaActionsInfo(params: CommonParameters = {}): Promise<Array<RmaActionInfo>> {
     return this.request({
       path: `/procurement/rmaActions/info`,
       method: 'get',
@@ -1880,7 +1891,7 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementRMADispositions(params: CommonParameters = {}): Promise<RmaDisposition[]> {
+  getProcurementRMADispositions(params: CommonParameters = {}): Promise<Array<RmaDisposition>> {
     return this.request({
       path: `/procurement/RMADispositions`,
       method: 'get',
@@ -1927,7 +1938,7 @@ export default class ProcurementAPI extends Manage {
 
   patchProcurementRMADispositionsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<RmaDisposition> {
     return this.request({
       path: `/procurement/RMADispositions/${id}`,
@@ -1955,7 +1966,9 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementRMADispositionsInfo(params: CommonParameters = {}): Promise<RmaDispositionInfo[]> {
+  getProcurementRMADispositionsInfo(
+    params: CommonParameters = {},
+  ): Promise<Array<RmaDispositionInfo>> {
     return this.request({
       path: `/procurement/RMADispositions/info`,
       method: 'get',
@@ -1971,7 +1984,7 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementRmaStatuses(params: CommonParameters = {}): Promise<RmaStatus[]> {
+  getProcurementRmaStatuses(params: CommonParameters = {}): Promise<Array<RmaStatus>> {
     return this.request({
       path: `/procurement/rmaStatuses`,
       method: 'get',
@@ -2012,7 +2025,7 @@ export default class ProcurementAPI extends Manage {
 
   patchProcurementRmaStatusesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<RmaStatus> {
     return this.request({
       path: `/procurement/rmaStatuses/${id}`,
@@ -2032,7 +2045,10 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementRmaStatusesByIdUsages(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getProcurementRmaStatusesByIdUsages(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/procurement/rmaStatuses/${id}/usages`,
       method: 'get',
@@ -2043,7 +2059,7 @@ export default class ProcurementAPI extends Manage {
   getProcurementRmaStatusesByIdUsagesList(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/procurement/rmaStatuses/${id}/usages/list`,
       method: 'get',
@@ -2065,7 +2081,7 @@ export default class ProcurementAPI extends Manage {
   getProcurementRmaStatusesByParentIdEmailTemplates(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<RmaStatusEmailTemplate[]> {
+  ): Promise<Array<RmaStatusEmailTemplate>> {
     return this.request({
       path: `/procurement/rmaStatuses/${parentId}/emailTemplates/`,
       method: 'get',
@@ -2079,7 +2095,7 @@ export default class ProcurementAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<RmaStatusEmailTemplate> {
     return this.request({
-      path: `/procurement/rmaStatuses/${parentId}/emailtemplates/{id}`,
+      path: `/procurement/rmaStatuses/${parentId}/emailtemplates/${id}`,
       method: 'get',
       params,
     })
@@ -2090,7 +2106,7 @@ export default class ProcurementAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/procurement/rmaStatuses/${parentId}/emailtemplates/{id}`,
+      path: `/procurement/rmaStatuses/${parentId}/emailtemplates/${id}`,
       method: 'delete',
     })
   }
@@ -2101,7 +2117,7 @@ export default class ProcurementAPI extends Manage {
     rmaStatusEmailTemplate: RmaStatusEmailTemplate,
   ): Promise<RmaStatusEmailTemplate> {
     return this.request({
-      path: `/procurement/rmaStatuses/${parentId}/emailtemplates/{id}`,
+      path: `/procurement/rmaStatuses/${parentId}/emailtemplates/${id}`,
       method: 'put',
       data: rmaStatusEmailTemplate,
     })
@@ -2110,10 +2126,10 @@ export default class ProcurementAPI extends Manage {
   patchProcurementRmaStatusesByParentIdEmailtemplatesById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<RmaStatusEmailTemplate> {
     return this.request({
-      path: `/procurement/rmaStatuses/${parentId}/emailtemplates/{id}`,
+      path: `/procurement/rmaStatuses/${parentId}/emailtemplates/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -2133,7 +2149,7 @@ export default class ProcurementAPI extends Manage {
   getProcurementRmaStatusesByParentIdNotifications(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<RmaStatusNotification[]> {
+  ): Promise<Array<RmaStatusNotification>> {
     return this.request({
       path: `/procurement/rmaStatuses/${parentId}/notifications`,
       method: 'get',
@@ -2158,7 +2174,7 @@ export default class ProcurementAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<RmaStatusNotification> {
     return this.request({
-      path: `/procurement/rmaStatuses/${parentId}/notifications/{id}`,
+      path: `/procurement/rmaStatuses/${parentId}/notifications/${id}`,
       method: 'get',
       params,
     })
@@ -2169,7 +2185,7 @@ export default class ProcurementAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/procurement/rmaStatuses/${parentId}/notifications/{id}`,
+      path: `/procurement/rmaStatuses/${parentId}/notifications/${id}`,
       method: 'delete',
     })
   }
@@ -2180,7 +2196,7 @@ export default class ProcurementAPI extends Manage {
     rmaStatusNotification: RmaStatusNotification,
   ): Promise<RmaStatusNotification> {
     return this.request({
-      path: `/procurement/rmaStatuses/${parentId}/notifications/{id}`,
+      path: `/procurement/rmaStatuses/${parentId}/notifications/${id}`,
       method: 'put',
       data: rmaStatusNotification,
     })
@@ -2189,10 +2205,10 @@ export default class ProcurementAPI extends Manage {
   patchProcurementRmaStatusesByParentIdNotificationsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<RmaStatusNotification> {
     return this.request({
-      path: `/procurement/rmaStatuses/${parentId}/notifications/{id}`,
+      path: `/procurement/rmaStatuses/${parentId}/notifications/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -2217,7 +2233,7 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementRmaStatusesInfo(params: CommonParameters = {}): Promise<RmaStatusInfo[]> {
+  getProcurementRmaStatusesInfo(params: CommonParameters = {}): Promise<Array<RmaStatusInfo>> {
     return this.request({
       path: `/procurement/rmaStatuses/info`,
       method: 'get',
@@ -2233,7 +2249,7 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementRmaTags(params: CommonParameters = {}): Promise<RmaTag[]> {
+  getProcurementRmaTags(params: CommonParameters = {}): Promise<Array<RmaTag>> {
     return this.request({
       path: `/procurement/rmaTags`,
       method: 'get',
@@ -2272,7 +2288,7 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  patchProcurementRmaTagsById(id: number, patchOperations: PatchOperation[]): Promise<RmaTag> {
+  patchProcurementRmaTagsById(id: number, patchOperations: Array<PatchOperation>): Promise<RmaTag> {
     return this.request({
       path: `/procurement/rmaTags/${id}`,
       method: 'patch',
@@ -2304,7 +2320,7 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementSettings(params: CommonParameters = {}): Promise<ProcurementSetting[]> {
+  getProcurementSettings(params: CommonParameters = {}): Promise<Array<ProcurementSetting>> {
     return this.request({
       path: `/procurement/settings`,
       method: 'get',
@@ -2336,7 +2352,7 @@ export default class ProcurementAPI extends Manage {
 
   patchProcurementSettingsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ProcurementSetting> {
     return this.request({
       path: `/procurement/settings/${id}`,
@@ -2353,7 +2369,7 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementShipmentmethods(params: CommonParameters = {}): Promise<ShipmentMethod[]> {
+  getProcurementShipmentmethods(params: CommonParameters = {}): Promise<Array<ShipmentMethod>> {
     return this.request({
       path: `/procurement/shipmentmethods`,
       method: 'get',
@@ -2400,7 +2416,7 @@ export default class ProcurementAPI extends Manage {
 
   patchProcurementShipmentmethodsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ShipmentMethod> {
     return this.request({
       path: `/procurement/shipmentmethods/${id}`,
@@ -2423,7 +2439,7 @@ export default class ProcurementAPI extends Manage {
   getProcurementShipmentmethodsByIdUsages(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/procurement/shipmentmethods/${id}/usages`,
       method: 'get',
@@ -2434,7 +2450,7 @@ export default class ProcurementAPI extends Manage {
   getProcurementShipmentmethodsByIdUsagesList(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/procurement/shipmentmethods/${id}/usages/list`,
       method: 'get',
@@ -2450,7 +2466,9 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementShipmentmethodsInfo(params: CommonParameters = {}): Promise<ShipmentMethodInfo[]> {
+  getProcurementShipmentmethodsInfo(
+    params: CommonParameters = {},
+  ): Promise<Array<ShipmentMethodInfo>> {
     return this.request({
       path: `/procurement/shipmentmethods/info`,
       method: 'get',
@@ -2466,7 +2484,7 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementSubcategories(params: CommonParameters = {}): Promise<SubCategory[]> {
+  getProcurementSubcategories(params: CommonParameters = {}): Promise<Array<SubCategory>> {
     return this.request({
       path: `/procurement/subcategories/`,
       method: 'get',
@@ -2507,7 +2525,7 @@ export default class ProcurementAPI extends Manage {
 
   patchProcurementSubcategoriesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<SubCategory> {
     return this.request({
       path: `/procurement/subcategories/${id}`,
@@ -2530,7 +2548,7 @@ export default class ProcurementAPI extends Manage {
   getProcurementSubcategoriesByIdUsages(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/procurement/subcategories/${id}/usages`,
       method: 'get',
@@ -2541,7 +2559,7 @@ export default class ProcurementAPI extends Manage {
   getProcurementSubcategoriesByIdUsagesList(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/procurement/subcategories/${id}/usages/list`,
       method: 'get',
@@ -2557,7 +2575,7 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementSubcategoriesInfo(params: CommonParameters = {}): Promise<SubCategoryInfo[]> {
+  getProcurementSubcategoriesInfo(params: CommonParameters = {}): Promise<Array<SubCategoryInfo>> {
     return this.request({
       path: `/procurement/subcategories/info/`,
       method: 'get',
@@ -2573,7 +2591,7 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementTypes(params: CommonParameters = {}): Promise<ProductType[]> {
+  getProcurementTypes(params: CommonParameters = {}): Promise<Array<ProductType>> {
     return this.request({
       path: `/procurement/types`,
       method: 'get',
@@ -2612,7 +2630,10 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  patchProcurementTypesById(id: number, patchOperations: PatchOperation[]): Promise<ProductType> {
+  patchProcurementTypesById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<ProductType> {
     return this.request({
       path: `/procurement/types/${id}`,
       method: 'patch',
@@ -2628,7 +2649,7 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementTypesByIdUsages(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getProcurementTypesByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
       path: `/procurement/types/${id}/usages`,
       method: 'get',
@@ -2636,7 +2657,10 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementTypesByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getProcurementTypesByIdUsagesList(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/procurement/types/${id}/usages/list`,
       method: 'get',
@@ -2652,7 +2676,7 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementTypesInfo(params: CommonParameters = {}): Promise<ProductTypeInfo[]> {
+  getProcurementTypesInfo(params: CommonParameters = {}): Promise<Array<ProductTypeInfo>> {
     return this.request({
       path: `/procurement/types/info`,
       method: 'get',
@@ -2668,7 +2692,7 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementUnitOfMeasures(params: CommonParameters = {}): Promise<UnitOfMeasure[]> {
+  getProcurementUnitOfMeasures(params: CommonParameters = {}): Promise<Array<UnitOfMeasure>> {
     return this.request({
       path: `/procurement/unitOfMeasures`,
       method: 'get',
@@ -2715,7 +2739,7 @@ export default class ProcurementAPI extends Manage {
 
   patchProcurementUnitOfMeasuresById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<UnitOfMeasure> {
     return this.request({
       path: `/procurement/unitOfMeasures/${id}`,
@@ -2727,7 +2751,7 @@ export default class ProcurementAPI extends Manage {
   getProcurementUnitOfMeasuresByParentIdConversions(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<Conversion[]> {
+  ): Promise<Array<Conversion>> {
     return this.request({
       path: `/procurement/unitOfMeasures/${parentId}/conversions`,
       method: 'get',
@@ -2752,7 +2776,7 @@ export default class ProcurementAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<Conversion> {
     return this.request({
-      path: `/procurement/unitOfMeasures/${parentId}/conversions/{id}`,
+      path: `/procurement/unitOfMeasures/${parentId}/conversions/${id}`,
       method: 'get',
       params,
     })
@@ -2763,7 +2787,7 @@ export default class ProcurementAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/procurement/unitOfMeasures/${parentId}/conversions/{id}`,
+      path: `/procurement/unitOfMeasures/${parentId}/conversions/${id}`,
       method: 'delete',
     })
   }
@@ -2774,7 +2798,7 @@ export default class ProcurementAPI extends Manage {
     conversion: Conversion,
   ): Promise<Conversion> {
     return this.request({
-      path: `/procurement/unitOfMeasures/${parentId}/conversions/{id}`,
+      path: `/procurement/unitOfMeasures/${parentId}/conversions/${id}`,
       method: 'put',
       data: conversion,
     })
@@ -2783,10 +2807,10 @@ export default class ProcurementAPI extends Manage {
   patchProcurementUnitOfMeasuresByParentIdConversionsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<Conversion> {
     return this.request({
-      path: `/procurement/unitOfMeasures/${parentId}/conversions/{id}`,
+      path: `/procurement/unitOfMeasures/${parentId}/conversions/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -2811,7 +2835,7 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementWarehouseBins(params: CommonParameters = {}): Promise<WarehouseBin[]> {
+  getProcurementWarehouseBins(params: CommonParameters = {}): Promise<Array<WarehouseBin>> {
     return this.request({
       path: `/procurement/warehouseBins`,
       method: 'get',
@@ -2855,7 +2879,7 @@ export default class ProcurementAPI extends Manage {
 
   patchProcurementWarehouseBinsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<WarehouseBin> {
     return this.request({
       path: `/procurement/warehouseBins/${id}`,
@@ -2878,7 +2902,7 @@ export default class ProcurementAPI extends Manage {
   getProcurementWarehouseBinsByParentIdInventoryOnHand(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<InventoryOnHand[]> {
+  ): Promise<Array<InventoryOnHand>> {
     return this.request({
       path: `/procurement/warehouseBins/${parentId}/inventoryOnHand`,
       method: 'get',
@@ -2892,7 +2916,7 @@ export default class ProcurementAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<InventoryOnHand> {
     return this.request({
-      path: `/procurement/warehouseBins/${parentId}/inventoryOnHand/{id}`,
+      path: `/procurement/warehouseBins/${parentId}/inventoryOnHand/${id}`,
       method: 'get',
       params,
     })
@@ -2917,7 +2941,7 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementWarehouseBinsInfo(params: CommonParameters = {}): Promise<WarehouseBinInfo[]> {
+  getProcurementWarehouseBinsInfo(params: CommonParameters = {}): Promise<Array<WarehouseBinInfo>> {
     return this.request({
       path: `/procurement/warehouseBins/info`,
       method: 'get',
@@ -2933,7 +2957,7 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementWarehouses(params: CommonParameters = {}): Promise<Warehouse[]> {
+  getProcurementWarehouses(params: CommonParameters = {}): Promise<Array<Warehouse>> {
     return this.request({
       path: `/procurement/warehouses`,
       method: 'get',
@@ -2974,7 +2998,7 @@ export default class ProcurementAPI extends Manage {
 
   patchProcurementWarehousesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<Warehouse> {
     return this.request({
       path: `/procurement/warehouses/${id}`,
@@ -3002,7 +3026,7 @@ export default class ProcurementAPI extends Manage {
     })
   }
 
-  getProcurementWarehousesInfo(params: CommonParameters = {}): Promise<WarehouseInfo[]> {
+  getProcurementWarehousesInfo(params: CommonParameters = {}): Promise<Array<WarehouseInfo>> {
     return this.request({
       path: `/procurement/warehouses/info`,
       method: 'get',

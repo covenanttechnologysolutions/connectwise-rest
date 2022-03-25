@@ -4,6 +4,7 @@ import { components } from '../AutomateTypes'
 import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
+type requestBodies = components['requestBodies']
 
 /**
  * @internal
@@ -13,7 +14,7 @@ export default class TicketsAPI extends Automate {
     super(props)
   }
 
-  GetTicketList(params: CommonParameters = {}): Promise<object> {
+  getTicketList(params: CommonParameters = {}): Promise<object> {
     return this.request({
       path: `/cwa/api/v1/Tickets`,
       method: 'get',

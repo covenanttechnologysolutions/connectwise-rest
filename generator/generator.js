@@ -1,3 +1,8 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+const { getAutomateJson } = require('./automate-json')
+
+const automateSchema = getAutomateJson()
+
 const typeMapSanitize = (input = '') => {
   switch (input) {
     case 'integer':
@@ -12,11 +17,15 @@ const typeMapSanitize = (input = '') => {
       return sanitizeType(input)
   }
 }
-const sanitizeType = (input = '') => input.replace(/\./g, '').replace(/\//g, '')
-const generateTypeDef = ({ sanitizedTypeName, systemTypeName }) => {
-  let typeName = sanitizeType(sanitizedTypeName)
 
-  return `type ${typeName} = schemas['${systemTypeName}']`
+// remove invalid var name from the name of the type
+const sanitizeType = (input = '') => input.replace(/\./g, '').replace(/\//g, '')
+const generateTypeDef = ({ typeName, schemaType }) => {
+  let name = sanitizeType(typeName)
+
+  return schemaType === 'schemas'
+    ? `export type ${name} = schemas['${typeName}']`
+    : `export type ${name} = requestBodies['${typeName}']`
 }
 
 /**
@@ -37,6 +46,7 @@ function generateAPIClass({ apiName, operations = [], generatorType }) {
   // type Types = Record<string, string>
   // system name, sanitized name
   const types = {}
+  const requestBodies = {}
 
   // loop over each defined operation for this module
   const functions = operations.map(({ url, methods }) =>
@@ -57,19 +67,26 @@ function generateAPIClass({ apiName, operations = [], generatorType }) {
             const schema = requestBody.content['application/json'].schema
             if (schema.type === 'array') {
               if (schema.items) {
-                const tempName = schema.items.$ref.split('/').pop()
-                bodyParam.type = tempName + '[]'
+                const ref = schema.items.$ref
+                const tempName = ref.split('/').pop()
+                bodyParam.type = `Array<${tempName}>`
                 bodyParam.name = tempName.charAt(0).toLowerCase() + tempName.slice(1) + 's'
-                types[tempName] = tempName
+
+                types[tempName] = {
+                  schemaType: ref.includes('requestBodies') ? 'requestBody' : 'schemas',
+                }
               }
             } else if (schema.$ref) {
-              bodyParam.type = schema.$ref.split('/').pop()
+              const ref = schema.$ref
+              bodyParam.type = ref.split('/').pop()
               if (requestBody.description) {
                 bodyParam.name = requestBody.description
               } else {
-                bodyParam.name = schema.$ref.split('.').pop()
+                bodyParam.name = ref.split('.').pop()
               }
-              types[bodyParam.type] = bodyParam.type
+              types[bodyParam.type] = {
+                schemaType: ref.includes('requestBodies') ? 'requestBody' : 'schemas',
+              }
               // if clause for MonitorAlertSuspensions_PostSuspension
             } else if (!schema.description) {
               bodyParam.type = schema.type
@@ -78,13 +95,21 @@ function generateAPIClass({ apiName, operations = [], generatorType }) {
           } else if (requestBody.content && requestBody.content['multipart/form-data']) {
             const schema = requestBody.content['multipart/form-data'].schema
             if (schema.$ref) {
-              bodyParam.type = schema.$ref.split('/').pop()
+              const ref = schema.$ref
+              bodyParam.type = ref.split('/').pop()
               bodyParam.name = bodyParam.type.charAt(0).toLowerCase() + bodyParam.type.slice(1)
-              types[bodyParam.type] = bodyParam.type
+              types[bodyParam.type] = {
+                schemaType: ref.includes('requestBodies') ? 'requestBody' : 'schemas',
+              }
             }
           } else if (requestBody.$ref) {
-            bodyParam.name = requestBody.$ref.split('.').pop()
+            const ref = requestBody.$ref
+            // make sensible names by splitting the generated refs
+            bodyParam.name = requestBody.$ref.split('/').pop().split('.').pop().split('_').pop()
             bodyParam.type = requestBody.$ref.split('/').pop()
+            types[bodyParam.type] = {
+              schemaType: ref.includes('requestBodies') ? 'requestBody' : 'schemas',
+            }
           } else {
             bodyParam.name = requestBody.description
             bodyParam.type = 'object'
@@ -98,7 +123,7 @@ function generateAPIClass({ apiName, operations = [], generatorType }) {
             functionParams.push(`${parameter.name}: ${typeMapSanitize(parameter.schema.type)}`)
           })
         }
-        requestParams.push(`path: \`${url.replace(/({.*})/g, (_, p1) => `$${p1}`)}\``)
+        requestParams.push(`path: \`${url.replaceAll(/({.+?})/g, (_, p1) => `$${p1}`)}\``)
         requestParams.push(`method: '${method}'`)
 
         if (requestBody) {
@@ -126,13 +151,19 @@ function generateAPIClass({ apiName, operations = [], generatorType }) {
 
             if (schema.items) {
               if (schema.items.$ref) {
-                const tempName = schema.items.$ref.split('/').pop()
-                returnType = tempName + '[]'
-                types[tempName] = tempName
+                const ref = schema.items.$ref
+                const tempName = ref.split('/').pop()
+                returnType = `Array<${tempName}>`
+                types[tempName] = {
+                  schemaType: ref.includes('requestBodies') ? 'requestBody' : 'schemas',
+                }
               } else if (schema.items.additionalProperties?.$ref) {
-                const tempName = schema.items.additionalProperties.$ref.split('/').pop()
-                returnType = tempName + '[]'
-                types[tempName] = tempName
+                const ref = schema.items.additionalProperties.$ref
+                const tempName = ref.split('/').pop()
+                returnType = `Array<${tempName}>`
+                types[tempName] = {
+                  schemaType: ref.includes('requestBodies') ? 'requestBody' : 'schemas',
+                }
               } else if (schema.type) {
                 if (schema.items.type) {
                   returnType = `Array<${schema.items.type}>`
@@ -141,8 +172,23 @@ function generateAPIClass({ apiName, operations = [], generatorType }) {
                 }
               }
             } else if (schema.$ref) {
-              returnType = schema.$ref.split('/').pop()
-              types[returnType] = returnType
+              const ref = schema.$ref
+              // fix for incorrect types from ResultSetWithCount
+              if (ref.includes('LabTech.Database.ResultSetWithCount')) {
+                const schemaName = ref.split('/').pop()
+                const resultSchema = automateSchema.components.schemas[schemaName]
+                const ResultSetRef = resultSchema.properties.ResultSet.items.$ref
+                const tempName = ResultSetRef.split('/').pop()
+                returnType = `Array<${tempName}>`
+                types[tempName] = {
+                  schemaType: ref.includes('requestBodies') ? 'requestBody' : 'schemas',
+                }
+              } else {
+                returnType = schema.$ref.split('/').pop()
+                types[returnType] = {
+                  schemaType: ref.includes('requestBodies') ? 'requestBody' : 'schemas',
+                }
+              }
             } else {
               returnType = schema.type
             }
@@ -151,8 +197,6 @@ function generateAPIClass({ apiName, operations = [], generatorType }) {
           }
         }
 
-        // system name, sanitized name
-        // types[returnType] = typeMapSanitize(returnType)
         returnType = typeMapSanitize(returnType)
 
         if (!returnType) {
@@ -178,7 +222,7 @@ function generateAPIClass({ apiName, operations = [], generatorType }) {
         obj[key] = types[key]
         return obj
       }, {}),
-  ).map((type) => generateTypeDef({ sanitizedTypeName: types[type], systemTypeName: type }))
+  ).map((type) => generateTypeDef({ typeName: type, schemaType: types[type].schemaType }))
 
   return `/* This file was auto-generated, do not manually edit. */
 import ${generatorType} from '../${generatorType}'
@@ -190,6 +234,7 @@ ${
 }
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
+${generatorType === 'Automate' && `type requestBodies = components['requestBodies']`}
 ${typeDefs.join('\n')}
 
 /**

@@ -4,8 +4,10 @@ import { components } from '../AutomateTypes'
 import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
-type LabTechDatabaseResultSetWithCount_AutomateApiDomainContractsPatchingGroupPatchingPolicy_ =
-  schemas['LabTech.Database.ResultSetWithCount_Automate.Api.Domain.Contracts.Patching.GroupPatchingPolicy_']
+type requestBodies = components['requestBodies']
+export type AutomateApiDomainContractsPatchingGroupPatchingPolicy =
+  schemas['Automate.Api.Domain.Contracts.Patching.GroupPatchingPolicy']
+export type LabTechModelsPatchActionArgs = requestBodies['LabTech.Models.PatchActionArgs']
 
 /**
  * @internal
@@ -15,7 +17,7 @@ export default class PatchingAPI extends Automate {
     super(props)
   }
 
-  GetApprovalPolicyListAsync(params: CommonParameters = {}): Promise<object> {
+  getApprovalPolicyListAsync(params: CommonParameters = {}): Promise<object> {
     return this.request({
       path: `/api/v1/ApprovalPolicies`,
       method: 'get',
@@ -23,9 +25,9 @@ export default class PatchingAPI extends Automate {
     })
   }
 
-  GetGroupPatchingPolicyListAsync(
+  getGroupPatchingPolicyListAsync(
     params: CommonParameters = {},
-  ): Promise<LabTechDatabaseResultSetWithCount_AutomateApiDomainContractsPatchingGroupPatchingPolicy_> {
+  ): Promise<Array<AutomateApiDomainContractsPatchingGroupPatchingPolicy>> {
     return this.request({
       path: `/api/v1/GroupPatchingPolicies`,
       method: 'get',
@@ -33,7 +35,7 @@ export default class PatchingAPI extends Automate {
     })
   }
 
-  GetMicrosoftUpdatePolicyListAsync(params: CommonParameters = {}): Promise<object> {
+  getMicrosoftUpdatePolicyListAsync(params: CommonParameters = {}): Promise<object> {
     return this.request({
       path: `/api/v1/MicrosoftUpdatePolicies`,
       method: 'get',
@@ -41,7 +43,7 @@ export default class PatchingAPI extends Automate {
     })
   }
 
-  DeployAllApproved(PatchActionArgs: LabTechModelsPatchActionArgs): Promise<NoContentResponse> {
+  deployAllApproved(PatchActionArgs: LabTechModelsPatchActionArgs): Promise<NoContentResponse> {
     return this.request({
       path: `/api/v1/PatchActions/DeployAllApproved`,
       method: 'post',
@@ -49,7 +51,7 @@ export default class PatchingAPI extends Automate {
     })
   }
 
-  DeployAllSecurity(PatchActionArgs: LabTechModelsPatchActionArgs): Promise<NoContentResponse> {
+  deployAllSecurity(PatchActionArgs: LabTechModelsPatchActionArgs): Promise<NoContentResponse> {
     return this.request({
       path: `/api/v1/PatchActions/DeployAllSecurity`,
       method: 'post',
@@ -57,7 +59,7 @@ export default class PatchingAPI extends Automate {
     })
   }
 
-  ReattemptFailed(PatchActionArgs: LabTechModelsPatchActionArgs): Promise<NoContentResponse> {
+  reattemptFailed(PatchActionArgs: LabTechModelsPatchActionArgs): Promise<NoContentResponse> {
     return this.request({
       path: `/api/v1/PatchActions/ReattemptFailed`,
       method: 'post',
@@ -65,7 +67,7 @@ export default class PatchingAPI extends Automate {
     })
   }
 
-  SetToPilotStage(PatchActionArgs: LabTechModelsPatchActionArgs): Promise<NoContentResponse> {
+  setToPilotStage(PatchActionArgs: LabTechModelsPatchActionArgs): Promise<NoContentResponse> {
     return this.request({
       path: `/api/v1/PatchActions/SetToPilotStage`,
       method: 'post',
@@ -73,7 +75,7 @@ export default class PatchingAPI extends Automate {
     })
   }
 
-  SetToProductionStage(PatchActionArgs: LabTechModelsPatchActionArgs): Promise<NoContentResponse> {
+  setToProductionStage(PatchActionArgs: LabTechModelsPatchActionArgs): Promise<NoContentResponse> {
     return this.request({
       path: `/api/v1/PatchActions/SetToProductionStage`,
       method: 'post',
@@ -81,7 +83,7 @@ export default class PatchingAPI extends Automate {
     })
   }
 
-  SetToTestStage(PatchActionArgs: LabTechModelsPatchActionArgs): Promise<NoContentResponse> {
+  setToTestStage(PatchActionArgs: LabTechModelsPatchActionArgs): Promise<NoContentResponse> {
     return this.request({
       path: `/api/v1/PatchActions/SetToTestStage`,
       method: 'post',
@@ -89,7 +91,7 @@ export default class PatchingAPI extends Automate {
     })
   }
 
-  GetPatchHistoryListAsync(params: CommonParameters = {}): Promise<object> {
+  getPatchHistoryListAsync(params: CommonParameters = {}): Promise<object> {
     return this.request({
       path: `/api/v1/PatchHistory`,
       method: 'get',
@@ -97,7 +99,7 @@ export default class PatchingAPI extends Automate {
     })
   }
 
-  GetThirdPartyUpdatePolicyListAsync(params: CommonParameters = {}): Promise<object> {
+  getThirdPartyUpdatePolicyListAsync(params: CommonParameters = {}): Promise<object> {
     return this.request({
       path: `/api/v1/ThirdPartyUpdatePolicies`,
       method: 'get',

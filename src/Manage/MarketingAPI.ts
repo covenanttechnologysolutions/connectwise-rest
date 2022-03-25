@@ -4,24 +4,25 @@ import { components } from '../ManageTypes'
 import { CommonParameters, CWMOptions } from '../ManageAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
-type ActivityReference = schemas['ActivityReference']
-type Campaign = schemas['Campaign']
-type CampaignSubTypeCampaignSubType = schemas['Campaign.SubType.CampaignSubType']
-type CampaignAudit = schemas['CampaignAudit']
-type CampaignStatus = schemas['CampaignStatus']
-type CampaignType = schemas['CampaignType']
-type CampaignTypeInfo = schemas['CampaignTypeInfo']
-type Count = schemas['Count']
-type EmailOpened = schemas['EmailOpened']
-type FormSubmitted = schemas['FormSubmitted']
-type Group = schemas['Group']
-type LinkClicked = schemas['LinkClicked']
-type MarketingCompany = schemas['MarketingCompany']
-type MarketingContact = schemas['MarketingContact']
-type OpportunityReference = schemas['OpportunityReference']
-type PatchOperation = schemas['PatchOperation']
-type TypeSubTypeCampaignSubType = schemas['Type.SubType.CampaignSubType']
-type Usage = schemas['Usage']
+false
+export type ActivityReference = schemas['ActivityReference']
+export type Campaign = schemas['Campaign']
+export type CampaignSubTypeCampaignSubType = schemas['Campaign.SubType.CampaignSubType']
+export type CampaignAudit = schemas['CampaignAudit']
+export type CampaignStatus = schemas['CampaignStatus']
+export type CampaignType = schemas['CampaignType']
+export type CampaignTypeInfo = schemas['CampaignTypeInfo']
+export type Count = schemas['Count']
+export type EmailOpened = schemas['EmailOpened']
+export type FormSubmitted = schemas['FormSubmitted']
+export type Group = schemas['Group']
+export type LinkClicked = schemas['LinkClicked']
+export type MarketingCompany = schemas['MarketingCompany']
+export type MarketingContact = schemas['MarketingContact']
+export type OpportunityReference = schemas['OpportunityReference']
+export type PatchOperation = schemas['PatchOperation']
+export type TypeSubTypeCampaignSubType = schemas['Type.SubType.CampaignSubType']
+export type Usage = schemas['Usage']
 
 /**
  * @internal
@@ -31,7 +32,7 @@ export default class MarketingAPI extends Manage {
     super(props)
   }
 
-  getMarketingCampaigns(params: CommonParameters = {}): Promise<Campaign[]> {
+  getMarketingCampaigns(params: CommonParameters = {}): Promise<Array<Campaign>> {
     return this.request({
       path: `/marketing/campaigns`,
       method: 'get',
@@ -70,7 +71,10 @@ export default class MarketingAPI extends Manage {
     })
   }
 
-  patchMarketingCampaignsById(id: number, patchOperations: PatchOperation[]): Promise<Campaign> {
+  patchMarketingCampaignsById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<Campaign> {
     return this.request({
       path: `/marketing/campaigns/${id}`,
       method: 'patch',
@@ -81,7 +85,7 @@ export default class MarketingAPI extends Manage {
   getMarketingCampaignsByIdActivities(
     id: number,
     params: CommonParameters = {},
-  ): Promise<ActivityReference[]> {
+  ): Promise<Array<ActivityReference>> {
     return this.request({
       path: `/marketing/campaigns/${id}/activities`,
       method: 'get',
@@ -103,7 +107,7 @@ export default class MarketingAPI extends Manage {
   getMarketingCampaignsByIdOpportunities(
     id: number,
     params: CommonParameters = {},
-  ): Promise<OpportunityReference[]> {
+  ): Promise<Array<OpportunityReference>> {
     return this.request({
       path: `/marketing/campaigns/${id}/opportunities`,
       method: 'get',
@@ -125,7 +129,7 @@ export default class MarketingAPI extends Manage {
   getMarketingCampaignsByParentIdAudits(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<CampaignAudit[]> {
+  ): Promise<Array<CampaignAudit>> {
     return this.request({
       path: `/marketing/campaigns/${parentId}/audits`,
       method: 'get',
@@ -150,7 +154,7 @@ export default class MarketingAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<CampaignAudit> {
     return this.request({
-      path: `/marketing/campaigns/${parentId}/audits/{id}`,
+      path: `/marketing/campaigns/${parentId}/audits/${id}`,
       method: 'get',
       params,
     })
@@ -161,7 +165,7 @@ export default class MarketingAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/marketing/campaigns/${parentId}/audits/{id}`,
+      path: `/marketing/campaigns/${parentId}/audits/${id}`,
       method: 'delete',
     })
   }
@@ -172,7 +176,7 @@ export default class MarketingAPI extends Manage {
     campaignAudit: CampaignAudit,
   ): Promise<CampaignAudit> {
     return this.request({
-      path: `/marketing/campaigns/${parentId}/audits/{id}`,
+      path: `/marketing/campaigns/${parentId}/audits/${id}`,
       method: 'put',
       data: campaignAudit,
     })
@@ -181,10 +185,10 @@ export default class MarketingAPI extends Manage {
   patchMarketingCampaignsByParentIdAuditsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<CampaignAudit> {
     return this.request({
-      path: `/marketing/campaigns/${parentId}/audits/{id}`,
+      path: `/marketing/campaigns/${parentId}/audits/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -204,7 +208,7 @@ export default class MarketingAPI extends Manage {
   getMarketingCampaignsByParentIdEmailsOpened(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<EmailOpened[]> {
+  ): Promise<Array<EmailOpened>> {
     return this.request({
       path: `/marketing/campaigns/${parentId}/emailsOpened`,
       method: 'get',
@@ -229,7 +233,7 @@ export default class MarketingAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<EmailOpened> {
     return this.request({
-      path: `/marketing/campaigns/${parentId}/emailsOpened/{id}`,
+      path: `/marketing/campaigns/${parentId}/emailsOpened/${id}`,
       method: 'get',
       params,
     })
@@ -240,7 +244,7 @@ export default class MarketingAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/marketing/campaigns/${parentId}/emailsOpened/{id}`,
+      path: `/marketing/campaigns/${parentId}/emailsOpened/${id}`,
       method: 'delete',
     })
   }
@@ -251,7 +255,7 @@ export default class MarketingAPI extends Manage {
     emailOpened: EmailOpened,
   ): Promise<EmailOpened> {
     return this.request({
-      path: `/marketing/campaigns/${parentId}/emailsOpened/{id}`,
+      path: `/marketing/campaigns/${parentId}/emailsOpened/${id}`,
       method: 'put',
       data: emailOpened,
     })
@@ -260,10 +264,10 @@ export default class MarketingAPI extends Manage {
   patchMarketingCampaignsByParentIdEmailsOpenedById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<EmailOpened> {
     return this.request({
-      path: `/marketing/campaigns/${parentId}/emailsOpened/{id}`,
+      path: `/marketing/campaigns/${parentId}/emailsOpened/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -283,7 +287,7 @@ export default class MarketingAPI extends Manage {
   getMarketingCampaignsByParentIdFormsSubmitted(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<FormSubmitted[]> {
+  ): Promise<Array<FormSubmitted>> {
     return this.request({
       path: `/marketing/campaigns/${parentId}/formsSubmitted`,
       method: 'get',
@@ -308,7 +312,7 @@ export default class MarketingAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<FormSubmitted> {
     return this.request({
-      path: `/marketing/campaigns/${parentId}/formsSubmitted/{id}`,
+      path: `/marketing/campaigns/${parentId}/formsSubmitted/${id}`,
       method: 'get',
       params,
     })
@@ -319,7 +323,7 @@ export default class MarketingAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/marketing/campaigns/${parentId}/formsSubmitted/{id}`,
+      path: `/marketing/campaigns/${parentId}/formsSubmitted/${id}`,
       method: 'delete',
     })
   }
@@ -330,7 +334,7 @@ export default class MarketingAPI extends Manage {
     formSubmitted: FormSubmitted,
   ): Promise<FormSubmitted> {
     return this.request({
-      path: `/marketing/campaigns/${parentId}/formsSubmitted/{id}`,
+      path: `/marketing/campaigns/${parentId}/formsSubmitted/${id}`,
       method: 'put',
       data: formSubmitted,
     })
@@ -339,10 +343,10 @@ export default class MarketingAPI extends Manage {
   patchMarketingCampaignsByParentIdFormsSubmittedById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<FormSubmitted> {
     return this.request({
-      path: `/marketing/campaigns/${parentId}/formsSubmitted/{id}`,
+      path: `/marketing/campaigns/${parentId}/formsSubmitted/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -362,7 +366,7 @@ export default class MarketingAPI extends Manage {
   getMarketingCampaignsByParentIdLinksClicked(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<LinkClicked[]> {
+  ): Promise<Array<LinkClicked>> {
     return this.request({
       path: `/marketing/campaigns/${parentId}/linksClicked`,
       method: 'get',
@@ -387,7 +391,7 @@ export default class MarketingAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<LinkClicked> {
     return this.request({
-      path: `/marketing/campaigns/${parentId}/linksClicked/{id}`,
+      path: `/marketing/campaigns/${parentId}/linksClicked/${id}`,
       method: 'get',
       params,
     })
@@ -398,7 +402,7 @@ export default class MarketingAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/marketing/campaigns/${parentId}/linksClicked/{id}`,
+      path: `/marketing/campaigns/${parentId}/linksClicked/${id}`,
       method: 'delete',
     })
   }
@@ -409,7 +413,7 @@ export default class MarketingAPI extends Manage {
     linkClicked: LinkClicked,
   ): Promise<LinkClicked> {
     return this.request({
-      path: `/marketing/campaigns/${parentId}/linksClicked/{id}`,
+      path: `/marketing/campaigns/${parentId}/linksClicked/${id}`,
       method: 'put',
       data: linkClicked,
     })
@@ -418,10 +422,10 @@ export default class MarketingAPI extends Manage {
   patchMarketingCampaignsByParentIdLinksClickedById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<LinkClicked> {
     return this.request({
-      path: `/marketing/campaigns/${parentId}/linksClicked/{id}`,
+      path: `/marketing/campaigns/${parentId}/linksClicked/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -446,7 +450,7 @@ export default class MarketingAPI extends Manage {
     })
   }
 
-  getMarketingCampaignsStatuses(params: CommonParameters = {}): Promise<CampaignStatus[]> {
+  getMarketingCampaignsStatuses(params: CommonParameters = {}): Promise<Array<CampaignStatus>> {
     return this.request({
       path: `/marketing/campaigns/statuses`,
       method: 'get',
@@ -493,7 +497,7 @@ export default class MarketingAPI extends Manage {
 
   patchMarketingCampaignsStatusesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<CampaignStatus> {
     return this.request({
       path: `/marketing/campaigns/statuses/${id}`,
@@ -512,7 +516,7 @@ export default class MarketingAPI extends Manage {
 
   getMarketingCampaignsSubTypes(
     params: CommonParameters = {},
-  ): Promise<CampaignSubTypeCampaignSubType[]> {
+  ): Promise<Array<CampaignSubTypeCampaignSubType>> {
     return this.request({
       path: `/marketing/campaigns/subTypes`,
       method: 'get',
@@ -561,7 +565,7 @@ export default class MarketingAPI extends Manage {
 
   patchMarketingCampaignsSubTypesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<CampaignSubTypeCampaignSubType> {
     return this.request({
       path: `/marketing/campaigns/subTypes/${id}`,
@@ -578,7 +582,7 @@ export default class MarketingAPI extends Manage {
     })
   }
 
-  getMarketingCampaignsTypes(params: CommonParameters = {}): Promise<CampaignType[]> {
+  getMarketingCampaignsTypes(params: CommonParameters = {}): Promise<Array<CampaignType>> {
     return this.request({
       path: `/marketing/campaigns/types`,
       method: 'get',
@@ -619,7 +623,7 @@ export default class MarketingAPI extends Manage {
 
   patchMarketingCampaignsTypesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<CampaignType> {
     return this.request({
       path: `/marketing/campaigns/types/${id}`,
@@ -642,7 +646,7 @@ export default class MarketingAPI extends Manage {
   getMarketingCampaignsTypesByParentIdSubTypes(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<TypeSubTypeCampaignSubType[]> {
+  ): Promise<Array<TypeSubTypeCampaignSubType>> {
     return this.request({
       path: `/marketing/campaigns/types/${parentId}/subTypes`,
       method: 'get',
@@ -656,7 +660,7 @@ export default class MarketingAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<TypeSubTypeCampaignSubType> {
     return this.request({
-      path: `/marketing/campaigns/types/${parentId}/subTypes/{id}`,
+      path: `/marketing/campaigns/types/${parentId}/subTypes/${id}`,
       method: 'get',
       params,
     })
@@ -681,7 +685,7 @@ export default class MarketingAPI extends Manage {
     })
   }
 
-  getMarketingCampaignsTypesInfo(params: CommonParameters = {}): Promise<CampaignTypeInfo[]> {
+  getMarketingCampaignsTypesInfo(params: CommonParameters = {}): Promise<Array<CampaignTypeInfo>> {
     return this.request({
       path: `/marketing/campaigns/types/info`,
       method: 'get',
@@ -697,7 +701,7 @@ export default class MarketingAPI extends Manage {
     })
   }
 
-  getMarketingGroups(params: CommonParameters = {}): Promise<Group[]> {
+  getMarketingGroups(params: CommonParameters = {}): Promise<Array<Group>> {
     return this.request({
       path: `/marketing/groups`,
       method: 'get',
@@ -736,7 +740,7 @@ export default class MarketingAPI extends Manage {
     })
   }
 
-  patchMarketingGroupsById(id: number, patchOperations: PatchOperation[]): Promise<Group> {
+  patchMarketingGroupsById(id: number, patchOperations: Array<PatchOperation>): Promise<Group> {
     return this.request({
       path: `/marketing/groups/${id}`,
       method: 'patch',
@@ -744,7 +748,7 @@ export default class MarketingAPI extends Manage {
     })
   }
 
-  getMarketingGroupsByIdUsages(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getMarketingGroupsByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
       path: `/marketing/groups/${id}/usages`,
       method: 'get',
@@ -752,7 +756,10 @@ export default class MarketingAPI extends Manage {
     })
   }
 
-  getMarketingGroupsByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getMarketingGroupsByIdUsagesList(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/marketing/groups/${id}/usages/list`,
       method: 'get',
@@ -763,7 +770,7 @@ export default class MarketingAPI extends Manage {
   getMarketingGroupsByParentIdCompanies(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<MarketingCompany[]> {
+  ): Promise<Array<MarketingCompany>> {
     return this.request({
       path: `/marketing/groups/${parentId}/companies`,
       method: 'get',
@@ -788,7 +795,7 @@ export default class MarketingAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<MarketingCompany> {
     return this.request({
-      path: `/marketing/groups/${parentId}/companies/{id}`,
+      path: `/marketing/groups/${parentId}/companies/${id}`,
       method: 'get',
       params,
     })
@@ -799,7 +806,7 @@ export default class MarketingAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/marketing/groups/${parentId}/companies/{id}`,
+      path: `/marketing/groups/${parentId}/companies/${id}`,
       method: 'delete',
     })
   }
@@ -810,7 +817,7 @@ export default class MarketingAPI extends Manage {
     marketingCompany: MarketingCompany,
   ): Promise<MarketingCompany> {
     return this.request({
-      path: `/marketing/groups/${parentId}/companies/{id}`,
+      path: `/marketing/groups/${parentId}/companies/${id}`,
       method: 'put',
       data: marketingCompany,
     })
@@ -819,10 +826,10 @@ export default class MarketingAPI extends Manage {
   patchMarketingGroupsByParentIdCompaniesById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<MarketingCompany> {
     return this.request({
-      path: `/marketing/groups/${parentId}/companies/{id}`,
+      path: `/marketing/groups/${parentId}/companies/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -842,7 +849,7 @@ export default class MarketingAPI extends Manage {
   getMarketingGroupsByParentIdContacts(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<MarketingContact[]> {
+  ): Promise<Array<MarketingContact>> {
     return this.request({
       path: `/marketing/groups/${parentId}/contacts`,
       method: 'get',
@@ -867,7 +874,7 @@ export default class MarketingAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<MarketingContact> {
     return this.request({
-      path: `/marketing/groups/${parentId}/contacts/{id}`,
+      path: `/marketing/groups/${parentId}/contacts/${id}`,
       method: 'get',
       params,
     })
@@ -878,7 +885,7 @@ export default class MarketingAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/marketing/groups/${parentId}/contacts/{id}`,
+      path: `/marketing/groups/${parentId}/contacts/${id}`,
       method: 'delete',
     })
   }
@@ -889,7 +896,7 @@ export default class MarketingAPI extends Manage {
     marketingContact: MarketingContact,
   ): Promise<MarketingContact> {
     return this.request({
-      path: `/marketing/groups/${parentId}/contacts/{id}`,
+      path: `/marketing/groups/${parentId}/contacts/${id}`,
       method: 'put',
       data: marketingContact,
     })
@@ -898,10 +905,10 @@ export default class MarketingAPI extends Manage {
   patchMarketingGroupsByParentIdContactsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<MarketingContact> {
     return this.request({
-      path: `/marketing/groups/${parentId}/contacts/{id}`,
+      path: `/marketing/groups/${parentId}/contacts/${id}`,
       method: 'patch',
       data: patchOperations,
     })

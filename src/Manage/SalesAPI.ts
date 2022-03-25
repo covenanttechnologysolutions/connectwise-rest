@@ -4,47 +4,48 @@ import { components } from '../ManageTypes'
 import { CommonParameters, CWMOptions } from '../ManageAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
-type Activity = schemas['Activity']
-type ActivityStatus = schemas['ActivityStatus']
-type ActivityStatusInfo = schemas['ActivityStatusInfo']
-type ActivityType = schemas['ActivityType']
-type Agreement = schemas['Agreement']
-type Commission = schemas['Commission']
-type Count = schemas['Count']
-type Forecast = schemas['Forecast']
-type ForecastItem = schemas['ForecastItem']
-type Opportunity = schemas['Opportunity']
-type OpportunityContact = schemas['OpportunityContact']
-type OpportunityNote = schemas['OpportunityNote']
-type OpportunityRating = schemas['OpportunityRating']
-type OpportunityRatingInfo = schemas['OpportunityRatingInfo']
-type OpportunityStage = schemas['OpportunityStage']
-type OpportunityStageInfo = schemas['OpportunityStageInfo']
-type OpportunityStatus = schemas['OpportunityStatus']
-type OpportunityStatusInfo = schemas['OpportunityStatusInfo']
-type OpportunityToAgreementConversion = schemas['OpportunityToAgreementConversion']
-type OpportunityToProjectConversion = schemas['OpportunityToProjectConversion']
-type OpportunityToSalesOrderConversion = schemas['OpportunityToSalesOrderConversion']
-type OpportunityToServiceTicketConversion = schemas['OpportunityToServiceTicketConversion']
-type OpportunityType = schemas['OpportunityType']
-type OpportunityTypeInfo = schemas['OpportunityTypeInfo']
-type Order = schemas['Order']
-type OrderStatus = schemas['OrderStatus']
-type OrderStatusEmailTemplate = schemas['OrderStatusEmailTemplate']
-type OrderStatusInfo = schemas['OrderStatusInfo']
-type OrderStatusNotification = schemas['OrderStatusNotification']
-type PatchOperation = schemas['PatchOperation']
-type Project = schemas['Project']
-type Role = schemas['Role']
-type SalesProbability = schemas['SalesProbability']
-type SalesProbabilityInfo = schemas['SalesProbabilityInfo']
-type SalesQuota = schemas['SalesQuota']
-type SalesTeam = schemas['SalesTeam']
-type SalesTeamMember = schemas['SalesTeamMember']
-type SuccessResponse = schemas['SuccessResponse']
-type Team = schemas['Team']
-type Ticket = schemas['Ticket']
-type Usage = schemas['Usage']
+false
+export type Activity = schemas['Activity']
+export type ActivityStatus = schemas['ActivityStatus']
+export type ActivityStatusInfo = schemas['ActivityStatusInfo']
+export type ActivityType = schemas['ActivityType']
+export type Agreement = schemas['Agreement']
+export type Commission = schemas['Commission']
+export type Count = schemas['Count']
+export type Forecast = schemas['Forecast']
+export type ForecastItem = schemas['ForecastItem']
+export type Opportunity = schemas['Opportunity']
+export type OpportunityContact = schemas['OpportunityContact']
+export type OpportunityNote = schemas['OpportunityNote']
+export type OpportunityRating = schemas['OpportunityRating']
+export type OpportunityRatingInfo = schemas['OpportunityRatingInfo']
+export type OpportunityStage = schemas['OpportunityStage']
+export type OpportunityStageInfo = schemas['OpportunityStageInfo']
+export type OpportunityStatus = schemas['OpportunityStatus']
+export type OpportunityStatusInfo = schemas['OpportunityStatusInfo']
+export type OpportunityToAgreementConversion = schemas['OpportunityToAgreementConversion']
+export type OpportunityToProjectConversion = schemas['OpportunityToProjectConversion']
+export type OpportunityToSalesOrderConversion = schemas['OpportunityToSalesOrderConversion']
+export type OpportunityToServiceTicketConversion = schemas['OpportunityToServiceTicketConversion']
+export type OpportunityType = schemas['OpportunityType']
+export type OpportunityTypeInfo = schemas['OpportunityTypeInfo']
+export type Order = schemas['Order']
+export type OrderStatus = schemas['OrderStatus']
+export type OrderStatusEmailTemplate = schemas['OrderStatusEmailTemplate']
+export type OrderStatusInfo = schemas['OrderStatusInfo']
+export type OrderStatusNotification = schemas['OrderStatusNotification']
+export type PatchOperation = schemas['PatchOperation']
+export type Project = schemas['Project']
+export type Role = schemas['Role']
+export type SalesProbability = schemas['SalesProbability']
+export type SalesProbabilityInfo = schemas['SalesProbabilityInfo']
+export type SalesQuota = schemas['SalesQuota']
+export type SalesTeam = schemas['SalesTeam']
+export type SalesTeamMember = schemas['SalesTeamMember']
+export type SuccessResponse = schemas['SuccessResponse']
+export type Team = schemas['Team']
+export type Ticket = schemas['Ticket']
+export type Usage = schemas['Usage']
 
 /**
  * @internal
@@ -54,7 +55,7 @@ export default class SalesAPI extends Manage {
     super(props)
   }
 
-  getSalesActivities(params: CommonParameters = {}): Promise<Activity[]> {
+  getSalesActivities(params: CommonParameters = {}): Promise<Array<Activity>> {
     return this.request({
       path: `/sales/activities`,
       method: 'get',
@@ -93,7 +94,7 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  patchSalesActivitiesById(id: number, patchOperations: PatchOperation[]): Promise<Activity> {
+  patchSalesActivitiesById(id: number, patchOperations: Array<PatchOperation>): Promise<Activity> {
     return this.request({
       path: `/sales/activities/${id}`,
       method: 'patch',
@@ -109,7 +110,7 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  getSalesActivitiesStatuses(params: CommonParameters = {}): Promise<ActivityStatus[]> {
+  getSalesActivitiesStatuses(params: CommonParameters = {}): Promise<Array<ActivityStatus>> {
     return this.request({
       path: `/sales/activities/statuses`,
       method: 'get',
@@ -156,7 +157,7 @@ export default class SalesAPI extends Manage {
 
   patchSalesActivitiesStatusesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ActivityStatus> {
     return this.request({
       path: `/sales/activities/statuses/${id}`,
@@ -184,7 +185,9 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  getSalesActivitiesStatusesInfo(params: CommonParameters = {}): Promise<ActivityStatusInfo[]> {
+  getSalesActivitiesStatusesInfo(
+    params: CommonParameters = {},
+  ): Promise<Array<ActivityStatusInfo>> {
     return this.request({
       path: `/sales/activities/statuses/info`,
       method: 'get',
@@ -200,7 +203,7 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  getSalesActivitiesTypes(params: CommonParameters = {}): Promise<ActivityType[]> {
+  getSalesActivitiesTypes(params: CommonParameters = {}): Promise<Array<ActivityType>> {
     return this.request({
       path: `/sales/activities/types`,
       method: 'get',
@@ -241,7 +244,7 @@ export default class SalesAPI extends Manage {
 
   patchSalesActivitiesTypesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ActivityType> {
     return this.request({
       path: `/sales/activities/types/${id}`,
@@ -250,7 +253,10 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  getSalesActivitiesTypesByIdUsages(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getSalesActivitiesTypesByIdUsages(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/sales/activities/types/${id}/usages`,
       method: 'get',
@@ -261,7 +267,7 @@ export default class SalesAPI extends Manage {
   getSalesActivitiesTypesByIdUsagesList(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/sales/activities/types/${id}/usages/list`,
       method: 'get',
@@ -277,7 +283,7 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  getSalesCommissions(params: CommonParameters = {}): Promise<Commission[]> {
+  getSalesCommissions(params: CommonParameters = {}): Promise<Array<Commission>> {
     return this.request({
       path: `/sales/commissions`,
       method: 'get',
@@ -316,7 +322,10 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  patchSalesCommissionsById(id: number, patchOperations: PatchOperation[]): Promise<Commission> {
+  patchSalesCommissionsById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<Commission> {
     return this.request({
       path: `/sales/commissions/${id}`,
       method: 'patch',
@@ -324,7 +333,7 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  getSalesCommissionsByIdUsages(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getSalesCommissionsByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
       path: `/sales/commissions/${id}/usages`,
       method: 'get',
@@ -332,7 +341,10 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  getSalesCommissionsByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getSalesCommissionsByIdUsagesList(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/sales/commissions/${id}/usages/list`,
       method: 'get',
@@ -348,7 +360,7 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  getSalesOpportunities(params: CommonParameters = {}): Promise<Opportunity[]> {
+  getSalesOpportunities(params: CommonParameters = {}): Promise<Array<Opportunity>> {
     return this.request({
       path: `/sales/opportunities`,
       method: 'get',
@@ -387,7 +399,10 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  patchSalesOpportunitiesById(id: number, patchOperations: PatchOperation[]): Promise<Opportunity> {
+  patchSalesOpportunitiesById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<Opportunity> {
     return this.request({
       path: `/sales/opportunities/${id}`,
       method: 'patch',
@@ -442,7 +457,7 @@ export default class SalesAPI extends Manage {
   getSalesOpportunitiesByParentIdContacts(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<OpportunityContact[]> {
+  ): Promise<Array<OpportunityContact>> {
     return this.request({
       path: `/sales/opportunities/${parentId}/contacts`,
       method: 'get',
@@ -467,7 +482,7 @@ export default class SalesAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<OpportunityContact> {
     return this.request({
-      path: `/sales/opportunities/${parentId}/contacts/{id}`,
+      path: `/sales/opportunities/${parentId}/contacts/${id}`,
       method: 'get',
       params,
     })
@@ -478,7 +493,7 @@ export default class SalesAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/sales/opportunities/${parentId}/contacts/{id}`,
+      path: `/sales/opportunities/${parentId}/contacts/${id}`,
       method: 'delete',
     })
   }
@@ -489,7 +504,7 @@ export default class SalesAPI extends Manage {
     opportunityContact: OpportunityContact,
   ): Promise<OpportunityContact> {
     return this.request({
-      path: `/sales/opportunities/${parentId}/contacts/{id}`,
+      path: `/sales/opportunities/${parentId}/contacts/${id}`,
       method: 'put',
       data: opportunityContact,
     })
@@ -498,10 +513,10 @@ export default class SalesAPI extends Manage {
   patchSalesOpportunitiesByParentIdContactsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<OpportunityContact> {
     return this.request({
-      path: `/sales/opportunities/${parentId}/contacts/{id}`,
+      path: `/sales/opportunities/${parentId}/contacts/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -521,7 +536,7 @@ export default class SalesAPI extends Manage {
   getSalesOpportunitiesByParentIdForecast(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<Forecast[]> {
+  ): Promise<Array<Forecast>> {
     return this.request({
       path: `/sales/opportunities/${parentId}/forecast`,
       method: 'get',
@@ -557,7 +572,7 @@ export default class SalesAPI extends Manage {
 
   patchSalesOpportunitiesByParentIdForecast(
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<Forecast> {
     return this.request({
       path: `/sales/opportunities/${parentId}/forecast/`,
@@ -572,7 +587,7 @@ export default class SalesAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<ForecastItem> {
     return this.request({
-      path: `/sales/opportunities/${parentId}/forecast/{id}`,
+      path: `/sales/opportunities/${parentId}/forecast/${id}`,
       method: 'get',
       params,
     })
@@ -584,7 +599,7 @@ export default class SalesAPI extends Manage {
     forecast: ForecastItem,
   ): Promise<ForecastItem> {
     return this.request({
-      path: `/sales/opportunities/${parentId}/forecast/{id}`,
+      path: `/sales/opportunities/${parentId}/forecast/${id}`,
       method: 'post',
       data: forecast,
     })
@@ -595,7 +610,7 @@ export default class SalesAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/sales/opportunities/${parentId}/forecast/{id}`,
+      path: `/sales/opportunities/${parentId}/forecast/${id}`,
       method: 'delete',
     })
   }
@@ -606,7 +621,7 @@ export default class SalesAPI extends Manage {
     forecast: ForecastItem,
   ): Promise<ForecastItem> {
     return this.request({
-      path: `/sales/opportunities/${parentId}/forecast/{id}`,
+      path: `/sales/opportunities/${parentId}/forecast/${id}`,
       method: 'put',
       data: forecast,
     })
@@ -615,10 +630,10 @@ export default class SalesAPI extends Manage {
   patchSalesOpportunitiesByParentIdForecastById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ForecastItem> {
     return this.request({
-      path: `/sales/opportunities/${parentId}/forecast/{id}`,
+      path: `/sales/opportunities/${parentId}/forecast/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -629,7 +644,7 @@ export default class SalesAPI extends Manage {
     parentId: number,
   ): Promise<SuccessResponse> {
     return this.request({
-      path: `/sales/opportunities/${parentId}/forecast/copy/{id}`,
+      path: `/sales/opportunities/${parentId}/forecast/copy/${id}`,
       method: 'post',
     })
   }
@@ -648,7 +663,7 @@ export default class SalesAPI extends Manage {
   getSalesOpportunitiesByParentIdNotes(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<OpportunityNote[]> {
+  ): Promise<Array<OpportunityNote>> {
     return this.request({
       path: `/sales/opportunities/${parentId}/notes`,
       method: 'get',
@@ -673,7 +688,7 @@ export default class SalesAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<OpportunityNote> {
     return this.request({
-      path: `/sales/opportunities/${parentId}/notes/{id}`,
+      path: `/sales/opportunities/${parentId}/notes/${id}`,
       method: 'get',
       params,
     })
@@ -684,7 +699,7 @@ export default class SalesAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/sales/opportunities/${parentId}/notes/{id}`,
+      path: `/sales/opportunities/${parentId}/notes/${id}`,
       method: 'delete',
     })
   }
@@ -695,7 +710,7 @@ export default class SalesAPI extends Manage {
     note: OpportunityNote,
   ): Promise<OpportunityNote> {
     return this.request({
-      path: `/sales/opportunities/${parentId}/notes/{id}`,
+      path: `/sales/opportunities/${parentId}/notes/${id}`,
       method: 'put',
       data: note,
     })
@@ -704,10 +719,10 @@ export default class SalesAPI extends Manage {
   patchSalesOpportunitiesByParentIdNotesById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<OpportunityNote> {
     return this.request({
-      path: `/sales/opportunities/${parentId}/notes/{id}`,
+      path: `/sales/opportunities/${parentId}/notes/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -716,7 +731,7 @@ export default class SalesAPI extends Manage {
   getSalesOpportunitiesByParentIdNotesCount(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<OpportunityNote[]> {
+  ): Promise<Array<OpportunityNote>> {
     return this.request({
       path: `/sales/opportunities/${parentId}/notes/count`,
       method: 'get',
@@ -727,7 +742,7 @@ export default class SalesAPI extends Manage {
   getSalesOpportunitiesByParentIdTeam(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<Team[]> {
+  ): Promise<Array<Team>> {
     return this.request({
       path: `/sales/opportunities/${parentId}/team`,
       method: 'get',
@@ -749,7 +764,7 @@ export default class SalesAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<Team> {
     return this.request({
-      path: `/sales/opportunities/${parentId}/team/{id}`,
+      path: `/sales/opportunities/${parentId}/team/${id}`,
       method: 'get',
       params,
     })
@@ -760,14 +775,14 @@ export default class SalesAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/sales/opportunities/${parentId}/team/{id}`,
+      path: `/sales/opportunities/${parentId}/team/${id}`,
       method: 'delete',
     })
   }
 
   putSalesOpportunitiesByParentIdTeamById(id: number, parentId: number, team: Team): Promise<Team> {
     return this.request({
-      path: `/sales/opportunities/${parentId}/team/{id}`,
+      path: `/sales/opportunities/${parentId}/team/${id}`,
       method: 'put',
       data: team,
     })
@@ -776,10 +791,10 @@ export default class SalesAPI extends Manage {
   patchSalesOpportunitiesByParentIdTeamById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<Team> {
     return this.request({
-      path: `/sales/opportunities/${parentId}/team/{id}`,
+      path: `/sales/opportunities/${parentId}/team/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -812,7 +827,7 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  getSalesOpportunitiesRatings(params: CommonParameters = {}): Promise<OpportunityRating[]> {
+  getSalesOpportunitiesRatings(params: CommonParameters = {}): Promise<Array<OpportunityRating>> {
     return this.request({
       path: `/sales/opportunities/ratings`,
       method: 'get',
@@ -859,7 +874,7 @@ export default class SalesAPI extends Manage {
 
   patchSalesOpportunitiesRatingsById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<OpportunityRating> {
     return this.request({
       path: `/sales/opportunities/ratings/${id}`,
@@ -889,7 +904,7 @@ export default class SalesAPI extends Manage {
 
   getSalesOpportunitiesRatingsInfo(
     params: CommonParameters = {},
-  ): Promise<OpportunityRatingInfo[]> {
+  ): Promise<Array<OpportunityRatingInfo>> {
     return this.request({
       path: `/sales/opportunities/ratings/info`,
       method: 'get',
@@ -905,7 +920,7 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  getSalesOpportunitiesStatuses(params: CommonParameters = {}): Promise<OpportunityStatus[]> {
+  getSalesOpportunitiesStatuses(params: CommonParameters = {}): Promise<Array<OpportunityStatus>> {
     return this.request({
       path: `/sales/opportunities/statuses`,
       method: 'get',
@@ -952,7 +967,7 @@ export default class SalesAPI extends Manage {
 
   patchSalesOpportunitiesStatusesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<OpportunityStatus> {
     return this.request({
       path: `/sales/opportunities/statuses/${id}`,
@@ -975,7 +990,7 @@ export default class SalesAPI extends Manage {
   getSalesOpportunitiesStatusesByIdUsages(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/sales/opportunities/statuses/${id}/usages`,
       method: 'get',
@@ -986,7 +1001,7 @@ export default class SalesAPI extends Manage {
   getSalesOpportunitiesStatusesByIdUsagesList(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/sales/opportunities/statuses/${id}/usages/list`,
       method: 'get',
@@ -1004,7 +1019,7 @@ export default class SalesAPI extends Manage {
 
   getSalesOpportunitiesStatusesInfo(
     params: CommonParameters = {},
-  ): Promise<OpportunityStatusInfo[]> {
+  ): Promise<Array<OpportunityStatusInfo>> {
     return this.request({
       path: `/sales/opportunities/statuses/info`,
       method: 'get',
@@ -1020,7 +1035,7 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  getSalesOpportunitiesTypes(params: CommonParameters = {}): Promise<OpportunityType[]> {
+  getSalesOpportunitiesTypes(params: CommonParameters = {}): Promise<Array<OpportunityType>> {
     return this.request({
       path: `/sales/opportunities/types`,
       method: 'get',
@@ -1067,7 +1082,7 @@ export default class SalesAPI extends Manage {
 
   patchSalesOpportunitiesTypesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<OpportunityType> {
     return this.request({
       path: `/sales/opportunities/types/${id}`,
@@ -1090,7 +1105,7 @@ export default class SalesAPI extends Manage {
   getSalesOpportunitiesTypesByIdUsages(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/sales/opportunities/types/${id}/usages`,
       method: 'get',
@@ -1101,7 +1116,7 @@ export default class SalesAPI extends Manage {
   getSalesOpportunitiesTypesByIdUsagesList(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/sales/opportunities/types/${id}/usages/list`,
       method: 'get',
@@ -1117,7 +1132,9 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  getSalesOpportunitiesTypesInfo(params: CommonParameters = {}): Promise<OpportunityTypeInfo[]> {
+  getSalesOpportunitiesTypesInfo(
+    params: CommonParameters = {},
+  ): Promise<Array<OpportunityTypeInfo>> {
     return this.request({
       path: `/sales/opportunities/types/info`,
       method: 'get',
@@ -1133,7 +1150,7 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  getSalesOrders(params: CommonParameters = {}): Promise<Order[]> {
+  getSalesOrders(params: CommonParameters = {}): Promise<Array<Order>> {
     return this.request({
       path: `/sales/orders`,
       method: 'get',
@@ -1172,7 +1189,7 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  patchSalesOrdersById(id: number, patchOperations: PatchOperation[]): Promise<Order> {
+  patchSalesOrdersById(id: number, patchOperations: Array<PatchOperation>): Promise<Order> {
     return this.request({
       path: `/sales/orders/${id}`,
       method: 'patch',
@@ -1195,7 +1212,7 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  getSalesOrdersStatuses(params: CommonParameters = {}): Promise<OrderStatus[]> {
+  getSalesOrdersStatuses(params: CommonParameters = {}): Promise<Array<OrderStatus>> {
     return this.request({
       path: `/sales/orders/statuses`,
       method: 'get',
@@ -1203,7 +1220,7 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  postSalesOrdersStatuses(status: OrderStatus): Promise<OrderStatus[]> {
+  postSalesOrdersStatuses(status: OrderStatus): Promise<Array<OrderStatus>> {
     return this.request({
       path: `/sales/orders/statuses`,
       method: 'post',
@@ -1236,7 +1253,7 @@ export default class SalesAPI extends Manage {
 
   patchSalesOrdersStatusesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<OrderStatus> {
     return this.request({
       path: `/sales/orders/statuses/${id}`,
@@ -1256,7 +1273,10 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  getSalesOrdersStatusesByIdUsages(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getSalesOrdersStatusesByIdUsages(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/sales/orders/statuses/${id}/usages`,
       method: 'get',
@@ -1267,7 +1287,7 @@ export default class SalesAPI extends Manage {
   getSalesOrdersStatusesByIdUsagesList(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/sales/orders/statuses/${id}/usages/list`,
       method: 'get',
@@ -1278,7 +1298,7 @@ export default class SalesAPI extends Manage {
   getSalesOrdersStatusesByParentIdEmailtemplates(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<OrderStatusEmailTemplate[]> {
+  ): Promise<Array<OrderStatusEmailTemplate>> {
     return this.request({
       path: `/sales/orders/statuses/${parentId}/emailtemplates/`,
       method: 'get',
@@ -1303,7 +1323,7 @@ export default class SalesAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<OrderStatusEmailTemplate> {
     return this.request({
-      path: `/sales/orders/statuses/${parentId}/emailtemplates/{id}`,
+      path: `/sales/orders/statuses/${parentId}/emailtemplates/${id}`,
       method: 'get',
       params,
     })
@@ -1314,7 +1334,7 @@ export default class SalesAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/sales/orders/statuses/${parentId}/emailtemplates/{id}`,
+      path: `/sales/orders/statuses/${parentId}/emailtemplates/${id}`,
       method: 'delete',
     })
   }
@@ -1325,7 +1345,7 @@ export default class SalesAPI extends Manage {
     orderStatusEmailTemplate: OrderStatusEmailTemplate,
   ): Promise<OrderStatusEmailTemplate> {
     return this.request({
-      path: `/sales/orders/statuses/${parentId}/emailtemplates/{id}`,
+      path: `/sales/orders/statuses/${parentId}/emailtemplates/${id}`,
       method: 'put',
       data: orderStatusEmailTemplate,
     })
@@ -1334,10 +1354,10 @@ export default class SalesAPI extends Manage {
   patchSalesOrdersStatusesByParentIdEmailtemplatesById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<OrderStatusEmailTemplate> {
     return this.request({
-      path: `/sales/orders/statuses/${parentId}/emailtemplates/{id}`,
+      path: `/sales/orders/statuses/${parentId}/emailtemplates/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -1357,7 +1377,7 @@ export default class SalesAPI extends Manage {
   getSalesOrdersStatusesByParentIdNotifications(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<OrderStatusNotification[]> {
+  ): Promise<Array<OrderStatusNotification>> {
     return this.request({
       path: `/sales/orders/statuses/${parentId}/notifications`,
       method: 'get',
@@ -1382,7 +1402,7 @@ export default class SalesAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<OrderStatusNotification> {
     return this.request({
-      path: `/sales/orders/statuses/${parentId}/notifications/{id}`,
+      path: `/sales/orders/statuses/${parentId}/notifications/${id}`,
       method: 'get',
       params,
     })
@@ -1393,7 +1413,7 @@ export default class SalesAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/sales/orders/statuses/${parentId}/notifications/{id}`,
+      path: `/sales/orders/statuses/${parentId}/notifications/${id}`,
       method: 'delete',
     })
   }
@@ -1404,7 +1424,7 @@ export default class SalesAPI extends Manage {
     orderStatusNotification: OrderStatusNotification,
   ): Promise<OrderStatusNotification> {
     return this.request({
-      path: `/sales/orders/statuses/${parentId}/notifications/{id}`,
+      path: `/sales/orders/statuses/${parentId}/notifications/${id}`,
       method: 'put',
       data: orderStatusNotification,
     })
@@ -1413,10 +1433,10 @@ export default class SalesAPI extends Manage {
   patchSalesOrdersStatusesByParentIdNotificationsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<OrderStatusNotification> {
     return this.request({
-      path: `/sales/orders/statuses/${parentId}/notifications/{id}`,
+      path: `/sales/orders/statuses/${parentId}/notifications/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -1441,7 +1461,7 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  getSalesOrdersStatusesInfo(params: CommonParameters = {}): Promise<OrderStatusInfo[]> {
+  getSalesOrdersStatusesInfo(params: CommonParameters = {}): Promise<Array<OrderStatusInfo>> {
     return this.request({
       path: `/sales/orders/statuses/info`,
       method: 'get',
@@ -1457,7 +1477,7 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  getSalesProbabilities(params: CommonParameters = {}): Promise<SalesProbability[]> {
+  getSalesProbabilities(params: CommonParameters = {}): Promise<Array<SalesProbability>> {
     return this.request({
       path: `/sales/probabilities`,
       method: 'get',
@@ -1498,7 +1518,7 @@ export default class SalesAPI extends Manage {
 
   patchSalesProbabilitiesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<SalesProbability> {
     return this.request({
       path: `/sales/probabilities/${id}`,
@@ -1526,7 +1546,7 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  getSalesProbabilitiesInfo(params: CommonParameters = {}): Promise<SalesProbabilityInfo[]> {
+  getSalesProbabilitiesInfo(params: CommonParameters = {}): Promise<Array<SalesProbabilityInfo>> {
     return this.request({
       path: `/sales/probabilities/info`,
       method: 'get',
@@ -1542,7 +1562,7 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  getSalesQuotas(params: CommonParameters = {}): Promise<SalesQuota[]> {
+  getSalesQuotas(params: CommonParameters = {}): Promise<Array<SalesQuota>> {
     return this.request({
       path: `/sales/quotas`,
       method: 'get',
@@ -1581,7 +1601,7 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  patchSalesQuotasById(id: number, patchOperations: PatchOperation[]): Promise<SalesQuota> {
+  patchSalesQuotasById(id: number, patchOperations: Array<PatchOperation>): Promise<SalesQuota> {
     return this.request({
       path: `/sales/quotas/${id}`,
       method: 'patch',
@@ -1597,7 +1617,7 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  getSalesRoles(params: CommonParameters = {}): Promise<Role[]> {
+  getSalesRoles(params: CommonParameters = {}): Promise<Array<Role>> {
     return this.request({
       path: `/sales/roles`,
       method: 'get',
@@ -1636,7 +1656,7 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  patchSalesRolesById(id: number, patchOperations: PatchOperation[]): Promise<Role> {
+  patchSalesRolesById(id: number, patchOperations: Array<PatchOperation>): Promise<Role> {
     return this.request({
       path: `/sales/roles/${id}`,
       method: 'patch',
@@ -1652,7 +1672,7 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  getSalesSalesTeams(params: CommonParameters = {}): Promise<SalesTeam[]> {
+  getSalesSalesTeams(params: CommonParameters = {}): Promise<Array<SalesTeam>> {
     return this.request({
       path: `/sales/salesTeams`,
       method: 'get',
@@ -1691,7 +1711,7 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  patchSalesSalesTeamsById(id: number, patchOperations: PatchOperation[]): Promise<SalesTeam> {
+  patchSalesSalesTeamsById(id: number, patchOperations: Array<PatchOperation>): Promise<SalesTeam> {
     return this.request({
       path: `/sales/salesTeams/${id}`,
       method: 'patch',
@@ -1702,7 +1722,7 @@ export default class SalesAPI extends Manage {
   getSalesSalesTeamsByParentIdMembers(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<SalesTeamMember[]> {
+  ): Promise<Array<SalesTeamMember>> {
     return this.request({
       path: `/sales/salesTeams/${parentId}/members`,
       method: 'get',
@@ -1727,7 +1747,7 @@ export default class SalesAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<SalesTeamMember> {
     return this.request({
-      path: `/sales/salesTeams/${parentId}/members/{id}`,
+      path: `/sales/salesTeams/${parentId}/members/${id}`,
       method: 'get',
       params,
     })
@@ -1738,7 +1758,7 @@ export default class SalesAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/sales/salesTeams/${parentId}/members/{id}`,
+      path: `/sales/salesTeams/${parentId}/members/${id}`,
       method: 'delete',
     })
   }
@@ -1749,7 +1769,7 @@ export default class SalesAPI extends Manage {
     salesTeamMember: SalesTeamMember,
   ): Promise<SalesTeamMember> {
     return this.request({
-      path: `/sales/salesTeams/${parentId}/members/{id}`,
+      path: `/sales/salesTeams/${parentId}/members/${id}`,
       method: 'put',
       data: salesTeamMember,
     })
@@ -1758,10 +1778,10 @@ export default class SalesAPI extends Manage {
   patchSalesSalesTeamsByParentIdMembersById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<SalesTeamMember> {
     return this.request({
-      path: `/sales/salesTeams/${parentId}/members/{id}`,
+      path: `/sales/salesTeams/${parentId}/members/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -1802,7 +1822,7 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  getSalesStages(params: CommonParameters = {}): Promise<OpportunityStage[]> {
+  getSalesStages(params: CommonParameters = {}): Promise<Array<OpportunityStage>> {
     return this.request({
       path: `/sales/stages`,
       method: 'get',
@@ -1841,7 +1861,10 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  patchSalesStagesById(id: number, patchOperations: PatchOperation[]): Promise<OpportunityStage> {
+  patchSalesStagesById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<OpportunityStage> {
     return this.request({
       path: `/sales/stages/${id}`,
       method: 'patch',
@@ -1857,7 +1880,7 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  getSalesStagesByIdUsages(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getSalesStagesByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
       path: `/sales/stages/${id}/usages`,
       method: 'get',
@@ -1865,7 +1888,7 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  getSalesStagesByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getSalesStagesByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
       path: `/sales/stages/${id}/usages/list`,
       method: 'get',
@@ -1881,7 +1904,7 @@ export default class SalesAPI extends Manage {
     })
   }
 
-  getSalesStagesInfo(params: CommonParameters = {}): Promise<OpportunityStageInfo[]> {
+  getSalesStagesInfo(params: CommonParameters = {}): Promise<Array<OpportunityStageInfo>> {
     return this.request({
       path: `/sales/stages/info`,
       method: 'get',

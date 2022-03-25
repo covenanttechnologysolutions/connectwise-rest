@@ -3,14 +3,14 @@
  */
 import dotenv from 'dotenv'
 import path from 'path'
-// import { ManageAPI, AutomateAPI, utils } from '../dist/index'
-import { ManageAPI, AutomateAPI, utils } from '../src/index'
+import { ManageAPI, AutomateAPI, utils } from '../dist/index'
+// import { ManageAPI, AutomateAPI, utils } from '../src/index'
 import assert from 'assert'
 import { describe, it } from 'mocha'
 import type { components } from '../src/ManageTypes'
 import { isArrayOfPromises, PromiseArray } from './test-utils'
 import { isPromise } from 'util/types'
-import ComputersAPI from '../src/Automate/ComputersAPI'
+import ComputersAPI, { LabTechModelsComputer } from '../src/Automate/ComputersAPI'
 type Ticket = components['schemas']['Ticket']
 
 dotenv.config({ path: path.join(__dirname, '.env') })
@@ -68,23 +68,95 @@ describe('Automate', () => {
       done()
     })
 
+    it('should have AVTemplatePoliciesAPI', (done) => {
+      assert(cwa.AVTemplatePoliciesAPI)
+      done()
+    })
+    it('should have ClientsAPI', (done) => {
+      assert(cwa.ClientsAPI)
+      done()
+    })
+    it('should have CommandsAPI', (done) => {
+      assert(cwa.CommandsAPI)
+      done()
+    })
     it('should have ComputersAPI', (done) => {
       assert(cwa.ComputersAPI)
+      done()
+    })
+    it('should have ContactsAPI', (done) => {
+      assert(cwa.ContactsAPI)
+      done()
+    })
+    it('should have DataViewsAPI', (done) => {
+      assert(cwa.DataViewsAPI)
+      done()
+    })
+    it('should have DrivesAPI', (done) => {
+      assert(cwa.DrivesAPI)
+      done()
+    })
+    it('should have EventLogsAPI', (done) => {
+      assert(cwa.EventLogsAPI)
+      done()
+    })
+    it('should have LocationsAPI', (done) => {
+      assert(cwa.LocationsAPI)
+      done()
+    })
+    it('should have MaintenanceWindowDefinitionsAPI', (done) => {
+      assert(cwa.MaintenanceWindowDefinitionsAPI)
+      done()
+    })
+    it('should have MonitorsAPI', (done) => {
+      assert(cwa.MonitorsAPI)
+      done()
+    })
+    it('should have NetworkDevicesAPI', (done) => {
+      assert(cwa.NetworkDevicesAPI)
+      done()
+    })
+    it('should have PatchingAPI', (done) => {
+      assert(cwa.PatchingAPI)
+      done()
+    })
+    it('should have RemoteAgentAPI', (done) => {
+      assert(cwa.RemoteAgentAPI)
+      done()
+    })
+    it('should have ScriptingAPI', (done) => {
+      assert(cwa.ScriptingAPI)
+      done()
+    })
+    it('should have SearchesAPI', (done) => {
+      assert(cwa.SearchesAPI)
+      done()
+    })
+    it('should have SystemAPI', (done) => {
+      assert(cwa.SystemAPI)
+      done()
+    })
+    it('should have TicketAPI', (done) => {
+      assert(cwa.TicketAPI)
+      done()
+    })
+    it('should have UserProfilesAPI', (done) => {
+      assert(cwa.UserProfilesAPI)
       done()
     })
   })
 
   describe('ComputersAPI', () => {
     it('should return a list of computers', (done) => {
-      cwa.ComputersAPI.Computers_GetComputerList({ pageSize: 1 })
-        .then((results) => {
+      cwa.ComputersAPI.getComputerList({ pageSize: 1 })
+        .then((results: LabTechModelsComputer[]) => {
           assert(results.length === 1)
           const computer = results[0]
           assert(computer.Id)
           assert(computer.ComputerName)
           done()
         })
-        .catch((error) => done(error))
+        .catch((error: any) => done(error))
     })
   })
 })

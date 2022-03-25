@@ -4,10 +4,9 @@ import { components } from '../AutomateTypes'
 import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
-type LabTechDatabaseResultSetWithCount_LabTechModelsSearchFolder_ =
-  schemas['LabTech.Database.ResultSetWithCount_LabTech.Models.SearchFolder_']
-type LabTechModelsSearch = schemas['LabTech.Models.Search']
-type LabTechModelsSearchFolder = schemas['LabTech.Models.SearchFolder']
+type requestBodies = components['requestBodies']
+export type LabTechModelsSearch = schemas['LabTech.Models.Search']
+export type LabTechModelsSearchFolder = schemas['LabTech.Models.SearchFolder']
 
 /**
  * @internal
@@ -17,7 +16,7 @@ export default class SearchesAPI extends Automate {
     super(props)
   }
 
-  GetSearchList(params: CommonParameters = {}): Promise<LabTechModelsSearch[]> {
+  getSearchList(params: CommonParameters = {}): Promise<Array<LabTechModelsSearch>> {
     return this.request({
       path: `/api/v1/Searches`,
       method: 'get',
@@ -25,9 +24,7 @@ export default class SearchesAPI extends Automate {
     })
   }
 
-  GetSearchFolderList(
-    params: CommonParameters = {},
-  ): Promise<LabTechDatabaseResultSetWithCount_LabTechModelsSearchFolder_> {
+  getSearchFolderList(params: CommonParameters = {}): Promise<Array<LabTechModelsSearchFolder>> {
     return this.request({
       path: `/api/v1/SearchFolders`,
       method: 'get',
@@ -35,7 +32,7 @@ export default class SearchesAPI extends Automate {
     })
   }
 
-  PostSearchFolder(SearchFolder: LabTechModelsSearchFolder): Promise<LabTechModelsSearchFolder> {
+  postSearchFolder(SearchFolder: LabTechModelsSearchFolder): Promise<LabTechModelsSearchFolder> {
     return this.request({
       path: `/api/v1/SearchFolders`,
       method: 'post',

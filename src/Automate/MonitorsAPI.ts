@@ -4,9 +4,9 @@ import { components } from '../AutomateTypes'
 import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
-type LabTechDatabaseResultSetWithCount_LabTechModelsSensorCheck_ =
-  schemas['LabTech.Database.ResultSetWithCount_LabTech.Models.SensorCheck_']
-type LabTechRepositoriesMySQLDomainModelsMonitorDataCollectionSettings =
+type requestBodies = components['requestBodies']
+export type LabTechModelsSensorCheck = schemas['LabTech.Models.SensorCheck']
+export type LabTechRepositoriesMySQLDomainModelsMonitorDataCollectionSettings =
   schemas['LabTech.Repositories.MySQL.Domain.Models.MonitorDataCollectionSettings']
 
 /**
@@ -17,7 +17,7 @@ export default class MonitorsAPI extends Automate {
     super(props)
   }
 
-  GetInternalMonitorResultList(params: CommonParameters = {}): Promise<object> {
+  getInternalMonitorResultList(params: CommonParameters = {}): Promise<object> {
     return this.request({
       path: `/api/v1/InternalMonitorResults`,
       method: 'get',
@@ -25,7 +25,7 @@ export default class MonitorsAPI extends Automate {
     })
   }
 
-  GetMonitorHistoryList(params: CommonParameters = {}): Promise<object> {
+  getMonitorHistoryList(params: CommonParameters = {}): Promise<object> {
     return this.request({
       path: `/api/v1/MonitorHistory`,
       method: 'get',
@@ -33,7 +33,7 @@ export default class MonitorsAPI extends Automate {
     })
   }
 
-  GetDailyCollectedData(monitorId: number, params: CommonParameters = {}): Promise<object> {
+  getDailyCollectedData(monitorId: number, params: CommonParameters = {}): Promise<object> {
     return this.request({
       path: `/api/v1/Monitors/${monitorId}/CollectedData/DailyAverages`,
       method: 'get',
@@ -41,7 +41,7 @@ export default class MonitorsAPI extends Automate {
     })
   }
 
-  GetMonthlyCollectedData(monitorId: number, params: CommonParameters = {}): Promise<object> {
+  getMonthlyCollectedData(monitorId: number, params: CommonParameters = {}): Promise<object> {
     return this.request({
       path: `/api/v1/Monitors/${monitorId}/CollectedData/MonthlyAverages`,
       method: 'get',
@@ -49,7 +49,7 @@ export default class MonitorsAPI extends Automate {
     })
   }
 
-  GetWeeklyCollectedData(monitorId: number, params: CommonParameters = {}): Promise<object> {
+  getWeeklyCollectedData(monitorId: number, params: CommonParameters = {}): Promise<object> {
     return this.request({
       path: `/api/v1/Monitors/${monitorId}/CollectedData/WeeklyAverages`,
       method: 'get',
@@ -57,7 +57,7 @@ export default class MonitorsAPI extends Automate {
     })
   }
 
-  GetYearlyCollectedData(monitorId: number, params: CommonParameters = {}): Promise<object> {
+  getYearlyCollectedData(monitorId: number, params: CommonParameters = {}): Promise<object> {
     return this.request({
       path: `/api/v1/Monitors/${monitorId}/CollectedData/YearlyAverages`,
       method: 'get',
@@ -65,7 +65,7 @@ export default class MonitorsAPI extends Automate {
     })
   }
 
-  GetDataCollectionSettingsForMonitorAsync(
+  getDataCollectionSettingsForMonitorAsync(
     monitorId: number,
     params: CommonParameters = {},
   ): Promise<LabTechRepositoriesMySQLDomainModelsMonitorDataCollectionSettings> {
@@ -76,7 +76,7 @@ export default class MonitorsAPI extends Automate {
     })
   }
 
-  GetMonitorStatisticsList(params: CommonParameters = {}): Promise<object> {
+  getMonitorStatisticsList(params: CommonParameters = {}): Promise<object> {
     return this.request({
       path: `/api/v1/MonitorStatistics`,
       method: 'get',
@@ -84,9 +84,7 @@ export default class MonitorsAPI extends Automate {
     })
   }
 
-  GetSensorCheckList(
-    params: CommonParameters = {},
-  ): Promise<LabTechDatabaseResultSetWithCount_LabTechModelsSensorCheck_> {
+  getSensorCheckList(params: CommonParameters = {}): Promise<Array<LabTechModelsSensorCheck>> {
     return this.request({
       path: `/api/v1/SensorChecks`,
       method: 'get',

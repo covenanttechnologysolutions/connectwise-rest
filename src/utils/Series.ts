@@ -3,7 +3,7 @@
  */
 import { isPromise } from 'util/types'
 
-type PromiseLikeFunction =
+export type PromiseLikeFunction =
   | (() => Promise<unknown>)
   | Promise<unknown>
   | (() => unknown)

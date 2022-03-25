@@ -13,6 +13,21 @@ import SystemAPI from './Manage/SystemAPI'
 import TimeAPI from './Manage/TimeAPI'
 import { CWLogger, RetryOptions } from './types'
 
+export type {
+  CompanyAPI,
+  ConfigurationsAPI,
+  ExpenseAPI,
+  FinanceAPI,
+  MarketingAPI,
+  ProcurementAPI,
+  ProjectAPI,
+  SalesAPI,
+  ScheduleAPI,
+  ServiceAPI,
+  SystemAPI,
+  TimeAPI,
+}
+
 export type PatchOperation = {
   op: 'add' | 'replace' | 'remove'
   path: string
@@ -31,17 +46,54 @@ export type CommonParameters = {
 }
 
 export interface CWMOptions {
+  /**
+   * Your CW Manage Company ID
+   */
   companyId: string
+  /**
+   *
+   */
   publicKey: string
   privateKey: string
+  /**
+   * Your CW Manage instance URI
+   * e.g. my.domain.com
+   */
   companyUrl: string
+  /**
+   * Request a client ID from developer.connectwise.com
+   */
   clientId: string
+  /**
+   * Defaults to 'v4_6_release'
+   */
   entryPoint?: string
+  /**
+   * Default timeout in milliseconds
+   */
   timeout?: number
+  /**
+   * Api version, defaults to 2021.1
+   */
   apiVersion?: string
+  /**
+   * Enable automatic retry.  Defaults to false.
+   */
   retry?: boolean
   retryOptions?: RetryOptions
+  /**
+   * Pass in a custom logger function, otherwise the default
+   * will be used
+   * @example
+   * ```js
+   * const logger = (level, text, meta) => console.log(level, text, meta)
+   * ```
+   */
   logger?: CWLogger
+
+  /**
+   * Enable debug output.  Defaults to false.
+   */
   debug?: boolean
 }
 

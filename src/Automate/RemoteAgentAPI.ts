@@ -4,8 +4,9 @@ import { components } from '../AutomateTypes'
 import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
-type LabTechModelsRemoteAgentSchedule = schemas['LabTech.Models.RemoteAgentSchedule']
-type LabTechModelsRemoteAgentTemplate = schemas['LabTech.Models.RemoteAgentTemplate']
+type requestBodies = components['requestBodies']
+export type LabTechModelsRemoteAgentSchedule = schemas['LabTech.Models.RemoteAgentSchedule']
+export type LabTechModelsRemoteAgentTemplate = schemas['LabTech.Models.RemoteAgentTemplate']
 
 /**
  * @internal
@@ -15,9 +16,9 @@ export default class RemoteAgentAPI extends Automate {
     super(props)
   }
 
-  GetRemoteAgentScheduleList(
+  getRemoteAgentScheduleList(
     params: CommonParameters = {},
-  ): Promise<LabTechModelsRemoteAgentSchedule[]> {
+  ): Promise<Array<LabTechModelsRemoteAgentSchedule>> {
     return this.request({
       path: `/api/v1/RemoteAgentSchedules`,
       method: 'get',
@@ -25,7 +26,7 @@ export default class RemoteAgentAPI extends Automate {
     })
   }
 
-  PostRemoteAgentSchedule(
+  postRemoteAgentSchedule(
     RemoteAgentSchedule: LabTechModelsRemoteAgentSchedule,
   ): Promise<LabTechModelsRemoteAgentSchedule> {
     return this.request({
@@ -35,9 +36,9 @@ export default class RemoteAgentAPI extends Automate {
     })
   }
 
-  GetRemoteAgentTemplateListAsync(
+  getRemoteAgentTemplateListAsync(
     params: CommonParameters = {},
-  ): Promise<LabTechModelsRemoteAgentTemplate[]> {
+  ): Promise<Array<LabTechModelsRemoteAgentTemplate>> {
     return this.request({
       path: `/api/v1/RemoteAgentTemplates`,
       method: 'get',
@@ -45,7 +46,7 @@ export default class RemoteAgentAPI extends Automate {
     })
   }
 
-  PostRemoteAgentTemplateAsync(
+  postRemoteAgentTemplateAsync(
     RemoteAgentTemplate: LabTechModelsRemoteAgentTemplate,
   ): Promise<LabTechModelsRemoteAgentTemplate> {
     return this.request({

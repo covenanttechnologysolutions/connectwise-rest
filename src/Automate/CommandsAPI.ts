@@ -4,7 +4,8 @@ import { components } from '../AutomateTypes'
 import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
-type LabTechModelsCommand = schemas['LabTech.Models.Command']
+type requestBodies = components['requestBodies']
+export type LabTechModelsCommand = schemas['LabTech.Models.Command']
 
 /**
  * @internal
@@ -14,7 +15,7 @@ export default class CommandsAPI extends Automate {
     super(props)
   }
 
-  GetCommandList(params: CommonParameters = {}): Promise<LabTechModelsCommand[]> {
+  getCommandList(params: CommonParameters = {}): Promise<Array<LabTechModelsCommand>> {
     return this.request({
       path: `/api/v1/Commands`,
       method: 'get',
@@ -22,7 +23,7 @@ export default class CommandsAPI extends Automate {
     })
   }
 
-  GetCommand(entityId: string, params: CommonParameters = {}): Promise<LabTechModelsCommand> {
+  getCommand(entityId: string, params: CommonParameters = {}): Promise<LabTechModelsCommand> {
     return this.request({
       path: `/api/v1/Commands/${entityId}`,
       method: 'get',

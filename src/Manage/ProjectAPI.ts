@@ -4,38 +4,39 @@ import { components } from '../ManageTypes'
 import { CommonParameters, CWMOptions } from '../ManageAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
-type ActivityReference = schemas['ActivityReference']
-type ConfigurationReference = schemas['ConfigurationReference']
-type ConvertItem = schemas['ConvertItem']
-type Count = schemas['Count']
-type DocumentReference = schemas['DocumentReference']
-type FilterValues = schemas['FilterValues']
-type PatchOperation = schemas['PatchOperation']
-type PhaseStatus = schemas['PhaseStatus']
-type ProductReference = schemas['ProductReference']
-type Project = schemas['Project']
-type ProjectBoardTeam = schemas['ProjectBoardTeam']
-type ProjectBoardTeamInfo = schemas['ProjectBoardTeamInfo']
-type ProjectBoardTeamMember = schemas['ProjectBoardTeamMember']
-type ProjectContact = schemas['ProjectContact']
-type ProjectNote = schemas['ProjectNote']
-type ProjectPhase = schemas['ProjectPhase']
-type ProjectSecurityRole = schemas['ProjectSecurityRole']
-type ProjectSecurityRoleSetting = schemas['ProjectSecurityRoleSetting']
-type ProjectStatus = schemas['ProjectStatus']
-type ProjectStatusInfo = schemas['ProjectStatusInfo']
-type ProjectTeamMember = schemas['ProjectTeamMember']
-type ProjectTicket = schemas['ProjectTicket']
-type ProjectTicketNote = schemas['ProjectTicketNote']
-type ProjectType = schemas['ProjectType']
-type ProjectTypeInfo = schemas['ProjectTypeInfo']
-type ScheduleEntryReference = schemas['ScheduleEntryReference']
-type StatusIndicator = schemas['StatusIndicator']
-type SuccessResponse = schemas['SuccessResponse']
-type TicketNote = schemas['TicketNote']
-type TicketTask = schemas['TicketTask']
-type TimeEntryReference = schemas['TimeEntryReference']
-type Usage = schemas['Usage']
+false
+export type ActivityReference = schemas['ActivityReference']
+export type ConfigurationReference = schemas['ConfigurationReference']
+export type ConvertItem = schemas['ConvertItem']
+export type Count = schemas['Count']
+export type DocumentReference = schemas['DocumentReference']
+export type FilterValues = schemas['FilterValues']
+export type PatchOperation = schemas['PatchOperation']
+export type PhaseStatus = schemas['PhaseStatus']
+export type ProductReference = schemas['ProductReference']
+export type Project = schemas['Project']
+export type ProjectBoardTeam = schemas['ProjectBoardTeam']
+export type ProjectBoardTeamInfo = schemas['ProjectBoardTeamInfo']
+export type ProjectBoardTeamMember = schemas['ProjectBoardTeamMember']
+export type ProjectContact = schemas['ProjectContact']
+export type ProjectNote = schemas['ProjectNote']
+export type ProjectPhase = schemas['ProjectPhase']
+export type ProjectSecurityRole = schemas['ProjectSecurityRole']
+export type ProjectSecurityRoleSetting = schemas['ProjectSecurityRoleSetting']
+export type ProjectStatus = schemas['ProjectStatus']
+export type ProjectStatusInfo = schemas['ProjectStatusInfo']
+export type ProjectTeamMember = schemas['ProjectTeamMember']
+export type ProjectTicket = schemas['ProjectTicket']
+export type ProjectTicketNote = schemas['ProjectTicketNote']
+export type ProjectType = schemas['ProjectType']
+export type ProjectTypeInfo = schemas['ProjectTypeInfo']
+export type ScheduleEntryReference = schemas['ScheduleEntryReference']
+export type StatusIndicator = schemas['StatusIndicator']
+export type SuccessResponse = schemas['SuccessResponse']
+export type TicketNote = schemas['TicketNote']
+export type TicketTask = schemas['TicketTask']
+export type TimeEntryReference = schemas['TimeEntryReference']
+export type Usage = schemas['Usage']
 
 /**
  * @internal
@@ -49,9 +50,9 @@ export default class ProjectAPI extends Manage {
     parentId: number,
     grandparentId: number,
     params: CommonParameters = {},
-  ): Promise<ProjectBoardTeamMember[]> {
+  ): Promise<Array<ProjectBoardTeamMember>> {
     return this.request({
-      path: `/project/boards/${grandparentId}/teams/{parentId}/members`,
+      path: `/project/boards/${grandparentId}/teams/${parentId}/members`,
       method: 'get',
       params,
     })
@@ -63,7 +64,7 @@ export default class ProjectAPI extends Manage {
     teamMember: ProjectBoardTeamMember,
   ): Promise<ProjectBoardTeamMember> {
     return this.request({
-      path: `/project/boards/${grandparentId}/teams/{parentId}/members`,
+      path: `/project/boards/${grandparentId}/teams/${parentId}/members`,
       method: 'post',
       data: teamMember,
     })
@@ -76,7 +77,7 @@ export default class ProjectAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<ProjectBoardTeamMember> {
     return this.request({
-      path: `/project/boards/${grandparentId}/teams/{parentId}/members/{id}`,
+      path: `/project/boards/${grandparentId}/teams/${parentId}/members/${id}`,
       method: 'get',
       params,
     })
@@ -88,7 +89,7 @@ export default class ProjectAPI extends Manage {
     grandparentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/project/boards/${grandparentId}/teams/{parentId}/members/{id}`,
+      path: `/project/boards/${grandparentId}/teams/${parentId}/members/${id}`,
       method: 'delete',
     })
   }
@@ -100,7 +101,7 @@ export default class ProjectAPI extends Manage {
     teamMember: ProjectBoardTeamMember,
   ): Promise<ProjectBoardTeamMember> {
     return this.request({
-      path: `/project/boards/${grandparentId}/teams/{parentId}/members/{id}`,
+      path: `/project/boards/${grandparentId}/teams/${parentId}/members/${id}`,
       method: 'put',
       data: teamMember,
     })
@@ -110,10 +111,10 @@ export default class ProjectAPI extends Manage {
     id: number,
     parentId: number,
     grandparentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ProjectBoardTeamMember> {
     return this.request({
-      path: `/project/boards/${grandparentId}/teams/{parentId}/members/{id}`,
+      path: `/project/boards/${grandparentId}/teams/${parentId}/members/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -122,7 +123,7 @@ export default class ProjectAPI extends Manage {
   getProjectBoardsByParentIdTeams(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ProjectBoardTeam[]> {
+  ): Promise<Array<ProjectBoardTeam>> {
     return this.request({
       path: `/project/boards/${parentId}/teams`,
       method: 'get',
@@ -147,7 +148,7 @@ export default class ProjectAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<ProjectBoardTeam> {
     return this.request({
-      path: `/project/boards/${parentId}/teams/{id}`,
+      path: `/project/boards/${parentId}/teams/${id}`,
       method: 'get',
       params,
     })
@@ -155,7 +156,7 @@ export default class ProjectAPI extends Manage {
 
   deleteProjectBoardsByParentIdTeamsById(id: number, parentId: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/project/boards/${parentId}/teams/{id}`,
+      path: `/project/boards/${parentId}/teams/${id}`,
       method: 'delete',
     })
   }
@@ -166,7 +167,7 @@ export default class ProjectAPI extends Manage {
     team: ProjectBoardTeam,
   ): Promise<ProjectBoardTeam> {
     return this.request({
-      path: `/project/boards/${parentId}/teams/{id}`,
+      path: `/project/boards/${parentId}/teams/${id}`,
       method: 'put',
       data: team,
     })
@@ -175,10 +176,10 @@ export default class ProjectAPI extends Manage {
   patchProjectBoardsByParentIdTeamsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ProjectBoardTeam> {
     return this.request({
-      path: `/project/boards/${parentId}/teams/{id}`,
+      path: `/project/boards/${parentId}/teams/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -190,7 +191,7 @@ export default class ProjectAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<ProjectBoardTeamInfo> {
     return this.request({
-      path: `/project/boards/${parentId}/teams/{id}/info`,
+      path: `/project/boards/${parentId}/teams/${id}/info`,
       method: 'get',
       params,
     })
@@ -202,7 +203,7 @@ export default class ProjectAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<Count> {
     return this.request({
-      path: `/project/boards/${parentId}/teams/{id}/info/count`,
+      path: `/project/boards/${parentId}/teams/${id}/info/count`,
       method: 'get',
       params,
     })
@@ -222,7 +223,7 @@ export default class ProjectAPI extends Manage {
   getProjectBoardsByParentIdTeamsInfo(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ProjectBoardTeamInfo[]> {
+  ): Promise<Array<ProjectBoardTeamInfo>> {
     return this.request({
       path: `/project/boards/${parentId}/teams/info`,
       method: 'get',
@@ -230,7 +231,7 @@ export default class ProjectAPI extends Manage {
     })
   }
 
-  getProjectPhaseStatuses(params: CommonParameters = {}): Promise<PhaseStatus[]> {
+  getProjectPhaseStatuses(params: CommonParameters = {}): Promise<Array<PhaseStatus>> {
     return this.request({
       path: `/project/phaseStatuses`,
       method: 'get',
@@ -271,7 +272,7 @@ export default class ProjectAPI extends Manage {
 
   patchProjectPhaseStatusesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<PhaseStatus> {
     return this.request({
       path: `/project/phaseStatuses/${id}`,
@@ -280,7 +281,10 @@ export default class ProjectAPI extends Manage {
     })
   }
 
-  getProjectPhaseStatusesByIdUsages(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getProjectPhaseStatusesByIdUsages(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/project/phaseStatuses/${id}/usages`,
       method: 'get',
@@ -291,7 +295,7 @@ export default class ProjectAPI extends Manage {
   getProjectPhaseStatusesByIdUsagesList(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/project/phaseStatuses/${id}/usages/list`,
       method: 'get',
@@ -307,7 +311,7 @@ export default class ProjectAPI extends Manage {
     })
   }
 
-  getProjectProjects(params: CommonParameters = {}): Promise<Project[]> {
+  getProjectProjects(params: CommonParameters = {}): Promise<Array<Project>> {
     return this.request({
       path: `/project/projects`,
       method: 'get',
@@ -346,7 +350,7 @@ export default class ProjectAPI extends Manage {
     })
   }
 
-  patchProjectProjectsById(id: number, patchOperations: PatchOperation[]): Promise<Project> {
+  patchProjectProjectsById(id: number, patchOperations: Array<PatchOperation>): Promise<Project> {
     return this.request({
       path: `/project/projects/${id}`,
       method: 'patch',
@@ -357,7 +361,7 @@ export default class ProjectAPI extends Manage {
   getProjectProjectsByParentIdContacts(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ProjectContact[]> {
+  ): Promise<Array<ProjectContact>> {
     return this.request({
       path: `/project/projects/${parentId}/contacts`,
       method: 'get',
@@ -382,7 +386,7 @@ export default class ProjectAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<ProjectContact> {
     return this.request({
-      path: `/project/projects/${parentId}/contacts/{id}`,
+      path: `/project/projects/${parentId}/contacts/${id}`,
       method: 'get',
       params,
     })
@@ -393,7 +397,7 @@ export default class ProjectAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/project/projects/${parentId}/contacts/{id}`,
+      path: `/project/projects/${parentId}/contacts/${id}`,
       method: 'delete',
     })
   }
@@ -401,7 +405,7 @@ export default class ProjectAPI extends Manage {
   getProjectProjectsByParentIdNotes(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ProjectNote[]> {
+  ): Promise<Array<ProjectNote>> {
     return this.request({
       path: `/project/projects/${parentId}/notes`,
       method: 'get',
@@ -423,7 +427,7 @@ export default class ProjectAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<ProjectNote> {
     return this.request({
-      path: `/project/projects/${parentId}/notes/{id}`,
+      path: `/project/projects/${parentId}/notes/${id}`,
       method: 'get',
       params,
     })
@@ -434,7 +438,7 @@ export default class ProjectAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/project/projects/${parentId}/notes/{id}`,
+      path: `/project/projects/${parentId}/notes/${id}`,
       method: 'delete',
     })
   }
@@ -445,7 +449,7 @@ export default class ProjectAPI extends Manage {
     note: ProjectNote,
   ): Promise<ProjectNote> {
     return this.request({
-      path: `/project/projects/${parentId}/notes/{id}`,
+      path: `/project/projects/${parentId}/notes/${id}`,
       method: 'put',
       data: note,
     })
@@ -454,10 +458,10 @@ export default class ProjectAPI extends Manage {
   patchProjectProjectsByParentIdNotesById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ProjectNote> {
     return this.request({
-      path: `/project/projects/${parentId}/notes/{id}`,
+      path: `/project/projects/${parentId}/notes/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -477,7 +481,7 @@ export default class ProjectAPI extends Manage {
   getProjectProjectsByParentIdPhases(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ProjectPhase[]> {
+  ): Promise<Array<ProjectPhase>> {
     return this.request({
       path: `/project/projects/${parentId}/phases`,
       method: 'get',
@@ -502,7 +506,7 @@ export default class ProjectAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<ProjectPhase> {
     return this.request({
-      path: `/project/projects/${parentId}/phases/{id}`,
+      path: `/project/projects/${parentId}/phases/${id}`,
       method: 'get',
       params,
     })
@@ -513,7 +517,7 @@ export default class ProjectAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/project/projects/${parentId}/phases/{id}`,
+      path: `/project/projects/${parentId}/phases/${id}`,
       method: 'delete',
     })
   }
@@ -524,7 +528,7 @@ export default class ProjectAPI extends Manage {
     projectPhase: ProjectPhase,
   ): Promise<ProjectPhase> {
     return this.request({
-      path: `/project/projects/${parentId}/phases/{id}`,
+      path: `/project/projects/${parentId}/phases/${id}`,
       method: 'put',
       data: projectPhase,
     })
@@ -533,10 +537,10 @@ export default class ProjectAPI extends Manage {
   patchProjectProjectsByParentIdPhasesById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ProjectPhase> {
     return this.request({
-      path: `/project/projects/${parentId}/phases/{id}`,
+      path: `/project/projects/${parentId}/phases/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -556,7 +560,7 @@ export default class ProjectAPI extends Manage {
   getProjectProjectsByParentIdTeamMembers(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ProjectTeamMember[]> {
+  ): Promise<Array<ProjectTeamMember>> {
     return this.request({
       path: `/project/projects/${parentId}/teamMembers`,
       method: 'get',
@@ -581,7 +585,7 @@ export default class ProjectAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<ProjectTeamMember> {
     return this.request({
-      path: `/project/projects/${parentId}/teamMembers/{id}`,
+      path: `/project/projects/${parentId}/teamMembers/${id}`,
       method: 'get',
       params,
     })
@@ -592,7 +596,7 @@ export default class ProjectAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/project/projects/${parentId}/teamMembers/{id}`,
+      path: `/project/projects/${parentId}/teamMembers/${id}`,
       method: 'delete',
     })
   }
@@ -603,7 +607,7 @@ export default class ProjectAPI extends Manage {
     teamMember: ProjectTeamMember,
   ): Promise<ProjectTeamMember> {
     return this.request({
-      path: `/project/projects/${parentId}/teamMembers/{id}`,
+      path: `/project/projects/${parentId}/teamMembers/${id}`,
       method: 'put',
       data: teamMember,
     })
@@ -612,10 +616,10 @@ export default class ProjectAPI extends Manage {
   patchProjectProjectsByParentIdTeamMembersById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ProjectTeamMember> {
     return this.request({
-      path: `/project/projects/${parentId}/teamMembers/{id}`,
+      path: `/project/projects/${parentId}/teamMembers/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -640,7 +644,7 @@ export default class ProjectAPI extends Manage {
     })
   }
 
-  getProjectProjectTypes(params: CommonParameters = {}): Promise<ProjectType[]> {
+  getProjectProjectTypes(params: CommonParameters = {}): Promise<Array<ProjectType>> {
     return this.request({
       path: `/project/projectTypes`,
       method: 'get',
@@ -681,7 +685,7 @@ export default class ProjectAPI extends Manage {
 
   patchProjectProjectTypesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ProjectType> {
     return this.request({
       path: `/project/projectTypes/${id}`,
@@ -701,7 +705,10 @@ export default class ProjectAPI extends Manage {
     })
   }
 
-  getProjectProjectTypesByIdUsages(id: number, params: CommonParameters = {}): Promise<Usage[]> {
+  getProjectProjectTypesByIdUsages(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/project/projectTypes/${id}/usages`,
       method: 'get',
@@ -712,7 +719,7 @@ export default class ProjectAPI extends Manage {
   getProjectProjectTypesByIdUsagesList(
     id: number,
     params: CommonParameters = {},
-  ): Promise<Usage[]> {
+  ): Promise<Array<Usage>> {
     return this.request({
       path: `/project/projectTypes/${id}/usages/list`,
       method: 'get',
@@ -728,7 +735,7 @@ export default class ProjectAPI extends Manage {
     })
   }
 
-  getProjectProjectTypesInfo(params: CommonParameters = {}): Promise<ProjectTypeInfo[]> {
+  getProjectProjectTypesInfo(params: CommonParameters = {}): Promise<Array<ProjectTypeInfo>> {
     return this.request({
       path: `/project/projectTypes/info`,
       method: 'get',
@@ -744,7 +751,7 @@ export default class ProjectAPI extends Manage {
     })
   }
 
-  getProjectSecurityRoles(params: CommonParameters = {}): Promise<ProjectSecurityRole[]> {
+  getProjectSecurityRoles(params: CommonParameters = {}): Promise<Array<ProjectSecurityRole>> {
     return this.request({
       path: `/project/securityRoles`,
       method: 'get',
@@ -791,7 +798,7 @@ export default class ProjectAPI extends Manage {
 
   patchProjectSecurityRolesById(
     id: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ProjectSecurityRole> {
     return this.request({
       path: `/project/securityRoles/${id}`,
@@ -803,7 +810,7 @@ export default class ProjectAPI extends Manage {
   getProjectSecurityRolesByParentIdSettings(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ProjectSecurityRoleSetting[]> {
+  ): Promise<Array<ProjectSecurityRoleSetting>> {
     return this.request({
       path: `/project/securityRoles/${parentId}/settings`,
       method: 'get',
@@ -817,7 +824,7 @@ export default class ProjectAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<ProjectSecurityRoleSetting> {
     return this.request({
-      path: `/project/securityRoles/${parentId}/settings/{id}`,
+      path: `/project/securityRoles/${parentId}/settings/${id}`,
       method: 'get',
       params,
     })
@@ -829,7 +836,7 @@ export default class ProjectAPI extends Manage {
     projectSecurityRoleSetting: ProjectSecurityRoleSetting,
   ): Promise<ProjectSecurityRoleSetting> {
     return this.request({
-      path: `/project/securityRoles/${parentId}/settings/{id}`,
+      path: `/project/securityRoles/${parentId}/settings/${id}`,
       method: 'put',
       data: projectSecurityRoleSetting,
     })
@@ -838,10 +845,10 @@ export default class ProjectAPI extends Manage {
   patchProjectSecurityRolesByParentIdSettingsById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<ProjectSecurityRoleSetting> {
     return this.request({
-      path: `/project/securityRoles/${parentId}/settings/{id}`,
+      path: `/project/securityRoles/${parentId}/settings/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -866,7 +873,7 @@ export default class ProjectAPI extends Manage {
     })
   }
 
-  getProjectStatuses(params: CommonParameters = {}): Promise<ProjectStatus[]> {
+  getProjectStatuses(params: CommonParameters = {}): Promise<Array<ProjectStatus>> {
     return this.request({
       path: `/project/statuses`,
       method: 'get',
@@ -905,7 +912,10 @@ export default class ProjectAPI extends Manage {
     })
   }
 
-  patchProjectStatusesById(id: number, patchOperations: PatchOperation[]): Promise<ProjectStatus> {
+  patchProjectStatusesById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<ProjectStatus> {
     return this.request({
       path: `/project/statuses/${id}`,
       method: 'patch',
@@ -932,7 +942,7 @@ export default class ProjectAPI extends Manage {
     })
   }
 
-  getProjectStatusesInfo(params: CommonParameters = {}): Promise<ProjectStatusInfo[]> {
+  getProjectStatusesInfo(params: CommonParameters = {}): Promise<Array<ProjectStatusInfo>> {
     return this.request({
       path: `/project/statuses/info`,
       method: 'get',
@@ -948,7 +958,7 @@ export default class ProjectAPI extends Manage {
     })
   }
 
-  getProjectStatusIndicators(params: CommonParameters = {}): Promise<StatusIndicator[]> {
+  getProjectStatusIndicators(params: CommonParameters = {}): Promise<Array<StatusIndicator>> {
     return this.request({
       path: `/project/statusIndicators`,
       method: 'get',
@@ -983,7 +993,7 @@ export default class ProjectAPI extends Manage {
     })
   }
 
-  getProjectTickets(params: CommonParameters = {}): Promise<ProjectTicket[]> {
+  getProjectTickets(params: CommonParameters = {}): Promise<Array<ProjectTicket>> {
     return this.request({
       path: `/project/tickets`,
       method: 'get',
@@ -1022,7 +1032,10 @@ export default class ProjectAPI extends Manage {
     })
   }
 
-  patchProjectTicketsById(id: number, patchOperations: PatchOperation[]): Promise<ProjectTicket> {
+  patchProjectTicketsById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<ProjectTicket> {
     return this.request({
       path: `/project/tickets/${id}`,
       method: 'patch',
@@ -1033,7 +1046,7 @@ export default class ProjectAPI extends Manage {
   getProjectTicketsByParentIdActivities(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ActivityReference[]> {
+  ): Promise<Array<ActivityReference>> {
     return this.request({
       path: `/project/tickets/${parentId}/activities`,
       method: 'get',
@@ -1055,7 +1068,7 @@ export default class ProjectAPI extends Manage {
   getProjectTicketsByParentIdAllNotes(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ProjectTicketNote[]> {
+  ): Promise<Array<ProjectTicketNote>> {
     return this.request({
       path: `/project/tickets/${parentId}/allNotes`,
       method: 'get',
@@ -1066,7 +1079,7 @@ export default class ProjectAPI extends Manage {
   getProjectTicketsByParentIdConfigurations(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ConfigurationReference[]> {
+  ): Promise<Array<ConfigurationReference>> {
     return this.request({
       path: `/project/tickets/${parentId}/configurations`,
       method: 'get',
@@ -1091,7 +1104,7 @@ export default class ProjectAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<ConfigurationReference> {
     return this.request({
-      path: `/project/tickets/${parentId}/configurations/{id}`,
+      path: `/project/tickets/${parentId}/configurations/${id}`,
       method: 'get',
       params,
     })
@@ -1102,7 +1115,7 @@ export default class ProjectAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/project/tickets/${parentId}/configurations/{id}`,
+      path: `/project/tickets/${parentId}/configurations/${id}`,
       method: 'delete',
     })
   }
@@ -1132,7 +1145,7 @@ export default class ProjectAPI extends Manage {
   getProjectTicketsByParentIdDocuments(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<DocumentReference[]> {
+  ): Promise<Array<DocumentReference>> {
     return this.request({
       path: `/project/tickets/${parentId}/documents`,
       method: 'get',
@@ -1154,7 +1167,7 @@ export default class ProjectAPI extends Manage {
   getProjectTicketsByParentIdNotes(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<TicketNote[]> {
+  ): Promise<Array<TicketNote>> {
     return this.request({
       path: `/project/tickets/${parentId}/notes`,
       method: 'get',
@@ -1176,7 +1189,7 @@ export default class ProjectAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<TicketNote> {
     return this.request({
-      path: `/project/tickets/${parentId}/notes/{id}`,
+      path: `/project/tickets/${parentId}/notes/${id}`,
       method: 'get',
       params,
     })
@@ -1187,7 +1200,7 @@ export default class ProjectAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/project/tickets/${parentId}/notes/{id}`,
+      path: `/project/tickets/${parentId}/notes/${id}`,
       method: 'delete',
     })
   }
@@ -1198,7 +1211,7 @@ export default class ProjectAPI extends Manage {
     ticketNote: TicketNote,
   ): Promise<TicketNote> {
     return this.request({
-      path: `/project/tickets/${parentId}/notes/{id}`,
+      path: `/project/tickets/${parentId}/notes/${id}`,
       method: 'put',
       data: ticketNote,
     })
@@ -1207,10 +1220,10 @@ export default class ProjectAPI extends Manage {
   patchProjectTicketsByParentIdNotesById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<TicketNote> {
     return this.request({
-      path: `/project/tickets/${parentId}/notes/{id}`,
+      path: `/project/tickets/${parentId}/notes/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -1230,7 +1243,7 @@ export default class ProjectAPI extends Manage {
   getProjectTicketsByParentIdProducts(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ProductReference[]> {
+  ): Promise<Array<ProductReference>> {
     return this.request({
       path: `/project/tickets/${parentId}/products`,
       method: 'get',
@@ -1252,7 +1265,7 @@ export default class ProjectAPI extends Manage {
   getProjectTicketsByParentIdScheduleentries(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<ScheduleEntryReference[]> {
+  ): Promise<Array<ScheduleEntryReference>> {
     return this.request({
       path: `/project/tickets/${parentId}/scheduleentries`,
       method: 'get',
@@ -1274,7 +1287,7 @@ export default class ProjectAPI extends Manage {
   getProjectTicketsByParentIdTasks(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<TicketTask[]> {
+  ): Promise<Array<TicketTask>> {
     return this.request({
       path: `/project/tickets/${parentId}/tasks`,
       method: 'get',
@@ -1296,7 +1309,7 @@ export default class ProjectAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<TicketTask> {
     return this.request({
-      path: `/project/tickets/${parentId}/tasks/{id}`,
+      path: `/project/tickets/${parentId}/tasks/${id}`,
       method: 'get',
       params,
     })
@@ -1307,7 +1320,7 @@ export default class ProjectAPI extends Manage {
     parentId: number,
   ): Promise<NoContentResponse> {
     return this.request({
-      path: `/project/tickets/${parentId}/tasks/{id}`,
+      path: `/project/tickets/${parentId}/tasks/${id}`,
       method: 'delete',
     })
   }
@@ -1318,7 +1331,7 @@ export default class ProjectAPI extends Manage {
     ticketTask: TicketTask,
   ): Promise<TicketTask> {
     return this.request({
-      path: `/project/tickets/${parentId}/tasks/{id}`,
+      path: `/project/tickets/${parentId}/tasks/${id}`,
       method: 'put',
       data: ticketTask,
     })
@@ -1327,10 +1340,10 @@ export default class ProjectAPI extends Manage {
   patchProjectTicketsByParentIdTasksById(
     id: number,
     parentId: number,
-    patchOperations: PatchOperation[],
+    patchOperations: Array<PatchOperation>,
   ): Promise<TicketTask> {
     return this.request({
-      path: `/project/tickets/${parentId}/tasks/{id}`,
+      path: `/project/tickets/${parentId}/tasks/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -1350,7 +1363,7 @@ export default class ProjectAPI extends Manage {
   getProjectTicketsByParentIdTimeentries(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<TimeEntryReference[]> {
+  ): Promise<Array<TimeEntryReference>> {
     return this.request({
       path: `/project/tickets/${parentId}/timeentries`,
       method: 'get',
@@ -1377,7 +1390,7 @@ export default class ProjectAPI extends Manage {
     })
   }
 
-  postProjectTicketsSearch(filterValues: FilterValues): Promise<ProjectTicket[]> {
+  postProjectTicketsSearch(filterValues: FilterValues): Promise<Array<ProjectTicket>> {
     return this.request({
       path: `/project/tickets/search`,
       method: 'post',

@@ -1,4 +1,5 @@
 {
   "timeout": 10000,
-  "ui": "bdd"
+  "ui": "bdd",
+  "extension": ["ts", "js"]
 }

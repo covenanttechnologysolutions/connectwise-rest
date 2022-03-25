@@ -1,4 +1,4 @@
-import Series from './Series'
-import Callback from './Callback'
+import * as Series from './Series'
+import * as Callback from './Callback'
 
 export { Series, Callback }
