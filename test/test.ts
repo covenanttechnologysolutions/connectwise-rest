@@ -9,7 +9,7 @@ import assert from 'assert'
 import { describe, it } from 'mocha'
 import type { components } from '../src/ManageTypes'
 import { isArrayOfPromises, PromiseArray } from './test-utils'
-import { isPromise } from 'util/types'
+import { isPromise } from './test-utils'
 import ComputersAPI, { LabTechModelsComputer } from '../src/Automate/ComputersAPI'
 type Ticket = components['schemas']['Ticket']
 

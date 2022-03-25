@@ -1,7 +1,8 @@
 /**
  * Created by kgrube on 4/3/2019
  */
-import { isPromise } from 'util/types'
+import { types } from 'util'
+const isPromise = types.isPromise
 
 export type PromiseLikeFunction =
   | (() => Promise<unknown>)
