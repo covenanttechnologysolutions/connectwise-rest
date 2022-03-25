@@ -1,8 +1,8 @@
-import { isPromise } from 'util/types'
+import { types } from 'util'
 export type PromiseArray<T> = Array<Promise<T>>
 
 export function isPromiseType(input: unknown): input is Promise<unknown> {
-  return isPromise(input)
+  return types.isPromise(input)
 }
 
 export function isArrayOfPromises(input: unknown): input is PromiseArray<unknown> {
@@ -10,7 +10,7 @@ export function isArrayOfPromises(input: unknown): input is PromiseArray<unknown
     if (Array.length === 0) {
       return true
     }
-    if (isPromise(input.pop)) {
+    if (types.isPromise(input.pop)) {
       return true
     }
   }
