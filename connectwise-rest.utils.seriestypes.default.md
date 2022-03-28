@@ -4,6 +4,7 @@
 
 ## utils.SeriesTypes.default variable
 
+
 <b>Signature:</b>
 
 ```typescript

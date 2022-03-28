@@ -2,43 +2,10 @@
 
 [Home](./index.md) &gt; [connectwise-rest](./connectwise-rest.md) &gt; [AutomateAPI](./connectwise-rest.automateapi.md)
 
-## AutomateAPI class
-
+## AutomateAPI namespace
 
 <b>Signature:</b>
 
 ```typescript
-export default class AutomateAPI extends Automate 
+declare namespace AutomateAPI 
 ```
-<b>Extends:</b> Automate
-
-## Constructors
-
-|  Constructor | Modifiers | Description |
-|  --- | --- | --- |
-|  [(constructor)(options)](./connectwise-rest.automateapi._constructor_.md) |  | Constructs a new instance of the <code>AutomateAPI</code> class |
-
-## Properties
-
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [AVTemplatePoliciesAPI](./connectwise-rest.automateapi.avtemplatepoliciesapi.md) |  | AVTemplatePoliciesAPI |  |
-|  [ClientsAPI](./connectwise-rest.automateapi.clientsapi.md) |  | ClientsAPI |  |
-|  [CommandsAPI](./connectwise-rest.automateapi.commandsapi.md) |  | CommandsAPI |  |
-|  [ComputersAPI](./connectwise-rest.automateapi.computersapi.md) |  | ComputersAPI |  |
-|  [ContactsAPI](./connectwise-rest.automateapi.contactsapi.md) |  | ContactsAPI |  |
-|  [DataViewsAPI](./connectwise-rest.automateapi.dataviewsapi.md) |  | DataViewsAPI |  |
-|  [DrivesAPI](./connectwise-rest.automateapi.drivesapi.md) |  | DrivesAPI |  |
-|  [EventLogsAPI](./connectwise-rest.automateapi.eventlogsapi.md) |  | EventLogsAPI |  |
-|  [LocationsAPI](./connectwise-rest.automateapi.locationsapi.md) |  | LocationsAPI |  |
-|  [MaintenanceWindowDefinitionsAPI](./connectwise-rest.automateapi.maintenancewindowdefinitionsapi.md) |  | MaintenanceWindowDefinitionsAPI |  |
-|  [MonitorsAPI](./connectwise-rest.automateapi.monitorsapi.md) |  | MonitorsAPI |  |
-|  [NetworkDevicesAPI](./connectwise-rest.automateapi.networkdevicesapi.md) |  | NetworkDevicesAPI |  |
-|  [PatchingAPI](./connectwise-rest.automateapi.patchingapi.md) |  | PatchingAPI |  |
-|  [RemoteAgentAPI](./connectwise-rest.automateapi.remoteagentapi.md) |  | RemoteAgentAPI |  |
-|  [ScriptingAPI](./connectwise-rest.automateapi.scriptingapi.md) |  | ScriptingAPI |  |
-|  [SearchesAPI](./connectwise-rest.automateapi.searchesapi.md) |  | SearchesAPI |  |
-|  [SystemAPI](./connectwise-rest.automateapi.systemapi.md) |  | SystemAPI |  |
-|  [TicketAPI](./connectwise-rest.automateapi.ticketapi.md) |  | TicketAPI |  |
-|  [UserProfilesAPI](./connectwise-rest.automateapi.userprofilesapi.md) |  | UserProfilesAPI |  |
-

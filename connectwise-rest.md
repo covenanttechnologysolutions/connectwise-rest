@@ -21,8 +21,8 @@
 
 |  Namespace | Description |
 |  --- | --- |
-|  [AutomateAPIs](./connectwise-rest.automateapis.md) |  |
-|  [ManageAPIs](./connectwise-rest.manageapis.md) |  |
+|  [AutomateAPI](./connectwise-rest.automateapi.md) |  |
+|  [ManageAPI](./connectwise-rest.manageapi.md) |  |
 |  [types](./connectwise-rest.types.md) |  |
 |  [utils](./connectwise-rest.utils.md) |  |
 

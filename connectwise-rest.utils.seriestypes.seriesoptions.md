@@ -4,6 +4,7 @@
 
 ## utils.SeriesTypes.SeriesOptions type
 
+
 <b>Signature:</b>
 
 ```typescript
