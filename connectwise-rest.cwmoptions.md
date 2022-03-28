@@ -4,6 +4,7 @@
 
 ## CWMOptions interface
 
+
 <b>Signature:</b>
 
 ```typescript
@@ -21,8 +22,8 @@ export interface CWMOptions
 |  [debug?](./connectwise-rest.cwmoptions.debug.md) | boolean | <i>(Optional)</i> Enable debug output. Defaults to false. |
 |  [entryPoint?](./connectwise-rest.cwmoptions.entrypoint.md) | string | <i>(Optional)</i> Defaults to 'v4\_6\_release' |
 |  [logger?](./connectwise-rest.cwmoptions.logger.md) | CWLogger | <i>(Optional)</i> Pass in a custom logger function, otherwise the default will be used |
-|  [privateKey](./connectwise-rest.cwmoptions.privatekey.md) | string |  |
-|  [publicKey](./connectwise-rest.cwmoptions.publickey.md) | string |  |
+|  [privateKey](./connectwise-rest.cwmoptions.privatekey.md) | string | api private key |
+|  [publicKey](./connectwise-rest.cwmoptions.publickey.md) | string | api public key |
 |  [retry?](./connectwise-rest.cwmoptions.retry.md) | boolean | <i>(Optional)</i> Enable automatic retry. Defaults to false. |
 |  [retryOptions?](./connectwise-rest.cwmoptions.retryoptions.md) | RetryOptions | <i>(Optional)</i> |
 |  [timeout?](./connectwise-rest.cwmoptions.timeout.md) | number | <i>(Optional)</i> Default timeout in milliseconds |

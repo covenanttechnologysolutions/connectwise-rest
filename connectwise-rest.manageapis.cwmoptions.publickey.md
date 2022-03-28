@@ -4,6 +4,8 @@
 
 ## ManageAPIs.CWMOptions.publicKey property
 
+api public key
+
 <b>Signature:</b>
 
 ```typescript

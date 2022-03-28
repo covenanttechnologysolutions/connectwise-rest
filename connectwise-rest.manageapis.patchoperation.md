@@ -4,6 +4,8 @@
 
 ## ManageAPIs.PatchOperation type
 
+Manage patch operation input object, usually passed in an array of operations
+
 <b>Signature:</b>
 
 ```typescript

@@ -15,9 +15,7 @@
 
 |  Interface | Description |
 |  --- | --- |
-|  [AutomateComponents](./connectwise-rest.automatecomponents.md) |  |
 |  [CWMOptions](./connectwise-rest.cwmoptions.md) |  |
-|  [ManageComponents](./connectwise-rest.managecomponents.md) |  |
 
 ## Namespaces
 
@@ -32,7 +30,7 @@
 
 |  Type Alias | Description |
 |  --- | --- |
-|  [CommonParameters](./connectwise-rest.commonparameters.md) |  |
+|  [CommonParameters](./connectwise-rest.commonparameters.md) | Manage common parameters |
 |  [CWAOptions](./connectwise-rest.cwaoptions.md) |  |
-|  [PatchOperation](./connectwise-rest.patchoperation.md) |  |
+|  [PatchOperation](./connectwise-rest.patchoperation.md) | Manage patch operation input object, usually passed in an array of operations |
 

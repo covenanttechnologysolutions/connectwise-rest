@@ -32,6 +32,6 @@
 
 |  Type Alias | Description |
 |  --- | --- |
-|  [CommonParameters](./connectwise-rest.manageapis.commonparameters.md) |  |
-|  [PatchOperation](./connectwise-rest.manageapis.patchoperation.md) |  |
+|  [CommonParameters](./connectwise-rest.manageapis.commonparameters.md) | Manage common parameters |
+|  [PatchOperation](./connectwise-rest.manageapis.patchoperation.md) | Manage patch operation input object, usually passed in an array of operations |
 

@@ -4,6 +4,8 @@
 
 ## ManageAPIs.CommonParameters type
 
+Manage common parameters
+
 <b>Signature:</b>
 
 ```typescript
