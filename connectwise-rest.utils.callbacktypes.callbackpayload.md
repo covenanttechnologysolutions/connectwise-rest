@@ -4,6 +4,7 @@
 
 ## utils.CallbackTypes.CallbackPayload type
 
+
 <b>Signature:</b>
 
 ```typescript
