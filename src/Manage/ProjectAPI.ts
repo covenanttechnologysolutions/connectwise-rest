@@ -78,7 +78,7 @@ export type Usage = schemas['Usage']
  * Project module
  * @public
  */
-export default class ProjectAPI extends Manage {
+export class ProjectAPI extends Manage {
   constructor(props: CWMOptions) {
     super(props)
   }

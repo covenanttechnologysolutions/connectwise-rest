@@ -96,7 +96,7 @@ export type Usage = schemas['Usage']
  * Sales module
  * @public
  */
-export default class SalesAPI extends Manage {
+export class SalesAPI extends Manage {
   constructor(props: CWMOptions) {
     super(props)
   }

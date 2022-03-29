@@ -241,7 +241,7 @@ ${typeDefs.join('\n')}
  * ${apiName} module
  * @public
  */
-export default class ${apiName}API extends ${generatorType} {
+export class ${apiName}API extends ${generatorType} {
   constructor(props: ${generatorType === 'Manage' ? 'CWMOptions' : 'CWAOptions'}) {
     super(props)
   }

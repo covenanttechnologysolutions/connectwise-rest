@@ -1,24 +1,24 @@
 import Automate from './Automate'
 import { CWLogger, RetryOptions } from './types'
-import AVTemplatePoliciesAPI from './Automate/AVTemplatePoliciesAPI'
-import ClientsAPI from './Automate/ClientsAPI'
-import CommandsAPI from './Automate/CommandsAPI'
-import ComputersAPI from './Automate/ComputersAPI'
-import ContactsAPI from './Automate/ContactsAPI'
-import DataViewsAPI from './Automate/DataViewsAPI'
-import DrivesAPI from './Automate/DrivesAPI'
-import EventLogsAPI from './Automate/EventLogsAPI'
-import LocationsAPI from './Automate/LocationsAPI'
-import MaintenanceWindowDefinitionsAPI from './Automate/MaintenanceWindowDefinitionsAPI'
-import MonitorsAPI from './Automate/MonitorsAPI'
-import NetworkDevicesAPI from './Automate/NetworkDevicesAPI'
-import PatchingAPI from './Automate/PatchingAPI'
-import RemoteAgentAPI from './Automate/RemoteAgentAPI'
-import ScriptingAPI from './Automate/ScriptingAPI'
-import SearchesAPI from './Automate/SearchesAPI'
-import SystemAPI from './Automate/SystemAPI'
-import TicketAPI from './Automate/TicketsAPI'
-import UserProfilesAPI from './Automate/UserProfilesAPI'
+import * as AVTemplatePolicies from './Automate/AVTemplatePoliciesAPI'
+import * as Clients from './Automate/ClientsAPI'
+import * as Commands from './Automate/CommandsAPI'
+import * as Computers from './Automate/ComputersAPI'
+import * as Contacts from './Automate/ContactsAPI'
+import * as DataViews from './Automate/DataViewsAPI'
+import * as Drives from './Automate/DrivesAPI'
+import * as EventLogs from './Automate/EventLogsAPI'
+import * as Locations from './Automate/LocationsAPI'
+import * as MaintenanceWindowDefinitions from './Automate/MaintenanceWindowDefinitionsAPI'
+import * as Monitors from './Automate/MonitorsAPI'
+import * as NetworkDevices from './Automate/NetworkDevicesAPI'
+import * as Patching from './Automate/PatchingAPI'
+import * as RemoteAgent from './Automate/RemoteAgentAPI'
+import * as Scripting from './Automate/ScriptingAPI'
+import * as Searches from './Automate/SearchesAPI'
+import * as System from './Automate/SystemAPI'
+import * as Ticket from './Automate/TicketsAPI'
+import * as UserProfiles from './Automate/UserProfilesAPI'
 
 /**
  * @public
@@ -79,77 +79,81 @@ export type QueryOptionExpand = {
 }
 
 /**
+ * @module AutomateAPI
  * @public
  */
 class AutomateAPI extends Automate {
-  AVTemplatePoliciesAPI: AVTemplatePoliciesAPI
-  ClientsAPI: ClientsAPI
-  CommandsAPI: CommandsAPI
-  ComputersAPI: ComputersAPI
-  ContactsAPI: ContactsAPI
-  DataViewsAPI: DataViewsAPI
-  DrivesAPI: DrivesAPI
-  EventLogsAPI: EventLogsAPI
-  LocationsAPI: LocationsAPI
-  MaintenanceWindowDefinitionsAPI: MaintenanceWindowDefinitionsAPI
-  MonitorsAPI: MonitorsAPI
-  NetworkDevicesAPI: NetworkDevicesAPI
-  PatchingAPI: PatchingAPI
-  RemoteAgentAPI: RemoteAgentAPI
-  ScriptingAPI: ScriptingAPI
-  SearchesAPI: SearchesAPI
-  SystemAPI: SystemAPI
-  TicketAPI: TicketAPI
-  UserProfilesAPI: UserProfilesAPI
+  /**
+   * @public
+   */
+  AVTemplatePoliciesAPI: AVTemplatePolicies.AVTemplatePoliciesAPI
+  ClientsAPI: Clients.ClientsAPI
+  CommandsAPI: Commands.CommandsAPI
+  ComputersAPI: Computers.ComputersAPI
+  ContactsAPI: Contacts.ContactsAPI
+  DataViewsAPI: DataViews.DataViewsAPI
+  DrivesAPI: Drives.DrivesAPI
+  EventLogsAPI: EventLogs.EventLogsAPI
+  LocationsAPI: Locations.LocationsAPI
+  MaintenanceWindowDefinitionsAPI: MaintenanceWindowDefinitions.MaintenanceWindowDefinitionsAPI
+  MonitorsAPI: Monitors.MonitorsAPI
+  NetworkDevicesAPI: NetworkDevices.NetworkDevicesAPI
+  PatchingAPI: Patching.PatchingAPI
+  RemoteAgentAPI: RemoteAgent.RemoteAgentAPI
+  ScriptingAPI: Scripting.ScriptingAPI
+  SearchesAPI: Searches.SearchesAPI
+  SystemAPI: System.SystemAPI
+  TicketsAPI: Ticket.TicketsAPI
+  UserProfilesAPI: UserProfiles.UserProfilesAPI
 
   constructor(options: CWAOptions) {
     super(options)
 
-    this.AVTemplatePoliciesAPI = new AVTemplatePoliciesAPI(options)
-    this.ClientsAPI = new ClientsAPI(options)
-    this.CommandsAPI = new CommandsAPI(options)
-    this.ComputersAPI = new ComputersAPI(options)
-    this.ContactsAPI = new ContactsAPI(options)
-    this.DataViewsAPI = new DataViewsAPI(options)
-    this.DrivesAPI = new DrivesAPI(options)
-    this.EventLogsAPI = new EventLogsAPI(options)
-    this.LocationsAPI = new LocationsAPI(options)
-    this.MaintenanceWindowDefinitionsAPI = new MaintenanceWindowDefinitionsAPI(options)
-    this.MonitorsAPI = new MonitorsAPI(options)
-    this.NetworkDevicesAPI = new NetworkDevicesAPI(options)
-    this.PatchingAPI = new PatchingAPI(options)
-    this.RemoteAgentAPI = new RemoteAgentAPI(options)
-    this.ScriptingAPI = new ScriptingAPI(options)
-    this.SearchesAPI = new SearchesAPI(options)
-    this.SystemAPI = new SystemAPI(options)
-    this.TicketAPI = new TicketAPI(options)
-    this.UserProfilesAPI = new UserProfilesAPI(options)
+    this.AVTemplatePoliciesAPI = new AVTemplatePolicies.AVTemplatePoliciesAPI(options)
+    this.ClientsAPI = new Clients.ClientsAPI(options)
+    this.CommandsAPI = new Commands.CommandsAPI(options)
+    this.ComputersAPI = new Computers.ComputersAPI(options)
+    this.ContactsAPI = new Contacts.ContactsAPI(options)
+    this.DataViewsAPI = new DataViews.DataViewsAPI(options)
+    this.DrivesAPI = new Drives.DrivesAPI(options)
+    this.EventLogsAPI = new EventLogs.EventLogsAPI(options)
+    this.LocationsAPI = new Locations.LocationsAPI(options)
+    this.MaintenanceWindowDefinitionsAPI =
+      new MaintenanceWindowDefinitions.MaintenanceWindowDefinitionsAPI(options)
+    this.MonitorsAPI = new Monitors.MonitorsAPI(options)
+    this.NetworkDevicesAPI = new NetworkDevices.NetworkDevicesAPI(options)
+    this.PatchingAPI = new Patching.PatchingAPI(options)
+    this.RemoteAgentAPI = new RemoteAgent.RemoteAgentAPI(options)
+    this.ScriptingAPI = new Scripting.ScriptingAPI(options)
+    this.SearchesAPI = new Searches.SearchesAPI(options)
+    this.SystemAPI = new System.SystemAPI(options)
+    this.TicketsAPI = new Ticket.TicketsAPI(options)
+    this.UserProfilesAPI = new UserProfiles.UserProfilesAPI(options)
   }
-}
-
-namespace AutomateAPI {
-  AVTemplatePoliciesAPI
-  ClientsAPI
-  CommandsAPI
-  ComputersAPI
-  ContactsAPI
-  DataViewsAPI
-  DrivesAPI
-  EventLogsAPI
-  LocationsAPI
-  MaintenanceWindowDefinitionsAPI
-  MonitorsAPI
-  NetworkDevicesAPI
-  PatchingAPI
-  RemoteAgentAPI
-  ScriptingAPI
-  SearchesAPI
-  SystemAPI
-  TicketAPI
-  UserProfilesAPI
 }
 
 /**
  * @public
  */
 export default AutomateAPI
+export type {
+  AVTemplatePolicies,
+  Clients,
+  Commands,
+  Computers,
+  Contacts,
+  DataViews,
+  Drives,
+  EventLogs,
+  Locations,
+  MaintenanceWindowDefinitions,
+  Monitors,
+  NetworkDevices,
+  Patching,
+  RemoteAgent,
+  Scripting,
+  Searches,
+  System,
+  Ticket,
+  UserProfiles,
+}

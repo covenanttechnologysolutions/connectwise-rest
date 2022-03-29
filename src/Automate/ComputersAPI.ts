@@ -85,7 +85,7 @@ export type LabTechRepositoriesMySQLDomainModelsComputerDriver =
  * Computers module
  * @public
  */
-export default class ComputersAPI extends Automate {
+export class ComputersAPI extends Automate {
   constructor(props: CWAOptions) {
     super(props)
   }

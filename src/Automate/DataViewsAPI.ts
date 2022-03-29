@@ -18,7 +18,7 @@ export type LabTechModelsDataViewFolder = schemas['LabTech.Models.DataViewFolder
  * DataViews module
  * @public
  */
-export default class DataViewsAPI extends Automate {
+export class DataViewsAPI extends Automate {
   constructor(props: CWAOptions) {
     super(props)
   }

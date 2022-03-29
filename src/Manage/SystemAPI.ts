@@ -296,7 +296,7 @@ export type WorkflowTriggerOption = schemas['WorkflowTriggerOption']
  * System module
  * @public
  */
-export default class SystemAPI extends Manage {
+export class SystemAPI extends Manage {
   constructor(props: CWMOptions) {
     super(props)
   }

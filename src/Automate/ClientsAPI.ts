@@ -27,7 +27,7 @@ export type LabTechModelsProductKey = schemas['LabTech.Models.ProductKey']
  * Clients module
  * @public
  */
-export default class ClientsAPI extends Automate {
+export class ClientsAPI extends Automate {
   constructor(props: CWAOptions) {
     super(props)
   }

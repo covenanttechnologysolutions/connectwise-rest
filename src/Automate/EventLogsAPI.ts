@@ -16,7 +16,7 @@ export type LabTechModelsEventLog = schemas['LabTech.Models.EventLog']
  * EventLogs module
  * @public
  */
-export default class EventLogsAPI extends Automate {
+export class EventLogsAPI extends Automate {
   constructor(props: CWAOptions) {
     super(props)
   }

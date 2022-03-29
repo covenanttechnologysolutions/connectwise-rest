@@ -20,7 +20,7 @@ export type LabTechRepositoriesMySQLDomainModelsDriveStats =
  * Drives module
  * @public
  */
-export default class DrivesAPI extends Automate {
+export class DrivesAPI extends Automate {
   constructor(props: CWAOptions) {
     super(props)
   }

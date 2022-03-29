@@ -15,7 +15,6 @@
     "generate:automate": "node generator/automate-generator.js",
     "generate:manage": "node generator/manage-generator.js",
     "generate": "npm run generate:automate & npm run generate:manage",
-    "prebuild": "npm run generate",
     "build": "npx tsc",
     "postbuild": "npm run lint",
     "lint": "npx eslint -c .eslintrc --fix",

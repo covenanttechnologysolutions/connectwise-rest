@@ -17,7 +17,7 @@ export type AutomateApiDomainContractsMaintenanceMaintenanceWindowDefinition =
  * MaintenanceWindowDefinitions module
  * @public
  */
-export default class MaintenanceWindowDefinitionsAPI extends Automate {
+export class MaintenanceWindowDefinitionsAPI extends Automate {
   constructor(props: CWAOptions) {
     super(props)
   }

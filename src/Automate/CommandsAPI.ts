@@ -16,7 +16,7 @@ export type LabTechModelsCommand = schemas['LabTech.Models.Command']
  * Commands module
  * @public
  */
-export default class CommandsAPI extends Automate {
+export class CommandsAPI extends Automate {
   constructor(props: CWAOptions) {
     super(props)
   }

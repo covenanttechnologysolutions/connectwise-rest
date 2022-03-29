@@ -17,7 +17,7 @@ export type LabTechRepositoriesMySQLDomainModelsPresentationLayerUserProfile =
  * UserProfiles module
  * @public
  */
-export default class UserProfilesAPI extends Automate {
+export class UserProfilesAPI extends Automate {
   constructor(props: CWAOptions) {
     super(props)
   }

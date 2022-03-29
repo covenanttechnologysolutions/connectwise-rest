@@ -162,7 +162,7 @@ export type WorkRoleExemption = schemas['WorkRoleExemption']
  * Finance module
  * @public
  */
-export default class FinanceAPI extends Manage {
+export class FinanceAPI extends Manage {
   constructor(props: CWMOptions) {
     super(props)
   }

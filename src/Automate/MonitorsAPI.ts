@@ -19,7 +19,7 @@ export type LabTechRepositoriesMySQLDomainModelsMonitorDataCollectionSettings =
  * Monitors module
  * @public
  */
-export default class MonitorsAPI extends Automate {
+export class MonitorsAPI extends Automate {
   constructor(props: CWAOptions) {
     super(props)
   }

@@ -1,4 +1,5 @@
-import * as ManageAPI from './ManageAPI'
+import type * as ManageAPIs from './ManageAPI'
+import type * as AutomateApis from './AutomateAPI'
 
 export enum StatusCode {
   OK = 200,
@@ -63,4 +64,5 @@ export type NoContentResponse = undefined
 export type OctetStreamResponse = Buffer
 export type PDFResponse = Blob
 export type HTMLResponse = string
-export type PatchOperation = ManageAPI.PatchOperation
+export type PatchOperation = ManageAPIs.PatchOperation
+export type { ManageAPIs, AutomateApis }

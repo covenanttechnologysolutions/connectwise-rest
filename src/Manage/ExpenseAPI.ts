@@ -40,7 +40,7 @@ export type SuccessResponse = schemas['SuccessResponse']
  * Expense module
  * @public
  */
-export default class ExpenseAPI extends Manage {
+export class ExpenseAPI extends Manage {
   constructor(props: CWMOptions) {
     super(props)
   }

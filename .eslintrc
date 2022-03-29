@@ -14,10 +14,10 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended"
   ],
-  "rules": {},
   "ignorePatterns": [
     "dist",
     "src/AutomateTypes.js",
     "src/ManageTypes.js"
-  ]
+  ],
+  "rules": {}
 }

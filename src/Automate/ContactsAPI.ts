@@ -19,7 +19,7 @@ export type LabTechModelsContact = schemas['LabTech.Models.Contact']
  * Contacts module
  * @public
  */
-export default class ContactsAPI extends Automate {
+export class ContactsAPI extends Automate {
   constructor(props: CWAOptions) {
     super(props)
   }

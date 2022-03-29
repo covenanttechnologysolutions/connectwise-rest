@@ -27,7 +27,7 @@ export type LabTechRESTApiModelsPatchOperationArray =
  * Scripting module
  * @public
  */
-export default class ScriptingAPI extends Automate {
+export class ScriptingAPI extends Automate {
   constructor(props: CWAOptions) {
     super(props)
   }

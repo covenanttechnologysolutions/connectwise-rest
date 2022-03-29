@@ -18,7 +18,7 @@ export type LabTechModelsRemoteAgentTemplate = schemas['LabTech.Models.RemoteAge
  * RemoteAgent module
  * @public
  */
-export default class RemoteAgentAPI extends Automate {
+export class RemoteAgentAPI extends Automate {
   constructor(props: CWAOptions) {
     super(props)
   }

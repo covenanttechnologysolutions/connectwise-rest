@@ -50,7 +50,7 @@ export type Usage = schemas['Usage']
  * Marketing module
  * @public
  */
-export default class MarketingAPI extends Manage {
+export class MarketingAPI extends Manage {
   constructor(props: CWMOptions) {
     super(props)
   }

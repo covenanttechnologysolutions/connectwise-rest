@@ -1,16 +1,16 @@
 import Manage from './Manage'
-import CompanyAPI from './Manage/CompanyAPI'
-import ConfigurationsAPI from './Manage/ConfigurationsAPI'
-import ExpenseAPI from './Manage/ExpenseAPI'
-import FinanceAPI from './Manage/FinanceAPI'
-import MarketingAPI from './Manage/MarketingAPI'
-import ProcurementAPI from './Manage/ProcurementAPI'
-import ProjectAPI from './Manage/ProjectAPI'
-import SalesAPI from './Manage/SalesAPI'
-import ScheduleAPI from './Manage/ScheduleAPI'
-import ServiceAPI from './Manage/ServiceAPI'
-import SystemAPI from './Manage/SystemAPI'
-import TimeAPI from './Manage/TimeAPI'
+import * as Company from './Manage/CompanyAPI'
+import * as Configurations from './Manage/ConfigurationsAPI'
+import * as Expense from './Manage/ExpenseAPI'
+import * as Finance from './Manage/FinanceAPI'
+import * as Marketing from './Manage/MarketingAPI'
+import * as Procurement from './Manage/ProcurementAPI'
+import * as Project from './Manage/ProjectAPI'
+import * as Sales from './Manage/SalesAPI'
+import * as Schedule from './Manage/ScheduleAPI'
+import * as Service from './Manage/ServiceAPI'
+import * as System from './Manage/SystemAPI'
+import * as Time from './Manage/TimeAPI'
 import { CWLogger, RetryOptions } from './types'
 
 /**
@@ -103,53 +103,56 @@ export interface CWMOptions {
  * @public
  */
 class ManageAPI extends Manage {
-  /**
-   * @see {@link CompanyAPI}
-   */
-  CompanyAPI: CompanyAPI
-  ConfigurationsAPI: ConfigurationsAPI
-  ExpenseAPI: ExpenseAPI
-  FinanceAPI: FinanceAPI
-  MarketingAPI: MarketingAPI
-  ProcurementAPI: ProcurementAPI
-  ProjectAPI: ProjectAPI
-  SalesAPI: SalesAPI
-  ScheduleAPI: ScheduleAPI
-  ServiceAPI: ServiceAPI
-  SystemAPI: SystemAPI
-  TimeAPI: TimeAPI
+  CompanyAPI: Company.CompanyAPI
+  ConfigurationsAPI: Configurations.ConfigurationsAPI
+  ExpenseAPI: Expense.ExpenseAPI
+  FinanceAPI: Finance.FinanceAPI
+  MarketingAPI: Marketing.MarketingAPI
+  ProcurementAPI: Procurement.ProcurementAPI
+  ProjectAPI: Project.ProjectAPI
+  SalesAPI: Sales.SalesAPI
+  ScheduleAPI: Schedule.ScheduleAPI
+  ServiceAPI: Service.ServiceAPI
+  SystemAPI: System.SystemAPI
+  TimeAPI: Time.TimeAPI
 
-  constructor(options: CWMOptions) {
+  constructor (options: CWMOptions) {
     super(options)
 
-    this.CompanyAPI = new CompanyAPI(options)
-    this.ConfigurationsAPI = new ConfigurationsAPI(options)
-    this.ExpenseAPI = new ExpenseAPI(options)
-    this.FinanceAPI = new FinanceAPI(options)
-    this.MarketingAPI = new MarketingAPI(options)
-    this.ProcurementAPI = new ProcurementAPI(options)
-    this.ProjectAPI = new ProjectAPI(options)
-    this.SalesAPI = new SalesAPI(options)
-    this.ScheduleAPI = new ScheduleAPI(options)
-    this.ServiceAPI = new ServiceAPI(options)
-    this.SystemAPI = new SystemAPI(options)
-    this.TimeAPI = new TimeAPI(options)
+    this.CompanyAPI = new Company.CompanyAPI(options)
+    this.ConfigurationsAPI = new Configurations.ConfigurationsAPI(options)
+    this.ExpenseAPI = new Expense.ExpenseAPI(options)
+    this.FinanceAPI = new Finance.FinanceAPI(options)
+    this.MarketingAPI = new Marketing.MarketingAPI(options)
+    this.ProcurementAPI = new Procurement.ProcurementAPI(options)
+    this.ProjectAPI = new Project.ProjectAPI(options)
+    this.SalesAPI = new Sales.SalesAPI(options)
+    this.ScheduleAPI = new Schedule.ScheduleAPI(options)
+    this.ServiceAPI = new Service.ServiceAPI(options)
+    this.SystemAPI = new System.SystemAPI(options)
+    this.TimeAPI = new Time.TimeAPI(options)
   }
 }
 
-namespace ManageAPI {
-  CompanyAPI
-  ConfigurationsAPI
-  ExpenseAPI
-  FinanceAPI
-  MarketingAPI
-  ProcurementAPI
-  ProjectAPI
-  SalesAPI
-  ScheduleAPI
-  ServiceAPI
-  SystemAPI
-  TimeAPI
-}
-
+/**
+ * @public
+ */
 export default ManageAPI
+
+/**
+ * @public
+ */
+export type {
+  Company,
+  Configurations,
+  Expense,
+  Finance,
+  Marketing,
+  Procurement,
+  Project,
+  Sales,
+  Schedule,
+  Service,
+  System,
+  Time,
+}

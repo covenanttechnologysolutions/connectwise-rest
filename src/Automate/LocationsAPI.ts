@@ -47,7 +47,7 @@ export type LabTechRepositoriesMySQLDomainModelsProbeEventLevel =
  * Locations module
  * @public
  */
-export default class LocationsAPI extends Automate {
+export class LocationsAPI extends Automate {
   constructor(props: CWAOptions) {
     super(props)
   }

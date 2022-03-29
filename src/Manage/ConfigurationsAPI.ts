@@ -22,7 +22,7 @@ export type Count = schemas['Count']
  * Configurations module
  * @public
  */
-export default class ConfigurationsAPI extends Manage {
+export class ConfigurationsAPI extends Manage {
   constructor(props: CWMOptions) {
     super(props)
   }

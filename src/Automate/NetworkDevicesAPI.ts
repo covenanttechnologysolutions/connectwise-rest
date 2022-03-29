@@ -18,7 +18,7 @@ export type LabTechModelsRouter = schemas['LabTech.Models.Router']
  * NetworkDevices module
  * @public
  */
-export default class NetworkDevicesAPI extends Automate {
+export class NetworkDevicesAPI extends Automate {
   constructor(props: CWAOptions) {
     super(props)
   }

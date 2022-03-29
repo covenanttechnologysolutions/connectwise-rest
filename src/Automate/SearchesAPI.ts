@@ -18,7 +18,7 @@ export type LabTechModelsSearchFolder = schemas['LabTech.Models.SearchFolder']
  * Searches module
  * @public
  */
-export default class SearchesAPI extends Automate {
+export class SearchesAPI extends Automate {
   constructor(props: CWAOptions) {
     super(props)
   }

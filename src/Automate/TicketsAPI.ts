@@ -14,7 +14,7 @@ type requestBodies = components['requestBodies']
  * Tickets module
  * @public
  */
-export default class TicketsAPI extends Automate {
+export class TicketsAPI extends Automate {
   constructor(props: CWAOptions) {
     super(props)
   }

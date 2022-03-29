@@ -188,7 +188,7 @@ export type ValidatePortalResponse = schemas['ValidatePortalResponse']
  * Company module
  * @public
  */
-export default class CompanyAPI extends Manage {
+export class CompanyAPI extends Manage {
   constructor(props: CWMOptions) {
     super(props)
   }

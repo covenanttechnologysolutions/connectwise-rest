@@ -64,7 +64,7 @@ export type WorkTypeInfo = schemas['WorkTypeInfo']
  * Time module
  * @public
  */
-export default class TimeAPI extends Manage {
+export class TimeAPI extends Manage {
   constructor(props: CWMOptions) {
     super(props)
   }

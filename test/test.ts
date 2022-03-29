@@ -10,7 +10,7 @@ import { describe, it } from 'mocha'
 import type { components } from '../src/ManageTypes'
 import { isArrayOfPromises, PromiseArray } from './test-utils'
 import { isPromise } from './test-utils'
-import ComputersAPI, { LabTechModelsComputer } from '../src/Automate/ComputersAPI'
+import { LabTechModelsComputer } from '../src/Automate/ComputersAPI'
 type Ticket = components['schemas']['Ticket']
 
 dotenv.config({ path: path.join(__dirname, '.env') })
@@ -136,8 +136,8 @@ describe('Automate', () => {
       assert(cwa.SystemAPI)
       done()
     })
-    it('should have TicketAPI', (done) => {
-      assert(cwa.TicketAPI)
+    it('should have TicketsAPI', (done) => {
+      assert(cwa.TicketsAPI)
       done()
     })
     it('should have UserProfilesAPI', (done) => {

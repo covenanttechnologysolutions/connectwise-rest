@@ -70,19 +70,19 @@ export type LabTechRESTApiSecurityAuthServiceCredentials =
  * System module
  * @public
  */
-export default class SystemAPI extends Automate {
+export class SystemAPI extends Automate {
   constructor(props: CWAOptions) {
     super(props)
   }
 
-  get(): Promise<AutomateApiDomainContractsSecurityAuthInformation> {
+  getAuthInformation(): Promise<AutomateApiDomainContractsSecurityAuthInformation> {
     return this.request({
       path: `/api/v1/APIToken`,
       method: 'get',
     })
   }
 
-  post(
+  postToken(
     TokenCredentials: AutomateApiDomainContractsSecurityTokenCredentials,
   ): Promise<AutomateApiDomainContractsSecurityTokenResult> {
     return this.request({

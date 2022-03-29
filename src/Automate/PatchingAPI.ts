@@ -19,7 +19,7 @@ export type LabTechModelsPatchActionArgs = requestBodies['LabTech.Models.PatchAc
  * Patching module
  * @public
  */
-export default class PatchingAPI extends Automate {
+export class PatchingAPI extends Automate {
   constructor(props: CWAOptions) {
     super(props)
   }

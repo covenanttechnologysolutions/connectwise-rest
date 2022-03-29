@@ -48,7 +48,7 @@ export type Usage = schemas['Usage']
  * Schedule module
  * @public
  */
-export default class ScheduleAPI extends Manage {
+export class ScheduleAPI extends Manage {
   constructor(props: CWMOptions) {
     super(props)
   }

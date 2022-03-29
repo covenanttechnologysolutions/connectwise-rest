@@ -130,7 +130,7 @@ export type WarehouseInfo = schemas['WarehouseInfo']
  * Procurement module
  * @public
  */
-export default class ProcurementAPI extends Manage {
+export class ProcurementAPI extends Manage {
   constructor(props: CWMOptions) {
     super(props)
   }
