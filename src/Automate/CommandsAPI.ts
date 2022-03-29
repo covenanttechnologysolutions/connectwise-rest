@@ -5,9 +5,15 @@ import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 type requestBodies = components['requestBodies']
+/** {@link LabTechModelsCommand} */
 export type LabTechModelsCommand = schemas['LabTech.Models.Command']
 
 /**
+ * @module CommandsAPI
+ */
+
+/**
+ * Commands module
  * @public
  */
 export default class CommandsAPI extends Automate {

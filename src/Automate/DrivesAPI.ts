@@ -5,12 +5,19 @@ import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 type requestBodies = components['requestBodies']
+/** {@link LabTechRepositoriesMySQLDomainModelsDriveStatistics} */
 export type LabTechRepositoriesMySQLDomainModelsDriveStatistics =
   schemas['LabTech.Repositories.MySQL.Domain.Models.DriveStatistics']
+/** {@link LabTechRepositoriesMySQLDomainModelsDriveStats} */
 export type LabTechRepositoriesMySQLDomainModelsDriveStats =
   schemas['LabTech.Repositories.MySQL.Domain.Models.DriveStats']
 
 /**
+ * @module DrivesAPI
+ */
+
+/**
+ * Drives module
  * @public
  */
 export default class DrivesAPI extends Automate {

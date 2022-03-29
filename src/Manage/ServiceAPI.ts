@@ -5,78 +5,153 @@ import { CommonParameters, CWMOptions } from '../ManageAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 
+/** {@link ActivityReference} */
 export type ActivityReference = schemas['ActivityReference']
+/** {@link Board} */
 export type Board = schemas['Board']
+/** {@link BoardAutoAssignResource} */
 export type BoardAutoAssignResource = schemas['BoardAutoAssignResource']
+/** {@link BoardAutoTemplate} */
 export type BoardAutoTemplate = schemas['BoardAutoTemplate']
+/** {@link BoardCopy} */
 export type BoardCopy = schemas['BoardCopy']
+/** {@link BoardExcludedMember} */
 export type BoardExcludedMember = schemas['BoardExcludedMember']
+/** {@link BoardInfo} */
 export type BoardInfo = schemas['BoardInfo']
+/** {@link BoardItem} */
 export type BoardItem = schemas['BoardItem']
+/** {@link BoardItemAssociation} */
 export type BoardItemAssociation = schemas['BoardItemAssociation']
+/** {@link BoardNotification} */
 export type BoardNotification = schemas['BoardNotification']
+/** {@link BoardStatus} */
 export type BoardStatus = schemas['BoardStatus']
+/** {@link BoardStatusInfo} */
 export type BoardStatusInfo = schemas['BoardStatusInfo']
+/** {@link BoardStatusNotification} */
 export type BoardStatusNotification = schemas['BoardStatusNotification']
+/** {@link BoardSubType} */
 export type BoardSubType = schemas['BoardSubType']
+/** {@link BoardSubTypeInfo} */
 export type BoardSubTypeInfo = schemas['BoardSubTypeInfo']
+/** {@link BoardTeam} */
 export type BoardTeam = schemas['BoardTeam']
+/** {@link BoardTeamInfo} */
 export type BoardTeamInfo = schemas['BoardTeamInfo']
+/** {@link BoardType} */
 export type BoardType = schemas['BoardType']
+/** {@link BoardTypeInfo} */
 export type BoardTypeInfo = schemas['BoardTypeInfo']
+/** {@link BoardTypeSubTypeItemAssociation} */
 export type BoardTypeSubTypeItemAssociation = schemas['BoardTypeSubTypeItemAssociation']
+/** {@link Code} */
 export type Code = schemas['Code']
+/** {@link ConfigurationReference} */
 export type ConfigurationReference = schemas['ConfigurationReference']
+/** {@link ConvertToProject} */
 export type ConvertToProject = schemas['ConvertToProject']
+/** {@link Count} */
 export type Count = schemas['Count']
+/** {@link DocumentReference} */
 export type DocumentReference = schemas['DocumentReference']
+/** {@link FilterValues} */
 export type FilterValues = schemas['FilterValues']
+/** {@link Impact} */
 export type Impact = schemas['Impact']
+/** {@link KnowledgeBaseArticle} */
 export type KnowledgeBaseArticle = schemas['KnowledgeBaseArticle']
+/** {@link KnowledgeBaseCategory} */
 export type KnowledgeBaseCategory = schemas['KnowledgeBaseCategory']
+/** {@link KnowledgeBaseSettings} */
 export type KnowledgeBaseSettings = schemas['KnowledgeBaseSettings']
+/** {@link KnowledgeBaseSubCategory} */
 export type KnowledgeBaseSubCategory = schemas['KnowledgeBaseSubCategory']
+/** {@link PatchOperation} */
 export type PatchOperation = schemas['PatchOperation']
+/** {@link Priority} */
 export type Priority = schemas['Priority']
+/** {@link PriorityInfo} */
 export type PriorityInfo = schemas['PriorityInfo']
+/** {@link ProductReference} */
 export type ProductReference = schemas['ProductReference']
+/** {@link SLA} */
 export type SLA = schemas['SLA']
+/** {@link SLAInfo} */
 export type SLAInfo = schemas['SLAInfo']
+/** {@link SLAPriority} */
 export type SLAPriority = schemas['SLAPriority']
+/** {@link ScheduleEntryReference} */
 export type ScheduleEntryReference = schemas['ScheduleEntryReference']
+/** {@link SchedulingMemberInfo} */
 export type SchedulingMemberInfo = schemas['SchedulingMemberInfo']
+/** {@link ServiceEmailTemplate} */
 export type ServiceEmailTemplate = schemas['ServiceEmailTemplate']
+/** {@link ServiceLocation} */
 export type ServiceLocation = schemas['ServiceLocation']
+/** {@link ServiceLocationInfo} */
 export type ServiceLocationInfo = schemas['ServiceLocationInfo']
+/** {@link ServiceNote} */
 export type ServiceNote = schemas['ServiceNote']
+/** {@link ServiceSignoff} */
 export type ServiceSignoff = schemas['ServiceSignoff']
+/** {@link ServiceSignoffInfo} */
 export type ServiceSignoffInfo = schemas['ServiceSignoffInfo']
+/** {@link ServiceSurvey} */
 export type ServiceSurvey = schemas['ServiceSurvey']
+/** {@link ServiceSurveyQuestion} */
 export type ServiceSurveyQuestion = schemas['ServiceSurveyQuestion']
+/** {@link ServiceTeam} */
 export type ServiceTeam = schemas['ServiceTeam']
+/** {@link ServiceTemplate} */
 export type ServiceTemplate = schemas['ServiceTemplate']
+/** {@link ServiceTemplateInfo} */
 export type ServiceTemplateInfo = schemas['ServiceTemplateInfo']
+/** {@link ServiceTicketLink} */
 export type ServiceTicketLink = schemas['ServiceTicketLink']
+/** {@link ServiceTicketLinkInfo} */
 export type ServiceTicketLinkInfo = schemas['ServiceTicketLinkInfo']
+/** {@link ServiceTicketNote} */
 export type ServiceTicketNote = schemas['ServiceTicketNote']
+/** {@link Severity} */
 export type Severity = schemas['Severity']
+/** {@link Source} */
 export type Source = schemas['Source']
+/** {@link SourceInfo} */
 export type SourceInfo = schemas['SourceInfo']
+/** {@link SuccessResponse} */
 export type SuccessResponse = schemas['SuccessResponse']
+/** {@link SurveyOption} */
 export type SurveyOption = schemas['SurveyOption']
+/** {@link SurveyResult} */
 export type SurveyResult = schemas['SurveyResult']
+/** {@link Task} */
 export type Task = schemas['Task']
+/** {@link TeamMember} */
 export type TeamMember = schemas['TeamMember']
+/** {@link TemplateGeneratedCountsModel} */
 export type TemplateGeneratedCountsModel = schemas['TemplateGeneratedCountsModel']
+/** {@link Ticket} */
 export type Ticket = schemas['Ticket']
+/** {@link TicketBundle} */
 export type TicketBundle = schemas['TicketBundle']
+/** {@link TicketInfo} */
 export type TicketInfo = schemas['TicketInfo']
+/** {@link TicketMerge} */
 export type TicketMerge = schemas['TicketMerge']
+/** {@link TicketSync} */
 export type TicketSync = schemas['TicketSync']
+/** {@link TimeEntryReference} */
 export type TimeEntryReference = schemas['TimeEntryReference']
+/** {@link Usage} */
 export type Usage = schemas['Usage']
 
 /**
+ * @module ServiceAPI
+ */
+
+/**
+ * Service module
  * @public
  */
 export default class ServiceAPI extends Manage {

@@ -5,97 +5,187 @@ import { CommonParameters, CWMOptions } from '../ManageAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 
+/** {@link AddressFormat} */
 export type AddressFormat = schemas['AddressFormat']
+/** {@link AddressFormatInfo} */
 export type AddressFormatInfo = schemas['AddressFormatInfo']
+/** {@link BulkResult} */
 export type BulkResult = schemas['BulkResult']
+/** {@link ClearPickerRequest} */
 export type ClearPickerRequest = schemas['ClearPickerRequest']
+/** {@link CommunicationType} */
 export type CommunicationType = schemas['CommunicationType']
+/** {@link CommunicationTypeInfo} */
 export type CommunicationTypeInfo = schemas['CommunicationTypeInfo']
+/** {@link Company} */
 export type Company = schemas['Company']
+/** {@link CompanyCompanyTypeAssociation} */
 export type CompanyCompanyTypeAssociation = schemas['Company.CompanyTypeAssociation']
+/** {@link CompanyConfiguration} */
 export type CompanyConfiguration = schemas['Company.Configuration']
+/** {@link CompanyContactTypeAssociation} */
 export type CompanyContactTypeAssociation = schemas['Company.ContactTypeAssociation']
+/** {@link CompanyCompanyTypeAssociationCompanyTypeAssociation} */
 export type CompanyCompanyTypeAssociationCompanyTypeAssociation =
   schemas['CompanyCompanyTypeAssociation.CompanyTypeAssociation']
+/** {@link CompanyCustomNote} */
 export type CompanyCustomNote = schemas['CompanyCustomNote']
+/** {@link CompanyFinance} */
 export type CompanyFinance = schemas['CompanyFinance']
+/** {@link CompanyGroup} */
 export type CompanyGroup = schemas['CompanyGroup']
+/** {@link CompanyManagementSummary} */
 export type CompanyManagementSummary = schemas['CompanyManagementSummary']
+/** {@link CompanyMerge} */
 export type CompanyMerge = schemas['CompanyMerge']
+/** {@link CompanyNote} */
 export type CompanyNote = schemas['CompanyNote']
+/** {@link CompanyNoteType} */
 export type CompanyNoteType = schemas['CompanyNoteType']
+/** {@link CompanyNoteTypeInfo} */
 export type CompanyNoteTypeInfo = schemas['CompanyNoteTypeInfo']
+/** {@link CompanyPickerItem} */
 export type CompanyPickerItem = schemas['CompanyPickerItem']
+/** {@link CompanySite} */
 export type CompanySite = schemas['CompanySite']
+/** {@link CompanyStatus} */
 export type CompanyStatus = schemas['CompanyStatus']
+/** {@link CompanyTeam} */
 export type CompanyTeam = schemas['CompanyTeam']
+/** {@link CompanyType} */
 export type CompanyType = schemas['CompanyType']
+/** {@link CompanyTypeInfo} */
 export type CompanyTypeInfo = schemas['CompanyTypeInfo']
+/** {@link ConfigurationStatus} */
 export type ConfigurationStatus = schemas['ConfigurationStatus']
+/** {@link ConfigurationStatusInfo} */
 export type ConfigurationStatusInfo = schemas['ConfigurationStatusInfo']
+/** {@link ConfigurationType} */
 export type ConfigurationType = schemas['ConfigurationType']
+/** {@link ConfigurationTypeInfo} */
 export type ConfigurationTypeInfo = schemas['ConfigurationTypeInfo']
+/** {@link ConfigurationTypeQuestion} */
 export type ConfigurationTypeQuestion = schemas['ConfigurationTypeQuestion']
+/** {@link ConfigurationTypeQuestionValue} */
 export type ConfigurationTypeQuestionValue = schemas['ConfigurationTypeQuestionValue']
+/** {@link Contact} */
 export type Contact = schemas['Contact']
+/** {@link ContactCommunication} */
 export type ContactCommunication = schemas['ContactCommunication']
+/** {@link ContactContactTypeAssociationContactTypeAssociation} */
 export type ContactContactTypeAssociationContactTypeAssociation =
   schemas['ContactContactTypeAssociation.ContactTypeAssociation']
+/** {@link ContactDepartment} */
 export type ContactDepartment = schemas['ContactDepartment']
+/** {@link ContactDepartmentInfo} */
 export type ContactDepartmentInfo = schemas['ContactDepartmentInfo']
+/** {@link ContactGroup} */
 export type ContactGroup = schemas['ContactGroup']
+/** {@link ContactNote} */
 export type ContactNote = schemas['ContactNote']
+/** {@link ContactRelationship} */
 export type ContactRelationship = schemas['ContactRelationship']
+/** {@link ContactTrack} */
 export type ContactTrack = schemas['ContactTrack']
+/** {@link ContactType} */
 export type ContactType = schemas['ContactType']
+/** {@link ContactTypeInfo} */
 export type ContactTypeInfo = schemas['ContactTypeInfo']
+/** {@link Count} */
 export type Count = schemas['Count']
+/** {@link Country} */
 export type Country = schemas['Country']
+/** {@link CountryInfo} */
 export type CountryInfo = schemas['CountryInfo']
+/** {@link EntityType} */
 export type EntityType = schemas['EntityType']
+/** {@link EntityTypeInfo} */
 export type EntityTypeInfo = schemas['EntityTypeInfo']
+/** {@link ManagedDevicesIntegration} */
 export type ManagedDevicesIntegration = schemas['ManagedDevicesIntegration']
+/** {@link ManagedDevicesIntegrationCrossReference} */
 export type ManagedDevicesIntegrationCrossReference =
   schemas['ManagedDevicesIntegrationCrossReference']
+/** {@link ManagedDevicesIntegrationInfo} */
 export type ManagedDevicesIntegrationInfo = schemas['ManagedDevicesIntegrationInfo']
+/** {@link ManagedDevicesIntegrationLogin} */
 export type ManagedDevicesIntegrationLogin = schemas['ManagedDevicesIntegrationLogin']
+/** {@link ManagedDevicesIntegrationNotification} */
 export type ManagedDevicesIntegrationNotification = schemas['ManagedDevicesIntegrationNotification']
+/** {@link Management} */
 export type Management = schemas['Management']
+/** {@link ManagementBackup} */
 export type ManagementBackup = schemas['ManagementBackup']
+/** {@link ManagementItSolution} */
 export type ManagementItSolution = schemas['ManagementItSolution']
+/** {@link ManagementItSolutionAgreementInterfaceParameter} */
 export type ManagementItSolutionAgreementInterfaceParameter =
   schemas['ManagementItSolutionAgreementInterfaceParameter']
+/** {@link ManagementLogDocumentInfo} */
 export type ManagementLogDocumentInfo = schemas['ManagementLogDocumentInfo']
+/** {@link ManagementReportNotification} */
 export type ManagementReportNotification = schemas['ManagementReportNotification']
+/** {@link ManagementReportSetup} */
 export type ManagementReportSetup = schemas['ManagementReportSetup']
+/** {@link MarketDescription} */
 export type MarketDescription = schemas['MarketDescription']
+/** {@link MarketDescriptionInfo} */
 export type MarketDescriptionInfo = schemas['MarketDescriptionInfo']
+/** {@link OwnershipType} */
 export type OwnershipType = schemas['OwnershipType']
+/** {@link OwnershipTypeInfo} */
 export type OwnershipTypeInfo = schemas['OwnershipTypeInfo']
+/** {@link PatchOperation} */
 export type PatchOperation = schemas['PatchOperation']
+/** {@link PortalConfiguration} */
 export type PortalConfiguration = schemas['PortalConfiguration']
+/** {@link PortalConfigurationInvoiceSetup} */
 export type PortalConfigurationInvoiceSetup = schemas['PortalConfigurationInvoiceSetup']
+/** {@link PortalConfigurationOpportunitySetup} */
 export type PortalConfigurationOpportunitySetup = schemas['PortalConfigurationOpportunitySetup']
+/** {@link PortalConfigurationPasswordEmailSetup} */
 export type PortalConfigurationPasswordEmailSetup = schemas['PortalConfigurationPasswordEmailSetup']
+/** {@link PortalConfigurationPaymentProcessor} */
 export type PortalConfigurationPaymentProcessor = schemas['PortalConfigurationPaymentProcessor']
+/** {@link PortalConfigurationProjectSetup} */
 export type PortalConfigurationProjectSetup = schemas['PortalConfigurationProjectSetup']
+/** {@link PortalConfigurationServiceSetup} */
 export type PortalConfigurationServiceSetup = schemas['PortalConfigurationServiceSetup']
+/** {@link PortalSecurity} */
 export type PortalSecurity = schemas['PortalSecurity']
+/** {@link PortalSecurityLevel} */
 export type PortalSecurityLevel = schemas['PortalSecurityLevel']
+/** {@link PortalSecuritySetting} */
 export type PortalSecuritySetting = schemas['PortalSecuritySetting']
+/** {@link RequestPasswordRequest} */
 export type RequestPasswordRequest = schemas['RequestPasswordRequest']
+/** {@link State} */
 export type State = schemas['State']
+/** {@link StateInfo} */
 export type StateInfo = schemas['StateInfo']
+/** {@link SuccessResponse} */
 export type SuccessResponse = schemas['SuccessResponse']
+/** {@link TeamRole} */
 export type TeamRole = schemas['TeamRole']
+/** {@link TeamRoleInfo} */
 export type TeamRoleInfo = schemas['TeamRoleInfo']
+/** {@link Track} */
 export type Track = schemas['Track']
+/** {@link TrackAction} */
 export type TrackAction = schemas['TrackAction']
+/** {@link Usage} */
 export type Usage = schemas['Usage']
+/** {@link ValidatePortalRequest} */
 export type ValidatePortalRequest = schemas['ValidatePortalRequest']
+/** {@link ValidatePortalResponse} */
 export type ValidatePortalResponse = schemas['ValidatePortalResponse']
 
 /**
+ * @module CompanyAPI
+ */
+
+/**
+ * Company module
  * @public
  */
 export default class CompanyAPI extends Manage {

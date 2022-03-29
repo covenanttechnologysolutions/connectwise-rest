@@ -5,21 +5,39 @@ import { CommonParameters, CWMOptions } from '../ManageAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 
+/** {@link Classification} */
 export type Classification = schemas['Classification']
+/** {@link Count} */
 export type Count = schemas['Count']
+/** {@link ExpenseEntry} */
 export type ExpenseEntry = schemas['ExpenseEntry']
+/** {@link ExpenseEntryAudit} */
 export type ExpenseEntryAudit = schemas['ExpenseEntryAudit']
+/** {@link ExpenseReport} */
 export type ExpenseReport = schemas['ExpenseReport']
+/** {@link ExpenseReportAudit} */
 export type ExpenseReportAudit = schemas['ExpenseReportAudit']
+/** {@link ExpenseTaxTypeInfo} */
 export type ExpenseTaxTypeInfo = schemas['ExpenseTaxTypeInfo']
+/** {@link ExpenseType} */
 export type ExpenseType = schemas['ExpenseType']
+/** {@link ExpenseTypeInfo} */
 export type ExpenseTypeInfo = schemas['ExpenseTypeInfo']
+/** {@link PatchOperation} */
 export type PatchOperation = schemas['PatchOperation']
+/** {@link PaymentType} */
 export type PaymentType = schemas['PaymentType']
+/** {@link PaymentTypeInfo} */
 export type PaymentTypeInfo = schemas['PaymentTypeInfo']
+/** {@link SuccessResponse} */
 export type SuccessResponse = schemas['SuccessResponse']
 
 /**
+ * @module ExpenseAPI
+ */
+
+/**
+ * Expense module
  * @public
  */
 export default class ExpenseAPI extends Manage {

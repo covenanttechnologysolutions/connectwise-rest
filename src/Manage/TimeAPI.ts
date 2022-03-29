@@ -5,33 +5,63 @@ import { CommonParameters, CWMOptions } from '../ManageAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 
+/** {@link ActivityStopwatch} */
 export type ActivityStopwatch = schemas['ActivityStopwatch']
+/** {@link ChargeCode} */
 export type ChargeCode = schemas['ChargeCode']
+/** {@link ChargeCodeExpenseType} */
 export type ChargeCodeExpenseType = schemas['ChargeCodeExpenseType']
+/** {@link ChargeCodeInfo} */
 export type ChargeCodeInfo = schemas['ChargeCodeInfo']
+/** {@link Count} */
 export type Count = schemas['Count']
+/** {@link PatchOperation} */
 export type PatchOperation = schemas['PatchOperation']
+/** {@link ScheduleStopwatch} */
 export type ScheduleStopwatch = schemas['ScheduleStopwatch']
+/** {@link SuccessResponse} */
 export type SuccessResponse = schemas['SuccessResponse']
+/** {@link TicketStopwatch} */
 export type TicketStopwatch = schemas['TicketStopwatch']
+/** {@link TimeAccrual} */
 export type TimeAccrual = schemas['TimeAccrual']
+/** {@link TimeAccrualDetail} */
 export type TimeAccrualDetail = schemas['TimeAccrualDetail']
+/** {@link TimeEntry} */
 export type TimeEntry = schemas['TimeEntry']
+/** {@link TimeEntryAudit} */
 export type TimeEntryAudit = schemas['TimeEntryAudit']
+/** {@link TimePeriod} */
 export type TimePeriod = schemas['TimePeriod']
+/** {@link TimePeriodSetup} */
 export type TimePeriodSetup = schemas['TimePeriodSetup']
+/** {@link TimePeriodSetupDefaults} */
 export type TimePeriodSetupDefaults = schemas['TimePeriodSetupDefaults']
+/** {@link TimeSheet} */
 export type TimeSheet = schemas['TimeSheet']
+/** {@link TimeSheetAudit} */
 export type TimeSheetAudit = schemas['TimeSheetAudit']
+/** {@link TimeSheetTierUpdate} */
 export type TimeSheetTierUpdate = schemas['TimeSheetTierUpdate']
+/** {@link Usage} */
 export type Usage = schemas['Usage']
+/** {@link WorkRole} */
 export type WorkRole = schemas['WorkRole']
+/** {@link WorkRoleInfo} */
 export type WorkRoleInfo = schemas['WorkRoleInfo']
+/** {@link WorkRoleLocation} */
 export type WorkRoleLocation = schemas['WorkRoleLocation']
+/** {@link WorkType} */
 export type WorkType = schemas['WorkType']
+/** {@link WorkTypeInfo} */
 export type WorkTypeInfo = schemas['WorkTypeInfo']
 
 /**
+ * @module TimeAPI
+ */
+
+/**
+ * Time module
  * @public
  */
 export default class TimeAPI extends Manage {

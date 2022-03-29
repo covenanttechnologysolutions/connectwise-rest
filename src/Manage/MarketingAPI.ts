@@ -5,26 +5,49 @@ import { CommonParameters, CWMOptions } from '../ManageAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 
+/** {@link ActivityReference} */
 export type ActivityReference = schemas['ActivityReference']
+/** {@link Campaign} */
 export type Campaign = schemas['Campaign']
+/** {@link CampaignSubTypeCampaignSubType} */
 export type CampaignSubTypeCampaignSubType = schemas['Campaign.SubType.CampaignSubType']
+/** {@link CampaignAudit} */
 export type CampaignAudit = schemas['CampaignAudit']
+/** {@link CampaignStatus} */
 export type CampaignStatus = schemas['CampaignStatus']
+/** {@link CampaignType} */
 export type CampaignType = schemas['CampaignType']
+/** {@link CampaignTypeInfo} */
 export type CampaignTypeInfo = schemas['CampaignTypeInfo']
+/** {@link Count} */
 export type Count = schemas['Count']
+/** {@link EmailOpened} */
 export type EmailOpened = schemas['EmailOpened']
+/** {@link FormSubmitted} */
 export type FormSubmitted = schemas['FormSubmitted']
+/** {@link Group} */
 export type Group = schemas['Group']
+/** {@link LinkClicked} */
 export type LinkClicked = schemas['LinkClicked']
+/** {@link MarketingCompany} */
 export type MarketingCompany = schemas['MarketingCompany']
+/** {@link MarketingContact} */
 export type MarketingContact = schemas['MarketingContact']
+/** {@link OpportunityReference} */
 export type OpportunityReference = schemas['OpportunityReference']
+/** {@link PatchOperation} */
 export type PatchOperation = schemas['PatchOperation']
+/** {@link TypeSubTypeCampaignSubType} */
 export type TypeSubTypeCampaignSubType = schemas['Type.SubType.CampaignSubType']
+/** {@link Usage} */
 export type Usage = schemas['Usage']
 
 /**
+ * @module MarketingAPI
+ */
+
+/**
+ * Marketing module
  * @public
  */
 export default class MarketingAPI extends Manage {

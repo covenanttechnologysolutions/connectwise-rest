@@ -5,11 +5,18 @@ import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 type requestBodies = components['requestBodies']
+/** {@link AutomateApiDomainContractsPatchingGroupPatchingPolicy} */
 export type AutomateApiDomainContractsPatchingGroupPatchingPolicy =
   schemas['Automate.Api.Domain.Contracts.Patching.GroupPatchingPolicy']
+/** {@link LabTechModelsPatchActionArgs} */
 export type LabTechModelsPatchActionArgs = requestBodies['LabTech.Models.PatchActionArgs']
 
 /**
+ * @module PatchingAPI
+ */
+
+/**
+ * Patching module
  * @public
  */
 export default class PatchingAPI extends Automate {

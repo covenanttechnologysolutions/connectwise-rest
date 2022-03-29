@@ -7,6 +7,11 @@ type schemas = components['schemas']
 type requestBodies = components['requestBodies']
 
 /**
+ * @module TicketsAPI
+ */
+
+/**
+ * Tickets module
  * @public
  */
 export default class TicketsAPI extends Automate {

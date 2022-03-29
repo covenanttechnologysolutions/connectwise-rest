@@ -5,10 +5,17 @@ import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 type requestBodies = components['requestBodies']
+/** {@link LabTechModelsDataView} */
 export type LabTechModelsDataView = schemas['LabTech.Models.DataView']
+/** {@link LabTechModelsDataViewFolder} */
 export type LabTechModelsDataViewFolder = schemas['LabTech.Models.DataViewFolder']
 
 /**
+ * @module DataViewsAPI
+ */
+
+/**
+ * DataViews module
  * @public
  */
 export default class DataViewsAPI extends Automate {

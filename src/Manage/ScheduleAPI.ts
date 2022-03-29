@@ -5,25 +5,47 @@ import { CommonParameters, CWMOptions } from '../ManageAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 
+/** {@link Calendar} */
 export type Calendar = schemas['Calendar']
+/** {@link CalendarInfo} */
 export type CalendarInfo = schemas['CalendarInfo']
+/** {@link Count} */
 export type Count = schemas['Count']
+/** {@link Holiday} */
 export type Holiday = schemas['Holiday']
+/** {@link HolidayList} */
 export type HolidayList = schemas['HolidayList']
+/** {@link HolidayListInfo} */
 export type HolidayListInfo = schemas['HolidayListInfo']
+/** {@link PatchOperation} */
 export type PatchOperation = schemas['PatchOperation']
+/** {@link PortalCalendar} */
 export type PortalCalendar = schemas['PortalCalendar']
+/** {@link ScheduleColor} */
 export type ScheduleColor = schemas['ScheduleColor']
+/** {@link ScheduleDetail} */
 export type ScheduleDetail = schemas['ScheduleDetail']
+/** {@link ScheduleEntry} */
 export type ScheduleEntry = schemas['ScheduleEntry']
+/** {@link ScheduleEntryDetail} */
 export type ScheduleEntryDetail = schemas['ScheduleEntryDetail']
+/** {@link ScheduleReminderTime} */
 export type ScheduleReminderTime = schemas['ScheduleReminderTime']
+/** {@link ScheduleStatus} */
 export type ScheduleStatus = schemas['ScheduleStatus']
+/** {@link ScheduleType} */
 export type ScheduleType = schemas['ScheduleType']
+/** {@link ScheduleTypeInfo} */
 export type ScheduleTypeInfo = schemas['ScheduleTypeInfo']
+/** {@link Usage} */
 export type Usage = schemas['Usage']
 
 /**
+ * @module ScheduleAPI
+ */
+
+/**
+ * Schedule module
  * @public
  */
 export default class ScheduleAPI extends Manage {

@@ -5,16 +5,26 @@ import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 type requestBodies = components['requestBodies']
+/** {@link AutomateApiDomainContractsScriptsRunningScriptsRunningScript} */
 export type AutomateApiDomainContractsScriptsRunningScriptsRunningScript =
   schemas['Automate.Api.Domain.Contracts.Scripts.RunningScripts.RunningScript']
+/** {@link AutomateApiDomainContractsScriptsScheduledScript} */
 export type AutomateApiDomainContractsScriptsScheduledScript =
   schemas['Automate.Api.Domain.Contracts.Scripts.ScheduledScript']
+/** {@link LabTechModelsScript} */
 export type LabTechModelsScript = schemas['LabTech.Models.Script']
+/** {@link LabTechModelsScriptFolder} */
 export type LabTechModelsScriptFolder = schemas['LabTech.Models.ScriptFolder']
+/** {@link LabTechRESTApiModelsPatchOperationArray} */
 export type LabTechRESTApiModelsPatchOperationArray =
   requestBodies['LabTech.RESTApi.Models.PatchOperationArray']
 
 /**
+ * @module ScriptingAPI
+ */
+
+/**
+ * Scripting module
  * @public
  */
 export default class ScriptingAPI extends Automate {

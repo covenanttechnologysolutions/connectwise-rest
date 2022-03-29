@@ -5,11 +5,18 @@ import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 type requestBodies = components['requestBodies']
+/** {@link LabTechModelsSensorCheck} */
 export type LabTechModelsSensorCheck = schemas['LabTech.Models.SensorCheck']
+/** {@link LabTechRepositoriesMySQLDomainModelsMonitorDataCollectionSettings} */
 export type LabTechRepositoriesMySQLDomainModelsMonitorDataCollectionSettings =
   schemas['LabTech.Repositories.MySQL.Domain.Models.MonitorDataCollectionSettings']
 
 /**
+ * @module MonitorsAPI
+ */
+
+/**
+ * Monitors module
  * @public
  */
 export default class MonitorsAPI extends Automate {

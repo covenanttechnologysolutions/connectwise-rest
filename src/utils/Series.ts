@@ -10,6 +10,9 @@ export type PromiseLikeFunction =
   | (() => unknown)
   | { then: () => void }
 
+/**
+ * @public
+ */
 export type SeriesOptions = {
   series: Array<PromiseLikeFunction>
   concurrent?: number
@@ -78,6 +81,9 @@ function all({ series = [], concurrent = 1, delay = 0 }: SeriesOptions): Promise
   })
 }
 
+/**
+ * @public
+ */
 const Series = { all }
 
 export default Series

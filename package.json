@@ -15,11 +15,15 @@
     "generate:automate": "node generator/automate-generator.js",
     "generate:manage": "node generator/manage-generator.js",
     "generate": "npm run generate:automate & npm run generate:manage",
+    "prebuild": "npm run generate",
     "build": "npx tsc",
     "postbuild": "npm run lint",
     "lint": "npx eslint -c .eslintrc --fix",
     "coveralls": "npx nyc report --reporter=text-lcov > ./.nyc_output/lcov.info",
-    "docs": "npx typedoc src/index.ts",
+    "pretypedocs": "npm run clean:docs",
+    "typedocs": "npx typedoc src/index.ts --listInvalidSymbolLinks",
+    "predocs": "npx api-extractor run --local --verbose",
+    "docs": "npx api-documenter markdown --input-folder temp --output-folder docs",
     "gh-pages": "npx gh-pages -d docs"
   },
   "repository": {

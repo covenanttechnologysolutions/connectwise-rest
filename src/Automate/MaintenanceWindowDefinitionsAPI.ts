@@ -5,10 +5,16 @@ import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 type requestBodies = components['requestBodies']
+/** {@link AutomateApiDomainContractsMaintenanceMaintenanceWindowDefinition} */
 export type AutomateApiDomainContractsMaintenanceMaintenanceWindowDefinition =
   schemas['Automate.Api.Domain.Contracts.Maintenance.MaintenanceWindowDefinition']
 
 /**
+ * @module MaintenanceWindowDefinitionsAPI
+ */
+
+/**
+ * MaintenanceWindowDefinitions module
  * @public
  */
 export default class MaintenanceWindowDefinitionsAPI extends Automate {

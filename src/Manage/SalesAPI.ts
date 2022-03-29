@@ -5,49 +5,95 @@ import { CommonParameters, CWMOptions } from '../ManageAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 
+/** {@link Activity} */
 export type Activity = schemas['Activity']
+/** {@link ActivityStatus} */
 export type ActivityStatus = schemas['ActivityStatus']
+/** {@link ActivityStatusInfo} */
 export type ActivityStatusInfo = schemas['ActivityStatusInfo']
+/** {@link ActivityType} */
 export type ActivityType = schemas['ActivityType']
+/** {@link Agreement} */
 export type Agreement = schemas['Agreement']
+/** {@link Commission} */
 export type Commission = schemas['Commission']
+/** {@link Count} */
 export type Count = schemas['Count']
+/** {@link Forecast} */
 export type Forecast = schemas['Forecast']
+/** {@link ForecastItem} */
 export type ForecastItem = schemas['ForecastItem']
+/** {@link Opportunity} */
 export type Opportunity = schemas['Opportunity']
+/** {@link OpportunityContact} */
 export type OpportunityContact = schemas['OpportunityContact']
+/** {@link OpportunityNote} */
 export type OpportunityNote = schemas['OpportunityNote']
+/** {@link OpportunityRating} */
 export type OpportunityRating = schemas['OpportunityRating']
+/** {@link OpportunityRatingInfo} */
 export type OpportunityRatingInfo = schemas['OpportunityRatingInfo']
+/** {@link OpportunityStage} */
 export type OpportunityStage = schemas['OpportunityStage']
+/** {@link OpportunityStageInfo} */
 export type OpportunityStageInfo = schemas['OpportunityStageInfo']
+/** {@link OpportunityStatus} */
 export type OpportunityStatus = schemas['OpportunityStatus']
+/** {@link OpportunityStatusInfo} */
 export type OpportunityStatusInfo = schemas['OpportunityStatusInfo']
+/** {@link OpportunityToAgreementConversion} */
 export type OpportunityToAgreementConversion = schemas['OpportunityToAgreementConversion']
+/** {@link OpportunityToProjectConversion} */
 export type OpportunityToProjectConversion = schemas['OpportunityToProjectConversion']
+/** {@link OpportunityToSalesOrderConversion} */
 export type OpportunityToSalesOrderConversion = schemas['OpportunityToSalesOrderConversion']
+/** {@link OpportunityToServiceTicketConversion} */
 export type OpportunityToServiceTicketConversion = schemas['OpportunityToServiceTicketConversion']
+/** {@link OpportunityType} */
 export type OpportunityType = schemas['OpportunityType']
+/** {@link OpportunityTypeInfo} */
 export type OpportunityTypeInfo = schemas['OpportunityTypeInfo']
+/** {@link Order} */
 export type Order = schemas['Order']
+/** {@link OrderStatus} */
 export type OrderStatus = schemas['OrderStatus']
+/** {@link OrderStatusEmailTemplate} */
 export type OrderStatusEmailTemplate = schemas['OrderStatusEmailTemplate']
+/** {@link OrderStatusInfo} */
 export type OrderStatusInfo = schemas['OrderStatusInfo']
+/** {@link OrderStatusNotification} */
 export type OrderStatusNotification = schemas['OrderStatusNotification']
+/** {@link PatchOperation} */
 export type PatchOperation = schemas['PatchOperation']
+/** {@link Project} */
 export type Project = schemas['Project']
+/** {@link Role} */
 export type Role = schemas['Role']
+/** {@link SalesProbability} */
 export type SalesProbability = schemas['SalesProbability']
+/** {@link SalesProbabilityInfo} */
 export type SalesProbabilityInfo = schemas['SalesProbabilityInfo']
+/** {@link SalesQuota} */
 export type SalesQuota = schemas['SalesQuota']
+/** {@link SalesTeam} */
 export type SalesTeam = schemas['SalesTeam']
+/** {@link SalesTeamMember} */
 export type SalesTeamMember = schemas['SalesTeamMember']
+/** {@link SuccessResponse} */
 export type SuccessResponse = schemas['SuccessResponse']
+/** {@link Team} */
 export type Team = schemas['Team']
+/** {@link Ticket} */
 export type Ticket = schemas['Ticket']
+/** {@link Usage} */
 export type Usage = schemas['Usage']
 
 /**
+ * @module SalesAPI
+ */
+
+/**
+ * Sales module
  * @public
  */
 export default class SalesAPI extends Manage {

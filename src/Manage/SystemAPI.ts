@@ -5,149 +5,295 @@ import { CommonParameters, CWMOptions } from '../ManageAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 
+/** {@link AllowedFileType} */
 export type AllowedFileType = schemas['AllowedFileType']
+/** {@link AllowedOrigin} */
 export type AllowedOrigin = schemas['AllowedOrigin']
+/** {@link ApiMember} */
 export type ApiMember = schemas['ApiMember']
+/** {@link AuditTrailEntry} */
 export type AuditTrailEntry = schemas['AuditTrailEntry']
+/** {@link AuthAnvil} */
 export type AuthAnvil = schemas['AuthAnvil']
+/** {@link AutoSyncTime} */
 export type AutoSyncTime = schemas['AutoSyncTime']
+/** {@link BulkResult} */
 export type BulkResult = schemas['BulkResult']
+/** {@link BundleRequestsCollection} */
 export type BundleRequestsCollection = schemas['BundleRequestsCollection']
+/** {@link BundleResultsCollection} */
 export type BundleResultsCollection = schemas['BundleResultsCollection']
+/** {@link CallbackEntry} */
 export type CallbackEntry = schemas['CallbackEntry']
+/** {@link Certification} */
 export type Certification = schemas['Certification']
+/** {@link ConnectWiseHostedScreen} */
 export type ConnectWiseHostedScreen = schemas['ConnectWiseHostedScreen']
+/** {@link ConnectWiseHostedSetup} */
 export type ConnectWiseHostedSetup = schemas['ConnectWiseHostedSetup']
+/** {@link CorporateStructure} */
 export type CorporateStructure = schemas['CorporateStructure']
+/** {@link CorporateStructureInfo} */
 export type CorporateStructureInfo = schemas['CorporateStructureInfo']
+/** {@link CorporateStructureLevel} */
 export type CorporateStructureLevel = schemas['CorporateStructureLevel']
+/** {@link Count} */
 export type Count = schemas['Count']
+/** {@link Crm} */
 export type Crm = schemas['Crm']
+/** {@link CrmInfo} */
 export type CrmInfo = schemas['CrmInfo']
+/** {@link CustomReport} */
 export type CustomReport = schemas['CustomReport']
+/** {@link CustomReportParameter} */
 export type CustomReportParameter = schemas['CustomReportParameter']
+/** {@link CwTimeZone} */
 export type CwTimeZone = schemas['CwTimeZone']
+/** {@link Department} */
 export type Department = schemas['Department']
+/** {@link DepartmentInfo} */
 export type DepartmentInfo = schemas['DepartmentInfo']
+/** {@link DepartmentLocation} */
 export type DepartmentLocation = schemas['DepartmentLocation']
+/** {@link DepartmentLocationInfo} */
 export type DepartmentLocationInfo = schemas['DepartmentLocationInfo']
+/** {@link DocumentFormData} */
 export type DocumentFormData = schemas['DocumentFormData']
+/** {@link DocumentInfo} */
 export type DocumentInfo = schemas['DocumentInfo']
+/** {@link DocumentSetup} */
 export type DocumentSetup = schemas['DocumentSetup']
+/** {@link EPayConfiguration} */
 export type EPayConfiguration = schemas['EPayConfiguration']
+/** {@link EmailConnector} */
 export type EmailConnector = schemas['EmailConnector']
+/** {@link EmailConnectorInfo} */
 export type EmailConnectorInfo = schemas['EmailConnectorInfo']
+/** {@link EmailConnectorParsingRule} */
 export type EmailConnectorParsingRule = schemas['EmailConnectorParsingRule']
+/** {@link EmailConnectorParsingStyle} */
 export type EmailConnectorParsingStyle = schemas['EmailConnectorParsingStyle']
+/** {@link EmailExclusion} */
 export type EmailExclusion = schemas['EmailExclusion']
+/** {@link EmailToken} */
 export type EmailToken = schemas['EmailToken']
+/** {@link Experiment} */
 export type Experiment = schemas['Experiment']
+/** {@link FileUploadSetting} */
 export type FileUploadSetting = schemas['FileUploadSetting']
+/** {@link GoogleEmailSetup} */
 export type GoogleEmailSetup = schemas['GoogleEmailSetup']
+/** {@link IdCollection} */
 export type IdCollection = schemas['IdCollection']
+/** {@link Imap} */
 export type Imap = schemas['Imap']
+/** {@link ImapInfo} */
 export type ImapInfo = schemas['ImapInfo']
+/** {@link ImportMassMaintenance} */
 export type ImportMassMaintenance = schemas['ImportMassMaintenance']
+/** {@link InOutBoard} */
 export type InOutBoard = schemas['InOutBoard']
+/** {@link InOutType} */
 export type InOutType = schemas['InOutType']
+/** {@link InOutTypeInfo} */
 export type InOutTypeInfo = schemas['InOutTypeInfo']
+/** {@link Info} */
 export type Info = schemas['Info']
+/** {@link IntegratorLogin} */
 export type IntegratorLogin = schemas['IntegratorLogin']
+/** {@link IntegratorTag} */
 export type IntegratorTag = schemas['IntegratorTag']
+/** {@link KPI} */
 export type KPI = schemas['KPI']
+/** {@link KPICategory} */
 export type KPICategory = schemas['KPICategory']
+/** {@link LdapConfiguration} */
 export type LdapConfiguration = schemas['LdapConfiguration']
+/** {@link LdapConfigurationInfo} */
 export type LdapConfigurationInfo = schemas['LdapConfigurationInfo']
+/** {@link LdapConfigurationTestLink} */
 export type LdapConfigurationTestLink = schemas['LdapConfigurationTestLink']
+/** {@link Link} */
 export type Link = schemas['Link']
+/** {@link LinkInfo} */
 export type LinkInfo = schemas['LinkInfo']
+/** {@link LinkResolveUrlInfo} */
 export type LinkResolveUrlInfo = schemas['LinkResolveUrlInfo']
+/** {@link LocaleInfo} */
 export type LocaleInfo = schemas['LocaleInfo']
+/** {@link Location} */
 export type Location = schemas['Location']
+/** {@link LocationDepartment} */
 export type LocationDepartment = schemas['LocationDepartment']
+/** {@link LocationInfo} */
 export type LocationInfo = schemas['LocationInfo']
+/** {@link LocationWorkRole} */
 export type LocationWorkRole = schemas['LocationWorkRole']
+/** {@link ManagedDeviceAccount} */
 export type ManagedDeviceAccount = schemas['ManagedDeviceAccount']
+/** {@link ManagementNetworkSecurity} */
 export type ManagementNetworkSecurity = schemas['ManagementNetworkSecurity']
+/** {@link MarketplaceImport} */
 export type MarketplaceImport = schemas['MarketplaceImport']
+/** {@link Member} */
 export type Member = schemas['Member']
+/** {@link MemberAccrual} */
 export type MemberAccrual = schemas['MemberAccrual']
+/** {@link MemberCertification} */
 export type MemberCertification = schemas['MemberCertification']
+/** {@link MemberDeactivation} */
 export type MemberDeactivation = schemas['MemberDeactivation']
+/** {@link MemberDelegation} */
 export type MemberDelegation = schemas['MemberDelegation']
+/** {@link MemberInfo} */
 export type MemberInfo = schemas['MemberInfo']
+/** {@link MemberLinkSsoUser} */
 export type MemberLinkSsoUser = schemas['MemberLinkSsoUser']
+/** {@link MemberNotificationSetting} */
 export type MemberNotificationSetting = schemas['MemberNotificationSetting']
+/** {@link MemberPersona} */
 export type MemberPersona = schemas['MemberPersona']
+/** {@link MemberSkill} */
 export type MemberSkill = schemas['MemberSkill']
+/** {@link MemberSsoToken} */
 export type MemberSsoToken = schemas['MemberSsoToken']
+/** {@link MemberType} */
 export type MemberType = schemas['MemberType']
+/** {@link MemberTypeInfo} */
 export type MemberTypeInfo = schemas['MemberTypeInfo']
+/** {@link MenuEntry} */
 export type MenuEntry = schemas['MenuEntry']
+/** {@link MenuEntryLocation} */
 export type MenuEntryLocation = schemas['MenuEntryLocation']
+/** {@link MyAccount} */
 export type MyAccount = schemas['MyAccount']
+/** {@link MyMember} */
 export type MyMember = schemas['MyMember']
+/** {@link MyMemberInfo} */
 export type MyMemberInfo = schemas['MyMemberInfo']
+/** {@link MySecurity} */
 export type MySecurity = schemas['MySecurity']
+/** {@link MySecurityCustomizeItem} */
 export type MySecurityCustomizeItem = schemas['MySecurityCustomizeItem']
+/** {@link NotificationRecipient} */
 export type NotificationRecipient = schemas['NotificationRecipient']
+/** {@link Office365EmailSetup} */
 export type Office365EmailSetup = schemas['Office365EmailSetup']
+/** {@link OsGradeWeight} */
 export type OsGradeWeight = schemas['OsGradeWeight']
+/** {@link Other} */
 export type Other = schemas['Other']
+/** {@link ParsingType} */
 export type ParsingType = schemas['ParsingType']
+/** {@link ParsingVariable} */
 export type ParsingVariable = schemas['ParsingVariable']
+/** {@link PatchOperation} */
 export type PatchOperation = schemas['PatchOperation']
+/** {@link PersonasInfo} */
 export type PersonasInfo = schemas['PersonasInfo']
+/** {@link PortalReport} */
 export type PortalReport = schemas['PortalReport']
+/** {@link QuoteLink} */
 export type QuoteLink = schemas['QuoteLink']
+/** {@link Report} */
 export type Report = schemas['Report']
+/** {@link ReportCard} */
 export type ReportCard = schemas['ReportCard']
+/** {@link ReportCardDetail} */
 export type ReportCardDetail = schemas['ReportCardDetail']
+/** {@link ReportCardInfo} */
 export type ReportCardInfo = schemas['ReportCardInfo']
+/** {@link ReportColumnDefinition} */
 export type ReportColumnDefinition = schemas['ReportColumnDefinition']
+/** {@link ReportDataResponse} */
 export type ReportDataResponse = schemas['ReportDataResponse']
+/** {@link ReportingService} */
 export type ReportingService = schemas['ReportingService']
+/** {@link SecurityRole} */
 export type SecurityRole = schemas['SecurityRole']
+/** {@link SecurityRoleInfo} */
 export type SecurityRoleInfo = schemas['SecurityRoleInfo']
+/** {@link SecurityRoleSetting} */
 export type SecurityRoleSetting = schemas['SecurityRoleSetting']
+/** {@link Service} */
 export type Service = schemas['Service']
+/** {@link ServiceInfo} */
 export type ServiceInfo = schemas['ServiceInfo']
+/** {@link SetupScreen} */
 export type SetupScreen = schemas['SetupScreen']
+/** {@link Skill} */
 export type Skill = schemas['Skill']
+/** {@link SkillCategory} */
 export type SkillCategory = schemas['SkillCategory']
+/** {@link SkillInfo} */
 export type SkillInfo = schemas['SkillInfo']
+/** {@link SsoConfiguration} */
 export type SsoConfiguration = schemas['SsoConfiguration']
+/** {@link SsoUser} */
 export type SsoUser = schemas['SsoUser']
+/** {@link StandardNote} */
 export type StandardNote = schemas['StandardNote']
+/** {@link StandardNoteInfo} */
 export type StandardNoteInfo = schemas['StandardNoteInfo']
+/** {@link SuccessResponse} */
 export type SuccessResponse = schemas['SuccessResponse']
+/** {@link Survey} */
 export type Survey = schemas['Survey']
+/** {@link SurveyInfo} */
 export type SurveyInfo = schemas['SurveyInfo']
+/** {@link SurveyQuestion} */
 export type SurveyQuestion = schemas['SurveyQuestion']
+/** {@link SurveyQuestionValue} */
 export type SurveyQuestionValue = schemas['SurveyQuestionValue']
+/** {@link SystemSetting} */
 export type SystemSetting = schemas['SystemSetting']
+/** {@link TimeExpense} */
 export type TimeExpense = schemas['TimeExpense']
+/** {@link TimeZoneSetup} */
 export type TimeZoneSetup = schemas['TimeZoneSetup']
+/** {@link TimeZoneSetupInfo} */
 export type TimeZoneSetupInfo = schemas['TimeZoneSetupInfo']
+/** {@link TodayPageCategory} */
 export type TodayPageCategory = schemas['TodayPageCategory']
+/** {@link Token} */
 export type Token = schemas['Token']
+/** {@link Usage} */
 export type Usage = schemas['Usage']
+/** {@link UserDefinedField} */
 export type UserDefinedField = schemas['UserDefinedField']
+/** {@link UserDefinedFieldInfo} */
 export type UserDefinedFieldInfo = schemas['UserDefinedFieldInfo']
+/** {@link Workflow} */
 export type Workflow = schemas['Workflow']
+/** {@link WorkflowAction} */
 export type WorkflowAction = schemas['WorkflowAction']
+/** {@link WorkflowActionAutomateParameter} */
 export type WorkflowActionAutomateParameter = schemas['WorkflowActionAutomateParameter']
+/** {@link WorkflowActionUserDefinedField} */
 export type WorkflowActionUserDefinedField = schemas['WorkflowActionUserDefinedField']
+/** {@link WorkflowAttachment} */
 export type WorkflowAttachment = schemas['WorkflowAttachment']
+/** {@link WorkflowEvent} */
 export type WorkflowEvent = schemas['WorkflowEvent']
+/** {@link WorkflowNotifyType} */
 export type WorkflowNotifyType = schemas['WorkflowNotifyType']
+/** {@link WorkflowNotifyTypeInfo} */
 export type WorkflowNotifyTypeInfo = schemas['WorkflowNotifyTypeInfo']
+/** {@link WorkflowTableType} */
 export type WorkflowTableType = schemas['WorkflowTableType']
+/** {@link WorkflowTableTypeInfo} */
 export type WorkflowTableTypeInfo = schemas['WorkflowTableTypeInfo']
+/** {@link WorkflowTrigger} */
 export type WorkflowTrigger = schemas['WorkflowTrigger']
+/** {@link WorkflowTriggerOption} */
 export type WorkflowTriggerOption = schemas['WorkflowTriggerOption']
 
 /**
+ * @module SystemAPI
+ */
+
+/**
+ * System module
  * @public
  */
 export default class SystemAPI extends Manage {

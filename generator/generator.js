@@ -24,15 +24,11 @@ const generateTypeDef = ({ typeName, schemaType }) => {
   let name = sanitizeType(typeName)
 
   return schemaType === 'schemas'
-    ? `export type ${name} = schemas['${typeName}']`
-    : `export type ${name} = requestBodies['${typeName}']`
+    ? `/** {@link ${name}} */
+export type ${name} = schemas['${typeName}']`
+    : `/** {@link ${name}} */
+export type ${name} = requestBodies['${typeName}']`
 }
-
-/**
- * @typedef {object} Operations
- * @property {string} url
- * @property {{}} methods
- */
 
 /**
  * decipher supplied definition files
@@ -238,6 +234,11 @@ ${generatorType === 'Automate' ? `type requestBodies = components['requestBodies
 ${typeDefs.join('\n')}
 
 /**
+ * @module ${apiName}API
+ */
+
+/**
+ * ${apiName} module
  * @public
  */
 export default class ${apiName}API extends ${generatorType} {

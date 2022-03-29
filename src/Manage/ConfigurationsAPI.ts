@@ -5,12 +5,21 @@ import { CommonParameters, CWMOptions } from '../ManageAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 
+/** {@link ConfigurationTypeInfo} */
 export type ConfigurationTypeInfo = schemas['ConfigurationTypeInfo']
+/** {@link ConfigurationTypeQuestionInfo} */
 export type ConfigurationTypeQuestionInfo = schemas['ConfigurationTypeQuestionInfo']
+/** {@link ConfigurationTypeQuestionValueInfo} */
 export type ConfigurationTypeQuestionValueInfo = schemas['ConfigurationTypeQuestionValueInfo']
+/** {@link Count} */
 export type Count = schemas['Count']
 
 /**
+ * @module ConfigurationsAPI
+ */
+
+/**
+ * Configurations module
  * @public
  */
 export default class ConfigurationsAPI extends Manage {

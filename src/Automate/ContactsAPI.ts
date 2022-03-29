@@ -5,11 +5,18 @@ import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 type requestBodies = components['requestBodies']
+/** {@link AutomateApiDomainContractsClientsContact} */
 export type AutomateApiDomainContractsClientsContact =
   schemas['Automate.Api.Domain.Contracts.Clients.Contact']
+/** {@link LabTechModelsContact} */
 export type LabTechModelsContact = schemas['LabTech.Models.Contact']
 
 /**
+ * @module ContactsAPI
+ */
+
+/**
+ * Contacts module
  * @public
  */
 export default class ContactsAPI extends Automate {

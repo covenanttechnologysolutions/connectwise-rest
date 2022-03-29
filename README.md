@@ -9,7 +9,8 @@ A Node.JS TypeScript module for interacting with the ConnectWise Manage and Auto
 ### Manage 
 
 - ConnectWise Manage 2018.1+, though these functions are written for ConnectWise Manage 2021.1 APIs.
-- ConnectWise Manage API keys (available on ConnectWise 2015.3+), or API Only Member keys (only available on ConnectWise 2015.6+).  See the [documentation](https://developer.connectwise.com/Authentication) for more details. 
+- ConnectWise Manage API keys (available on ConnectWise 2015.3+), or API Only Member keys (only available on ConnectWise 2015.6+).  See the [documentation](https://developer.connectwise.com/Authentication) for more details.
+
 ### Automate
 
 - ConnectWise Automate 2020+
@@ -152,6 +153,10 @@ To access cloud-hosted ConnectWise, use the `companyUrl` of `api-na.myconnectwis
 ```
 
 ## Examples
+
+### Sample Project
+
+See [the sample project here](https://github.com/k-grube/cw-micro).  This is a simple node.js express based API. 
 
 ### Code Examples
 

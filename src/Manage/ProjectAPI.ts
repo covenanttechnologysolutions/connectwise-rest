@@ -5,40 +5,77 @@ import { CommonParameters, CWMOptions } from '../ManageAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 
+/** {@link ActivityReference} */
 export type ActivityReference = schemas['ActivityReference']
+/** {@link ConfigurationReference} */
 export type ConfigurationReference = schemas['ConfigurationReference']
+/** {@link ConvertItem} */
 export type ConvertItem = schemas['ConvertItem']
+/** {@link Count} */
 export type Count = schemas['Count']
+/** {@link DocumentReference} */
 export type DocumentReference = schemas['DocumentReference']
+/** {@link FilterValues} */
 export type FilterValues = schemas['FilterValues']
+/** {@link PatchOperation} */
 export type PatchOperation = schemas['PatchOperation']
+/** {@link PhaseStatus} */
 export type PhaseStatus = schemas['PhaseStatus']
+/** {@link ProductReference} */
 export type ProductReference = schemas['ProductReference']
+/** {@link Project} */
 export type Project = schemas['Project']
+/** {@link ProjectBoardTeam} */
 export type ProjectBoardTeam = schemas['ProjectBoardTeam']
+/** {@link ProjectBoardTeamInfo} */
 export type ProjectBoardTeamInfo = schemas['ProjectBoardTeamInfo']
+/** {@link ProjectBoardTeamMember} */
 export type ProjectBoardTeamMember = schemas['ProjectBoardTeamMember']
+/** {@link ProjectContact} */
 export type ProjectContact = schemas['ProjectContact']
+/** {@link ProjectNote} */
 export type ProjectNote = schemas['ProjectNote']
+/** {@link ProjectPhase} */
 export type ProjectPhase = schemas['ProjectPhase']
+/** {@link ProjectSecurityRole} */
 export type ProjectSecurityRole = schemas['ProjectSecurityRole']
+/** {@link ProjectSecurityRoleSetting} */
 export type ProjectSecurityRoleSetting = schemas['ProjectSecurityRoleSetting']
+/** {@link ProjectStatus} */
 export type ProjectStatus = schemas['ProjectStatus']
+/** {@link ProjectStatusInfo} */
 export type ProjectStatusInfo = schemas['ProjectStatusInfo']
+/** {@link ProjectTeamMember} */
 export type ProjectTeamMember = schemas['ProjectTeamMember']
+/** {@link ProjectTicket} */
 export type ProjectTicket = schemas['ProjectTicket']
+/** {@link ProjectTicketNote} */
 export type ProjectTicketNote = schemas['ProjectTicketNote']
+/** {@link ProjectType} */
 export type ProjectType = schemas['ProjectType']
+/** {@link ProjectTypeInfo} */
 export type ProjectTypeInfo = schemas['ProjectTypeInfo']
+/** {@link ScheduleEntryReference} */
 export type ScheduleEntryReference = schemas['ScheduleEntryReference']
+/** {@link StatusIndicator} */
 export type StatusIndicator = schemas['StatusIndicator']
+/** {@link SuccessResponse} */
 export type SuccessResponse = schemas['SuccessResponse']
+/** {@link TicketNote} */
 export type TicketNote = schemas['TicketNote']
+/** {@link TicketTask} */
 export type TicketTask = schemas['TicketTask']
+/** {@link TimeEntryReference} */
 export type TimeEntryReference = schemas['TimeEntryReference']
+/** {@link Usage} */
 export type Usage = schemas['Usage']
 
 /**
+ * @module ProjectAPI
+ */
+
+/**
+ * Project module
  * @public
  */
 export default class ProjectAPI extends Manage {

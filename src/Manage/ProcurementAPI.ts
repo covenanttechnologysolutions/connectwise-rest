@@ -5,66 +5,129 @@ import { CommonParameters, CWMOptions } from '../ManageAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 
+/** {@link AdjustmentDetail} */
 export type AdjustmentDetail = schemas['AdjustmentDetail']
+/** {@link AdjustmentType} */
 export type AdjustmentType = schemas['AdjustmentType']
+/** {@link AdjustmentTypeInfo} */
 export type AdjustmentTypeInfo = schemas['AdjustmentTypeInfo']
+/** {@link BulkResult} */
 export type BulkResult = schemas['BulkResult']
+/** {@link CatalogComponent} */
 export type CatalogComponent = schemas['CatalogComponent']
+/** {@link CatalogInventory} */
 export type CatalogInventory = schemas['CatalogInventory']
+/** {@link CatalogItem} */
 export type CatalogItem = schemas['CatalogItem']
+/** {@link CatalogItemInfo} */
 export type CatalogItemInfo = schemas['CatalogItemInfo']
+/** {@link CatalogPricing} */
 export type CatalogPricing = schemas['CatalogPricing']
+/** {@link Category} */
 export type Category = schemas['Category']
+/** {@link CategoryInfo} */
 export type CategoryInfo = schemas['CategoryInfo']
+/** {@link Conversion} */
 export type Conversion = schemas['Conversion']
+/** {@link Count} */
 export type Count = schemas['Count']
+/** {@link IdCollection} */
 export type IdCollection = schemas['IdCollection']
+/** {@link InventoryOnHand} */
 export type InventoryOnHand = schemas['InventoryOnHand']
+/** {@link LegacySubCategory} */
 export type LegacySubCategory = schemas['LegacySubCategory']
+/** {@link LegacySubCategoryInfo} */
 export type LegacySubCategoryInfo = schemas['LegacySubCategoryInfo']
+/** {@link Manufacturer} */
 export type Manufacturer = schemas['Manufacturer']
+/** {@link ManufacturerInfo} */
 export type ManufacturerInfo = schemas['ManufacturerInfo']
+/** {@link MinimumStockByWarehouse} */
 export type MinimumStockByWarehouse = schemas['MinimumStockByWarehouse']
+/** {@link OnHandSerialNumber} */
 export type OnHandSerialNumber = schemas['OnHandSerialNumber']
+/** {@link PatchOperation} */
 export type PatchOperation = schemas['PatchOperation']
+/** {@link PricingBreak} */
 export type PricingBreak = schemas['PricingBreak']
+/** {@link PricingDetail} */
 export type PricingDetail = schemas['PricingDetail']
+/** {@link PricingSchedule} */
 export type PricingSchedule = schemas['PricingSchedule']
+/** {@link ProcurementAdjustment} */
 export type ProcurementAdjustment = schemas['ProcurementAdjustment']
+/** {@link ProcurementSetting} */
 export type ProcurementSetting = schemas['ProcurementSetting']
+/** {@link ProductComponent} */
 export type ProductComponent = schemas['ProductComponent']
+/** {@link ProductDetach} */
 export type ProductDetach = schemas['ProductDetach']
+/** {@link ProductItem} */
 export type ProductItem = schemas['ProductItem']
+/** {@link ProductPickingShippingDetail} */
 export type ProductPickingShippingDetail = schemas['ProductPickingShippingDetail']
+/** {@link ProductType} */
 export type ProductType = schemas['ProductType']
+/** {@link ProductTypeInfo} */
 export type ProductTypeInfo = schemas['ProductTypeInfo']
+/** {@link PurchaseOrder} */
 export type PurchaseOrder = schemas['PurchaseOrder']
+/** {@link PurchaseOrderLineItem} */
 export type PurchaseOrderLineItem = schemas['PurchaseOrderLineItem']
+/** {@link PurchaseOrderStatus} */
 export type PurchaseOrderStatus = schemas['PurchaseOrderStatus']
+/** {@link PurchaseOrderStatusEmailTemplate} */
 export type PurchaseOrderStatusEmailTemplate = schemas['PurchaseOrderStatusEmailTemplate']
+/** {@link PurchaseOrderStatusNotification} */
 export type PurchaseOrderStatusNotification = schemas['PurchaseOrderStatusNotification']
+/** {@link PurchasingDemand} */
 export type PurchasingDemand = schemas['PurchasingDemand']
+/** {@link RmaAction} */
 export type RmaAction = schemas['RmaAction']
+/** {@link RmaActionInfo} */
 export type RmaActionInfo = schemas['RmaActionInfo']
+/** {@link RmaDisposition} */
 export type RmaDisposition = schemas['RmaDisposition']
+/** {@link RmaDispositionInfo} */
 export type RmaDispositionInfo = schemas['RmaDispositionInfo']
+/** {@link RmaStatus} */
 export type RmaStatus = schemas['RmaStatus']
+/** {@link RmaStatusEmailTemplate} */
 export type RmaStatusEmailTemplate = schemas['RmaStatusEmailTemplate']
+/** {@link RmaStatusInfo} */
 export type RmaStatusInfo = schemas['RmaStatusInfo']
+/** {@link RmaStatusNotification} */
 export type RmaStatusNotification = schemas['RmaStatusNotification']
+/** {@link RmaTag} */
 export type RmaTag = schemas['RmaTag']
+/** {@link ShipmentMethod} */
 export type ShipmentMethod = schemas['ShipmentMethod']
+/** {@link ShipmentMethodInfo} */
 export type ShipmentMethodInfo = schemas['ShipmentMethodInfo']
+/** {@link SubCategory} */
 export type SubCategory = schemas['SubCategory']
+/** {@link SubCategoryInfo} */
 export type SubCategoryInfo = schemas['SubCategoryInfo']
+/** {@link UnitOfMeasure} */
 export type UnitOfMeasure = schemas['UnitOfMeasure']
+/** {@link Usage} */
 export type Usage = schemas['Usage']
+/** {@link Warehouse} */
 export type Warehouse = schemas['Warehouse']
+/** {@link WarehouseBin} */
 export type WarehouseBin = schemas['WarehouseBin']
+/** {@link WarehouseBinInfo} */
 export type WarehouseBinInfo = schemas['WarehouseBinInfo']
+/** {@link WarehouseInfo} */
 export type WarehouseInfo = schemas['WarehouseInfo']
 
 /**
+ * @module ProcurementAPI
+ */
+
+/**
+ * Procurement module
  * @public
  */
 export default class ProcurementAPI extends Manage {

@@ -5,30 +5,46 @@ import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 type requestBodies = components['requestBodies']
+/** {@link LabTechRESTApiModelsPatchOperationArray} */
 export type LabTechRESTApiModelsPatchOperationArray =
   requestBodies['LabTech.RESTApi.Models.PatchOperationArray']
+/** {@link LabTechRESTApiRpcContractsNewProbeConfiguration} */
 export type LabTechRESTApiRpcContractsNewProbeConfiguration =
   schemas['LabTech.RESTApi.RpcContracts.NewProbeConfiguration']
+/** {@link LabTechRepositoriesMySQLDomainModelsNetworkProbeEncryptionMethod} */
 export type LabTechRepositoriesMySQLDomainModelsNetworkProbeEncryptionMethod =
   schemas['LabTech.Repositories.MySQL.Domain.Models.NetworkProbe.EncryptionMethod']
+/** {@link LabTechRepositoriesMySQLDomainModelsNetworkProbeHashMethod} */
 export type LabTechRepositoriesMySQLDomainModelsNetworkProbeHashMethod =
   schemas['LabTech.Repositories.MySQL.Domain.Models.NetworkProbe.HashMethod']
+/** {@link LabTechRepositoriesMySQLDomainModelsNetworkProbeProbeConfiguration} */
 export type LabTechRepositoriesMySQLDomainModelsNetworkProbeProbeConfiguration =
   schemas['LabTech.Repositories.MySQL.Domain.Models.NetworkProbe.ProbeConfiguration']
+/** {@link LabTechRepositoriesMySQLDomainModelsNetworkProbeProbeConfigurationCredentials} */
 export type LabTechRepositoriesMySQLDomainModelsNetworkProbeProbeConfigurationCredentials =
   schemas['LabTech.Repositories.MySQL.Domain.Models.NetworkProbe.ProbeConfigurationCredentials']
+/** {@link LabTechRepositoriesMySQLDomainModelsNetworkProbeProbeSnmpConfiguration} */
 export type LabTechRepositoriesMySQLDomainModelsNetworkProbeProbeSnmpConfiguration =
   schemas['LabTech.Repositories.MySQL.Domain.Models.NetworkProbe.ProbeSnmpConfiguration']
+/** {@link LabTechRepositoriesMySQLDomainModelsNetworkProbeScanFrequency} */
 export type LabTechRepositoriesMySQLDomainModelsNetworkProbeScanFrequency =
   schemas['LabTech.Repositories.MySQL.Domain.Models.NetworkProbe.ScanFrequency']
+/** {@link LabTechRepositoriesMySQLDomainModelsNetworkProbeStatusScanNetworkPortOption} */
 export type LabTechRepositoriesMySQLDomainModelsNetworkProbeStatusScanNetworkPortOption =
   schemas['LabTech.Repositories.MySQL.Domain.Models.NetworkProbe.StatusScanNetworkPortOption']
+/** {@link LabTechRepositoriesMySQLDomainModelsProbeEvent} */
 export type LabTechRepositoriesMySQLDomainModelsProbeEvent =
   schemas['LabTech.Repositories.MySQL.Domain.Models.ProbeEvent']
+/** {@link LabTechRepositoriesMySQLDomainModelsProbeEventLevel} */
 export type LabTechRepositoriesMySQLDomainModelsProbeEventLevel =
   schemas['LabTech.Repositories.MySQL.Domain.Models.ProbeEventLevel']
 
 /**
+ * @module LocationsAPI
+ */
+
+/**
+ * Locations module
  * @public
  */
 export default class LocationsAPI extends Automate {

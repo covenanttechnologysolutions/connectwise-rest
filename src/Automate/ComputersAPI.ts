@@ -5,46 +5,84 @@ import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 type requestBodies = components['requestBodies']
+/** {@link AutomateApiDomainContractsPatchingComputerPatchingStats} */
 export type AutomateApiDomainContractsPatchingComputerPatchingStats =
   schemas['Automate.Api.Domain.Contracts.Patching.ComputerPatchingStats']
+/** {@link LabTechModelsCommandExecute} */
 export type LabTechModelsCommandExecute = schemas['LabTech.Models.CommandExecute']
+/** {@link LabTechModelsCommandHistory} */
 export type LabTechModelsCommandHistory = schemas['LabTech.Models.CommandHistory']
+/** {@link LabTechModelsComputer} */
 export type LabTechModelsComputer = schemas['LabTech.Models.Computer']
+/** {@link LabTechModelsComputerBios} */
 export type LabTechModelsComputerBios = schemas['LabTech.Models.ComputerBios']
+/** {@link LabTechModelsComputerChassis} */
 export type LabTechModelsComputerChassis = schemas['LabTech.Models.ComputerChassis']
+/** {@link LabTechModelsComputerDevice} */
 export type LabTechModelsComputerDevice = schemas['LabTech.Models.ComputerDevice']
+/** {@link LabTechModelsComputerDrive} */
 export type LabTechModelsComputerDrive = schemas['LabTech.Models.ComputerDrive']
+/** {@link LabTechModelsComputerEffectivePatchingPolicy} */
 export type LabTechModelsComputerEffectivePatchingPolicy =
   schemas['LabTech.Models.ComputerEffectivePatchingPolicy']
+/** {@link LabTechModelsComputerMemorySlot} */
 export type LabTechModelsComputerMemorySlot = schemas['LabTech.Models.ComputerMemorySlot']
+/** {@link LabTechModelsComputerMenu} */
 export type LabTechModelsComputerMenu = schemas['LabTech.Models.ComputerMenu']
+/** {@link LabTechModelsComputerOperatingSystem} */
 export type LabTechModelsComputerOperatingSystem = schemas['LabTech.Models.ComputerOperatingSystem']
+/** {@link LabTechModelsComputerPatchingPolicy} */
 export type LabTechModelsComputerPatchingPolicy = schemas['LabTech.Models.ComputerPatchingPolicy']
+/** {@link LabTechModelsComputerPrinter} */
 export type LabTechModelsComputerPrinter = schemas['LabTech.Models.ComputerPrinter']
+/** {@link LabTechModelsComputerProcessor} */
 export type LabTechModelsComputerProcessor = schemas['LabTech.Models.ComputerProcessor']
+/** {@link LabTechModelsComputerRunningScript} */
 export type LabTechModelsComputerRunningScript = schemas['LabTech.Models.ComputerRunningScript']
+/** {@link LabTechModelsComputerScheduledTask} */
 export type LabTechModelsComputerScheduledTask = schemas['LabTech.Models.ComputerScheduledTask']
+/** {@link LabTechModelsComputerScriptHistory} */
 export type LabTechModelsComputerScriptHistory = schemas['LabTech.Models.ComputerScriptHistory']
+/** {@link LabTechModelsComputerSensor} */
 export type LabTechModelsComputerSensor = schemas['LabTech.Models.ComputerSensor']
+/** {@link LabTechModelsComputerService} */
 export type LabTechModelsComputerService = schemas['LabTech.Models.ComputerService']
+/** {@link LabTechModelsComputerSoftware} */
 export type LabTechModelsComputerSoftware = schemas['LabTech.Models.ComputerSoftware']
+/** {@link LabTechModelsComputerSystemSlot} */
 export type LabTechModelsComputerSystemSlot = schemas['LabTech.Models.ComputerSystemSlot']
+/** {@link LabTechModelsComputerUps} */
 export type LabTechModelsComputerUps = schemas['LabTech.Models.ComputerUps']
+/** {@link LabTechModelsComputerVideoCard} */
 export type LabTechModelsComputerVideoCard = schemas['LabTech.Models.ComputerVideoCard']
+/** {@link LabTechModelsMaintenanceMode} */
 export type LabTechModelsMaintenanceMode = schemas['LabTech.Models.MaintenanceMode']
+/** {@link LabTechModelsRetiredAsset} */
 export type LabTechModelsRetiredAsset = schemas['LabTech.Models.RetiredAsset']
+/** {@link LabTechModelsScheduledScript} */
 export type LabTechModelsScheduledScript = schemas['LabTech.Models.ScheduledScript']
+/** {@link LabTechModelsServiceClassification} */
 export type LabTechModelsServiceClassification = schemas['LabTech.Models.ServiceClassification']
+/** {@link LabTechModelsSmartData} */
 export type LabTechModelsSmartData = schemas['LabTech.Models.SmartData']
+/** {@link LabTechModelsVirusScannerDef} */
 export type LabTechModelsVirusScannerDef = schemas['LabTech.Models.VirusScannerDef']
+/** {@link LabTechRESTApiRpcContractsSoftwareUninstallInfo} */
 export type LabTechRESTApiRpcContractsSoftwareUninstallInfo =
   schemas['LabTech.RESTApi.RpcContracts.SoftwareUninstallInfo']
+/** {@link LabTechRepositoriesMySQLDomainModelsAlertingMonitorAlertSuspension} */
 export type LabTechRepositoriesMySQLDomainModelsAlertingMonitorAlertSuspension =
   schemas['LabTech.Repositories.MySQL.Domain.Models.Alerting.MonitorAlertSuspension']
+/** {@link LabTechRepositoriesMySQLDomainModelsComputerDriver} */
 export type LabTechRepositoriesMySQLDomainModelsComputerDriver =
   schemas['LabTech.Repositories.MySQL.Domain.Models.ComputerDriver']
 
 /**
+ * @module ComputersAPI
+ */
+
+/**
+ * Computers module
  * @public
  */
 export default class ComputersAPI extends Automate {

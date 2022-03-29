@@ -20,28 +20,6 @@ import SystemAPI from './Automate/SystemAPI'
 import TicketAPI from './Automate/TicketsAPI'
 import UserProfilesAPI from './Automate/UserProfilesAPI'
 
-export type {
-  AVTemplatePoliciesAPI,
-  ClientsAPI,
-  CommandsAPI,
-  ComputersAPI,
-  ContactsAPI,
-  DataViewsAPI,
-  DrivesAPI,
-  EventLogsAPI,
-  LocationsAPI,
-  MaintenanceWindowDefinitionsAPI,
-  MonitorsAPI,
-  NetworkDevicesAPI,
-  PatchingAPI,
-  RemoteAgentAPI,
-  ScriptingAPI,
-  SearchesAPI,
-  SystemAPI,
-  TicketAPI,
-  UserProfilesAPI,
-}
-
 /**
  * @public
  */
@@ -59,6 +37,9 @@ export type CWAOptions = {
   debug?: boolean
 }
 
+/**
+ * @public
+ */
 export type OrderBy = {
   name?: string
   type?: 'Undefined' | 'Ascending' | 'Descending'
@@ -81,6 +62,9 @@ export type CommonParameters = {
   timeout?: number
 }
 
+/**
+ * @public
+ */
 export type QueryOptionExpand = {
   fieldName?: string
   page?: number
@@ -97,7 +81,7 @@ export type QueryOptionExpand = {
 /**
  * @public
  */
-export default class AutomateAPI extends Automate {
+class AutomateAPI extends Automate {
   AVTemplatePoliciesAPI: AVTemplatePoliciesAPI
   ClientsAPI: ClientsAPI
   CommandsAPI: CommandsAPI
@@ -142,3 +126,30 @@ export default class AutomateAPI extends Automate {
     this.UserProfilesAPI = new UserProfilesAPI(options)
   }
 }
+
+namespace AutomateAPI {
+  AVTemplatePoliciesAPI
+  ClientsAPI
+  CommandsAPI
+  ComputersAPI
+  ContactsAPI
+  DataViewsAPI
+  DrivesAPI
+  EventLogsAPI
+  LocationsAPI
+  MaintenanceWindowDefinitionsAPI
+  MonitorsAPI
+  NetworkDevicesAPI
+  PatchingAPI
+  RemoteAgentAPI
+  ScriptingAPI
+  SearchesAPI
+  SystemAPI
+  TicketAPI
+  UserProfilesAPI
+}
+
+/**
+ * @public
+ */
+export default AutomateAPI

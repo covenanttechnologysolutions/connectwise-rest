@@ -5,10 +5,17 @@ import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 type requestBodies = components['requestBodies']
+/** {@link LabTechModelsRemoteAgentSchedule} */
 export type LabTechModelsRemoteAgentSchedule = schemas['LabTech.Models.RemoteAgentSchedule']
+/** {@link LabTechModelsRemoteAgentTemplate} */
 export type LabTechModelsRemoteAgentTemplate = schemas['LabTech.Models.RemoteAgentTemplate']
 
 /**
+ * @module RemoteAgentAPI
+ */
+
+/**
+ * RemoteAgent module
  * @public
  */
 export default class RemoteAgentAPI extends Automate {

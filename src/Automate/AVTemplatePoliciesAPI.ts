@@ -5,14 +5,24 @@ import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 type requestBodies = components['requestBodies']
+/** {@link LabTechModelsAVTemplatePolicy} */
 export type LabTechModelsAVTemplatePolicy = schemas['LabTech.Models.AVTemplatePolicy']
+/** {@link LabTechModelsAVTemplatePolicyData} */
 export type LabTechModelsAVTemplatePolicyData = schemas['LabTech.Models.AVTemplatePolicyData']
+/** {@link LabTechModelsGroup} */
 export type LabTechModelsGroup = schemas['LabTech.Models.Group']
+/** {@link LabTechModelsTemplateAvailableProperty} */
 export type LabTechModelsTemplateAvailableProperty =
   schemas['LabTech.Models.TemplateAvailableProperty']
+/** {@link LabTechModelsTemplateProperty} */
 export type LabTechModelsTemplateProperty = schemas['LabTech.Models.TemplateProperty']
 
 /**
+ * @module AVTemplatePoliciesAPI
+ */
+
+/**
+ * AVTemplatePolicies module
  * @public
  */
 export default class AVTemplatePoliciesAPI extends Automate {

@@ -5,15 +5,26 @@ import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 type requestBodies = components['requestBodies']
+/** {@link ClientPermissions_PutUserClassPermissionsPermissions} */
 export type ClientPermissions_PutUserClassPermissionsPermissions =
   requestBodies['ClientPermissions_PutUserClassPermissionsPermissions']
+/** {@link LabTechModelsClient} */
 export type LabTechModelsClient = schemas['LabTech.Models.Client']
+/** {@link LabTechModelsDocument} */
 export type LabTechModelsDocument = schemas['LabTech.Models.Document']
+/** {@link LabTechModelsLocation} */
 export type LabTechModelsLocation = schemas['LabTech.Models.Location']
+/** {@link LabTechModelsManagedLicense} */
 export type LabTechModelsManagedLicense = schemas['LabTech.Models.ManagedLicense']
+/** {@link LabTechModelsProductKey} */
 export type LabTechModelsProductKey = schemas['LabTech.Models.ProductKey']
 
 /**
+ * @module ClientsAPI
+ */
+
+/**
+ * Clients module
  * @public
  */
 export default class ClientsAPI extends Automate {

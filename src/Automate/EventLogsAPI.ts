@@ -5,9 +5,15 @@ import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 type requestBodies = components['requestBodies']
+/** {@link LabTechModelsEventLog} */
 export type LabTechModelsEventLog = schemas['LabTech.Models.EventLog']
 
 /**
+ * @module EventLogsAPI
+ */
+
+/**
+ * EventLogs module
  * @public
  */
 export default class EventLogsAPI extends Automate {

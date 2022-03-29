@@ -5,10 +5,17 @@ import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 type requestBodies = components['requestBodies']
+/** {@link LabTechModelsSearch} */
 export type LabTechModelsSearch = schemas['LabTech.Models.Search']
+/** {@link LabTechModelsSearchFolder} */
 export type LabTechModelsSearchFolder = schemas['LabTech.Models.SearchFolder']
 
 /**
+ * @module SearchesAPI
+ */
+
+/**
+ * Searches module
  * @public
  */
 export default class SearchesAPI extends Automate {

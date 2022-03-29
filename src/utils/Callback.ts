@@ -10,6 +10,9 @@ export interface ExpressRequest extends ClientRequest {
   headers: Record<string, string>
 }
 
+/**
+ * @public
+ */
 export type CallbackPayload = {
   Action: string
   CompanyId: string | number

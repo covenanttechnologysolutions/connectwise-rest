@@ -5,43 +5,69 @@ import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 type requestBodies = components['requestBodies']
+/** {@link AutomateApiDomainContractsPresentationLayerWebExtensionsUserClassWebExtensionRequest} */
 export type AutomateApiDomainContractsPresentationLayerWebExtensionsUserClassWebExtensionRequest =
   schemas['Automate.Api.Domain.Contracts.PresentationLayer.WebExtensions.UserClassWebExtensionRequest']
+/** {@link AutomateApiDomainContractsPresentationLayerWebExtensionsUserClassWebExtensionViewModel} */
 export type AutomateApiDomainContractsPresentationLayerWebExtensionsUserClassWebExtensionViewModel =
   schemas['Automate.Api.Domain.Contracts.PresentationLayer.WebExtensions.UserClassWebExtensionViewModel']
+/** {@link AutomateApiDomainContractsSecurityAuthInformation} */
 export type AutomateApiDomainContractsSecurityAuthInformation =
   schemas['Automate.Api.Domain.Contracts.Security.AuthInformation']
+/** {@link AutomateApiDomainContractsSecurityTokenCredentials} */
 export type AutomateApiDomainContractsSecurityTokenCredentials =
   schemas['Automate.Api.Domain.Contracts.Security.TokenCredentials']
+/** {@link AutomateApiDomainContractsSecurityTokenResult} */
 export type AutomateApiDomainContractsSecurityTokenResult =
   schemas['Automate.Api.Domain.Contracts.Security.TokenResult']
+/** {@link AutomateApiDomainContractsSystemServerInformation} */
 export type AutomateApiDomainContractsSystemServerInformation =
   schemas['Automate.Api.Domain.Contracts.System.ServerInformation']
+/** {@link AutomateApiDomainContractsUsersChangePasswordRequest} */
 export type AutomateApiDomainContractsUsersChangePasswordRequest =
   schemas['Automate.Api.Domain.Contracts.Users.ChangePasswordRequest']
+/** {@link AutomateApiDomainContractsUsersUser} */
 export type AutomateApiDomainContractsUsersUser =
   schemas['Automate.Api.Domain.Contracts.Users.User']
+/** {@link AutomateApiDomainContractsUsersUserAccess} */
 export type AutomateApiDomainContractsUsersUserAccess =
   schemas['Automate.Api.Domain.Contracts.Users.UserAccess']
+/** {@link AutomateApiDomainContractsUsersUserClass} */
 export type AutomateApiDomainContractsUsersUserClass =
   schemas['Automate.Api.Domain.Contracts.Users.UserClass']
+/** {@link AutomateApiDomainContractsUsersUserFolder} */
 export type AutomateApiDomainContractsUsersUserFolder =
   schemas['Automate.Api.Domain.Contracts.Users.UserFolder']
+/** {@link LabTechModelsExternalSystemCredentials} */
 export type LabTechModelsExternalSystemCredentials =
   schemas['LabTech.Models.ExternalSystemCredentials']
+/** {@link LabTechModelsFeatureFlag} */
 export type LabTechModelsFeatureFlag = schemas['LabTech.Models.FeatureFlag']
+/** {@link LabTechModelsLicensedProduct} */
 export type LabTechModelsLicensedProduct = schemas['LabTech.Models.LicensedProduct']
+/** {@link LabTechModelsLink} */
 export type LabTechModelsLink = schemas['LabTech.Models.Link']
+/** {@link LabTechModelsPatchInformation} */
 export type LabTechModelsPatchInformation = schemas['LabTech.Models.PatchInformation']
+/** {@link LabTechModelsUserAudit} */
 export type LabTechModelsUserAudit = schemas['LabTech.Models.UserAudit']
+/** {@link LabTechModelsUserFavorite} */
 export type LabTechModelsUserFavorite = schemas['LabTech.Models.UserFavorite']
+/** {@link LabTechModelsUserSetting} */
 export type LabTechModelsUserSetting = schemas['LabTech.Models.UserSetting']
+/** {@link LabTechRESTApiModelsPatchOperationArray} */
 export type LabTechRESTApiModelsPatchOperationArray =
   requestBodies['LabTech.RESTApi.Models.PatchOperationArray']
+/** {@link LabTechRESTApiSecurityAuthServiceCredentials} */
 export type LabTechRESTApiSecurityAuthServiceCredentials =
   schemas['LabTech.RESTApi.Security.AuthServiceCredentials']
 
 /**
+ * @module SystemAPI
+ */
+
+/**
+ * System module
  * @public
  */
 export default class SystemAPI extends Automate {

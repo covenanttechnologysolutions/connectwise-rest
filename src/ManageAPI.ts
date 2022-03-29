@@ -13,27 +13,20 @@ import SystemAPI from './Manage/SystemAPI'
 import TimeAPI from './Manage/TimeAPI'
 import { CWLogger, RetryOptions } from './types'
 
-export type {
-  CompanyAPI,
-  ConfigurationsAPI,
-  ExpenseAPI,
-  FinanceAPI,
-  MarketingAPI,
-  ProcurementAPI,
-  ProjectAPI,
-  SalesAPI,
-  ScheduleAPI,
-  ServiceAPI,
-  SystemAPI,
-  TimeAPI,
-}
-
+/**
+ * @public
+ * Manage patch operation input object, usually passed in an array of operations
+ */
 export type PatchOperation = {
   op: 'add' | 'replace' | 'remove'
   path: string
   value: Record<string, unknown> | Record<string, unknown>[] | string | null
 }
 
+/**
+ * @public
+ * Manage common parameters
+ */
 export type CommonParameters = {
   conditions?: string
   childConditions?: string
@@ -45,15 +38,21 @@ export type CommonParameters = {
   pageId?: number
 }
 
+/**
+ * @public
+ */
 export interface CWMOptions {
   /**
    * Your CW Manage Company ID
    */
   companyId: string
   /**
-   *
+   * api public key
    */
   publicKey: string
+  /**
+   * api private key
+   */
   privateKey: string
   /**
    * Your CW Manage instance URI
@@ -80,6 +79,9 @@ export interface CWMOptions {
    * Enable automatic retry.  Defaults to false.
    */
   retry?: boolean
+  /**
+   * @see {@link RetryOptions} type
+   */
   retryOptions?: RetryOptions
   /**
    * Pass in a custom logger function, otherwise the default
@@ -100,7 +102,10 @@ export interface CWMOptions {
 /**
  * @public
  */
-export default class ManageAPI extends Manage {
+class ManageAPI extends Manage {
+  /**
+   * @see {@link CompanyAPI}
+   */
   CompanyAPI: CompanyAPI
   ConfigurationsAPI: ConfigurationsAPI
   ExpenseAPI: ExpenseAPI
@@ -131,3 +136,20 @@ export default class ManageAPI extends Manage {
     this.TimeAPI = new TimeAPI(options)
   }
 }
+
+namespace ManageAPI {
+  CompanyAPI
+  ConfigurationsAPI
+  ExpenseAPI
+  FinanceAPI
+  MarketingAPI
+  ProcurementAPI
+  ProjectAPI
+  SalesAPI
+  ScheduleAPI
+  ServiceAPI
+  SystemAPI
+  TimeAPI
+}
+
+export default ManageAPI

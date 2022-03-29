@@ -5,82 +5,161 @@ import { CommonParameters, CWMOptions } from '../ManageAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 
+/** {@link AccountingBatch} */
 export type AccountingBatch = schemas['AccountingBatch']
+/** {@link AccountingPackage} */
 export type AccountingPackage = schemas['AccountingPackage']
+/** {@link AccountingPackageSetup} */
 export type AccountingPackageSetup = schemas['AccountingPackageSetup']
+/** {@link Addition} */
 export type Addition = schemas['Addition']
+/** {@link Agreement} */
 export type Agreement = schemas['Agreement']
+/** {@link AgreementAdjustment} */
 export type AgreementAdjustment = schemas['Agreement.Adjustment']
+/** {@link AgreementBatchSetup} */
 export type AgreementBatchSetup = schemas['AgreementBatchSetup']
+/** {@link AgreementSite} */
 export type AgreementSite = schemas['AgreementSite']
+/** {@link AgreementType} */
 export type AgreementType = schemas['AgreementType']
+/** {@link AgreementTypeBoardDefault} */
 export type AgreementTypeBoardDefault = schemas['AgreementTypeBoardDefault']
+/** {@link AgreementTypeInfo} */
 export type AgreementTypeInfo = schemas['AgreementTypeInfo']
+/** {@link AgreementTypeWorkRole} */
 export type AgreementTypeWorkRole = schemas['AgreementTypeWorkRole']
+/** {@link AgreementTypeWorkRoleExclusion} */
 export type AgreementTypeWorkRoleExclusion = schemas['AgreementTypeWorkRoleExclusion']
+/** {@link AgreementTypeWorkRoleInfo} */
 export type AgreementTypeWorkRoleInfo = schemas['AgreementTypeWorkRoleInfo']
+/** {@link AgreementTypeWorkType} */
 export type AgreementTypeWorkType = schemas['AgreementTypeWorkType']
+/** {@link AgreementTypeWorkTypeExclusion} */
 export type AgreementTypeWorkTypeExclusion = schemas['AgreementTypeWorkTypeExclusion']
+/** {@link AgreementWorkRole} */
 export type AgreementWorkRole = schemas['AgreementWorkRole']
+/** {@link AgreementWorkRoleExclusion} */
 export type AgreementWorkRoleExclusion = schemas['AgreementWorkRoleExclusion']
+/** {@link AgreementWorkType} */
 export type AgreementWorkType = schemas['AgreementWorkType']
+/** {@link AgreementWorkTypeExclusion} */
 export type AgreementWorkTypeExclusion = schemas['AgreementWorkTypeExclusion']
+/** {@link BatchEntry} */
 export type BatchEntry = schemas['BatchEntry']
+/** {@link BillingCycle} */
 export type BillingCycle = schemas['BillingCycle']
+/** {@link BillingCycleInfo} */
 export type BillingCycleInfo = schemas['BillingCycleInfo']
+/** {@link BillingSetup} */
 export type BillingSetup = schemas['BillingSetup']
+/** {@link BillingSetupInfo} */
 export type BillingSetupInfo = schemas['BillingSetupInfo']
+/** {@link BillingSetupRouting} */
 export type BillingSetupRouting = schemas['BillingSetupRouting']
+/** {@link BillingStatus} */
 export type BillingStatus = schemas['BillingStatus']
+/** {@link BillingStatusInfo} */
 export type BillingStatusInfo = schemas['BillingStatusInfo']
+/** {@link BillingTerm} */
 export type BillingTerm = schemas['BillingTerm']
+/** {@link BillingTermInfo} */
 export type BillingTermInfo = schemas['BillingTermInfo']
+/** {@link BoardDefault} */
 export type BoardDefault = schemas['BoardDefault']
+/** {@link ClosedInvoice} */
 export type ClosedInvoice = schemas['ClosedInvoice']
+/** {@link CompanyFinance} */
 export type CompanyFinance = schemas['CompanyFinance']
+/** {@link ConfigurationReference} */
 export type ConfigurationReference = schemas['ConfigurationReference']
+/** {@link Count} */
 export type Count = schemas['Count']
+/** {@link CreateAccountingBatchRequest} */
 export type CreateAccountingBatchRequest = schemas['CreateAccountingBatchRequest']
+/** {@link CurrencyCode} */
 export type CurrencyCode = schemas['CurrencyCode']
+/** {@link CurrencyInfo} */
 export type CurrencyInfo = schemas['CurrencyInfo']
+/** {@link DeliveryMethod} */
 export type DeliveryMethod = schemas['DeliveryMethod']
+/** {@link ExpenseTypeExemption} */
 export type ExpenseTypeExemption = schemas['ExpenseTypeExemption']
+/** {@link ExportAccountingBatchRequest} */
 export type ExportAccountingBatchRequest = schemas['ExportAccountingBatchRequest']
+/** {@link FinanceCurrency} */
 export type FinanceCurrency = schemas['Finance.Currency']
+/** {@link GLAccount} */
 export type GLAccount = schemas['GLAccount']
+/** {@link GLCaption} */
 export type GLCaption = schemas['GLCaption']
+/** {@link GLExport} */
 export type GLExport = schemas['GLExport']
+/** {@link GLPath} */
 export type GLPath = schemas['GLPath']
+/** {@link Invoice} */
 export type Invoice = schemas['Invoice']
+/** {@link InvoiceEmailTemplate} */
 export type InvoiceEmailTemplate = schemas['InvoiceEmailTemplate']
+/** {@link InvoiceEmailTemplateInfo} */
 export type InvoiceEmailTemplateInfo = schemas['InvoiceEmailTemplateInfo']
+/** {@link InvoiceInfo} */
 export type InvoiceInfo = schemas['InvoiceInfo']
+/** {@link InvoiceTemplate} */
 export type InvoiceTemplate = schemas['InvoiceTemplate']
+/** {@link InvoiceTemplateSetup} */
 export type InvoiceTemplateSetup = schemas['InvoiceTemplateSetup']
+/** {@link MappedType} */
 export type MappedType = schemas['MappedType']
+/** {@link PatchOperation} */
 export type PatchOperation = schemas['PatchOperation']
+/** {@link Payment} */
 export type Payment = schemas['Payment']
+/** {@link ProductTypeExemption} */
 export type ProductTypeExemption = schemas['ProductTypeExemption']
+/** {@link TaxCode} */
 export type TaxCode = schemas['TaxCode']
+/** {@link TaxCodeInfo} */
 export type TaxCodeInfo = schemas['TaxCodeInfo']
+/** {@link TaxCodeLevel} */
 export type TaxCodeLevel = schemas['TaxCodeLevel']
+/** {@link TaxCodeXRef} */
 export type TaxCodeXRef = schemas['TaxCodeXRef']
+/** {@link TaxIntegration} */
 export type TaxIntegration = schemas['TaxIntegration']
+/** {@link TaxIntegrationInfo} */
 export type TaxIntegrationInfo = schemas['TaxIntegrationInfo']
+/** {@link TaxableExpenseTypeLevel} */
 export type TaxableExpenseTypeLevel = schemas['TaxableExpenseTypeLevel']
+/** {@link TaxableProductTypeLevel} */
 export type TaxableProductTypeLevel = schemas['TaxableProductTypeLevel']
+/** {@link TaxableWorkRoleLevel} */
 export type TaxableWorkRoleLevel = schemas['TaxableWorkRoleLevel']
+/** {@link TaxableXRefLevel} */
 export type TaxableXRefLevel = schemas['TaxableXRefLevel']
+/** {@link UnpostedExpense} */
 export type UnpostedExpense = schemas['UnpostedExpense']
+/** {@link UnpostedExpenseTaxableLevel} */
 export type UnpostedExpenseTaxableLevel = schemas['UnpostedExpenseTaxableLevel']
+/** {@link UnpostedInvoice} */
 export type UnpostedInvoice = schemas['UnpostedInvoice']
+/** {@link UnpostedInvoiceTaxableLevel} */
 export type UnpostedInvoiceTaxableLevel = schemas['UnpostedInvoiceTaxableLevel']
+/** {@link UnpostedProcurement} */
 export type UnpostedProcurement = schemas['UnpostedProcurement']
+/** {@link UnpostedProcurementTaxableLevel} */
 export type UnpostedProcurementTaxableLevel = schemas['UnpostedProcurementTaxableLevel']
+/** {@link Usage} */
 export type Usage = schemas['Usage']
+/** {@link WorkRoleExemption} */
 export type WorkRoleExemption = schemas['WorkRoleExemption']
 
 /**
+ * @module FinanceAPI
+ */
+
+/**
+ * Finance module
  * @public
  */
 export default class FinanceAPI extends Manage {

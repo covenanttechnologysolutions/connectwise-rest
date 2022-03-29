@@ -5,10 +5,17 @@ import { CommonParameters, CWAOptions } from '../AutomateAPI'
 import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
 type requestBodies = components['requestBodies']
+/** {@link LabTechModelsNetworkDevice} */
 export type LabTechModelsNetworkDevice = schemas['LabTech.Models.NetworkDevice']
+/** {@link LabTechModelsRouter} */
 export type LabTechModelsRouter = schemas['LabTech.Models.Router']
 
 /**
+ * @module NetworkDevicesAPI
+ */
+
+/**
+ * NetworkDevices module
  * @public
  */
 export default class NetworkDevicesAPI extends Automate {
