@@ -146,7 +146,6 @@ function getPage(
   page = 1,
   pageSize = 1000,
 ): Promise<unknown[]> {
-  console.log('paginate getPage', page)
   // Javascript Function.length returns number of non-default values
   // the method args will always be greater than the api method args
   // due to this, if params is not passed in, even as an empty object,

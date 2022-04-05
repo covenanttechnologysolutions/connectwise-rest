@@ -8,9 +8,9 @@ import { ManageAPI, AutomateAPI, utils } from '../dist/index'
 import assert from 'assert'
 import { describe, it } from 'mocha'
 import type { components } from '../src/ManageTypes'
-import { isArrayOfPromises, PromiseArray } from './test-utils'
 import { isPromise } from './test-utils'
 import { LabTechModelsComputer } from '../src/Automate/ComputersAPI'
+import { CommunicationType } from '../src/Manage/CompanyAPI'
 type Ticket = components['schemas']['Ticket']
 
 dotenv.config({ path: path.join(__dirname, '.env') })
@@ -156,7 +156,7 @@ describe('Automate', () => {
           assert(computer.ComputerName)
           done()
         })
-        .catch((error: any) => done(error))
+        .catch((error) => done(error))
     })
   })
 })
@@ -259,6 +259,35 @@ describe('Manage', () => {
           })
           .catch((err) => done(err))
       })
+    })
+  })
+
+  describe('pagination', () => {
+    it('should return an array of CommunicationTypes', (done) => {
+      cwm
+        .paginate(cwm.CompanyAPI.getCompanyCommunicationTypes, { pageSize: 2, startPage: 1 }, {})
+        .then((results) => {
+          assert(Array.isArray(results))
+          assert(results.length > 0)
+          const firstType = <CommunicationType>results.pop()
+          assert(firstType.id)
+          assert(firstType.description)
+          assert(firstType._info)
+          done()
+        })
+        .catch((err) => done(err))
+    })
+
+    it('should return the same number of items', (done) => {
+      cwm
+        .paginate(cwm.CompanyAPI.getCompanyCommunicationTypes, { pageSize: 2, startPage: 1 }, {})
+        .then((pagedResults) => {
+          return cwm.CompanyAPI.getCompanyCommunicationTypes().then((unPagedResults) => {
+            assert(unPagedResults.length === pagedResults.length)
+            done()
+          })
+        })
+        .catch((err) => done(err))
     })
   })
 })
