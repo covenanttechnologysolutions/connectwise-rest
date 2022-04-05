@@ -1,8 +1,31 @@
 # connectwise-rest
 
- [![npm version](https://img.shields.io/npm/v/connectwise-rest.svg)](https://www.npmjs.com/package/connectwise-rest) [![npm downloads](https://img.shields.io/npm/dt/connectwise-rest.svg)](https://www.npmjs.com/package/connectwise-rest) [![travis build](https://api.travis-ci.org/covenanttechnologysolutions/connectwise-rest.svg?branch=master)](https://travis-ci.org/covenanttechnologysolutions/connectwise-rest)
+ [![npm version](https://img.shields.io/npm/v/connectwise-rest.svg)](https://www.npmjs.com/package/connectwise-rest) [![npm downloads](https://img.shields.io/npm/dt/connectwise-rest.svg)](https://www.npmjs.com/package/connectwise-rest) ![Node.js CI](https://github.com/covenanttechnologysolutions/connectwise-rest/actions/workflows/node.js.yml/badge.svg?branch=master)
 
-A Node.JS TypeScript module for interacting with the ConnectWise Manage and Automate REST APIs.  This module provides bindings for ease of development against the ConnectWise REST APIs. 
+A Node.JS TypeScript module for interacting with the ConnectWise Manage and Automate REST APIs. 
+This module provides bindings for ease of development against the ConnectWise REST APIs as well as pagination, automatic retries and logging.   
+
+###  ⚠️Breaking Changes ⚠️
+
+Version 1.0 has been completely re-written and is automatically generated, some function names have changed as well as removal of subsections from version 0.x.  Pagination API has been changed for easier usage.   VSCode, JetBrains, etc editors will automatically pick up the new type definitions.  
+
+## Table of Contents
+
+- [Requirements](#requirements)
+  - [Manage](#manage)
+  - [Automate](#automate)
+- [Documentation](#documentation)
+- [Usage](#usage)
+  - [Manage Usage](#manage-usage)
+  - [Automate Usage](#automate-usage)
+  - [Pagination](#pagination)
+  - [APIs Without Typings](#apis-without-typings)
+  - [Cloud-Hosted ConnectWise Manage](#cloud-hosted-connectwise-manage)
+- [Examples](#examples)
+  - [Sample Project](#sample-project)
+  - [Code Examples](#code-examples)
+  - [Manage Conditions Example](#manage-conditions-example)
+  - [Manage Callbacks](#manage-callbacks)
 
 ## Requirements
 
@@ -22,7 +45,7 @@ See the full documentation [here](https://covenanttechnologysolutions.github.io/
 
 ## Usage
 
-### Manage
+### Manage Usage
 
 ```javascript
 // ESM
@@ -44,7 +67,7 @@ const cwm = new ManageAPI({
     retries: 4,               // maximum number of retries
     minTimeout: 50,           // number of ms to wait between retries
     maxTimeout: 20000,        // maximum number of ms between retries
-    randomize: true,          // randomize timeouts
+    randomize: true,          // randomize delay between retries on timeouts
   },
   debug: false,               // optional, enable debug logging
   logger: (level, text, meta) => { } // optional, pass in logging function
@@ -60,7 +83,7 @@ cwm.ServiceDeskAPI.Tickets.getTicketById(1234)
 ```
 
 
-### Automate
+### Automate Usage
 
 ```javascript
 // ESM
@@ -72,12 +95,12 @@ const cwa = new ManageAPI({
   companyId: 'company',
   serverUrl: 'your.connectwise.com',
   clientId: '<your client id>',
-  // One of the following: token, integrator username and password or username, password and two-factor code
-  token: '<bearer token>',
-
-  // or integrator username/password:
+  // One of the following: integrator username and password or username, password and two-factor code
+  // integrator username/password:
   username: '<username>',
   password: '<private key>',
+  
+  // also pass in two factor passcode if not using an integrator account
   twoFactorPasscode: '<2fa code>',
 
   timeout: 20000,             // optional, request connection timeout in ms, defaults to 20000
@@ -86,7 +109,7 @@ const cwa = new ManageAPI({
     retries: 4,               // maximum number of retries
     minTimeout: 50,           // number of ms to wait between retries
     maxTimeout: 20000,        // maximum number of ms between retries
-    randomize: true,          // randomize timeouts
+    randomize: true,          // randomize delay between retries on timeouts
   },
   debug: false,               // optional, enable debug logging
   logger: (level, text, meta) => { } // optional, pass in logging function
@@ -99,6 +122,27 @@ cwa.ComputersAPI.getComputerList()
   .catch((error) => {
       //handle errors
   });
+```
+
+### Pagination
+
+Use the pagination function to automatically fetch all records in order that match the request.  
+
+Note: the last argument to the pagination function must be an object, or an error will be thrown.  
+
+```javascript
+const cwa = new ManageAPI()
+const cwm = new AutomateAPI()
+
+// use the instantiated ManageAPI or AutomateAPI
+cwm.paginate(
+  cwm.ServiceAPI.getServiceTickets,   // pass in the api function to be paginated
+  {startPage: 10, pageSize: 500},     // pagination options, defaults to startPage 1, pageSize 1000
+  {}                                  // additional arguments to the api function as needed                            
+)
+  .then(results => { ... })
+  .catch(error => { ... })
+
 ```
 
 ### APIs Without Typings
@@ -222,7 +266,7 @@ Error message returned from server when invalid conditions are passed in:
 > Expected a boolean value, not a numeric. String values should be enclosed with double or single quotes; DateTime values should be enclosed in square brackets; numbers should consist of only digits, and optionally a decimal point and a negation sign; boolean values should be indicated with the keywords true or false; null values should be indicated by the keyword null.
 
 
-### Callbacks
+### Manage Callbacks
 
 This library includes an express style callback middleware that will parse and verify the payload signature.
 
@@ -246,3 +290,4 @@ This library includes an express style callback middleware that will parse and v
   }));
 
 ```
+

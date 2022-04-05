@@ -140,18 +140,6 @@ export default class Automate {
     return result.data
   }
 
-  static async refreshToken({
-    username,
-    password,
-    serverUrl,
-  }: {
-    username: string
-    password: string
-    serverUrl: string
-  }) {
-    // @todo how
-  }
-
   async verifyToken() {
     try {
       const result = await this.api({ path: '/api/v1/FeatureFlags', method: 'get' })

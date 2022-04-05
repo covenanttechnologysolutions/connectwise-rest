@@ -1,5 +1,5 @@
 import axios, { AxiosError, AxiosInstance, AxiosResponse } from 'axios'
-import { makeRequest } from './BaseAPI'
+import { makeRequest, makePaginate, PaginationOptions, PaginationApiMethod } from './BaseAPI'
 import promiseRetry from 'promise-retry'
 import type { CWMOptions } from './ManageAPI'
 import { CWLogger, DataResponse, ErrorResponse, RequestOptions, RetryOptions } from './types'
@@ -64,6 +64,14 @@ export default class Manage {
    * @public
    */
   request: (args: RequestOptions) => Promise<any>
+  /**
+   * @public
+   */
+  paginate: (
+    apiMethod: PaginationApiMethod,
+    paginateArgs: PaginationOptions,
+    ...methodArgs: Record<string, unknown>[]
+  ) => Promise<unknown[]>
 
   constructor({
     companyId,
@@ -116,6 +124,7 @@ export default class Manage {
     })
 
     this.request = makeRequest({ config: this.config, api: this.api, thisObj: this })
+    this.paginate = makePaginate({ thisObj: this })
   }
 
   /**

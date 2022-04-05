@@ -20,9 +20,9 @@
     "lint": "npx eslint -c .eslintrc --fix",
     "coveralls": "npx nyc report --reporter=text-lcov > ./.nyc_output/lcov.info",
     "pretypedocs": "npm run clean:docs",
-    "typedocs": "npx typedoc src/index.ts --listInvalidSymbolLinks",
-    "predocs": "npx api-extractor run --local --verbose",
-    "docs": "npx api-documenter markdown --input-folder temp --output-folder docs",
+    "docs": "npx typedoc src/index.ts",
+    "preapidocumenter": "npx api-extractor run --local --verbose",
+    "apidocumenter": "npx api-documenter markdown --input-folder temp --output-folder docs",
     "gh-pages": "npx gh-pages -d docs"
   },
   "repository": {
