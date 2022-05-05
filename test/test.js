@@ -1,37 +1,13 @@
 /**
  * Created by kgrube on 9/11/2018
  */
-import dotenv from 'dotenv'
-import path from 'path'
-import { ManageAPI, AutomateAPI, utils } from '../dist/index'
-// import { ManageAPI, AutomateAPI, utils } from '../src/index'
-import assert from 'assert'
-import { describe, it } from 'mocha'
-import type { components } from '../src/ManageTypes'
-import { isPromise } from './test-utils'
-import { LabTechModelsComputer } from '../src/Automate/ComputersAPI'
-import { CommunicationType } from '../src/Manage/CompanyAPI'
-type Ticket = components['schemas']['Ticket']
+const dotenv = require('dotenv')
+const path = require('path')
+const { ManageAPI, AutomateAPI, utils } = require('../dist')
+const assert = require('assert')
+const { describe, it } = require('mocha')
 
 dotenv.config({ path: path.join(__dirname, '.env') })
-
-declare global {
-  // eslint-disable-next-line @typescript-eslint/no-namespace
-  namespace NodeJS {
-    interface ProcessEnv {
-      MANAGE_API_COMPANY: string
-      MANAGE_API_URL: string
-      MANAGE_API_PUBLIC_KEY: string
-      MANAGE_API_PRIVATE_KEY: string
-      MANAGE_API_CLIENT_ID: string
-      AUTOMATE_API_CLIENT_ID: string
-      AUTOMATE_API_PASSWORD: string
-      AUTOMATE_API_URL: string
-      AUTOMATE_API_USER: string
-      NODE_ENV: 'development' | 'production'
-    }
-  }
-}
 
 const {
   MANAGE_API_COMPANY,
@@ -149,7 +125,7 @@ describe('Automate', () => {
   describe('ComputersAPI', () => {
     it('should return a list of computers', (done) => {
       cwa.ComputersAPI.getComputerList({ pageSize: 1 })
-        .then((results: LabTechModelsComputer[]) => {
+        .then((results) => {
           assert(results.length === 1)
           const computer = results[0]
           assert(computer.Id)
@@ -229,7 +205,7 @@ describe('Manage', () => {
     })
   })
 
-  describe('ServiceDeskAPI', () => {
+  describe('ServiceAPI', () => {
     describe('getServiceTicketsById', () => {
       it('should return a ticket object', (done) => {
         cwm.ServiceAPI.getServiceTicketsById(123456)
@@ -237,7 +213,7 @@ describe('Manage', () => {
             if (!result) {
               done('No result')
             }
-            const { id, summary } = <Ticket>result
+            const { id, summary } = result
             assert(id, summary)
             done()
           })
@@ -260,6 +236,20 @@ describe('Manage', () => {
           .catch((err) => done(err))
       })
     })
+
+    describe('error', () => {
+      it('should return a 404 not found error', (done) => {
+        cwm.ServiceAPI.getServiceBoardsByGrandparentIdItemsByParentIdAssociations(9999, 9999)
+          .then(() => {
+            return done(new Error('Incorrect response'))
+          })
+          .catch((err) => {
+            assert(err)
+            assert(err.status === 404)
+            done()
+          })
+      })
+    })
   })
 
   describe('pagination', () => {
@@ -269,7 +259,7 @@ describe('Manage', () => {
         .then((results) => {
           assert(Array.isArray(results))
           assert(results.length > 0)
-          const firstType = <CommunicationType>results.pop()
+          const firstType = results.pop()
           assert(firstType.id)
           assert(firstType.description)
           assert(firstType._info)
@@ -319,7 +309,7 @@ describe('utils', () => {
 
     it('should resolve an array of results', (done) => {
       utils.Series.all({ series: [new Promise((resolve) => resolve(true))] })
-        .then((results): void => {
+        .then((results) => {
           assert(results[0] === true)
           done()
         })
@@ -328,7 +318,7 @@ describe('utils', () => {
 
     it('should resolve an array of results', (done) => {
       utils.Series.all({ series: [() => true] })
-        .then((results): void => {
+        .then((results) => {
           assert(results[0] === true)
           done()
         })
@@ -339,7 +329,7 @@ describe('utils', () => {
       utils.Series.all({
         series: [() => new Promise((resolve) => resolve(true))],
       })
-        .then((results): void => {
+        .then((results) => {
           assert(results[0] === true)
           done()
         })

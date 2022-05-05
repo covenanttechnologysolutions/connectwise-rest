@@ -146,8 +146,8 @@ export default class Manage {
 
       return result?.data
     } catch (error: any) {
-      if (error.isAxiosError()) {
-        return {
+      if (error.isAxiosError) {
+        throw {
           status: error.response?.status,
           data: error.response?.data,
           message: error?.message,
