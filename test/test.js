@@ -1,11 +1,13 @@
 /**
  * Created by kgrube on 9/11/2018
  */
+/* eslint-disable @typescript-eslint/no-var-requires */
 const dotenv = require('dotenv')
 const path = require('path')
 const { ManageAPI, AutomateAPI, utils } = require('../dist')
 const assert = require('assert')
 const { describe, it } = require('mocha')
+const { isPromise } = require('./test-utils.js')
 
 dotenv.config({ path: path.join(__dirname, '.env') })
 
@@ -28,6 +30,8 @@ const cwm = new ManageAPI({
   privateKey: MANAGE_API_PRIVATE_KEY,
   clientId: MANAGE_API_CLIENT_ID,
   apiVersion: '2021.2',
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  logger: () => {},
 })
 
 const cwa = new AutomateAPI({
@@ -35,6 +39,8 @@ const cwa = new AutomateAPI({
   serverUrl: AUTOMATE_API_URL,
   username: AUTOMATE_API_USER,
   password: AUTOMATE_API_PASSWORD,
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  logger: () => {},
 })
 
 describe('Automate', () => {

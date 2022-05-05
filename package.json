@@ -10,7 +10,7 @@
     "clean:dist": "npx rimraf dist/",
     "clean:src": "npx rimraf src/Manage/ & npx rimraf src/Automate/",
     "clean": "npm run clean:dist & npm run clean:generator & npm run clean:src",
-    "test": "npx nyc mocha -r ts-node/register",
+    "test": "npx nyc mocha",
     "pregenerate": "npm run clean",
     "generate:automate": "node generator/automate-generator.js",
     "generate:manage": "node generator/manage-generator.js",
