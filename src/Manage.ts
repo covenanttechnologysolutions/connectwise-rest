@@ -60,12 +60,22 @@ export interface ManageConfig extends CWMOptions {
 export default class Manage {
   config: ManageConfig
   private instance: AxiosInstance
+
   /**
    * @public
    */
   request: (args: RequestOptions) => Promise<any>
+
   /**
    * @public
+   * Pass the function to be paginated first, then arguments to paginate itself,
+   * then any additional arguments to the function in order
+   *
+   * @example
+   * ```javascript
+   *  cwm.paginate(cwm.FinanceAPI.getFinanceAgreements, {startPage: 1, pageSize: 500}, {conditions: 'inactiveFlag = false'})
+   *
+   * ```
    */
   paginate: (
     apiMethod: PaginationApiMethod,

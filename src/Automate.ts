@@ -2,7 +2,7 @@ import axios, { AxiosInstance, AxiosError } from 'axios'
 import { CWLogger, DataResponse, ErrorResponse, RequestOptions, RetryOptions } from './types'
 import { CWAOptions } from './AutomateAPI'
 import { components } from './AutomateTypes'
-import { makeRequest } from './BaseAPI'
+import { makePaginate, makeRequest, PaginationApiMethod, PaginationOptions } from './BaseAPI'
 type schemas = components['schemas']
 type TokenResult = schemas['Automate.Api.Domain.Contracts.Security.TokenResult']
 
@@ -62,6 +62,23 @@ export default class Automate {
    */
   request: (args: RequestOptions) => Promise<any>
 
+  /**
+   * @public
+   * Pass the function to be paginated first, then arguments to paginate itself,
+   * then any additional arguments to the function in order
+   *
+   * @example
+   * ```javascript
+   *  cwa.paginate(cwa.ComputersAPI.getComputerList, {startPage: 1, pageSize: 1000}, {conditions: 'inactiveFlag = false'})
+   *
+   * ```
+   */
+  paginate: (
+    apiMethod: PaginationApiMethod,
+    paginateArgs: PaginationOptions,
+    ...methodArgs: Record<string, unknown>[]
+  ) => Promise<unknown[]>
+
   constructor({
     serverUrl,
     username,
@@ -110,6 +127,7 @@ export default class Automate {
     }
 
     this.request = makeRequest({ config: this.config, api: this.api, thisObj: this })
+    this.paginate = makePaginate({ thisObj: this })
   }
 
   get token() {

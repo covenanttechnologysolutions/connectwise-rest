@@ -1,6 +1,6 @@
 {
   "name": "connectwise-rest",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A nodejs module for interacting with the ConnectWise Manage and Automate REST APIs.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -19,7 +19,7 @@
     "postbuild": "npm run lint",
     "lint": "npx eslint -c .eslintrc --fix",
     "coveralls": "npx nyc report --reporter=text-lcov > ./.nyc_output/lcov.info",
-    "pretypedocs": "npm run clean:docs",
+    "predocs": "npm run clean:docs",
     "docs": "npx typedoc src/index.ts",
     "preapidocumenter": "npx api-extractor run --local --verbose",
     "apidocumenter": "npx api-documenter markdown --input-folder temp --output-folder docs",

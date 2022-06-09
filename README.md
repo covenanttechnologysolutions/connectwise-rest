@@ -41,7 +41,7 @@ Version 1.0 has been completely re-written and is automatically generated, some 
 
 ## Documentation
 
-See the full documentation [here](https://covenanttechnologysolutions.github.io/connectwise-rest/index.html)
+See this package's full documentation [here](https://covenanttechnologysolutions.github.io/connectwise-rest/index.html)
 
 ## Usage
 
@@ -49,9 +49,9 @@ See the full documentation [here](https://covenanttechnologysolutions.github.io/
 
 ```javascript
 // ESM
-import { AutomateAPI } from 'connectwise-rest';
+import { ManageAPI } from 'connectwise-rest';
 // CommonJS
-const { AutomateAPI } = require('connectwise-rest');
+const { ManageAPI } = require('connectwise-rest');
 
 const cwm = new ManageAPI({
   companyId: 'company',
@@ -91,7 +91,7 @@ import { AutomateAPI } from 'connectwise-rest';
 // CommonJS
 const { AutomateAPI } = require('connectwise-rest');
 
-const cwa = new ManageAPI({
+const cwa = new AutomateAPI({
   companyId: 'company',
   serverUrl: 'your.connectwise.com',
   clientId: '<your client id>',
@@ -101,6 +101,7 @@ const cwa = new ManageAPI({
   password: '<private key>',
   
   // also pass in two factor passcode if not using an integrator account
+  // this is useful for command line utilities
   twoFactorPasscode: '<2fa code>',
 
   timeout: 20000,             // optional, request connection timeout in ms, defaults to 20000
@@ -140,8 +141,8 @@ cwm.paginate(
   {startPage: 10, pageSize: 500},     // pagination options, defaults to startPage 1, pageSize 1000
   {}                                  // additional arguments to the api function as needed                            
 )
-  .then(results => { ... })
-  .catch(error => { ... })
+  .then(results => { /*...*/ })
+  .catch(error => { /*...*/ })
 
 ```
 

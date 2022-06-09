@@ -106,7 +106,7 @@ export const makePaginate =
     paginateArgs: PaginationOptions = {},
     ...methodArgs: Record<string, unknown>[]
   ): Promise<unknown[]> => {
-    const { startPage = 0, pageSize = 1000 } = paginateArgs
+    const { startPage = 1, pageSize = 1000 } = paginateArgs
 
     return new Promise(async (resolve, reject) => {
       let results: unknown[] = []
@@ -114,17 +114,21 @@ export const makePaginate =
       let page = startPage
 
       if (startPage === undefined || startPage < 1) {
-        page = 0
+        page = 1
       }
 
       while (true) {
         try {
-          const result = await getPage(apiMethod, methodArgs, thisObj, page++, pageSize)
+          const pageResults = await getPage(apiMethod, methodArgs, thisObj, page++, pageSize)
           // complete page returned, loop again
-          if (Array.isArray(result) && result.length > 0) {
-            results = results.concat(result)
+          if (Array.isArray(pageResults) && pageResults.length > 0) {
+            results = [...results, ...pageResults]
+            if (pageResults.length !== pageSize) {
+              // incomplete page, there are no more pages
+              break
+            }
           } else {
-            // incomplete page, this is the last page of results, exit loop and return
+            // no results returned, this is the last page, previous page was full
             break
           }
         } catch (error: unknown) {
