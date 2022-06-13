@@ -152,10 +152,10 @@ You can also manually access the API without typings:
 
 ```javascript
 
-    const { Manage, Automate } = require('connectwise-rest');
+    const { ManageAPI, AutomateAPI } = require('connectwise-rest');
 
-    const cwm = new Manage(CWMOptions);
-    const cwa = new Automate(CWAOptions);
+    const cwm = new ManageAPI(CWMOptions);
+    const cwa = new AutomateAPI(CWAOptions);
     
     // use cwa.request or cwm.request
     cwm.request({
