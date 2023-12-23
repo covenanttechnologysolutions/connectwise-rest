@@ -5846,7 +5846,7 @@ export interface paths {
   "/system/workflows/userdefinedfields/events/{grandparentId}": {
     post: operations["postSystemWorkflowsUserdefinedfieldsEventsByGrandparentId"];
   };
-  "/system/workflows/userdefinedfields/events{grandparentId}/actions/{parentId}": {
+  "/system/workflows/userdefinedfields/events/{grandparentId}/actions/{parentId}": {
     get: operations["getSystemWorkflowsUserdefinedfieldsByGrandparentIdActionsByParentId"];
   };
   "/time/accruals": {

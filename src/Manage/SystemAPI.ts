@@ -6407,7 +6407,7 @@ export class SystemAPI extends Manage {
     params: CommonParameters = {},
   ): Promise<Array<WorkflowActionUserDefinedField>> {
     return this.request({
-      path: `/system/workflows/userdefinedfields/events${grandparentId}/actions/${parentId}`,
+      path: `/system/workflows/userdefinedfields/events/${grandparentId}/actions/${parentId}`,
       method: 'get',
       params,
     })
