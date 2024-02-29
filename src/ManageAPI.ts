@@ -32,7 +32,7 @@ import { CWLogger, RetryOptions } from './types'
 export type PatchOperation = {
   op: 'add' | 'replace' | 'remove'
   path: string
-  value: Record<string, unknown> | Record<string, unknown>[] | string | null
+  value: unknown
 }
 
 /**
