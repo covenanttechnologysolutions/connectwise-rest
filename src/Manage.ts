@@ -1,4 +1,4 @@
-import axios, { AxiosError, AxiosInstance, AxiosResponse } from 'axios'
+import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 import { makeRequest, makePaginate, PaginationOptions, PaginationApiMethod } from './BaseAPI'
 import promiseRetry from 'promise-retry'
 import type { CWMOptions } from './ManageAPI'
@@ -132,6 +132,20 @@ export default class Manage {
         clientId: this.config.clientId,
       },
     })
+
+    this.instance.interceptors.request.use((config: AxiosRequestConfig) => { 
+      if (config.url && config.headers && config.method === 'get' && config.headers.Accept && typeof config.headers.Accept === 'string') {
+        //check for requests to /system/documents/{id}/download
+        const documentDownloadEndpointRegExp = /^\/system\/documents\/[0-9]*\/download$/;
+        if (documentDownloadEndpointRegExp.test(config.url)) {
+          //replace the string "application/json" with "blob" in the Accept header
+          config.headers.Accept = config.headers.Accept.replace('application\/json', 'blob');
+          //add response type 'stream' to axios response type
+          config.responseType = 'stream';
+        }
+      }
+      return config;
+    });
 
     this.request = makeRequest({ config: this.config, api: this.api, thisObj: this })
     this.paginate = makePaginate({ thisObj: this })
