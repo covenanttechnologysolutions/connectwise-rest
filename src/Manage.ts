@@ -1,4 +1,4 @@
-import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
+import axios, { AxiosInstance, InternalAxiosRequestConfig } from 'axios'
 import { makeRequest, makePaginate, PaginationOptions, PaginationApiMethod } from './BaseAPI'
 import promiseRetry from 'promise-retry'
 import type { CWMOptions } from './ManageAPI'
@@ -6,6 +6,13 @@ import { CWLogger, DataResponse, ErrorResponse, RequestOptions, RetryOptions } f
 
 const CW_MANAGE_DEBUG = !!process.env.CW_MANAGE_DEBUG
 
+/**
+ * DEFAULTS variable.
+ * @type {Object}
+ * @property {RetryOptions} retryOptions - Retry options for API requests.
+ * @property {string} apiPath - The endpoint path for API requests.
+ * @property {(debug: boolean) => CWLogger} logger - Logger function that takes a boolean flag to enable debug mode.
+ */
 export const DEFAULTS: {
   retryOptions: RetryOptions
   apiPath: string
@@ -43,6 +50,12 @@ export const DEFAULTS: {
     },
 }
 
+/**
+ * Represents a class for managing configuration options.
+ *
+ * @interface
+ * @extends CWMOptions
+ */
 export interface ManageConfig extends CWMOptions {
   authorization: string
   entryPoint: string
@@ -133,19 +146,25 @@ export default class Manage {
       },
     })
 
-    this.instance.interceptors.request.use((config: AxiosRequestConfig) => { 
-      if (config.url && config.headers && config.method === 'get' && config.headers.Accept && typeof config.headers.Accept === 'string') {
+    this.instance.interceptors.request.use((config: InternalAxiosRequestConfig) => {
+      if (
+        config.url &&
+        config.headers &&
+        config.method === 'get' &&
+        config.headers.Accept &&
+        typeof config.headers.Accept === 'string'
+      ) {
         //check for requests to /system/documents/{id}/download
-        const documentDownloadEndpointRegExp = /^\/system\/documents\/[0-9]*\/download$/;
+        const documentDownloadEndpointRegExp = /^\/system\/documents\/[0-9]*\/download$/
         if (documentDownloadEndpointRegExp.test(config.url)) {
           //replace the string "application/json" with "blob" in the Accept header
-          config.headers.Accept = config.headers.Accept.replace('application\/json', 'blob');
+          config.headers.Accept = config.headers.Accept.replace('application/json', 'blob')
           //add response type 'stream' to axios response type
-          config.responseType = 'stream';
+          config.responseType = 'stream'
         }
       }
-      return config;
-    });
+      return config
+    })
 
     this.request = makeRequest({ config: this.config, api: this.api, thisObj: this })
     this.paginate = makePaginate({ thisObj: this })
