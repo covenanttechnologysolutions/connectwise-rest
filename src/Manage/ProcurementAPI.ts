@@ -11,6 +11,8 @@ export type AdjustmentDetail = schemas['AdjustmentDetail']
 export type AdjustmentType = schemas['AdjustmentType']
 /** {@link AdjustmentTypeInfo} */
 export type AdjustmentTypeInfo = schemas['AdjustmentTypeInfo']
+/** {@link BillingCycle} */
+export type BillingCycle = schemas['BillingCycle']
 /** {@link BulkResult} */
 export type BulkResult = schemas['BulkResult']
 /** {@link CatalogComponent} */
@@ -23,18 +25,28 @@ export type CatalogItem = schemas['CatalogItem']
 export type CatalogItemInfo = schemas['CatalogItemInfo']
 /** {@link CatalogPricing} */
 export type CatalogPricing = schemas['CatalogPricing']
+/** {@link CatalogVendors} */
+export type CatalogVendors = schemas['CatalogVendors']
 /** {@link Category} */
 export type Category = schemas['Category']
 /** {@link CategoryInfo} */
 export type CategoryInfo = schemas['CategoryInfo']
+/** {@link ChangeOrder} */
+export type ChangeOrder = schemas['ChangeOrder']
 /** {@link Conversion} */
 export type Conversion = schemas['Conversion']
 /** {@link Count} */
 export type Count = schemas['Count']
+/** {@link DirectionalSync} */
+export type DirectionalSync = schemas['DirectionalSync']
+/** {@link HttpResponseMessage} */
+export type HttpResponseMessage = schemas['HttpResponseMessage']
 /** {@link IdCollection} */
 export type IdCollection = schemas['IdCollection']
 /** {@link InventoryOnHand} */
 export type InventoryOnHand = schemas['InventoryOnHand']
+/** {@link InvoiceGrouping} */
+export type InvoiceGrouping = schemas['InvoiceGrouping']
 /** {@link LegacySubCategory} */
 export type LegacySubCategory = schemas['LegacySubCategory']
 /** {@link LegacySubCategoryInfo} */
@@ -73,12 +85,18 @@ export type ProductType = schemas['ProductType']
 export type ProductTypeInfo = schemas['ProductTypeInfo']
 /** {@link PurchaseOrder} */
 export type PurchaseOrder = schemas['PurchaseOrder']
+/** {@link PurchaseOrderInfo} */
+export type PurchaseOrderInfo = schemas['PurchaseOrderInfo']
 /** {@link PurchaseOrderLineItem} */
 export type PurchaseOrderLineItem = schemas['PurchaseOrderLineItem']
+/** {@link PurchaseOrderNote} */
+export type PurchaseOrderNote = schemas['PurchaseOrderNote']
 /** {@link PurchaseOrderStatus} */
 export type PurchaseOrderStatus = schemas['PurchaseOrderStatus']
 /** {@link PurchaseOrderStatusEmailTemplate} */
 export type PurchaseOrderStatusEmailTemplate = schemas['PurchaseOrderStatusEmailTemplate']
+/** {@link PurchaseOrderStatusInfo} */
+export type PurchaseOrderStatusInfo = schemas['PurchaseOrderStatusInfo']
 /** {@link PurchaseOrderStatusNotification} */
 export type PurchaseOrderStatusNotification = schemas['PurchaseOrderStatusNotification']
 /** {@link PurchasingDemand} */
@@ -109,6 +127,8 @@ export type ShipmentMethodInfo = schemas['ShipmentMethodInfo']
 export type SubCategory = schemas['SubCategory']
 /** {@link SubCategoryInfo} */
 export type SubCategoryInfo = schemas['SubCategoryInfo']
+/** {@link SuccessResponse} */
+export type SuccessResponse = schemas['SuccessResponse']
 /** {@link UnitOfMeasure} */
 export type UnitOfMeasure = schemas['UnitOfMeasure']
 /** {@link Usage} */
@@ -431,6 +451,13 @@ export class ProcurementAPI extends Manage {
     })
   }
 
+  postProcurementCatalogByIdCopy(id: number): Promise<CatalogItem> {
+    return this.request({
+      path: `/procurement/catalog/${id}/copy`,
+      method: 'post',
+    })
+  }
+
   getProcurementCatalogByIdInfo(
     id: number,
     params: CommonParameters = {},
@@ -645,6 +672,40 @@ export class ProcurementAPI extends Manage {
     })
   }
 
+  deleteProcurementCatalogByParentIdVendorsById(
+    parentId: number,
+    id: number,
+  ): Promise<NoContentResponse> {
+    return this.request({
+      path: `/procurement/catalog/${parentId}/vendors/${id}`,
+      method: 'delete',
+    })
+  }
+
+  putProcurementCatalogByParentIdVendorsById(
+    id: number,
+    parentId: number,
+    catalogItem: CatalogItem,
+  ): Promise<CatalogVendors> {
+    return this.request({
+      path: `/procurement/catalog/${parentId}/vendors/${id}`,
+      method: 'put',
+      data: catalogItem,
+    })
+  }
+
+  patchProcurementCatalogByParentIdVendorsByIdById(
+    id: number,
+    parentId: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<BillingCycle> {
+    return this.request({
+      path: `/procurement/catalog/${parentId}/vendors/${id}${id}`,
+      method: 'patch',
+      data: patchOperations,
+    })
+  }
+
   getProcurementCatalogCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
       path: `/procurement/catalog/count`,
@@ -664,6 +725,25 @@ export class ProcurementAPI extends Manage {
   getProcurementCatalogInfoCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
       path: `/procurement/catalog/info/count`,
+      method: 'get',
+      params,
+    })
+  }
+
+  postProcurementCatalogVendors(catalogVendors: CatalogVendors): Promise<CatalogVendors> {
+    return this.request({
+      path: `/procurement/catalog/vendors`,
+      method: 'post',
+      data: catalogVendors,
+    })
+  }
+
+  getProcurementCatalogVendorsByParentId(
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<Array<CatalogVendors>> {
+    return this.request({
+      path: `/procurement/catalog/vendors/${parentId}`,
       method: 'get',
       params,
     })
@@ -864,6 +944,198 @@ export class ProcurementAPI extends Manage {
       path: `/procurement/categories/info/count`,
       method: 'get',
       params,
+    })
+  }
+
+  getProcurementChangeorder(params: CommonParameters = {}): Promise<Array<ChangeOrder>> {
+    return this.request({
+      path: `/procurement/changeorder`,
+      method: 'get',
+      params,
+    })
+  }
+
+  postProcurementChangeorder(changeOrder: ChangeOrder): Promise<ChangeOrder> {
+    return this.request({
+      path: `/procurement/changeorder`,
+      method: 'post',
+      data: changeOrder,
+    })
+  }
+
+  deleteProcurementChangeorderById(id: number): Promise<NoContentResponse> {
+    return this.request({
+      path: `/procurement/changeorder/${id}`,
+      method: 'delete',
+    })
+  }
+
+  patchProcurementChangeorderById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<ChangeOrder> {
+    return this.request({
+      path: `/procurement/changeorder/${id}`,
+      method: 'patch',
+      data: patchOperations,
+    })
+  }
+
+  getProcurementChangeordersCount(params: CommonParameters = {}): Promise<Count> {
+    return this.request({
+      path: `/procurement/changeorders/count`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getProcurementDirectionalSyncs(params: CommonParameters = {}): Promise<Array<DirectionalSync>> {
+    return this.request({
+      path: `/procurement/directionalSyncs`,
+      method: 'get',
+      params,
+    })
+  }
+
+  postProcurementDirectionalSyncs(directionalSync: DirectionalSync): Promise<DirectionalSync> {
+    return this.request({
+      path: `/procurement/directionalSyncs`,
+      method: 'post',
+      data: directionalSync,
+    })
+  }
+
+  getProcurementDirectionalSyncsById(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<DirectionalSync> {
+    return this.request({
+      path: `/procurement/directionalSyncs/${id}`,
+      method: 'get',
+      params,
+    })
+  }
+
+  deleteProcurementDirectionalSyncsById(id: number): Promise<NoContentResponse> {
+    return this.request({
+      path: `/procurement/directionalSyncs/${id}`,
+      method: 'delete',
+    })
+  }
+
+  putProcurementDirectionalSyncsById(
+    id: number,
+    directionalSync: DirectionalSync,
+  ): Promise<DirectionalSync> {
+    return this.request({
+      path: `/procurement/directionalSyncs/${id}`,
+      method: 'put',
+      data: directionalSync,
+    })
+  }
+
+  patchProcurementDirectionalSyncsById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<DirectionalSync> {
+    return this.request({
+      path: `/procurement/directionalSyncs/${id}`,
+      method: 'patch',
+      data: patchOperations,
+    })
+  }
+
+  getProcurementDirectionalSyncsCount(params: CommonParameters = {}): Promise<Count> {
+    return this.request({
+      path: `/procurement/directionalSyncs/count`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getProcurementInvoicegrouping(params: CommonParameters = {}): Promise<Array<InvoiceGrouping>> {
+    return this.request({
+      path: `/procurement/invoicegrouping`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getProcurementInvoicegroupingById(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<InvoiceGrouping> {
+    return this.request({
+      path: `/procurement/invoicegrouping/${id}`,
+      method: 'get',
+      params,
+    })
+  }
+
+  deleteProcurementInvoicegroupingById(id: number): Promise<NoContentResponse> {
+    return this.request({
+      path: `/procurement/invoicegrouping/${id}`,
+      method: 'delete',
+    })
+  }
+
+  putProcurementInvoicegroupingById(
+    id: number,
+    invoiceGrouping: InvoiceGrouping,
+  ): Promise<InvoiceGrouping> {
+    return this.request({
+      path: `/procurement/invoicegrouping/${id}`,
+      method: 'put',
+      data: invoiceGrouping,
+    })
+  }
+
+  patchProcurementInvoicegroupingById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<InvoiceGrouping> {
+    return this.request({
+      path: `/procurement/invoicegrouping/${id}`,
+      method: 'patch',
+      data: patchOperations,
+    })
+  }
+
+  getProcurementInvoicegroupingByIdUsages(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Array<Usage>> {
+    return this.request({
+      path: `/procurement/invoicegrouping/${id}/usages`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getProcurementInvoicegroupingByIdUsagesList(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Array<Usage>> {
+    return this.request({
+      path: `/procurement/invoicegrouping/${id}/usages/list`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getProcurementInvoicegroupingCount(params: CommonParameters = {}): Promise<Count> {
+    return this.request({
+      path: `/procurement/invoicegrouping/count`,
+      method: 'get',
+      params,
+    })
+  }
+
+  postProcurementInvoicegroupingCount(invoiceGrouping: InvoiceGrouping): Promise<InvoiceGrouping> {
+    return this.request({
+      path: `/procurement/invoicegrouping/count`,
+      method: 'post',
+      data: invoiceGrouping,
     })
   }
 
@@ -1493,6 +1765,49 @@ export class ProcurementAPI extends Manage {
     })
   }
 
+  postProcurementPurchaseordersByIdCopy(id: number): Promise<PurchaseOrder> {
+    return this.request({
+      path: `/procurement/purchaseorders/${id}/copy`,
+      method: 'post',
+    })
+  }
+
+  getProcurementPurchaseordersByIdInfo(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<PurchaseOrderInfo> {
+    return this.request({
+      path: `/procurement/purchaseorders/${id}/info`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getProcurementPurchaseordersByIdQuickAccessCount(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<HttpResponseMessage> {
+    return this.request({
+      path: `/procurement/purchaseorders/${id}/quickAccess/count`,
+      method: 'get',
+      params,
+    })
+  }
+
+  postProcurementPurchaseordersByIdRebatch(id: number): Promise<SuccessResponse> {
+    return this.request({
+      path: `/procurement/purchaseorders/${id}/rebatch`,
+      method: 'post',
+    })
+  }
+
+  postProcurementPurchaseordersByIdUnbatch(id: number): Promise<SuccessResponse> {
+    return this.request({
+      path: `/procurement/purchaseorders/${id}/unbatch`,
+      method: 'post',
+    })
+  }
+
   getProcurementPurchaseordersByParentIdLineitems(
     parentId: number,
     params: CommonParameters = {},
@@ -1515,6 +1830,16 @@ export class ProcurementAPI extends Manage {
     })
   }
 
+  deleteProcurementPurchaseordersByParentIdLineitems(
+    parentId: number,
+    id: number,
+  ): Promise<NoContentResponse> {
+    return this.request({
+      path: `/procurement/purchaseorders/${parentId}/lineitems`,
+      method: 'delete',
+    })
+  }
+
   getProcurementPurchaseordersByParentIdLineitemsById(
     id: number,
     parentId: number,
@@ -1524,16 +1849,6 @@ export class ProcurementAPI extends Manage {
       path: `/procurement/purchaseorders/${parentId}/lineitems/${id}`,
       method: 'get',
       params,
-    })
-  }
-
-  deleteProcurementPurchaseordersByParentIdLineitemsById(
-    id: number,
-    parentId: number,
-  ): Promise<NoContentResponse> {
-    return this.request({
-      path: `/procurement/purchaseorders/${parentId}/lineitems/${id}`,
-      method: 'delete',
     })
   }
 
@@ -1605,9 +1920,106 @@ export class ProcurementAPI extends Manage {
     })
   }
 
+  getProcurementPurchaseordersByParentIdNotes(
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<Array<PurchaseOrderNote>> {
+    return this.request({
+      path: `/procurement/purchaseorders/${parentId}/notes`,
+      method: 'get',
+      params,
+    })
+  }
+
+  postProcurementPurchaseordersByParentIdNotes(
+    parentId: number,
+    PurchaseOrderNote: PurchaseOrderNote,
+  ): Promise<PurchaseOrderNote> {
+    return this.request({
+      path: `/procurement/purchaseorders/${parentId}/notes`,
+      method: 'post',
+      data: PurchaseOrderNote,
+    })
+  }
+
+  getProcurementPurchaseordersByParentIdNotesById(
+    id: number,
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<PurchaseOrderNote> {
+    return this.request({
+      path: `/procurement/purchaseorders/${parentId}/notes/${id}`,
+      method: 'get',
+      params,
+    })
+  }
+
+  deleteProcurementPurchaseordersByParentIdNotesById(
+    id: number,
+    parentId: number,
+  ): Promise<NoContentResponse> {
+    return this.request({
+      path: `/procurement/purchaseorders/${parentId}/notes/${id}`,
+      method: 'delete',
+    })
+  }
+
+  putProcurementPurchaseordersByParentIdNotesById(
+    id: number,
+    parentId: number,
+    PurchaseOrderNote: PurchaseOrderNote,
+  ): Promise<PurchaseOrderNote> {
+    return this.request({
+      path: `/procurement/purchaseorders/${parentId}/notes/${id}`,
+      method: 'put',
+      data: PurchaseOrderNote,
+    })
+  }
+
+  patchProcurementPurchaseordersByParentIdNotesById(
+    id: number,
+    parentId: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<PurchaseOrderNote> {
+    return this.request({
+      path: `/procurement/purchaseorders/${parentId}/notes/${id}`,
+      method: 'patch',
+      data: patchOperations,
+    })
+  }
+
+  getProcurementPurchaseordersByParentIdNotesCount(
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<Count> {
+    return this.request({
+      path: `/procurement/purchaseorders/${parentId}/notes/count`,
+      method: 'get',
+      params,
+    })
+  }
+
   getProcurementPurchaseordersCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
       path: `/procurement/purchaseorders/count`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getProcurementPurchaseordersInfo(
+    params: CommonParameters = {},
+  ): Promise<Array<PurchaseOrderInfo>> {
+    return this.request({
+      path: `/procurement/purchaseorders/info`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getProcurementPurchaseordersInfoCount(params: CommonParameters = {}): Promise<Count> {
+    return this.request({
+      path: `/procurement/purchaseorders/info/count`,
       method: 'get',
       params,
     })
@@ -1670,6 +2082,17 @@ export class ProcurementAPI extends Manage {
       path: `/procurement/purchaseorderstatuses/${id}`,
       method: 'put',
       data: purchaseOrderStatus,
+    })
+  }
+
+  getProcurementPurchaseorderstatusesByIdInfo(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<PurchaseOrderStatusInfo> {
+    return this.request({
+      path: `/procurement/purchaseorderstatuses/${id}/info`,
+      method: 'get',
+      params,
     })
   }
 
@@ -1856,6 +2279,24 @@ export class ProcurementAPI extends Manage {
   getProcurementPurchaseorderstatusesCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
       path: `/procurement/purchaseorderstatuses/count`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getProcurementPurchaseorderstatusesInfo(
+    params: CommonParameters = {},
+  ): Promise<Array<PurchaseOrderStatusInfo>> {
+    return this.request({
+      path: `/procurement/purchaseorderstatuses/info`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getProcurementPurchaseorderstatusesInfoCount(params: CommonParameters = {}): Promise<Count> {
+    return this.request({
+      path: `/procurement/purchaseorderstatuses/Info/count`,
       method: 'get',
       params,
     })

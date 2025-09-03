@@ -27,6 +27,8 @@ export type EmailOpened = schemas['EmailOpened']
 export type FormSubmitted = schemas['FormSubmitted']
 /** {@link Group} */
 export type Group = schemas['Group']
+/** {@link GroupInfo} */
+export type GroupInfo = schemas['GroupInfo']
 /** {@link LinkClicked} */
 export type LinkClicked = schemas['LinkClicked']
 /** {@link MarketingCompany} */
@@ -771,6 +773,14 @@ export class MarketingAPI extends Manage {
     })
   }
 
+  getMarketingGroupsByIdInfo(id: number, params: CommonParameters = {}): Promise<GroupInfo> {
+    return this.request({
+      path: `/marketing/groups/${id}/info`,
+      method: 'get',
+      params,
+    })
+  }
+
   getMarketingGroupsByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
       path: `/marketing/groups/${id}/usages`,
@@ -951,6 +961,22 @@ export class MarketingAPI extends Manage {
   getMarketingGroupsCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
       path: `/marketing/groups/count`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getMarketingGroupsInfo(params: CommonParameters = {}): Promise<Array<GroupInfo>> {
+    return this.request({
+      path: `/marketing/groups/info`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getMarketingGroupsInfoCount(params: CommonParameters = {}): Promise<Count> {
+    return this.request({
+      path: `/marketing/groups/info/count`,
       method: 'get',
       params,
     })

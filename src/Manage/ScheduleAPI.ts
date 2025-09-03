@@ -13,6 +13,8 @@ export type CalendarInfo = schemas['CalendarInfo']
 export type Count = schemas['Count']
 /** {@link Holiday} */
 export type Holiday = schemas['Holiday']
+/** {@link HolidayInfo} */
+export type HolidayInfo = schemas['HolidayInfo']
 /** {@link HolidayList} */
 export type HolidayList = schemas['HolidayList']
 /** {@link HolidayListInfo} */
@@ -33,6 +35,8 @@ export type ScheduleEntryDetail = schemas['ScheduleEntryDetail']
 export type ScheduleReminderTime = schemas['ScheduleReminderTime']
 /** {@link ScheduleStatus} */
 export type ScheduleStatus = schemas['ScheduleStatus']
+/** {@link ScheduleStatusInfo} */
+export type ScheduleStatusInfo = schemas['ScheduleStatusInfo']
 /** {@link ScheduleType} */
 export type ScheduleType = schemas['ScheduleType']
 /** {@link ScheduleTypeInfo} */
@@ -292,6 +296,16 @@ export class ScheduleAPI extends Manage {
     })
   }
 
+  deleteScheduleEntriesByIdByNotifyResource(
+    id: number,
+    notifyResource: string,
+  ): Promise<NoContentResponse> {
+    return this.request({
+      path: `/schedule/entries/${id}/${notifyResource}`,
+      method: 'delete',
+    })
+  }
+
   getScheduleEntriesByParentIdDetails(
     parentId: number,
     params: CommonParameters = {},
@@ -482,12 +496,35 @@ export class ScheduleAPI extends Manage {
     })
   }
 
+  getScheduleHolidaylistsByParentIdHolidaysByIdInfo(
+    parentId: number,
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<HolidayInfo> {
+    return this.request({
+      path: `/schedule/holidaylists/${parentId}/holidays/${id}/info`,
+      method: 'get',
+      params,
+    })
+  }
+
   getScheduleHolidayListsByParentIdHolidaysCount(
     parentId: number,
     params: CommonParameters = {},
   ): Promise<Count> {
     return this.request({
       path: `/schedule/holidayLists/${parentId}/holidays/count`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getScheduleHolidaylistsByParentIdHolidaysInfo(
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<Array<HolidayInfo>> {
+    return this.request({
+      path: `/schedule/holidaylists/${parentId}/holidays/info`,
       method: 'get',
       params,
     })
@@ -665,9 +702,36 @@ export class ScheduleAPI extends Manage {
     })
   }
 
+  getScheduleStatusesByIdInfo(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<ScheduleStatusInfo> {
+    return this.request({
+      path: `/schedule/statuses/${id}/info`,
+      method: 'get',
+      params,
+    })
+  }
+
   getScheduleStatusesCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
       path: `/schedule/statuses/count`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getScheduleStatusesInfo(params: CommonParameters = {}): Promise<Array<ScheduleStatusInfo>> {
+    return this.request({
+      path: `/schedule/statuses/info`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getScheduleStatusesInfoCount(params: CommonParameters = {}): Promise<Count> {
+    return this.request({
+      path: `/schedule/statuses/info/count`,
       method: 'get',
       params,
     })

@@ -11,8 +11,6 @@ export type AddressFormat = schemas['AddressFormat']
 export type AddressFormatInfo = schemas['AddressFormatInfo']
 /** {@link BulkResult} */
 export type BulkResult = schemas['BulkResult']
-/** {@link ClearPickerRequest} */
-export type ClearPickerRequest = schemas['ClearPickerRequest']
 /** {@link CommunicationType} */
 export type CommunicationType = schemas['CommunicationType']
 /** {@link CommunicationTypeInfo} */
@@ -26,14 +24,13 @@ export type CompanyConfiguration = schemas['Company.Configuration']
 /** {@link CompanyContactTypeAssociation} */
 export type CompanyContactTypeAssociation = schemas['Company.ContactTypeAssociation']
 /** {@link CompanyCompanyTypeAssociationCompanyTypeAssociation} */
-export type CompanyCompanyTypeAssociationCompanyTypeAssociation =
-  schemas['CompanyCompanyTypeAssociation.CompanyTypeAssociation']
+export type CompanyCompanyTypeAssociationCompanyTypeAssociation = schemas['CompanyCompanyTypeAssociation.CompanyTypeAssociation']
 /** {@link CompanyCustomNote} */
 export type CompanyCustomNote = schemas['CompanyCustomNote']
-/** {@link CompanyFinance} */
-export type CompanyFinance = schemas['CompanyFinance']
 /** {@link CompanyGroup} */
 export type CompanyGroup = schemas['CompanyGroup']
+/** {@link CompanyInfo} */
+export type CompanyInfo = schemas['CompanyInfo']
 /** {@link CompanyManagementSummary} */
 export type CompanyManagementSummary = schemas['CompanyManagementSummary']
 /** {@link CompanyMerge} */
@@ -48,6 +45,8 @@ export type CompanyNoteTypeInfo = schemas['CompanyNoteTypeInfo']
 export type CompanyPickerItem = schemas['CompanyPickerItem']
 /** {@link CompanySite} */
 export type CompanySite = schemas['CompanySite']
+/** {@link CompanySiteInfo} */
+export type CompanySiteInfo = schemas['CompanySiteInfo']
 /** {@link CompanyStatus} */
 export type CompanyStatus = schemas['CompanyStatus']
 /** {@link CompanyTeam} */
@@ -60,8 +59,12 @@ export type CompanyTypeInfo = schemas['CompanyTypeInfo']
 export type ConfigurationStatus = schemas['ConfigurationStatus']
 /** {@link ConfigurationStatusInfo} */
 export type ConfigurationStatusInfo = schemas['ConfigurationStatusInfo']
+/** {@link ConfigurationTabsCount} */
+export type ConfigurationTabsCount = schemas['ConfigurationTabsCount']
 /** {@link ConfigurationType} */
 export type ConfigurationType = schemas['ConfigurationType']
+/** {@link ConfigurationTypeCopy} */
+export type ConfigurationTypeCopy = schemas['ConfigurationTypeCopy']
 /** {@link ConfigurationTypeInfo} */
 export type ConfigurationTypeInfo = schemas['ConfigurationTypeInfo']
 /** {@link ConfigurationTypeQuestion} */
@@ -73,14 +76,15 @@ export type Contact = schemas['Contact']
 /** {@link ContactCommunication} */
 export type ContactCommunication = schemas['ContactCommunication']
 /** {@link ContactContactTypeAssociationContactTypeAssociation} */
-export type ContactContactTypeAssociationContactTypeAssociation =
-  schemas['ContactContactTypeAssociation.ContactTypeAssociation']
+export type ContactContactTypeAssociationContactTypeAssociation = schemas['ContactContactTypeAssociation.ContactTypeAssociation']
 /** {@link ContactDepartment} */
 export type ContactDepartment = schemas['ContactDepartment']
 /** {@link ContactDepartmentInfo} */
 export type ContactDepartmentInfo = schemas['ContactDepartmentInfo']
 /** {@link ContactGroup} */
 export type ContactGroup = schemas['ContactGroup']
+/** {@link ContactInfo} */
+export type ContactInfo = schemas['ContactInfo']
 /** {@link ContactNote} */
 export type ContactNote = schemas['ContactNote']
 /** {@link ContactRelationship} */
@@ -101,11 +105,14 @@ export type CountryInfo = schemas['CountryInfo']
 export type EntityType = schemas['EntityType']
 /** {@link EntityTypeInfo} */
 export type EntityTypeInfo = schemas['EntityTypeInfo']
+/** {@link M365Contact} */
+export type M365Contact = schemas['M365Contact']
+/** {@link M365ContactSyncProperty} */
+export type M365ContactSyncProperty = schemas['M365ContactSyncProperty']
 /** {@link ManagedDevicesIntegration} */
 export type ManagedDevicesIntegration = schemas['ManagedDevicesIntegration']
 /** {@link ManagedDevicesIntegrationCrossReference} */
-export type ManagedDevicesIntegrationCrossReference =
-  schemas['ManagedDevicesIntegrationCrossReference']
+export type ManagedDevicesIntegrationCrossReference = schemas['ManagedDevicesIntegrationCrossReference']
 /** {@link ManagedDevicesIntegrationInfo} */
 export type ManagedDevicesIntegrationInfo = schemas['ManagedDevicesIntegrationInfo']
 /** {@link ManagedDevicesIntegrationLogin} */
@@ -119,8 +126,7 @@ export type ManagementBackup = schemas['ManagementBackup']
 /** {@link ManagementItSolution} */
 export type ManagementItSolution = schemas['ManagementItSolution']
 /** {@link ManagementItSolutionAgreementInterfaceParameter} */
-export type ManagementItSolutionAgreementInterfaceParameter =
-  schemas['ManagementItSolutionAgreementInterfaceParameter']
+export type ManagementItSolutionAgreementInterfaceParameter = schemas['ManagementItSolutionAgreementInterfaceParameter']
 /** {@link ManagementLogDocumentInfo} */
 export type ManagementLogDocumentInfo = schemas['ManagementLogDocumentInfo']
 /** {@link ManagementReportNotification} */
@@ -193,4749 +199,2963 @@ export class CompanyAPI extends Manage {
     super(props)
   }
 
-  getCompanyAddressFormats(params: CommonParameters = {}): Promise<Array<AddressFormat>> {
+  
+   getCompanyAddressFormats(params: CommonParameters = {}): Promise<Array<AddressFormat>> {
     return this.request({
-      path: `/company/addressFormats`,
-      method: 'get',
-      params,
+      path: `/company/addressFormats`, method: 'get', params
     })
-  }
+   }
 
-  postCompanyAddressFormats(addressFormat: AddressFormat): Promise<AddressFormat> {
+   postCompanyAddressFormats(addressFormat: AddressFormat): Promise<AddressFormat> {
     return this.request({
-      path: `/company/addressFormats`,
-      method: 'post',
-      data: addressFormat,
+      path: `/company/addressFormats`, method: 'post', data: addressFormat
     })
-  }
+   }
 
-  getCompanyAddressFormatsById(id: number, params: CommonParameters = {}): Promise<AddressFormat> {
+   getCompanyAddressFormatsById(id: number, params: CommonParameters = {}): Promise<AddressFormat> {
     return this.request({
-      path: `/company/addressFormats/${id}`,
-      method: 'get',
-      params,
+      path: `/company/addressFormats/${id}`, method: 'get', params
     })
-  }
+   }
 
-  deleteCompanyAddressFormatsById(id: number): Promise<NoContentResponse> {
+   deleteCompanyAddressFormatsById(id: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/addressFormats/${id}`,
-      method: 'delete',
+      path: `/company/addressFormats/${id}`, method: 'delete'
     })
-  }
+   }
 
-  putCompanyAddressFormatsById(id: number, addressFormat: AddressFormat): Promise<AddressFormat> {
+   putCompanyAddressFormatsById(id: number, addressFormat: AddressFormat): Promise<AddressFormat> {
     return this.request({
-      path: `/company/addressFormats/${id}`,
-      method: 'put',
-      data: addressFormat,
+      path: `/company/addressFormats/${id}`, method: 'put', data: addressFormat
     })
-  }
+   }
 
-  patchCompanyAddressFormatsById(
-    id: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<AddressFormat> {
+   patchCompanyAddressFormatsById(id: number, patchOperations: Array<PatchOperation>): Promise<AddressFormat> {
     return this.request({
-      path: `/company/addressFormats/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/addressFormats/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  getCompanyAddressFormatsByIdInfo(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<AddressFormatInfo> {
+   getCompanyAddressFormatsByIdInfo(id: number, params: CommonParameters = {}): Promise<AddressFormatInfo> {
     return this.request({
-      path: `/company/addressFormats/${id}/info`,
-      method: 'get',
-      params,
+      path: `/company/addressFormats/${id}/info`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyAddressFormatsCount(params: CommonParameters = {}): Promise<Count> {
+   getCompanyAddressFormatsCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/addressFormats/count`,
-      method: 'get',
-      params,
+      path: `/company/addressFormats/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyAddressFormatsInfo(params: CommonParameters = {}): Promise<Array<AddressFormatInfo>> {
+   getCompanyAddressFormatsInfo(params: CommonParameters = {}): Promise<Array<AddressFormatInfo>> {
     return this.request({
-      path: `/company/addressFormats/info`,
-      method: 'get',
-      params,
+      path: `/company/addressFormats/info`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyAddressFormatsInfoCount(params: CommonParameters = {}): Promise<Count> {
+   getCompanyAddressFormatsInfoCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/addressFormats/info/count`,
-      method: 'get',
-      params,
+      path: `/company/addressFormats/info/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyBillingSetupsInfoCount(params: CommonParameters = {}): Promise<Count> {
+   getCompanyCommunicationTypes(params: CommonParameters = {}): Promise<Array<CommunicationType>> {
     return this.request({
-      path: `/company/billingSetups/info/count`,
-      method: 'get',
-      params,
+      path: `/company/communicationTypes`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCommunicationTypes(params: CommonParameters = {}): Promise<Array<CommunicationType>> {
+   postCompanyCommunicationTypes(communicationType: CommunicationType): Promise<CommunicationType> {
     return this.request({
-      path: `/company/communicationTypes`,
-      method: 'get',
-      params,
+      path: `/company/communicationTypes`, method: 'post', data: communicationType
     })
-  }
+   }
 
-  postCompanyCommunicationTypes(communicationType: CommunicationType): Promise<CommunicationType> {
+   getCompanyCommunicationTypesById(id: number, params: CommonParameters = {}): Promise<CommunicationType> {
     return this.request({
-      path: `/company/communicationTypes`,
-      method: 'post',
-      data: communicationType,
+      path: `/company/communicationTypes/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCommunicationTypesById(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<CommunicationType> {
+   deleteCompanyCommunicationTypesById(id: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/communicationTypes/${id}`,
-      method: 'get',
-      params,
+      path: `/company/communicationTypes/${id}`, method: 'delete'
     })
-  }
+   }
 
-  deleteCompanyCommunicationTypesById(id: number): Promise<NoContentResponse> {
+   putCompanyCommunicationTypesById(id: number, communicationType: CommunicationType): Promise<CommunicationType> {
     return this.request({
-      path: `/company/communicationTypes/${id}`,
-      method: 'delete',
+      path: `/company/communicationTypes/${id}`, method: 'put', data: communicationType
     })
-  }
+   }
 
-  putCompanyCommunicationTypesById(
-    id: number,
-    communicationType: CommunicationType,
-  ): Promise<CommunicationType> {
+   patchCompanyCommunicationTypesById(id: number, patchOperations: Array<PatchOperation>): Promise<CommunicationType> {
     return this.request({
-      path: `/company/communicationTypes/${id}`,
-      method: 'put',
-      data: communicationType,
+      path: `/company/communicationTypes/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  patchCompanyCommunicationTypesById(
-    id: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<CommunicationType> {
+   getCompanyCommunicationTypesByIdInfo(id: number, params: CommonParameters = {}): Promise<CommunicationTypeInfo> {
     return this.request({
-      path: `/company/communicationTypes/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/communicationTypes/${id}/info`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCommunicationTypesByIdInfo(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<CommunicationTypeInfo> {
+   getCompanyCommunicationTypesByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/communicationTypes/${id}/info`,
-      method: 'get',
-      params,
+      path: `/company/communicationTypes/${id}/usages`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCommunicationTypesByIdUsages(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<Array<Usage>> {
+   getCompanyCommunicationTypesByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/communicationTypes/${id}/usages`,
-      method: 'get',
-      params,
+      path: `/company/communicationTypes/${id}/usages/list`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCommunicationTypesByIdUsagesList(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<Array<Usage>> {
+   getCompanyCommunicationTypesCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/communicationTypes/${id}/usages/list`,
-      method: 'get',
-      params,
+      path: `/company/communicationTypes/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCommunicationTypesCount(params: CommonParameters = {}): Promise<Count> {
+   getCompanyCommunicationTypesInfo(params: CommonParameters = {}): Promise<Array<CommunicationTypeInfo>> {
     return this.request({
-      path: `/company/communicationTypes/count`,
-      method: 'get',
-      params,
+      path: `/company/communicationTypes/info`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCommunicationTypesInfo(
-    params: CommonParameters = {},
-  ): Promise<Array<CommunicationTypeInfo>> {
+   getCompanyCommunicationTypesInfoCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/communicationTypes/info`,
-      method: 'get',
-      params,
+      path: `/company/communicationTypes/info/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCommunicationTypesInfoCount(params: CommonParameters = {}): Promise<Count> {
+   getCompanyCompanies(params: CommonParameters = {}): Promise<Array<Company>> {
     return this.request({
-      path: `/company/communicationTypes/info/count`,
-      method: 'get',
-      params,
+      path: `/company/companies`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompanies(params: CommonParameters = {}): Promise<Array<Company>> {
+   postCompanyCompanies(company: Company): Promise<Company> {
     return this.request({
-      path: `/company/companies`,
-      method: 'get',
-      params,
+      path: `/company/companies`, method: 'post', data: company
     })
-  }
+   }
 
-  postCompanyCompanies(company: Company): Promise<Company> {
+   getCompanyCompaniesById(id: number, params: CommonParameters = {}): Promise<Company> {
     return this.request({
-      path: `/company/companies`,
-      method: 'post',
-      data: company,
+      path: `/company/companies/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesById(id: number, params: CommonParameters = {}): Promise<Company> {
+   deleteCompanyCompaniesById(id: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/companies/${id}`,
-      method: 'get',
-      params,
+      path: `/company/companies/${id}`, method: 'delete'
     })
-  }
+   }
 
-  deleteCompanyCompaniesById(id: number): Promise<NoContentResponse> {
+   putCompanyCompaniesById(id: number, company: Company): Promise<Company> {
     return this.request({
-      path: `/company/companies/${id}`,
-      method: 'delete',
+      path: `/company/companies/${id}`, method: 'put', data: company
     })
-  }
+   }
 
-  putCompanyCompaniesById(id: number, company: Company): Promise<Company> {
+   patchCompanyCompaniesById(id: number, patchOperations: Array<PatchOperation>): Promise<Company> {
     return this.request({
-      path: `/company/companies/${id}`,
-      method: 'put',
-      data: company,
+      path: `/company/companies/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  patchCompanyCompaniesById(id: number, patchOperations: Array<PatchOperation>): Promise<Company> {
+   postCompanyCompaniesByIdMerge(id: number, merge: CompanyMerge): Promise<SuccessResponse> {
     return this.request({
-      path: `/company/companies/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/companies/${id}/merge`, method: 'post', data: merge
     })
-  }
+   }
 
-  postCompanyCompaniesByIdMerge(id: number, merge: CompanyMerge): Promise<SuccessResponse> {
+   getCompanyCompaniesByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/companies/${id}/merge`,
-      method: 'post',
-      data: merge,
+      path: `/company/companies/${id}/usages`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
+   getCompanyCompaniesByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/companies/${id}/usages`,
-      method: 'get',
-      params,
+      path: `/company/companies/${id}/usages/list`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesByIdUsagesList(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<Array<Usage>> {
+   getCompanyCompaniesByParentIdCustomStatusNotes(parentId: number, params: CommonParameters = {}): Promise<Array<CompanyCustomNote>> {
     return this.request({
-      path: `/company/companies/${id}/usages/list`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/customStatusNotes`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesByParentIdCustomStatusNotes(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Array<CompanyCustomNote>> {
+   postCompanyCompaniesByParentIdCustomStatusNotes(parentId: number, customNote: CompanyCustomNote): Promise<CompanyCustomNote> {
     return this.request({
-      path: `/company/companies/${parentId}/customStatusNotes`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/customStatusNotes`, method: 'post', data: customNote
     })
-  }
+   }
 
-  postCompanyCompaniesByParentIdCustomStatusNotes(
-    parentId: number,
-    customNote: CompanyCustomNote,
-  ): Promise<CompanyCustomNote> {
+   getCompanyCompaniesByParentIdCustomStatusNotesById(id: number, parentId: number, params: CommonParameters = {}): Promise<CompanyCustomNote> {
     return this.request({
-      path: `/company/companies/${parentId}/customStatusNotes`,
-      method: 'post',
-      data: customNote,
+      path: `/company/companies/${parentId}/customStatusNotes/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesByParentIdCustomStatusNotesById(
-    id: number,
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<CompanyCustomNote> {
+   deleteCompanyCompaniesByParentIdCustomStatusNotesById(id: number, parentId: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/companies/${parentId}/customStatusNotes/${id}`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/customStatusNotes/${id}`, method: 'delete'
     })
-  }
+   }
 
-  deleteCompanyCompaniesByParentIdCustomStatusNotesById(
-    id: number,
-    parentId: number,
-  ): Promise<NoContentResponse> {
+   putCompanyCompaniesByParentIdCustomStatusNotesById(id: number, parentId: number, customNote: CompanyCustomNote): Promise<CompanyCustomNote> {
     return this.request({
-      path: `/company/companies/${parentId}/customStatusNotes/${id}`,
-      method: 'delete',
+      path: `/company/companies/${parentId}/customStatusNotes/${id}`, method: 'put', data: customNote
     })
-  }
+   }
 
-  putCompanyCompaniesByParentIdCustomStatusNotesById(
-    id: number,
-    parentId: number,
-    customNote: CompanyCustomNote,
-  ): Promise<CompanyCustomNote> {
+   patchCompanyCompaniesByParentIdCustomStatusNotesById(id: number, parentId: number, patchOperations: Array<PatchOperation>): Promise<CompanyCustomNote> {
     return this.request({
-      path: `/company/companies/${parentId}/customStatusNotes/${id}`,
-      method: 'put',
-      data: customNote,
+      path: `/company/companies/${parentId}/customStatusNotes/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  patchCompanyCompaniesByParentIdCustomStatusNotesById(
-    id: number,
-    parentId: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<CompanyCustomNote> {
+   getCompanyCompaniesByParentIdCustomStatusNotesCount(parentId: number, params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/companies/${parentId}/customStatusNotes/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/companies/${parentId}/customStatusNotes/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesByParentIdCustomStatusNotesCount(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Count> {
+   getCompanyCompaniesByParentIdGroups(parentId: number, params: CommonParameters = {}): Promise<Array<CompanyGroup>> {
     return this.request({
-      path: `/company/companies/${parentId}/customStatusNotes/count`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/groups`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesByParentIdGroups(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Array<CompanyGroup>> {
+   postCompanyCompaniesByParentIdGroups(parentId: number, companyGroup: CompanyGroup): Promise<CompanyGroup> {
     return this.request({
-      path: `/company/companies/${parentId}/groups`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/groups`, method: 'post', data: companyGroup
     })
-  }
+   }
 
-  postCompanyCompaniesByParentIdGroups(
-    parentId: number,
-    companyGroup: CompanyGroup,
-  ): Promise<CompanyGroup> {
+   getCompanyCompaniesByParentIdGroupsById(id: number, parentId: number, params: CommonParameters = {}): Promise<CompanyGroup> {
     return this.request({
-      path: `/company/companies/${parentId}/groups`,
-      method: 'post',
-      data: companyGroup,
+      path: `/company/companies/${parentId}/groups/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesByParentIdGroupsById(
-    id: number,
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<CompanyGroup> {
+   deleteCompanyCompaniesByParentIdGroupsById(id: number, parentId: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/companies/${parentId}/groups/${id}`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/groups/${id}`, method: 'delete'
     })
-  }
+   }
 
-  deleteCompanyCompaniesByParentIdGroupsById(
-    id: number,
-    parentId: number,
-  ): Promise<NoContentResponse> {
+   putCompanyCompaniesByParentIdGroupsById(id: number, parentId: number, companyGroup: CompanyGroup): Promise<CompanyGroup> {
     return this.request({
-      path: `/company/companies/${parentId}/groups/${id}`,
-      method: 'delete',
+      path: `/company/companies/${parentId}/groups/${id}`, method: 'put', data: companyGroup
     })
-  }
+   }
 
-  putCompanyCompaniesByParentIdGroupsById(
-    id: number,
-    parentId: number,
-    companyGroup: CompanyGroup,
-  ): Promise<CompanyGroup> {
+   patchCompanyCompaniesByParentIdGroupsById(id: number, parentId: number, patchOperations: Array<PatchOperation>): Promise<CompanyGroup> {
     return this.request({
-      path: `/company/companies/${parentId}/groups/${id}`,
-      method: 'put',
-      data: companyGroup,
+      path: `/company/companies/${parentId}/groups/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  patchCompanyCompaniesByParentIdGroupsById(
-    id: number,
-    parentId: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<CompanyGroup> {
+   getCompanyCompaniesByParentIdGroupsCount(parentId: number, params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/companies/${parentId}/groups/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/companies/${parentId}/groups/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesByParentIdGroupsCount(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Count> {
+   getCompanyCompaniesByParentIdManagementReportNotifications(parentId: number, params: CommonParameters = {}): Promise<Array<ManagementReportNotification>> {
     return this.request({
-      path: `/company/companies/${parentId}/groups/count`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/managementReportNotifications`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesByParentIdManagementReportNotifications(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Array<ManagementReportNotification>> {
+   postCompanyCompaniesByParentIdManagementReportNotifications(parentId: number, managementReportNotification: ManagementReportNotification): Promise<ManagementReportNotification> {
     return this.request({
-      path: `/company/companies/${parentId}/managementReportNotifications`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/managementReportNotifications`, method: 'post', data: managementReportNotification
     })
-  }
+   }
 
-  postCompanyCompaniesByParentIdManagementReportNotifications(
-    parentId: number,
-    managementReportNotification: ManagementReportNotification,
-  ): Promise<ManagementReportNotification> {
+   getCompanyCompaniesByParentIdManagementReportNotificationsById(id: number, parentId: number, params: CommonParameters = {}): Promise<ManagementReportNotification> {
     return this.request({
-      path: `/company/companies/${parentId}/managementReportNotifications`,
-      method: 'post',
-      data: managementReportNotification,
+      path: `/company/companies/${parentId}/managementReportNotifications/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesByParentIdManagementReportNotificationsById(
-    id: number,
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<ManagementReportNotification> {
+   deleteCompanyCompaniesByParentIdManagementReportNotificationsById(id: number, parentId: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/companies/${parentId}/managementReportNotifications/${id}`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/managementReportNotifications/${id}`, method: 'delete'
     })
-  }
+   }
 
-  deleteCompanyCompaniesByParentIdManagementReportNotificationsById(
-    id: number,
-    parentId: number,
-  ): Promise<NoContentResponse> {
+   putCompanyCompaniesByParentIdManagementReportNotificationsById(id: number, parentId: number, managementReportNotification: ManagementReportNotification): Promise<ManagementReportNotification> {
     return this.request({
-      path: `/company/companies/${parentId}/managementReportNotifications/${id}`,
-      method: 'delete',
+      path: `/company/companies/${parentId}/managementReportNotifications/${id}`, method: 'put', data: managementReportNotification
     })
-  }
+   }
 
-  putCompanyCompaniesByParentIdManagementReportNotificationsById(
-    id: number,
-    parentId: number,
-    managementReportNotification: ManagementReportNotification,
-  ): Promise<ManagementReportNotification> {
+   patchCompanyCompaniesByParentIdManagementReportNotificationsById(id: number, parentId: number, patchOperations: Array<PatchOperation>): Promise<ManagementReportNotification> {
     return this.request({
-      path: `/company/companies/${parentId}/managementReportNotifications/${id}`,
-      method: 'put',
-      data: managementReportNotification,
+      path: `/company/companies/${parentId}/managementReportNotifications/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  patchCompanyCompaniesByParentIdManagementReportNotificationsById(
-    id: number,
-    parentId: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<ManagementReportNotification> {
+   getCompanyCompaniesByParentIdManagementReportNotificationsCount(parentId: number, params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/companies/${parentId}/managementReportNotifications/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/companies/${parentId}/managementReportNotifications/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesByParentIdManagementReportNotificationsCount(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Count> {
+   getCompanyCompaniesByParentIdManagementReportSetup(parentId: number, params: CommonParameters = {}): Promise<Array<ManagementReportSetup>> {
     return this.request({
-      path: `/company/companies/${parentId}/managementReportNotifications/count`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/managementReportSetup`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesByParentIdManagementReportSetup(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Array<ManagementReportSetup>> {
+   postCompanyCompaniesByParentIdManagementReportSetup(parentId: number, managementReportSetup: ManagementReportSetup): Promise<ManagementReportSetup> {
     return this.request({
-      path: `/company/companies/${parentId}/managementReportSetup`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/managementReportSetup`, method: 'post', data: managementReportSetup
     })
-  }
+   }
 
-  postCompanyCompaniesByParentIdManagementReportSetup(
-    parentId: number,
-    managementReportSetup: ManagementReportSetup,
-  ): Promise<ManagementReportSetup> {
+   putCompanyCompaniesByParentIdManagementReportSetupById(id: number, parentId: number, managementReportSetup: ManagementReportSetup): Promise<ManagementReportSetup> {
     return this.request({
-      path: `/company/companies/${parentId}/managementReportSetup`,
-      method: 'post',
-      data: managementReportSetup,
+      path: `/company/companies/${parentId}/managementReportSetup/${id}`, method: 'put', data: managementReportSetup
     })
-  }
+   }
 
-  putCompanyCompaniesByParentIdManagementReportSetupById(
-    id: number,
-    parentId: number,
-    managementReportSetup: ManagementReportSetup,
-  ): Promise<ManagementReportSetup> {
+   patchCompanyCompaniesByParentIdManagementReportSetupById(id: number, parentId: number, patchOperations: Array<PatchOperation>): Promise<ManagementReportSetup> {
     return this.request({
-      path: `/company/companies/${parentId}/managementReportSetup/${id}`,
-      method: 'put',
-      data: managementReportSetup,
+      path: `/company/companies/${parentId}/managementReportSetup/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  patchCompanyCompaniesByParentIdManagementReportSetupById(
-    id: number,
-    parentId: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<ManagementReportSetup> {
+   getCompanyCompaniesByParentIdManagementSummaryReports(parentId: number, params: CommonParameters = {}): Promise<Array<CompanyManagementSummary>> {
     return this.request({
-      path: `/company/companies/${parentId}/managementReportSetup/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/companies/${parentId}/managementSummaryReports`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesByParentIdManagementSummaryReports(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Array<CompanyManagementSummary>> {
+   postCompanyCompaniesByParentIdManagementSummaryReports(parentId: number, managementSummary: CompanyManagementSummary): Promise<CompanyManagementSummary> {
     return this.request({
-      path: `/company/companies/${parentId}/managementSummaryReports`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/managementSummaryReports`, method: 'post', data: managementSummary
     })
-  }
+   }
 
-  postCompanyCompaniesByParentIdManagementSummaryReports(
-    parentId: number,
-    managementSummary: CompanyManagementSummary,
-  ): Promise<CompanyManagementSummary> {
+   getCompanyCompaniesByParentIdManagementSummaryReportsById(id: number, parentId: number, params: CommonParameters = {}): Promise<CompanyManagementSummary> {
     return this.request({
-      path: `/company/companies/${parentId}/managementSummaryReports`,
-      method: 'post',
-      data: managementSummary,
+      path: `/company/companies/${parentId}/managementSummaryReports/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesByParentIdManagementSummaryReportsById(
-    id: number,
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<CompanyManagementSummary> {
+   deleteCompanyCompaniesByParentIdManagementSummaryReportsById(id: number, parentId: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/companies/${parentId}/managementSummaryReports/${id}`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/managementSummaryReports/${id}`, method: 'delete'
     })
-  }
+   }
 
-  deleteCompanyCompaniesByParentIdManagementSummaryReportsById(
-    id: number,
-    parentId: number,
-  ): Promise<NoContentResponse> {
+   putCompanyCompaniesByParentIdManagementSummaryReportsById(id: number, parentId: number, managementSummary: CompanyManagementSummary): Promise<CompanyManagementSummary> {
     return this.request({
-      path: `/company/companies/${parentId}/managementSummaryReports/${id}`,
-      method: 'delete',
+      path: `/company/companies/${parentId}/managementSummaryReports/${id}`, method: 'put', data: managementSummary
     })
-  }
+   }
 
-  putCompanyCompaniesByParentIdManagementSummaryReportsById(
-    id: number,
-    parentId: number,
-    managementSummary: CompanyManagementSummary,
-  ): Promise<CompanyManagementSummary> {
+   patchCompanyCompaniesByParentIdManagementSummaryReportsById(id: number, parentId: number, patchOperations: Array<PatchOperation>): Promise<CompanyManagementSummary> {
     return this.request({
-      path: `/company/companies/${parentId}/managementSummaryReports/${id}`,
-      method: 'put',
-      data: managementSummary,
+      path: `/company/companies/${parentId}/managementSummaryReports/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  patchCompanyCompaniesByParentIdManagementSummaryReportsById(
-    id: number,
-    parentId: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<CompanyManagementSummary> {
+   getCompanyCompaniesByParentIdManagementSummaryReportsCount(parentId: number, params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/companies/${parentId}/managementSummaryReports/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/companies/${parentId}/managementSummaryReports/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesByParentIdManagementSummaryReportsCount(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Count> {
+   getCompanyCompaniesByParentIdNotes(parentId: number, params: CommonParameters = {}): Promise<Array<CompanyNote>> {
     return this.request({
-      path: `/company/companies/${parentId}/managementSummaryReports/count`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/notes`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesByParentIdNotes(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Array<CompanyNote>> {
+   postCompanyCompaniesByParentIdNotes(parentId: number, companyNote: CompanyNote): Promise<CompanyNote> {
     return this.request({
-      path: `/company/companies/${parentId}/notes`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/notes`, method: 'post', data: companyNote
     })
-  }
+   }
 
-  postCompanyCompaniesByParentIdNotes(
-    parentId: number,
-    companyNote: CompanyNote,
-  ): Promise<CompanyNote> {
+   getCompanyCompaniesByParentIdNotesById(id: number, parentId: number, params: CommonParameters = {}): Promise<CompanyNote> {
     return this.request({
-      path: `/company/companies/${parentId}/notes`,
-      method: 'post',
-      data: companyNote,
+      path: `/company/companies/${parentId}/notes/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesByParentIdNotesById(
-    id: number,
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<CompanyNote> {
+   deleteCompanyCompaniesByParentIdNotesById(id: number, parentId: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/companies/${parentId}/notes/${id}`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/notes/${id}`, method: 'delete'
     })
-  }
+   }
 
-  deleteCompanyCompaniesByParentIdNotesById(
-    id: number,
-    parentId: number,
-  ): Promise<NoContentResponse> {
+   putCompanyCompaniesByParentIdNotesById(id: number, parentId: number, companyNote: CompanyNote): Promise<CompanyNote> {
     return this.request({
-      path: `/company/companies/${parentId}/notes/${id}`,
-      method: 'delete',
+      path: `/company/companies/${parentId}/notes/${id}`, method: 'put', data: companyNote
     })
-  }
+   }
 
-  putCompanyCompaniesByParentIdNotesById(
-    id: number,
-    parentId: number,
-    companyNote: CompanyNote,
-  ): Promise<CompanyNote> {
+   patchCompanyCompaniesByParentIdNotesById(id: number, parentId: number, patchOperations: Array<PatchOperation>): Promise<CompanyNote> {
     return this.request({
-      path: `/company/companies/${parentId}/notes/${id}`,
-      method: 'put',
-      data: companyNote,
+      path: `/company/companies/${parentId}/notes/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  patchCompanyCompaniesByParentIdNotesById(
-    id: number,
-    parentId: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<CompanyNote> {
+   getCompanyCompaniesByParentIdNotesCount(parentId: number, params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/companies/${parentId}/notes/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/companies/${parentId}/notes/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesByParentIdNotesCount(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Count> {
+   getCompanyCompaniesByParentIdSites(parentId: number, params: CommonParameters = {}): Promise<Array<CompanySite>> {
     return this.request({
-      path: `/company/companies/${parentId}/notes/count`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/sites`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesByParentIdSites(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Array<CompanySite>> {
+   postCompanyCompaniesByParentIdSites(parentId: number, site: CompanySite): Promise<CompanySite> {
     return this.request({
-      path: `/company/companies/${parentId}/sites`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/sites`, method: 'post', data: site
     })
-  }
+   }
 
-  postCompanyCompaniesByParentIdSites(parentId: number, site: CompanySite): Promise<CompanySite> {
+   getCompanyCompaniesByParentIdSitesById(id: number, parentId: number, params: CommonParameters = {}): Promise<CompanySite> {
     return this.request({
-      path: `/company/companies/${parentId}/sites`,
-      method: 'post',
-      data: site,
+      path: `/company/companies/${parentId}/sites/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesByParentIdSitesById(
-    id: number,
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<CompanySite> {
+   deleteCompanyCompaniesByParentIdSitesById(id: number, parentId: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/companies/${parentId}/sites/${id}`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/sites/${id}`, method: 'delete'
     })
-  }
+   }
 
-  deleteCompanyCompaniesByParentIdSitesById(
-    id: number,
-    parentId: number,
-  ): Promise<NoContentResponse> {
+   putCompanyCompaniesByParentIdSitesById(id: number, parentId: number, site: CompanySite): Promise<CompanySite> {
     return this.request({
-      path: `/company/companies/${parentId}/sites/${id}`,
-      method: 'delete',
+      path: `/company/companies/${parentId}/sites/${id}`, method: 'put', data: site
     })
-  }
+   }
 
-  putCompanyCompaniesByParentIdSitesById(
-    id: number,
-    parentId: number,
-    site: CompanySite,
-  ): Promise<CompanySite> {
+   patchCompanyCompaniesByParentIdSitesById(id: number, parentId: number, patchOperations: Array<PatchOperation>): Promise<CompanySite> {
     return this.request({
-      path: `/company/companies/${parentId}/sites/${id}`,
-      method: 'put',
-      data: site,
+      path: `/company/companies/${parentId}/sites/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  patchCompanyCompaniesByParentIdSitesById(
-    id: number,
-    parentId: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<CompanySite> {
+   getCompanyCompaniesByParentIdSitesByIdInfo(id: number, parentId: number, params: CommonParameters = {}): Promise<CompanySiteInfo> {
     return this.request({
-      path: `/company/companies/${parentId}/sites/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/companies/${parentId}/sites/${id}/info`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesByParentIdSitesByIdUsages(
-    id: number,
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Array<Usage>> {
+   getCompanyCompaniesByParentIdSitesByIdUsages(id: number, parentId: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/companies/${parentId}/sites/${id}/usages`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/sites/${id}/usages`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesByParentIdSitesByIdUsagesList(
-    id: number,
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Array<Usage>> {
+   getCompanyCompaniesByParentIdSitesByIdUsagesList(id: number, parentId: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/companies/${parentId}/sites/${id}/usages/list`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/sites/${id}/usages/list`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesByParentIdSitesCount(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Count> {
+   getCompanyCompaniesByParentIdSitesCount(parentId: number, params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/companies/${parentId}/sites/count`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/sites/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesByParentIdSurveysCount(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Count> {
+   getCompanyCompaniesByParentIdSitesInfo(parentId: number, params: CommonParameters = {}): Promise<Array<CompanySiteInfo>> {
     return this.request({
-      path: `/company/companies/${parentId}/surveys/count`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/sites/info`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesByParentIdTeams(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Array<CompanyTeam>> {
+   getCompanyCompaniesByParentIdSitesInfoCount(parentId: number, params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/companies/${parentId}/teams`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/sites/info/count`, method: 'get', params
     })
-  }
+   }
 
-  postCompanyCompaniesByParentIdTeams(
-    parentId: number,
-    companyTeam: CompanyTeam,
-  ): Promise<CompanyTeam> {
+   getCompanyCompaniesByParentIdSurveysCount(parentId: number, params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/companies/${parentId}/teams`,
-      method: 'post',
-      data: companyTeam,
+      path: `/company/companies/${parentId}/surveys/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesByParentIdTeamsById(
-    id: number,
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<CompanyTeam> {
+   getCompanyCompaniesByParentIdTeams(parentId: number, params: CommonParameters = {}): Promise<Array<CompanyTeam>> {
     return this.request({
-      path: `/company/companies/${parentId}/teams/${id}`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/teams`, method: 'get', params
     })
-  }
+   }
 
-  deleteCompanyCompaniesByParentIdTeamsById(
-    id: number,
-    parentId: number,
-  ): Promise<NoContentResponse> {
+   postCompanyCompaniesByParentIdTeams(parentId: number, companyTeam: CompanyTeam): Promise<CompanyTeam> {
     return this.request({
-      path: `/company/companies/${parentId}/teams/${id}`,
-      method: 'delete',
+      path: `/company/companies/${parentId}/teams`, method: 'post', data: companyTeam
     })
-  }
+   }
 
-  putCompanyCompaniesByParentIdTeamsById(
-    id: number,
-    parentId: number,
-    companyTeam: CompanyTeam,
-  ): Promise<CompanyTeam> {
+   getCompanyCompaniesByParentIdTeamsById(id: number, parentId: number, params: CommonParameters = {}): Promise<CompanyTeam> {
     return this.request({
-      path: `/company/companies/${parentId}/teams/${id}`,
-      method: 'put',
-      data: companyTeam,
+      path: `/company/companies/${parentId}/teams/${id}`, method: 'get', params
     })
-  }
+   }
 
-  patchCompanyCompaniesByParentIdTeamsById(
-    id: number,
-    parentId: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<CompanyTeam> {
+   deleteCompanyCompaniesByParentIdTeamsById(id: number, parentId: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/companies/${parentId}/teams/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/companies/${parentId}/teams/${id}`, method: 'delete'
     })
-  }
+   }
 
-  getCompanyCompaniesByParentIdTeamsCount(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Count> {
+   putCompanyCompaniesByParentIdTeamsById(id: number, parentId: number, companyTeam: CompanyTeam): Promise<CompanyTeam> {
     return this.request({
-      path: `/company/companies/${parentId}/teams/count`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/teams/${id}`, method: 'put', data: companyTeam
     })
-  }
+   }
 
-  getCompanyCompaniesByParentIdTracks(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Array<ContactTrack>> {
+   patchCompanyCompaniesByParentIdTeamsById(id: number, parentId: number, patchOperations: Array<PatchOperation>): Promise<CompanyTeam> {
     return this.request({
-      path: `/company/companies/${parentId}/tracks`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/teams/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  postCompanyCompaniesByParentIdTracks(
-    parentId: number,
-    track: ContactTrack,
-  ): Promise<ContactTrack> {
+   getCompanyCompaniesByParentIdTeamsCount(parentId: number, params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/companies/${parentId}/tracks`,
-      method: 'post',
-      data: track,
+      path: `/company/companies/${parentId}/teams/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesByParentIdTracksById(
-    id: number,
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<ContactTrack> {
+   getCompanyCompaniesByParentIdTracks(parentId: number, params: CommonParameters = {}): Promise<Array<ContactTrack>> {
     return this.request({
-      path: `/company/companies/${parentId}/tracks/${id}`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/tracks`, method: 'get', params
     })
-  }
+   }
 
-  deleteCompanyCompaniesByParentIdTracksById(
-    id: number,
-    parentId: number,
-  ): Promise<NoContentResponse> {
+   postCompanyCompaniesByParentIdTracks(parentId: number, track: ContactTrack): Promise<ContactTrack> {
     return this.request({
-      path: `/company/companies/${parentId}/tracks/${id}`,
-      method: 'delete',
+      path: `/company/companies/${parentId}/tracks`, method: 'post', data: track
     })
-  }
+   }
 
-  getCompanyCompaniesByParentIdTracksCount(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Count> {
+   getCompanyCompaniesByParentIdTracksById(id: number, parentId: number, params: CommonParameters = {}): Promise<ContactTrack> {
     return this.request({
-      path: `/company/companies/${parentId}/tracks/count`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/tracks/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesByParentIdTypeAssociations(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Array<CompanyCompanyTypeAssociationCompanyTypeAssociation>> {
+   deleteCompanyCompaniesByParentIdTracksById(id: number, parentId: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/companies/${parentId}/typeAssociations`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/tracks/${id}`, method: 'delete'
     })
-  }
+   }
 
-  postCompanyCompaniesByParentIdTypeAssociations(
-    parentId: number,
-    companyTypeAssociation: CompanyCompanyTypeAssociationCompanyTypeAssociation,
-  ): Promise<CompanyCompanyTypeAssociationCompanyTypeAssociation> {
+   getCompanyCompaniesByParentIdTracksCount(parentId: number, params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/companies/${parentId}/typeAssociations`,
-      method: 'post',
-      data: companyTypeAssociation,
+      path: `/company/companies/${parentId}/tracks/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesByParentIdTypeAssociationsById(
-    id: number,
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<CompanyCompanyTypeAssociationCompanyTypeAssociation> {
+   getCompanyCompaniesByParentIdTypeAssociations(parentId: number, params: CommonParameters = {}): Promise<Array<CompanyCompanyTypeAssociationCompanyTypeAssociation>> {
     return this.request({
-      path: `/company/companies/${parentId}/typeAssociations/${id}`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/typeAssociations`, method: 'get', params
     })
-  }
+   }
 
-  deleteCompanyCompaniesByParentIdTypeAssociationsById(
-    id: number,
-    parentId: number,
-  ): Promise<NoContentResponse> {
+   postCompanyCompaniesByParentIdTypeAssociations(parentId: number, companyTypeAssociation: CompanyCompanyTypeAssociationCompanyTypeAssociation): Promise<CompanyCompanyTypeAssociationCompanyTypeAssociation> {
     return this.request({
-      path: `/company/companies/${parentId}/typeAssociations/${id}`,
-      method: 'delete',
+      path: `/company/companies/${parentId}/typeAssociations`, method: 'post', data: companyTypeAssociation
     })
-  }
+   }
 
-  putCompanyCompaniesByParentIdTypeAssociationsById(
-    id: number,
-    parentId: number,
-    companyTypeAssociation: CompanyCompanyTypeAssociationCompanyTypeAssociation,
-  ): Promise<CompanyCompanyTypeAssociationCompanyTypeAssociation> {
+   getCompanyCompaniesByParentIdTypeAssociationsById(id: number, parentId: number, params: CommonParameters = {}): Promise<CompanyCompanyTypeAssociationCompanyTypeAssociation> {
     return this.request({
-      path: `/company/companies/${parentId}/typeAssociations/${id}`,
-      method: 'put',
-      data: companyTypeAssociation,
+      path: `/company/companies/${parentId}/typeAssociations/${id}`, method: 'get', params
     })
-  }
+   }
 
-  patchCompanyCompaniesByParentIdTypeAssociationsById(
-    id: number,
-    parentId: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<CompanyCompanyTypeAssociationCompanyTypeAssociation> {
+   deleteCompanyCompaniesByParentIdTypeAssociationsById(id: number, parentId: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/companies/${parentId}/typeAssociations/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/companies/${parentId}/typeAssociations/${id}`, method: 'delete'
     })
-  }
+   }
 
-  getCompanyCompaniesByParentIdTypeAssociationsCount(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Count> {
+   putCompanyCompaniesByParentIdTypeAssociationsById(id: number, parentId: number, companyTypeAssociation: CompanyCompanyTypeAssociationCompanyTypeAssociation): Promise<CompanyCompanyTypeAssociationCompanyTypeAssociation> {
     return this.request({
-      path: `/company/companies/${parentId}/typeAssociations/count`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/typeAssociations/${id}`, method: 'put', data: companyTypeAssociation
     })
-  }
+   }
 
-  getCompanyCompaniesCount(params: CommonParameters = {}): Promise<Count> {
+   patchCompanyCompaniesByParentIdTypeAssociationsById(id: number, parentId: number, patchOperations: Array<PatchOperation>): Promise<CompanyCompanyTypeAssociationCompanyTypeAssociation> {
     return this.request({
-      path: `/company/companies/count`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/typeAssociations/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  getCompanyCompaniesDefault(params: CommonParameters = {}): Promise<Company> {
+   getCompanyCompaniesByParentIdTypeAssociationsCount(parentId: number, params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/companies/default`,
-      method: 'get',
-      params,
+      path: `/company/companies/${parentId}/typeAssociations/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesInfoTypes(params: CommonParameters = {}): Promise<Array<CompanyTypeInfo>> {
+   getCompanyCompaniesCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/companies/info/types`,
-      method: 'get',
-      params,
+      path: `/company/companies/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesInfoTypesById(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<CompanyTypeInfo> {
+   getCompanyCompaniesDefault(params: CommonParameters = {}): Promise<Company> {
     return this.request({
-      path: `/company/companies/info/types/${id}`,
-      method: 'get',
-      params,
+      path: `/company/companies/default`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesInfoTypesCount(params: CommonParameters = {}): Promise<Count> {
+   getCompanyCompaniesInfo(params: CommonParameters = {}): Promise<Array<CompanyInfo>> {
     return this.request({
-      path: `/company/companies/info/types/count`,
-      method: 'get',
-      params,
+      path: `/company/companies/info`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesStatuses(params: CommonParameters = {}): Promise<Array<CompanyStatus>> {
+   getCompanyCompaniesInfoCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/companies/statuses`,
-      method: 'get',
-      params,
+      path: `/company/companies/info/count`, method: 'get', params
     })
-  }
+   }
 
-  postCompanyCompaniesStatuses(companyStatus: CompanyStatus): Promise<CompanyStatus> {
+   getCompanyCompaniesInfoTypes(params: CommonParameters = {}): Promise<Array<CompanyTypeInfo>> {
     return this.request({
-      path: `/company/companies/statuses`,
-      method: 'post',
-      data: companyStatus,
+      path: `/company/companies/info/types`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesStatusesById(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<CompanyStatus> {
+   getCompanyCompaniesInfoTypesById(id: number, params: CommonParameters = {}): Promise<CompanyTypeInfo> {
     return this.request({
-      path: `/company/companies/statuses/${id}`,
-      method: 'get',
-      params,
+      path: `/company/companies/info/types/${id}`, method: 'get', params
     })
-  }
+   }
 
-  deleteCompanyCompaniesStatusesById(id: number): Promise<NoContentResponse> {
+   getCompanyCompaniesInfoTypesCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/companies/statuses/${id}`,
-      method: 'delete',
+      path: `/company/companies/info/types/count`, method: 'get', params
     })
-  }
+   }
 
-  putCompanyCompaniesStatusesById(
-    id: number,
-    companyStatus: CompanyStatus,
-  ): Promise<CompanyStatus> {
+   getCompanyCompaniesStatuses(params: CommonParameters = {}): Promise<Array<CompanyStatus>> {
     return this.request({
-      path: `/company/companies/statuses/${id}`,
-      method: 'put',
-      data: companyStatus,
+      path: `/company/companies/statuses`, method: 'get', params
     })
-  }
+   }
 
-  patchCompanyCompaniesStatusesById(
-    id: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<CompanyStatus> {
+   postCompanyCompaniesStatuses(companyStatus: CompanyStatus): Promise<CompanyStatus> {
     return this.request({
-      path: `/company/companies/statuses/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/companies/statuses`, method: 'post', data: companyStatus
     })
-  }
+   }
 
-  getCompanyCompaniesStatusesByIdUsages(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<Array<Usage>> {
+   getCompanyCompaniesStatusesById(id: number, params: CommonParameters = {}): Promise<CompanyStatus> {
     return this.request({
-      path: `/company/companies/statuses/${id}/usages`,
-      method: 'get',
-      params,
+      path: `/company/companies/statuses/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesStatusesByIdUsagesList(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<Array<Usage>> {
+   deleteCompanyCompaniesStatusesById(id: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/companies/statuses/${id}/usages/list`,
-      method: 'get',
-      params,
+      path: `/company/companies/statuses/${id}`, method: 'delete'
     })
-  }
+   }
 
-  getCompanyCompaniesStatusesCount(params: CommonParameters = {}): Promise<Count> {
+   putCompanyCompaniesStatusesById(id: number, companyStatus: CompanyStatus): Promise<CompanyStatus> {
     return this.request({
-      path: `/company/companies/statuses/count`,
-      method: 'get',
-      params,
+      path: `/company/companies/statuses/${id}`, method: 'put', data: companyStatus
     })
-  }
+   }
 
-  getCompanyCompaniesTypes(params: CommonParameters = {}): Promise<Array<CompanyType>> {
+   patchCompanyCompaniesStatusesById(id: number, patchOperations: Array<PatchOperation>): Promise<CompanyStatus> {
     return this.request({
-      path: `/company/companies/types`,
-      method: 'get',
-      params,
+      path: `/company/companies/statuses/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  postCompanyCompaniesTypes(companyType: CompanyType): Promise<CompanyType> {
+   getCompanyCompaniesStatusesByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/companies/types`,
-      method: 'post',
-      data: companyType,
+      path: `/company/companies/statuses/${id}/usages`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesTypesById(id: number, params: CommonParameters = {}): Promise<CompanyType> {
+   getCompanyCompaniesStatusesByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/companies/types/${id}`,
-      method: 'get',
-      params,
+      path: `/company/companies/statuses/${id}/usages/list`, method: 'get', params
     })
-  }
+   }
 
-  deleteCompanyCompaniesTypesById(id: number): Promise<NoContentResponse> {
+   getCompanyCompaniesStatusesCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/companies/types/${id}`,
-      method: 'delete',
+      path: `/company/companies/statuses/count`, method: 'get', params
     })
-  }
+   }
 
-  putCompanyCompaniesTypesById(id: number, companyType: CompanyType): Promise<CompanyType> {
+   getCompanyCompaniesTypes(params: CommonParameters = {}): Promise<Array<CompanyType>> {
     return this.request({
-      path: `/company/companies/types/${id}`,
-      method: 'put',
-      data: companyType,
+      path: `/company/companies/types`, method: 'get', params
     })
-  }
+   }
 
-  patchCompanyCompaniesTypesById(
-    id: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<CompanyType> {
+   postCompanyCompaniesTypes(companyType: CompanyType): Promise<CompanyType> {
     return this.request({
-      path: `/company/companies/types/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/companies/types`, method: 'post', data: companyType
     })
-  }
+   }
 
-  getCompanyCompaniesTypesByIdUsages(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<Array<Usage>> {
+   getCompanyCompaniesTypesById(id: number, params: CommonParameters = {}): Promise<CompanyType> {
     return this.request({
-      path: `/company/companies/types/${id}/usages`,
-      method: 'get',
-      params,
+      path: `/company/companies/types/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompaniesTypesByIdUsagesList(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<Array<Usage>> {
+   deleteCompanyCompaniesTypesById(id: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/companies/types/${id}/usages/list`,
-      method: 'get',
-      params,
+      path: `/company/companies/types/${id}`, method: 'delete'
     })
-  }
+   }
 
-  getCompanyCompaniesTypesCount(params: CommonParameters = {}): Promise<Count> {
+   putCompanyCompaniesTypesById(id: number, companyType: CompanyType): Promise<CompanyType> {
     return this.request({
-      path: `/company/companies/types/count`,
-      method: 'get',
-      params,
+      path: `/company/companies/types/${id}`, method: 'put', data: companyType
     })
-  }
+   }
 
-  putCompanyCompanyFinanceById(
-    id: number,
-    CompanyFinance: CompanyFinance,
-  ): Promise<CompanyFinance> {
+   patchCompanyCompaniesTypesById(id: number, patchOperations: Array<PatchOperation>): Promise<CompanyType> {
     return this.request({
-      path: `/company/companyFinance/${id}`,
-      method: 'put',
-      data: CompanyFinance,
+      path: `/company/companies/types/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  getCompanyCompanyPickerItems(params: CommonParameters = {}): Promise<Array<CompanyPickerItem>> {
+   getCompanyCompaniesTypesByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/companyPickerItems`,
-      method: 'get',
-      params,
+      path: `/company/companies/types/${id}/usages`, method: 'get', params
     })
-  }
+   }
 
-  postCompanyCompanyPickerItems(companyPickerItem: CompanyPickerItem): Promise<CompanyPickerItem> {
+   getCompanyCompaniesTypesByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/companyPickerItems`,
-      method: 'post',
-      data: companyPickerItem,
+      path: `/company/companies/types/${id}/usages/list`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompanyPickerItemsById(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<CompanyPickerItem> {
+   getCompanyCompaniesTypesCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/companyPickerItems/${id}`,
-      method: 'get',
-      params,
+      path: `/company/companies/types/count`, method: 'get', params
     })
-  }
+   }
 
-  deleteCompanyCompanyPickerItemsById(id: number): Promise<NoContentResponse> {
+   getCompanyCompanyPickerItems(params: CommonParameters = {}): Promise<Array<CompanyPickerItem>> {
     return this.request({
-      path: `/company/companyPickerItems/${id}`,
-      method: 'delete',
+      path: `/company/companyPickerItems`, method: 'get', params
     })
-  }
+   }
 
-  postCompanyCompanyPickerItemsClear(
-    clearPickerRequest: ClearPickerRequest,
-  ): Promise<NoContentResponse> {
+   postCompanyCompanyPickerItems(companyPickerItem: CompanyPickerItem): Promise<CompanyPickerItem> {
     return this.request({
-      path: `/company/companyPickerItems/clear`,
-      method: 'post',
-      data: clearPickerRequest,
+      path: `/company/companyPickerItems`, method: 'post', data: companyPickerItem
     })
-  }
+   }
 
-  getCompanyCompanyPickerItemsCount(params: CommonParameters = {}): Promise<Count> {
+   getCompanyCompanyPickerItemsById(id: number, params: CommonParameters = {}): Promise<CompanyPickerItem> {
     return this.request({
-      path: `/company/companyPickerItems/count`,
-      method: 'get',
-      params,
+      path: `/company/companyPickerItems/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompanyTypeAssociations(
-    params: CommonParameters = {},
-  ): Promise<Array<CompanyCompanyTypeAssociation>> {
+   deleteCompanyCompanyPickerItemsById(id: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/companyTypeAssociations`,
-      method: 'get',
-      params,
+      path: `/company/companyPickerItems/${id}`, method: 'delete'
     })
-  }
+   }
 
-  postCompanyCompanyTypeAssociations(
-    companyTypeAssociation: CompanyCompanyTypeAssociation,
-  ): Promise<CompanyCompanyTypeAssociation> {
+   postCompanyCompanyPickerItemsClear(): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/companyTypeAssociations`,
-      method: 'post',
-      data: companyTypeAssociation,
+      path: `/company/companyPickerItems/clear`, method: 'post'
     })
-  }
+   }
 
-  getCompanyCompanyTypeAssociationsById(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<CompanyCompanyTypeAssociation> {
+   getCompanyCompanyPickerItemsCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/companyTypeAssociations/${id}`,
-      method: 'get',
-      params,
+      path: `/company/companyPickerItems/count`, method: 'get', params
     })
-  }
+   }
 
-  deleteCompanyCompanyTypeAssociationsById(id: number): Promise<NoContentResponse> {
+   getCompanyCompanyTypeAssociations(params: CommonParameters = {}): Promise<Array<CompanyCompanyTypeAssociation>> {
     return this.request({
-      path: `/company/companyTypeAssociations/${id}`,
-      method: 'delete',
+      path: `/company/companyTypeAssociations`, method: 'get', params
     })
-  }
+   }
 
-  putCompanyCompanyTypeAssociationsById(
-    id: number,
-    companyTypeAssociation: CompanyCompanyTypeAssociation,
-  ): Promise<CompanyCompanyTypeAssociation> {
+   postCompanyCompanyTypeAssociations(companyTypeAssociation: CompanyCompanyTypeAssociation): Promise<CompanyCompanyTypeAssociation> {
     return this.request({
-      path: `/company/companyTypeAssociations/${id}`,
-      method: 'put',
-      data: companyTypeAssociation,
+      path: `/company/companyTypeAssociations`, method: 'post', data: companyTypeAssociation
     })
-  }
+   }
 
-  patchCompanyCompanyTypeAssociationsById(
-    id: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<CompanyCompanyTypeAssociation> {
+   getCompanyCompanyTypeAssociationsById(id: number, params: CommonParameters = {}): Promise<CompanyCompanyTypeAssociation> {
     return this.request({
-      path: `/company/companyTypeAssociations/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/companyTypeAssociations/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCompanyTypeAssociationsCount(params: CommonParameters = {}): Promise<Count> {
+   deleteCompanyCompanyTypeAssociationsById(id: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/companyTypeAssociations/count`,
-      method: 'get',
-      params,
+      path: `/company/companyTypeAssociations/${id}`, method: 'delete'
     })
-  }
+   }
 
-  getCompanyConfigurations(
-    managedIdentifier: string,
-    params: CommonParameters = {},
-  ): Promise<Array<CompanyConfiguration>> {
+   putCompanyCompanyTypeAssociationsById(id: number, companyTypeAssociation: CompanyCompanyTypeAssociation): Promise<CompanyCompanyTypeAssociation> {
     return this.request({
-      path: `/company/configurations`,
-      method: 'get',
-      params,
+      path: `/company/companyTypeAssociations/${id}`, method: 'put', data: companyTypeAssociation
     })
-  }
+   }
 
-  postCompanyConfigurations(
-    configuration: CompanyConfiguration,
-    params: CommonParameters = {},
-  ): Promise<CompanyConfiguration> {
+   patchCompanyCompanyTypeAssociationsById(id: number, patchOperations: Array<PatchOperation>): Promise<CompanyCompanyTypeAssociation> {
     return this.request({
-      path: `/company/configurations`,
-      method: 'post',
-      data: configuration,
-      params,
+      path: `/company/companyTypeAssociations/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  getCompanyConfigurationsById(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<CompanyConfiguration> {
+   getCompanyCompanyTypeAssociationsCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/configurations/${id}`,
-      method: 'get',
-      params,
+      path: `/company/companyTypeAssociations/count`, method: 'get', params
     })
-  }
+   }
 
-  deleteCompanyConfigurationsById(id: number): Promise<NoContentResponse> {
+   getCompanyConfigurations(params: CommonParameters = {}): Promise<Array<CompanyConfiguration>> {
     return this.request({
-      path: `/company/configurations/${id}`,
-      method: 'delete',
+      path: `/company/configurations`, method: 'get', params
     })
-  }
+   }
 
-  putCompanyConfigurationsById(
-    id: number,
-    configuration: CompanyConfiguration,
-    params: CommonParameters = {},
-  ): Promise<CompanyConfiguration> {
+   postCompanyConfigurations(configuration: CompanyConfiguration, params: CommonParameters = {}): Promise<CompanyConfiguration> {
     return this.request({
-      path: `/company/configurations/${id}`,
-      method: 'put',
-      data: configuration,
-      params,
+      path: `/company/configurations`, method: 'post', data: configuration, params
     })
-  }
+   }
 
-  patchCompanyConfigurationsById(
-    id: number,
-    patchOperations: Array<PatchOperation>,
-    params: CommonParameters = {},
-  ): Promise<CompanyConfiguration> {
+   getCompanyConfigurationsById(id: number, params: CommonParameters = {}): Promise<CompanyConfiguration> {
     return this.request({
-      path: `/company/configurations/${id}`,
-      method: 'patch',
-      data: patchOperations,
-      params,
+      path: `/company/configurations/${id}`, method: 'get', params
     })
-  }
+   }
 
-  patchCompanyConfigurationsByIdChangeType(
-    id: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<CompanyConfiguration> {
+   deleteCompanyConfigurationsById(id: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/configurations/${id}/changeType`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/configurations/${id}`, method: 'delete'
     })
-  }
+   }
 
-  postCompanyConfigurationsBulk(
-    companyConfigurations: Array<CompanyConfiguration>,
-  ): Promise<CompanyConfiguration> {
+   putCompanyConfigurationsById(id: number, configuration: CompanyConfiguration, params: CommonParameters = {}): Promise<CompanyConfiguration> {
     return this.request({
-      path: `/company/configurations/bulk`,
-      method: 'post',
-      data: companyConfigurations,
+      path: `/company/configurations/${id}`, method: 'put', data: configuration, params
     })
-  }
+   }
 
-  deleteCompanyConfigurationsBulk(): Promise<BulkResult> {
+   patchCompanyConfigurationsById(id: number, patchOperations: Array<PatchOperation>, params: CommonParameters = {}): Promise<CompanyConfiguration> {
     return this.request({
-      path: `/company/configurations/bulk`,
-      method: 'delete',
+      path: `/company/configurations/${id}`, method: 'patch', data: patchOperations, params
     })
-  }
+   }
 
-  putCompanyConfigurationsBulk(
-    companyConfigurations: Array<CompanyConfiguration>,
-  ): Promise<CompanyConfiguration> {
+   patchCompanyConfigurationsByIdChangeType(id: number, patchOperations: Array<PatchOperation>): Promise<CompanyConfiguration> {
     return this.request({
-      path: `/company/configurations/bulk`,
-      method: 'put',
-      data: companyConfigurations,
+      path: `/company/configurations/${id}/changeType`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  getCompanyConfigurationsCount(
-    managedIdentifier: string,
-    params: CommonParameters = {},
-  ): Promise<Count> {
+   getCompanyConfigurationsByIdQuickAccessCount(id: number, params: CommonParameters = {}): Promise<ConfigurationTabsCount> {
     return this.request({
-      path: `/company/configurations/count`,
-      method: 'get',
-      params,
+      path: `/company/configurations/${id}/quickAccess/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyConfigurationsStatuses(
-    params: CommonParameters = {},
-  ): Promise<Array<ConfigurationStatus>> {
+   postCompanyConfigurationsBulk(companyConfigurations: Array<CompanyConfiguration>, params: CommonParameters = {}): Promise<CompanyConfiguration> {
     return this.request({
-      path: `/company/configurations/statuses`,
-      method: 'get',
-      params,
+      path: `/company/configurations/bulk`, method: 'post', data: companyConfigurations, params
     })
-  }
+   }
 
-  postCompanyConfigurationsStatuses(
-    configurationStatus: ConfigurationStatus,
-  ): Promise<ConfigurationStatus> {
+   deleteCompanyConfigurationsBulk(): Promise<BulkResult> {
     return this.request({
-      path: `/company/configurations/statuses`,
-      method: 'post',
-      data: configurationStatus,
+      path: `/company/configurations/bulk`, method: 'delete'
     })
-  }
+   }
 
-  getCompanyConfigurationsStatusesById(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<ConfigurationStatus> {
+   putCompanyConfigurationsBulk(companyConfigurations: Array<CompanyConfiguration>, params: CommonParameters = {}): Promise<CompanyConfiguration> {
     return this.request({
-      path: `/company/configurations/statuses/${id}`,
-      method: 'get',
-      params,
+      path: `/company/configurations/bulk`, method: 'put', data: companyConfigurations, params
     })
-  }
+   }
 
-  deleteCompanyConfigurationsStatusesById(id: number): Promise<NoContentResponse> {
+   getCompanyConfigurationsCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/configurations/statuses/${id}`,
-      method: 'delete',
+      path: `/company/configurations/count`, method: 'get', params
     })
-  }
+   }
 
-  putCompanyConfigurationsStatusesById(
-    id: number,
-    configurationStatus: ConfigurationStatus,
-  ): Promise<ConfigurationStatus> {
+   getCompanyConfigurationsStatuses(params: CommonParameters = {}): Promise<Array<ConfigurationStatus>> {
     return this.request({
-      path: `/company/configurations/statuses/${id}`,
-      method: 'put',
-      data: configurationStatus,
+      path: `/company/configurations/statuses`, method: 'get', params
     })
-  }
+   }
 
-  patchCompanyConfigurationsStatusesById(
-    id: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<ConfigurationStatus> {
+   postCompanyConfigurationsStatuses(configurationStatus: ConfigurationStatus): Promise<ConfigurationStatus> {
     return this.request({
-      path: `/company/configurations/statuses/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/configurations/statuses`, method: 'post', data: configurationStatus
     })
-  }
+   }
 
-  getCompanyConfigurationsStatusesByIdInfo(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<ConfigurationStatusInfo> {
+   getCompanyConfigurationsStatusesById(id: number, params: CommonParameters = {}): Promise<ConfigurationStatus> {
     return this.request({
-      path: `/company/configurations/statuses/${id}/info`,
-      method: 'get',
-      params,
+      path: `/company/configurations/statuses/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyConfigurationsStatusesByIdUsages(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<Array<Usage>> {
+   deleteCompanyConfigurationsStatusesById(id: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/configurations/statuses/${id}/usages`,
-      method: 'get',
-      params,
+      path: `/company/configurations/statuses/${id}`, method: 'delete'
     })
-  }
+   }
 
-  getCompanyConfigurationsStatusesByIdUsagesList(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<Array<Usage>> {
+   putCompanyConfigurationsStatusesById(id: number, configurationStatus: ConfigurationStatus): Promise<ConfigurationStatus> {
     return this.request({
-      path: `/company/configurations/statuses/${id}/usages/list`,
-      method: 'get',
-      params,
+      path: `/company/configurations/statuses/${id}`, method: 'put', data: configurationStatus
     })
-  }
+   }
 
-  getCompanyConfigurationsStatusesCount(params: CommonParameters = {}): Promise<Count> {
+   patchCompanyConfigurationsStatusesById(id: number, patchOperations: Array<PatchOperation>): Promise<ConfigurationStatus> {
     return this.request({
-      path: `/company/configurations/statuses/count`,
-      method: 'get',
-      params,
+      path: `/company/configurations/statuses/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  getCompanyConfigurationsStatusesInfo(
-    params: CommonParameters = {},
-  ): Promise<Array<ConfigurationStatusInfo>> {
+   getCompanyConfigurationsStatusesByIdInfo(id: number, params: CommonParameters = {}): Promise<ConfigurationStatusInfo> {
     return this.request({
-      path: `/company/configurations/statuses/info`,
-      method: 'get',
-      params,
+      path: `/company/configurations/statuses/${id}/info`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyConfigurationsStatusesInfoCount(params: CommonParameters = {}): Promise<Count> {
+   getCompanyConfigurationsStatusesByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/configurations/statuses/info/count`,
-      method: 'get',
-      params,
+      path: `/company/configurations/statuses/${id}/usages`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyConfigurationsTypes(params: CommonParameters = {}): Promise<Array<ConfigurationType>> {
+   getCompanyConfigurationsStatusesByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/configurations/types`,
-      method: 'get',
-      params,
+      path: `/company/configurations/statuses/${id}/usages/list`, method: 'get', params
     })
-  }
+   }
 
-  postCompanyConfigurationsTypes(configurationType: ConfigurationType): Promise<ConfigurationType> {
+   getCompanyConfigurationsStatusesCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/configurations/types`,
-      method: 'post',
-      data: configurationType,
+      path: `/company/configurations/statuses/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyConfigurationsTypesByGrandparentIdQuestionsByParentIdValues(
-    parentId: number,
-    grandparentId: number,
-    params: CommonParameters = {},
-  ): Promise<Array<ConfigurationTypeQuestionValue>> {
+   getCompanyConfigurationsStatusesInfo(params: CommonParameters = {}): Promise<Array<ConfigurationStatusInfo>> {
     return this.request({
-      path: `/company/configurations/types/${grandparentId}/questions/${parentId}/values`,
-      method: 'get',
-      params,
+      path: `/company/configurations/statuses/info`, method: 'get', params
     })
-  }
+   }
 
-  postCompanyConfigurationsTypesByGrandparentIdQuestionsByParentIdValues(
-    parentId: number,
-    grandparentId: number,
-    configurationTypeQuestionValue: ConfigurationTypeQuestionValue,
-  ): Promise<ConfigurationTypeQuestionValue> {
+   getCompanyConfigurationsStatusesInfoCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/configurations/types/${grandparentId}/questions/${parentId}/values`,
-      method: 'post',
-      data: configurationTypeQuestionValue,
+      path: `/company/configurations/statuses/info/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyConfigurationsTypesByGrandparentIdQuestionsByParentIdValuesById(
-    id: number,
-    parentId: number,
-    grandparentId: number,
-    params: CommonParameters = {},
-  ): Promise<ConfigurationTypeQuestionValue> {
+   getCompanyConfigurationsTypes(params: CommonParameters = {}): Promise<Array<ConfigurationType>> {
     return this.request({
-      path: `/company/configurations/types/${grandparentId}/questions/${parentId}/values/${id}`,
-      method: 'get',
-      params,
+      path: `/company/configurations/types`, method: 'get', params
     })
-  }
+   }
 
-  deleteCompanyConfigurationsTypesByGrandparentIdQuestionsByParentIdValuesById(
-    id: number,
-    parentId: number,
-    grandparentId: number,
-  ): Promise<NoContentResponse> {
+   postCompanyConfigurationsTypes(configurationType: ConfigurationType): Promise<ConfigurationType> {
     return this.request({
-      path: `/company/configurations/types/${grandparentId}/questions/${parentId}/values/${id}`,
-      method: 'delete',
+      path: `/company/configurations/types`, method: 'post', data: configurationType
     })
-  }
+   }
 
-  putCompanyConfigurationsTypesByGrandparentIdQuestionsByParentIdValuesById(
-    id: number,
-    parentId: number,
-    grandparentId: number,
-    configurationTypeQuestionValue: ConfigurationTypeQuestionValue,
-  ): Promise<ConfigurationTypeQuestionValue> {
+   getCompanyConfigurationsTypesByGrandparentIdQuestionsByParentIdValues(parentId: number, grandparentId: number, params: CommonParameters = {}): Promise<Array<ConfigurationTypeQuestionValue>> {
     return this.request({
-      path: `/company/configurations/types/${grandparentId}/questions/${parentId}/values/${id}`,
-      method: 'put',
-      data: configurationTypeQuestionValue,
+      path: `/company/configurations/types/${grandparentId}/questions/${parentId}/values`, method: 'get', params
     })
-  }
+   }
 
-  patchCompanyConfigurationsTypesByGrandparentIdQuestionsByParentIdValuesById(
-    id: number,
-    parentId: number,
-    grandparentId: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<ConfigurationTypeQuestionValue> {
+   postCompanyConfigurationsTypesByGrandparentIdQuestionsByParentIdValues(parentId: number, grandparentId: number, configurationTypeQuestionValue: ConfigurationTypeQuestionValue): Promise<ConfigurationTypeQuestionValue> {
     return this.request({
-      path: `/company/configurations/types/${grandparentId}/questions/${parentId}/values/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/configurations/types/${grandparentId}/questions/${parentId}/values`, method: 'post', data: configurationTypeQuestionValue
     })
-  }
+   }
 
-  getCompanyConfigurationsTypesByGrandparentIdQuestionsByParentIdValuesByIdUsages(
-    id: number,
-    parentId: number,
-    grandparentId: number,
-    params: CommonParameters = {},
-  ): Promise<Array<Usage>> {
+   getCompanyConfigurationsTypesByGrandparentIdQuestionsByParentIdValuesById(id: number, parentId: number, grandparentId: number, params: CommonParameters = {}): Promise<ConfigurationTypeQuestionValue> {
     return this.request({
-      path: `/company/configurations/types/${grandparentId}/questions/${parentId}/values/${id}/usages`,
-      method: 'get',
-      params,
+      path: `/company/configurations/types/${grandparentId}/questions/${parentId}/values/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyConfigurationsTypesByGrandparentIdQuestionsByParentIdValuesByIdUsagesList(
-    id: number,
-    parentId: number,
-    grandparentId: number,
-    params: CommonParameters = {},
-  ): Promise<Array<Usage>> {
+   deleteCompanyConfigurationsTypesByGrandparentIdQuestionsByParentIdValuesById(id: number, parentId: number, grandparentId: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/configurations/types/${grandparentId}/questions/${parentId}/values/${id}/usages/list`,
-      method: 'get',
-      params,
+      path: `/company/configurations/types/${grandparentId}/questions/${parentId}/values/${id}`, method: 'delete'
     })
-  }
+   }
 
-  getCompanyConfigurationsTypesByGrandparentIdQuestionsByParentIdValuesCount(
-    parentId: number,
-    grandparentId: number,
-    params: CommonParameters = {},
-  ): Promise<Count> {
+   putCompanyConfigurationsTypesByGrandparentIdQuestionsByParentIdValuesById(id: number, parentId: number, grandparentId: number, configurationTypeQuestionValue: ConfigurationTypeQuestionValue): Promise<ConfigurationTypeQuestionValue> {
     return this.request({
-      path: `/company/configurations/types/${grandparentId}/questions/${parentId}/values/count`,
-      method: 'get',
-      params,
+      path: `/company/configurations/types/${grandparentId}/questions/${parentId}/values/${id}`, method: 'put', data: configurationTypeQuestionValue
     })
-  }
+   }
 
-  getCompanyConfigurationsTypesById(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<ConfigurationType> {
+   patchCompanyConfigurationsTypesByGrandparentIdQuestionsByParentIdValuesById(id: number, parentId: number, grandparentId: number, patchOperations: Array<PatchOperation>): Promise<ConfigurationTypeQuestionValue> {
     return this.request({
-      path: `/company/configurations/types/${id}`,
-      method: 'get',
-      params,
+      path: `/company/configurations/types/${grandparentId}/questions/${parentId}/values/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  deleteCompanyConfigurationsTypesById(id: number): Promise<NoContentResponse> {
+   getCompanyConfigurationsTypesByGrandparentIdQuestionsByParentIdValuesByIdUsages(id: number, parentId: number, grandparentId: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/configurations/types/${id}`,
-      method: 'delete',
+      path: `/company/configurations/types/${grandparentId}/questions/${parentId}/values/${id}/usages`, method: 'get', params
     })
-  }
+   }
 
-  putCompanyConfigurationsTypesById(
-    id: number,
-    configurationType: ConfigurationType,
-  ): Promise<ConfigurationType> {
+   getCompanyConfigurationsTypesByGrandparentIdQuestionsByParentIdValuesByIdUsagesList(id: number, parentId: number, grandparentId: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/configurations/types/${id}`,
-      method: 'put',
-      data: configurationType,
+      path: `/company/configurations/types/${grandparentId}/questions/${parentId}/values/${id}/usages/list`, method: 'get', params
     })
-  }
+   }
 
-  patchCompanyConfigurationsTypesById(
-    id: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<ConfigurationType> {
+   getCompanyConfigurationsTypesByGrandparentIdQuestionsByParentIdValuesCount(parentId: number, grandparentId: number, params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/configurations/types/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/configurations/types/${grandparentId}/questions/${parentId}/values/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyConfigurationsTypesByIdInfo(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<ConfigurationTypeInfo> {
+   getCompanyConfigurationsTypesById(id: number, params: CommonParameters = {}): Promise<ConfigurationType> {
     return this.request({
-      path: `/company/configurations/types/${id}/info`,
-      method: 'get',
-      params,
+      path: `/company/configurations/types/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyConfigurationsTypesByIdUsages(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<Array<Usage>> {
+   deleteCompanyConfigurationsTypesById(id: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/configurations/types/${id}/usages`,
-      method: 'get',
-      params,
+      path: `/company/configurations/types/${id}`, method: 'delete'
     })
-  }
+   }
 
-  getCompanyConfigurationsTypesByIdUsagesList(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<Array<Usage>> {
+   putCompanyConfigurationsTypesById(id: number, configurationType: ConfigurationType): Promise<ConfigurationType> {
     return this.request({
-      path: `/company/configurations/types/${id}/usages/list`,
-      method: 'get',
-      params,
+      path: `/company/configurations/types/${id}`, method: 'put', data: configurationType
     })
-  }
+   }
 
-  getCompanyConfigurationsTypesByParentIdQuestions(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Array<ConfigurationTypeQuestion>> {
+   patchCompanyConfigurationsTypesById(id: number, patchOperations: Array<PatchOperation>): Promise<ConfigurationType> {
     return this.request({
-      path: `/company/configurations/types/${parentId}/questions`,
-      method: 'get',
-      params,
+      path: `/company/configurations/types/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  postCompanyConfigurationsTypesByParentIdQuestions(
-    parentId: number,
-    configurationTypeQuestion: ConfigurationTypeQuestion,
-  ): Promise<ConfigurationTypeQuestion> {
+   getCompanyConfigurationsTypesByIdInfo(id: number, params: CommonParameters = {}): Promise<ConfigurationTypeInfo> {
     return this.request({
-      path: `/company/configurations/types/${parentId}/questions`,
-      method: 'post',
-      data: configurationTypeQuestion,
+      path: `/company/configurations/types/${id}/info`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyConfigurationsTypesByParentIdQuestionsById(
-    id: number,
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<ConfigurationTypeQuestion> {
+   getCompanyConfigurationsTypesByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/configurations/types/${parentId}/questions/${id}`,
-      method: 'get',
-      params,
+      path: `/company/configurations/types/${id}/usages`, method: 'get', params
     })
-  }
+   }
 
-  deleteCompanyConfigurationsTypesByParentIdQuestionsById(
-    id: number,
-    parentId: number,
-  ): Promise<NoContentResponse> {
+   getCompanyConfigurationsTypesByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/configurations/types/${parentId}/questions/${id}`,
-      method: 'delete',
+      path: `/company/configurations/types/${id}/usages/list`, method: 'get', params
     })
-  }
+   }
 
-  putCompanyConfigurationsTypesByParentIdQuestionsById(
-    id: number,
-    parentId: number,
-    configurationTypeQuestion: ConfigurationTypeQuestion,
-  ): Promise<ConfigurationTypeQuestion> {
+   getCompanyConfigurationsTypesByParentIdQuestions(parentId: number, params: CommonParameters = {}): Promise<Array<ConfigurationTypeQuestion>> {
     return this.request({
-      path: `/company/configurations/types/${parentId}/questions/${id}`,
-      method: 'put',
-      data: configurationTypeQuestion,
+      path: `/company/configurations/types/${parentId}/questions`, method: 'get', params
     })
-  }
+   }
 
-  patchCompanyConfigurationsTypesByParentIdQuestionsById(
-    id: number,
-    parentId: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<ConfigurationTypeQuestion> {
+   postCompanyConfigurationsTypesByParentIdQuestions(parentId: number, configurationTypeQuestion: ConfigurationTypeQuestion): Promise<ConfigurationTypeQuestion> {
     return this.request({
-      path: `/company/configurations/types/${parentId}/questions/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/configurations/types/${parentId}/questions`, method: 'post', data: configurationTypeQuestion
     })
-  }
+   }
 
-  getCompanyConfigurationsTypesByParentIdQuestionsCount(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Count> {
+   getCompanyConfigurationsTypesByParentIdQuestionsById(id: number, parentId: number, params: CommonParameters = {}): Promise<ConfigurationTypeQuestion> {
     return this.request({
-      path: `/company/configurations/types/${parentId}/questions/count`,
-      method: 'get',
-      params,
+      path: `/company/configurations/types/${parentId}/questions/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyConfigurationsTypesCount(params: CommonParameters = {}): Promise<Count> {
+   deleteCompanyConfigurationsTypesByParentIdQuestionsById(id: number, parentId: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/configurations/types/count`,
-      method: 'get',
-      params,
+      path: `/company/configurations/types/${parentId}/questions/${id}`, method: 'delete'
     })
-  }
+   }
 
-  getCompanyContacts(params: CommonParameters = {}): Promise<Array<Contact>> {
+   putCompanyConfigurationsTypesByParentIdQuestionsById(id: number, parentId: number, configurationTypeQuestion: ConfigurationTypeQuestion): Promise<ConfigurationTypeQuestion> {
     return this.request({
-      path: `/company/contacts`,
-      method: 'get',
-      params,
+      path: `/company/configurations/types/${parentId}/questions/${id}`, method: 'put', data: configurationTypeQuestion
     })
-  }
+   }
 
-  postCompanyContacts(contact: Contact): Promise<Contact> {
+   patchCompanyConfigurationsTypesByParentIdQuestionsById(id: number, parentId: number, patchOperations: Array<PatchOperation>): Promise<ConfigurationTypeQuestion> {
     return this.request({
-      path: `/company/contacts`,
-      method: 'post',
-      data: contact,
+      path: `/company/configurations/types/${parentId}/questions/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  getCompanyContactsById(id: number, params: CommonParameters = {}): Promise<Contact> {
+   getCompanyConfigurationsTypesByParentIdQuestionsCount(parentId: number, params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/contacts/${id}`,
-      method: 'get',
-      params,
+      path: `/company/configurations/types/${parentId}/questions/count`, method: 'get', params
     })
-  }
+   }
 
-  deleteCompanyContactsById(id: number, transferContactId: number): Promise<NoContentResponse> {
+   postCompanyConfigurationsTypesCopy(copy: ConfigurationTypeCopy): Promise<ConfigurationType> {
     return this.request({
-      path: `/company/contacts/${id}`,
-      method: 'delete',
+      path: `/company/configurations/types/copy`, method: 'post', data: copy
     })
-  }
+   }
 
-  putCompanyContactsById(id: number, contact: Contact): Promise<Contact> {
+   getCompanyConfigurationsTypesCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/contacts/${id}`,
-      method: 'put',
-      data: contact,
+      path: `/company/configurations/types/count`, method: 'get', params
     })
-  }
+   }
 
-  patchCompanyContactsById(id: number, patchOperations: Array<PatchOperation>): Promise<Contact> {
+   getCompanyContactTypesByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/contacts/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/contact/types/${id}/usages/list`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyContactsByIdImage(
-    id: number,
-    useDefaultFlag: boolean,
-    lastModified: string,
-    params: CommonParameters = {},
-  ): Promise<OctetStreamResponse> {
+   getCompanyContacts(params: CommonParameters = {}): Promise<Array<Contact>> {
     return this.request({
-      path: `/company/contacts/${id}/image`,
-      method: 'get',
-      params,
+      path: `/company/contacts`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyContactsByIdPortalSecurity(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<Array<PortalSecurity>> {
+   postCompanyContacts(contact: Contact): Promise<Contact> {
     return this.request({
-      path: `/company/contacts/${id}/portalSecurity`,
-      method: 'get',
-      params,
+      path: `/company/contacts`, method: 'post', data: contact
     })
-  }
+   }
 
-  getCompanyContactsByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
+   getCompanyContactsById(id: number, params: CommonParameters = {}): Promise<Contact> {
     return this.request({
-      path: `/company/contacts/${id}/usages`,
-      method: 'get',
-      params,
+      path: `/company/contacts/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyContactsByIdUsagesList(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<Array<Usage>> {
+   deleteCompanyContactsById(id: number, transferContactId: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/contacts/${id}/usages/list`,
-      method: 'get',
-      params,
+      path: `/company/contacts/${id}`, method: 'delete'
     })
-  }
+   }
 
-  getCompanyContactsByParentIdCommunications(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Array<ContactCommunication>> {
+   putCompanyContactsById(id: number, contact: Contact): Promise<Contact> {
     return this.request({
-      path: `/company/contacts/${parentId}/communications`,
-      method: 'get',
-      params,
+      path: `/company/contacts/${id}`, method: 'put', data: contact
     })
-  }
+   }
 
-  postCompanyContactsByParentIdCommunications(
-    parentId: number,
-    contactCommunication: ContactCommunication,
-  ): Promise<ContactCommunication> {
+   patchCompanyContactsById(id: number, patchOperations: Array<PatchOperation>): Promise<Contact> {
     return this.request({
-      path: `/company/contacts/${parentId}/communications`,
-      method: 'post',
-      data: contactCommunication,
+      path: `/company/contacts/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  getCompanyContactsByParentIdCommunicationsById(
-    id: number,
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<ContactCommunication> {
+   getCompanyContactsByIdImage(id: number, useDefaultFlag: boolean, lastModified: string, params: CommonParameters = {}): Promise<OctetStreamResponse> {
     return this.request({
-      path: `/company/contacts/${parentId}/communications/${id}`,
-      method: 'get',
-      params,
+      path: `/company/contacts/${id}/image`, method: 'get', params
     })
-  }
+   }
 
-  deleteCompanyContactsByParentIdCommunicationsById(
-    id: number,
-    parentId: number,
-  ): Promise<NoContentResponse> {
+   getCompanyContactsByIdInfo(id: number, params: CommonParameters = {}): Promise<ContactInfo> {
     return this.request({
-      path: `/company/contacts/${parentId}/communications/${id}`,
-      method: 'delete',
+      path: `/company/contacts/${id}/info`, method: 'get', params
     })
-  }
+   }
 
-  putCompanyContactsByParentIdCommunicationsById(
-    id: number,
-    parentId: number,
-    contactCommunication: ContactCommunication,
-  ): Promise<ContactCommunication> {
+   getCompanyContactsByIdPortalSecurity(id: number, params: CommonParameters = {}): Promise<Array<PortalSecurity>> {
     return this.request({
-      path: `/company/contacts/${parentId}/communications/${id}`,
-      method: 'put',
-      data: contactCommunication,
+      path: `/company/contacts/${id}/portalSecurity`, method: 'get', params
     })
-  }
+   }
 
-  patchCompanyContactsByParentIdCommunicationsById(
-    id: number,
-    parentId: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<ContactCommunication> {
+   getCompanyContactsByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/contacts/${parentId}/communications/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/contacts/${id}/usages`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyContactsByParentIdCommunicationsCount(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Count> {
+   getCompanyContactsByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/contacts/${parentId}/communications/count`,
-      method: 'get',
-      params,
+      path: `/company/contacts/${id}/usages/list`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyContactsByParentIdGroups(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Array<ContactGroup>> {
+   getCompanyContactsByParentIdCommunications(parentId: number, params: CommonParameters = {}): Promise<Array<ContactCommunication>> {
     return this.request({
-      path: `/company/contacts/${parentId}/groups`,
-      method: 'get',
-      params,
+      path: `/company/contacts/${parentId}/communications`, method: 'get', params
     })
-  }
+   }
 
-  postCompanyContactsByParentIdGroups(
-    parentId: number,
-    contactGroup: ContactGroup,
-  ): Promise<ContactGroup> {
+   postCompanyContactsByParentIdCommunications(parentId: number, contactCommunication: ContactCommunication): Promise<ContactCommunication> {
     return this.request({
-      path: `/company/contacts/${parentId}/groups`,
-      method: 'post',
-      data: contactGroup,
+      path: `/company/contacts/${parentId}/communications`, method: 'post', data: contactCommunication
     })
-  }
+   }
 
-  getCompanyContactsByParentIdGroupsById(
-    id: number,
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<ContactGroup> {
+   getCompanyContactsByParentIdCommunicationsById(id: number, parentId: number, params: CommonParameters = {}): Promise<ContactCommunication> {
     return this.request({
-      path: `/company/contacts/${parentId}/groups/${id}`,
-      method: 'get',
-      params,
+      path: `/company/contacts/${parentId}/communications/${id}`, method: 'get', params
     })
-  }
+   }
 
-  deleteCompanyContactsByParentIdGroupsById(
-    id: number,
-    parentId: number,
-  ): Promise<NoContentResponse> {
+   deleteCompanyContactsByParentIdCommunicationsById(id: number, parentId: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/contacts/${parentId}/groups/${id}`,
-      method: 'delete',
+      path: `/company/contacts/${parentId}/communications/${id}`, method: 'delete'
     })
-  }
+   }
 
-  putCompanyContactsByParentIdGroupsById(
-    id: number,
-    parentId: number,
-    contactGroup: ContactGroup,
-  ): Promise<ContactGroup> {
+   putCompanyContactsByParentIdCommunicationsById(id: number, parentId: number, contactCommunication: ContactCommunication): Promise<ContactCommunication> {
     return this.request({
-      path: `/company/contacts/${parentId}/groups/${id}`,
-      method: 'put',
-      data: contactGroup,
+      path: `/company/contacts/${parentId}/communications/${id}`, method: 'put', data: contactCommunication
     })
-  }
+   }
 
-  patchCompanyContactsByParentIdGroupsById(
-    id: number,
-    parentId: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<ContactGroup> {
+   patchCompanyContactsByParentIdCommunicationsById(id: number, parentId: number, patchOperations: Array<PatchOperation>): Promise<ContactCommunication> {
     return this.request({
-      path: `/company/contacts/${parentId}/groups/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/contacts/${parentId}/communications/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  getCompanyContactsByParentIdGroupsCount(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Count> {
+   getCompanyContactsByParentIdCommunicationsCount(parentId: number, params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/contacts/${parentId}/groups/count`,
-      method: 'get',
-      params,
+      path: `/company/contacts/${parentId}/communications/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyContactsByParentIdNotes(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Array<ContactNote>> {
+   getCompanyContactsByParentIdGroups(parentId: number, params: CommonParameters = {}): Promise<Array<ContactGroup>> {
     return this.request({
-      path: `/company/contacts/${parentId}/notes`,
-      method: 'get',
-      params,
+      path: `/company/contacts/${parentId}/groups`, method: 'get', params
     })
-  }
+   }
 
-  postCompanyContactsByParentIdNotes(
-    parentId: number,
-    contactNote: ContactNote,
-  ): Promise<ContactNote> {
+   postCompanyContactsByParentIdGroups(parentId: number, contactGroup: ContactGroup): Promise<ContactGroup> {
     return this.request({
-      path: `/company/contacts/${parentId}/notes`,
-      method: 'post',
-      data: contactNote,
+      path: `/company/contacts/${parentId}/groups`, method: 'post', data: contactGroup
     })
-  }
+   }
 
-  getCompanyContactsByParentIdNotesById(
-    id: number,
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<ContactNote> {
+   getCompanyContactsByParentIdGroupsById(id: number, parentId: number, params: CommonParameters = {}): Promise<ContactGroup> {
     return this.request({
-      path: `/company/contacts/${parentId}/notes/${id}`,
-      method: 'get',
-      params,
+      path: `/company/contacts/${parentId}/groups/${id}`, method: 'get', params
     })
-  }
+   }
 
-  deleteCompanyContactsByParentIdNotesById(
-    id: number,
-    parentId: number,
-  ): Promise<NoContentResponse> {
+   deleteCompanyContactsByParentIdGroupsById(id: number, parentId: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/contacts/${parentId}/notes/${id}`,
-      method: 'delete',
+      path: `/company/contacts/${parentId}/groups/${id}`, method: 'delete'
     })
-  }
+   }
 
-  putCompanyContactsByParentIdNotesById(
-    id: number,
-    parentId: number,
-    contactNote: ContactNote,
-  ): Promise<ContactNote> {
+   putCompanyContactsByParentIdGroupsById(id: number, parentId: number, contactGroup: ContactGroup): Promise<ContactGroup> {
     return this.request({
-      path: `/company/contacts/${parentId}/notes/${id}`,
-      method: 'put',
-      data: contactNote,
+      path: `/company/contacts/${parentId}/groups/${id}`, method: 'put', data: contactGroup
     })
-  }
+   }
 
-  patchCompanyContactsByParentIdNotesById(
-    id: number,
-    parentId: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<ContactNote> {
+   patchCompanyContactsByParentIdGroupsById(id: number, parentId: number, patchOperations: Array<PatchOperation>): Promise<ContactGroup> {
     return this.request({
-      path: `/company/contacts/${parentId}/notes/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/contacts/${parentId}/groups/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  getCompanyContactsByParentIdNotesCount(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Count> {
+   getCompanyContactsByParentIdGroupsCount(parentId: number, params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/contacts/${parentId}/notes/count`,
-      method: 'get',
-      params,
+      path: `/company/contacts/${parentId}/groups/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyContactsByParentIdTracks(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Array<ContactTrack>> {
+   getCompanyContactsByParentIdNotes(parentId: number, params: CommonParameters = {}): Promise<Array<ContactNote>> {
     return this.request({
-      path: `/company/contacts/${parentId}/tracks`,
-      method: 'get',
-      params,
+      path: `/company/contacts/${parentId}/notes`, method: 'get', params
     })
-  }
+   }
 
-  postCompanyContactsByParentIdTracks(
-    parentId: number,
-    track: ContactTrack,
-  ): Promise<ContactTrack> {
+   postCompanyContactsByParentIdNotes(parentId: number, contactNote: ContactNote): Promise<ContactNote> {
     return this.request({
-      path: `/company/contacts/${parentId}/tracks`,
-      method: 'post',
-      data: track,
+      path: `/company/contacts/${parentId}/notes`, method: 'post', data: contactNote
     })
-  }
+   }
 
-  getCompanyContactsByParentIdTracksById(
-    id: number,
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<ContactTrack> {
+   getCompanyContactsByParentIdNotesById(id: number, parentId: number, params: CommonParameters = {}): Promise<ContactNote> {
     return this.request({
-      path: `/company/contacts/${parentId}/tracks/${id}`,
-      method: 'get',
-      params,
+      path: `/company/contacts/${parentId}/notes/${id}`, method: 'get', params
     })
-  }
+   }
 
-  deleteCompanyContactsByParentIdTracksById(
-    id: number,
-    parentId: number,
-  ): Promise<NoContentResponse> {
+   deleteCompanyContactsByParentIdNotesById(id: number, parentId: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/contacts/${parentId}/tracks/${id}`,
-      method: 'delete',
+      path: `/company/contacts/${parentId}/notes/${id}`, method: 'delete'
     })
-  }
+   }
 
-  getCompanyContactsByParentIdTracksCount(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Count> {
+   putCompanyContactsByParentIdNotesById(id: number, parentId: number, contactNote: ContactNote): Promise<ContactNote> {
     return this.request({
-      path: `/company/contacts/${parentId}/tracks/count`,
-      method: 'get',
-      params,
+      path: `/company/contacts/${parentId}/notes/${id}`, method: 'put', data: contactNote
     })
-  }
+   }
 
-  getCompanyContactsByParentIdTypeAssociations(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Array<ContactContactTypeAssociationContactTypeAssociation>> {
+   patchCompanyContactsByParentIdNotesById(id: number, parentId: number, patchOperations: Array<PatchOperation>): Promise<ContactNote> {
     return this.request({
-      path: `/company/contacts/${parentId}/typeAssociations`,
-      method: 'get',
-      params,
+      path: `/company/contacts/${parentId}/notes/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  postCompanyContactsByParentIdTypeAssociations(
-    parentId: number,
-    contactTypeAssociation: ContactContactTypeAssociationContactTypeAssociation,
-  ): Promise<ContactContactTypeAssociationContactTypeAssociation> {
+   getCompanyContactsByParentIdNotesCount(parentId: number, params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/contacts/${parentId}/typeAssociations`,
-      method: 'post',
-      data: contactTypeAssociation,
+      path: `/company/contacts/${parentId}/notes/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyContactsByParentIdTypeAssociationsById(
-    id: number,
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<ContactContactTypeAssociationContactTypeAssociation> {
+   getCompanyContactsByParentIdTracks(parentId: number, params: CommonParameters = {}): Promise<Array<ContactTrack>> {
     return this.request({
-      path: `/company/contacts/${parentId}/typeAssociations/${id}`,
-      method: 'get',
-      params,
+      path: `/company/contacts/${parentId}/tracks`, method: 'get', params
     })
-  }
+   }
 
-  deleteCompanyContactsByParentIdTypeAssociationsById(
-    id: number,
-    parentId: number,
-  ): Promise<NoContentResponse> {
+   postCompanyContactsByParentIdTracks(parentId: number, track: ContactTrack): Promise<ContactTrack> {
     return this.request({
-      path: `/company/contacts/${parentId}/typeAssociations/${id}`,
-      method: 'delete',
+      path: `/company/contacts/${parentId}/tracks`, method: 'post', data: track
     })
-  }
+   }
 
-  putCompanyContactsByParentIdTypeAssociationsById(
-    id: number,
-    parentId: number,
-    contactTypeAssociation: ContactContactTypeAssociationContactTypeAssociation,
-  ): Promise<ContactContactTypeAssociationContactTypeAssociation> {
+   getCompanyContactsByParentIdTracksById(id: number, parentId: number, params: CommonParameters = {}): Promise<ContactTrack> {
     return this.request({
-      path: `/company/contacts/${parentId}/typeAssociations/${id}`,
-      method: 'put',
-      data: contactTypeAssociation,
+      path: `/company/contacts/${parentId}/tracks/${id}`, method: 'get', params
     })
-  }
+   }
 
-  patchCompanyContactsByParentIdTypeAssociationsById(
-    id: number,
-    parentId: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<ContactContactTypeAssociationContactTypeAssociation> {
+   deleteCompanyContactsByParentIdTracksById(id: number, parentId: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/contacts/${parentId}/typeAssociations/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/contacts/${parentId}/tracks/${id}`, method: 'delete'
     })
-  }
+   }
 
-  getCompanyContactsByParentIdTypeAssociationsCount(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Count> {
+   getCompanyContactsByParentIdTracksCount(parentId: number, params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/contacts/${parentId}/typeAssociations/count`,
-      method: 'get',
-      params,
+      path: `/company/contacts/${parentId}/tracks/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyContactsCount(params: CommonParameters = {}): Promise<Count> {
+   getCompanyContactsByParentIdTypeAssociations(parentId: number, params: CommonParameters = {}): Promise<Array<ContactContactTypeAssociationContactTypeAssociation>> {
     return this.request({
-      path: `/company/contacts/count`,
-      method: 'get',
-      params,
+      path: `/company/contacts/${parentId}/typeAssociations`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyContactsDefault(companyId: number, params: CommonParameters = {}): Promise<Contact> {
+   postCompanyContactsByParentIdTypeAssociations(parentId: number, contactTypeAssociation: ContactContactTypeAssociationContactTypeAssociation): Promise<ContactContactTypeAssociationContactTypeAssociation> {
     return this.request({
-      path: `/company/contacts/default`,
-      method: 'get',
-      params,
+      path: `/company/contacts/${parentId}/typeAssociations`, method: 'post', data: contactTypeAssociation
     })
-  }
+   }
 
-  getCompanyContactsDepartments(params: CommonParameters = {}): Promise<Array<ContactDepartment>> {
+   getCompanyContactsByParentIdTypeAssociationsById(id: number, parentId: number, params: CommonParameters = {}): Promise<ContactContactTypeAssociationContactTypeAssociation> {
     return this.request({
-      path: `/company/contacts/departments`,
-      method: 'get',
-      params,
+      path: `/company/contacts/${parentId}/typeAssociations/${id}`, method: 'get', params
     })
-  }
+   }
 
-  postCompanyContactsDepartments(contactDepartment: ContactDepartment): Promise<ContactDepartment> {
+   deleteCompanyContactsByParentIdTypeAssociationsById(id: number, parentId: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/contacts/departments`,
-      method: 'post',
-      data: contactDepartment,
+      path: `/company/contacts/${parentId}/typeAssociations/${id}`, method: 'delete'
     })
-  }
+   }
 
-  getCompanyContactsDepartmentsById(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<ContactDepartment> {
+   putCompanyContactsByParentIdTypeAssociationsById(id: number, parentId: number, contactTypeAssociation: ContactContactTypeAssociationContactTypeAssociation): Promise<ContactContactTypeAssociationContactTypeAssociation> {
     return this.request({
-      path: `/company/contacts/departments/${id}`,
-      method: 'get',
-      params,
+      path: `/company/contacts/${parentId}/typeAssociations/${id}`, method: 'put', data: contactTypeAssociation
     })
-  }
+   }
 
-  deleteCompanyContactsDepartmentsById(id: number): Promise<NoContentResponse> {
+   patchCompanyContactsByParentIdTypeAssociationsById(id: number, parentId: number, patchOperations: Array<PatchOperation>): Promise<ContactContactTypeAssociationContactTypeAssociation> {
     return this.request({
-      path: `/company/contacts/departments/${id}`,
-      method: 'delete',
+      path: `/company/contacts/${parentId}/typeAssociations/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  putCompanyContactsDepartmentsById(
-    id: number,
-    contactDepartment: ContactDepartment,
-  ): Promise<ContactDepartment> {
+   getCompanyContactsByParentIdTypeAssociationsCount(parentId: number, params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/contacts/departments/${id}`,
-      method: 'put',
-      data: contactDepartment,
+      path: `/company/contacts/${parentId}/typeAssociations/count`, method: 'get', params
     })
-  }
+   }
 
-  patchCompanyContactsDepartmentsById(
-    id: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<ContactDepartment> {
+   getCompanyContactsCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/contacts/departments/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/contacts/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyContactsDepartmentsByIdInfo(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<ContactDepartmentInfo> {
+   getCompanyContactsDefault(companyId: number, params: CommonParameters = {}): Promise<Contact> {
     return this.request({
-      path: `/company/contacts/departments/${id}/info`,
-      method: 'get',
-      params,
+      path: `/company/contacts/default`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyContactsDepartmentsByIdUsages(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<Array<Usage>> {
+   getCompanyContactsDepartments(params: CommonParameters = {}): Promise<Array<ContactDepartment>> {
     return this.request({
-      path: `/company/contacts/departments/${id}/usages`,
-      method: 'get',
-      params,
+      path: `/company/contacts/departments`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyContactsDepartmentsByIdUsagesList(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<Array<Usage>> {
+   postCompanyContactsDepartments(contactDepartment: ContactDepartment): Promise<ContactDepartment> {
     return this.request({
-      path: `/company/contacts/departments/${id}/usages/list`,
-      method: 'get',
-      params,
+      path: `/company/contacts/departments`, method: 'post', data: contactDepartment
     })
-  }
+   }
 
-  getCompanyContactsDepartmentsCount(params: CommonParameters = {}): Promise<Count> {
+   getCompanyContactsDepartmentsById(id: number, params: CommonParameters = {}): Promise<ContactDepartment> {
     return this.request({
-      path: `/company/contacts/departments/count`,
-      method: 'get',
-      params,
+      path: `/company/contacts/departments/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyContactsDepartmentsInfo(
-    params: CommonParameters = {},
-  ): Promise<Array<ContactDepartmentInfo>> {
+   deleteCompanyContactsDepartmentsById(id: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/contacts/departments/info`,
-      method: 'get',
-      params,
+      path: `/company/contacts/departments/${id}`, method: 'delete'
     })
-  }
+   }
 
-  getCompanyContactsDepartmentsInfoCount(params: CommonParameters = {}): Promise<Count> {
+   putCompanyContactsDepartmentsById(id: number, contactDepartment: ContactDepartment): Promise<ContactDepartment> {
     return this.request({
-      path: `/company/contacts/departments/info/count`,
-      method: 'get',
-      params,
+      path: `/company/contacts/departments/${id}`, method: 'put', data: contactDepartment
     })
-  }
+   }
 
-  getCompanyContactsRelationships(
-    params: CommonParameters = {},
-  ): Promise<Array<ContactRelationship>> {
+   patchCompanyContactsDepartmentsById(id: number, patchOperations: Array<PatchOperation>): Promise<ContactDepartment> {
     return this.request({
-      path: `/company/contacts/relationships`,
-      method: 'get',
-      params,
+      path: `/company/contacts/departments/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  postCompanyContactsRelationships(
-    contactRelationship: ContactRelationship,
-  ): Promise<ContactRelationship> {
+   getCompanyContactsDepartmentsByIdInfo(id: number, params: CommonParameters = {}): Promise<ContactDepartmentInfo> {
     return this.request({
-      path: `/company/contacts/relationships`,
-      method: 'post',
-      data: contactRelationship,
+      path: `/company/contacts/departments/${id}/info`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyContactsRelationshipsById(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<ContactRelationship> {
+   getCompanyContactsDepartmentsByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/contacts/relationships/${id}`,
-      method: 'get',
-      params,
+      path: `/company/contacts/departments/${id}/usages`, method: 'get', params
     })
-  }
+   }
 
-  deleteCompanyContactsRelationshipsById(id: number): Promise<NoContentResponse> {
+   getCompanyContactsDepartmentsByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/contacts/relationships/${id}`,
-      method: 'delete',
+      path: `/company/contacts/departments/${id}/usages/list`, method: 'get', params
     })
-  }
+   }
 
-  putCompanyContactsRelationshipsById(
-    id: number,
-    contactRelationship: ContactRelationship,
-  ): Promise<ContactRelationship> {
+   getCompanyContactsDepartmentsCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/contacts/relationships/${id}`,
-      method: 'put',
-      data: contactRelationship,
+      path: `/company/contacts/departments/count`, method: 'get', params
     })
-  }
+   }
 
-  patchCompanyContactsRelationshipsById(
-    id: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<ContactRelationship> {
+   getCompanyContactsDepartmentsInfo(params: CommonParameters = {}): Promise<Array<ContactDepartmentInfo>> {
     return this.request({
-      path: `/company/contacts/relationships/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/contacts/departments/info`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyContactsRelationshipsCount(params: CommonParameters = {}): Promise<Count> {
+   getCompanyContactsDepartmentsInfoCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/contacts/relationships/count`,
-      method: 'get',
-      params,
+      path: `/company/contacts/departments/info/count`, method: 'get', params
     })
-  }
+   }
 
-  postCompanyContactsRequestPassword(request: RequestPasswordRequest): Promise<NoContentResponse> {
+   getCompanyContactsInfo(params: CommonParameters = {}): Promise<Array<ContactInfo>> {
     return this.request({
-      path: `/company/contacts/requestPassword`,
-      method: 'post',
-      data: request,
+      path: `/company/contacts/info`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyContactsTypes(params: CommonParameters = {}): Promise<Array<ContactType>> {
+   getCompanyContactsInfoCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/contacts/types`,
-      method: 'get',
-      params,
+      path: `/company/contacts/info/count`, method: 'get', params
     })
-  }
+   }
 
-  postCompanyContactsTypes(contactType: ContactType): Promise<ContactType> {
+   getCompanyContactsRelationships(params: CommonParameters = {}): Promise<Array<ContactRelationship>> {
     return this.request({
-      path: `/company/contacts/types`,
-      method: 'post',
-      data: contactType,
+      path: `/company/contacts/relationships`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyContactsTypesById(id: number, params: CommonParameters = {}): Promise<ContactType> {
+   postCompanyContactsRelationships(contactRelationship: ContactRelationship): Promise<ContactRelationship> {
     return this.request({
-      path: `/company/contacts/types/${id}`,
-      method: 'get',
-      params,
+      path: `/company/contacts/relationships`, method: 'post', data: contactRelationship
     })
-  }
+   }
 
-  deleteCompanyContactsTypesById(id: number): Promise<NoContentResponse> {
+   getCompanyContactsRelationshipsById(id: number, params: CommonParameters = {}): Promise<ContactRelationship> {
     return this.request({
-      path: `/company/contacts/types/${id}`,
-      method: 'delete',
+      path: `/company/contacts/relationships/${id}`, method: 'get', params
     })
-  }
+   }
 
-  putCompanyContactsTypesById(id: number, contactType: ContactType): Promise<ContactType> {
+   deleteCompanyContactsRelationshipsById(id: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/contacts/types/${id}`,
-      method: 'put',
-      data: contactType,
+      path: `/company/contacts/relationships/${id}`, method: 'delete'
     })
-  }
+   }
 
-  patchCompanyContactsTypesById(
-    id: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<ContactType> {
+   putCompanyContactsRelationshipsById(id: number, contactRelationship: ContactRelationship): Promise<ContactRelationship> {
     return this.request({
-      path: `/company/contacts/types/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/contacts/relationships/${id}`, method: 'put', data: contactRelationship
     })
-  }
+   }
 
-  getCompanyContactsTypesByIdInfo(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<ContactTypeInfo> {
+   patchCompanyContactsRelationshipsById(id: number, patchOperations: Array<PatchOperation>): Promise<ContactRelationship> {
     return this.request({
-      path: `/company/contacts/types/${id}/info`,
-      method: 'get',
-      params,
+      path: `/company/contacts/relationships/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  getCompanyContactsTypesCount(params: CommonParameters = {}): Promise<Count> {
+   getCompanyContactsRelationshipsCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/contacts/types/count`,
-      method: 'get',
-      params,
+      path: `/company/contacts/relationships/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyContactsTypesCountInfo(params: CommonParameters = {}): Promise<Count> {
+   postCompanyContactsRequestPassword(request: RequestPasswordRequest): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/contacts/types/count/info`,
-      method: 'get',
-      params,
+      path: `/company/contacts/requestPassword`, method: 'post', data: request
     })
-  }
+   }
 
-  getCompanyContactsTypesInfo(params: CommonParameters = {}): Promise<Array<ContactTypeInfo>> {
+   getCompanyContactsTypes(params: CommonParameters = {}): Promise<Array<ContactType>> {
     return this.request({
-      path: `/company/contacts/types/info`,
-      method: 'get',
-      params,
+      path: `/company/contacts/types`, method: 'get', params
     })
-  }
+   }
 
-  postCompanyContactsValidatePortalCredentials(
-    request: ValidatePortalRequest,
-  ): Promise<ValidatePortalResponse> {
+   postCompanyContactsTypes(contactType: ContactType): Promise<ContactType> {
     return this.request({
-      path: `/company/contacts/validatePortalCredentials`,
-      method: 'post',
-      data: request,
+      path: `/company/contacts/types`, method: 'post', data: contactType
     })
-  }
+   }
 
-  getCompanyContactTypeAssociations(
-    params: CommonParameters = {},
-  ): Promise<Array<CompanyContactTypeAssociation>> {
+   getCompanyContactsTypesById(id: number, params: CommonParameters = {}): Promise<ContactType> {
     return this.request({
-      path: `/company/contactTypeAssociations`,
-      method: 'get',
-      params,
+      path: `/company/contacts/types/${id}`, method: 'get', params
     })
-  }
+   }
 
-  postCompanyContactTypeAssociations(
-    contactTypeAssociation: CompanyContactTypeAssociation,
-  ): Promise<CompanyContactTypeAssociation> {
+   deleteCompanyContactsTypesById(id: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/contactTypeAssociations`,
-      method: 'post',
-      data: contactTypeAssociation,
+      path: `/company/contacts/types/${id}`, method: 'delete'
     })
-  }
+   }
 
-  getCompanyContactTypeAssociationsById(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<CompanyContactTypeAssociation> {
+   putCompanyContactsTypesById(id: number, contactType: ContactType): Promise<ContactType> {
     return this.request({
-      path: `/company/contactTypeAssociations/${id}`,
-      method: 'get',
-      params,
+      path: `/company/contacts/types/${id}`, method: 'put', data: contactType
     })
-  }
+   }
 
-  deleteCompanyContactTypeAssociationsById(id: number): Promise<NoContentResponse> {
+   patchCompanyContactsTypesById(id: number, patchOperations: Array<PatchOperation>): Promise<ContactType> {
     return this.request({
-      path: `/company/contactTypeAssociations/${id}`,
-      method: 'delete',
+      path: `/company/contacts/types/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  putCompanyContactTypeAssociationsById(
-    id: number,
-    contactTypeAssociation: CompanyContactTypeAssociation,
-  ): Promise<CompanyContactTypeAssociation> {
+   getCompanyContactsTypesByIdInfo(id: number, params: CommonParameters = {}): Promise<ContactTypeInfo> {
     return this.request({
-      path: `/company/contactTypeAssociations/${id}`,
-      method: 'put',
-      data: contactTypeAssociation,
+      path: `/company/contacts/types/${id}/info`, method: 'get', params
     })
-  }
+   }
 
-  patchCompanyContactTypeAssociationsById(
-    id: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<CompanyContactTypeAssociation> {
+   getCompanyContactsTypesCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/contactTypeAssociations/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/contacts/types/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyContactTypeAssociationsCount(params: CommonParameters = {}): Promise<Count> {
+   getCompanyContactsTypesCountInfo(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/contactTypeAssociations/count`,
-      method: 'get',
-      params,
+      path: `/company/contacts/types/count/info`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCountries(params: CommonParameters = {}): Promise<Array<Country>> {
+   getCompanyContactsTypesInfo(params: CommonParameters = {}): Promise<Array<ContactTypeInfo>> {
     return this.request({
-      path: `/company/countries`,
-      method: 'get',
-      params,
+      path: `/company/contacts/types/info`, method: 'get', params
     })
-  }
+   }
 
-  postCompanyCountries(country: Country): Promise<Country> {
+   postCompanyContactsValidatePortalCredentials(request: ValidatePortalRequest): Promise<ValidatePortalResponse> {
     return this.request({
-      path: `/company/countries`,
-      method: 'post',
-      data: country,
+      path: `/company/contacts/validatePortalCredentials`, method: 'post', data: request
     })
-  }
+   }
 
-  getCompanyCountriesById(id: number, params: CommonParameters = {}): Promise<Country> {
+   getCompanyContactTypeAssociations(params: CommonParameters = {}): Promise<Array<CompanyContactTypeAssociation>> {
     return this.request({
-      path: `/company/countries/${id}`,
-      method: 'get',
-      params,
+      path: `/company/contactTypeAssociations`, method: 'get', params
     })
-  }
+   }
 
-  deleteCompanyCountriesById(id: number): Promise<NoContentResponse> {
+   postCompanyContactTypeAssociations(contactTypeAssociation: CompanyContactTypeAssociation): Promise<CompanyContactTypeAssociation> {
     return this.request({
-      path: `/company/countries/${id}`,
-      method: 'delete',
+      path: `/company/contactTypeAssociations`, method: 'post', data: contactTypeAssociation
     })
-  }
+   }
 
-  putCompanyCountriesById(id: number, country: Country): Promise<Country> {
+   getCompanyContactTypeAssociationsById(id: number, params: CommonParameters = {}): Promise<CompanyContactTypeAssociation> {
     return this.request({
-      path: `/company/countries/${id}`,
-      method: 'put',
-      data: country,
+      path: `/company/contactTypeAssociations/${id}`, method: 'get', params
     })
-  }
+   }
 
-  patchCompanyCountriesById(id: number, patchOperations: Array<PatchOperation>): Promise<Country> {
+   deleteCompanyContactTypeAssociationsById(id: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/countries/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/contactTypeAssociations/${id}`, method: 'delete'
     })
-  }
+   }
 
-  getCompanyCountriesByIdInfo(id: number, params: CommonParameters = {}): Promise<CountryInfo> {
+   putCompanyContactTypeAssociationsById(id: number, contactTypeAssociation: CompanyContactTypeAssociation): Promise<CompanyContactTypeAssociation> {
     return this.request({
-      path: `/company/countries/${id}/info`,
-      method: 'get',
-      params,
+      path: `/company/contactTypeAssociations/${id}`, method: 'put', data: contactTypeAssociation
     })
-  }
+   }
 
-  getCompanyCountriesCount(params: CommonParameters = {}): Promise<Count> {
+   patchCompanyContactTypeAssociationsById(id: number, patchOperations: Array<PatchOperation>): Promise<CompanyContactTypeAssociation> {
     return this.request({
-      path: `/company/countries/count`,
-      method: 'get',
-      params,
+      path: `/company/contactTypeAssociations/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  getCompanyCountriesInfo(params: CommonParameters = {}): Promise<Array<CountryInfo>> {
+   getCompanyContactTypeAssociationsCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/countries/info`,
-      method: 'get',
-      params,
+      path: `/company/contactTypeAssociations/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyCountriesInfoCount(params: CommonParameters = {}): Promise<Count> {
+   getCompanyCountries(params: CommonParameters = {}): Promise<Array<Country>> {
     return this.request({
-      path: `/company/countries/info/count`,
-      method: 'get',
-      params,
+      path: `/company/countries`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyEntityTypes(params: CommonParameters = {}): Promise<Array<EntityType>> {
+   postCompanyCountries(country: Country): Promise<Country> {
     return this.request({
-      path: `/company/entityTypes`,
-      method: 'get',
-      params,
+      path: `/company/countries`, method: 'post', data: country
     })
-  }
+   }
 
-  getCompanyEntityTypesById(id: number, params: CommonParameters = {}): Promise<EntityType> {
+   getCompanyCountriesById(id: number, params: CommonParameters = {}): Promise<Country> {
     return this.request({
-      path: `/company/entityTypes/${id}`,
-      method: 'get',
-      params,
+      path: `/company/countries/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyEntitytypesByIdInfo(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<EntityTypeInfo> {
+   deleteCompanyCountriesById(id: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/entitytypes/${id}/info`,
-      method: 'get',
-      params,
+      path: `/company/countries/${id}`, method: 'delete'
     })
-  }
+   }
 
-  getCompanyEntityTypesCount(params: CommonParameters = {}): Promise<Count> {
+   putCompanyCountriesById(id: number, country: Country): Promise<Country> {
     return this.request({
-      path: `/company/entityTypes/count`,
-      method: 'get',
-      params,
+      path: `/company/countries/${id}`, method: 'put', data: country
     })
-  }
+   }
 
-  getCompanyEntitytypesInfo(params: CommonParameters = {}): Promise<Array<EntityTypeInfo>> {
+   patchCompanyCountriesById(id: number, patchOperations: Array<PatchOperation>): Promise<Country> {
     return this.request({
-      path: `/company/entitytypes/info`,
-      method: 'get',
-      params,
+      path: `/company/countries/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  getCompanyEntityTypesInfoCount(params: CommonParameters = {}): Promise<Count> {
+   getCompanyCountriesByIdInfo(id: number, params: CommonParameters = {}): Promise<CountryInfo> {
     return this.request({
-      path: `/company/entityTypes/info/count`,
-      method: 'get',
-      params,
+      path: `/company/countries/${id}/info`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyExpenseTypesInfoCount(params: CommonParameters = {}): Promise<Count> {
+   getCompanyCountriesCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/expenseTypes/info/count`,
-      method: 'get',
-      params,
+      path: `/company/countries/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyManagedDevicesIntegrations(
-    params: CommonParameters = {},
-  ): Promise<Array<ManagedDevicesIntegration>> {
+   getCompanyCountriesInfo(params: CommonParameters = {}): Promise<Array<CountryInfo>> {
     return this.request({
-      path: `/company/managedDevicesIntegrations`,
-      method: 'get',
-      params,
+      path: `/company/countries/info`, method: 'get', params
     })
-  }
+   }
 
-  postCompanyManagedDevicesIntegrations(
-    managedDevicesIntegration: ManagedDevicesIntegration,
-  ): Promise<ManagedDevicesIntegration> {
+   getCompanyCountriesInfoCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/managedDevicesIntegrations`,
-      method: 'post',
-      data: managedDevicesIntegration,
+      path: `/company/countries/info/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyManagedDevicesIntegrationsById(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<ManagedDevicesIntegration> {
+   getCompanyEntityTypes(params: CommonParameters = {}): Promise<Array<EntityType>> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${id}`,
-      method: 'get',
-      params,
+      path: `/company/entityTypes`, method: 'get', params
     })
-  }
+   }
 
-  deleteCompanyManagedDevicesIntegrationsById(id: number): Promise<NoContentResponse> {
+   getCompanyEntityTypesById(id: number, params: CommonParameters = {}): Promise<EntityType> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${id}`,
-      method: 'delete',
+      path: `/company/entityTypes/${id}`, method: 'get', params
     })
-  }
+   }
 
-  putCompanyManagedDevicesIntegrationsById(
-    id: number,
-    managedDevicesIntegration: ManagedDevicesIntegration,
-  ): Promise<ManagedDevicesIntegration> {
+   getCompanyEntitytypesByIdInfo(id: number, params: CommonParameters = {}): Promise<EntityTypeInfo> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${id}`,
-      method: 'put',
-      data: managedDevicesIntegration,
+      path: `/company/entitytypes/${id}/info`, method: 'get', params
     })
-  }
+   }
 
-  patchCompanyManagedDevicesIntegrationsById(
-    id: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<ManagedDevicesIntegration> {
+   getCompanyEntityTypesCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/entityTypes/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyManagedDevicesIntegrationsByIdInfo(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<ManagedDevicesIntegrationInfo> {
+   getCompanyEntitytypesInfo(params: CommonParameters = {}): Promise<Array<EntityTypeInfo>> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${id}/info`,
-      method: 'get',
-      params,
+      path: `/company/entitytypes/info`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyManagedDevicesIntegrationsByIdUsages(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<Array<Usage>> {
+   getCompanyEntityTypesInfoCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${id}/usages`,
-      method: 'get',
-      params,
+      path: `/company/entityTypes/info/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyManagedDevicesIntegrationsByIdUsagesList(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<Array<Usage>> {
+   getCompanyExpenseTypesInfoCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${id}/usages/list`,
-      method: 'get',
-      params,
+      path: `/company/expenseTypes/info/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyManagedDevicesIntegrationsByParentIdCrossReferences(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Array<ManagedDevicesIntegrationCrossReference>> {
+   getCompanyM365contact(params: CommonParameters = {}): Promise<Array<M365Contact>> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${parentId}/crossReferences`,
-      method: 'get',
-      params,
+      path: `/company/m365contact`, method: 'get', params
     })
-  }
+   }
 
-  postCompanyManagedDevicesIntegrationsByParentIdCrossReferences(
-    parentId: number,
-    crossReference: ManagedDevicesIntegrationCrossReference,
-  ): Promise<ManagedDevicesIntegrationCrossReference> {
+   getCompanyM365contactById(id: number, params: CommonParameters = {}): Promise<M365Contact> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${parentId}/crossReferences`,
-      method: 'post',
-      data: crossReference,
+      path: `/company/m365contact/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyManagedDevicesIntegrationsByParentIdCrossReferencesById(
-    id: number,
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<ManagedDevicesIntegrationCrossReference> {
+   getCompanyM365contactCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${parentId}/crossReferences/${id}`,
-      method: 'get',
-      params,
+      path: `/company/m365contact/count`, method: 'get', params
     })
-  }
+   }
 
-  putCompanyManagedDevicesIntegrationsByParentIdCrossReferencesById(
-    id: number,
-    parentId: number,
-    crossReference: ManagedDevicesIntegrationCrossReference,
-  ): Promise<ManagedDevicesIntegrationCrossReference> {
+   getCompanyM365contactsyncByIdProperty(id: number, params: CommonParameters = {}): Promise<M365ContactSyncProperty> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${parentId}/crossReferences/${id}`,
-      method: 'put',
-      data: crossReference,
+      path: `/company/m365contactsync/${id}/property`, method: 'get', params
     })
-  }
+   }
 
-  patchCompanyManagedDevicesIntegrationsByParentIdCrossReferencesById(
-    id: number,
-    parentId: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<ManagedDevicesIntegrationCrossReference> {
+   postCompanyM365contactsyncProperty(country: M365ContactSyncProperty): Promise<M365ContactSyncProperty> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${parentId}/crossReferences/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/m365contactsync/property`, method: 'post', data: country
     })
-  }
+   }
 
-  deleteCompanyManagedDevicesIntegrationsByParentIdCrossReferencesById(
-    id: number,
-    parentId: number,
-  ): Promise<ManagedDevicesIntegrationCrossReference> {
+   deleteCompanyM365contactsyncProperty(): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${parentId}/crossReferences/${id}`,
-      method: 'delete',
+      path: `/company/m365contactsync/property/`, method: 'delete'
     })
-  }
+   }
 
-  getCompanyManagedDevicesIntegrationsByParentIdCrossReferencesCount(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Count> {
+   getCompanyM365contactsyncPropertyCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${parentId}/crossReferences/count`,
-      method: 'get',
-      params,
+      path: `/company/m365contactsync/property/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyManagedDevicesIntegrationsByParentIdLogins(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Array<ManagedDevicesIntegrationLogin>> {
+   getCompanyM365contactsyncPropertyExcluded(id: number, params: CommonParameters = {}): Promise<Array<M365ContactSyncProperty>> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${parentId}/logins`,
-      method: 'get',
-      params,
+      path: `/company/m365contactsync/property/excluded`, method: 'get', params
     })
-  }
+   }
 
-  postCompanyManagedDevicesIntegrationsByParentIdLogins(
-    parentId: number,
-    login: ManagedDevicesIntegrationLogin,
-  ): Promise<ManagedDevicesIntegrationLogin> {
+   getCompanyM365contactsyncPropertyIncluded(id: number, params: CommonParameters = {}): Promise<Array<M365ContactSyncProperty>> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${parentId}/logins`,
-      method: 'post',
-      data: login,
+      path: `/company/m365contactsync/property/included`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyManagedDevicesIntegrationsByParentIdLoginsById(
-    id: number,
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<ManagedDevicesIntegrationLogin> {
+   getCompanyManagedDevicesIntegrations(params: CommonParameters = {}): Promise<Array<ManagedDevicesIntegration>> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${parentId}/logins/${id}`,
-      method: 'get',
-      params,
+      path: `/company/managedDevicesIntegrations`, method: 'get', params
     })
-  }
+   }
 
-  putCompanyManagedDevicesIntegrationsByParentIdLoginsById(
-    id: number,
-    parentId: number,
-    login: ManagedDevicesIntegrationLogin,
-  ): Promise<ManagedDevicesIntegrationLogin> {
+   postCompanyManagedDevicesIntegrations(managedDevicesIntegration: ManagedDevicesIntegration): Promise<ManagedDevicesIntegration> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${parentId}/logins/${id}`,
-      method: 'put',
-      data: login,
+      path: `/company/managedDevicesIntegrations`, method: 'post', data: managedDevicesIntegration
     })
-  }
+   }
 
-  patchCompanyManagedDevicesIntegrationsByParentIdLoginsById(
-    id: number,
-    parentId: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<ManagedDevicesIntegrationLogin> {
+   getCompanyManagedDevicesIntegrationsById(id: number, params: CommonParameters = {}): Promise<ManagedDevicesIntegration> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${parentId}/logins/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/managedDevicesIntegrations/${id}`, method: 'get', params
     })
-  }
+   }
 
-  deleteCompanyManagedDevicesIntegrationsByParentIdLoginsById(
-    id: number,
-    parentId: number,
-  ): Promise<ManagedDevicesIntegrationLogin> {
+   deleteCompanyManagedDevicesIntegrationsById(id: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${parentId}/logins/${id}`,
-      method: 'delete',
+      path: `/company/managedDevicesIntegrations/${id}`, method: 'delete'
     })
-  }
+   }
 
-  getCompanyManagedDevicesIntegrationsByParentIdLoginsCount(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Count> {
+   putCompanyManagedDevicesIntegrationsById(id: number, managedDevicesIntegration: ManagedDevicesIntegration): Promise<ManagedDevicesIntegration> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${parentId}/logins/count`,
-      method: 'get',
-      params,
+      path: `/company/managedDevicesIntegrations/${id}`, method: 'put', data: managedDevicesIntegration
     })
-  }
+   }
 
-  getCompanyManagedDevicesIntegrationsByParentIdNotifications(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Array<ManagedDevicesIntegrationNotification>> {
+   patchCompanyManagedDevicesIntegrationsById(id: number, patchOperations: Array<PatchOperation>): Promise<ManagedDevicesIntegration> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${parentId}/notifications`,
-      method: 'get',
-      params,
+      path: `/company/managedDevicesIntegrations/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  postCompanyManagedDevicesIntegrationsByParentIdNotifications(
-    parentId: number,
-    notification: ManagedDevicesIntegrationNotification,
-  ): Promise<ManagedDevicesIntegrationNotification> {
+   getCompanyManagedDevicesIntegrationsByIdInfo(id: number, params: CommonParameters = {}): Promise<ManagedDevicesIntegrationInfo> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${parentId}/notifications`,
-      method: 'post',
-      data: notification,
+      path: `/company/managedDevicesIntegrations/${id}/info`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyManagedDevicesIntegrationsByParentIdNotificationsById(
-    id: number,
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<ManagedDevicesIntegrationNotification> {
+   getCompanyManagedDevicesIntegrationsByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${parentId}/notifications/${id}`,
-      method: 'get',
-      params,
+      path: `/company/managedDevicesIntegrations/${id}/usages`, method: 'get', params
     })
-  }
+   }
 
-  putCompanyManagedDevicesIntegrationsByParentIdNotificationsById(
-    id: number,
-    parentId: number,
-    notification: ManagedDevicesIntegrationNotification,
-  ): Promise<ManagedDevicesIntegrationNotification> {
+   getCompanyManagedDevicesIntegrationsByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${parentId}/notifications/${id}`,
-      method: 'put',
-      data: notification,
+      path: `/company/managedDevicesIntegrations/${id}/usages/list`, method: 'get', params
     })
-  }
+   }
 
-  patchCompanyManagedDevicesIntegrationsByParentIdNotificationsById(
-    id: number,
-    parentId: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<ManagedDevicesIntegrationNotification> {
+   getCompanyManagedDevicesIntegrationsByParentIdCrossReferences(parentId: number, params: CommonParameters = {}): Promise<Array<ManagedDevicesIntegrationCrossReference>> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${parentId}/notifications/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/managedDevicesIntegrations/${parentId}/crossReferences`, method: 'get', params
     })
-  }
+   }
 
-  deleteCompanyManagedDevicesIntegrationsByParentIdNotificationsById(
-    id: number,
-    parentId: number,
-  ): Promise<ManagedDevicesIntegrationNotification> {
+   postCompanyManagedDevicesIntegrationsByParentIdCrossReferences(parentId: number, crossReference: ManagedDevicesIntegrationCrossReference): Promise<ManagedDevicesIntegrationCrossReference> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${parentId}/notifications/${id}`,
-      method: 'delete',
+      path: `/company/managedDevicesIntegrations/${parentId}/crossReferences`, method: 'post', data: crossReference
     })
-  }
+   }
 
-  getCompanyManagedDevicesIntegrationsByParentIdNotificationsCount(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Count> {
+   getCompanyManagedDevicesIntegrationsByParentIdCrossReferencesById(id: number, parentId: number, params: CommonParameters = {}): Promise<ManagedDevicesIntegrationCrossReference> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/${parentId}/notifications/count`,
-      method: 'get',
-      params,
+      path: `/company/managedDevicesIntegrations/${parentId}/crossReferences/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyManagedDevicesIntegrationsCount(params: CommonParameters = {}): Promise<Count> {
+   putCompanyManagedDevicesIntegrationsByParentIdCrossReferencesById(id: number, parentId: number, crossReference: ManagedDevicesIntegrationCrossReference): Promise<ManagedDevicesIntegrationCrossReference> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/count`,
-      method: 'get',
-      params,
+      path: `/company/managedDevicesIntegrations/${parentId}/crossReferences/${id}`, method: 'put', data: crossReference
     })
-  }
+   }
 
-  getCompanyManagedDevicesIntegrationsInfo(
-    params: CommonParameters = {},
-  ): Promise<Array<ManagedDevicesIntegrationInfo>> {
+   patchCompanyManagedDevicesIntegrationsByParentIdCrossReferencesById(id: number, parentId: number, patchOperations: Array<PatchOperation>): Promise<ManagedDevicesIntegrationCrossReference> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/info`,
-      method: 'get',
-      params,
+      path: `/company/managedDevicesIntegrations/${parentId}/crossReferences/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  getCompanyManagedDevicesIntegrationsInfoCount(params: CommonParameters = {}): Promise<Count> {
+   deleteCompanyManagedDevicesIntegrationsByParentIdCrossReferencesById(id: number, parentId: number): Promise<ManagedDevicesIntegrationCrossReference> {
     return this.request({
-      path: `/company/managedDevicesIntegrations/info/count`,
-      method: 'get',
-      params,
+      path: `/company/managedDevicesIntegrations/${parentId}/crossReferences/${id}`, method: 'delete'
     })
-  }
+   }
 
-  getCompanyManagement(params: CommonParameters = {}): Promise<Array<Management>> {
+   getCompanyManagedDevicesIntegrationsByParentIdCrossReferencesCount(parentId: number, params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/management`,
-      method: 'get',
-      params,
+      path: `/company/managedDevicesIntegrations/${parentId}/crossReferences/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyManagementById(id: number, params: CommonParameters = {}): Promise<Management> {
+   getCompanyManagedDevicesIntegrationsByParentIdLogins(parentId: number, params: CommonParameters = {}): Promise<Array<ManagedDevicesIntegrationLogin>> {
     return this.request({
-      path: `/company/management/${id}`,
-      method: 'get',
-      params,
+      path: `/company/managedDevicesIntegrations/${parentId}/logins`, method: 'get', params
     })
-  }
+   }
 
-  putCompanyManagementById(id: number, management: Management): Promise<Management> {
+   postCompanyManagedDevicesIntegrationsByParentIdLogins(parentId: number, login: ManagedDevicesIntegrationLogin): Promise<ManagedDevicesIntegrationLogin> {
     return this.request({
-      path: `/company/management/${id}`,
-      method: 'put',
-      data: management,
+      path: `/company/managedDevicesIntegrations/${parentId}/logins`, method: 'post', data: login
     })
-  }
+   }
 
-  patchCompanyManagementById(
-    id: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<Management> {
+   getCompanyManagedDevicesIntegrationsByParentIdLoginsById(id: number, parentId: number, params: CommonParameters = {}): Promise<ManagedDevicesIntegrationLogin> {
     return this.request({
-      path: `/company/management/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/managedDevicesIntegrations/${parentId}/logins/${id}`, method: 'get', params
     })
-  }
+   }
 
-  postCompanyManagementByIdExecuteManagedItSync(id: number): Promise<SuccessResponse> {
+   putCompanyManagedDevicesIntegrationsByParentIdLoginsById(id: number, parentId: number, login: ManagedDevicesIntegrationLogin): Promise<ManagedDevicesIntegrationLogin> {
     return this.request({
-      path: `/company/management/${id}/executeManagedItSync`,
-      method: 'post',
+      path: `/company/managedDevicesIntegrations/${parentId}/logins/${id}`, method: 'put', data: login
     })
-  }
+   }
 
-  getCompanyManagementByIdLogDownload(
-    id: number,
-    filePath: string,
-    params: CommonParameters = {},
-  ): Promise<OctetStreamResponse> {
+   patchCompanyManagedDevicesIntegrationsByParentIdLoginsById(id: number, parentId: number, patchOperations: Array<PatchOperation>): Promise<ManagedDevicesIntegrationLogin> {
     return this.request({
-      path: `/company/management/${id}/log/download`,
-      method: 'get',
-      params,
+      path: `/company/managedDevicesIntegrations/${parentId}/logins/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  getCompanyManagementByIdLogs(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<Array<ManagementLogDocumentInfo>> {
+   deleteCompanyManagedDevicesIntegrationsByParentIdLoginsById(id: number, parentId: number): Promise<ManagedDevicesIntegrationLogin> {
     return this.request({
-      path: `/company/management/${id}/logs`,
-      method: 'get',
-      params,
+      path: `/company/managedDevicesIntegrations/${parentId}/logins/${id}`, method: 'delete'
     })
-  }
+   }
 
-  getCompanyManagementByParentIdManagementReportNotifications(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Array<ManagementReportNotification>> {
+   getCompanyManagedDevicesIntegrationsByParentIdLoginsCount(parentId: number, params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/management/${parentId}/managementReportNotifications`,
-      method: 'get',
-      params,
+      path: `/company/managedDevicesIntegrations/${parentId}/logins/count`, method: 'get', params
     })
-  }
+   }
 
-  postCompanyManagementByParentIdManagementReportNotifications(
-    parentId: number,
-    managementReportNotification: ManagementReportNotification,
-  ): Promise<ManagementReportNotification> {
+   getCompanyManagedDevicesIntegrationsByParentIdNotifications(parentId: number, params: CommonParameters = {}): Promise<Array<ManagedDevicesIntegrationNotification>> {
     return this.request({
-      path: `/company/management/${parentId}/managementReportNotifications`,
-      method: 'post',
-      data: managementReportNotification,
+      path: `/company/managedDevicesIntegrations/${parentId}/notifications`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyManagementByParentIdManagementReportNotificationsById(
-    id: number,
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<ManagementReportNotification> {
+   postCompanyManagedDevicesIntegrationsByParentIdNotifications(parentId: number, notification: ManagedDevicesIntegrationNotification): Promise<ManagedDevicesIntegrationNotification> {
     return this.request({
-      path: `/company/management/${parentId}/managementReportNotifications/${id}`,
-      method: 'get',
-      params,
+      path: `/company/managedDevicesIntegrations/${parentId}/notifications`, method: 'post', data: notification
     })
-  }
+   }
 
-  deleteCompanyManagementByParentIdManagementReportNotificationsById(
-    id: number,
-    parentId: number,
-  ): Promise<NoContentResponse> {
+   getCompanyManagedDevicesIntegrationsByParentIdNotificationsById(id: number, parentId: number, params: CommonParameters = {}): Promise<ManagedDevicesIntegrationNotification> {
     return this.request({
-      path: `/company/management/${parentId}/managementReportNotifications/${id}`,
-      method: 'delete',
+      path: `/company/managedDevicesIntegrations/${parentId}/notifications/${id}`, method: 'get', params
     })
-  }
+   }
 
-  putCompanyManagementByParentIdManagementReportNotificationsById(
-    id: number,
-    parentId: number,
-    managementReportNotification: ManagementReportNotification,
-  ): Promise<ManagementReportNotification> {
+   putCompanyManagedDevicesIntegrationsByParentIdNotificationsById(id: number, parentId: number, notification: ManagedDevicesIntegrationNotification): Promise<ManagedDevicesIntegrationNotification> {
     return this.request({
-      path: `/company/management/${parentId}/managementReportNotifications/${id}`,
-      method: 'put',
-      data: managementReportNotification,
+      path: `/company/managedDevicesIntegrations/${parentId}/notifications/${id}`, method: 'put', data: notification
     })
-  }
+   }
 
-  patchCompanyManagementByParentIdManagementReportNotificationsById(
-    id: number,
-    parentId: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<ManagementReportNotification> {
+   patchCompanyManagedDevicesIntegrationsByParentIdNotificationsById(id: number, parentId: number, patchOperations: Array<PatchOperation>): Promise<ManagedDevicesIntegrationNotification> {
     return this.request({
-      path: `/company/management/${parentId}/managementReportNotifications/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/managedDevicesIntegrations/${parentId}/notifications/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  getCompanyManagementByParentIdManagementReportNotificationsCount(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Count> {
+   deleteCompanyManagedDevicesIntegrationsByParentIdNotificationsById(id: number, parentId: number): Promise<ManagedDevicesIntegrationNotification> {
     return this.request({
-      path: `/company/management/${parentId}/managementReportNotifications/count`,
-      method: 'get',
-      params,
+      path: `/company/managedDevicesIntegrations/${parentId}/notifications/${id}`, method: 'delete'
     })
-  }
+   }
 
-  getCompanyManagementCount(params: CommonParameters = {}): Promise<Count> {
+   getCompanyManagedDevicesIntegrationsByParentIdNotificationsCount(parentId: number, params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/management/count`,
-      method: 'get',
-      params,
+      path: `/company/managedDevicesIntegrations/${parentId}/notifications/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyManagementBackups(params: CommonParameters = {}): Promise<Array<ManagementBackup>> {
+   getCompanyManagedDevicesIntegrationsCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/managementBackups`,
-      method: 'get',
-      params,
+      path: `/company/managedDevicesIntegrations/count`, method: 'get', params
     })
-  }
+   }
 
-  postCompanyManagementBackups(managementBackup: ManagementBackup): Promise<ManagementBackup> {
+   getCompanyManagedDevicesIntegrationsInfo(params: CommonParameters = {}): Promise<Array<ManagedDevicesIntegrationInfo>> {
     return this.request({
-      path: `/company/managementBackups`,
-      method: 'post',
-      data: managementBackup,
+      path: `/company/managedDevicesIntegrations/info`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyManagementBackupsById(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<ManagementBackup> {
+   getCompanyManagedDevicesIntegrationsInfoCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/managementBackups/${id}`,
-      method: 'get',
-      params,
+      path: `/company/managedDevicesIntegrations/info/count`, method: 'get', params
     })
-  }
+   }
 
-  deleteCompanyManagementBackupsById(id: number): Promise<NoContentResponse> {
+   getCompanyManagement(params: CommonParameters = {}): Promise<Array<Management>> {
     return this.request({
-      path: `/company/managementBackups/${id}`,
-      method: 'delete',
+      path: `/company/management`, method: 'get', params
     })
-  }
+   }
 
-  putCompanyManagementBackupsById(
-    id: number,
-    managementBackup: ManagementBackup,
-  ): Promise<ManagementBackup> {
+   getCompanyManagementById(id: number, params: CommonParameters = {}): Promise<Management> {
     return this.request({
-      path: `/company/managementBackups/${id}`,
-      method: 'put',
-      data: managementBackup,
+      path: `/company/management/${id}`, method: 'get', params
     })
-  }
+   }
 
-  patchCompanyManagementBackupsById(
-    id: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<ManagementBackup> {
+   putCompanyManagementById(id: number, management: Management): Promise<Management> {
     return this.request({
-      path: `/company/managementBackups/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/management/${id}`, method: 'put', data: management
     })
-  }
+   }
 
-  getCompanyManagementBackupsCount(params: CommonParameters = {}): Promise<Count> {
+   patchCompanyManagementById(id: number, patchOperations: Array<PatchOperation>): Promise<Management> {
     return this.request({
-      path: `/company/managementBackups/count`,
-      method: 'get',
-      params,
+      path: `/company/management/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  getCompanyManagementItSolutions(
-    params: CommonParameters = {},
-  ): Promise<Array<ManagementItSolution>> {
+   postCompanyManagementByIdExecuteManagedItSync(id: number): Promise<SuccessResponse> {
     return this.request({
-      path: `/company/managementItSolutions`,
-      method: 'get',
-      params,
+      path: `/company/management/${id}/executeManagedItSync`, method: 'post'
     })
-  }
+   }
 
-  postCompanyManagementItSolutions(
-    managementItSolution: ManagementItSolution,
-  ): Promise<ManagementItSolution> {
+   getCompanyManagementByIdLogDownload(id: number, filePath: string, params: CommonParameters = {}): Promise<OctetStreamResponse> {
     return this.request({
-      path: `/company/managementItSolutions`,
-      method: 'post',
-      data: managementItSolution,
+      path: `/company/management/${id}/log/download`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyManagementItSolutionsById(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<ManagementItSolution> {
+   getCompanyManagementByIdLogs(id: number, params: CommonParameters = {}): Promise<Array<ManagementLogDocumentInfo>> {
     return this.request({
-      path: `/company/managementItSolutions/${id}`,
-      method: 'get',
-      params,
+      path: `/company/management/${id}/logs`, method: 'get', params
     })
-  }
+   }
 
-  deleteCompanyManagementItSolutionsById(id: number): Promise<NoContentResponse> {
+   getCompanyManagementByParentIdManagementReportNotifications(parentId: number, params: CommonParameters = {}): Promise<Array<ManagementReportNotification>> {
     return this.request({
-      path: `/company/managementItSolutions/${id}`,
-      method: 'delete',
+      path: `/company/management/${parentId}/managementReportNotifications`, method: 'get', params
     })
-  }
+   }
 
-  putCompanyManagementItSolutionsById(
-    id: number,
-    managementItSolution: ManagementItSolution,
-  ): Promise<ManagementItSolution> {
+   postCompanyManagementByParentIdManagementReportNotifications(parentId: number, managementReportNotification: ManagementReportNotification): Promise<ManagementReportNotification> {
     return this.request({
-      path: `/company/managementItSolutions/${id}`,
-      method: 'put',
-      data: managementItSolution,
+      path: `/company/management/${parentId}/managementReportNotifications`, method: 'post', data: managementReportNotification
     })
-  }
+   }
 
-  patchCompanyManagementItSolutionsById(
-    id: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<ManagementItSolution> {
+   getCompanyManagementByParentIdManagementReportNotificationsById(id: number, parentId: number, params: CommonParameters = {}): Promise<ManagementReportNotification> {
     return this.request({
-      path: `/company/managementItSolutions/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/management/${parentId}/managementReportNotifications/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyManagementItSolutionsByIdUsages(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<Array<Usage>> {
+   deleteCompanyManagementByParentIdManagementReportNotificationsById(id: number, parentId: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/managementItSolutions/${id}/usages`,
-      method: 'get',
-      params,
+      path: `/company/management/${parentId}/managementReportNotifications/${id}`, method: 'delete'
     })
-  }
+   }
 
-  getCompanyManagementItSolutionsByIdUsagesList(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<Array<Usage>> {
+   putCompanyManagementByParentIdManagementReportNotificationsById(id: number, parentId: number, managementReportNotification: ManagementReportNotification): Promise<ManagementReportNotification> {
     return this.request({
-      path: `/company/managementItSolutions/${id}/usages/list`,
-      method: 'get',
-      params,
+      path: `/company/management/${parentId}/managementReportNotifications/${id}`, method: 'put', data: managementReportNotification
     })
-  }
+   }
 
-  getCompanyManagementItSolutionsByParentIdManagementProducts(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Array<ManagementItSolutionAgreementInterfaceParameter>> {
+   patchCompanyManagementByParentIdManagementReportNotificationsById(id: number, parentId: number, patchOperations: Array<PatchOperation>): Promise<ManagementReportNotification> {
     return this.request({
-      path: `/company/managementItSolutions/${parentId}/managementProducts`,
-      method: 'get',
-      params,
+      path: `/company/management/${parentId}/managementReportNotifications/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  postCompanyManagementItSolutionsByParentIdManagementProducts(
-    parentId: number,
-    managementProduct: ManagementItSolutionAgreementInterfaceParameter,
-  ): Promise<ManagementItSolutionAgreementInterfaceParameter> {
+   getCompanyManagementByParentIdManagementReportNotificationsCount(parentId: number, params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/managementItSolutions/${parentId}/managementProducts`,
-      method: 'post',
-      data: managementProduct,
+      path: `/company/management/${parentId}/managementReportNotifications/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyManagementItSolutionsByParentIdManagementProductsById(
-    id: number,
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<ManagementItSolutionAgreementInterfaceParameter> {
+   getCompanyManagementCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/managementItSolutions/${parentId}/managementProducts/${id}`,
-      method: 'get',
-      params,
+      path: `/company/management/count`, method: 'get', params
     })
-  }
+   }
 
-  putCompanyManagementItSolutionsByParentIdManagementProductsById(
-    id: number,
-    parentId: number,
-    managementProduct: ManagementItSolutionAgreementInterfaceParameter,
-  ): Promise<ManagementItSolutionAgreementInterfaceParameter> {
+   getCompanyManagementBackups(params: CommonParameters = {}): Promise<Array<ManagementBackup>> {
     return this.request({
-      path: `/company/managementItSolutions/${parentId}/managementProducts/${id}`,
-      method: 'put',
-      data: managementProduct,
+      path: `/company/managementBackups`, method: 'get', params
     })
-  }
+   }
 
-  patchCompanyManagementItSolutionsByParentIdManagementProductsById(
-    id: number,
-    parentId: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<ManagementItSolutionAgreementInterfaceParameter> {
+   postCompanyManagementBackups(managementBackup: ManagementBackup): Promise<ManagementBackup> {
     return this.request({
-      path: `/company/managementItSolutions/${parentId}/managementProducts/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/managementBackups`, method: 'post', data: managementBackup
     })
-  }
+   }
 
-  deleteCompanyManagementItSolutionsByParentIdManagementProductsById(
-    id: number,
-    parentId: number,
-  ): Promise<ManagementItSolutionAgreementInterfaceParameter> {
+   getCompanyManagementBackupsById(id: number, params: CommonParameters = {}): Promise<ManagementBackup> {
     return this.request({
-      path: `/company/managementItSolutions/${parentId}/managementProducts/${id}`,
-      method: 'delete',
+      path: `/company/managementBackups/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyManagementItSolutionsByParentIdManagementProductsCount(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Count> {
+   deleteCompanyManagementBackupsById(id: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/managementItSolutions/${parentId}/managementProducts/count`,
-      method: 'get',
-      params,
+      path: `/company/managementBackups/${id}`, method: 'delete'
     })
-  }
+   }
 
-  getCompanyManagementItSolutionsCount(params: CommonParameters = {}): Promise<Count> {
+   putCompanyManagementBackupsById(id: number, managementBackup: ManagementBackup): Promise<ManagementBackup> {
     return this.request({
-      path: `/company/managementItSolutions/count`,
-      method: 'get',
-      params,
+      path: `/company/managementBackups/${id}`, method: 'put', data: managementBackup
     })
-  }
+   }
 
-  getCompanyMarketDescriptions(params: CommonParameters = {}): Promise<Array<MarketDescription>> {
+   patchCompanyManagementBackupsById(id: number, patchOperations: Array<PatchOperation>): Promise<ManagementBackup> {
     return this.request({
-      path: `/company/marketDescriptions`,
-      method: 'get',
-      params,
+      path: `/company/managementBackups/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  postCompanyMarketDescriptions(marketDescription: MarketDescription): Promise<MarketDescription> {
+   getCompanyManagementBackupsCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/marketDescriptions`,
-      method: 'post',
-      data: marketDescription,
+      path: `/company/managementBackups/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyMarketDescriptionsById(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<MarketDescription> {
+   getCompanyManagementItSolutions(params: CommonParameters = {}): Promise<Array<ManagementItSolution>> {
     return this.request({
-      path: `/company/marketDescriptions/${id}`,
-      method: 'get',
-      params,
+      path: `/company/managementItSolutions`, method: 'get', params
     })
-  }
+   }
 
-  deleteCompanyMarketDescriptionsById(id: number): Promise<NoContentResponse> {
+   postCompanyManagementItSolutions(managementItSolution: ManagementItSolution): Promise<ManagementItSolution> {
     return this.request({
-      path: `/company/marketDescriptions/${id}`,
-      method: 'delete',
+      path: `/company/managementItSolutions`, method: 'post', data: managementItSolution
     })
-  }
+   }
 
-  putCompanyMarketDescriptionsById(
-    id: number,
-    marketDescription: MarketDescription,
-  ): Promise<MarketDescription> {
+   getCompanyManagementItSolutionsById(id: number, params: CommonParameters = {}): Promise<ManagementItSolution> {
     return this.request({
-      path: `/company/marketDescriptions/${id}`,
-      method: 'put',
-      data: marketDescription,
+      path: `/company/managementItSolutions/${id}`, method: 'get', params
     })
-  }
+   }
 
-  patchCompanyMarketDescriptionsById(
-    id: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<MarketDescription> {
+   deleteCompanyManagementItSolutionsById(id: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/marketDescriptions/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/managementItSolutions/${id}`, method: 'delete'
     })
-  }
+   }
 
-  getCompanyMarketDescriptionsByIdInfo(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<MarketDescriptionInfo> {
+   putCompanyManagementItSolutionsById(id: number, managementItSolution: ManagementItSolution): Promise<ManagementItSolution> {
     return this.request({
-      path: `/company/marketDescriptions/${id}/info`,
-      method: 'get',
-      params,
+      path: `/company/managementItSolutions/${id}`, method: 'put', data: managementItSolution
     })
-  }
+   }
 
-  getCompanyMarketDescriptionsByIdUsages(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<Array<Usage>> {
+   patchCompanyManagementItSolutionsById(id: number, patchOperations: Array<PatchOperation>): Promise<ManagementItSolution> {
     return this.request({
-      path: `/company/marketDescriptions/${id}/usages`,
-      method: 'get',
-      params,
+      path: `/company/managementItSolutions/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  getCompanyMarketDescriptionsByIdUsagesList(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<Array<Usage>> {
+   getCompanyManagementItSolutionsByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/marketDescriptions/${id}/usages/list`,
-      method: 'get',
-      params,
+      path: `/company/managementItSolutions/${id}/usages`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyMarketDescriptionsCount(params: CommonParameters = {}): Promise<Count> {
+   getCompanyManagementItSolutionsByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/marketDescriptions/count`,
-      method: 'get',
-      params,
+      path: `/company/managementItSolutions/${id}/usages/list`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyMarketDescriptionsInfo(
-    params: CommonParameters = {},
-  ): Promise<Array<MarketDescriptionInfo>> {
+   getCompanyManagementItSolutionsByParentIdManagementProducts(parentId: number, params: CommonParameters = {}): Promise<Array<ManagementItSolutionAgreementInterfaceParameter>> {
     return this.request({
-      path: `/company/marketDescriptions/info`,
-      method: 'get',
-      params,
+      path: `/company/managementItSolutions/${parentId}/managementProducts`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyMarketDescriptionsInfoCount(params: CommonParameters = {}): Promise<Count> {
+   postCompanyManagementItSolutionsByParentIdManagementProducts(parentId: number, managementProduct: ManagementItSolutionAgreementInterfaceParameter): Promise<ManagementItSolutionAgreementInterfaceParameter> {
     return this.request({
-      path: `/company/marketDescriptions/info/count`,
-      method: 'get',
-      params,
+      path: `/company/managementItSolutions/${parentId}/managementProducts`, method: 'post', data: managementProduct
     })
-  }
+   }
 
-  getCompanyNoteTypes(params: CommonParameters = {}): Promise<Array<CompanyNoteType>> {
+   getCompanyManagementItSolutionsByParentIdManagementProductsById(id: number, parentId: number, params: CommonParameters = {}): Promise<ManagementItSolutionAgreementInterfaceParameter> {
     return this.request({
-      path: `/company/noteTypes`,
-      method: 'get',
-      params,
+      path: `/company/managementItSolutions/${parentId}/managementProducts/${id}`, method: 'get', params
     })
-  }
+   }
 
-  postCompanyNoteTypes(noteType: CompanyNoteType): Promise<CompanyNoteType> {
+   putCompanyManagementItSolutionsByParentIdManagementProductsById(id: number, parentId: number, managementProduct: ManagementItSolutionAgreementInterfaceParameter): Promise<ManagementItSolutionAgreementInterfaceParameter> {
     return this.request({
-      path: `/company/noteTypes`,
-      method: 'post',
-      data: noteType,
+      path: `/company/managementItSolutions/${parentId}/managementProducts/${id}`, method: 'put', data: managementProduct
     })
-  }
+   }
 
-  getCompanyNoteTypesById(id: number, params: CommonParameters = {}): Promise<CompanyNoteType> {
+   patchCompanyManagementItSolutionsByParentIdManagementProductsById(id: number, parentId: number, patchOperations: Array<PatchOperation>): Promise<ManagementItSolutionAgreementInterfaceParameter> {
     return this.request({
-      path: `/company/noteTypes/${id}`,
-      method: 'get',
-      params,
+      path: `/company/managementItSolutions/${parentId}/managementProducts/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  deleteCompanyNoteTypesById(id: number): Promise<NoContentResponse> {
+   deleteCompanyManagementItSolutionsByParentIdManagementProductsById(id: number, parentId: number): Promise<ManagementItSolutionAgreementInterfaceParameter> {
     return this.request({
-      path: `/company/noteTypes/${id}`,
-      method: 'delete',
+      path: `/company/managementItSolutions/${parentId}/managementProducts/${id}`, method: 'delete'
     })
-  }
+   }
 
-  putCompanyNoteTypesById(id: number, noteType: CompanyNoteType): Promise<CompanyNoteType> {
+   getCompanyManagementItSolutionsByParentIdManagementProductsCount(parentId: number, params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/noteTypes/${id}`,
-      method: 'put',
-      data: noteType,
+      path: `/company/managementItSolutions/${parentId}/managementProducts/count`, method: 'get', params
     })
-  }
+   }
 
-  patchCompanyNoteTypesById(
-    id: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<CompanyNoteType> {
+   getCompanyManagementItSolutionsCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/noteTypes/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/managementItSolutions/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyNoteTypesByIdInfo(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<CompanyNoteTypeInfo> {
+   getCompanyMarketDescriptions(params: CommonParameters = {}): Promise<Array<MarketDescription>> {
     return this.request({
-      path: `/company/noteTypes/${id}/info`,
-      method: 'get',
-      params,
+      path: `/company/marketDescriptions`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyNoteTypesCount(params: CommonParameters = {}): Promise<Count> {
+   postCompanyMarketDescriptions(marketDescription: MarketDescription): Promise<MarketDescription> {
     return this.request({
-      path: `/company/noteTypes/count`,
-      method: 'get',
-      params,
+      path: `/company/marketDescriptions`, method: 'post', data: marketDescription
     })
-  }
+   }
 
-  getCompanyNoteTypesCountInfo(params: CommonParameters = {}): Promise<Count> {
+   getCompanyMarketDescriptionsById(id: number, params: CommonParameters = {}): Promise<MarketDescription> {
     return this.request({
-      path: `/company/noteTypes/count/info`,
-      method: 'get',
-      params,
+      path: `/company/marketDescriptions/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyNoteTypesInfo(params: CommonParameters = {}): Promise<Array<CompanyNoteTypeInfo>> {
+   deleteCompanyMarketDescriptionsById(id: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/noteTypes/info`,
-      method: 'get',
-      params,
+      path: `/company/marketDescriptions/${id}`, method: 'delete'
     })
-  }
+   }
 
-  getCompanyOwnershipTypes(params: CommonParameters = {}): Promise<Array<OwnershipType>> {
+   putCompanyMarketDescriptionsById(id: number, marketDescription: MarketDescription): Promise<MarketDescription> {
     return this.request({
-      path: `/company/ownershipTypes`,
-      method: 'get',
-      params,
+      path: `/company/marketDescriptions/${id}`, method: 'put', data: marketDescription
     })
-  }
+   }
 
-  postCompanyOwnershipTypes(ownershipType: OwnershipType): Promise<OwnershipType> {
+   patchCompanyMarketDescriptionsById(id: number, patchOperations: Array<PatchOperation>): Promise<MarketDescription> {
     return this.request({
-      path: `/company/ownershipTypes`,
-      method: 'post',
-      data: ownershipType,
+      path: `/company/marketDescriptions/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  getCompanyOwnershipTypesById(id: number, params: CommonParameters = {}): Promise<OwnershipType> {
+   getCompanyMarketDescriptionsByIdInfo(id: number, params: CommonParameters = {}): Promise<MarketDescriptionInfo> {
     return this.request({
-      path: `/company/ownershipTypes/${id}`,
-      method: 'get',
-      params,
+      path: `/company/marketDescriptions/${id}/info`, method: 'get', params
     })
-  }
+   }
 
-  deleteCompanyOwnershipTypesById(id: number): Promise<NoContentResponse> {
+   getCompanyMarketDescriptionsByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/ownershipTypes/${id}`,
-      method: 'delete',
+      path: `/company/marketDescriptions/${id}/usages`, method: 'get', params
     })
-  }
+   }
 
-  putCompanyOwnershipTypesById(id: number, ownershipType: OwnershipType): Promise<OwnershipType> {
+   getCompanyMarketDescriptionsByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/ownershipTypes/${id}`,
-      method: 'put',
-      data: ownershipType,
+      path: `/company/marketDescriptions/${id}/usages/list`, method: 'get', params
     })
-  }
+   }
 
-  patchCompanyOwnershipTypesById(
-    id: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<OwnershipType> {
+   getCompanyMarketDescriptionsCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/ownershipTypes/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/marketDescriptions/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyOwnershipTypesByIdInfo(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<OwnershipTypeInfo> {
+   getCompanyMarketDescriptionsInfo(params: CommonParameters = {}): Promise<Array<MarketDescriptionInfo>> {
     return this.request({
-      path: `/company/ownershipTypes/${id}/info`,
-      method: 'get',
-      params,
+      path: `/company/marketDescriptions/info`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyOwnershipTypesCount(params: CommonParameters = {}): Promise<Count> {
+   getCompanyMarketDescriptionsInfoCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/ownershipTypes/count`,
-      method: 'get',
-      params,
+      path: `/company/marketDescriptions/info/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyOwnershipTypesInfo(params: CommonParameters = {}): Promise<Array<OwnershipTypeInfo>> {
+   getCompanyNoteTypes(params: CommonParameters = {}): Promise<Array<CompanyNoteType>> {
     return this.request({
-      path: `/company/ownershipTypes/info`,
-      method: 'get',
-      params,
+      path: `/company/noteTypes`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyOwnershipTypesInfoCount(params: CommonParameters = {}): Promise<Count> {
+   postCompanyNoteTypes(noteType: CompanyNoteType): Promise<CompanyNoteType> {
     return this.request({
-      path: `/company/ownershipTypes/info/count`,
-      method: 'get',
-      params,
+      path: `/company/noteTypes`, method: 'post', data: noteType
     })
-  }
+   }
 
-  getCompanyPaymentTypesInfoCount(params: CommonParameters = {}): Promise<Count> {
+   getCompanyNoteTypesById(id: number, params: CommonParameters = {}): Promise<CompanyNoteType> {
     return this.request({
-      path: `/company/paymentTypes/info/count`,
-      method: 'get',
-      params,
+      path: `/company/noteTypes/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyPortalConfigurations(
-    params: CommonParameters = {},
-  ): Promise<Array<PortalConfiguration>> {
+   deleteCompanyNoteTypesById(id: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/portalConfigurations`,
-      method: 'get',
-      params,
+      path: `/company/noteTypes/${id}`, method: 'delete'
     })
-  }
+   }
 
-  postCompanyPortalConfigurations(
-    portalConfiguration: PortalConfiguration,
-  ): Promise<PortalConfiguration> {
+   putCompanyNoteTypesById(id: number, noteType: CompanyNoteType): Promise<CompanyNoteType> {
     return this.request({
-      path: `/company/portalConfigurations`,
-      method: 'post',
-      data: portalConfiguration,
+      path: `/company/noteTypes/${id}`, method: 'put', data: noteType
     })
-  }
+   }
 
-  getCompanyPortalConfigurationsById(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<PortalConfiguration> {
+   patchCompanyNoteTypesById(id: number, patchOperations: Array<PatchOperation>): Promise<CompanyNoteType> {
     return this.request({
-      path: `/company/portalConfigurations/${id}`,
-      method: 'get',
-      params,
+      path: `/company/noteTypes/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  deleteCompanyPortalConfigurationsById(id: number): Promise<NoContentResponse> {
+   getCompanyNoteTypesByIdInfo(id: number, params: CommonParameters = {}): Promise<CompanyNoteTypeInfo> {
     return this.request({
-      path: `/company/portalConfigurations/${id}`,
-      method: 'delete',
+      path: `/company/noteTypes/${id}/info`, method: 'get', params
     })
-  }
+   }
 
-  putCompanyPortalConfigurationsById(
-    id: number,
-    portalConfiguration: PortalConfiguration,
-  ): Promise<PortalConfiguration> {
+   getCompanyNoteTypesCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/portalConfigurations/${id}`,
-      method: 'put',
-      data: portalConfiguration,
+      path: `/company/noteTypes/count`, method: 'get', params
     })
-  }
+   }
 
-  patchCompanyPortalConfigurationsById(
-    id: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<PortalConfiguration> {
+   getCompanyNoteTypesCountInfo(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/portalConfigurations/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/noteTypes/count/info`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyPortalConfigurationsByParentIdInvoiceSetups(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Array<PortalConfigurationInvoiceSetup>> {
+   getCompanyNoteTypesInfo(params: CommonParameters = {}): Promise<Array<CompanyNoteTypeInfo>> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/invoiceSetups`,
-      method: 'get',
-      params,
+      path: `/company/noteTypes/info`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyPortalConfigurationsByParentIdInvoiceSetupsById(
-    id: number,
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<PortalConfigurationInvoiceSetup> {
+   getCompanyOwnershipTypes(params: CommonParameters = {}): Promise<Array<OwnershipType>> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/invoiceSetups/${id}`,
-      method: 'get',
-      params,
+      path: `/company/ownershipTypes`, method: 'get', params
     })
-  }
+   }
 
-  putCompanyPortalConfigurationsByParentIdInvoiceSetupsById(
-    id: number,
-    parentId: number,
-    portalConfigurationInvoiceSetup: PortalConfigurationInvoiceSetup,
-  ): Promise<PortalConfigurationInvoiceSetup> {
+   postCompanyOwnershipTypes(ownershipType: OwnershipType): Promise<OwnershipType> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/invoiceSetups/${id}`,
-      method: 'put',
-      data: portalConfigurationInvoiceSetup,
+      path: `/company/ownershipTypes`, method: 'post', data: ownershipType
     })
-  }
+   }
 
-  patchCompanyPortalConfigurationsByParentIdInvoiceSetupsById(
-    id: number,
-    parentId: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<PortalConfigurationInvoiceSetup> {
+   getCompanyOwnershipTypesById(id: number, params: CommonParameters = {}): Promise<OwnershipType> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/invoiceSetups/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/ownershipTypes/${id}`, method: 'get', params
     })
-  }
+   }
 
-  postCompanyPortalConfigurationsByParentIdInvoiceSetupsByIdTestTransaction(
-    id: number,
-    parentId: number,
-    portalConfigurationInvoiceSetup: PortalConfigurationInvoiceSetup,
-  ): Promise<SuccessResponse> {
+   deleteCompanyOwnershipTypesById(id: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/invoiceSetups/${id}/testTransaction`,
-      method: 'post',
-      data: portalConfigurationInvoiceSetup,
+      path: `/company/ownershipTypes/${id}`, method: 'delete'
     })
-  }
+   }
 
-  getCompanyPortalConfigurationsByParentIdInvoiceSetupsCount(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Count> {
+   putCompanyOwnershipTypesById(id: number, ownershipType: OwnershipType): Promise<OwnershipType> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/invoiceSetups/count`,
-      method: 'get',
-      params,
+      path: `/company/ownershipTypes/${id}`, method: 'put', data: ownershipType
     })
-  }
+   }
 
-  getCompanyPortalConfigurationsByParentIdOpportunitySetups(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Array<PortalConfigurationOpportunitySetup>> {
+   patchCompanyOwnershipTypesById(id: number, patchOperations: Array<PatchOperation>): Promise<OwnershipType> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/opportunitySetups`,
-      method: 'get',
-      params,
+      path: `/company/ownershipTypes/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  putCompanyPortalConfigurationsByParentIdOpportunitySetups(
-    parentId: number,
-    opportunitySetup: PortalConfigurationOpportunitySetup,
-  ): Promise<PortalConfigurationOpportunitySetup> {
+   getCompanyOwnershipTypesByIdInfo(id: number, params: CommonParameters = {}): Promise<OwnershipTypeInfo> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/opportunitySetups`,
-      method: 'put',
-      data: opportunitySetup,
+      path: `/company/ownershipTypes/${id}/info`, method: 'get', params
     })
-  }
+   }
 
-  patchCompanyPortalConfigurationsByParentIdOpportunitySetups(
-    parentId: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<PortalConfigurationOpportunitySetup> {
+   getCompanyOwnershipTypesCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/opportunitySetups`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/ownershipTypes/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyPortalConfigurationsByParentIdOpportunitySetupsById(
-    id: number,
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<PortalConfigurationOpportunitySetup> {
+   getCompanyOwnershipTypesInfo(params: CommonParameters = {}): Promise<Array<OwnershipTypeInfo>> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/opportunitySetups/${id}`,
-      method: 'get',
-      params,
+      path: `/company/ownershipTypes/info`, method: 'get', params
     })
-  }
+   }
 
-  putCompanyPortalConfigurationsByParentIdOpportunitySetupsById(
-    id: number,
-    parentId: number,
-    opportunitySetup: PortalConfigurationOpportunitySetup,
-  ): Promise<PortalConfigurationOpportunitySetup> {
+   getCompanyOwnershipTypesInfoCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/opportunitySetups/${id}`,
-      method: 'put',
-      data: opportunitySetup,
+      path: `/company/ownershipTypes/info/count`, method: 'get', params
     })
-  }
+   }
 
-  patchCompanyPortalConfigurationsByParentIdOpportunitySetupsById(
-    id: number,
-    parentId: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<PortalConfigurationOpportunitySetup> {
+   getCompanyPaymentTypesInfoCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/opportunitySetups/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/paymentTypes/info/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyPortalConfigurationsByParentIdPasswordEmailSetups(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Array<PortalConfigurationPasswordEmailSetup>> {
+   getCompanyPortalConfigurations(params: CommonParameters = {}): Promise<Array<PortalConfiguration>> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/passwordEmailSetups`,
-      method: 'get',
-      params,
+      path: `/company/portalConfigurations`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyPortalConfigurationsByParentIdPasswordEmailSetupsById(
-    id: number,
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<PortalConfigurationPasswordEmailSetup> {
+   postCompanyPortalConfigurations(portalConfiguration: PortalConfiguration): Promise<PortalConfiguration> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/passwordEmailSetups/${id}`,
-      method: 'get',
-      params,
+      path: `/company/portalConfigurations`, method: 'post', data: portalConfiguration
     })
-  }
+   }
 
-  putCompanyPortalConfigurationsByParentIdPasswordEmailSetupsById(
-    id: number,
-    parentId: number,
-    passwordEmailSetup: PortalConfigurationPasswordEmailSetup,
-  ): Promise<PortalConfigurationPasswordEmailSetup> {
+   getCompanyPortalConfigurationsById(id: number, params: CommonParameters = {}): Promise<PortalConfiguration> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/passwordEmailSetups/${id}`,
-      method: 'put',
-      data: passwordEmailSetup,
+      path: `/company/portalConfigurations/${id}`, method: 'get', params
     })
-  }
+   }
 
-  patchCompanyPortalConfigurationsByParentIdPasswordEmailSetupsById(
-    id: number,
-    parentId: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<PortalConfigurationPasswordEmailSetup> {
+   deleteCompanyPortalConfigurationsById(id: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/passwordEmailSetups/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/portalConfigurations/${id}`, method: 'delete'
     })
-  }
+   }
 
-  getCompanyPortalConfigurationsByParentIdProjectSetups(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Array<PortalConfigurationProjectSetup>> {
+   putCompanyPortalConfigurationsById(id: number, portalConfiguration: PortalConfiguration): Promise<PortalConfiguration> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/projectSetups`,
-      method: 'get',
-      params,
+      path: `/company/portalConfigurations/${id}`, method: 'put', data: portalConfiguration
     })
-  }
+   }
 
-  getCompanyPortalConfigurationsByParentIdProjectSetupsById(
-    id: number,
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<PortalConfigurationProjectSetup> {
+   patchCompanyPortalConfigurationsById(id: number, patchOperations: Array<PatchOperation>): Promise<PortalConfiguration> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/projectSetups/${id}`,
-      method: 'get',
-      params,
+      path: `/company/portalConfigurations/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  putCompanyPortalConfigurationsByParentIdProjectSetupsById(
-    id: number,
-    parentId: number,
-    portalConfigurationProjectSetup: PortalConfigurationProjectSetup,
-  ): Promise<PortalConfigurationProjectSetup> {
+   getCompanyPortalConfigurationsByParentIdInvoiceSetups(parentId: number, params: CommonParameters = {}): Promise<Array<PortalConfigurationInvoiceSetup>> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/projectSetups/${id}`,
-      method: 'put',
-      data: portalConfigurationProjectSetup,
+      path: `/company/portalConfigurations/${parentId}/invoiceSetups`, method: 'get', params
     })
-  }
+   }
 
-  patchCompanyPortalConfigurationsByParentIdProjectSetupsById(
-    id: number,
-    parentId: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<PortalConfigurationProjectSetup> {
+   getCompanyPortalConfigurationsByParentIdInvoiceSetupsById(id: number, parentId: number, params: CommonParameters = {}): Promise<PortalConfigurationInvoiceSetup> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/projectSetups/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/portalConfigurations/${parentId}/invoiceSetups/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyPortalConfigurationsByParentIdProjectSetupsCount(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Count> {
+   putCompanyPortalConfigurationsByParentIdInvoiceSetupsById(id: number, parentId: number, portalConfigurationInvoiceSetup: PortalConfigurationInvoiceSetup): Promise<PortalConfigurationInvoiceSetup> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/projectSetups/count`,
-      method: 'get',
-      params,
+      path: `/company/portalConfigurations/${parentId}/invoiceSetups/${id}`, method: 'put', data: portalConfigurationInvoiceSetup
     })
-  }
+   }
 
-  getCompanyPortalConfigurationsByParentIdServiceSetups(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Array<PortalConfigurationServiceSetup>> {
+   patchCompanyPortalConfigurationsByParentIdInvoiceSetupsById(id: number, parentId: number, patchOperations: Array<PatchOperation>): Promise<PortalConfigurationInvoiceSetup> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/serviceSetups`,
-      method: 'get',
-      params,
+      path: `/company/portalConfigurations/${parentId}/invoiceSetups/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  getCompanyPortalConfigurationsByParentIdServiceSetupsById(
-    id: number,
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<PortalConfigurationServiceSetup> {
+   postCompanyPortalConfigurationsByParentIdInvoiceSetupsByIdTestTransaction(id: number, parentId: number, portalConfigurationInvoiceSetup: PortalConfigurationInvoiceSetup): Promise<SuccessResponse> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/serviceSetups/${id}`,
-      method: 'get',
-      params,
+      path: `/company/portalConfigurations/${parentId}/invoiceSetups/${id}/testTransaction`, method: 'post', data: portalConfigurationInvoiceSetup
     })
-  }
+   }
 
-  putCompanyPortalConfigurationsByParentIdServiceSetupsById(
-    id: number,
-    parentId: number,
-    portalConfigurationServiceSetup: PortalConfigurationServiceSetup,
-  ): Promise<PortalConfigurationServiceSetup> {
+   getCompanyPortalConfigurationsByParentIdInvoiceSetupsCount(parentId: number, params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/serviceSetups/${id}`,
-      method: 'put',
-      data: portalConfigurationServiceSetup,
+      path: `/company/portalConfigurations/${parentId}/invoiceSetups/count`, method: 'get', params
     })
-  }
+   }
 
-  patchCompanyPortalConfigurationsByParentIdServiceSetupsById(
-    id: number,
-    parentId: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<PortalConfigurationServiceSetup> {
+   getCompanyPortalConfigurationsByParentIdOpportunitySetups(parentId: number, params: CommonParameters = {}): Promise<Array<PortalConfigurationOpportunitySetup>> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/serviceSetups/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/portalConfigurations/${parentId}/opportunitySetups`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyPortalConfigurationsByParentIdServiceSetupsCount(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Count> {
+   putCompanyPortalConfigurationsByParentIdOpportunitySetups(parentId: number, opportunitySetup: PortalConfigurationOpportunitySetup): Promise<PortalConfigurationOpportunitySetup> {
     return this.request({
-      path: `/company/portalConfigurations/${parentId}/serviceSetups/count`,
-      method: 'get',
-      params,
+      path: `/company/portalConfigurations/${parentId}/opportunitySetups`, method: 'put', data: opportunitySetup
     })
-  }
+   }
 
-  postCompanyPortalConfigurationsCopy(copy: PortalConfiguration): Promise<PortalConfiguration> {
+   patchCompanyPortalConfigurationsByParentIdOpportunitySetups(parentId: number, patchOperations: Array<PatchOperation>): Promise<PortalConfigurationOpportunitySetup> {
     return this.request({
-      path: `/company/portalConfigurations/copy`,
-      method: 'post',
-      data: copy,
+      path: `/company/portalConfigurations/${parentId}/opportunitySetups`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  getCompanyPortalConfigurationsCount(params: CommonParameters = {}): Promise<Count> {
+   getCompanyPortalConfigurationsByParentIdOpportunitySetupsById(id: number, parentId: number, params: CommonParameters = {}): Promise<PortalConfigurationOpportunitySetup> {
     return this.request({
-      path: `/company/portalConfigurations/count`,
-      method: 'get',
-      params,
+      path: `/company/portalConfigurations/${parentId}/opportunitySetups/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyPortalConfigurationsInvoiceSetupPaymentProcessors(
-    params: CommonParameters = {},
-  ): Promise<Array<PortalConfigurationPaymentProcessor>> {
+   putCompanyPortalConfigurationsByParentIdOpportunitySetupsById(id: number, parentId: number, opportunitySetup: PortalConfigurationOpportunitySetup): Promise<PortalConfigurationOpportunitySetup> {
     return this.request({
-      path: `/company/portalConfigurations/invoiceSetup/paymentProcessors`,
-      method: 'get',
-      params,
+      path: `/company/portalConfigurations/${parentId}/opportunitySetups/${id}`, method: 'put', data: opportunitySetup
     })
-  }
+   }
 
-  getCompanyPortalConfigurationsInvoiceSetupPaymentProcessorsById(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<PortalConfigurationPaymentProcessor> {
+   patchCompanyPortalConfigurationsByParentIdOpportunitySetupsById(id: number, parentId: number, patchOperations: Array<PatchOperation>): Promise<PortalConfigurationOpportunitySetup> {
     return this.request({
-      path: `/company/portalConfigurations/invoiceSetup/paymentProcessors/${id}`,
-      method: 'get',
-      params,
+      path: `/company/portalConfigurations/${parentId}/opportunitySetups/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  getCompanyPortalConfigurationsInvoiceSetupPaymentProcessorsCount(
-    params: CommonParameters = {},
-  ): Promise<Count> {
+   getCompanyPortalConfigurationsByParentIdPasswordEmailSetups(parentId: number, params: CommonParameters = {}): Promise<Array<PortalConfigurationPasswordEmailSetup>> {
     return this.request({
-      path: `/company/portalConfigurations/invoiceSetup/paymentProcessors/count`,
-      method: 'get',
-      params,
+      path: `/company/portalConfigurations/${parentId}/passwordEmailSetups`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyPortalSecurityLevels(
-    params: CommonParameters = {},
-  ): Promise<Array<PortalSecurityLevel>> {
+   getCompanyPortalConfigurationsByParentIdPasswordEmailSetupsById(id: number, parentId: number, params: CommonParameters = {}): Promise<PortalConfigurationPasswordEmailSetup> {
     return this.request({
-      path: `/company/portalSecurityLevels`,
-      method: 'get',
-      params,
+      path: `/company/portalConfigurations/${parentId}/passwordEmailSetups/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyPortalSecurityLevelsById(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<PortalSecurityLevel> {
+   putCompanyPortalConfigurationsByParentIdPasswordEmailSetupsById(id: number, parentId: number, passwordEmailSetup: PortalConfigurationPasswordEmailSetup): Promise<PortalConfigurationPasswordEmailSetup> {
     return this.request({
-      path: `/company/portalSecurityLevels/${id}`,
-      method: 'get',
-      params,
+      path: `/company/portalConfigurations/${parentId}/passwordEmailSetups/${id}`, method: 'put', data: passwordEmailSetup
     })
-  }
+   }
 
-  putCompanyPortalSecurityLevelsById(
-    id: number,
-    _portalSecurityLevel: PortalSecurityLevel,
-  ): Promise<PortalSecurityLevel> {
+   patchCompanyPortalConfigurationsByParentIdPasswordEmailSetupsById(id: number, parentId: number, patchOperations: Array<PatchOperation>): Promise<PortalConfigurationPasswordEmailSetup> {
     return this.request({
-      path: `/company/portalSecurityLevels/${id}`,
-      method: 'put',
-      data: _portalSecurityLevel,
+      path: `/company/portalConfigurations/${parentId}/passwordEmailSetups/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  patchCompanyPortalSecurityLevelsById(
-    id: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<PortalSecurityLevel> {
+   getCompanyPortalConfigurationsByParentIdProjectSetups(parentId: number, params: CommonParameters = {}): Promise<Array<PortalConfigurationProjectSetup>> {
     return this.request({
-      path: `/company/portalSecurityLevels/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/portalConfigurations/${parentId}/projectSetups`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyPortalSecurityLevelsCount(params: CommonParameters = {}): Promise<Count> {
+   getCompanyPortalConfigurationsByParentIdProjectSetupsById(id: number, parentId: number, params: CommonParameters = {}): Promise<PortalConfigurationProjectSetup> {
     return this.request({
-      path: `/company/portalSecurityLevels/count`,
-      method: 'get',
-      params,
+      path: `/company/portalConfigurations/${parentId}/projectSetups/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyPortalSecuritySettings(
-    params: CommonParameters = {},
-  ): Promise<Array<PortalSecuritySetting>> {
+   putCompanyPortalConfigurationsByParentIdProjectSetupsById(id: number, parentId: number, portalConfigurationProjectSetup: PortalConfigurationProjectSetup): Promise<PortalConfigurationProjectSetup> {
     return this.request({
-      path: `/company/portalSecuritySettings`,
-      method: 'get',
-      params,
+      path: `/company/portalConfigurations/${parentId}/projectSetups/${id}`, method: 'put', data: portalConfigurationProjectSetup
     })
-  }
+   }
 
-  getCompanyPortalSecuritySettingsById(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<PortalSecuritySetting> {
+   patchCompanyPortalConfigurationsByParentIdProjectSetupsById(id: number, parentId: number, patchOperations: Array<PatchOperation>): Promise<PortalConfigurationProjectSetup> {
     return this.request({
-      path: `/company/portalSecuritySettings/${id}`,
-      method: 'get',
-      params,
+      path: `/company/portalConfigurations/${parentId}/projectSetups/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  putCompanyPortalSecuritySettingsById(
-    id: number,
-    portalSecurity: PortalSecuritySetting,
-  ): Promise<PortalSecuritySetting> {
+   getCompanyPortalConfigurationsByParentIdProjectSetupsCount(parentId: number, params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/portalSecuritySettings/${id}`,
-      method: 'put',
-      data: portalSecurity,
+      path: `/company/portalConfigurations/${parentId}/projectSetups/count`, method: 'get', params
     })
-  }
+   }
 
-  patchCompanyPortalSecuritySettingsById(
-    id: number,
-    patchOperations: Array<PatchOperation>,
-  ): Promise<PortalSecuritySetting> {
+   getCompanyPortalConfigurationsByParentIdServiceSetups(parentId: number, params: CommonParameters = {}): Promise<Array<PortalConfigurationServiceSetup>> {
     return this.request({
-      path: `/company/portalSecuritySettings/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/portalConfigurations/${parentId}/serviceSetups`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyPortalSecuritySettingsCount(params: CommonParameters = {}): Promise<Count> {
+   getCompanyPortalConfigurationsByParentIdServiceSetupsById(id: number, parentId: number, params: CommonParameters = {}): Promise<PortalConfigurationServiceSetup> {
     return this.request({
-      path: `/company/portalSecuritySettings/count`,
-      method: 'get',
-      params,
+      path: `/company/portalConfigurations/${parentId}/serviceSetups/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyStates(params: CommonParameters = {}): Promise<Array<State>> {
+   putCompanyPortalConfigurationsByParentIdServiceSetupsById(id: number, parentId: number, portalConfigurationServiceSetup: PortalConfigurationServiceSetup): Promise<PortalConfigurationServiceSetup> {
     return this.request({
-      path: `/company/states`,
-      method: 'get',
-      params,
+      path: `/company/portalConfigurations/${parentId}/serviceSetups/${id}`, method: 'put', data: portalConfigurationServiceSetup
     })
-  }
+   }
 
-  postCompanyStates(state: State): Promise<State> {
+   patchCompanyPortalConfigurationsByParentIdServiceSetupsById(id: number, parentId: number, patchOperations: Array<PatchOperation>): Promise<PortalConfigurationServiceSetup> {
     return this.request({
-      path: `/company/states`,
-      method: 'post',
-      data: state,
+      path: `/company/portalConfigurations/${parentId}/serviceSetups/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  getCompanyStatesById(id: number, params: CommonParameters = {}): Promise<State> {
+   getCompanyPortalConfigurationsByParentIdServiceSetupsCount(parentId: number, params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/states/${id}`,
-      method: 'get',
-      params,
+      path: `/company/portalConfigurations/${parentId}/serviceSetups/count`, method: 'get', params
     })
-  }
+   }
 
-  putCompanyStatesById(id: number, state: State): Promise<State> {
+   postCompanyPortalConfigurationsCopy(copy: PortalConfiguration): Promise<PortalConfiguration> {
     return this.request({
-      path: `/company/states/${id}`,
-      method: 'put',
-      data: state,
+      path: `/company/portalConfigurations/copy`, method: 'post', data: copy
     })
-  }
+   }
 
-  patchCompanyStatesById(id: number, patchOperations: Array<PatchOperation>): Promise<State> {
+   getCompanyPortalConfigurationsCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/states/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/portalConfigurations/count`, method: 'get', params
     })
-  }
+   }
 
-  deleteCompanyStatesById(id: number): Promise<NoContentResponse> {
+   getCompanyPortalConfigurationsInvoiceSetupPaymentProcessors(params: CommonParameters = {}): Promise<Array<PortalConfigurationPaymentProcessor>> {
     return this.request({
-      path: `/company/states/${id}`,
-      method: 'delete',
+      path: `/company/portalConfigurations/invoiceSetup/paymentProcessors`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyStatesByIdInfo(id: number, params: CommonParameters = {}): Promise<StateInfo> {
+   getCompanyPortalConfigurationsInvoiceSetupPaymentProcessorsById(id: number, params: CommonParameters = {}): Promise<PortalConfigurationPaymentProcessor> {
     return this.request({
-      path: `/company/states/${id}/info`,
-      method: 'get',
-      params,
+      path: `/company/portalConfigurations/invoiceSetup/paymentProcessors/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyStatesByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
+   getCompanyPortalConfigurationsInvoiceSetupPaymentProcessorsCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/states/${id}/usages`,
-      method: 'get',
-      params,
+      path: `/company/portalConfigurations/invoiceSetup/paymentProcessors/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyStatesByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
+   getCompanyPortalSecurityLevels(params: CommonParameters = {}): Promise<Array<PortalSecurityLevel>> {
     return this.request({
-      path: `/company/states/${id}/usages/list`,
-      method: 'get',
-      params,
+      path: `/company/portalSecurityLevels`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyStatesCount(params: CommonParameters = {}): Promise<Count> {
+   getCompanyPortalSecurityLevelsById(id: number, params: CommonParameters = {}): Promise<PortalSecurityLevel> {
     return this.request({
-      path: `/company/states/count`,
-      method: 'get',
-      params,
+      path: `/company/portalSecurityLevels/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyStatesInfo(params: CommonParameters = {}): Promise<Array<StateInfo>> {
+   putCompanyPortalSecurityLevelsById(id: number, _portalSecurityLevel: PortalSecurityLevel): Promise<PortalSecurityLevel> {
     return this.request({
-      path: `/company/states/info`,
-      method: 'get',
-      params,
+      path: `/company/portalSecurityLevels/${id}`, method: 'put', data: _portalSecurityLevel
     })
-  }
+   }
 
-  getCompanyStatesInfoCount(params: CommonParameters = {}): Promise<Count> {
+   patchCompanyPortalSecurityLevelsById(id: number, patchOperations: Array<PatchOperation>): Promise<PortalSecurityLevel> {
     return this.request({
-      path: `/company/states/info/count`,
-      method: 'get',
-      params,
+      path: `/company/portalSecurityLevels/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  getCompanyTeamRoles(params: CommonParameters = {}): Promise<Array<TeamRole>> {
+   getCompanyPortalSecurityLevelsCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/teamRoles`,
-      method: 'get',
-      params,
+      path: `/company/portalSecurityLevels/count`, method: 'get', params
     })
-  }
+   }
 
-  postCompanyTeamRoles(teamRole: TeamRole): Promise<TeamRole> {
+   getCompanyPortalSecuritySettings(params: CommonParameters = {}): Promise<Array<PortalSecuritySetting>> {
     return this.request({
-      path: `/company/teamRoles`,
-      method: 'post',
-      data: teamRole,
+      path: `/company/portalSecuritySettings`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyTeamRolesById(id: number, params: CommonParameters = {}): Promise<TeamRole> {
+   getCompanyPortalSecuritySettingsById(id: number, params: CommonParameters = {}): Promise<PortalSecuritySetting> {
     return this.request({
-      path: `/company/teamRoles/${id}`,
-      method: 'get',
-      params,
+      path: `/company/portalSecuritySettings/${id}`, method: 'get', params
     })
-  }
+   }
 
-  deleteCompanyTeamRolesById(id: number): Promise<NoContentResponse> {
+   putCompanyPortalSecuritySettingsById(id: number, portalSecurity: PortalSecuritySetting): Promise<PortalSecuritySetting> {
     return this.request({
-      path: `/company/teamRoles/${id}`,
-      method: 'delete',
+      path: `/company/portalSecuritySettings/${id}`, method: 'put', data: portalSecurity
     })
-  }
+   }
 
-  putCompanyTeamRolesById(id: number, teamRole: TeamRole): Promise<TeamRole> {
+   patchCompanyPortalSecuritySettingsById(id: number, patchOperations: Array<PatchOperation>): Promise<PortalSecuritySetting> {
     return this.request({
-      path: `/company/teamRoles/${id}`,
-      method: 'put',
-      data: teamRole,
+      path: `/company/portalSecuritySettings/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  patchCompanyTeamRolesById(id: number, patchOperations: Array<PatchOperation>): Promise<TeamRole> {
+   getCompanyPortalSecuritySettingsCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/teamRoles/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/portalSecuritySettings/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyTeamRolesByIdInfo(id: number, params: CommonParameters = {}): Promise<TeamRoleInfo> {
+   getCompanyStates(params: CommonParameters = {}): Promise<Array<State>> {
     return this.request({
-      path: `/company/teamRoles/${id}/info`,
-      method: 'get',
-      params,
+      path: `/company/states`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyTeamRolesByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
+   postCompanyStates(state: State): Promise<State> {
     return this.request({
-      path: `/company/teamRoles/${id}/usages`,
-      method: 'get',
-      params,
+      path: `/company/states`, method: 'post', data: state
     })
-  }
+   }
 
-  getCompanyTeamRolesByIdUsagesList(
-    id: number,
-    params: CommonParameters = {},
-  ): Promise<Array<Usage>> {
+   getCompanyStatesById(id: number, params: CommonParameters = {}): Promise<State> {
     return this.request({
-      path: `/company/teamRoles/${id}/usages/list`,
-      method: 'get',
-      params,
+      path: `/company/states/${id}`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyTeamRolesCount(params: CommonParameters = {}): Promise<Count> {
+   putCompanyStatesById(id: number, state: State): Promise<State> {
     return this.request({
-      path: `/company/teamRoles/count`,
-      method: 'get',
-      params,
+      path: `/company/states/${id}`, method: 'put', data: state
     })
-  }
+   }
 
-  getCompanyTeamRolesInfo(params: CommonParameters = {}): Promise<Array<TeamRoleInfo>> {
+   patchCompanyStatesById(id: number, patchOperations: Array<PatchOperation>): Promise<State> {
     return this.request({
-      path: `/company/teamRoles/info`,
-      method: 'get',
-      params,
+      path: `/company/states/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  getCompanyTeamRolesInfoCount(params: CommonParameters = {}): Promise<Count> {
+   deleteCompanyStatesById(id: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/teamRoles/info/count`,
-      method: 'get',
-      params,
+      path: `/company/states/${id}`, method: 'delete'
     })
-  }
+   }
 
-  getCompanyTracks(params: CommonParameters = {}): Promise<Array<Track>> {
+   getCompanyStatesByIdInfo(id: number, params: CommonParameters = {}): Promise<StateInfo> {
     return this.request({
-      path: `/company/tracks`,
-      method: 'get',
-      params,
+      path: `/company/states/${id}/info`, method: 'get', params
     })
-  }
+   }
 
-  postCompanyTracks(track: Track): Promise<Track> {
+   getCompanyStatesByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/tracks`,
-      method: 'post',
-      data: track,
+      path: `/company/states/${id}/usages`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyTracksById(id: number, params: CommonParameters = {}): Promise<Track> {
+   getCompanyStatesByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/tracks/${id}`,
-      method: 'get',
-      params,
+      path: `/company/states/${id}/usages/list`, method: 'get', params
     })
-  }
+   }
 
-  deleteCompanyTracksById(id: number): Promise<NoContentResponse> {
+   getCompanyStatesCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/tracks/${id}`,
-      method: 'delete',
+      path: `/company/states/count`, method: 'get', params
     })
-  }
+   }
 
-  putCompanyTracksById(id: number, track: Track): Promise<Track> {
+   getCompanyStatesInfo(params: CommonParameters = {}): Promise<Array<StateInfo>> {
     return this.request({
-      path: `/company/tracks/${id}`,
-      method: 'put',
-      data: track,
+      path: `/company/states/info`, method: 'get', params
     })
-  }
+   }
 
-  patchCompanyTracksById(id: number, patchOperations: Array<PatchOperation>): Promise<Track> {
+   getCompanyStatesInfoCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
-      path: `/company/tracks/${id}`,
-      method: 'patch',
-      data: patchOperations,
+      path: `/company/states/info/count`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyTracksByParentIdActions(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Array<TrackAction>> {
+   getCompanyTeamRoles(params: CommonParameters = {}): Promise<Array<TeamRole>> {
     return this.request({
-      path: `/company/tracks/${parentId}/actions`,
-      method: 'get',
-      params,
+      path: `/company/teamRoles`, method: 'get', params
     })
-  }
+   }
 
-  postCompanyTracksByParentIdActions(
-    parentId: number,
-    trackAction: TrackAction,
-  ): Promise<TrackAction> {
+   postCompanyTeamRoles(teamRole: TeamRole): Promise<TeamRole> {
     return this.request({
-      path: `/company/tracks/${parentId}/actions`,
-      method: 'post',
-      data: trackAction,
+      path: `/company/teamRoles`, method: 'post', data: teamRole
     })
-  }
+   }
 
-  getCompanyTracksByParentIdActionsById(
-    id: number,
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<TrackAction> {
+   getCompanyTeamRolesById(id: number, params: CommonParameters = {}): Promise<TeamRole> {
     return this.request({
-      path: `/company/tracks/${parentId}/actions/${id}`,
-      method: 'get',
-      params,
+      path: `/company/teamRoles/${id}`, method: 'get', params
     })
-  }
+   }
 
-  putCompanyTracksByParentIdActionsById(
-    id: number,
-    parentId: number,
-    trackAction: TrackAction,
-  ): Promise<TrackAction> {
+   deleteCompanyTeamRolesById(id: number): Promise<NoContentResponse> {
     return this.request({
-      path: `/company/tracks/${parentId}/actions/${id}`,
-      method: 'put',
-      data: trackAction,
+      path: `/company/teamRoles/${id}`, method: 'delete'
     })
-  }
+   }
 
-  patchCompanyTracksByParentIdActionsById(id: number, parentId: number): Promise<TrackAction> {
+   putCompanyTeamRolesById(id: number, teamRole: TeamRole): Promise<TeamRole> {
     return this.request({
-      path: `/company/tracks/${parentId}/actions/${id}`,
-      method: 'patch',
+      path: `/company/teamRoles/${id}`, method: 'put', data: teamRole
     })
-  }
+   }
 
-  deleteCompanyTracksByParentIdActionsById(
-    id: number,
-    parentId: number,
-  ): Promise<NoContentResponse> {
+   patchCompanyTeamRolesById(id: number, patchOperations: Array<PatchOperation>): Promise<TeamRole> {
     return this.request({
-      path: `/company/tracks/${parentId}/actions/${id}`,
-      method: 'delete',
+      path: `/company/teamRoles/${id}`, method: 'patch', data: patchOperations
     })
-  }
+   }
 
-  getCompanyTracksByParentIdActionsCount(
-    parentId: number,
-    params: CommonParameters = {},
-  ): Promise<Count> {
+   getCompanyTeamRolesByIdInfo(id: number, params: CommonParameters = {}): Promise<TeamRoleInfo> {
     return this.request({
-      path: `/company/tracks/${parentId}/actions/count`,
-      method: 'get',
-      params,
+      path: `/company/teamRoles/${id}/info`, method: 'get', params
     })
-  }
+   }
 
-  getCompanyTracksCount(params: CommonParameters = {}): Promise<Count> {
+   getCompanyTeamRolesByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
-      path: `/company/tracks/count`,
-      method: 'get',
-      params,
+      path: `/company/teamRoles/${id}/usages`, method: 'get', params
     })
-  }
+   }
+
+   getCompanyTeamRolesByIdUsagesList(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
+    return this.request({
+      path: `/company/teamRoles/${id}/usages/list`, method: 'get', params
+    })
+   }
+
+   getCompanyTeamRolesCount(params: CommonParameters = {}): Promise<Count> {
+    return this.request({
+      path: `/company/teamRoles/count`, method: 'get', params
+    })
+   }
+
+   getCompanyTeamRolesInfo(params: CommonParameters = {}): Promise<Array<TeamRoleInfo>> {
+    return this.request({
+      path: `/company/teamRoles/info`, method: 'get', params
+    })
+   }
+
+   getCompanyTeamRolesInfoCount(params: CommonParameters = {}): Promise<Count> {
+    return this.request({
+      path: `/company/teamRoles/info/count`, method: 'get', params
+    })
+   }
+
+   getCompanyTracks(params: CommonParameters = {}): Promise<Array<Track>> {
+    return this.request({
+      path: `/company/tracks`, method: 'get', params
+    })
+   }
+
+   postCompanyTracks(track: Track): Promise<Track> {
+    return this.request({
+      path: `/company/tracks`, method: 'post', data: track
+    })
+   }
+
+   getCompanyTracksById(id: number, params: CommonParameters = {}): Promise<Track> {
+    return this.request({
+      path: `/company/tracks/${id}`, method: 'get', params
+    })
+   }
+
+   deleteCompanyTracksById(id: number): Promise<NoContentResponse> {
+    return this.request({
+      path: `/company/tracks/${id}`, method: 'delete'
+    })
+   }
+
+   putCompanyTracksById(id: number, track: Track): Promise<Track> {
+    return this.request({
+      path: `/company/tracks/${id}`, method: 'put', data: track
+    })
+   }
+
+   patchCompanyTracksById(id: number, patchOperations: Array<PatchOperation>): Promise<Track> {
+    return this.request({
+      path: `/company/tracks/${id}`, method: 'patch', data: patchOperations
+    })
+   }
+
+   getCompanyTracksByParentIdActions(parentId: number, params: CommonParameters = {}): Promise<Array<TrackAction>> {
+    return this.request({
+      path: `/company/tracks/${parentId}/actions`, method: 'get', params
+    })
+   }
+
+   postCompanyTracksByParentIdActions(parentId: number, trackAction: TrackAction): Promise<TrackAction> {
+    return this.request({
+      path: `/company/tracks/${parentId}/actions`, method: 'post', data: trackAction
+    })
+   }
+
+   getCompanyTracksByParentIdActionsById(id: number, parentId: number, params: CommonParameters = {}): Promise<TrackAction> {
+    return this.request({
+      path: `/company/tracks/${parentId}/actions/${id}`, method: 'get', params
+    })
+   }
+
+   putCompanyTracksByParentIdActionsById(id: number, parentId: number, trackAction: TrackAction): Promise<TrackAction> {
+    return this.request({
+      path: `/company/tracks/${parentId}/actions/${id}`, method: 'put', data: trackAction
+    })
+   }
+
+   patchCompanyTracksByParentIdActionsById(id: number, parentId: number): Promise<TrackAction> {
+    return this.request({
+      path: `/company/tracks/${parentId}/actions/${id}`, method: 'patch'
+    })
+   }
+
+   deleteCompanyTracksByParentIdActionsById(id: number, parentId: number): Promise<NoContentResponse> {
+    return this.request({
+      path: `/company/tracks/${parentId}/actions/${id}`, method: 'delete'
+    })
+   }
+
+   getCompanyTracksByParentIdActionsCount(parentId: number, params: CommonParameters = {}): Promise<Count> {
+    return this.request({
+      path: `/company/tracks/${parentId}/actions/count`, method: 'get', params
+    })
+   }
+
+   getCompanyTracksCount(params: CommonParameters = {}): Promise<Count> {
+    return this.request({
+      path: `/company/tracks/count`, method: 'get', params
+    })
+   }
 }
+  

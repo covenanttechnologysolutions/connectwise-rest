@@ -17,6 +17,8 @@ export type ExpenseEntryAudit = schemas['ExpenseEntryAudit']
 export type ExpenseReport = schemas['ExpenseReport']
 /** {@link ExpenseReportAudit} */
 export type ExpenseReportAudit = schemas['ExpenseReportAudit']
+/** {@link ExpenseReportTierUpdate} */
+export type ExpenseReportTierUpdate = schemas['ExpenseReportTierUpdate']
 /** {@link ExpenseTaxTypeInfo} */
 export type ExpenseTaxTypeInfo = schemas['ExpenseTaxTypeInfo']
 /** {@link ExpenseType} */
@@ -281,6 +283,24 @@ export class ExpenseAPI extends Manage {
       path: `/expense/reports/${id}`,
       method: 'get',
       params,
+    })
+  }
+
+  postExpenseReportsByIdApprove(
+    id: number,
+    reportId: ExpenseReportTierUpdate,
+  ): Promise<SuccessResponse> {
+    return this.request({
+      path: `/expense/reports/${id}/approve`,
+      method: 'post',
+      data: reportId,
+    })
+  }
+
+  postExpenseReportsByIdReject(id: number): Promise<SuccessResponse> {
+    return this.request({
+      path: `/expense/reports/${id}/reject`,
+      method: 'post',
     })
   }
 

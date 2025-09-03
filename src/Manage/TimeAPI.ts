@@ -31,6 +31,8 @@ export type TimeAccrualDetail = schemas['TimeAccrualDetail']
 export type TimeEntry = schemas['TimeEntry']
 /** {@link TimeEntryAudit} */
 export type TimeEntryAudit = schemas['TimeEntryAudit']
+/** {@link TimeEntryChangeLog} */
+export type TimeEntryChangeLog = schemas['TimeEntryChangeLog']
 /** {@link TimePeriod} */
 export type TimePeriod = schemas['TimePeriod']
 /** {@link TimePeriodSetup} */
@@ -267,6 +269,21 @@ export class TimeAPI extends Manage {
     })
   }
 
+  getTimeChangelogs(params: CommonParameters = {}): Promise<Array<TimeEntryChangeLog>> {
+    return this.request({
+      path: `/time/changelogs`,
+      method: 'get',
+      params,
+    })
+  }
+
+  deleteTimeChangelogs(): Promise<NoContentResponse> {
+    return this.request({
+      path: `/time/changelogs`,
+      method: 'delete',
+    })
+  }
+
   getTimeChargeCodes(params: CommonParameters = {}): Promise<Array<ChargeCode>> {
     return this.request({
       path: `/time/chargeCodes`,
@@ -494,6 +511,13 @@ export class TimeAPI extends Manage {
     })
   }
 
+  postTimeEntriesByIdDetach(id: number): Promise<TimeEntry> {
+    return this.request({
+      path: `/time/entries/${id}/detach`,
+      method: 'post',
+    })
+  }
+
   getTimeEntriesByParentIdAudits(
     parentId: number,
     params: CommonParameters = {},
@@ -639,6 +663,13 @@ export class TimeAPI extends Manage {
       path: `/time/sheets/${id}`,
       method: 'get',
       params,
+    })
+  }
+
+  deleteTimeSheetsById(id: number): Promise<NoContentResponse> {
+    return this.request({
+      path: `/time/sheets/${id}`,
+      method: 'delete',
     })
   }
 

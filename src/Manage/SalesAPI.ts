@@ -63,12 +63,20 @@ export type OrderStatusEmailTemplate = schemas['OrderStatusEmailTemplate']
 export type OrderStatusInfo = schemas['OrderStatusInfo']
 /** {@link OrderStatusNotification} */
 export type OrderStatusNotification = schemas['OrderStatusNotification']
+/** {@link OrderToProjectConversion} */
+export type OrderToProjectConversion = schemas['OrderToProjectConversion']
 /** {@link PatchOperation} */
 export type PatchOperation = schemas['PatchOperation']
 /** {@link Project} */
 export type Project = schemas['Project']
 /** {@link Role} */
 export type Role = schemas['Role']
+/** {@link SalesConversion} */
+export type SalesConversion = schemas['SalesConversion']
+/** {@link SalesOrderRecap} */
+export type SalesOrderRecap = schemas['SalesOrderRecap']
+/** {@link SalesOrdersLineItem} */
+export type SalesOrdersLineItem = schemas['SalesOrdersLineItem']
 /** {@link SalesProbability} */
 export type SalesProbability = schemas['SalesProbability']
 /** {@link SalesProbabilityInfo} */
@@ -857,6 +865,17 @@ export class SalesAPI extends Manage {
     })
   }
 
+  getSalesOpportunitiesConversionsById(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Array<SalesConversion>> {
+    return this.request({
+      path: `/sales/opportunities/conversions/${id}`,
+      method: 'get',
+      params,
+    })
+  }
+
   getSalesOpportunitiesCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
       path: `/sales/opportunities/count`,
@@ -1243,10 +1262,122 @@ export class SalesAPI extends Manage {
     })
   }
 
+  postSalesOrdersByIdConvertToProject(
+    id: number,
+    conversion: OrderToProjectConversion,
+  ): Promise<Project> {
+    return this.request({
+      path: `/sales/orders/${id}/convertToProject`,
+      method: 'post',
+      data: conversion,
+    })
+  }
+
   postSalesOrdersByIdConvertToServiceTicket(id: number): Promise<Ticket> {
     return this.request({
       path: `/sales/orders/${id}/convertToServiceTicket`,
       method: 'post',
+    })
+  }
+
+  getSalesOrdersByIdFinancialrecap(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Array<SalesOrderRecap>> {
+    return this.request({
+      path: `/sales/orders/${id}/financialrecap`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getSalesOrdersByParentIdLineitems(
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<Array<SalesOrdersLineItem>> {
+    return this.request({
+      path: `/sales/orders/${parentId}/lineitems/`,
+      method: 'get',
+      params,
+    })
+  }
+
+  postSalesOrdersByParentIdLineitems(
+    parentId: number,
+    salesOrdersLineItem: SalesOrdersLineItem,
+  ): Promise<SalesOrdersLineItem> {
+    return this.request({
+      path: `/sales/orders/${parentId}/lineitems/`,
+      method: 'post',
+      data: salesOrdersLineItem,
+    })
+  }
+
+  getSalesOrdersByParentIdLineitemsById(
+    parentId: number,
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<SalesOrdersLineItem> {
+    return this.request({
+      path: `/sales/orders/${parentId}/lineitems/${id}`,
+      method: 'get',
+      params,
+    })
+  }
+
+  deleteSalesOrdersByParentIdLineitemsById(
+    parentId: number,
+    id: number,
+  ): Promise<NoContentResponse> {
+    return this.request({
+      path: `/sales/orders/${parentId}/lineitems/${id}`,
+      method: 'delete',
+    })
+  }
+
+  putSalesOrdersByParentIdLineitemsById(
+    parentId: number,
+    id: number,
+    salesOrdersLineItem: SalesOrdersLineItem,
+  ): Promise<SalesOrdersLineItem> {
+    return this.request({
+      path: `/sales/orders/${parentId}/lineitems/${id}`,
+      method: 'put',
+      data: salesOrdersLineItem,
+    })
+  }
+
+  patchSalesOrdersByParentIdLineitemsById(
+    parentId: number,
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<SalesOrdersLineItem> {
+    return this.request({
+      path: `/sales/orders/${parentId}/lineitems/${id}`,
+      method: 'patch',
+      data: patchOperations,
+    })
+  }
+
+  getSalesOrdersByParentIdLineitemsCount(
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<Count> {
+    return this.request({
+      path: `/sales/orders/${parentId}/lineitems/count`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getSalesOrdersConversionsById(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Array<SalesConversion>> {
+    return this.request({
+      path: `/sales/orders/conversions/${id}`,
+      method: 'get',
+      params,
     })
   }
 
@@ -1847,6 +1978,17 @@ export class SalesAPI extends Manage {
   getSalesSalesTeamsCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
       path: `/sales/salesTeams/count`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getSalesScheduleHolidaylistsByParentIdHolidaysInfoCount(
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<Count> {
+    return this.request({
+      path: `/sales/schedule/holidaylists/${parentId}/holidays/info/count`,
       method: 'get',
       params,
     })
