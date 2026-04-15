@@ -28,6 +28,23 @@ export type RetryOptions = {
   factor?: number
 }
 
+/**
+ * Axios response type passthrough for endpoints that return binary or non-JSON
+ * content (PDFs, images, octet-streams, raw text). Omit or pass `'json'` for
+ * regular JSON endpoints. `'arraybuffer'` is a good Node default for binary;
+ * `'blob'` works in browsers; `'stream'` is Node-only and returns a Readable.
+ * @public
+ */
+export type ResponseType = 'json' | 'arraybuffer' | 'blob' | 'stream' | 'text' | 'document'
+
+/**
+ * Request-body encoding hint for endpoints whose OpenAPI spec declares a body
+ * content-type other than JSON. Today only `'multipart'` is meaningful;
+ * extend here if you add others. Omit for JSON endpoints.
+ * @public
+ */
+export type ContentType = 'json' | 'multipart'
+
 export type RequestOptions = {
   path: string
   method?: Methods
@@ -36,10 +53,18 @@ export type RequestOptions = {
     | Record<string, unknown>
     | Record<string, unknown>[]
     | PatchOperation[]
+    | FormData
+    | Blob
+    | ArrayBuffer
+    | Uint8Array
     | null
     | string
     | number
     | undefined
+  /** Hint for the request body encoding; generator sets this for multipart endpoints. */
+  contentType?: ContentType
+  /** Hint for how axios should decode the response; generator sets this for binary endpoints. */
+  responseType?: ResponseType
 }
 
 export type LoggingLevels = 'error' | 'warn' | 'info' | 'debug'

@@ -1,10 +1,13 @@
 /* This file was auto-generated, do not manually edit. */
-import Automate from '../Automate'
+import { AutomateBaseAPI } from '../BaseAPI'
 import { components } from '../AutomateTypes'
-import { CommonParameters, CWAOptions } from '../AutomateAPI'
-import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
+import { CommonParameters } from '../AutomateAPI'
+import { NoContentResponse } from '../types'
 type schemas = components['schemas']
 type requestBodies = components['requestBodies']
+/** {@link ApiToken_RefreshBearerTokenAsyncTokentext} */
+export type ApiToken_RefreshBearerTokenAsyncTokentext =
+  requestBodies['ApiToken_RefreshBearerTokenAsyncTokentext']
 /** {@link AutomateApiDomainContractsPresentationLayerWebExtensionsUserClassWebExtensionRequest} */
 export type AutomateApiDomainContractsPresentationLayerWebExtensionsUserClassWebExtensionRequest =
   schemas['Automate.Api.Domain.Contracts.PresentationLayer.WebExtensions.UserClassWebExtensionRequest']
@@ -63,32 +66,34 @@ export type LabTechRESTApiSecurityAuthServiceCredentials =
   schemas['LabTech.RESTApi.Security.AuthServiceCredentials']
 
 /**
- * @module SystemAPI
- */
-
-/**
  * System module
  * @public
  */
-export class SystemAPI extends Automate {
-  constructor(props: CWAOptions) {
-    super(props)
-  }
-
-  getAuthInformation(): Promise<AutomateApiDomainContractsSecurityAuthInformation> {
+export class SystemAPI extends AutomateBaseAPI {
+  get(): Promise<AutomateApiDomainContractsSecurityAuthInformation> {
     return this.request({
       path: `/api/v1/APIToken`,
       method: 'get',
     })
   }
 
-  postToken(
+  post(
     TokenCredentials: AutomateApiDomainContractsSecurityTokenCredentials,
   ): Promise<AutomateApiDomainContractsSecurityTokenResult> {
     return this.request({
       path: `/api/v1/APIToken`,
       method: 'post',
       data: TokenCredentials,
+    })
+  }
+
+  refreshBearerTokenAsync(
+    RefreshBearerTokenAsyncTokentext: ApiToken_RefreshBearerTokenAsyncTokentext,
+  ): Promise<AutomateApiDomainContractsSecurityTokenResult> {
+    return this.request({
+      path: `/api/v1/APIToken/Refresh`,
+      method: 'post',
+      data: RefreshBearerTokenAsyncTokentext,
     })
   }
 

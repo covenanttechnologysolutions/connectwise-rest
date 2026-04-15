@@ -1,10 +1,9 @@
 /* This file was auto-generated, do not manually edit. */
-import Manage from '../Manage'
+import { ManageBaseAPI } from '../BaseAPI'
 import { components } from '../ManageTypes'
-import { CommonParameters, CWMOptions } from '../ManageAPI'
-import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
+import { CommonParameters } from '../ManageAPI'
+import { NoContentResponse } from '../types'
 type schemas = components['schemas']
-
 /** {@link ActivityReference} */
 export type ActivityReference = schemas['ActivityReference']
 /** {@link ConfigurationReference} */
@@ -21,10 +20,16 @@ export type FilterValues = schemas['FilterValues']
 export type PatchOperation = schemas['PatchOperation']
 /** {@link PhaseStatus} */
 export type PhaseStatus = schemas['PhaseStatus']
+/** {@link PhaseStatusInfo} */
+export type PhaseStatusInfo = schemas['PhaseStatusInfo']
 /** {@link ProductReference} */
 export type ProductReference = schemas['ProductReference']
 /** {@link Project} */
 export type Project = schemas['Project']
+/** {@link ProjectBillingRate} */
+export type ProjectBillingRate = schemas['ProjectBillingRate']
+/** {@link ProjectBoardKanbanSetting} */
+export type ProjectBoardKanbanSetting = schemas['ProjectBoardKanbanSetting']
 /** {@link ProjectBoardTeam} */
 export type ProjectBoardTeam = schemas['ProjectBoardTeam']
 /** {@link ProjectBoardTeamInfo} */
@@ -37,8 +42,12 @@ export type ProjectContact = schemas['ProjectContact']
 export type ProjectNote = schemas['ProjectNote']
 /** {@link ProjectPhase} */
 export type ProjectPhase = schemas['ProjectPhase']
+/** {@link ProjectRecap} */
+export type ProjectRecap = schemas['ProjectRecap']
 /** {@link ProjectSecurityRole} */
 export type ProjectSecurityRole = schemas['ProjectSecurityRole']
+/** {@link ProjectSecurityRoleInfo} */
+export type ProjectSecurityRoleInfo = schemas['ProjectSecurityRoleInfo']
 /** {@link ProjectSecurityRoleSetting} */
 export type ProjectSecurityRoleSetting = schemas['ProjectSecurityRoleSetting']
 /** {@link ProjectStatus} */
@@ -47,6 +56,16 @@ export type ProjectStatus = schemas['ProjectStatus']
 export type ProjectStatusInfo = schemas['ProjectStatusInfo']
 /** {@link ProjectTeamMember} */
 export type ProjectTeamMember = schemas['ProjectTeamMember']
+/** {@link ProjectTemplate} */
+export type ProjectTemplate = schemas['ProjectTemplate']
+/** {@link ProjectTemplatePhase} */
+export type ProjectTemplatePhase = schemas['ProjectTemplatePhase']
+/** {@link ProjectTemplateTask} */
+export type ProjectTemplateTask = schemas['ProjectTemplateTask']
+/** {@link ProjectTemplateTicket} */
+export type ProjectTemplateTicket = schemas['ProjectTemplateTicket']
+/** {@link ProjectTemplateWorkPlan} */
+export type ProjectTemplateWorkPlan = schemas['ProjectTemplateWorkPlan']
 /** {@link ProjectTicket} */
 export type ProjectTicket = schemas['ProjectTicket']
 /** {@link ProjectTicketNote} */
@@ -55,6 +74,8 @@ export type ProjectTicketNote = schemas['ProjectTicketNote']
 export type ProjectType = schemas['ProjectType']
 /** {@link ProjectTypeInfo} */
 export type ProjectTypeInfo = schemas['ProjectTypeInfo']
+/** {@link ProjectWorkplan} */
+export type ProjectWorkplan = schemas['ProjectWorkplan']
 /** {@link ScheduleEntryReference} */
 export type ScheduleEntryReference = schemas['ScheduleEntryReference']
 /** {@link StatusIndicator} */
@@ -71,16 +92,87 @@ export type TimeEntryReference = schemas['TimeEntryReference']
 export type Usage = schemas['Usage']
 
 /**
- * @module ProjectAPI
- */
-
-/**
  * Project module
  * @public
  */
-export class ProjectAPI extends Manage {
-  constructor(props: CWMOptions) {
-    super(props)
+export class ProjectAPI extends ManageBaseAPI {
+  getProjectByParentIdBillingRates(
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<Array<ProjectBillingRate>> {
+    return this.request({
+      path: `/project/${parentId}/billingRates`,
+      method: 'get',
+      params,
+    })
+  }
+
+  postProjectByParentIdBillingRates(
+    parentId: number,
+    billingRate: ProjectBillingRate,
+  ): Promise<ProjectBillingRate> {
+    return this.request({
+      path: `/project/${parentId}/billingRates`,
+      method: 'post',
+      data: billingRate,
+    })
+  }
+
+  getProjectByParentIdBillingRatesById(
+    id: number,
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<ProjectBillingRate> {
+    return this.request({
+      path: `/project/${parentId}/billingRates/${id}`,
+      method: 'get',
+      params,
+    })
+  }
+
+  deleteProjectByParentIdBillingRatesById(
+    id: number,
+    parentId: number,
+  ): Promise<NoContentResponse> {
+    return this.request({
+      path: `/project/${parentId}/billingRates/${id}`,
+      method: 'delete',
+    })
+  }
+
+  putProjectByParentIdBillingRatesById(
+    id: number,
+    parentId: number,
+    billingRate: ProjectBillingRate,
+  ): Promise<ProjectBillingRate> {
+    return this.request({
+      path: `/project/${parentId}/billingRates/${id}`,
+      method: 'put',
+      data: billingRate,
+    })
+  }
+
+  getProjectByParentIdBillingRatesCount(
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<Count> {
+    return this.request({
+      path: `/project/${parentId}/billingRates/count`,
+      method: 'get',
+      params,
+    })
+  }
+
+  patchProjectBillingRatesByParentIdBillingRatesById(
+    id: number,
+    parentId: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<ProjectBillingRate> {
+    return this.request({
+      path: `/project/billingRates/${parentId}/billingRates/${id}`,
+      method: 'patch',
+      data: patchOperations,
+    })
   }
 
   getProjectBoardsByGrandparentIdTeamsByParentIdMembers(
@@ -152,6 +244,74 @@ export class ProjectAPI extends Manage {
   ): Promise<ProjectBoardTeamMember> {
     return this.request({
       path: `/project/boards/${grandparentId}/teams/${parentId}/members/${id}`,
+      method: 'patch',
+      data: patchOperations,
+    })
+  }
+
+  getProjectBoardsByParentIdKanbanSettings(
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<Array<ProjectBoardKanbanSetting>> {
+    return this.request({
+      path: `/project/boards/${parentId}/kanbanSettings`,
+      method: 'get',
+      params,
+    })
+  }
+
+  postProjectBoardsByParentIdKanbanSettings(
+    parentId: number,
+    kanbanSettings: ProjectBoardKanbanSetting,
+  ): Promise<ProjectBoardKanbanSetting> {
+    return this.request({
+      path: `/project/boards/${parentId}/kanbanSettings`,
+      method: 'post',
+      data: kanbanSettings,
+    })
+  }
+
+  getProjectBoardsByParentIdKanbanSettingsById(
+    id: number,
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<ProjectBoardKanbanSetting> {
+    return this.request({
+      path: `/project/boards/${parentId}/kanbanSettings/${id}`,
+      method: 'get',
+      params,
+    })
+  }
+
+  deleteProjectBoardsByParentIdKanbanSettingsById(
+    id: number,
+    parentId: number,
+  ): Promise<NoContentResponse> {
+    return this.request({
+      path: `/project/boards/${parentId}/kanbanSettings/${id}`,
+      method: 'delete',
+    })
+  }
+
+  putProjectBoardsByParentIdKanbanSettingsById(
+    id: number,
+    parentId: number,
+    Kanban: ProjectBoardKanbanSetting,
+  ): Promise<ProjectBoardKanbanSetting> {
+    return this.request({
+      path: `/project/boards/${parentId}/kanbanSettings/${id}`,
+      method: 'put',
+      data: Kanban,
+    })
+  }
+
+  patchProjectBoardsByParentIdKanbanSettingsById(
+    id: number,
+    parentId: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<ProjectBoardKanbanSetting> {
+    return this.request({
+      path: `/project/boards/${parentId}/kanbanSettings/${id}`,
       method: 'patch',
       data: patchOperations,
     })
@@ -318,6 +478,17 @@ export class ProjectAPI extends Manage {
     })
   }
 
+  getProjectPhaseStatusesByIdInfo(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<PhaseStatusInfo> {
+    return this.request({
+      path: `/project/phaseStatuses/${id}/info`,
+      method: 'get',
+      params,
+    })
+  }
+
   getProjectPhaseStatusesByIdUsages(
     id: number,
     params: CommonParameters = {},
@@ -343,6 +514,14 @@ export class ProjectAPI extends Manage {
   getProjectPhaseStatusesCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
       path: `/project/phaseStatuses/count`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getProjectPhaseStatusesInfo(params: CommonParameters = {}): Promise<Array<PhaseStatusInfo>> {
+    return this.request({
+      path: `/project/phaseStatuses/info`,
       method: 'get',
       params,
     })
@@ -392,6 +571,49 @@ export class ProjectAPI extends Manage {
       path: `/project/projects/${id}`,
       method: 'patch',
       data: patchOperations,
+    })
+  }
+
+  getProjectProjectsByIdProjectRecap(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<ProjectRecap> {
+    return this.request({
+      path: `/project/projects/${id}/projectRecap`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getProjectProjectsByIdProjectWorkplan(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<ProjectWorkplan> {
+    return this.request({
+      path: `/project/projects/${id}/projectWorkplan`,
+      method: 'get',
+      params,
+    })
+  }
+
+  postProjectProjectsByParentIdApplyTemplateById(
+    id: number,
+    parentId: number,
+  ): Promise<ProjectWorkplan> {
+    return this.request({
+      path: `/project/projects/${parentId}/applyTemplate/${id}`,
+      method: 'post',
+    })
+  }
+
+  postProjectProjectsByParentIdApplyTemplates(
+    parentId: number,
+    projectTemplates: Array<ProjectTemplate>,
+  ): Promise<ProjectWorkplan> {
+    return this.request({
+      path: `/project/projects/${parentId}/applyTemplates`,
+      method: 'post',
+      data: projectTemplates,
     })
   }
 
@@ -681,6 +903,355 @@ export class ProjectAPI extends Manage {
     })
   }
 
+  getProjectProjectTemplates(params: CommonParameters = {}): Promise<Array<ProjectTemplate>> {
+    return this.request({
+      path: `/project/projectTemplates/`,
+      method: 'get',
+      params,
+    })
+  }
+
+  postProjectProjectTemplates(ProjectTemplate: ProjectTemplate): Promise<ProjectTemplate> {
+    return this.request({
+      path: `/project/projectTemplates/`,
+      method: 'post',
+      data: ProjectTemplate,
+    })
+  }
+
+  getProjectProjectTemplatesByGrandParentIdProjectTemplateTicketsByParentIdTasks(
+    grandParentId: number,
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<Array<ProjectTemplateTask>> {
+    return this.request({
+      path: `/project/projectTemplates/${grandParentId}/projectTemplateTickets/${parentId}/tasks`,
+      method: 'get',
+      params,
+    })
+  }
+
+  postProjectProjectTemplatesByGrandParentIdProjectTemplateTicketsByParentIdTasks(
+    grandParentId: number,
+    parentId: number,
+    ProjectTemplateTask: ProjectTemplateTask,
+  ): Promise<ProjectTemplateTask> {
+    return this.request({
+      path: `/project/projectTemplates/${grandParentId}/projectTemplateTickets/${parentId}/tasks`,
+      method: 'post',
+      data: ProjectTemplateTask,
+    })
+  }
+
+  getProjectProjectTemplatesByGrandParentIdProjectTemplateTicketsByParentIdTasksById(
+    id: number,
+    grandParentId: number,
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<ProjectTemplateTask> {
+    return this.request({
+      path: `/project/projectTemplates/${grandParentId}/projectTemplateTickets/${parentId}/tasks/${id}`,
+      method: 'get',
+      params,
+    })
+  }
+
+  deleteProjectProjectTemplatesByGrandParentIdProjectTemplateTicketsByParentIdTasksById(
+    id: number,
+    grandParentId: number,
+    parentId: number,
+  ): Promise<NoContentResponse> {
+    return this.request({
+      path: `/project/projectTemplates/${grandParentId}/projectTemplateTickets/${parentId}/tasks/${id}`,
+      method: 'delete',
+    })
+  }
+
+  putProjectProjectTemplatesByGrandParentIdProjectTemplateTicketsByParentIdTasksById(
+    id: number,
+    grandParentId: number,
+    parentId: number,
+    companyTypeAssociation: ProjectTemplateTask,
+  ): Promise<ProjectTemplateTask> {
+    return this.request({
+      path: `/project/projectTemplates/${grandParentId}/projectTemplateTickets/${parentId}/tasks/${id}`,
+      method: 'put',
+      data: companyTypeAssociation,
+    })
+  }
+
+  patchProjectProjectTemplatesByGrandParentIdProjectTemplateTicketsByParentIdTasksById(
+    id: number,
+    grandParentId: number,
+    parentId: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<ProjectTemplateTask> {
+    return this.request({
+      path: `/project/projectTemplates/${grandParentId}/projectTemplateTickets/${parentId}/tasks/${id}`,
+      method: 'patch',
+      data: patchOperations,
+    })
+  }
+
+  getProjectProjectTemplatesByGrandParentIdProjectTemplateTicketsByParentIdTasksCount(
+    grandParentId: number,
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<Count> {
+    return this.request({
+      path: `/project/projectTemplates/${grandParentId}/projectTemplateTickets/${parentId}/tasks/count`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getProjectProjectTemplatesById(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<ProjectTemplate> {
+    return this.request({
+      path: `/project/projectTemplates/${id}`,
+      method: 'get',
+      params,
+    })
+  }
+
+  deleteProjectProjectTemplatesById(id: number): Promise<NoContentResponse> {
+    return this.request({
+      path: `/project/projectTemplates/${id}`,
+      method: 'delete',
+    })
+  }
+
+  putProjectProjectTemplatesById(
+    id: number,
+    companyTypeAssociation: ProjectTemplate,
+  ): Promise<ProjectTemplate> {
+    return this.request({
+      path: `/project/projectTemplates/${id}`,
+      method: 'put',
+      data: companyTypeAssociation,
+    })
+  }
+
+  patchProjectProjectTemplatesById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<ProjectTemplate> {
+    return this.request({
+      path: `/project/projectTemplates/${id}`,
+      method: 'patch',
+      data: patchOperations,
+    })
+  }
+
+  getProjectProjectTemplatesByIdWorkplan(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Array<ProjectTemplateWorkPlan>> {
+    return this.request({
+      path: `/project/projectTemplates/${id}/workplan`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getProjectProjectTemplatesByParentIdProjectTemplatePhases(
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<Array<ProjectTemplatePhase>> {
+    return this.request({
+      path: `/project/projectTemplates/${parentId}/projectTemplatePhases`,
+      method: 'get',
+      params,
+    })
+  }
+
+  postProjectProjectTemplatesByParentIdProjectTemplatePhases(
+    parentId: number,
+    ProjectTemplatePhase: ProjectTemplatePhase,
+  ): Promise<ProjectTemplatePhase> {
+    return this.request({
+      path: `/project/projectTemplates/${parentId}/projectTemplatePhases`,
+      method: 'post',
+      data: ProjectTemplatePhase,
+    })
+  }
+
+  getProjectProjectTemplatesByParentIdProjectTemplatePhasesById(
+    id: number,
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<ProjectTemplatePhase> {
+    return this.request({
+      path: `/project/projectTemplates/${parentId}/projectTemplatePhases/${id}`,
+      method: 'get',
+      params,
+    })
+  }
+
+  deleteProjectProjectTemplatesByParentIdProjectTemplatePhasesById(
+    id: number,
+    parentId: number,
+  ): Promise<NoContentResponse> {
+    return this.request({
+      path: `/project/projectTemplates/${parentId}/projectTemplatePhases/${id}`,
+      method: 'delete',
+    })
+  }
+
+  putProjectProjectTemplatesByParentIdProjectTemplatePhasesById(
+    id: number,
+    parentId: number,
+    projectTemplatePhase: ProjectTemplatePhase,
+  ): Promise<ProjectTemplatePhase> {
+    return this.request({
+      path: `/project/projectTemplates/${parentId}/projectTemplatePhases/${id}`,
+      method: 'put',
+      data: projectTemplatePhase,
+    })
+  }
+
+  patchProjectProjectTemplatesByParentIdProjectTemplatePhasesById(
+    id: number,
+    parentId: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<ProjectTemplatePhase> {
+    return this.request({
+      path: `/project/projectTemplates/${parentId}/projectTemplatePhases/${id}`,
+      method: 'patch',
+      data: patchOperations,
+    })
+  }
+
+  getProjectProjectTemplatesByParentIdProjectTemplateTickets(
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<Array<ProjectTemplateTicket>> {
+    return this.request({
+      path: `/project/projectTemplates/${parentId}/projectTemplateTickets`,
+      method: 'get',
+      params,
+    })
+  }
+
+  postProjectProjectTemplatesByParentIdProjectTemplateTickets(
+    parentId: number,
+    ProjectTemplateTicket: ProjectTemplateTicket,
+  ): Promise<ProjectTemplateTicket> {
+    return this.request({
+      path: `/project/projectTemplates/${parentId}/projectTemplateTickets`,
+      method: 'post',
+      data: ProjectTemplateTicket,
+    })
+  }
+
+  getProjectProjectTemplatesByParentIdProjectTemplateTicketsById(
+    id: number,
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<ProjectTemplateTicket> {
+    return this.request({
+      path: `/project/projectTemplates/${parentId}/projectTemplateTickets/${id}`,
+      method: 'get',
+      params,
+    })
+  }
+
+  deleteProjectProjectTemplatesByParentIdProjectTemplateTicketsById(
+    id: number,
+    parentId: number,
+  ): Promise<NoContentResponse> {
+    return this.request({
+      path: `/project/projectTemplates/${parentId}/projectTemplateTickets/${id}`,
+      method: 'delete',
+    })
+  }
+
+  putProjectProjectTemplatesByParentIdProjectTemplateTicketsById(
+    id: number,
+    parentId: number,
+    companyTypeAssociation: ProjectTemplateTicket,
+  ): Promise<ProjectTemplateTicket> {
+    return this.request({
+      path: `/project/projectTemplates/${parentId}/projectTemplateTickets/${id}`,
+      method: 'put',
+      data: companyTypeAssociation,
+    })
+  }
+
+  patchProjectProjectTemplatesByParentIdProjectTemplateTicketsById(
+    id: number,
+    parentId: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<ProjectTemplateTicket> {
+    return this.request({
+      path: `/project/projectTemplates/${parentId}/projectTemplateTickets/${id}`,
+      method: 'patch',
+      data: patchOperations,
+    })
+  }
+
+  getProjectProjectTemplatesByParentIdProjectTemplateTicketsCount(
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<Count> {
+    return this.request({
+      path: `/project/projectTemplates/${parentId}/projectTemplateTickets/count`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getProjectProjectTemplatesCount(params: CommonParameters = {}): Promise<Count> {
+    return this.request({
+      path: `/project/projectTemplates/count`,
+      method: 'get',
+      params,
+    })
+  }
+
+  postProjectProjectTemplatesCreateFromProjectById(
+    id: number,
+    ProjectTemplate: ProjectTemplate,
+  ): Promise<ProjectTemplate> {
+    return this.request({
+      path: `/project/projectTemplates/createFromProject/${id}`,
+      method: 'post',
+      data: ProjectTemplate,
+    })
+  }
+
+  getProjectProjectTemplatesProjectTemplatePhases(
+    params: CommonParameters = {},
+  ): Promise<Array<ProjectTemplatePhase>> {
+    return this.request({
+      path: `/project/projectTemplates/projectTemplatePhases`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getProjectProjectTemplatesProjectTemplateTickets(
+    params: CommonParameters = {},
+  ): Promise<Array<ProjectTemplateTicket>> {
+    return this.request({
+      path: `/project/projectTemplates/projectTemplateTickets`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getProjectProjectTemplatesProjectTemplateTicketsTasks(
+    params: CommonParameters = {},
+  ): Promise<Array<ProjectTemplateTask>> {
+    return this.request({
+      path: `/project/projectTemplates/projectTemplateTickets/tasks`,
+      method: 'get',
+      params,
+    })
+  }
+
   getProjectProjectTypes(params: CommonParameters = {}): Promise<Array<ProjectType>> {
     return this.request({
       path: `/project/projectTypes`,
@@ -844,6 +1415,17 @@ export class ProjectAPI extends Manage {
     })
   }
 
+  getProjectSecurityRolesByIdInfo(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<ProjectSecurityRoleInfo> {
+    return this.request({
+      path: `/project/securityRoles/${id}/info`,
+      method: 'get',
+      params,
+    })
+  }
+
   getProjectSecurityRolesByParentIdSettings(
     parentId: number,
     params: CommonParameters = {},
@@ -910,6 +1492,16 @@ export class ProjectAPI extends Manage {
     })
   }
 
+  getProjectSecurityRolesInfo(
+    params: CommonParameters = {},
+  ): Promise<Array<ProjectSecurityRoleInfo>> {
+    return this.request({
+      path: `/project/securityRoles/info`,
+      method: 'get',
+      params,
+    })
+  }
+
   getProjectStatuses(params: CommonParameters = {}): Promise<Array<ProjectStatus>> {
     return this.request({
       path: `/project/statuses`,
@@ -966,6 +1558,25 @@ export class ProjectAPI extends Manage {
   ): Promise<ProjectStatusInfo> {
     return this.request({
       path: `/project/statuses/${id}/info`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getProjectStatusesByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
+    return this.request({
+      path: `/project/statuses/${id}/usages`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getProjectStatusesByIdUsagesList(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Array<Usage>> {
+    return this.request({
+      path: `/project/statuses/${id}/usages/list`,
       method: 'get',
       params,
     })

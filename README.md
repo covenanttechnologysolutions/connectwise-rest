@@ -1,13 +1,15 @@
 # connectwise-rest
 
- [![npm version](https://img.shields.io/npm/v/connectwise-rest.svg)](https://www.npmjs.com/package/connectwise-rest) [![npm downloads](https://img.shields.io/npm/dt/connectwise-rest.svg)](https://www.npmjs.com/package/connectwise-rest) ![Node.js CI](https://github.com/covenanttechnologysolutions/connectwise-rest/actions/workflows/node.js.yml/badge.svg?branch=master)
+[![npm version](https://img.shields.io/npm/v/connectwise-rest.svg)](https://www.npmjs.com/package/connectwise-rest) [![npm downloads](https://img.shields.io/npm/dt/connectwise-rest.svg)](https://www.npmjs.com/package/connectwise-rest) [![Node.js CI](https://github.com/covenanttechnologysolutions/connectwise-rest/actions/workflows/node.js.yml/badge.svg?branch=master&event=push)](https://github.com/covenanttechnologysolutions/connectwise-rest/actions/workflows/node.js.yml) [![Coverage Status](https://coveralls.io/repos/github/covenanttechnologysolutions/connectwise-rest/badge.svg?branch=master)](https://coveralls.io/github/covenanttechnologysolutions/connectwise-rest?branch=master)
 
 A Node.JS TypeScript module for interacting with the ConnectWise Manage and Automate REST APIs. 
 This module provides bindings for ease of development against the ConnectWise REST APIs as well as pagination, automatic retries and logging.   
 
 ###  ⚠️Breaking Changes ⚠️
 
-Version 1.0 has been completely re-written and is automatically generated, some function names have changed as well as removal of subsections from version 0.x.  Pagination API has been changed for easier usage.   VSCode, JetBrains, etc editors will automatically pick up the new type definitions.  
+Version 2.0 regenerates the Automate surface from the new swagger 2025.0.5 spec
+(some class renames, see [CHANGELOG.md](./CHANGELOG.md) for the rename map) and
+upgrades Manage to the 2025.16 spec.
 
 ## Table of Contents
 
@@ -19,6 +21,8 @@ Version 1.0 has been completely re-written and is automatically generated, some 
   - [Manage Usage](#manage-usage)
   - [Automate Usage](#automate-usage)
   - [Pagination](#pagination)
+  - [File Uploads](#file-uploads)
+  - [File Downloads](#file-downloads)
   - [APIs Without Typings](#apis-without-typings)
   - [Cloud-Hosted ConnectWise Manage](#cloud-hosted-connectwise-manage)
 - [Examples](#examples)
@@ -146,6 +150,81 @@ cwm.paginate(
 
 ```
 
+### File Uploads
+
+Endpoints that accept `multipart/form-data` (e.g. `SystemAPI.postSystemDocuments`
+on Manage) take either a typed object or a pre-built `FormData`. The generated
+method converts objects into FormData for you. The only thing you need to supply
+in the file field is a `Buffer`, `Blob`, `File`, or Node `ReadStream`.
+
+```javascript
+import { readFileSync } from 'node:fs'
+import { ManageAPI } from 'connectwise-rest'
+
+const cwm = new ManageAPI({ /* ...options */ })
+
+// Upload a document attached to a ticket. The `file` field accepts any
+// FormData-appendable value (Buffer, Blob, File, ReadStream).
+const doc = await cwm.SystemAPI.postSystemDocuments({
+  file: readFileSync('./report.pdf'),    // Buffer
+  recordType: 'Ticket',
+  recordId: 1234,
+  title: 'Monthly report',
+  privateFlag: false,
+})
+
+console.log(doc.id, doc.fileName)
+```
+
+Need more control over the multipart encoding (custom filename, MIME type, streams
+with specific content-length)? Build your own `FormData` and hand it in directly:
+
+```javascript
+import { createReadStream } from 'node:fs'
+
+const fd = new FormData()
+fd.append('file', new Blob([await readFile('./image.png')], { type: 'image/png' }), 'image.png')
+fd.append('recordType', 'Contact')
+fd.append('recordId', String(42))
+fd.append('title', 'Avatar')
+
+await cwm.SystemAPI.postSystemDocuments(fd)
+```
+
+The same mechanism works on Automate endpoints that accept `multipart/form-data`.
+The method signatures look like `postFoo(fooRequest: FooRequest | FormData)`.
+
+### File Downloads
+
+Endpoints that return `application/octet-stream` or `application/pdf` are typed as
+`OctetStreamResponse` (which is `Buffer` at runtime on Node) or `PDFResponse`.
+Endpoints that return `text/html` are typed as `HTMLResponse` (a string). The
+runtime configures axios to decode the response correctly, no manual setup
+required.
+
+```javascript
+import { writeFileSync } from 'node:fs'
+
+// Download a contact's avatar image (octet-stream)
+const buffer = await cwm.CompanyAPI.getCompanyContactsByIdImage(42, true, '')
+writeFileSync('./avatar.bin', buffer)
+
+// Download a document attached to a ticket
+const pdf = await cwm.SystemAPI.getSystemDocumentsByIdDownload(documentId)
+writeFileSync('./document.pdf', pdf)
+```
+
+In a browser environment, override the response type if you want a `Blob`:
+
+```javascript
+// Use the untyped request escape hatch with an explicit responseType
+const blob = await cwm.request({
+  path: `/system/documents/${id}/download`,
+  method: 'get',
+  responseType: 'blob',
+})
+```
+
 ### APIs Without Typings
 
 You can also manually access the API without typings:
@@ -160,13 +239,18 @@ You can also manually access the API without typings:
     // use cwa.request or cwm.request
     cwm.request({
       path: '/path/to/api',
-      method: 'POST', 
+      method: 'POST',
       params: {
         'queryParam1': 'val1',
         'queryParam2': 'val2'
       },
       data: {
         'dataValue': 'val1',
+      },
+      // optional, set to 'multipart' if you're passing a FormData
+      contentType: 'json',
+      // optional, set to 'arraybuffer' | 'blob' | 'stream' | 'text' for non-JSON responses
+      responseType: 'json',
     })
       .then((result) => {
           //do something with results

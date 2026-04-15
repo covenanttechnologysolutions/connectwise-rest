@@ -1,10 +1,8 @@
 /* This file was auto-generated, do not manually edit. */
-import Manage from '../Manage'
+import { ManageBaseAPI } from '../BaseAPI'
 import { components } from '../ManageTypes'
-import { CommonParameters, CWMOptions } from '../ManageAPI'
-import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
+import { CommonParameters } from '../ManageAPI'
 type schemas = components['schemas']
-
 /** {@link ConfigurationTypeInfo} */
 export type ConfigurationTypeInfo = schemas['ConfigurationTypeInfo']
 /** {@link ConfigurationTypeQuestionInfo} */
@@ -15,18 +13,10 @@ export type ConfigurationTypeQuestionValueInfo = schemas['ConfigurationTypeQuest
 export type Count = schemas['Count']
 
 /**
- * @module ConfigurationsAPI
- */
-
-/**
  * Configurations module
  * @public
  */
-export class ConfigurationsAPI extends Manage {
-  constructor(props: CWMOptions) {
-    super(props)
-  }
-
+export class ConfigurationsAPI extends ManageBaseAPI {
   getConfigurationsTypesByGrandparentIdQuestionsByParentIdValuesByIdInfo(
     grandparentId: number,
     parentId: number,

@@ -1,30 +1,36 @@
 /* This file was auto-generated, do not manually edit. */
-import Automate from '../Automate'
+import { AutomateBaseAPI } from '../BaseAPI'
 import { components } from '../AutomateTypes'
-import { CommonParameters, CWAOptions } from '../AutomateAPI'
-import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
+import { CommonParameters } from '../AutomateAPI'
+import { NoContentResponse } from '../types'
 type schemas = components['schemas']
 type requestBodies = components['requestBodies']
+/** {@link AutomateApiDomainContractsPatchingApprovalPolicy} */
+export type AutomateApiDomainContractsPatchingApprovalPolicy =
+  schemas['Automate.Api.Domain.Contracts.Patching.ApprovalPolicy']
 /** {@link AutomateApiDomainContractsPatchingGroupPatchingPolicy} */
 export type AutomateApiDomainContractsPatchingGroupPatchingPolicy =
   schemas['Automate.Api.Domain.Contracts.Patching.GroupPatchingPolicy']
+/** {@link AutomateApiDomainContractsPatchingPatchHistory} */
+export type AutomateApiDomainContractsPatchingPatchHistory =
+  schemas['Automate.Api.Domain.Contracts.Patching.PatchHistory']
+/** {@link AutomateApiDomainContractsPatchingThirdPartyUpdatePolicy} */
+export type AutomateApiDomainContractsPatchingThirdPartyUpdatePolicy =
+  schemas['Automate.Api.Domain.Contracts.Patching.ThirdPartyUpdatePolicy']
+/** {@link AutomateApiDomainContractsPatchingv1_5UpdatePolicyMicrosoftUpdatePolicy} */
+export type AutomateApiDomainContractsPatchingv1_5UpdatePolicyMicrosoftUpdatePolicy =
+  schemas['Automate.Api.Domain.Contracts.Patching.v1_5.UpdatePolicy.MicrosoftUpdatePolicy']
 /** {@link LabTechModelsPatchActionArgs} */
 export type LabTechModelsPatchActionArgs = requestBodies['LabTech.Models.PatchActionArgs']
-
-/**
- * @module PatchingAPI
- */
 
 /**
  * Patching module
  * @public
  */
-export class PatchingAPI extends Automate {
-  constructor(props: CWAOptions) {
-    super(props)
-  }
-
-  getApprovalPolicyListAsync(params: CommonParameters = {}): Promise<object> {
+export class PatchingAPI extends AutomateBaseAPI {
+  getApprovalPolicyListAsync(
+    params: CommonParameters = {},
+  ): Promise<Array<AutomateApiDomainContractsPatchingApprovalPolicy>> {
     return this.request({
       path: `/api/v1/ApprovalPolicies`,
       method: 'get',
@@ -42,7 +48,9 @@ export class PatchingAPI extends Automate {
     })
   }
 
-  getMicrosoftUpdatePolicyListAsync(params: CommonParameters = {}): Promise<object> {
+  getMicrosoftUpdatePolicyListAsync(
+    params: CommonParameters = {},
+  ): Promise<Array<AutomateApiDomainContractsPatchingv1_5UpdatePolicyMicrosoftUpdatePolicy>> {
     return this.request({
       path: `/api/v1/MicrosoftUpdatePolicies`,
       method: 'get',
@@ -98,7 +106,9 @@ export class PatchingAPI extends Automate {
     })
   }
 
-  getPatchHistoryListAsync(params: CommonParameters = {}): Promise<object> {
+  getPatchHistoryListAsync(
+    params: CommonParameters = {},
+  ): Promise<Array<AutomateApiDomainContractsPatchingPatchHistory>> {
     return this.request({
       path: `/api/v1/PatchHistory`,
       method: 'get',
@@ -106,7 +116,9 @@ export class PatchingAPI extends Automate {
     })
   }
 
-  getThirdPartyUpdatePolicyListAsync(params: CommonParameters = {}): Promise<object> {
+  getThirdPartyUpdatePolicyListAsync(
+    params: CommonParameters = {},
+  ): Promise<Array<AutomateApiDomainContractsPatchingThirdPartyUpdatePolicy>> {
     return this.request({
       path: `/api/v1/ThirdPartyUpdatePolicies`,
       method: 'get',

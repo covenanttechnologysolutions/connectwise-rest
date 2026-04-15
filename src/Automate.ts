@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosError } from 'axios'
+import axios, { AxiosInstance } from 'axios'
 import { CWLogger, DataResponse, ErrorResponse, RequestOptions, RetryOptions } from './types'
 import { CWAOptions } from './AutomateAPI'
 import { components } from './AutomateTypes'
@@ -160,9 +160,9 @@ export default class Automate {
 
   async verifyToken() {
     try {
-      const result = await this.api({ path: '/api/v1/FeatureFlags', method: 'get' })
+      await this.api({ path: '/api/v1/FeatureFlags', method: 'get' })
       return true
-    } catch (err) {
+    } catch {
       return false
     }
   }
@@ -175,6 +175,8 @@ export default class Automate {
     method,
     params,
     data,
+    contentType,
+    responseType,
   }: RequestOptions): Promise<ErrorResponse | DataResponse> {
     const { username, password, serverUrl, twoFactorPasscode } = this.config
     if (!this.config.token || !this.instance) {
@@ -184,11 +186,16 @@ export default class Automate {
     }
 
     try {
+      const headers: Record<string, string> | undefined =
+        contentType === 'multipart' ? { 'Content-Type': 'multipart/form-data' } : undefined
+
       const result = await this.instance({
         url: path,
         method,
         params,
         data,
+        headers,
+        responseType: responseType ?? 'json',
       })
 
       return result?.data
