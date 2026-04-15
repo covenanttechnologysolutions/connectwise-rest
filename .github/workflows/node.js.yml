@@ -16,27 +16,22 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x, 18.x, 20.x]
+        node-version: [18.x, 20.x, 22.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
     - run: npm run build --if-present
-    - run: npm test
-      env:
-        MANAGE_API_COMPANY: ${{ secrets.MANAGE_API_COMPANY }}
-        MANAGE_API_URL: ${{ secrets.MANAGE_API_URL }}
-        MANAGE_API_PUBLIC_KEY: ${{ secrets.MANAGE_API_PUBLIC_KEY }}
-        MANAGE_API_PRIVATE_KEY: ${{ secrets.MANAGE_API_PRIVATE_KEY }}
-        MANAGE_API_CLIENT_ID: ${{ secrets.MANAGE_API_CLIENT_ID }}
-
-        AUTOMATE_API_URL: ${{ secrets.AUTOMATE_API_URL }}
-        AUTOMATE_API_USER: ${{ secrets.AUTOMATE_API_USER }}
-        AUTOMATE_API_PASSWORD: ${{ secrets.AUTOMATE_API_PASSWORD }}
-        AUTOMATE_API_CLIENT_ID: ${{ secrets.AUTOMATE_API_CLIENT_ID }}
+    - run: npm run test:ci
+    - name: Upload coverage to Coveralls
+      if: matrix.node-version == '20.x'
+      uses: coverallsapp/github-action@v2
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        path-to-lcov: ./coverage/lcov.info

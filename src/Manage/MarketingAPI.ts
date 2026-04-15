@@ -1,10 +1,9 @@
 /* This file was auto-generated, do not manually edit. */
-import Manage from '../Manage'
+import { ManageBaseAPI } from '../BaseAPI'
 import { components } from '../ManageTypes'
-import { CommonParameters, CWMOptions } from '../ManageAPI'
-import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
+import { CommonParameters } from '../ManageAPI'
+import { NoContentResponse } from '../types'
 type schemas = components['schemas']
-
 /** {@link ActivityReference} */
 export type ActivityReference = schemas['ActivityReference']
 /** {@link Campaign} */
@@ -27,6 +26,8 @@ export type EmailOpened = schemas['EmailOpened']
 export type FormSubmitted = schemas['FormSubmitted']
 /** {@link Group} */
 export type Group = schemas['Group']
+/** {@link GroupInfo} */
+export type GroupInfo = schemas['GroupInfo']
 /** {@link LinkClicked} */
 export type LinkClicked = schemas['LinkClicked']
 /** {@link MarketingCompany} */
@@ -43,18 +44,10 @@ export type TypeSubTypeCampaignSubType = schemas['Type.SubType.CampaignSubType']
 export type Usage = schemas['Usage']
 
 /**
- * @module MarketingAPI
- */
-
-/**
  * Marketing module
  * @public
  */
-export class MarketingAPI extends Manage {
-  constructor(props: CWMOptions) {
-    super(props)
-  }
-
+export class MarketingAPI extends ManageBaseAPI {
   getMarketingCampaigns(params: CommonParameters = {}): Promise<Array<Campaign>> {
     return this.request({
       path: `/marketing/campaigns`,
@@ -771,6 +764,14 @@ export class MarketingAPI extends Manage {
     })
   }
 
+  getMarketingGroupsByIdInfo(id: number, params: CommonParameters = {}): Promise<GroupInfo> {
+    return this.request({
+      path: `/marketing/groups/${id}/info`,
+      method: 'get',
+      params,
+    })
+  }
+
   getMarketingGroupsByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
     return this.request({
       path: `/marketing/groups/${id}/usages`,
@@ -951,6 +952,22 @@ export class MarketingAPI extends Manage {
   getMarketingGroupsCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
       path: `/marketing/groups/count`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getMarketingGroupsInfo(params: CommonParameters = {}): Promise<Array<GroupInfo>> {
+    return this.request({
+      path: `/marketing/groups/info`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getMarketingGroupsInfoCount(params: CommonParameters = {}): Promise<Count> {
+    return this.request({
+      path: `/marketing/groups/info/count`,
       method: 'get',
       params,
     })

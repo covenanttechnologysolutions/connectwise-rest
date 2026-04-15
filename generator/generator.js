@@ -43,12 +43,51 @@ function generateAPIClass({ apiName, operations = [], generatorType }) {
   // system name, sanitized name
   const types = {}
   const requestBodies = {}
+  // whether any operation in this section needs the toFormData helper
+  let usedToFormData = false
+
+  // First pass: count methodName usage within this section so we can disambiguate
+  // collisions (distinct paths with the same stripped operationId).
+  const nameCounts = {}
+  for (const { methods } of operations) {
+    for (const method of Object.keys(methods)) {
+      const def = methods[method]
+      const base = def.methodName || def.operationId
+      nameCounts[base] = (nameCounts[base] || 0) + 1
+    }
+  }
+  const seenNames = new Set()
+  function pickEmittedName(base, url, method) {
+    if (nameCounts[base] === 1) {
+      seenNames.add(base)
+      return base
+    }
+    // Derive a stable suffix from the path + method.
+    const suffix = url
+      .replace(/{([^}]+)}/g, 'By$1')
+      .replace(/[^A-Za-z0-9]+/g, '')
+    let candidate = `${base}${suffix.charAt(0).toUpperCase() + suffix.slice(1)}`
+    if (method !== 'get') {
+      candidate = `${candidate}_${method}`
+    }
+    let n = 2
+    let resolved = candidate
+    while (seenNames.has(resolved)) {
+      resolved = `${candidate}_${n++}`
+    }
+    seenNames.add(resolved)
+    return resolved
+  }
 
   // loop over each defined operation for this module
   const functions = operations.map(({ url, methods }) =>
     Object.keys(methods)
       .map((method) => {
-        const { responses, operationId, parameters = [], requestBody } = methods[method]
+        const { responses, operationId, methodName, parameters = [], requestBody } = methods[method]
+        // Automate: `methodName` is the section-local name (e.g. getClientList).
+        // Manage: only `operationId` is present; use it directly.
+        const baseName = methodName || operationId
+        const emittedName = pickEmittedName(baseName, url, method)
         const queryParams = parameters.filter(({ in: in_ }) => in_ === 'query')
         const pathParams = parameters.filter(({ in: in_ }) => in_ === 'path')
 
@@ -56,6 +95,7 @@ function generateAPIClass({ apiName, operations = [], generatorType }) {
         const functionParams = [] // args to the class function
         const requestParams = [] // args to this.request
         let bodyParam = {}
+        let isMultipart = false
 
         // generally if a post command is defined
         if (requestBody) {
@@ -89,6 +129,7 @@ function generateAPIClass({ apiName, operations = [], generatorType }) {
               bodyParam.name = schema.type
             }
           } else if (requestBody.content && requestBody.content['multipart/form-data']) {
+            isMultipart = true
             const schema = requestBody.content['multipart/form-data'].schema
             if (schema.$ref) {
               const ref = schema.$ref
@@ -97,6 +138,10 @@ function generateAPIClass({ apiName, operations = [], generatorType }) {
               types[bodyParam.type] = {
                 schemaType: ref.includes('requestBodies') ? 'requestBody' : 'schemas',
               }
+            } else {
+              // inline schema, treat as generic record
+              bodyParam.type = 'Record<string, unknown>'
+              bodyParam.name = 'formData'
             }
           } else if (requestBody.$ref) {
             const ref = requestBody.$ref
@@ -114,17 +159,54 @@ function generateAPIClass({ apiName, operations = [], generatorType }) {
           bodyParam.name = sanitizeType(bodyParam.name)
         }
 
-        if (pathParams.length > 0) {
-          pathParams.forEach((parameter) => {
-            functionParams.push(`${parameter.name}: ${typeMapSanitize(parameter.schema.type)}`)
+        // Drop path params whose `{name}` placeholder doesn't actually appear in
+        // the URL template. Some upstream specs declare a path param that isn't
+        // referenced anywhere in the URL, producing an unused function argument.
+        const referencedPathParams = pathParams.filter((p) => url.includes(`{${p.name}}`))
+        if (referencedPathParams.length > 0) {
+          referencedPathParams.forEach((parameter) => {
+            let tsType
+            const schema = parameter.schema || {}
+            if (schema.$ref) {
+              const refName = schema.$ref.split('/').pop()
+              tsType = sanitizeType(refName)
+              types[refName] = {
+                schemaType: schema.$ref.includes('requestBodies') ? 'requestBody' : 'schemas',
+              }
+            } else if (schema.type === 'array' && schema.items) {
+              if (schema.items.$ref) {
+                const refName = schema.items.$ref.split('/').pop()
+                tsType = `Array<${sanitizeType(refName)}>`
+                types[refName] = {
+                  schemaType: schema.items.$ref.includes('requestBodies') ? 'requestBody' : 'schemas',
+                }
+              } else {
+                tsType = `Array<${typeMapSanitize(schema.items.type || 'unknown')}>`
+              }
+            } else {
+              tsType = typeMapSanitize(schema.type) || 'unknown'
+            }
+            functionParams.push(`${parameter.name}: ${tsType}`)
           })
         }
         requestParams.push(`path: \`${url.replaceAll(/({.+?})/g, (_, p1) => `$${p1}`)}\``)
         requestParams.push(`method: '${method}'`)
 
         if (requestBody) {
-          functionParams.push(`${bodyParam.name}: ${typeMapSanitize(bodyParam.type)}`)
-          requestParams.push(`data: ${bodyParam.name}`)
+          if (isMultipart) {
+            usedToFormData = true
+            // accept either the typed shape or a pre-built FormData; convert at runtime
+            functionParams.push(
+              `${bodyParam.name}: ${typeMapSanitize(bodyParam.type)} | FormData`,
+            )
+            requestParams.push(
+              `data: ${bodyParam.name} instanceof FormData ? ${bodyParam.name} : toFormData(${bodyParam.name} as Record<string, unknown>)`,
+            )
+            requestParams.push(`contentType: 'multipart'`)
+          } else {
+            functionParams.push(`${bodyParam.name}: ${typeMapSanitize(bodyParam.type)}`)
+            requestParams.push(`data: ${bodyParam.name}`)
+          }
         }
 
         if (queryParams.length > 0) {
@@ -132,10 +214,24 @@ function generateAPIClass({ apiName, operations = [], generatorType }) {
           requestParams.push(`params`)
         }
         let returnType
+        let responseTypeHint = null
         if (responses[204]) {
           returnType = 'NoContentResponse'
         } else {
           const { description, content } = responses[Object.keys(responses).pop()]
+
+          // Detect non-JSON response content types and emit a responseType hint.
+          if (content) {
+            const contentTypes = Object.keys(content)
+            if (
+              contentTypes.includes('application/octet-stream') ||
+              contentTypes.includes('application/pdf')
+            ) {
+              responseTypeHint = 'arraybuffer'
+            } else if (contentTypes.includes('text/html')) {
+              responseTypeHint = 'text'
+            }
+          }
 
           if (responses['default']) {
             returnType = 'any'
@@ -199,8 +295,12 @@ function generateAPIClass({ apiName, operations = [], generatorType }) {
           returnType = 'any'
         }
 
+        if (responseTypeHint) {
+          requestParams.push(`responseType: '${responseTypeHint}'`)
+        }
+
         return `
-   ${operationId}(${functionParams.map((param) => param).join(', ')}): Promise<${returnType}> {
+   ${emittedName}(${functionParams.map((param) => param).join(', ')}): Promise<${returnType}> {
     return this.request({
       ${requestParams.map((param) => param).join(', ')}
     })
@@ -220,32 +320,44 @@ function generateAPIClass({ apiName, operations = [], generatorType }) {
       }, {}),
   ).map((type) => generateTypeDef({ typeName: type, schemaType: types[type].schemaType }))
 
-  return `/* This file was auto-generated, do not manually edit. */
-import ${generatorType} from '../${generatorType}'
-import { components } from '../${generatorType}Types'
-${
-  generatorType === 'Manage'
-    ? "import { CommonParameters, CWMOptions } from '../ManageAPI'"
-    : "import { CommonParameters, CWAOptions } from '../AutomateAPI'"
-}
-import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
-type schemas = components['schemas']
-${generatorType === 'Automate' ? `type requestBodies = components['requestBodies']` : ''}
-${typeDefs.join('\n')}
+  const baseImports = [`${generatorType}BaseAPI`]
+  if (usedToFormData) {
+    baseImports.push('toFormData')
+  }
 
-/**
- * @module ${apiName}API
- */
+  // Only import helper types actually referenced by the emitted functions.
+  const joinedFns = functions.join('\n')
+  const helperCandidates = ['NoContentResponse', 'OctetStreamResponse', 'PDFResponse', 'HTMLResponse']
+  const usedHelpers = helperCandidates.filter((h) => joinedFns.includes(h))
+  const helperImport = usedHelpers.length
+    ? `import { ${usedHelpers.join(', ')} } from '../types'\n`
+    : ''
+
+  // Only import CommonParameters when a method actually takes query params.
+  const commonParamsUsed = joinedFns.includes('CommonParameters')
+  const commonParamsImport = commonParamsUsed
+    ? generatorType === 'Manage'
+      ? "import { CommonParameters } from '../ManageAPI'\n"
+      : "import { CommonParameters } from '../AutomateAPI'\n"
+    : ''
+
+  // Automate sections use both `schemas` and `requestBodies` type aliases; Manage
+  // only uses `schemas`. Only emit the aliases when any typeDef references them.
+  const schemasUsed = typeDefs.some((d) => d.includes("schemas['"))
+  const requestBodiesUsed =
+    generatorType === 'Automate' && typeDefs.some((d) => d.includes("requestBodies['"))
+
+  return `/* This file was auto-generated, do not manually edit. */
+import { ${baseImports.join(', ')} } from '../BaseAPI'
+${schemasUsed || requestBodiesUsed ? `import { components } from '../${generatorType}Types'\n` : ''}${commonParamsImport}${helperImport}${schemasUsed ? `type schemas = components['schemas']\n` : ''}${
+    requestBodiesUsed ? `type requestBodies = components['requestBodies']\n` : ''
+  }${typeDefs.join('\n')}
 
 /**
  * ${apiName} module
  * @public
  */
-export class ${apiName}API extends ${generatorType} {
-  constructor(props: ${generatorType === 'Manage' ? 'CWMOptions' : 'CWAOptions'}) {
-    super(props)
-  }
-
+export class ${apiName}API extends ${generatorType}BaseAPI {
   ${functions.join('\n')}
 }
   `

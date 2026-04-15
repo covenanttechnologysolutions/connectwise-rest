@@ -1,10 +1,9 @@
 /* This file was auto-generated, do not manually edit. */
-import Manage from '../Manage'
+import { ManageBaseAPI } from '../BaseAPI'
 import { components } from '../ManageTypes'
-import { CommonParameters, CWMOptions } from '../ManageAPI'
-import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
+import { CommonParameters } from '../ManageAPI'
+import { NoContentResponse, OctetStreamResponse } from '../types'
 type schemas = components['schemas']
-
 /** {@link ActivityReference} */
 export type ActivityReference = schemas['ActivityReference']
 /** {@link Board} */
@@ -25,6 +24,8 @@ export type BoardItem = schemas['BoardItem']
 export type BoardItemAssociation = schemas['BoardItemAssociation']
 /** {@link BoardNotification} */
 export type BoardNotification = schemas['BoardNotification']
+/** {@link BoardSkillMapping} */
+export type BoardSkillMapping = schemas['BoardSkillMapping']
 /** {@link BoardStatus} */
 export type BoardStatus = schemas['BoardStatus']
 /** {@link BoardStatusInfo} */
@@ -95,18 +96,24 @@ export type ServiceLocationInfo = schemas['ServiceLocationInfo']
 export type ServiceNote = schemas['ServiceNote']
 /** {@link ServiceSignoff} */
 export type ServiceSignoff = schemas['ServiceSignoff']
+/** {@link ServiceSignoffCustomField} */
+export type ServiceSignoffCustomField = schemas['ServiceSignoffCustomField']
 /** {@link ServiceSignoffInfo} */
 export type ServiceSignoffInfo = schemas['ServiceSignoffInfo']
 /** {@link ServiceSurvey} */
 export type ServiceSurvey = schemas['ServiceSurvey']
 /** {@link ServiceSurveyQuestion} */
 export type ServiceSurveyQuestion = schemas['ServiceSurveyQuestion']
+/** {@link ServiceTask} */
+export type ServiceTask = schemas['ServiceTask']
 /** {@link ServiceTeam} */
 export type ServiceTeam = schemas['ServiceTeam']
 /** {@link ServiceTemplate} */
 export type ServiceTemplate = schemas['ServiceTemplate']
 /** {@link ServiceTemplateInfo} */
 export type ServiceTemplateInfo = schemas['ServiceTemplateInfo']
+/** {@link ServiceTemplateTask} */
+export type ServiceTemplateTask = schemas['ServiceTemplateTask']
 /** {@link ServiceTicketLink} */
 export type ServiceTicketLink = schemas['ServiceTicketLink']
 /** {@link ServiceTicketLinkInfo} */
@@ -125,16 +132,18 @@ export type SuccessResponse = schemas['SuccessResponse']
 export type SurveyOption = schemas['SurveyOption']
 /** {@link SurveyResult} */
 export type SurveyResult = schemas['SurveyResult']
-/** {@link Task} */
-export type Task = schemas['Task']
 /** {@link TeamMember} */
 export type TeamMember = schemas['TeamMember']
+/** {@link TemplateGenerate} */
+export type TemplateGenerate = schemas['TemplateGenerate']
 /** {@link TemplateGeneratedCountsModel} */
 export type TemplateGeneratedCountsModel = schemas['TemplateGeneratedCountsModel']
 /** {@link Ticket} */
 export type Ticket = schemas['Ticket']
 /** {@link TicketBundle} */
 export type TicketBundle = schemas['TicketBundle']
+/** {@link TicketChangeLog} */
+export type TicketChangeLog = schemas['TicketChangeLog']
 /** {@link TicketInfo} */
 export type TicketInfo = schemas['TicketInfo']
 /** {@link TicketMerge} */
@@ -147,18 +156,10 @@ export type TimeEntryReference = schemas['TimeEntryReference']
 export type Usage = schemas['Usage']
 
 /**
- * @module ServiceAPI
- */
-
-/**
  * Service module
  * @public
  */
-export class ServiceAPI extends Manage {
-  constructor(props: CWMOptions) {
-    super(props)
-  }
-
+export class ServiceAPI extends ManageBaseAPI {
   getServiceBoards(params: CommonParameters = {}): Promise<Array<Board>> {
     return this.request({
       path: `/service/boards`,
@@ -755,6 +756,85 @@ export class ServiceAPI extends Manage {
   ): Promise<Count> {
     return this.request({
       path: `/service/boards/${parentId}/notifications/count`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getServiceBoardsByParentIdSkillMappings(
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<Array<BoardSkillMapping>> {
+    return this.request({
+      path: `/service/boards/${parentId}/skillMappings/`,
+      method: 'get',
+      params,
+    })
+  }
+
+  postServiceBoardsByParentIdSkillMappings(
+    parentId: number,
+    BoardSkillMapping: BoardSkillMapping,
+  ): Promise<BoardSkillMapping> {
+    return this.request({
+      path: `/service/boards/${parentId}/skillMappings/`,
+      method: 'post',
+      data: BoardSkillMapping,
+    })
+  }
+
+  getServiceBoardsByParentIdSkillMappingsById(
+    id: number,
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<BoardSkillMapping> {
+    return this.request({
+      path: `/service/boards/${parentId}/skillMappings/${id}`,
+      method: 'get',
+      params,
+    })
+  }
+
+  deleteServiceBoardsByParentIdSkillMappingsById(
+    id: number,
+    parentId: number,
+  ): Promise<NoContentResponse> {
+    return this.request({
+      path: `/service/boards/${parentId}/skillMappings/${id}`,
+      method: 'delete',
+    })
+  }
+
+  putServiceBoardsByParentIdSkillMappingsById(
+    id: number,
+    parentId: number,
+    boardSkillMapping: BoardSkillMapping,
+  ): Promise<BoardSkillMapping> {
+    return this.request({
+      path: `/service/boards/${parentId}/skillMappings/${id}`,
+      method: 'put',
+      data: boardSkillMapping,
+    })
+  }
+
+  patchServiceBoardsByParentIdSkillMappingsById(
+    id: number,
+    parentId: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<BoardSkillMapping> {
+    return this.request({
+      path: `/service/boards/${parentId}/skillMappings/${id}`,
+      method: 'patch',
+      data: patchOperations,
+    })
+  }
+
+  getServiceBoardsByParentIdSkillMappingsCount(
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<Count> {
+    return this.request({
+      path: `/service/boards/${parentId}/skillMappings/count`,
       method: 'get',
       params,
     })
@@ -1499,6 +1579,14 @@ export class ServiceAPI extends Manage {
     })
   }
 
+  getServiceInfoBoardsActive(params: CommonParameters = {}): Promise<Array<BoardInfo>> {
+    return this.request({
+      path: `/service/info/boards/active`,
+      method: 'get',
+      params,
+    })
+  }
+
   getServiceInfoBoardsCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
       path: `/service/info/boards/count`,
@@ -1869,6 +1957,25 @@ export class ServiceAPI extends Manage {
     })
   }
 
+  getServiceLocationsByIdUsages(id: number, params: CommonParameters = {}): Promise<Array<Usage>> {
+    return this.request({
+      path: `/service/locations/${id}/usages`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getServiceLocationsByIdUsagesList(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Array<Usage>> {
+    return this.request({
+      path: `/service/locations/${id}/usages/list`,
+      method: 'get',
+      params,
+    })
+  }
+
   getServiceLocationsCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
       path: `/service/locations/count`,
@@ -1945,8 +2052,6 @@ export class ServiceAPI extends Manage {
 
   getServicePrioritiesByIdImage(
     id: number,
-    useDefaultFlag: boolean,
-    lastModified: string,
     params: CommonParameters = {},
   ): Promise<OctetStreamResponse> {
     return this.request({
@@ -2114,6 +2219,85 @@ export class ServiceAPI extends Manage {
     })
   }
 
+  getServiceServiceSignoffByParentIdSignoffcustomfields(
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<Array<ServiceSignoffCustomField>> {
+    return this.request({
+      path: `/service/serviceSignoff/${parentId}/signoffcustomfields`,
+      method: 'get',
+      params,
+    })
+  }
+
+  postServiceServiceSignoffByParentIdSignoffcustomfields(
+    parentId: number,
+    serviceSignoff: ServiceSignoffCustomField,
+  ): Promise<ServiceSignoffCustomField> {
+    return this.request({
+      path: `/service/serviceSignoff/${parentId}/signoffcustomfields`,
+      method: 'post',
+      data: serviceSignoff,
+    })
+  }
+
+  getServiceServiceSignoffByParentIdSignoffcustomfieldsById(
+    id: number,
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<ServiceSignoffCustomField> {
+    return this.request({
+      path: `/service/serviceSignoff/${parentId}/signoffcustomfields/${id}`,
+      method: 'get',
+      params,
+    })
+  }
+
+  putServiceServiceSignoffByParentIdSignoffcustomfieldsById(
+    id: number,
+    parentId: number,
+    ServiceSignoffCustomField: ServiceSignoffCustomField,
+  ): Promise<ServiceSignoffCustomField> {
+    return this.request({
+      path: `/service/serviceSignoff/${parentId}/signoffcustomfields/${id}`,
+      method: 'put',
+      data: ServiceSignoffCustomField,
+    })
+  }
+
+  deleteServiceServiceSignoffByParentIdSignoffcustomfieldsById(
+    id: number,
+    parentId: number,
+  ): Promise<NoContentResponse> {
+    return this.request({
+      path: `/service/serviceSignoff/${parentId}/signoffcustomfields/${id}`,
+      method: 'delete',
+    })
+  }
+
+  patchServiceServiceSignoffByParentIdSignoffcustomfieldsById(
+    id: number,
+    parentId: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<ServiceSignoffCustomField> {
+    return this.request({
+      path: `/service/serviceSignoff/${parentId}/signoffcustomfields/${id}`,
+      method: 'patch',
+      data: patchOperations,
+    })
+  }
+
+  getServiceServiceSignoffByParentIdSignoffcustomfieldsCount(
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<Count> {
+    return this.request({
+      path: `/service/serviceSignoff/${parentId}/signoffcustomfields/count`,
+      method: 'get',
+      params,
+    })
+  }
+
   getServiceServiceSignoffCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
       path: `/service/serviceSignoff/count`,
@@ -2181,22 +2365,6 @@ export class ServiceAPI extends Manage {
     })
   }
 
-  getServiceSlainfoByIdInfo(id: number, params: CommonParameters = {}): Promise<SLAInfo> {
-    return this.request({
-      path: `/service/slainfo/${id}/info`,
-      method: 'get',
-      params,
-    })
-  }
-
-  getServiceSlainfoInfo(params: CommonParameters = {}): Promise<Array<SLAInfo>> {
-    return this.request({
-      path: `/service/slainfo/info`,
-      method: 'get',
-      params,
-    })
-  }
-
   getServiceSLAs(params: CommonParameters = {}): Promise<Array<SLA>> {
     return this.request({
       path: `/service/SLAs`,
@@ -2241,6 +2409,14 @@ export class ServiceAPI extends Manage {
       path: `/service/SLAs/${id}`,
       method: 'patch',
       data: patchOperations,
+    })
+  }
+
+  getServiceSlasByIdInfo(id: number, params: CommonParameters = {}): Promise<SLAInfo> {
+    return this.request({
+      path: `/service/slas/${id}/info`,
+      method: 'get',
+      params,
     })
   }
 
@@ -2342,6 +2518,14 @@ export class ServiceAPI extends Manage {
   getServiceSLAsCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
       path: `/service/SLAs/count`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getServiceSlasInfo(params: CommonParameters = {}): Promise<Array<SLAInfo>> {
+    return this.request({
+      path: `/service/slas/info`,
       method: 'get',
       params,
     })
@@ -2831,6 +3015,14 @@ export class ServiceAPI extends Manage {
     })
   }
 
+  postServiceTemplates(serviceTemplate: ServiceTemplate): Promise<ServiceTemplate> {
+    return this.request({
+      path: `/service/templates`,
+      method: 'post',
+      data: serviceTemplate,
+    })
+  }
+
   getServiceTemplatesById(id: number, params: CommonParameters = {}): Promise<ServiceTemplate> {
     return this.request({
       path: `/service/templates/${id}`,
@@ -2839,10 +3031,40 @@ export class ServiceAPI extends Manage {
     })
   }
 
-  postServiceTemplatesByIdGenerate(id: number): Promise<TemplateGeneratedCountsModel> {
+  putServiceTemplatesById(id: number, ServiceTemplate: ServiceTemplate): Promise<ServiceTemplate> {
+    return this.request({
+      path: `/service/templates/${id}`,
+      method: 'put',
+      data: ServiceTemplate,
+    })
+  }
+
+  patchServiceTemplatesById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<ServiceTemplate> {
+    return this.request({
+      path: `/service/templates/${id}`,
+      method: 'patch',
+      data: patchOperations,
+    })
+  }
+
+  deleteServiceTemplatesById(id: number): Promise<NoContentResponse> {
+    return this.request({
+      path: `/service/templates/${id}`,
+      method: 'delete',
+    })
+  }
+
+  postServiceTemplatesByIdGenerate(
+    id: number,
+    templateGenerate: TemplateGenerate,
+  ): Promise<TemplateGeneratedCountsModel> {
     return this.request({
       path: `/service/templates/${id}/generate`,
       method: 'post',
+      data: templateGenerate,
     })
   }
 
@@ -2852,6 +3074,85 @@ export class ServiceAPI extends Manage {
   ): Promise<ServiceTemplateInfo> {
     return this.request({
       path: `/service/templates/${id}/info`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getServiceTemplatesByParentIdTasks(
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<Array<ServiceTemplateTask>> {
+    return this.request({
+      path: `/service/templates/${parentId}/tasks`,
+      method: 'get',
+      params,
+    })
+  }
+
+  postServiceTemplatesByParentIdTasks(
+    parentId: number,
+    serviceTemplateTask: ServiceTemplateTask,
+  ): Promise<ServiceTemplateTask> {
+    return this.request({
+      path: `/service/templates/${parentId}/tasks`,
+      method: 'post',
+      data: serviceTemplateTask,
+    })
+  }
+
+  getServiceTemplatesByParentIdTasksById(
+    id: number,
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<ServiceTemplateTask> {
+    return this.request({
+      path: `/service/templates/${parentId}/tasks/${id}`,
+      method: 'get',
+      params,
+    })
+  }
+
+  deleteServiceTemplatesByParentIdTasksById(
+    id: number,
+    parentId: number,
+  ): Promise<NoContentResponse> {
+    return this.request({
+      path: `/service/templates/${parentId}/tasks/${id}`,
+      method: 'delete',
+    })
+  }
+
+  putServiceTemplatesByParentIdTasksById(
+    id: number,
+    parentId: number,
+    serviceTemplateTask: ServiceTemplateTask,
+  ): Promise<ServiceTemplateTask> {
+    return this.request({
+      path: `/service/templates/${parentId}/tasks/${id}`,
+      method: 'put',
+      data: serviceTemplateTask,
+    })
+  }
+
+  patchServiceTemplatesByParentIdTasksById(
+    id: number,
+    parentId: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<ServiceTemplateTask> {
+    return this.request({
+      path: `/service/templates/${parentId}/tasks/${id}`,
+      method: 'patch',
+      data: patchOperations,
+    })
+  }
+
+  getServiceTemplatesByParentIdTasksCount(
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<Count> {
+    return this.request({
+      path: `/service/templates/${parentId}/tasks/count`,
       method: 'get',
       params,
     })
@@ -3013,6 +3314,13 @@ export class ServiceAPI extends Manage {
       path: `/service/tickets/${id}`,
       method: 'patch',
       data: patchOperations,
+    })
+  }
+
+  postServiceTicketsByIdCopy(id: number): Promise<Ticket> {
+    return this.request({
+      path: `/service/tickets/${id}/copy`,
+      method: 'post',
     })
   }
 
@@ -3293,7 +3601,7 @@ export class ServiceAPI extends Manage {
   getServiceTicketsByParentIdTasks(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<Array<Task>> {
+  ): Promise<Array<ServiceTask>> {
     return this.request({
       path: `/service/tickets/${parentId}/tasks`,
       method: 'get',
@@ -3301,7 +3609,7 @@ export class ServiceAPI extends Manage {
     })
   }
 
-  postServiceTicketsByParentIdTasks(parentId: number, task: Task): Promise<Task> {
+  postServiceTicketsByParentIdTasks(parentId: number, task: ServiceTask): Promise<ServiceTask> {
     return this.request({
       path: `/service/tickets/${parentId}/tasks`,
       method: 'post',
@@ -3313,7 +3621,7 @@ export class ServiceAPI extends Manage {
     id: number,
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<Task> {
+  ): Promise<ServiceTask> {
     return this.request({
       path: `/service/tickets/${parentId}/tasks/${id}`,
       method: 'get',
@@ -3331,7 +3639,11 @@ export class ServiceAPI extends Manage {
     })
   }
 
-  putServiceTicketsByParentIdTasksById(id: number, parentId: number, task: Task): Promise<Task> {
+  putServiceTicketsByParentIdTasksById(
+    id: number,
+    parentId: number,
+    task: ServiceTask,
+  ): Promise<ServiceTask> {
     return this.request({
       path: `/service/tickets/${parentId}/tasks/${id}`,
       method: 'put',
@@ -3343,7 +3655,7 @@ export class ServiceAPI extends Manage {
     id: number,
     parentId: number,
     patchOperations: Array<PatchOperation>,
-  ): Promise<Task> {
+  ): Promise<ServiceTask> {
     return this.request({
       path: `/service/tickets/${parentId}/tasks/${id}`,
       method: 'patch',
@@ -3381,6 +3693,29 @@ export class ServiceAPI extends Manage {
       path: `/service/tickets/${parentId}/timeentries/count`,
       method: 'get',
       params,
+    })
+  }
+
+  getServiceTicketsCalculateSla(params: CommonParameters = {}): Promise<Array<Ticket>> {
+    return this.request({
+      path: `/service/tickets/calculateSla`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getServiceTicketsChangelogs(params: CommonParameters = {}): Promise<Array<TicketChangeLog>> {
+    return this.request({
+      path: `/service/tickets/changelogs`,
+      method: 'get',
+      params,
+    })
+  }
+
+  deleteServiceTicketsChangelogs(): Promise<NoContentResponse> {
+    return this.request({
+      path: `/service/tickets/changelogs`,
+      method: 'delete',
     })
   }
 

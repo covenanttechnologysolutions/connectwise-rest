@@ -1,28 +1,18 @@
 /* This file was auto-generated, do not manually edit. */
-import Automate from '../Automate'
+import { AutomateBaseAPI } from '../BaseAPI'
 import { components } from '../AutomateTypes'
-import { CommonParameters, CWAOptions } from '../AutomateAPI'
-import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
+import { CommonParameters } from '../AutomateAPI'
 type schemas = components['schemas']
-type requestBodies = components['requestBodies']
 /** {@link LabTechModelsDataView} */
 export type LabTechModelsDataView = schemas['LabTech.Models.DataView']
 /** {@link LabTechModelsDataViewFolder} */
 export type LabTechModelsDataViewFolder = schemas['LabTech.Models.DataViewFolder']
 
 /**
- * @module DataViewsAPI
- */
-
-/**
  * DataViews module
  * @public
  */
-export class DataViewsAPI extends Automate {
-  constructor(props: CWAOptions) {
-    super(props)
-  }
-
+export class DataViewsAPI extends AutomateBaseAPI {
   getDataViewFolderList(
     params: CommonParameters = {},
   ): Promise<Array<LabTechModelsDataViewFolder>> {

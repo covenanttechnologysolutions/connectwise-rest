@@ -5,6 +5,78 @@ import Automate, { AutomateConfig } from './Automate'
 import { CommonParameters } from './AutomateAPI'
 
 /**
+ * Build a `FormData` from a plain object for multipart uploads. File fields can
+ * be any value FormData.append accepts natively (Blob, File, Buffer, Uint8Array,
+ * ReadStream under the Node ponyfill). Primitive values are stringified.
+ *
+ * @public
+ */
+export function toFormData(input: Record<string, unknown>): FormData {
+  const fd = new FormData()
+  for (const [k, v] of Object.entries(input)) {
+    if (v === undefined || v === null) {
+      continue
+    }
+    if (v instanceof Blob) {
+      fd.append(k, v)
+    } else if (typeof v === 'string') {
+      fd.append(k, v)
+    } else if (typeof v === 'number' || typeof v === 'boolean' || typeof v === 'bigint') {
+      fd.append(k, String(v))
+    } else {
+      // Buffer, Uint8Array, File, ReadStream all accepted by FormData.append
+      // through Blob-like coercion in modern runtimes.
+      fd.append(k, v as Blob)
+    }
+  }
+  return fd
+}
+
+/**
+ * Base class for generated Automate API sections. Holds a shared `Automate`
+ * client reference so every sub-API uses the same axios instance and auth state.
+ * @public
+ */
+export class AutomateBaseAPI {
+  readonly #client: Automate
+
+  /**
+   * Sub-APIs are instantiated by the AutomateAPI aggregator's lazy getters.
+   * Consumers should not call this directly.
+   * @internal
+   */
+  constructor(client: Automate) {
+    this.#client = client
+  }
+
+  protected request<T = unknown>(args: RequestOptions): Promise<T> {
+    return this.#client.request(args) as Promise<T>
+  }
+}
+
+/**
+ * Base class for generated Manage API sections. Holds a shared `Manage`
+ * client reference so every sub-API uses the same axios instance and auth state.
+ * @public
+ */
+export class ManageBaseAPI {
+  readonly #client: Manage
+
+  /**
+   * Sub-APIs are instantiated by the ManageAPI aggregator's lazy getters.
+   * Consumers should not call this directly.
+   * @internal
+   */
+  constructor(client: Manage) {
+    this.#client = client
+  }
+
+  protected request<T = unknown>(args: RequestOptions): Promise<T> {
+    return this.#client.request(args) as Promise<T>
+  }
+}
+
+/**
  * curried request function
  * @internal
  */
@@ -87,7 +159,7 @@ export interface PaginationConfig {
   thisObj: InstanceType<typeof Automate | typeof Manage>
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
+// eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
 export type PaginationApiMethod = Function
 
 export type PaginationOptions = {
@@ -101,43 +173,36 @@ export type PaginationOptions = {
  */
 export const makePaginate =
   ({ thisObj }: PaginationConfig) =>
-  (
+  async (
     apiMethod: PaginationApiMethod,
     paginateArgs: PaginationOptions = {},
     ...methodArgs: Record<string, unknown>[]
   ): Promise<unknown[]> => {
     const { startPage = 1, pageSize = 1000 } = paginateArgs
 
-    return new Promise(async (resolve, reject) => {
-      let results: unknown[] = []
+    let results: unknown[] = []
+    let page = startPage
 
-      let page = startPage
+    if (startPage === undefined || startPage < 1) {
+      page = 1
+    }
 
-      if (startPage === undefined || startPage < 1) {
-        page = 1
-      }
-
-      while (true) {
-        try {
-          const pageResults = await getPage(apiMethod, methodArgs, thisObj, page++, pageSize)
-          // complete page returned, loop again
-          if (Array.isArray(pageResults) && pageResults.length > 0) {
-            results = [...results, ...pageResults]
-            if (pageResults.length !== pageSize) {
-              // incomplete page, there are no more pages
-              break
-            }
-          } else {
-            // no results returned, this is the last page, previous page was full
-            break
-          }
-        } catch (error: unknown) {
-          return reject(error)
+    while (true) {
+      const pageResults = await getPage(apiMethod, methodArgs, thisObj, page++, pageSize)
+      // complete page returned, loop again
+      if (Array.isArray(pageResults) && pageResults.length > 0) {
+        results = [...results, ...pageResults]
+        if (pageResults.length !== pageSize) {
+          // incomplete page, there are no more pages
+          break
         }
+      } else {
+        // no results returned, this is the last page, previous page was full
+        break
       }
+    }
 
-      return resolve(results)
-    })
+    return results
   }
 
 /**
@@ -161,8 +226,6 @@ function getPage(
   }
 
   // look for CommonParams and inject page and pageSize
-  // check for apiMethod function args length
-  // get last arg
   const commonParams = <CommonParameters>methodArgs.pop()
   commonParams.page = page
   commonParams.pageSize = pageSize
@@ -170,15 +233,4 @@ function getPage(
   methodArgs.push(commonParams)
 
   return apiMethod.apply(thisObj, methodArgs)
-}
-
-/**
- * @internal
- */
-function isCommonParametersLike(input: unknown): input is CommonParameters {
-  if (typeof input === 'object' && input !== null) {
-    return true
-  } else {
-    return false
-  }
 }

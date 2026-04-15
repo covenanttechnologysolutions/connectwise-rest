@@ -1,10 +1,9 @@
 /* This file was auto-generated, do not manually edit. */
-import Automate from '../Automate'
+import { AutomateBaseAPI } from '../BaseAPI'
 import { components } from '../AutomateTypes'
-import { CommonParameters, CWAOptions } from '../AutomateAPI'
-import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
+import { CommonParameters } from '../AutomateAPI'
+import { NoContentResponse } from '../types'
 type schemas = components['schemas']
-type requestBodies = components['requestBodies']
 /** {@link AutomateApiDomainContractsClientsContact} */
 export type AutomateApiDomainContractsClientsContact =
   schemas['Automate.Api.Domain.Contracts.Clients.Contact']
@@ -12,19 +11,11 @@ export type AutomateApiDomainContractsClientsContact =
 export type LabTechModelsContact = schemas['LabTech.Models.Contact']
 
 /**
- * @module ContactsAPI
- */
-
-/**
  * Contacts module
  * @public
  */
-export class ContactsAPI extends Automate {
-  constructor(props: CWAOptions) {
-    super(props)
-  }
-
-  getContactList(params: CommonParameters = {}): Promise<Array<LabTechModelsContact>> {
+export class ContactsAPI extends AutomateBaseAPI {
+  getContactListApiv1Contacts(params: CommonParameters = {}): Promise<Array<LabTechModelsContact>> {
     return this.request({
       path: `/api/v1/Contacts`,
       method: 'get',
@@ -40,13 +31,23 @@ export class ContactsAPI extends Automate {
     })
   }
 
-  getContactListV2(
+  getContactListApiv2Contacts(
     params: CommonParameters = {},
   ): Promise<Array<AutomateApiDomainContractsClientsContact>> {
     return this.request({
       path: `/api/v2/Contacts`,
       method: 'get',
       params,
+    })
+  }
+
+  postContact(
+    Contact: AutomateApiDomainContractsClientsContact,
+  ): Promise<AutomateApiDomainContractsClientsContact> {
+    return this.request({
+      path: `/api/v2/Contacts`,
+      method: 'post',
+      data: Contact,
     })
   }
 
@@ -58,6 +59,24 @@ export class ContactsAPI extends Automate {
       path: `/api/v2/Contacts/${contactId}`,
       method: 'get',
       params,
+    })
+  }
+
+  putContact(
+    contactId: number,
+    Contact: AutomateApiDomainContractsClientsContact,
+  ): Promise<AutomateApiDomainContractsClientsContact> {
+    return this.request({
+      path: `/api/v2/Contacts/${contactId}`,
+      method: 'put',
+      data: Contact,
+    })
+  }
+
+  deleteContact(contactId: number): Promise<NoContentResponse> {
+    return this.request({
+      path: `/api/v2/Contacts/${contactId}`,
+      method: 'delete',
     })
   }
 }

@@ -1,10 +1,9 @@
 /* This file was auto-generated, do not manually edit. */
-import Manage from '../Manage'
+import { ManageBaseAPI } from '../BaseAPI'
 import { components } from '../ManageTypes'
-import { CommonParameters, CWMOptions } from '../ManageAPI'
-import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
+import { CommonParameters } from '../ManageAPI'
+import { NoContentResponse } from '../types'
 type schemas = components['schemas']
-
 /** {@link ActivityStopwatch} */
 export type ActivityStopwatch = schemas['ActivityStopwatch']
 /** {@link ChargeCode} */
@@ -31,6 +30,12 @@ export type TimeAccrualDetail = schemas['TimeAccrualDetail']
 export type TimeEntry = schemas['TimeEntry']
 /** {@link TimeEntryAudit} */
 export type TimeEntryAudit = schemas['TimeEntryAudit']
+/** {@link TimeEntryChangeLog} */
+export type TimeEntryChangeLog = schemas['TimeEntryChangeLog']
+/** {@link TimeEntryTierReject} */
+export type TimeEntryTierReject = schemas['TimeEntryTierReject']
+/** {@link TimeEntryTierUpdate} */
+export type TimeEntryTierUpdate = schemas['TimeEntryTierUpdate']
 /** {@link TimePeriod} */
 export type TimePeriod = schemas['TimePeriod']
 /** {@link TimePeriodSetup} */
@@ -57,18 +62,10 @@ export type WorkType = schemas['WorkType']
 export type WorkTypeInfo = schemas['WorkTypeInfo']
 
 /**
- * @module TimeAPI
- */
-
-/**
  * Time module
  * @public
  */
-export class TimeAPI extends Manage {
-  constructor(props: CWMOptions) {
-    super(props)
-  }
-
+export class TimeAPI extends ManageBaseAPI {
   getTimeAccruals(params: CommonParameters = {}): Promise<Array<TimeAccrual>> {
     return this.request({
       path: `/time/accruals`,
@@ -264,6 +261,21 @@ export class TimeAPI extends Manage {
       path: `/time/activitystopwatches/count`,
       method: 'get',
       params,
+    })
+  }
+
+  getTimeChangelogs(params: CommonParameters = {}): Promise<Array<TimeEntryChangeLog>> {
+    return this.request({
+      path: `/time/changelogs`,
+      method: 'get',
+      params,
+    })
+  }
+
+  deleteTimeChangelogs(): Promise<NoContentResponse> {
+    return this.request({
+      path: `/time/changelogs`,
+      method: 'delete',
     })
   }
 
@@ -494,6 +506,35 @@ export class TimeAPI extends Manage {
     })
   }
 
+  postTimeEntriesByIdCancelReject(
+    id: number,
+    timeEntryTierUpdate: TimeEntryTierUpdate,
+  ): Promise<NoContentResponse> {
+    return this.request({
+      path: `/time/entries/${id}/cancelReject`,
+      method: 'post',
+      data: timeEntryTierUpdate,
+    })
+  }
+
+  postTimeEntriesByIdDetach(id: number): Promise<TimeEntry> {
+    return this.request({
+      path: `/time/entries/${id}/detach`,
+      method: 'post',
+    })
+  }
+
+  postTimeEntriesByIdReject(
+    id: number,
+    timeEntryTierUpdate: TimeEntryTierReject,
+  ): Promise<NoContentResponse> {
+    return this.request({
+      path: `/time/entries/${id}/reject`,
+      method: 'post',
+      data: timeEntryTierUpdate,
+    })
+  }
+
   getTimeEntriesByParentIdAudits(
     parentId: number,
     params: CommonParameters = {},
@@ -639,6 +680,13 @@ export class TimeAPI extends Manage {
       path: `/time/sheets/${id}`,
       method: 'get',
       params,
+    })
+  }
+
+  deleteTimeSheetsById(id: number): Promise<NoContentResponse> {
+    return this.request({
+      path: `/time/sheets/${id}`,
+      method: 'delete',
     })
   }
 

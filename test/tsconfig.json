@@ -1,0 +1,12 @@
+{
+  "extends": "../tsconfig.json",
+  "include": ["./**/*.mjs", "./**/*.ts"],
+  "exclude": [],
+  "compilerOptions": {
+    "noEmit": true,
+    "rootDir": ".",
+    "allowJs": true,
+    "checkJs": false,
+    "baseUrl": "."
+  }
+}

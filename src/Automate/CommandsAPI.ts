@@ -1,26 +1,16 @@
 /* This file was auto-generated, do not manually edit. */
-import Automate from '../Automate'
+import { AutomateBaseAPI } from '../BaseAPI'
 import { components } from '../AutomateTypes'
-import { CommonParameters, CWAOptions } from '../AutomateAPI'
-import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
+import { CommonParameters } from '../AutomateAPI'
 type schemas = components['schemas']
-type requestBodies = components['requestBodies']
 /** {@link LabTechModelsCommand} */
 export type LabTechModelsCommand = schemas['LabTech.Models.Command']
-
-/**
- * @module CommandsAPI
- */
 
 /**
  * Commands module
  * @public
  */
-export class CommandsAPI extends Automate {
-  constructor(props: CWAOptions) {
-    super(props)
-  }
-
+export class CommandsAPI extends AutomateBaseAPI {
   getCommandList(params: CommonParameters = {}): Promise<Array<LabTechModelsCommand>> {
     return this.request({
       path: `/api/v1/Commands`,
