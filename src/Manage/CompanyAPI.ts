@@ -1,18 +1,15 @@
 /* This file was auto-generated, do not manually edit. */
-import Manage from '../Manage'
+import { ManageBaseAPI } from '../BaseAPI'
 import { components } from '../ManageTypes'
-import { CommonParameters, CWMOptions } from '../ManageAPI'
-import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
+import { CommonParameters } from '../ManageAPI'
+import { NoContentResponse, OctetStreamResponse } from '../types'
 type schemas = components['schemas']
-
 /** {@link AddressFormat} */
 export type AddressFormat = schemas['AddressFormat']
 /** {@link AddressFormatInfo} */
 export type AddressFormatInfo = schemas['AddressFormatInfo']
 /** {@link BulkResult} */
 export type BulkResult = schemas['BulkResult']
-/** {@link ClearPickerRequest} */
-export type ClearPickerRequest = schemas['ClearPickerRequest']
 /** {@link CommunicationType} */
 export type CommunicationType = schemas['CommunicationType']
 /** {@link CommunicationTypeInfo} */
@@ -30,10 +27,10 @@ export type CompanyCompanyTypeAssociationCompanyTypeAssociation =
   schemas['CompanyCompanyTypeAssociation.CompanyTypeAssociation']
 /** {@link CompanyCustomNote} */
 export type CompanyCustomNote = schemas['CompanyCustomNote']
-/** {@link CompanyFinance} */
-export type CompanyFinance = schemas['CompanyFinance']
 /** {@link CompanyGroup} */
 export type CompanyGroup = schemas['CompanyGroup']
+/** {@link CompanyInfo} */
+export type CompanyInfo = schemas['CompanyInfo']
 /** {@link CompanyManagementSummary} */
 export type CompanyManagementSummary = schemas['CompanyManagementSummary']
 /** {@link CompanyMerge} */
@@ -46,8 +43,12 @@ export type CompanyNoteType = schemas['CompanyNoteType']
 export type CompanyNoteTypeInfo = schemas['CompanyNoteTypeInfo']
 /** {@link CompanyPickerItem} */
 export type CompanyPickerItem = schemas['CompanyPickerItem']
+/** {@link CompanyServiceTemplate} */
+export type CompanyServiceTemplate = schemas['CompanyServiceTemplate']
 /** {@link CompanySite} */
 export type CompanySite = schemas['CompanySite']
+/** {@link CompanySiteInfo} */
+export type CompanySiteInfo = schemas['CompanySiteInfo']
 /** {@link CompanyStatus} */
 export type CompanyStatus = schemas['CompanyStatus']
 /** {@link CompanyTeam} */
@@ -60,8 +61,12 @@ export type CompanyTypeInfo = schemas['CompanyTypeInfo']
 export type ConfigurationStatus = schemas['ConfigurationStatus']
 /** {@link ConfigurationStatusInfo} */
 export type ConfigurationStatusInfo = schemas['ConfigurationStatusInfo']
+/** {@link ConfigurationTabsCount} */
+export type ConfigurationTabsCount = schemas['ConfigurationTabsCount']
 /** {@link ConfigurationType} */
 export type ConfigurationType = schemas['ConfigurationType']
+/** {@link ConfigurationTypeCopy} */
+export type ConfigurationTypeCopy = schemas['ConfigurationTypeCopy']
 /** {@link ConfigurationTypeInfo} */
 export type ConfigurationTypeInfo = schemas['ConfigurationTypeInfo']
 /** {@link ConfigurationTypeQuestion} */
@@ -81,6 +86,8 @@ export type ContactDepartment = schemas['ContactDepartment']
 export type ContactDepartmentInfo = schemas['ContactDepartmentInfo']
 /** {@link ContactGroup} */
 export type ContactGroup = schemas['ContactGroup']
+/** {@link ContactInfo} */
+export type ContactInfo = schemas['ContactInfo']
 /** {@link ContactNote} */
 export type ContactNote = schemas['ContactNote']
 /** {@link ContactRelationship} */
@@ -101,6 +108,10 @@ export type CountryInfo = schemas['CountryInfo']
 export type EntityType = schemas['EntityType']
 /** {@link EntityTypeInfo} */
 export type EntityTypeInfo = schemas['EntityTypeInfo']
+/** {@link M365Contact} */
+export type M365Contact = schemas['M365Contact']
+/** {@link M365ContactSyncProperty} */
+export type M365ContactSyncProperty = schemas['M365ContactSyncProperty']
 /** {@link ManagedDevicesIntegration} */
 export type ManagedDevicesIntegration = schemas['ManagedDevicesIntegration']
 /** {@link ManagedDevicesIntegrationCrossReference} */
@@ -159,6 +170,8 @@ export type PortalSecurityLevel = schemas['PortalSecurityLevel']
 export type PortalSecuritySetting = schemas['PortalSecuritySetting']
 /** {@link RequestPasswordRequest} */
 export type RequestPasswordRequest = schemas['RequestPasswordRequest']
+/** {@link ServiceTemplate} */
+export type ServiceTemplate = schemas['ServiceTemplate']
 /** {@link State} */
 export type State = schemas['State']
 /** {@link StateInfo} */
@@ -169,6 +182,10 @@ export type SuccessResponse = schemas['SuccessResponse']
 export type TeamRole = schemas['TeamRole']
 /** {@link TeamRoleInfo} */
 export type TeamRoleInfo = schemas['TeamRoleInfo']
+/** {@link TemplateGenerate} */
+export type TemplateGenerate = schemas['TemplateGenerate']
+/** {@link TemplateGeneratedCountsModel} */
+export type TemplateGeneratedCountsModel = schemas['TemplateGeneratedCountsModel']
 /** {@link Track} */
 export type Track = schemas['Track']
 /** {@link TrackAction} */
@@ -181,18 +198,10 @@ export type ValidatePortalRequest = schemas['ValidatePortalRequest']
 export type ValidatePortalResponse = schemas['ValidatePortalResponse']
 
 /**
- * @module CompanyAPI
- */
-
-/**
  * Company module
  * @public
  */
-export class CompanyAPI extends Manage {
-  constructor(props: CWMOptions) {
-    super(props)
-  }
-
+export class CompanyAPI extends ManageBaseAPI {
   getCompanyAddressFormats(params: CommonParameters = {}): Promise<Array<AddressFormat>> {
     return this.request({
       path: `/company/addressFormats`,
@@ -273,14 +282,6 @@ export class CompanyAPI extends Manage {
   getCompanyAddressFormatsInfoCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
       path: `/company/addressFormats/info/count`,
-      method: 'get',
-      params,
-    })
-  }
-
-  getCompanyBillingSetupsInfoCount(params: CommonParameters = {}): Promise<Count> {
-    return this.request({
-      path: `/company/billingSetups/info/count`,
       method: 'get',
       params,
     })
@@ -916,6 +917,127 @@ export class CompanyAPI extends Manage {
     })
   }
 
+  getCompanyCompaniesByParentIdServiceTemplates(
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<Array<CompanyServiceTemplate>> {
+    return this.request({
+      path: `/company/companies/${parentId}/serviceTemplates`,
+      method: 'get',
+      params,
+    })
+  }
+
+  postCompanyCompaniesByParentIdServiceTemplates(
+    parentId: number,
+    serviceTemplate: ServiceTemplate,
+  ): Promise<ServiceTemplate> {
+    return this.request({
+      path: `/company/companies/${parentId}/serviceTemplates`,
+      method: 'post',
+      data: serviceTemplate,
+    })
+  }
+
+  getCompanyCompaniesByParentIdServiceTemplatesById(
+    parentId: number,
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<ServiceTemplate> {
+    return this.request({
+      path: `/company/companies/${parentId}/serviceTemplates/${id}`,
+      method: 'get',
+      params,
+    })
+  }
+
+  putCompanyCompaniesByParentIdServiceTemplatesById(
+    parentId: number,
+    id: number,
+    ServiceTemplate: ServiceTemplate,
+  ): Promise<ServiceTemplate> {
+    return this.request({
+      path: `/company/companies/${parentId}/serviceTemplates/${id}`,
+      method: 'put',
+      data: ServiceTemplate,
+    })
+  }
+
+  patchCompanyCompaniesByParentIdServiceTemplatesById(
+    parentId: number,
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<ServiceTemplate> {
+    return this.request({
+      path: `/company/companies/${parentId}/serviceTemplates/${id}`,
+      method: 'patch',
+      data: patchOperations,
+    })
+  }
+
+  deleteCompanyCompaniesByParentIdServiceTemplatesById(
+    parentId: number,
+    id: number,
+  ): Promise<NoContentResponse> {
+    return this.request({
+      path: `/company/companies/${parentId}/serviceTemplates/${id}`,
+      method: 'delete',
+    })
+  }
+
+  postCompanyCompaniesByParentIdServiceTemplatesByIdCopy(
+    parentId: number,
+    id: number,
+  ): Promise<ServiceTemplate> {
+    return this.request({
+      path: `/company/companies/${parentId}/serviceTemplates/${id}/copy`,
+      method: 'post',
+    })
+  }
+
+  postCompanyCompaniesByParentIdServiceTemplatesByIdGenerate(
+    parentId: number,
+    id: number,
+    templateGenerate: TemplateGenerate,
+  ): Promise<TemplateGeneratedCountsModel> {
+    return this.request({
+      path: `/company/companies/${parentId}/serviceTemplates/${id}/generate`,
+      method: 'post',
+      data: templateGenerate,
+    })
+  }
+
+  postCompanyCompaniesByParentIdServiceTemplatesByIdLink(
+    parentId: number,
+    id: number,
+  ): Promise<ServiceTemplate> {
+    return this.request({
+      path: `/company/companies/${parentId}/serviceTemplates/${id}/link`,
+      method: 'post',
+    })
+  }
+
+  postCompanyCompaniesByParentIdServiceTemplatesByIdUnlink(
+    parentId: number,
+    id: number,
+  ): Promise<ServiceTemplate> {
+    return this.request({
+      path: `/company/companies/${parentId}/serviceTemplates/${id}/unlink`,
+      method: 'post',
+    })
+  }
+
+  getCompanyCompaniesByParentIdServiceTemplatesCount(
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<Count> {
+    return this.request({
+      path: `/company/companies/${parentId}/serviceTemplates/count`,
+      method: 'get',
+      params,
+    })
+  }
+
   getCompanyCompaniesByParentIdSites(
     parentId: number,
     params: CommonParameters = {},
@@ -981,6 +1103,18 @@ export class CompanyAPI extends Manage {
     })
   }
 
+  getCompanyCompaniesByParentIdSitesByIdInfo(
+    id: number,
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<CompanySiteInfo> {
+    return this.request({
+      path: `/company/companies/${parentId}/sites/${id}/info`,
+      method: 'get',
+      params,
+    })
+  }
+
   getCompanyCompaniesByParentIdSitesByIdUsages(
     id: number,
     parentId: number,
@@ -1011,6 +1145,28 @@ export class CompanyAPI extends Manage {
   ): Promise<Count> {
     return this.request({
       path: `/company/companies/${parentId}/sites/count`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getCompanyCompaniesByParentIdSitesInfo(
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<Array<CompanySiteInfo>> {
+    return this.request({
+      path: `/company/companies/${parentId}/sites/info`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getCompanyCompaniesByParentIdSitesInfoCount(
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<Count> {
+    return this.request({
+      path: `/company/companies/${parentId}/sites/info/count`,
       method: 'get',
       params,
     })
@@ -1256,6 +1412,22 @@ export class CompanyAPI extends Manage {
     })
   }
 
+  getCompanyCompaniesInfo(params: CommonParameters = {}): Promise<Array<CompanyInfo>> {
+    return this.request({
+      path: `/company/companies/info`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getCompanyCompaniesInfoCount(params: CommonParameters = {}): Promise<Count> {
+    return this.request({
+      path: `/company/companies/info/count`,
+      method: 'get',
+      params,
+    })
+  }
+
   getCompanyCompaniesInfoTypes(params: CommonParameters = {}): Promise<Array<CompanyTypeInfo>> {
     return this.request({
       path: `/company/companies/info/types`,
@@ -1449,17 +1621,6 @@ export class CompanyAPI extends Manage {
     })
   }
 
-  putCompanyCompanyFinanceById(
-    id: number,
-    CompanyFinance: CompanyFinance,
-  ): Promise<CompanyFinance> {
-    return this.request({
-      path: `/company/companyFinance/${id}`,
-      method: 'put',
-      data: CompanyFinance,
-    })
-  }
-
   getCompanyCompanyPickerItems(params: CommonParameters = {}): Promise<Array<CompanyPickerItem>> {
     return this.request({
       path: `/company/companyPickerItems`,
@@ -1494,13 +1655,10 @@ export class CompanyAPI extends Manage {
     })
   }
 
-  postCompanyCompanyPickerItemsClear(
-    clearPickerRequest: ClearPickerRequest,
-  ): Promise<NoContentResponse> {
+  postCompanyCompanyPickerItemsClear(): Promise<NoContentResponse> {
     return this.request({
       path: `/company/companyPickerItems/clear`,
       method: 'post',
-      data: clearPickerRequest,
     })
   }
 
@@ -1580,10 +1738,7 @@ export class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyConfigurations(
-    managedIdentifier: string,
-    params: CommonParameters = {},
-  ): Promise<Array<CompanyConfiguration>> {
+  getCompanyConfigurations(params: CommonParameters = {}): Promise<Array<CompanyConfiguration>> {
     return this.request({
       path: `/company/configurations`,
       method: 'get',
@@ -1658,13 +1813,26 @@ export class CompanyAPI extends Manage {
     })
   }
 
+  getCompanyConfigurationsByIdQuickAccessCount(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<ConfigurationTabsCount> {
+    return this.request({
+      path: `/company/configurations/${id}/quickAccess/count`,
+      method: 'get',
+      params,
+    })
+  }
+
   postCompanyConfigurationsBulk(
     companyConfigurations: Array<CompanyConfiguration>,
+    params: CommonParameters = {},
   ): Promise<CompanyConfiguration> {
     return this.request({
       path: `/company/configurations/bulk`,
       method: 'post',
       data: companyConfigurations,
+      params,
     })
   }
 
@@ -1677,18 +1845,17 @@ export class CompanyAPI extends Manage {
 
   putCompanyConfigurationsBulk(
     companyConfigurations: Array<CompanyConfiguration>,
+    params: CommonParameters = {},
   ): Promise<CompanyConfiguration> {
     return this.request({
       path: `/company/configurations/bulk`,
       method: 'put',
       data: companyConfigurations,
+      params,
     })
   }
 
-  getCompanyConfigurationsCount(
-    managedIdentifier: string,
-    params: CommonParameters = {},
-  ): Promise<Count> {
+  getCompanyConfigurationsCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
       path: `/company/configurations/count`,
       method: 'get',
@@ -2095,9 +2262,28 @@ export class CompanyAPI extends Manage {
     })
   }
 
+  postCompanyConfigurationsTypesCopy(copy: ConfigurationTypeCopy): Promise<ConfigurationType> {
+    return this.request({
+      path: `/company/configurations/types/copy`,
+      method: 'post',
+      data: copy,
+    })
+  }
+
   getCompanyConfigurationsTypesCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
       path: `/company/configurations/types/count`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getCompanyContactTypesByIdUsagesList(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Array<Usage>> {
+    return this.request({
+      path: `/company/contact/types/${id}/usages/list`,
       method: 'get',
       params,
     })
@@ -2127,10 +2313,11 @@ export class CompanyAPI extends Manage {
     })
   }
 
-  deleteCompanyContactsById(id: number, transferContactId: number): Promise<NoContentResponse> {
+  deleteCompanyContactsById(id: number, params: CommonParameters = {}): Promise<NoContentResponse> {
     return this.request({
       path: `/company/contacts/${id}`,
       method: 'delete',
+      params,
     })
   }
 
@@ -2152,12 +2339,18 @@ export class CompanyAPI extends Manage {
 
   getCompanyContactsByIdImage(
     id: number,
-    useDefaultFlag: boolean,
-    lastModified: string,
     params: CommonParameters = {},
   ): Promise<OctetStreamResponse> {
     return this.request({
       path: `/company/contacts/${id}/image`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getCompanyContactsByIdInfo(id: number, params: CommonParameters = {}): Promise<ContactInfo> {
+    return this.request({
+      path: `/company/contacts/${id}/info`,
       method: 'get',
       params,
     })
@@ -2572,7 +2765,7 @@ export class CompanyAPI extends Manage {
     })
   }
 
-  getCompanyContactsDefault(companyId: number, params: CommonParameters = {}): Promise<Contact> {
+  getCompanyContactsDefault(params: CommonParameters = {}): Promise<Contact> {
     return this.request({
       path: `/company/contacts/default`,
       method: 'get',
@@ -2690,6 +2883,22 @@ export class CompanyAPI extends Manage {
   getCompanyContactsDepartmentsInfoCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
       path: `/company/contacts/departments/info/count`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getCompanyContactsInfo(params: CommonParameters = {}): Promise<Array<ContactInfo>> {
+    return this.request({
+      path: `/company/contacts/info`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getCompanyContactsInfoCount(params: CommonParameters = {}): Promise<Count> {
+    return this.request({
+      path: `/company/contacts/info/count`,
       method: 'get',
       params,
     })
@@ -3067,6 +3276,86 @@ export class CompanyAPI extends Manage {
   getCompanyExpenseTypesInfoCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
       path: `/company/expenseTypes/info/count`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getCompanyM365contact(params: CommonParameters = {}): Promise<Array<M365Contact>> {
+    return this.request({
+      path: `/company/m365contact`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getCompanyM365contactById(id: number, params: CommonParameters = {}): Promise<M365Contact> {
+    return this.request({
+      path: `/company/m365contact/${id}`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getCompanyM365contactCount(params: CommonParameters = {}): Promise<Count> {
+    return this.request({
+      path: `/company/m365contact/count`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getCompanyM365contactsyncByIdProperty(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<M365ContactSyncProperty> {
+    return this.request({
+      path: `/company/m365contactsync/${id}/property`,
+      method: 'get',
+      params,
+    })
+  }
+
+  postCompanyM365contactsyncProperty(
+    country: M365ContactSyncProperty,
+  ): Promise<M365ContactSyncProperty> {
+    return this.request({
+      path: `/company/m365contactsync/property`,
+      method: 'post',
+      data: country,
+    })
+  }
+
+  deleteCompanyM365contactsyncProperty(): Promise<NoContentResponse> {
+    return this.request({
+      path: `/company/m365contactsync/property/`,
+      method: 'delete',
+    })
+  }
+
+  getCompanyM365contactsyncPropertyCount(params: CommonParameters = {}): Promise<Count> {
+    return this.request({
+      path: `/company/m365contactsync/property/count`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getCompanyM365contactsyncPropertyExcluded(
+    params: CommonParameters = {},
+  ): Promise<Array<M365ContactSyncProperty>> {
+    return this.request({
+      path: `/company/m365contactsync/property/excluded`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getCompanyM365contactsyncPropertyIncluded(
+    params: CommonParameters = {},
+  ): Promise<Array<M365ContactSyncProperty>> {
+    return this.request({
+      path: `/company/m365contactsync/property/included`,
       method: 'get',
       params,
     })
@@ -3472,7 +3761,6 @@ export class CompanyAPI extends Manage {
 
   getCompanyManagementByIdLogDownload(
     id: number,
-    filePath: string,
     params: CommonParameters = {},
   ): Promise<OctetStreamResponse> {
     return this.request({

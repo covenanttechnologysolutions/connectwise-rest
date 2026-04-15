@@ -1,28 +1,18 @@
 /* This file was auto-generated, do not manually edit. */
-import Automate from '../Automate'
+import { AutomateBaseAPI } from '../BaseAPI'
 import { components } from '../AutomateTypes'
-import { CommonParameters, CWAOptions } from '../AutomateAPI'
-import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
+import { CommonParameters } from '../AutomateAPI'
 type schemas = components['schemas']
-type requestBodies = components['requestBodies']
 /** {@link LabTechModelsRemoteAgentSchedule} */
 export type LabTechModelsRemoteAgentSchedule = schemas['LabTech.Models.RemoteAgentSchedule']
 /** {@link LabTechModelsRemoteAgentTemplate} */
 export type LabTechModelsRemoteAgentTemplate = schemas['LabTech.Models.RemoteAgentTemplate']
 
 /**
- * @module RemoteAgentAPI
- */
-
-/**
  * RemoteAgent module
  * @public
  */
-export class RemoteAgentAPI extends Automate {
-  constructor(props: CWAOptions) {
-    super(props)
-  }
-
+export class RemoteAgentAPI extends AutomateBaseAPI {
   getRemoteAgentScheduleList(
     params: CommonParameters = {},
   ): Promise<Array<LabTechModelsRemoteAgentSchedule>> {

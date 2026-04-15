@@ -1,71 +1,236 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable @typescript-eslint/no-require-imports */
+/**
+ * Manage orchestrator:
+ *   1. Emit src/ManageTypes.ts from the OpenAPI spec via openapi-typescript.
+ *   2. Emit one src/Manage/<Section>API.ts per top-level URL segment.
+ *   3. Emit src/ManageAPI.ts, a barrel with lazy-getter properties for each section.
+ *   4. Run ESLint --fix over everything written.
+ */
+
 const fs = require('fs')
 const path = require('path')
 const { ESLint } = require('eslint')
 const { generateAPIClass } = require('./generator.js')
-const spec = require('./manage-json/manage.json')
 
-const eslint = new ESLint({ fix: true })
+const SPEC_PATH = path.join(__dirname, 'manage-json', 'manage.json')
+const SRC_DIR = path.join(__dirname, '..', 'src')
+const SECTIONS_DIR = path.join(SRC_DIR, 'Manage')
+const TYPES_FILE = path.join(SRC_DIR, 'ManageTypes.ts')
+const MANAGEAPI_FILE = path.join(SRC_DIR, 'ManageAPI.ts')
 
-async function generate() {
-  const {
-    paths,
-    components: { schemas },
-  } = spec
-
-  const tempFolder = path.join(__dirname, 'Manage')
-  const sections = {}
-
-  // generate temp directory
-  if (!fs.existsSync(tempFolder)) {
-    fs.mkdirSync(tempFolder)
-  }
-
-  Object.keys(paths).forEach((url) => {
-    const methods = paths[url]
-    const [_, section, ...rest] = url.split('/')
-
-    if (!sections[section]) {
-      sections[section] = []
-    }
-
-    sections[section].push({ url, methods })
-  })
-
-  for (const section of Object.keys(sections)) {
-    const apiName = section.charAt(0).toUpperCase() + section.slice(1)
-    const operations = sections[section]
-    const file = generateAPIClass({ apiName, operations, generatorType: 'Manage' })
-    const fileName = path.join(tempFolder, `${apiName}API.ts`)
-    if (fs.existsSync(fileName)) {
-      fs.rmSync(fileName)
-    }
-    console.log('Creating file', fileName)
-    fs.writeFileSync(fileName, file)
-  }
-
-  console.log('running eslint')
-  const results = await eslint.lintFiles(['generator/Manage/**/*.ts'])
-  await ESLint.outputFixes(results)
-  const formatter = await eslint.loadFormatter('stylish')
-  const resultText = formatter.format(results)
-  console.log(resultText)
-
-  console.log('copying files to src/')
-  const files = fs.readdirSync(tempFolder)
-  files.forEach((file) => {
-    const manageFolder = path.join(__dirname, '../src', 'Manage')
-    if (!fs.existsSync(manageFolder)) {
-      fs.mkdirSync(manageFolder)
-    }
-    const src = path.join(tempFolder, file)
-    const dest = path.join(manageFolder, file)
-    console.log(`${src} ==> ${dest}`)
-    fs.copyFileSync(src, dest)
-  })
-  fs.rmSync(tempFolder, { recursive: true })
-  console.log('temp folder removed')
+function pascal(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
-console.log('generating static Manage client files')
-generate().then(() => console.log('done'))
+async function emitTypes(spec) {
+  console.log('generating ManageTypes.ts from spec')
+  // openapi-typescript v7 is ESM-only; use dynamic import from this CJS script.
+  const mod = await import('openapi-typescript')
+  const openapiTS = mod.default ?? mod
+  // v7 returns an AST (array of ts.Node); we must format via astToString.
+  // v6 returns a string. Handle both.
+  const result = await openapiTS(spec)
+  let output
+  if (typeof result === 'string') {
+    output = result
+  } else if (mod.astToString) {
+    output = mod.astToString(result)
+  } else {
+    throw new Error('Unexpected openapi-typescript output; no astToString export')
+  }
+  fs.writeFileSync(TYPES_FILE, output)
+}
+
+function groupOperationsBySection(paths) {
+  const sections = {}
+  for (const url of Object.keys(paths)) {
+    const [, section] = url.split('/')
+    if (!section) {
+      continue
+    }
+    const key = pascal(section)
+    if (!sections[key]) {
+      sections[key] = []
+    }
+    sections[key].push({ url, methods: paths[url] })
+  }
+  return sections
+}
+
+function emitSectionFiles(sections) {
+  if (!fs.existsSync(SECTIONS_DIR)) {
+    fs.mkdirSync(SECTIONS_DIR, { recursive: true })
+  }
+
+  const apiNames = Object.keys(sections).sort()
+  for (const apiName of apiNames) {
+    const file = generateAPIClass({
+      apiName,
+      operations: sections[apiName],
+      generatorType: 'Manage',
+    })
+    const fileName = path.join(SECTIONS_DIR, `${apiName}API.ts`)
+    fs.writeFileSync(fileName, file)
+  }
+  return apiNames
+}
+
+function emitAggregator(apiNames) {
+  const imports = apiNames
+    .map((n) => `import { ${n}API } from './Manage/${n}API'`)
+    .join('\n')
+  const typeExports = apiNames
+    .map((n) => `import type * as ${n}APITypes from './Manage/${n}API'`)
+    .join('\n')
+
+  const getters = apiNames
+    .map(
+      (n) => `  get ${n}API(): ${n}API {
+    const v = new ${n}API(this)
+    Object.defineProperty(this, '${n}API', { value: v, configurable: true })
+    return v
+  }`,
+    )
+    .join('\n\n')
+
+  const reExportedTypes = apiNames.map((n) => `  ${n}APITypes,`).join('\n')
+
+  const out = `/* This file was auto-generated, do not manually edit. */
+import Manage from './Manage'
+import { CWLogger, RetryOptions } from './types'
+${imports}
+
+${typeExports}
+
+/**
+ * @public
+ * Manage patch operation input object, usually passed in an array of operations
+ */
+export type PatchOperation = {
+  op: 'add' | 'replace' | 'remove'
+  path: string
+  value: unknown
+}
+
+/**
+ * @public
+ */
+export interface CWMOptions {
+  /** Your CW Manage Company ID */
+  companyId: string
+  /** api public key */
+  publicKey: string
+  /** api private key */
+  privateKey: string
+  /** Your CW Manage instance URI, e.g. my.domain.com */
+  companyUrl: string
+  /** Request a client ID from developer.connectwise.com */
+  clientId: string
+  /** Defaults to 'v4_6_release' */
+  entryPoint?: string
+  /** Default timeout in milliseconds */
+  timeout?: number
+  /** Api version, defaults to 2021.1 */
+  apiVersion?: string
+  /** Enable automatic retry. Defaults to false. */
+  retry?: boolean
+  /** @see RetryOptions type */
+  retryOptions?: RetryOptions
+  /** Pass in a custom logger function, otherwise the default will be used. */
+  logger?: CWLogger
+  /** Enable debug output. Defaults to false. */
+  debug?: boolean
+}
+
+/**
+ * @public
+ * Manage common parameters
+ */
+export type CommonParameters = {
+  conditions?: string
+  childConditions?: string
+  customFieldConditions?: string
+  orderBy?: string
+  fields?: string
+  page?: number
+  pageSize?: number
+  pageId?: number
+}
+
+/**
+ * Top-level Manage client. Section clients are exposed as lazy getters so you pay
+ * for each only when first accessed. Each access caches the instance in place.
+ *
+ * All sub-APIs share this single Manage instance (and therefore a single axios client,
+ * auth state, and connection pool).
+ *
+ * @public
+ */
+export const SECTIONS = [
+${apiNames.map((n) => `  '${n}API',`).join('\n')}
+] as const
+
+/**
+ * @public
+ */
+export type SectionName = (typeof SECTIONS)[number]
+
+/**
+ * @public
+ */
+class ManageAPI extends Manage {
+  constructor(options: CWMOptions) {
+    super(options)
+  }
+
+${getters}
+}
+
+/**
+ * @public
+ */
+export default ManageAPI
+
+/**
+ * @public
+ */
+export type {
+${reExportedTypes}
+}
+`
+  fs.writeFileSync(MANAGEAPI_FILE, out)
+}
+
+async function runEslintFix() {
+  console.log('running eslint --fix on generated Manage files')
+  const eslint = new ESLint({ fix: true })
+  const results = await eslint.lintFiles(['src/Manage/*.ts', 'src/ManageAPI.ts'])
+  await ESLint.outputFixes(results)
+  const formatter = await eslint.loadFormatter('stylish')
+  const text = formatter.format(results)
+  if (text.trim()) {
+    console.log(text)
+  }
+}
+
+async function generate() {
+  console.log('loading Manage spec from', SPEC_PATH)
+  const spec = require(SPEC_PATH)
+
+  await emitTypes(spec)
+
+  const sections = groupOperationsBySection(spec.paths)
+  console.log(`emitting ${Object.keys(sections).length} Manage section files`)
+  const apiNames = emitSectionFiles(sections)
+
+  console.log('emitting ManageAPI.ts aggregator')
+  emitAggregator(apiNames)
+
+  await runEslintFix()
+  console.log('Manage generation done')
+}
+
+generate().catch((err) => {
+  console.error(err)
+  process.exit(1)
+})

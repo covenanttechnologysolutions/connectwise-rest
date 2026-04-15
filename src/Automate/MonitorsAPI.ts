@@ -1,30 +1,34 @@
 /* This file was auto-generated, do not manually edit. */
-import Automate from '../Automate'
+import { AutomateBaseAPI } from '../BaseAPI'
 import { components } from '../AutomateTypes'
-import { CommonParameters, CWAOptions } from '../AutomateAPI'
-import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
+import { CommonParameters } from '../AutomateAPI'
 type schemas = components['schemas']
-type requestBodies = components['requestBodies']
+/** {@link LabTechModelsMonitorsInternalMonitorResult} */
+export type LabTechModelsMonitorsInternalMonitorResult =
+  schemas['LabTech.Models.Monitors.InternalMonitorResult']
 /** {@link LabTechModelsSensorCheck} */
 export type LabTechModelsSensorCheck = schemas['LabTech.Models.SensorCheck']
 /** {@link LabTechRepositoriesMySQLDomainModelsMonitorDataCollectionSettings} */
 export type LabTechRepositoriesMySQLDomainModelsMonitorDataCollectionSettings =
   schemas['LabTech.Repositories.MySQL.Domain.Models.MonitorDataCollectionSettings']
-
-/**
- * @module MonitorsAPI
- */
+/** {@link LabTechRepositoriesMySQLDomainModelsMonitorHistory} */
+export type LabTechRepositoriesMySQLDomainModelsMonitorHistory =
+  schemas['LabTech.Repositories.MySQL.Domain.Models.MonitorHistory']
+/** {@link LabTechRepositoriesMySQLDomainModelsMonitorStatistic} */
+export type LabTechRepositoriesMySQLDomainModelsMonitorStatistic =
+  schemas['LabTech.Repositories.MySQL.Domain.Models.MonitorStatistic']
+/** {@link LabTechRepositoriesMySQLDomainModelsMonitorsMonitorCollectedDatapoint} */
+export type LabTechRepositoriesMySQLDomainModelsMonitorsMonitorCollectedDatapoint =
+  schemas['LabTech.Repositories.MySQL.Domain.Models.Monitors.MonitorCollectedDatapoint']
 
 /**
  * Monitors module
  * @public
  */
-export class MonitorsAPI extends Automate {
-  constructor(props: CWAOptions) {
-    super(props)
-  }
-
-  getInternalMonitorResultList(params: CommonParameters = {}): Promise<object> {
+export class MonitorsAPI extends AutomateBaseAPI {
+  getInternalMonitorResultList(
+    params: CommonParameters = {},
+  ): Promise<Array<LabTechModelsMonitorsInternalMonitorResult>> {
     return this.request({
       path: `/api/v1/InternalMonitorResults`,
       method: 'get',
@@ -32,7 +36,9 @@ export class MonitorsAPI extends Automate {
     })
   }
 
-  getMonitorHistoryList(params: CommonParameters = {}): Promise<object> {
+  getMonitorHistoryList(
+    params: CommonParameters = {},
+  ): Promise<Array<LabTechRepositoriesMySQLDomainModelsMonitorHistory>> {
     return this.request({
       path: `/api/v1/MonitorHistory`,
       method: 'get',
@@ -40,7 +46,21 @@ export class MonitorsAPI extends Automate {
     })
   }
 
-  getDailyCollectedData(monitorId: number, params: CommonParameters = {}): Promise<object> {
+  getMonitorHistoryListById(
+    monitorId: number,
+    params: CommonParameters = {},
+  ): Promise<Array<LabTechRepositoriesMySQLDomainModelsMonitorHistory>> {
+    return this.request({
+      path: `/api/v1/MonitorHistory/${monitorId}`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getDailyCollectedData(
+    monitorId: number,
+    params: CommonParameters = {},
+  ): Promise<Array<LabTechRepositoriesMySQLDomainModelsMonitorsMonitorCollectedDatapoint>> {
     return this.request({
       path: `/api/v1/Monitors/${monitorId}/CollectedData/DailyAverages`,
       method: 'get',
@@ -48,7 +68,10 @@ export class MonitorsAPI extends Automate {
     })
   }
 
-  getMonthlyCollectedData(monitorId: number, params: CommonParameters = {}): Promise<object> {
+  getMonthlyCollectedData(
+    monitorId: number,
+    params: CommonParameters = {},
+  ): Promise<Array<LabTechRepositoriesMySQLDomainModelsMonitorsMonitorCollectedDatapoint>> {
     return this.request({
       path: `/api/v1/Monitors/${monitorId}/CollectedData/MonthlyAverages`,
       method: 'get',
@@ -56,7 +79,10 @@ export class MonitorsAPI extends Automate {
     })
   }
 
-  getWeeklyCollectedData(monitorId: number, params: CommonParameters = {}): Promise<object> {
+  getWeeklyCollectedData(
+    monitorId: number,
+    params: CommonParameters = {},
+  ): Promise<Array<LabTechRepositoriesMySQLDomainModelsMonitorsMonitorCollectedDatapoint>> {
     return this.request({
       path: `/api/v1/Monitors/${monitorId}/CollectedData/WeeklyAverages`,
       method: 'get',
@@ -64,7 +90,10 @@ export class MonitorsAPI extends Automate {
     })
   }
 
-  getYearlyCollectedData(monitorId: number, params: CommonParameters = {}): Promise<object> {
+  getYearlyCollectedData(
+    monitorId: number,
+    params: CommonParameters = {},
+  ): Promise<Array<LabTechRepositoriesMySQLDomainModelsMonitorsMonitorCollectedDatapoint>> {
     return this.request({
       path: `/api/v1/Monitors/${monitorId}/CollectedData/YearlyAverages`,
       method: 'get',
@@ -83,7 +112,9 @@ export class MonitorsAPI extends Automate {
     })
   }
 
-  getMonitorStatisticsList(params: CommonParameters = {}): Promise<object> {
+  getMonitorStatisticsList(
+    params: CommonParameters = {},
+  ): Promise<Array<LabTechRepositoriesMySQLDomainModelsMonitorStatistic>> {
     return this.request({
       path: `/api/v1/MonitorStatistics`,
       method: 'get',

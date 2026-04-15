@@ -1,6 +1,5 @@
-import axios, { AxiosInstance, InternalAxiosRequestConfig } from 'axios'
+import axios, { AxiosInstance } from 'axios'
 import { makeRequest, makePaginate, PaginationOptions, PaginationApiMethod } from './BaseAPI'
-import promiseRetry from 'promise-retry'
 import type { CWMOptions } from './ManageAPI'
 import { CWLogger, DataResponse, ErrorResponse, RequestOptions, RetryOptions } from './types'
 
@@ -52,9 +51,7 @@ export const DEFAULTS: {
 
 /**
  * Represents a class for managing configuration options.
- *
- * @interface
- * @extends CWMOptions
+ * @internal
  */
 export interface ManageConfig extends CWMOptions {
   authorization: string
@@ -146,26 +143,6 @@ export default class Manage {
       },
     })
 
-    this.instance.interceptors.request.use((config: InternalAxiosRequestConfig) => {
-      if (
-        config.url &&
-        config.headers &&
-        config.method === 'get' &&
-        config.headers.Accept &&
-        typeof config.headers.Accept === 'string'
-      ) {
-        //check for requests to /system/documents/{id}/download
-        const documentDownloadEndpointRegExp = /^\/system\/documents\/[0-9]*\/download$/
-        if (documentDownloadEndpointRegExp.test(config.url)) {
-          //replace the string "application/json" with "blob" in the Accept header
-          config.headers.Accept = config.headers.Accept.replace('application/json', 'blob')
-          //add response type 'stream' to axios response type
-          config.responseType = 'stream'
-        }
-      }
-      return config
-    })
-
     this.request = makeRequest({ config: this.config, api: this.api, thisObj: this })
     this.paginate = makePaginate({ thisObj: this })
   }
@@ -178,13 +155,24 @@ export default class Manage {
     method,
     params,
     data,
+    contentType,
+    responseType,
   }: RequestOptions): Promise<ErrorResponse | DataResponse> {
     try {
+      // For multipart uploads let the runtime set Content-Type + boundary.
+      // Axios inspects FormData and builds the header itself; passing a plain
+      // object with contentType: 'multipart' falls back to the caller's
+      // FormData (consumers should use toFormData() from BaseAPI).
+      const headers: Record<string, string> | undefined =
+        contentType === 'multipart' ? { 'Content-Type': 'multipart/form-data' } : undefined
+
       const result = await this.instance({
         url: path,
         method,
         params,
         data,
+        headers,
+        responseType: responseType ?? 'json',
       })
 
       return result?.data

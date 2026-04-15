@@ -1,27 +1,27 @@
 /* This file was auto-generated, do not manually edit. */
-import Automate from '../Automate'
+import { AutomateBaseAPI } from '../BaseAPI'
 import { components } from '../AutomateTypes'
-import { CommonParameters, CWAOptions } from '../AutomateAPI'
-import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
+import { CommonParameters } from '../AutomateAPI'
 type schemas = components['schemas']
-type requestBodies = components['requestBodies']
-
-/**
- * @module TicketsAPI
- */
+/** {@link LabTechModelsTicket} */
+export type LabTechModelsTicket = schemas['LabTech.Models.Ticket']
 
 /**
  * Tickets module
  * @public
  */
-export class TicketsAPI extends Automate {
-  constructor(props: CWAOptions) {
-    super(props)
+export class TicketsAPI extends AutomateBaseAPI {
+  getTicketList(params: CommonParameters = {}): Promise<Array<LabTechModelsTicket>> {
+    return this.request({
+      path: `/api/v1/Tickets`,
+      method: 'get',
+      params,
+    })
   }
 
-  getTicketList(params: CommonParameters = {}): Promise<object> {
+  getTicket(ticketId: number, params: CommonParameters = {}): Promise<LabTechModelsTicket> {
     return this.request({
-      path: `/cwa/api/v1/Tickets`,
+      path: `/api/v1/Tickets/${ticketId}`,
       method: 'get',
       params,
     })

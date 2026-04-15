@@ -1,28 +1,18 @@
 /* This file was auto-generated, do not manually edit. */
-import Automate from '../Automate'
+import { AutomateBaseAPI } from '../BaseAPI'
 import { components } from '../AutomateTypes'
-import { CommonParameters, CWAOptions } from '../AutomateAPI'
-import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
+import { CommonParameters } from '../AutomateAPI'
 type schemas = components['schemas']
-type requestBodies = components['requestBodies']
 /** {@link LabTechModelsSearch} */
 export type LabTechModelsSearch = schemas['LabTech.Models.Search']
 /** {@link LabTechModelsSearchFolder} */
 export type LabTechModelsSearchFolder = schemas['LabTech.Models.SearchFolder']
 
 /**
- * @module SearchesAPI
- */
-
-/**
  * Searches module
  * @public
  */
-export class SearchesAPI extends Automate {
-  constructor(props: CWAOptions) {
-    super(props)
-  }
-
+export class SearchesAPI extends AutomateBaseAPI {
   getSearchList(params: CommonParameters = {}): Promise<Array<LabTechModelsSearch>> {
     return this.request({
       path: `/api/v1/Searches`,

@@ -1,10 +1,9 @@
 /* This file was auto-generated, do not manually edit. */
-import Manage from '../Manage'
+import { ManageBaseAPI } from '../BaseAPI'
 import { components } from '../ManageTypes'
-import { CommonParameters, CWMOptions } from '../ManageAPI'
-import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
+import { CommonParameters } from '../ManageAPI'
+import { NoContentResponse } from '../types'
 type schemas = components['schemas']
-
 /** {@link AccountingBatch} */
 export type AccountingBatch = schemas['AccountingBatch']
 /** {@link AccountingPackage} */
@@ -17,10 +16,18 @@ export type Addition = schemas['Addition']
 export type Agreement = schemas['Agreement']
 /** {@link AgreementAdjustment} */
 export type AgreementAdjustment = schemas['Agreement.Adjustment']
+/** {@link AgreementApplicationParameters} */
+export type AgreementApplicationParameters = schemas['AgreementApplicationParameters']
 /** {@link AgreementBatchSetup} */
 export type AgreementBatchSetup = schemas['AgreementBatchSetup']
+/** {@link AgreementRecap} */
+export type AgreementRecap = schemas['AgreementRecap']
+/** {@link AgreementRecurringParameters} */
+export type AgreementRecurringParameters = schemas['AgreementRecurringParameters']
 /** {@link AgreementSite} */
 export type AgreementSite = schemas['AgreementSite']
+/** {@link AgreementTabsCount} */
+export type AgreementTabsCount = schemas['AgreementTabsCount']
 /** {@link AgreementType} */
 export type AgreementType = schemas['AgreementType']
 /** {@link AgreementTypeBoardDefault} */
@@ -93,18 +100,26 @@ export type FinanceCurrency = schemas['Finance.Currency']
 export type GLAccount = schemas['GLAccount']
 /** {@link GLCaption} */
 export type GLCaption = schemas['GLCaption']
+/** {@link GLEntry} */
+export type GLEntry = schemas['GLEntry']
 /** {@link GLExport} */
 export type GLExport = schemas['GLExport']
 /** {@link GLPath} */
 export type GLPath = schemas['GLPath']
 /** {@link Invoice} */
 export type Invoice = schemas['Invoice']
+/** {@link InvoiceCommission} */
+export type InvoiceCommission = schemas['InvoiceCommission']
 /** {@link InvoiceEmailTemplate} */
 export type InvoiceEmailTemplate = schemas['InvoiceEmailTemplate']
 /** {@link InvoiceEmailTemplateInfo} */
 export type InvoiceEmailTemplateInfo = schemas['InvoiceEmailTemplateInfo']
 /** {@link InvoiceInfo} */
 export type InvoiceInfo = schemas['InvoiceInfo']
+/** {@link InvoicePayment} */
+export type InvoicePayment = schemas['InvoicePayment']
+/** {@link InvoiceRouting} */
+export type InvoiceRouting = schemas['InvoiceRouting']
 /** {@link InvoiceTemplate} */
 export type InvoiceTemplate = schemas['InvoiceTemplate']
 /** {@link InvoiceTemplateSetup} */
@@ -113,8 +128,6 @@ export type InvoiceTemplateSetup = schemas['InvoiceTemplateSetup']
 export type MappedType = schemas['MappedType']
 /** {@link PatchOperation} */
 export type PatchOperation = schemas['PatchOperation']
-/** {@link Payment} */
-export type Payment = schemas['Payment']
 /** {@link ProductTypeExemption} */
 export type ProductTypeExemption = schemas['ProductTypeExemption']
 /** {@link TaxCode} */
@@ -145,6 +158,8 @@ export type UnpostedExpenseTaxableLevel = schemas['UnpostedExpenseTaxableLevel']
 export type UnpostedInvoice = schemas['UnpostedInvoice']
 /** {@link UnpostedInvoiceTaxableLevel} */
 export type UnpostedInvoiceTaxableLevel = schemas['UnpostedInvoiceTaxableLevel']
+/** {@link UnpostedPayments} */
+export type UnpostedPayments = schemas['UnpostedPayments']
 /** {@link UnpostedProcurement} */
 export type UnpostedProcurement = schemas['UnpostedProcurement']
 /** {@link UnpostedProcurementTaxableLevel} */
@@ -155,18 +170,10 @@ export type Usage = schemas['Usage']
 export type WorkRoleExemption = schemas['WorkRoleExemption']
 
 /**
- * @module FinanceAPI
- */
-
-/**
  * Finance module
  * @public
  */
-export class FinanceAPI extends Manage {
-  constructor(props: CWMOptions) {
-    super(props)
-  }
-
+export class FinanceAPI extends ManageBaseAPI {
   getFinanceAccountingBatches(params: CommonParameters = {}): Promise<Array<AccountingBatch>> {
     return this.request({
       path: `/finance/accounting/batches`,
@@ -392,6 +399,35 @@ export class FinanceAPI extends Manage {
     })
   }
 
+  getFinanceAccountingUnpostedpayments(
+    params: CommonParameters = {},
+  ): Promise<Array<UnpostedPayments>> {
+    return this.request({
+      path: `/finance/accounting/unpostedpayments`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getFinanceAccountingUnpostedPaymentsById(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<UnpostedPayments> {
+    return this.request({
+      path: `/finance/accounting/unpostedPayments/${id}`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getFinanceAccountingUnpostedPaymentsCount(params: CommonParameters = {}): Promise<Count> {
+    return this.request({
+      path: `/finance/accounting/unpostedPayments/count`,
+      method: 'get',
+      params,
+    })
+  }
+
   getFinanceAccountingUnpostedprocurement(
     params: CommonParameters = {},
   ): Promise<Array<UnpostedProcurement>> {
@@ -533,6 +569,22 @@ export class FinanceAPI extends Manage {
     })
   }
 
+  getFinanceAgreementrecap(params: CommonParameters = {}): Promise<Array<AgreementRecap>> {
+    return this.request({
+      path: `/finance/agreementrecap/`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getFinanceAgreementrecapById(id: number, params: CommonParameters = {}): Promise<AgreementRecap> {
+    return this.request({
+      path: `/finance/agreementrecap/${id}`,
+      method: 'get',
+      params,
+    })
+  }
+
   getFinanceAgreements(params: CommonParameters = {}): Promise<Array<Agreement>> {
     return this.request({
       path: `/finance/agreements`,
@@ -580,6 +632,48 @@ export class FinanceAPI extends Manage {
       path: `/finance/agreements/${id}`,
       method: 'patch',
       data: patchOperations,
+    })
+  }
+
+  getFinanceAgreementsByIdApplicationParametersByPodId(
+    id: number,
+    podId: string,
+    params: CommonParameters = {},
+  ): Promise<AgreementApplicationParameters> {
+    return this.request({
+      path: `/finance/agreements/${id}/applicationParameters/${podId}`,
+      method: 'get',
+      params,
+    })
+  }
+
+  postFinanceAgreementsByIdInvoice(id: number): Promise<number> {
+    return this.request({
+      path: `/finance/agreements/${id}/invoice`,
+      method: 'post',
+    })
+  }
+
+  getFinanceAgreementsByIdQuickAccessCount(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<AgreementTabsCount> {
+    return this.request({
+      path: `/finance/agreements/${id}/quickAccess/count`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getFinanceAgreementsByIdRecurringParametersByPodId(
+    id: number,
+    podId: string,
+    params: CommonParameters = {},
+  ): Promise<AgreementRecurringParameters> {
+    return this.request({
+      path: `/finance/agreements/${id}/recurringParameters/${podId}`,
+      method: 'get',
+      params,
     })
   }
 
@@ -872,6 +966,13 @@ export class FinanceAPI extends Manage {
       path: `/finance/agreements/${parentId}/configurations/count`,
       method: 'get',
       params,
+    })
+  }
+
+  postFinanceAgreementsByParentIdCopy(parentId: number): Promise<Agreement> {
+    return this.request({
+      path: `/finance/agreements/${parentId}/copy`,
+      method: 'post',
     })
   }
 
@@ -1310,6 +1411,13 @@ export class FinanceAPI extends Manage {
       path: `/finance/agreements/types/info/count`,
       method: 'get',
       params,
+    })
+  }
+
+  postFinanceAgreementsByIdCopy(id: number): Promise<AgreementType> {
+    return this.request({
+      path: `/finance/agreements/types${id}/copy`,
+      method: 'post',
     })
   }
 
@@ -2006,6 +2114,14 @@ export class FinanceAPI extends Manage {
     })
   }
 
+  getFinanceBillingSetupsInfoCount(params: CommonParameters = {}): Promise<Count> {
+    return this.request({
+      path: `/finance/billingSetups/info/count`,
+      method: 'get',
+      params,
+    })
+  }
+
   getFinanceBillingStatuses(params: CommonParameters = {}): Promise<Array<BillingStatus>> {
     return this.request({
       path: `/finance/billingStatuses`,
@@ -2252,6 +2368,17 @@ export class FinanceAPI extends Manage {
       path: `/finance/companyFinance/${id}`,
       method: 'get',
       params,
+    })
+  }
+
+  putFinanceCompanyFinanceById(
+    id: number,
+    CompanyFinance: CompanyFinance,
+  ): Promise<CompanyFinance> {
+    return this.request({
+      path: `/finance/companyFinance/${id}`,
+      method: 'put',
+      data: CompanyFinance,
     })
   }
 
@@ -2839,18 +2966,108 @@ export class FinanceAPI extends Manage {
     })
   }
 
-  getFinanceInvoicesByIdPdf(id: number, params: CommonParameters = {}): Promise<PDFResponse> {
+  getFinanceInvoicesByIdPdf(id: number, params: CommonParameters = {}): Promise<string> {
     return this.request({
       path: `/finance/invoices/${id}/pdf`,
       method: 'get',
       params,
+      responseType: 'arraybuffer',
+    })
+  }
+
+  getFinanceInvoicesByParentIdCommissions(
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<Array<InvoiceCommission>> {
+    return this.request({
+      path: `/finance/invoices/${parentId}/commissions`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getFinanceInvoicesByParentIdCommissionsById(
+    id: number,
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<InvoiceCommission> {
+    return this.request({
+      path: `/finance/invoices/${parentId}/commissions/${id}`,
+      method: 'get',
+      params,
+    })
+  }
+
+  patchFinanceInvoicesByParentIdCommissionsById(
+    id: number,
+    parentId: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<InvoiceCommission> {
+    return this.request({
+      path: `/finance/invoices/${parentId}/commissions/${id}`,
+      method: 'patch',
+      data: patchOperations,
+    })
+  }
+
+  postFinanceInvoicesByParentIdCommissionsRecalculate(parentId: number): Promise<any> {
+    return this.request({
+      path: `/finance/invoices/${parentId}/commissions/recalculate`,
+      method: 'post',
+    })
+  }
+
+  getFinanceInvoicesByParentIdGlEntries(
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<Array<GLEntry>> {
+    return this.request({
+      path: `/finance/invoices/${parentId}/glEntries/`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getFinanceInvoicesByParentIdGlEntriesById(
+    parentId: number,
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<GLEntry> {
+    return this.request({
+      path: `/finance/invoices/${parentId}/glEntries/${id}`,
+      method: 'get',
+      params,
+    })
+  }
+
+  putFinanceInvoicesByParentIdGlEntriesById(
+    parentId: number,
+    id: number,
+    gLEntry: GLEntry,
+  ): Promise<GLEntry> {
+    return this.request({
+      path: `/finance/invoices/${parentId}/glEntries/${id}`,
+      method: 'put',
+      data: gLEntry,
+    })
+  }
+
+  patchFinanceInvoicesByParentIdGlEntriesById(
+    parentId: number,
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<GLEntry> {
+    return this.request({
+      path: `/finance/invoices/${parentId}/glEntries/${id}`,
+      method: 'patch',
+      data: patchOperations,
     })
   }
 
   getFinanceInvoicesByParentIdPayments(
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<Array<Payment>> {
+  ): Promise<Array<InvoicePayment>> {
     return this.request({
       path: `/finance/invoices/${parentId}/payments`,
       method: 'get',
@@ -2858,7 +3075,10 @@ export class FinanceAPI extends Manage {
     })
   }
 
-  postFinanceInvoicesByParentIdPayments(parentId: number, payment: Payment): Promise<Payment> {
+  postFinanceInvoicesByParentIdPayments(
+    parentId: number,
+    payment: InvoicePayment,
+  ): Promise<InvoicePayment> {
     return this.request({
       path: `/finance/invoices/${parentId}/payments`,
       method: 'post',
@@ -2870,7 +3090,7 @@ export class FinanceAPI extends Manage {
     id: number,
     parentId: number,
     params: CommonParameters = {},
-  ): Promise<Payment> {
+  ): Promise<InvoicePayment> {
     return this.request({
       path: `/finance/invoices/${parentId}/payments/${id}`,
       method: 'get',
@@ -2882,7 +3102,7 @@ export class FinanceAPI extends Manage {
     id: number,
     parentId: number,
     patchOperations: Array<PatchOperation>,
-  ): Promise<Payment> {
+  ): Promise<InvoicePayment> {
     return this.request({
       path: `/finance/invoices/${parentId}/payments/${id}`,
       method: 'patch',
@@ -2893,8 +3113,8 @@ export class FinanceAPI extends Manage {
   putFinanceInvoicesByParentIdPaymentsById(
     id: number,
     parentId: number,
-    payment: Payment,
-  ): Promise<Payment> {
+    payment: InvoicePayment,
+  ): Promise<InvoicePayment> {
     return this.request({
       path: `/finance/invoices/${parentId}/payments/${id}`,
       method: 'put',
@@ -2909,6 +3129,85 @@ export class FinanceAPI extends Manage {
     return this.request({
       path: `/finance/invoices/${parentId}/payments/${id}`,
       method: 'delete',
+    })
+  }
+
+  getFinanceInvoicesByParentIdRoutings(
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<Array<InvoiceRouting>> {
+    return this.request({
+      path: `/finance/invoices/${parentId}/routings`,
+      method: 'get',
+      params,
+    })
+  }
+
+  postFinanceInvoicesByParentIdRoutings(
+    parentId: number,
+    InvoiceRouting: InvoiceRouting,
+  ): Promise<InvoiceRouting> {
+    return this.request({
+      path: `/finance/invoices/${parentId}/routings`,
+      method: 'post',
+      data: InvoiceRouting,
+    })
+  }
+
+  getFinanceInvoicesByParentIdRoutingsById(
+    id: number,
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<InvoiceRouting> {
+    return this.request({
+      path: `/finance/invoices/${parentId}/routings/${id}`,
+      method: 'get',
+      params,
+    })
+  }
+
+  deleteFinanceInvoicesByParentIdRoutingsById(
+    id: number,
+    parentId: number,
+  ): Promise<NoContentResponse> {
+    return this.request({
+      path: `/finance/invoices/${parentId}/routings/${id}`,
+      method: 'delete',
+    })
+  }
+
+  putFinanceInvoicesByParentIdRoutingsById(
+    id: number,
+    parentId: number,
+    companyTypeAssociation: InvoiceRouting,
+  ): Promise<InvoiceRouting> {
+    return this.request({
+      path: `/finance/invoices/${parentId}/routings/${id}`,
+      method: 'put',
+      data: companyTypeAssociation,
+    })
+  }
+
+  patchFinanceInvoicesByParentIdRoutingsById(
+    id: number,
+    parentId: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<InvoiceRouting> {
+    return this.request({
+      path: `/finance/invoices/${parentId}/routings/${id}`,
+      method: 'patch',
+      data: patchOperations,
+    })
+  }
+
+  getFinanceInvoicesByParentIdRoutingsCount(
+    parentId: number,
+    params: CommonParameters = {},
+  ): Promise<Count> {
+    return this.request({
+      path: `/finance/invoices/${parentId}/routings/count`,
+      method: 'get',
+      params,
     })
   }
 

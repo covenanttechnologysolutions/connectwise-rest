@@ -3,7 +3,7 @@
     "src/**/*.js",
     "src/**/*.ts"
   ],
-  "exclude": ["scripts"],
+  "exclude": ["scripts", "test"],
   "compilerOptions": {
     "baseUrl": "./src",
     "declaration": true,
@@ -12,18 +12,63 @@
     "esModuleInterop": true,
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
-    "lib": ["ES2015"],
+    "lib": ["ES2022"],
     "module": "commonjs",
     "moduleResolution": "Node",
     "noImplicitReturns": true,
     "outDir": "./dist",
     "strict": true,
-    "target": "ES2018",
-    "useDefineForClassFields": true
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "skipLibCheck": true
   },
   "typedocOptions": {
     "entryPoints": ["src/index.ts"],
     "entryPointStrategy": "resolve",
-    "out": "docs"
+    "out": "docs",
+    "excludeInternal": true,
+    "blockTags": [
+      "@alpha",
+      "@beta",
+      "@decorator",
+      "@deprecated",
+      "@enum",
+      "@event",
+      "@eventProperty",
+      "@example",
+      "@experimental",
+      "@inheritDoc",
+      "@internal",
+      "@override",
+      "@overload",
+      "@packageDocumentation",
+      "@param",
+      "@private",
+      "@protected",
+      "@public",
+      "@readonly",
+      "@remarks",
+      "@returns",
+      "@sealed",
+      "@see",
+      "@throws",
+      "@typeParam",
+      "@virtual",
+      "@description",
+      "@summary"
+    ],
+    "intentionallyNotExported": [
+      "schemas",
+      "requestBodies",
+      "AutomateConfig",
+      "ManageConfig",
+      "PaginationOptions"
+    ],
+    "externalSymbolLinkMappings": {
+      "@types/node": {
+        "Stream.Writable.write": "https://nodejs.org/api/stream.html#writablewritechunk-encoding-callback",
+        "Stream.Writable.end": "https://nodejs.org/api/stream.html#writableendchunk-encoding-callback"
+      }
+    }
   }
 }

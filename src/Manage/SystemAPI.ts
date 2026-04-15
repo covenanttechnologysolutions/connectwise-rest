@@ -1,10 +1,9 @@
 /* This file was auto-generated, do not manually edit. */
-import Manage from '../Manage'
+import { ManageBaseAPI, toFormData } from '../BaseAPI'
 import { components } from '../ManageTypes'
-import { CommonParameters, CWMOptions } from '../ManageAPI'
-import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
+import { CommonParameters } from '../ManageAPI'
+import { NoContentResponse, OctetStreamResponse, HTMLResponse } from '../types'
 type schemas = components['schemas']
-
 /** {@link AllowedFileType} */
 export type AllowedFileType = schemas['AllowedFileType']
 /** {@link AllowedOrigin} */
@@ -17,6 +16,8 @@ export type AuditTrailEntry = schemas['AuditTrailEntry']
 export type AuthAnvil = schemas['AuthAnvil']
 /** {@link AutoSyncTime} */
 export type AutoSyncTime = schemas['AutoSyncTime']
+/** {@link BillableOptionsInfo} */
+export type BillableOptionsInfo = schemas['BillableOptionsInfo']
 /** {@link BulkResult} */
 export type BulkResult = schemas['BulkResult']
 /** {@link BundleRequestsCollection} */
@@ -43,6 +44,8 @@ export type Count = schemas['Count']
 export type Crm = schemas['Crm']
 /** {@link CrmInfo} */
 export type CrmInfo = schemas['CrmInfo']
+/** {@link CustomFieldInfo} */
+export type CustomFieldInfo = schemas['CustomFieldInfo']
 /** {@link CustomReport} */
 export type CustomReport = schemas['CustomReport']
 /** {@link CustomReportParameter} */
@@ -57,12 +60,16 @@ export type DepartmentInfo = schemas['DepartmentInfo']
 export type DepartmentLocation = schemas['DepartmentLocation']
 /** {@link DepartmentLocationInfo} */
 export type DepartmentLocationInfo = schemas['DepartmentLocationInfo']
+/** {@link DirectionalSyncInfo} */
+export type DirectionalSyncInfo = schemas['DirectionalSyncInfo']
 /** {@link DocumentFormData} */
 export type DocumentFormData = schemas['DocumentFormData']
 /** {@link DocumentInfo} */
 export type DocumentInfo = schemas['DocumentInfo']
 /** {@link DocumentSetup} */
 export type DocumentSetup = schemas['DocumentSetup']
+/** {@link DocumentType} */
+export type DocumentType = schemas['DocumentType']
 /** {@link EPayConfiguration} */
 export type EPayConfiguration = schemas['EPayConfiguration']
 /** {@link EmailConnector} */
@@ -129,6 +136,10 @@ export type LocationDepartment = schemas['LocationDepartment']
 export type LocationInfo = schemas['LocationInfo']
 /** {@link LocationWorkRole} */
 export type LocationWorkRole = schemas['LocationWorkRole']
+/** {@link M365ContactSyncInfo} */
+export type M365ContactSyncInfo = schemas['M365ContactSyncInfo']
+/** {@link M365ContactSyncMonitoring} */
+export type M365ContactSyncMonitoring = schemas['M365ContactSyncMonitoring']
 /** {@link ManagedDeviceAccount} */
 export type ManagedDeviceAccount = schemas['ManagedDeviceAccount']
 /** {@link ManagementNetworkSecurity} */
@@ -145,6 +156,8 @@ export type MemberCertification = schemas['MemberCertification']
 export type MemberDeactivation = schemas['MemberDeactivation']
 /** {@link MemberDelegation} */
 export type MemberDelegation = schemas['MemberDelegation']
+/** {@link MemberForCalSync} */
+export type MemberForCalSync = schemas['MemberForCalSync']
 /** {@link MemberInfo} */
 export type MemberInfo = schemas['MemberInfo']
 /** {@link MemberLinkSsoUser} */
@@ -157,6 +170,8 @@ export type MemberPersona = schemas['MemberPersona']
 export type MemberSkill = schemas['MemberSkill']
 /** {@link MemberSsoToken} */
 export type MemberSsoToken = schemas['MemberSsoToken']
+/** {@link MemberTemplate} */
+export type MemberTemplate = schemas['MemberTemplate']
 /** {@link MemberType} */
 export type MemberType = schemas['MemberType']
 /** {@link MemberTypeInfo} */
@@ -177,8 +192,12 @@ export type MySecurity = schemas['MySecurity']
 export type MySecurityCustomizeItem = schemas['MySecurityCustomizeItem']
 /** {@link NotificationRecipient} */
 export type NotificationRecipient = schemas['NotificationRecipient']
+/** {@link Office365EmailApplicationInfo} */
+export type Office365EmailApplicationInfo = schemas['Office365EmailApplicationInfo']
 /** {@link Office365EmailSetup} */
 export type Office365EmailSetup = schemas['Office365EmailSetup']
+/** {@link OnPremiseSearchSetting} */
+export type OnPremiseSearchSetting = schemas['OnPremiseSearchSetting']
 /** {@link OsGradeWeight} */
 export type OsGradeWeight = schemas['OsGradeWeight']
 /** {@link Other} */
@@ -255,6 +274,8 @@ export type TimeZoneSetup = schemas['TimeZoneSetup']
 export type TimeZoneSetupInfo = schemas['TimeZoneSetupInfo']
 /** {@link TodayPageCategory} */
 export type TodayPageCategory = schemas['TodayPageCategory']
+/** {@link TodayPageLink} */
+export type TodayPageLink = schemas['TodayPageLink']
 /** {@link Token} */
 export type Token = schemas['Token']
 /** {@link Usage} */
@@ -263,6 +284,8 @@ export type Usage = schemas['Usage']
 export type UserDefinedField = schemas['UserDefinedField']
 /** {@link UserDefinedFieldInfo} */
 export type UserDefinedFieldInfo = schemas['UserDefinedFieldInfo']
+/** {@link UserEmail} */
+export type UserEmail = schemas['UserEmail']
 /** {@link Workflow} */
 export type Workflow = schemas['Workflow']
 /** {@link WorkflowAction} */
@@ -289,18 +312,10 @@ export type WorkflowTrigger = schemas['WorkflowTrigger']
 export type WorkflowTriggerOption = schemas['WorkflowTriggerOption']
 
 /**
- * @module SystemAPI
- */
-
-/**
  * System module
  * @public
  */
-export class SystemAPI extends Manage {
-  constructor(props: CWMOptions) {
-    super(props)
-  }
-
+export class SystemAPI extends ManageBaseAPI {
   getSystemAllowedfiletypes(params: CommonParameters = {}): Promise<Array<AllowedFileType>> {
     return this.request({
       path: `/system/allowedfiletypes/`,
@@ -607,6 +622,14 @@ export class SystemAPI extends Manage {
     })
   }
 
+  getSystemBillableOptionsInfo(params: CommonParameters = {}): Promise<Array<BillableOptionsInfo>> {
+    return this.request({
+      path: `/system/BillableOptions/info`,
+      method: 'get',
+      params,
+    })
+  }
+
   postSystemBundles(requests: BundleRequestsCollection): Promise<BundleResultsCollection> {
     return this.request({
       path: `/system/bundles`,
@@ -853,6 +876,85 @@ export class SystemAPI extends Manage {
   getSystemConnectwisehostedsetupsCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
       path: `/system/connectwisehostedsetups/count`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getSystemContactsyncMonitoring(
+    params: CommonParameters = {},
+  ): Promise<Array<M365ContactSyncMonitoring>> {
+    return this.request({
+      path: `/system/contactsync/monitoring`,
+      method: 'get',
+      params,
+    })
+  }
+
+  postSystemContactsyncMonitoring(): Promise<M365ContactSyncMonitoring> {
+    return this.request({
+      path: `/system/contactsync/monitoring/`,
+      method: 'post',
+    })
+  }
+
+  patchSystemContactsyncMonitoring(): Promise<M365ContactSyncMonitoring> {
+    return this.request({
+      path: `/system/contactsync/monitoring/`,
+      method: 'patch',
+    })
+  }
+
+  getSystemContactsyncMonitoringById(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<M365ContactSyncMonitoring> {
+    return this.request({
+      path: `/system/contactsync/monitoring/${id}`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getSystemContactsyncMonitoringCount(params: CommonParameters = {}): Promise<Count> {
+    return this.request({
+      path: `/system/contactsync/monitoring/count`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getSystemContactsyncMonitoringNotificationtype(
+    params: CommonParameters = {},
+  ): Promise<M365ContactSyncMonitoring> {
+    return this.request({
+      path: `/system/contactsync/monitoring/notificationtype/`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getSystemContactsyncMonitoringTypeById(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<M365ContactSyncMonitoring> {
+    return this.request({
+      path: `/system/contactsync/monitoring/type/${id}`,
+      method: 'get',
+      params,
+    })
+  }
+
+  deleteSystemContactsyncMonitoringTypeById(id: number): Promise<NoContentResponse> {
+    return this.request({
+      path: `/system/contactsync/monitoring/type/${id}`,
+      method: 'delete',
+    })
+  }
+
+  getSystemCustomFieldInfos(params: CommonParameters = {}): Promise<Array<CustomFieldInfo>> {
+    return this.request({
+      path: `/system/customFieldInfos`,
       method: 'get',
       params,
     })
@@ -1175,6 +1277,35 @@ export class SystemAPI extends Manage {
     })
   }
 
+  getSystemDirectionalSyncsByIdInfo(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<DirectionalSyncInfo> {
+    return this.request({
+      path: `/system/directionalSyncs/${id}/info`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getSystemDirectionalSyncsInfo(
+    params: CommonParameters = {},
+  ): Promise<Array<DirectionalSyncInfo>> {
+    return this.request({
+      path: `/system/directionalSyncs/info`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getSystemDirectionalSyncsInfoCount(params: CommonParameters = {}): Promise<Count> {
+    return this.request({
+      path: `/system/directionalSyncs/info/count`,
+      method: 'get',
+      params,
+    })
+  }
+
   getSystemDocuments(params: CommonParameters = {}): Promise<Array<DocumentInfo>> {
     return this.request({
       path: `/system/documents`,
@@ -1183,11 +1314,15 @@ export class SystemAPI extends Manage {
     })
   }
 
-  postSystemDocuments(documentFormData: DocumentFormData): Promise<DocumentInfo> {
+  postSystemDocuments(documentFormData: DocumentFormData | FormData): Promise<DocumentInfo> {
     return this.request({
       path: `/system/documents`,
       method: 'post',
-      data: documentFormData,
+      data:
+        documentFormData instanceof FormData
+          ? documentFormData
+          : toFormData(documentFormData as Record<string, unknown>),
+      contentType: 'multipart',
     })
   }
 
@@ -1218,6 +1353,7 @@ export class SystemAPI extends Manage {
       path: `/system/documents/${id}/download`,
       method: 'get',
       params,
+      responseType: 'arraybuffer',
     })
   }
 
@@ -1226,6 +1362,7 @@ export class SystemAPI extends Manage {
       path: `/system/documents/${id}/thumbnail`,
       method: 'get',
       params,
+      responseType: 'arraybuffer',
     })
   }
 
@@ -1240,6 +1377,30 @@ export class SystemAPI extends Manage {
   getSystemDocumentsUploadsample(params: CommonParameters = {}): Promise<HTMLResponse> {
     return this.request({
       path: `/system/documents/uploadsample`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getSystemDocumentTypesByIdInfo(id: number, params: CommonParameters = {}): Promise<DocumentType> {
+    return this.request({
+      path: `/system/documentTypes/${id}/info`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getSystemDocumentTypesInfo(params: CommonParameters = {}): Promise<Array<DocumentType>> {
+    return this.request({
+      path: `/system/documentTypes/info`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getSystemDocumentTypesInfoCount(params: CommonParameters = {}): Promise<Count> {
+    return this.request({
+      path: `/system/documentTypes/info/count`,
       method: 'get',
       params,
     })
@@ -2716,6 +2877,33 @@ export class SystemAPI extends Manage {
     })
   }
 
+  getSystemM365contactsyncByIdInfo(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<M365ContactSyncInfo> {
+    return this.request({
+      path: `/system/m365contactsync/${id}/info`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getSystemM365contactsyncInfo(params: CommonParameters = {}): Promise<Array<M365ContactSyncInfo>> {
+    return this.request({
+      path: `/system/m365contactsync/info`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getSystemM365contactsyncInfoCount(params: CommonParameters = {}): Promise<Count> {
+    return this.request({
+      path: `/system/m365contactsync/info/count`,
+      method: 'get',
+      params,
+    })
+  }
+
   getSystemManagementNetworkSecurities(
     params: CommonParameters = {},
   ): Promise<Array<ManagementNetworkSecurity>> {
@@ -2869,8 +3057,6 @@ export class SystemAPI extends Manage {
 
   getSystemMembersByIdImage(
     id: number,
-    useDefaultFlag: boolean,
-    lastmodified: string,
     params: CommonParameters = {},
   ): Promise<OctetStreamResponse> {
     return this.request({
@@ -2926,10 +3112,7 @@ export class SystemAPI extends Manage {
     })
   }
 
-  getSystemMembersmemberIdentifierregextypes(
-    memberIdentifier: string,
-    params: CommonParameters = {},
-  ): Promise<Member> {
+  getSystemMembersmemberIdentifierregextypes(params: CommonParameters = {}): Promise<Member> {
     return this.request({
       path: `/system/members/{memberIdentifier:regex(^(types. |(`,
       method: 'get',
@@ -3383,6 +3566,17 @@ export class SystemAPI extends Manage {
     })
   }
 
+  postSystemMembersByParentIdPersonas(
+    parentId: number,
+    memberPersona: MemberPersona,
+  ): Promise<MemberPersona> {
+    return this.request({
+      path: `/system/members/${parentId}/personas`,
+      method: 'post',
+      data: memberPersona,
+    })
+  }
+
   getSystemMembersByParentIdPersonasById(
     id: number,
     parentId: number,
@@ -3392,6 +3586,40 @@ export class SystemAPI extends Manage {
       path: `/system/members/${parentId}/personas/${id}`,
       method: 'get',
       params,
+    })
+  }
+
+  deleteSystemMembersByParentIdPersonasById(
+    id: number,
+    parentId: number,
+  ): Promise<NoContentResponse> {
+    return this.request({
+      path: `/system/members/${parentId}/personas/${id}`,
+      method: 'delete',
+    })
+  }
+
+  putSystemMembersByParentIdPersonasById(
+    id: number,
+    parentId: number,
+    memberPersona: MemberPersona,
+  ): Promise<MemberPersona> {
+    return this.request({
+      path: `/system/members/${parentId}/personas/${id}`,
+      method: 'put',
+      data: memberPersona,
+    })
+  }
+
+  patchSystemMembersByParentIdPersonasById(
+    id: number,
+    parentId: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<MemberPersona> {
+    return this.request({
+      path: `/system/members/${parentId}/personas/${id}`,
+      method: 'patch',
+      data: patchOperations,
     })
   }
 
@@ -3480,6 +3708,21 @@ export class SystemAPI extends Manage {
   ): Promise<Count> {
     return this.request({
       path: `/system/members/${parentId}/skills/count`,
+      method: 'get',
+      params,
+    })
+  }
+
+  postSystemMembersBySsoidDeactivateIamMember(ssoid: string): Promise<NoContentResponse> {
+    return this.request({
+      path: `/system/members/${ssoid}/deactivateIamMember`,
+      method: 'post',
+    })
+  }
+
+  getSystemMembersCalendarsync(params: CommonParameters = {}): Promise<Array<MemberForCalSync>> {
+    return this.request({
+      path: `/system/members/calendarsync`,
       method: 'get',
       params,
     })
@@ -3586,6 +3829,49 @@ export class SystemAPI extends Manage {
     })
   }
 
+  getSystemMembertemplates(params: CommonParameters = {}): Promise<Array<MemberTemplate>> {
+    return this.request({
+      path: `/system/membertemplates/`,
+      method: 'get',
+      params,
+    })
+  }
+
+  postSystemMembertemplates(MemberTemplate: MemberTemplate): Promise<MemberTemplate> {
+    return this.request({
+      path: `/system/membertemplates/`,
+      method: 'post',
+      data: MemberTemplate,
+    })
+  }
+
+  getSystemMembertemplatesById(id: number, params: CommonParameters = {}): Promise<MemberTemplate> {
+    return this.request({
+      path: `/system/membertemplates/${id}`,
+      method: 'get',
+      params,
+    })
+  }
+
+  patchSystemMembertemplatesById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<MemberTemplate> {
+    return this.request({
+      path: `/system/membertemplates/${id}`,
+      method: 'patch',
+      data: patchOperations,
+    })
+  }
+
+  getSystemMembertemplatesCount(params: CommonParameters = {}): Promise<Count> {
+    return this.request({
+      path: `/system/membertemplates/count`,
+      method: 'get',
+      params,
+    })
+  }
+
   getSystemMenuentries(params: CommonParameters = {}): Promise<Array<MenuEntry>> {
     return this.request({
       path: `/system/menuentries`,
@@ -3638,8 +3924,6 @@ export class SystemAPI extends Manage {
 
   getSystemMenuentriesByIdImage(
     id: number,
-    lastmodified: string,
-    largeFlag: boolean,
     params: CommonParameters = {},
   ): Promise<OctetStreamResponse> {
     return this.request({
@@ -4368,6 +4652,35 @@ export class SystemAPI extends Manage {
     })
   }
 
+  getSystemOffice365ApplicationByIdInfo(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Office365EmailApplicationInfo> {
+    return this.request({
+      path: `/system/office365/application/${id}/info`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getSystemOffice365ApplicationInfo(
+    params: CommonParameters = {},
+  ): Promise<Array<Office365EmailApplicationInfo>> {
+    return this.request({
+      path: `/system/office365/application/info`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getSystemOffice365ApplicationInfoCount(params: CommonParameters = {}): Promise<Count> {
+    return this.request({
+      path: `/system/office365/application/info/count`,
+      method: 'get',
+      params,
+    })
+  }
+
   getSystemOffice365EmailSetups(
     params: CommonParameters = {},
   ): Promise<Array<Office365EmailSetup>> {
@@ -4433,6 +4746,17 @@ export class SystemAPI extends Manage {
     })
   }
 
+  getSystemOffice365EmailSetupsByIdGetEmails(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Array<UserEmail>> {
+    return this.request({
+      path: `/system/office365/emailSetups/${id}/getEmails/`,
+      method: 'get',
+      params,
+    })
+  }
+
   postSystemOffice365EmailSetupsByIdTestConnection(id: number): Promise<SuccessResponse> {
     return this.request({
       path: `/system/office365/emailSetups/${id}/testConnection`,
@@ -4443,6 +4767,57 @@ export class SystemAPI extends Manage {
   getSystemOffice365EmailSetupsCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
       path: `/system/office365/emailSetups/count`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getSystemOnPremiseSearchSetting(
+    params: CommonParameters = {},
+  ): Promise<Array<OnPremiseSearchSetting>> {
+    return this.request({
+      path: `/system/onPremiseSearchSetting/`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getSystemOnPremiseSearchSettingById(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<OnPremiseSearchSetting> {
+    return this.request({
+      path: `/system/onPremiseSearchSetting/${id}`,
+      method: 'get',
+      params,
+    })
+  }
+
+  putSystemOnPremiseSearchSettingById(
+    id: number,
+    onPremiseSearchSetting: OnPremiseSearchSetting,
+  ): Promise<OnPremiseSearchSetting> {
+    return this.request({
+      path: `/system/onPremiseSearchSetting/${id}`,
+      method: 'put',
+      data: onPremiseSearchSetting,
+    })
+  }
+
+  patchSystemOnPremiseSearchSettingById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<OnPremiseSearchSetting> {
+    return this.request({
+      path: `/system/onPremiseSearchSetting/${id}`,
+      method: 'patch',
+      data: patchOperations,
+    })
+  }
+
+  getSystemOnPremiseSearchSettingCount(params: CommonParameters = {}): Promise<Count> {
+    return this.request({
+      path: `/system/onPremiseSearchSetting/count`,
       method: 'get',
       params,
     })
@@ -4658,10 +5033,7 @@ export class SystemAPI extends Manage {
     })
   }
 
-  getSystemQuoteLinkSetupTestConnection(
-    url: string,
-    params: CommonParameters = {},
-  ): Promise<SuccessResponse> {
+  getSystemQuoteLinkSetupTestConnection(params: CommonParameters = {}): Promise<SuccessResponse> {
     return this.request({
       path: `/system/quoteLinkSetup/testConnection`,
       method: 'get',
@@ -5734,6 +6106,67 @@ export class SystemAPI extends Manage {
     })
   }
 
+  getSystemTodayPagelinks(params: CommonParameters = {}): Promise<Array<TodayPageLink>> {
+    return this.request({
+      path: `/system/todayPagelinks`,
+      method: 'get',
+      params,
+    })
+  }
+
+  postSystemTodayPagelinks(TodayPageLink: TodayPageLink): Promise<TodayPageLink> {
+    return this.request({
+      path: `/system/todayPagelinks/`,
+      method: 'post',
+      data: TodayPageLink,
+    })
+  }
+
+  getSystemTodayPagelinksById(id: number, params: CommonParameters = {}): Promise<TodayPageLink> {
+    return this.request({
+      path: `/system/todayPagelinks/${id}`,
+      method: 'get',
+      params,
+    })
+  }
+
+  deleteSystemTodayPagelinksById(id: number): Promise<NoContentResponse> {
+    return this.request({
+      path: `/system/todayPagelinks/${id}`,
+      method: 'delete',
+    })
+  }
+
+  putSystemTodayPagelinksById(
+    id: number,
+    companyTypeAssociation: TodayPageLink,
+  ): Promise<TodayPageLink> {
+    return this.request({
+      path: `/system/todayPagelinks/${id}`,
+      method: 'put',
+      data: companyTypeAssociation,
+    })
+  }
+
+  patchSystemTodayPagelinksById(
+    id: number,
+    patchOperations: Array<PatchOperation>,
+  ): Promise<TodayPageLink> {
+    return this.request({
+      path: `/system/todayPagelinks/${id}`,
+      method: 'patch',
+      data: patchOperations,
+    })
+  }
+
+  getSystemTodayPagelinksCount(params: CommonParameters = {}): Promise<Count> {
+    return this.request({
+      path: `/system/todayPagelinks/count`,
+      method: 'get',
+      params,
+    })
+  }
+
   getSystemUserDefinedFields(params: CommonParameters = {}): Promise<Array<UserDefinedField>> {
     return this.request({
       path: `/system/userDefinedFields`,
@@ -5901,6 +6334,27 @@ export class SystemAPI extends Manage {
   ): Promise<Count> {
     return this.request({
       path: `/system/workflowActions/${parentId}/automateParameters/count`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getSystemWorkflowActionsAutomateParameters(
+    params: CommonParameters = {},
+  ): Promise<Array<WorkflowActionAutomateParameter>> {
+    return this.request({
+      path: `/system/workflowActions/automateParameters`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getSystemWorkflowActionsAutomateParametersById(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<WorkflowActionAutomateParameter> {
+    return this.request({
+      path: `/system/workflowActions/automateParameters/${id}`,
       method: 'get',
       params,
     })
@@ -6295,9 +6749,82 @@ export class SystemAPI extends Manage {
     })
   }
 
+  getSystemWorkflowsAttachments(params: CommonParameters = {}): Promise<Array<WorkflowAttachment>> {
+    return this.request({
+      path: `/system/workflows/attachments`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getSystemWorkflowsAttachmentsById(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Array<WorkflowAttachment>> {
+    return this.request({
+      path: `/system/workflows/attachments/${id}`,
+      method: 'get',
+      params,
+    })
+  }
+
   getSystemWorkflowsCount(params: CommonParameters = {}): Promise<Count> {
     return this.request({
       path: `/system/workflows/count`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getSystemWorkflowsEvents(params: CommonParameters = {}): Promise<Array<WorkflowEvent>> {
+    return this.request({
+      path: `/system/workflows/events`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getSystemWorkflowsEventsById(id: number, params: CommonParameters = {}): Promise<WorkflowEvent> {
+    return this.request({
+      path: `/system/workflows/events/${id}`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getSystemWorkflowsEventsActions(params: CommonParameters = {}): Promise<Array<WorkflowAction>> {
+    return this.request({
+      path: `/system/workflows/events/actions`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getSystemWorkflowsEventsActionsById(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<WorkflowAction> {
+    return this.request({
+      path: `/system/workflows/events/actions/${id}`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getSystemWorkflowsNotifyTypes(params: CommonParameters = {}): Promise<Array<WorkflowNotifyType>> {
+    return this.request({
+      path: `/system/workflows/notifyTypes`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getSystemWorkflowsNotifyTypesById(
+    id: number,
+    params: CommonParameters = {},
+  ): Promise<Array<WorkflowNotifyType>> {
+    return this.request({
+      path: `/system/workflows/notifyTypes/${id}`,
       method: 'get',
       params,
     })
@@ -6359,6 +6886,24 @@ export class SystemAPI extends Manage {
     })
   }
 
+  getSystemWorkflowsTriggers(params: CommonParameters = {}): Promise<Array<WorkflowTrigger>> {
+    return this.request({
+      path: `/system/workflows/triggers`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getSystemWorkflowsTriggersOptions(
+    params: CommonParameters = {},
+  ): Promise<Array<WorkflowTriggerOption>> {
+    return this.request({
+      path: `/system/workflows/triggers/options`,
+      method: 'get',
+      params,
+    })
+  }
+
   putSystemWorkflowsUserdefinedfieldsById(
     id: number,
     workflowActionUserDefinedField: WorkflowActionUserDefinedField,
@@ -6401,13 +6946,23 @@ export class SystemAPI extends Manage {
     })
   }
 
-  getSystemWorkflowsUserdefinedfieldsByGrandparentIdActionsByParentId(
+  getSystemWorkflowsUserdefinedfieldsEventsByGrandparentIdActionsByParentId(
     parentId: number,
     grandparentId: number,
     params: CommonParameters = {},
   ): Promise<Array<WorkflowActionUserDefinedField>> {
     return this.request({
       path: `/system/workflows/userdefinedfields/events/${grandparentId}/actions/${parentId}`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getSystemWorkflowsUserdefinedfieldsEventsActions(
+    params: CommonParameters = {},
+  ): Promise<Array<WorkflowActionUserDefinedField>> {
+    return this.request({
+      path: `/system/workflows/userdefinedfields/events/actions`,
       method: 'get',
       params,
     })

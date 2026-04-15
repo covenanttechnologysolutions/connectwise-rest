@@ -1,17 +1,24 @@
 /* This file was auto-generated, do not manually edit. */
-import Automate from '../Automate'
+import { AutomateBaseAPI } from '../BaseAPI'
 import { components } from '../AutomateTypes'
-import { CommonParameters, CWAOptions } from '../AutomateAPI'
-import { NoContentResponse, OctetStreamResponse, PDFResponse, HTMLResponse } from '../types'
+import { CommonParameters } from '../AutomateAPI'
+import { NoContentResponse } from '../types'
 type schemas = components['schemas']
 type requestBodies = components['requestBodies']
+/** {@link AutomateApiDomainContractsAlertsAlert} */
+export type AutomateApiDomainContractsAlertsAlert =
+  schemas['Automate.Api.Domain.Contracts.Alerts.Alert']
+/** {@link AutomateApiDomainContractsCompatibilityCommandHistory} */
+export type AutomateApiDomainContractsCompatibilityCommandHistory =
+  schemas['Automate.Api.Domain.Contracts.Compatibility.CommandHistory']
+/** {@link AutomateApiDomainContractsExtraFieldsExtraField} */
+export type AutomateApiDomainContractsExtraFieldsExtraField =
+  schemas['Automate.Api.Domain.Contracts.ExtraFields.ExtraField']
 /** {@link AutomateApiDomainContractsPatchingComputerPatchingStats} */
 export type AutomateApiDomainContractsPatchingComputerPatchingStats =
   schemas['Automate.Api.Domain.Contracts.Patching.ComputerPatchingStats']
 /** {@link LabTechModelsCommandExecute} */
 export type LabTechModelsCommandExecute = schemas['LabTech.Models.CommandExecute']
-/** {@link LabTechModelsCommandHistory} */
-export type LabTechModelsCommandHistory = schemas['LabTech.Models.CommandHistory']
 /** {@link LabTechModelsComputer} */
 export type LabTechModelsComputer = schemas['LabTech.Models.Computer']
 /** {@link LabTechModelsComputerBios} */
@@ -55,6 +62,8 @@ export type LabTechModelsComputerSystemSlot = schemas['LabTech.Models.ComputerSy
 export type LabTechModelsComputerUps = schemas['LabTech.Models.ComputerUps']
 /** {@link LabTechModelsComputerVideoCard} */
 export type LabTechModelsComputerVideoCard = schemas['LabTech.Models.ComputerVideoCard']
+/** {@link LabTechModelsLocation} */
+export type LabTechModelsLocation = schemas['LabTech.Models.Location']
 /** {@link LabTechModelsMaintenanceMode} */
 export type LabTechModelsMaintenanceMode = schemas['LabTech.Models.MaintenanceMode']
 /** {@link LabTechModelsRetiredAsset} */
@@ -67,6 +76,9 @@ export type LabTechModelsServiceClassification = schemas['LabTech.Models.Service
 export type LabTechModelsSmartData = schemas['LabTech.Models.SmartData']
 /** {@link LabTechModelsVirusScannerDef} */
 export type LabTechModelsVirusScannerDef = schemas['LabTech.Models.VirusScannerDef']
+/** {@link LabTechRESTApiModelsPatchOperationArray} */
+export type LabTechRESTApiModelsPatchOperationArray =
+  requestBodies['LabTech.RESTApi.Models.PatchOperationArray']
 /** {@link LabTechRESTApiRpcContractsSoftwareUninstallInfo} */
 export type LabTechRESTApiRpcContractsSoftwareUninstallInfo =
   schemas['LabTech.RESTApi.RpcContracts.SoftwareUninstallInfo']
@@ -78,16 +90,29 @@ export type LabTechRepositoriesMySQLDomainModelsComputerDriver =
   schemas['LabTech.Repositories.MySQL.Domain.Models.ComputerDriver']
 
 /**
- * @module ComputersAPI
- */
-
-/**
  * Computers module
  * @public
  */
-export class ComputersAPI extends Automate {
-  constructor(props: CWAOptions) {
-    super(props)
+export class ComputersAPI extends AutomateBaseAPI {
+  getAlertsList(
+    params: CommonParameters = {},
+  ): Promise<Array<AutomateApiDomainContractsAlertsAlert>> {
+    return this.request({
+      path: `/api/v1/Alerts`,
+      method: 'get',
+      params,
+    })
+  }
+
+  getAlert(
+    alertId: number,
+    params: CommonParameters = {},
+  ): Promise<AutomateApiDomainContractsAlertsAlert> {
+    return this.request({
+      path: `/api/v1/Alerts/${alertId}`,
+      method: 'get',
+      params,
+    })
   }
 
   getComputerMenuList(params: CommonParameters = {}): Promise<Array<LabTechModelsComputerMenu>> {
@@ -122,7 +147,7 @@ export class ComputersAPI extends Automate {
     })
   }
 
-  getMaintenanceAlertSuspensionList(
+  getSuspensionListApiv1ComputersBycomputerIdAlertSuspensionsMaintenanceWindow(
     computerId: number,
     params: CommonParameters = {},
   ): Promise<object> {
@@ -133,7 +158,7 @@ export class ComputersAPI extends Automate {
     })
   }
 
-  getTemplateAlertSuspensionList(
+  getSuspensionListApiv1ComputersBycomputerIdAlertSuspensionsTemplateDiversion(
     computerId: number,
     params: CommonParameters = {},
   ): Promise<object> {
@@ -180,7 +205,7 @@ export class ComputersAPI extends Automate {
   getCommandHistoryList(
     computerId: number,
     params: CommonParameters = {},
-  ): Promise<Array<LabTechModelsCommandHistory>> {
+  ): Promise<Array<AutomateApiDomainContractsCompatibilityCommandHistory>> {
     return this.request({
       path: `/api/v1/Computers/${computerId}/CommandHistory`,
       method: 'get',
@@ -255,7 +280,7 @@ export class ComputersAPI extends Automate {
     })
   }
 
-  getMonitorAlertSuspensionList(
+  getSuspensionListApiv1ComputersBycomputerIdMonitorAlertSuspensions(
     computerId: number,
     params: CommonParameters = {},
   ): Promise<object> {
@@ -537,13 +562,78 @@ export class ComputersAPI extends Automate {
     })
   }
 
-  getComputersSoftwareList(
-    params: CommonParameters = {},
-  ): Promise<Array<LabTechModelsComputerSoftware>> {
+  software(params: CommonParameters = {}): Promise<Array<LabTechModelsComputerSoftware>> {
     return this.request({
       path: `/api/v1/Computers/Software`,
       method: 'get',
       params,
+    })
+  }
+
+  getLocation(locationId: number, params: CommonParameters = {}): Promise<LabTechModelsLocation> {
+    return this.request({
+      path: `/api/v1/Locations/${locationId}`,
+      method: 'get',
+      params,
+    })
+  }
+
+  putLocation(locationId: number, Location: LabTechModelsLocation): Promise<LabTechModelsLocation> {
+    return this.request({
+      path: `/api/v1/Locations/${locationId}`,
+      method: 'put',
+      data: Location,
+    })
+  }
+
+  deleteLocation(locationId: number): Promise<NoContentResponse> {
+    return this.request({
+      path: `/api/v1/Locations/${locationId}`,
+      method: 'delete',
+    })
+  }
+
+  patchLocation(
+    locationId: number,
+    PatchOperationArray: LabTechRESTApiModelsPatchOperationArray,
+  ): Promise<LabTechModelsLocation> {
+    return this.request({
+      path: `/api/v1/Locations/${locationId}`,
+      method: 'patch',
+      data: PatchOperationArray,
+    })
+  }
+
+  getExtraFieldsForLocation(
+    locationId: number,
+    params: CommonParameters = {},
+  ): Promise<Array<AutomateApiDomainContractsExtraFieldsExtraField>> {
+    return this.request({
+      path: `/api/v1/Locations/${locationId}/ExtraFields`,
+      method: 'get',
+      params,
+    })
+  }
+
+  resetExtraFieldForLocation(
+    locationId: number,
+    extraFieldDefinitionId: number,
+  ): Promise<AutomateApiDomainContractsExtraFieldsExtraField> {
+    return this.request({
+      path: `/api/v1/Locations/${locationId}/ExtraFields/${extraFieldDefinitionId}`,
+      method: 'delete',
+    })
+  }
+
+  patchExtraFieldForLocation(
+    locationId: number,
+    extraFieldDefinitionId: number,
+    PatchOperationArray: LabTechRESTApiModelsPatchOperationArray,
+  ): Promise<AutomateApiDomainContractsExtraFieldsExtraField> {
+    return this.request({
+      path: `/api/v1/Locations/${locationId}/ExtraFields/${extraFieldDefinitionId}`,
+      method: 'patch',
+      data: PatchOperationArray,
     })
   }
 
@@ -552,6 +642,24 @@ export class ComputersAPI extends Automate {
       path: `/api/v1/RetiredAssets`,
       method: 'get',
       params,
+    })
+  }
+
+  getRetiredAsset(
+    assetId: number,
+    params: CommonParameters = {},
+  ): Promise<LabTechModelsRetiredAsset> {
+    return this.request({
+      path: `/api/v1/RetiredAssets/${assetId}`,
+      method: 'get',
+      params,
+    })
+  }
+
+  deleteRetiredAsset(assetId: number): Promise<NoContentResponse> {
+    return this.request({
+      path: `/api/v1/RetiredAssets/${assetId}`,
+      method: 'delete',
     })
   }
 
