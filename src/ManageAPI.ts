@@ -14,6 +14,7 @@ import { ServiceAPI } from './Manage/ServiceAPI'
 import { SystemAPI } from './Manage/SystemAPI'
 import { TimeAPI } from './Manage/TimeAPI'
 
+import type { components } from './ManageTypes'
 import type * as CompanyAPITypes from './Manage/CompanyAPI'
 import type * as ConfigurationsAPITypes from './Manage/ConfigurationsAPI'
 import type * as ExpenseAPITypes from './Manage/ExpenseAPI'
@@ -31,11 +32,7 @@ import type * as TimeAPITypes from './Manage/TimeAPI'
  * @public
  * Manage patch operation input object, usually passed in an array of operations
  */
-export type PatchOperation = {
-  op: 'add' | 'replace' | 'remove'
-  path: string
-  value: unknown
-}
+export type PatchOperation = components['schemas']['PatchOperation']
 
 /**
  * @public
