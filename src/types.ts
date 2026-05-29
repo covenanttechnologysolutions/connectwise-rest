@@ -65,6 +65,8 @@ export type RequestOptions = {
   contentType?: ContentType
   /** Hint for how axios should decode the response; generator sets this for binary endpoints. */
   responseType?: ResponseType
+  /** Endpoint-specific headers to merge into the request. */
+  headers?: Record<string, string>
 }
 
 export type LoggingLevels = 'error' | 'warn' | 'info' | 'debug'

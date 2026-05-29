@@ -157,6 +157,7 @@ export default class Manage {
     data,
     contentType,
     responseType,
+    headers: requestHeaders,
   }: RequestOptions): Promise<ErrorResponse | DataResponse> {
     try {
       // For multipart uploads let the runtime set Content-Type + boundary.
@@ -164,7 +165,9 @@ export default class Manage {
       // object with contentType: 'multipart' falls back to the caller's
       // FormData (consumers should use toFormData() from BaseAPI).
       const headers: Record<string, string> | undefined =
-        contentType === 'multipart' ? { 'Content-Type': 'multipart/form-data' } : undefined
+        contentType === 'multipart'
+          ? { ...requestHeaders, 'Content-Type': 'multipart/form-data' }
+          : requestHeaders
 
       const result = await this.instance({
         url: path,
