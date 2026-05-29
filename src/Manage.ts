@@ -87,11 +87,11 @@ export default class Manage {
    *
    * ```
    */
-  paginate: (
-    apiMethod: PaginationApiMethod,
+  paginate: <T, Args extends unknown[]>(
+    apiMethod: PaginationApiMethod<T, Args>,
     paginateArgs: PaginationOptions,
-    ...methodArgs: Record<string, unknown>[]
-  ) => Promise<unknown[]>
+    ...methodArgs: Args
+  ) => Promise<T[]>
 
   constructor({
     companyId,
