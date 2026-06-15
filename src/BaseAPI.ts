@@ -90,7 +90,14 @@ export const makeRequest =
     api: (args: RequestOptions) => Promise<unknown>
     thisObj: InstanceType<typeof Automate | typeof Manage>
   }): ((args: RequestOptions) => Promise<unknown>) =>
-  ({ path, method = 'get', params, data }: RequestOptions): Promise<unknown> => {
+  ({
+    path,
+    method = 'get',
+    params,
+    data,
+    contentType,
+    responseType,
+  }: RequestOptions): Promise<unknown> => {
     const retryCodes = ['ECONNRESET', 'ETIMEDOUT', 'ESOCKETTIMEDOUT']
     const boundApi = api.bind(thisObj)
 
@@ -102,7 +109,7 @@ export const makeRequest =
     const { retry, retryOptions, logger } = config
 
     if (!retry) {
-      return boundApi({ path, method, params, data })
+      return boundApi({ path, method, params, data, contentType, responseType })
         .then((result: any) => {
           logger(
             'info',
@@ -120,19 +127,21 @@ export const makeRequest =
         })
     } else {
       return promiseRetry(retryOptions, (retry, number) => {
-        return boundApi({ path, method, params, data }).catch((error) => {
-          logger(
-            'warn',
-            `${method} ${path} ${Date.now() - startTime}ms error occurred: ${
-              error.code
-            }, retry=${number}, params=${JSON.stringify(params)}`,
-          )
-          startTime = Date.now()
-          if (retryCodes.includes(error.code)) {
-            return retry(error)
-          }
-          throw error
-        })
+        return boundApi({ path, method, params, data, contentType, responseType }).catch(
+          (error) => {
+            logger(
+              'warn',
+              `${method} ${path} ${Date.now() - startTime}ms error occurred: ${
+                error.code
+              }, retry=${number}, params=${JSON.stringify(params)}`,
+            )
+            startTime = Date.now()
+            if (retryCodes.includes(error.code)) {
+              return retry(error)
+            }
+            throw error
+          },
+        )
       })
         .then((result) => {
           logger(
