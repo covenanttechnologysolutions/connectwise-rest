@@ -4,6 +4,19 @@
 
 ### Features
 
+#### Binary endpoints typed as `Buffer`
+
+`getFinanceInvoicesByIdPdf`, `getSystemDocumentsByIdDownload`, and
+`getSystemDocumentsByIdThumbnail` return `Promise<PDFResponse>` /
+`Promise<OctetStreamResponse>` (both `Buffer`), matching what axios actually
+hands back for `arraybuffer` responses.
+
+#### JSON-patch types on both products
+
+Manage and Automate `PatchOperation` schemas generate as discriminated unions
+(`add`/`replace` require a value, `remove` doesn't) instead of shapes that
+rejected every real value.
+
 #### Typed `fields` and `orderBy` on Manage common parameters
 
 `CommonParameters` is now generic over the endpoint's response model. `fields`

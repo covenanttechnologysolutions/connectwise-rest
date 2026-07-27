@@ -299,13 +299,16 @@ function generateAPIClass({ apiName, operations = [], generatorType }) {
         const content = response?.content
 
         // Detect non-JSON response content types and emit a responseType hint.
+        // Binary hints also override the schema's return type (spec says
+        // string/binary, runtime hands back a Buffer).
         if (content) {
           const contentTypes = Object.keys(content)
-          if (
-            contentTypes.includes('application/octet-stream') ||
-            contentTypes.includes('application/pdf')
-          ) {
+          if (contentTypes.includes('application/pdf')) {
             responseTypeHint = 'arraybuffer'
+            returnType = 'PDFResponse'
+          } else if (contentTypes.includes('application/octet-stream')) {
+            responseTypeHint = 'arraybuffer'
+            returnType = 'OctetStreamResponse'
           } else if (contentTypes.includes('text/html')) {
             responseTypeHint = 'text'
           }

@@ -88,8 +88,9 @@ export type ErrorResponse = {
 
 // missing types from api spec
 export type NoContentResponse = undefined
+// both arrive as Buffer, axios arraybuffer responses in node
 export type OctetStreamResponse = Buffer
-export type PDFResponse = Blob
+export type PDFResponse = Buffer
 export type HTMLResponse = string
 export type PatchOperation = ManageAPIs.PatchOperation
 export type { ManageAPIs, AutomateApis }

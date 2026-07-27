@@ -1400,7 +1400,7 @@ export class SystemAPI extends ManageBaseAPI {
   getSystemDocumentsByIdDownload(
     id: number,
     params: CommonParameters<string> = {},
-  ): Promise<string> {
+  ): Promise<OctetStreamResponse> {
     return this.request({
       path: `/system/documents/${id}/download`,
       method: 'get',
@@ -1412,7 +1412,7 @@ export class SystemAPI extends ManageBaseAPI {
   getSystemDocumentsByIdThumbnail(
     id: number,
     params: CommonParameters<string> = {},
-  ): Promise<string> {
+  ): Promise<OctetStreamResponse> {
     return this.request({
       path: `/system/documents/${id}/thumbnail`,
       method: 'get',
