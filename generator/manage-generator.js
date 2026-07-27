@@ -9,6 +9,7 @@
 
 const fs = require('fs')
 const path = require('path')
+const { factory, SyntaxKind } = require('typescript')
 const { ESLint } = require('eslint')
 const { generateAPIClass } = require('./generator.js')
 
@@ -22,6 +23,40 @@ function pascal(str) {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
+function createProperty(name, type, optional = false) {
+  return factory.createPropertySignature(
+    undefined,
+    factory.createIdentifier(name),
+    optional ? factory.createToken(SyntaxKind.QuestionToken) : undefined,
+    type,
+  )
+}
+
+function createOpType(...ops) {
+  return factory.createUnionTypeNode(
+    ops.map((op) => factory.createLiteralTypeNode(factory.createStringLiteral(op))),
+  )
+}
+
+function createPatchOperationTransform(_schemaObject, meta) {
+  if (meta.path !== '#/components/schemas/PatchOperation') {
+    return undefined
+  }
+
+  return factory.createUnionTypeNode([
+    factory.createTypeLiteralNode([
+      createProperty('op', createOpType('add', 'replace')),
+      createProperty('path', factory.createKeywordTypeNode(SyntaxKind.StringKeyword)),
+      createProperty('value', factory.createKeywordTypeNode(SyntaxKind.UnknownKeyword)),
+    ]),
+    factory.createTypeLiteralNode([
+      createProperty('op', createOpType('remove')),
+      createProperty('path', factory.createKeywordTypeNode(SyntaxKind.StringKeyword)),
+      createProperty('value', factory.createKeywordTypeNode(SyntaxKind.UnknownKeyword), true),
+    ]),
+  ])
+}
+
 async function emitTypes(spec) {
   console.log('generating ManageTypes.ts from spec')
   // openapi-typescript v7 is ESM-only; use dynamic import from this CJS script.
@@ -29,7 +64,7 @@ async function emitTypes(spec) {
   const openapiTS = mod.default ?? mod
   // v7 returns an AST (array of ts.Node); we must format via astToString.
   // v6 returns a string. Handle both.
-  const result = await openapiTS(spec)
+  const result = await openapiTS(spec, { transform: createPatchOperationTransform })
   let output
   if (typeof result === 'string') {
     output = result
@@ -100,17 +135,14 @@ import Manage from './Manage'
 import { CWLogger, RetryOptions } from './types'
 ${imports}
 
+import type { components } from './ManageTypes'
 ${typeExports}
 
 /**
  * @public
  * Manage patch operation input object, usually passed in an array of operations
  */
-export type PatchOperation = {
-  op: 'add' | 'replace' | 'remove'
-  path: string
-  value: unknown
-}
+export type PatchOperation = components['schemas']['PatchOperation']
 
 /**
  * @public
