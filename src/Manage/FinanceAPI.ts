@@ -2,7 +2,7 @@
 import { ManageBaseAPI } from '../BaseAPI'
 import { components } from '../ManageTypes'
 import { CommonParameters } from '../ManageAPI'
-import { NoContentResponse } from '../types'
+import { NoContentResponse, PDFResponse } from '../types'
 type schemas = components['schemas']
 /** {@link AccountingBatch} */
 export type AccountingBatch = schemas['AccountingBatch']
@@ -3050,7 +3050,10 @@ export class FinanceAPI extends ManageBaseAPI {
     })
   }
 
-  getFinanceInvoicesByIdPdf(id: number, params: CommonParameters<string> = {}): Promise<string> {
+  getFinanceInvoicesByIdPdf(
+    id: number,
+    params: CommonParameters<string> = {},
+  ): Promise<PDFResponse> {
     return this.request({
       path: `/finance/invoices/${id}/pdf`,
       method: 'get',
