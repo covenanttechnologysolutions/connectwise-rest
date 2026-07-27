@@ -4,10 +4,20 @@ import type { PatchOperation } from '../src/types'
 const addPatchOperation: PatchOperation = { op: 'add', path: 'summary', value: 'updated' }
 const replacePatchOperation: PatchOperation = { op: 'replace', path: 'summary', value: 'updated' }
 const removePatchOperation: PatchOperation = { op: 'remove', path: 'summary' }
+// remove may still carry a value, existing consumers pass one
+const removePatchOperationWithValue: PatchOperation = { op: 'remove', path: 'summary', value: 'x' }
 
-expectTypeOf(addPatchOperation.value).toEqualTypeOf<unknown>()
-expectTypeOf(replacePatchOperation.value).toEqualTypeOf<unknown>()
-expectTypeOf(removePatchOperation.value).toEqualTypeOf<unknown | undefined>()
+expectTypeOf<Extract<PatchOperation, { op: 'add' | 'replace' }>>().toEqualTypeOf<{
+  op: 'add' | 'replace'
+  path: string
+  value: unknown
+}>()
+
+expectTypeOf<Extract<PatchOperation, { op: 'remove' }>>().toEqualTypeOf<{
+  op: 'remove'
+  path: string
+  value?: unknown
+}>()
 
 // @ts-expect-error add operations should require a value.
 const addPatchOperationWithoutValue: PatchOperation = { op: 'add', path: 'summary' }
