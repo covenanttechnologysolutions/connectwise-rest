@@ -169,10 +169,43 @@ export default class Manage {
           ? { ...requestHeaders, 'Content-Type': 'multipart/form-data' }
           : requestHeaders
 
+      // empty arrays return undefined so axios omits the param entirely
+      const normalizeFieldValue = (value: unknown) =>
+        Array.isArray(value) ? (value.length ? value.join(',') : undefined) : value
+
+      const normalizeOrderByValue = (value: unknown) => {
+        if (!Array.isArray(value)) {
+          return value
+        }
+        if (!value.length) {
+          return undefined
+        }
+
+        return value
+          .map((item) => {
+            if (!item || typeof item !== 'object' || !('field' in item) || !('direction' in item)) {
+              return item
+            }
+
+            const { field, direction } = item as { field: string; direction: 'asc' | 'desc' }
+            return `${field} ${direction}`
+          })
+          .join(',')
+      }
+
+      const normalizedParams =
+        params && typeof params === 'object' && ('fields' in params || 'orderBy' in params)
+          ? {
+              ...params,
+              fields: normalizeFieldValue(params.fields),
+              orderBy: normalizeOrderByValue(params.orderBy),
+            }
+          : params
+
       const result = await this.instance({
         url: path,
         method,
-        params,
+        params: normalizedParams,
         data,
         headers,
         responseType: responseType ?? 'json',

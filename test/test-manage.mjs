@@ -48,4 +48,29 @@ describe('Manage', () => {
       })
     }
   })
+
+  describe('request params', () => {
+    it('serializes typed fields and orderBy arrays for Manage queries', async () => {
+      let requestArgs
+      cwm.instance = async (args) => {
+        requestArgs = args
+        return { data: [] }
+      }
+
+      await cwm.ServiceAPI.getServiceTickets({
+        fields: ['id', 'summary', 'company/id'],
+        orderBy: [
+          { field: 'company/id', direction: 'asc' },
+          { field: 'summary', direction: 'desc' },
+        ],
+        conditions: 'closedFlag = false',
+      })
+
+      assert.deepStrictEqual(requestArgs.params, {
+        fields: 'id,summary,company/id',
+        orderBy: 'company/id asc,summary desc',
+        conditions: 'closedFlag = false',
+      })
+    })
+  })
 })

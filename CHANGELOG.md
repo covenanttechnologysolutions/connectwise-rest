@@ -2,6 +2,21 @@
 
 ## 2.0.0
 
+### Features
+
+#### Typed `fields` and `orderBy` on Manage common parameters
+
+`CommonParameters` is now generic over the endpoint's response model. `fields`
+accepts an array of model field paths (nested via `/`, e.g. `company/id`) and
+`orderBy` accepts `{ field, direction }` objects, both with autocomplete and
+compile-time validation. Arrays are serialized to the comma-separated strings the
+Manage API expects at request time.
+
+The plain-string forms (`fields: 'id,summary'`, `orderBy: 'id asc'`) remain
+accepted, both at the type level and at runtime, so existing code compiles
+unchanged. Bare `CommonParameters` (no type argument) stays valid and
+unconstrained.
+
 ### Breaking changes
 
 #### Axios instance count (correctness fix)
