@@ -169,12 +169,16 @@ export default class Manage {
           ? { ...requestHeaders, 'Content-Type': 'multipart/form-data' }
           : requestHeaders
 
+      // empty arrays return undefined so axios omits the param entirely
       const normalizeFieldValue = (value: unknown) =>
-        Array.isArray(value) ? value.join(',') : value
+        Array.isArray(value) ? (value.length ? value.join(',') : undefined) : value
 
       const normalizeOrderByValue = (value: unknown) => {
         if (!Array.isArray(value)) {
           return value
+        }
+        if (!value.length) {
+          return undefined
         }
 
         return value

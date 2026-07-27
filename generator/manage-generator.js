@@ -211,12 +211,12 @@ type OrderByValue<T> = ReadonlyArray<{
  * @public
  * Manage common parameters
  */
-export type CommonParameters<T> = {
+export type CommonParameters<T = any> = {
   conditions?: string
   childConditions?: string
   customFieldConditions?: string
-  orderBy?: OrderByValue<T>
-  fields?: FieldSelection<T>
+  orderBy?: OrderByValue<T> | string
+  fields?: FieldSelection<T> | string
   page?: number
   pageSize?: number
   pageId?: number
