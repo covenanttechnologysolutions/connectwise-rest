@@ -97,6 +97,7 @@ export const makeRequest =
     data,
     contentType,
     responseType,
+    headers,
   }: RequestOptions): Promise<unknown> => {
     const retryCodes = ['ECONNRESET', 'ETIMEDOUT', 'ESOCKETTIMEDOUT']
     const boundApi = api.bind(thisObj)
@@ -109,7 +110,7 @@ export const makeRequest =
     const { retry, retryOptions, logger } = config
 
     if (!retry) {
-      return boundApi({ path, method, params, data, contentType, responseType })
+      return boundApi({ path, method, params, data, contentType, responseType, headers })
         .then((result: any) => {
           logger(
             'info',
@@ -127,7 +128,7 @@ export const makeRequest =
         })
     } else {
       return promiseRetry(retryOptions, (retry, number) => {
-        return boundApi({ path, method, params, data, contentType, responseType }).catch(
+        return boundApi({ path, method, params, data, contentType, responseType, headers }).catch(
           (error) => {
             logger(
               'warn',

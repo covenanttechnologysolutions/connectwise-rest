@@ -17,17 +17,17 @@ const {
   MANAGE_API_CLIENT_ID = 'test-client-id',
 } = process.env
 
-const cwm = new ManageAPI({
-  companyId: MANAGE_API_COMPANY,
-  companyUrl: MANAGE_API_URL,
-  publicKey: MANAGE_API_PUBLIC_KEY,
-  privateKey: MANAGE_API_PRIVATE_KEY,
-  clientId: MANAGE_API_CLIENT_ID,
-  apiVersion: '2021.2',
-  logger: () => {},
-})
-
 describe('Manage', () => {
+  const cwm = new ManageAPI({
+    companyId: MANAGE_API_COMPANY,
+    companyUrl: MANAGE_API_URL,
+    publicKey: MANAGE_API_PUBLIC_KEY,
+    privateKey: MANAGE_API_PRIVATE_KEY,
+    clientId: MANAGE_API_CLIENT_ID,
+    apiVersion: '2021.2',
+    logger: () => {},
+  })
+
   describe('instance', () => {
     it('should be an instance of ManageAPI', () => {
       assert(cwm instanceof ManageAPI)

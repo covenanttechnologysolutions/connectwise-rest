@@ -192,6 +192,14 @@ function generateAPIClass({ apiName, operations = [], generatorType }) {
         requestParams.push(`path: \`${url.replaceAll(/({.+?})/g, (_, p1) => `$${p1}`)}\``)
         requestParams.push(`method: '${method}'`)
 
+        if (
+          generatorType === 'Manage' &&
+          method === 'post' &&
+          url === '/system/members/{memberIdentifier}/tokens'
+        ) {
+          requestParams.push(`headers: { 'x-cw-usertype': 'member' }`)
+        }
+
         if (requestBody) {
           if (isMultipart) {
             usedToFormData = true

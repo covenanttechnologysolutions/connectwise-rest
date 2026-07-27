@@ -3124,6 +3124,7 @@ export class SystemAPI extends ManageBaseAPI {
     return this.request({
       path: `/system/members/${memberIdentifier}/tokens`,
       method: 'post',
+      headers: { 'x-cw-usertype': 'member' },
     })
   }
 
